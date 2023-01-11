@@ -1,0 +1,136 @@
+:root {
+    --jumbotron-padding-y: 3rem;
+}
+
+.jumbotron {
+    padding-top: var(--jumbotron-padding-y);
+    padding-bottom: var(--jumbotron-padding-y);
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+@media (min-width: 768px) {
+    .jumbotron {
+        padding-top: calc(var(--jumbotron-padding-y) * 2);
+        padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+    }
+}
+
+.jumbotron p:last-child {
+    margin-bottom: 0;
+}
+
+.jumbotron-heading {
+    font-weight: 300;
+}
+
+.jumbotron .container {
+    max-width: 40rem;
+}
+
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+footer p {
+    margin-bottom: .25rem;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.title {
+    font-weight: 600;
+}
+
+.author {
+    font-size: 0.8em;
+    color: rgb(134, 134, 134);
+}
+
+.banner {
+    height: 100vh;
+    /* Flexbox */
+    display: flex;
+    align-items: center;
+}
+
+
+/* pop-over */
+
+.popover-title {
+    /* font-size: 24px;
+    line-height: 36px; */
+    text-decoration: none;
+    color: rgb(116, 68, 228);
+    cursor: pointer;
+    /* text-align: center;
+    padding: 15px 0; */
+}
+
+.popover-wrapper {
+    position: relative;
+    margin-top: 1.5rem;
+    display: inline-block;
+}
+
+.popover-content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: -150px;
+    transform: translate(0, 10px);
+    background-color: #bfbfbf;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    width: auto;
+}
+
+.popover-content:before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    right: calc(50% - 10px);
+    top: -8px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #bfbfbf transparent;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.popover-wrapper:hover .popover-content {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -20px);
+    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.popover-message {
+    text-align: center;
+}
+
+q {
+    font-style: italic;
+    color: #ff9d4d;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-defn {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.link {
+    transition: .4s;
+    }
+.link:hover {
+    transition: .4s;
+    color: rgb(34, 0, 0) ;
+}
