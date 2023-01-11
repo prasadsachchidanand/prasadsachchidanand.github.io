@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	  <title>Sachchidanand Prasad | Postdoctoral Fellow | ICTS Bengaluru</title>
+
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.png"/>
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+   
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  </head>
+  <body style="background: #edf2f7;">
+    <div class="flex flex-col h-screen">
+      <!-- navbar -->
+      <div class="fixed left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+        <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto   md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+          <div class="p-4 flex flex-row items-center justify-between">
+            <a href="index.html" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
+            <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="index.html">Home</a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="research/">Research</a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="resume/">CV</a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="articles/">Articles</a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="miscellaneous/">Miscellaneous</a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="contact/">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <!-- first section -->
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-col">
+          <div class="lg:w-5/6 mx-auto">
+            <div class="flex flex-col sm:flex-row mt-10">
+              <div class="sm:mt-24 sm:w-1/3 text-center sm:pr-8 sm:py-8">
+                <div class="w-40 h-40 rounded-full inline-flex items-center justify-center bg-gray-400 text-gray-400">
+                  <img src="assets/img/sprasad.jpg" alt="Sachchidanand Prasad" style="border-radius: 50%;">
+                </div>
+                <div class="flex flex-col items-center text-center justify-center">
+                  <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">Sachchidanand Prasad</h2>
+                  <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                  <p class="text-base py-2">Postdoctoral Fellow at <a href="https://www.icts.res.in" target="_blank" class="text-blue-500 hover:text-blue-800">International Centre for Theoretical Sciences (ICTS) Bengaluru</a>
+                  </p>
+                  <p class="text-base py-2 border-t-2">
+                    <i class="fa-solid fa-envelope text-sm mr-2"></i> <a class="text-sm" href="mailto:speinstene26@gmail.com" target="_blank">Email</a>
+                  </p>
+                </div>
+              </div>
+              <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+                <div class="flex flex-col items-center text-center justify-center">
+                  <h2 class="text-gray-900 text-3xl title-font font-medium">About Me</h2>
+                  <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                </div>
+                <p class="leading-relaxed text-lg"> 
+                  Hello! Welcome to my homepage! 
+                </p>
+
+                <p class="mt-4 leading-relaxed text-lg text-justify"> 
+                  My name is Sachchidanand Prasad and I am a postdoctoral fellow at the  <a href="https://www.icts.res.in" target="_blank" class="text-blue-500 hover:text-blue-800">International Centre for Theoretical Sciences (ICTS) Bengaluru</a> in the <a href="https://www.icts.res.in/research/mathematics" target="_blank" class="text-blue-500 hover:text-blue-800">department of mathematics</a> under the supervision of <a href="https://home.icts.res.in/~rukmini/" target="_blank" class="text-blue-500 hover:text-blue-800">Dr Rukmini Dey</a>. 
+                </p>
+
+                <p class="mt-4 leading-relaxed text-lg text-justify"> 
+                  I completed my PhD from the <a href="https://www.iiserkol.ac.in/" target="_blank" class="text-blue-500 hover:text-blue-800">Indian Institute of Science Education and Research (IISER) Kolkata</a> in the <a href="https://math.iiserkol.ac.in" target="_blank" class="text-blue-500 hover:text-blue-800">department of mathematics and statistics</a> under the supervision of <a href="https://math.iiserkol.ac.in/faculties/somnath_basu.html" target="_blank" class="text-blue-500 hover:text-blue-800">Dr Somnath Basu</a>. You can find my thesis <a href="assets/attachments/Thesis_Sachchidanand_large.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">here</a>.
+                </p>
+
+                <p class="mt-4 leading-relaxed text-lg text-justify"> 
+                  My primary area of interests are <em>differential geometry</em>,<em>differential topology</em> and <em>algebraic topology</em>. Broadly, I am working on the <a href="https://en.wikipedia.org/wiki/Cut_locus_(Riemannian_manifold)" target="_blank" class="text-blue-500 hover:text-blue-800">cut locus of submanifolds</a> and related problems. In addition to my work in geometry and topology, I also have a strong interest in polynomial rings over non-commutative variables. More details about my research can be found <a href="research/" class="text-blue-500 hover:text-blue-800">here</a>. 
+                </p>
+
+                <p class="mt-4 leading-relaxed text-lg text-justify"> 
+                  I completed my Integrated M.Sc. with Mathematics major from the <a href="https://www.nitrkl.ac.in/" target="_blank" class="text-blue-500 hover:text-blue-800">National Institute of Technology Rourkela</a>, India. My master's thesis was <em>Concept of Differentiation in Banach Spaces</em> under the supervision of <a href="https://scholar.google.co.in/citations?user=CaV40qgAAAAJ&hl=en" target="_blank" class="text-blue-500 hover:text-blue-800">Dr Debajyoti Choudhuri</a>. 
+                </p>
+
+                <p class="mt-4 leading-relaxed text-lg text-justify"> 
+                  Other than mathematics, I am interested in coding and playing various sports. I love to play badminton and table tennis, yet a beginner to table tennis. I am a front-end developer by passion. Some of the websites I made are <a href="https://math.iiserkol.ac.in" target="_blank" class="text-blue-500 hover:text-blue-800">IISERK maths department</a>, <a href="https://curryleafdays.github.io/" target="_blank" class="text-blue-500 hover:text-blue-800">curry leaf days</a> and <a href="https://desiganit.com" target="_blank" class="text-blue-500 hover:text-blue-800">desi ganit</a>. 
+                </p>
+
+                <p class="mt-4 leading-relaxed text-lg text-justify">
+                  Find my <a href="research/#publications" class="text-blue-500 hover:text-blue-800">publications</a> and <a href="resume/#talks" class="text-blue-500 hover:text-blue-800">talks (with slides)</a>. 
+                </p>
+
+                <p class="mt-4 leading-relaxed text-lg text-justify"> 
+                  My updated CV can be found <a href="assets/attachments/CV_sachchidanand.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">here</a>.  
+                </p>
+
+                <!-- Temp thing -->
+                <!-- <br>
+                <p class="mt-4 leading-relaxed text-lg text-justify"> <a href="kumaresan-book-errata/index.html" target="_blank" class="text-blue-500 hover:text-blue-800">Kumaresan's Book</a>. </p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- footer -->
+      <footer class="foot mt-auto border-t border-gray-200">
+        <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2022 Sachchidanand
+          </p>
+          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
+          </p>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-green-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+              <i class="ai ai-researchgate ai-lg"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+              <i class="ai ai-academia"></i>
+            </a>
+          </span>
+        </div>
+        <hr class="py-1 w-1/4 m-auto">
+				<div class="items-center">
+					<p class="text-center">
+						<span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+						<img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
+						alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
+						<span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+					</p>
+				</div>
+      </footer>
+    
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script>
+      function myFunction() {
+        var x = document.lastModified;
+        document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+      }
+      myFunction()
+    </script>
+  </body>
+</html>
