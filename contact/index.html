@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+		<title>Contact - Sachchidanand Prasad</title>
+		
+		<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png"/>
+
+  		<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+   
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+	</head>
+
+	<body style="background: #edf2f7;">
+		<div class="flex flex-col h-screen">	
+			
+			<!-- navbar -->
+			<div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+				<div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto   md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+				<div class="p-4 flex flex-row items-center justify-between">
+					<a href="../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
+					<button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+					<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+						<path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+						<path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+					</svg>
+					</button>
+				</div>
+				
+				<nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../">Home</a>
+			
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../research/">Research</a>
+
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../resume/">CV</a>
+
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../articles/">Articles</a>
+
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../miscellaneous/">Miscellaneous</a>
+					
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../contact/">Contact</a>	  
+				</nav>
+				</div>
+			</div>
+
+			<!-- first section -->
+			<section class="text-gray-600 body-font">
+				<div class="container px-5 py-24 mx-auto">
+					<div class="flex flex-col text-center w-full mb-8">
+						<h1 class="sm:text-3xl text-2xl font-medium title-font mb-1 text-gray-900">Drop me a message!</h1>
+					</div>
+					<div class="lg:w-1/2 md:w-2/3 mx-auto">
+						<form class="flex flex-wrap -m-2" method="post" autocomplete="off" name="google-sheet">
+							<div class="p-2 w-1/2">
+								<div class="relative">
+									<label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+									<input type="text" id="name" name="name" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+								</div>
+							</div>
+							<div class="p-2 w-1/2">
+								<div class="relative">
+									<label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+									<input type="email" id="email" name="email" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+								</div>
+							</div>
+							<div class="p-2 w-full">
+								<div class="relative">
+									<label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+									<textarea id="message" name="message" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+								</div>
+							</div>
+							<div class="p-2 w-full">
+								<button class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Send Message!</button>
+							</div>
+						</form>
+						
+						<div class="p-2 w-full py-4 mt-8 text-center border-t-2">
+							<a class="text-blue-500 hover:text-blue-800" href="mailto:sachchidanand.prasad@icts.res.in">sachchidanand.prasad@icts.res.in</a> &nbsp;
+							<a class="text-blue-500 hover:text-blue-800" href="mailto:speinstene26@gmail.com">speinstene26@gmail.com</a>
+						</div>
+						
+						<div class="p-2 w-full py-4 mt-1 text-center border-t-2">
+							<p class="leading-normal">
+								G108, Institute of Theoretical Sciences
+								<br>Survey No. 151, Shivakote,
+								<br>Hesaraghatta Hobli,
+								<br>Bengaluru - 560 089, India.
+								<br> +91 804653 6178
+							</p>
+						</div>
+
+						<div class="p-2 w-full py-4 mt-1 text-center border-t-2">
+							<span class="inline-flex mb-16">
+								<!-- facebook -->
+								<a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
+									<i class="fa-brands fa-facebook-f"></i>
+								</a>
+								<!-- instagram -->
+								<a class="ml-4 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
+									<i class="fa-brands fa-instagram"></i>
+								</a>
+								<!-- twitter -->
+								<a class="ml-4 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
+									<i class="fa-brands fa-twitter"></i>
+								</a>
+								<!-- github -->
+								<a class="ml-4 text-gray-500 hover:text-purple-500" href="https://github.com/prasadsachchidanand" target="_blank">
+									<i class="fa-brands fa-github"></i>
+								</a>
+								<!-- researchgate -->
+								<a class="ml-4 text-gray-500 hover:text-green-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-" target="_blank">
+									<i class="ai ai-researchgate ai-lg"></i>
+								</a>
+								<!-- academia -->
+								<a class="ml-4 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+									<i class="ai ai-academia"></i>
+								</a>
+							</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+
+			<!-- footer -->
+			<footer class="foot mt-auto border-t border-gray-200">
+				<div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+				  <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2022 Sachchidanand
+				  </p>
+				  <p class="text-sm text-gray-700 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
+				  </p>
+				  <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+					<a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
+					  <i class="fa-brands fa-facebook-f"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
+					  <i class="fa-brands fa-instagram"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
+					  <i class="fa-brands fa-twitter"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
+					  <i class="fa-brands fa-github"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-green-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+					  <i class="ai ai-researchgate ai-lg"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+					  <i class="ai ai-academia"></i>
+					</a>
+				  </span>
+				</div>
+				<hr class="py-1 w-1/4 m-auto">
+				<div class="items-center">
+					<p class="text-center">
+						<span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+						<img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
+						alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
+						<span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+					</p>
+				</div>
+			</footer>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+		<script>
+			function myFunction() {
+				var x = document.lastModified;
+				document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+				}
+
+				myFunction()
+		</script>
+
+		<script>
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbyur3ERt7Lx3zvPg8nfH25En13lds5Ti00yfdD0Dcn6AO_OIFF8TfqZMsLYJd0dAfbZ/exec'
+			const form = document.forms['google-sheet']
+		
+			form.addEventListener('submit', e => {
+			e.preventDefault()
+			fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				.then(response => alert("Thanks for messaging me. I will get back soon."))
+				.catch(error => console.error('Error!', error.message))
+			})
+		</script>
+
+	</body>
+</html>
+

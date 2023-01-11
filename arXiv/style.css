@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+* {
+	font-family: Lato, sans-serif;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #F5F5F5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 50px 0;
+}
+
+.wrapper {
+	width: 65%;
+}
+
+h1 {
+    font-size: 2.5rem;
+	margin-bottom: 20px;
+}
+
+ul li {
+    list-style-type: none;
+    position: relative;
+    margin: 2px 0;
+    line-height: 25px;
+    padding-left: 50px;
+    font-size: 1.1rem;
+}
+
+ul li:before {
+    content: counter(list) "";
+    counter-increment: list;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 37px;
+    margin-right: 4px;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+a {
+    display: inline-block;
+    padding: 5px;
+    position: relative;
+    color: #0a9ff9;
+    text-decoration: none;
+}
+
+.container {
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
+	border-radius: 20px;
+	box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
+	margin: 20px 0;
+}
+
+.accordion-title {
+    color: rgb(106, 70, 70);
+	font-size: 1.4rem;
+	font-weight: 600;
+	padding: 10px 80px 10px 20px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.accordion-title::after {
+	content: "\002B";
+	font-size: 2.2rem;
+	position: absolute;
+	right: 20px;
+	transition: 0.5s;
+}
+
+.accordion-title.active::after {
+	transform: rotate(45deg);
+}
+
+.detailsCont {
+	max-height: 0;
+	overflow: hidden;
+	transition: .5s;
+}
+
+.details {
+	padding: 0 20px 20px;
+	line-height: 1.5rem;
+}
+
+div.box {
+	background-color: rgba(162, 160, 19, 0.1);
+	width: 95%;
+	padding: 1rem;
+	text-align: justify;
+	margin-bottom: 1rem;
+	border-top-right-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+}
+
+div.abstract {
+	border-left: 5px solid #d3b155;
+	margin-top: 5px;
+	margin-left: 1rem;
+	padding-left: 1rem;
+	font-size: 1rem;
+	color: rgb(78, 77, 77);
+}
+
+span.title {
+	font-weight: 800;
+	font-size: 1.1rem;
+}
+
+span.author,
+span.category {
+	margin-left: 1rem;
+	font-size: 0.9rem;
+	color: rgb(145, 145, 145);
+	font-style: italic;
+}
+
+span.wrong {
+	font-weight: 600;
+	color: crimson;
+	animation: blinker 1.2s linear infinite;
+	font-size: 1.1rem;
+}
+
+@keyframes blinker {
+	50% {
+		opacity: 0;
+	}
+}
+
+@media screen and (max-width: 790px) {
+	html {
+		font-size: 14px;
+	}
+
+	.wrapper {
+		width: 80%;
+	}
+}

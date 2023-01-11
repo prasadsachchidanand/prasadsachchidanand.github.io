@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+	<title>Research - Sachchidanand Prasad</title>
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png"/>
+
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+   
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+  <!-- This will not allow user to slect text -->
+  <!-- <style>
+    body {
+      user-select: none; /* supported by Chrome and Opera */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+    }
+  </style> -->
+
+  <style>
+    @media only screen and (max-width: 600px) {
+      .small-screen-margin {
+        margin-left: 2em;
+      }
+    }
+  </style>
+
+  </head>
+  <body style="background: #edf2f7;">
+    <div class="flex flex-col h-screen">
+      <!-- navbar -->
+      <div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+        <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+          <div class="p-4 flex flex-row items-center justify-between">
+            <a href="../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
+            <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../"> Home </a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../research/"> Research </a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../resume/"> CV </a>
+		      	<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../articles/">Articles</a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../miscellaneous/">Miscellaneous</a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../contact/">Contact</a>
+          </nav>
+        </div>
+      </div>
+      
+      <!-- section -->
+      <section class="text-gray-600 body-font">
+        <div class="container xl:px-36 py-24 mx-auto">
+          <div class="flex flex-col items-center text-center justify-center">
+            <h2 class="text-gray-900 text-3xl title-font font-medium">Research</h2>
+            <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+          </div>
+          <div class="flex flex-col items-center text-center justify-center">
+            <img class="md:w-96 sm:w-80 small-screen-margin" src="../assets/img/sphere-cut-locus.svg" alt="sphere cut locus" >
+          </div>
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+            <div class="p-4 md:w-full flex">
+              <div class="flex-grow lg:px-32 px-6">
+                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify"> 
+                  My area of interest includes <em>differential geometry</em>, <em>differential topology</em>, <em>algebraic topology</em> and <em>polynomial maps</em>. More specifically, I am working on the <em class="font-medium">cut locus of a submanifold</em>. Below, I have given a brief overview of cut locus of a submanifold. Recently, I also made an interest towards topological quandles. I am reading Alexander quandles. I am also working on Lvov-Kaplansky conjecture, which says that image of $n\times n$ matrices over any field $K$ under the multilinear polynomial in non-commutative variables is a vector space.
+                </p>
+                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
+                  For a given Riemannian manifold $M$ and $N\subset M$ the <em class="font-medium">cut locus of $N$</em>, $\mathrm{Cu}(N)$, is the collection of points $q\in M$ such that there exists a distance minimal geodesic $\gamma$ joining $N$ to $q$ such that any extension of $\gamma$ beyond $q$ is no longer a distance minimal geodesic. Here, by the <em class="font-medium">distance minimal geodesic $\gamma$ joining $N$ to $q$</em> we mean that there exists $p\in N$ such that the length of $\gamma$ from $p$ to $q$ is same as the distance from $N$ to $q$.
+                </p>
+                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
+                  If $N$ is a smooth submanifold of $M$, then we say it is <em class="font-medium">non-degenerate critical submanifold of $f:M\to \mathbb{R}$</em> if $N\subseteq \mathrm{Cr}(f)$ (critcal points of $f$) and for any $p\in N$, the Hessian of $f$ at $p$ is non-degenerate in the direction normal to $N$ at $p$. The function $f$ is said to be <em class="font-medium">Morse-Bott</em> if the connected components of $\mathrm{Cr}(f)$ are non-degenerate critical submanifolds. 
+                </p>
+                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
+                  The <em class="font-medium">Thom space</em> $\mathrm{Th}(E)$ of a real vector bundle $E\to B$ of rank $k$ is $D(E)/S(E)$, where $D(E)$ is the unit disk bundle and $S(E)$ is the unit sphere budle. Here we have chosen a Euclidean metric on $E$.
+                </p>
+                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
+                  In one of my <a href="#cut-locus-relation" class="text-blue-500 hover:text-blue-800">paper</a> (joint with Dr Somnath Basu),
+                  we discussed the cut locus of a closed submanifold and described the relation between it with Thom spaces and Morse-Bott functions. 
+                </p>
+                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify"> Currently, I am working on the cut locus of a quotient manifold and its applications to classifying spaces.
+                </p>
+                <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="publications">Publications and Preprints</h2>
+                <ol class="pl-8 list-decimal">
+                  <!-- The image of polynomials on upper triangular matrix algebras -->
+                  <li class="text-lg mt-8" id="image-of-polynomials">
+                    <em>The image of polynomials on upper triangular matrix algebras</em> (joint with Saikat Panja), June 2022 <br>
+                    <a href="https://arxiv.org/abs/2206.08827" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv link</a>
+                    <div class="mt-2 ml-4 border-l-2 border-indigo-500 hidden md:block xs:hidden">
+                      <p class="pl-2 leading-relaxed text-base text-gray-500 text-justify">
+                        <span class="text-gray-900">Abstract:</span> Let $p$ be a polynomial in non-commutative variables $x_1,x_2,\cdots,x_s$ with constant term zero over an algebraically closed field $K$. The object of study in this paper is the image of this kind of polynomial over the algebra of upper triangular matrices $T_n(K)$. We introduce a family of polynomial, to be called multi-index $p$-inductive polynomials for a given polynomial $p$. Using this we will show that, if $p$ is a polynomial identity of $T_m(K)$ but not of $T_{m+1}(K)$, then $p \left(T_n(K)\right)\subseteq T_n(K)^{(m-1)}$. Equality is achieved in the case $m=1$  and $n-1$. In the other cases we specify some structure of the matrices which are member of $p \left(T_n(K)\right)$. We also prove that image of $T_m(K)^\times$ under a word map is Zariski dense in $T_m(K)^\times$.
+                      </p>
+                    </div>
+                  </li>
+
+                  <!-- Counterexample to a conjecture about dihedral quandle -->
+                  <li class="text-lg mt-8" id="quandles">
+                    <em>Counterexample to a conjecture about dihedral quandle</em> (joint with Saikat Panja), May 2022 <br>
+                    <a href="https://arxiv.org/abs/2205.15024" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv link</a> 
+                    <div class="mt-2 ml-4 border-l-2 border-indigo-500 hidden md:block xs:hidden">
+                      <p class="pl-2 leading-relaxed text-base text-gray-500 text-justify">
+                        <span class="text-gray-900">Abstract:</span> It was conjectured that the augmentation ideal of a dihedral quandle of even order $n>2$ satisfies $\left|\Delta^k(\textup{R}_n)/\Delta^{k+1}(\textup{R}_{n})\right|=n$ for all $k\ge 2$. In this article we provide a counterexample against this conjecture.
+                      </p>
+                    </div>
+                  </li>
+
+                  <!--A connection between cut locus, Thom spaces and Morse-Bott functions -->
+                  <li class="text-lg mt-8" id="cut-locus-relation">
+                    <em>A connection between cut locus, Thom spaces and Morse-Bott functions</em> (joint with Dr Somnath Basu), June 2021 <br>
+                    <span class="text-gray-900 ">
+											To appear in the Algebraic <span style="font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+											font-style: italic;
+											font-weight: normal;">&amp;</span> Geometric Topology
+										</span> <br>
+                    <a href="https://arxiv.org/abs/2011.02972" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv link</a>
+                    <div class="mt-2 ml-4 border-l-2 border-indigo-500 hidden md:block xs:hidden">
+                      <p class="pl-2 leading-relaxed text-base text-gray-500 text-justify">
+                        <span class="text-gray-900">Abstract:</span> Associated to every closed, embedded submanifold $N$ in a connected Riemannian manifold $M$, there is the distance function $d_N$ which measures the distance of a point in $M$ from $N$. We analyze the square of this function and show that it is Morse-Bott on the complement of the cut locus $\mathrm{Cu}(N)$ of $N$, provided $M$ is complete. Moreover, the gradient flow lines provide a deformation retraction of $M-\mathrm{Cu}(N)$ to $N$. If $M$ is a closed manifold, then we prove that the Thom space of the normal bundle of $N$ is homeomorphic to $M/\mathrm{N}$. We also discuss several interesting results which are either applications of these or related observations regarding the theory of cut locus. These results include, but are not limited to, a computation of the local homology of singular matrices, a classification of the homotopy type of the cut locus of a homology sphere inside a sphere, a deformation of the indefinite unitary group $U(p,q)$ to $U(p)\times U(q)$ and a geometric deformation of $GL(n,\mathbb{R})$ to $O(n,\mathbb{R})$ which is different from the Gram-Schmidt retraction.
+                      </p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- footer -->
+      <footer class="foot mt-auto border-t border-gray-200">
+        <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2022 Sachchidanand
+          </p>
+          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
+          </p>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-gray-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+              <i class="ai ai-researchgate ai-lg"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+              <i class="ai ai-academia"></i>
+            </a>
+          </span>
+        </div>
+        <hr class="py-1 w-1/4 m-auto">
+				<div class="items-center">
+					<p class="text-center">
+						<span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+						<img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
+						alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
+						<span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+					</p>
+				</div>
+      </footer>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script>
+      function myFunction() {
+        var x = document.lastModified;
+        document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+      }
+      myFunction()
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)']
+          ],
+          displayMath: [
+            ['$$', '$$'],
+            ['\\[', '\\]']
+          ]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+  </body>
+</html>
