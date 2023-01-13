@@ -17,13 +17,6 @@
    
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <style>
-    @media only screen and (max-width: 600px) {
-      .small-screen-margin {
-        margin-left: 2em;
-      }
-    }
-  </style>
   </head>
   <body style="background: #edf2f7;">
     <div class="flex flex-col h-screen">
@@ -59,7 +52,7 @@
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
             <div class="p-4 md:w-full flex">
-              
+              <div class="flex-grow lg:px-32 px-6">
               <!-- Copied from https://stackoverflow.com/questions/63954617/add-dynamic-links-to-dates-calendar-html-and-js -->
               <div class="container-calendar sm:px-36 py-12 mx-auto">
                 <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
@@ -169,6 +162,7 @@
                   </select>
                   <select id="year" onchange="jump()"></select>
                 </div>
+              </div>
               </div>
             </div>
             <!--  -->
