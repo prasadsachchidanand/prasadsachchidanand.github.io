@@ -41,17 +41,63 @@
 }
 
 
-/* sunday */
+/* date color */
 
-.date-picker:nth-child(1) {
-  color: red;
+.date-picker {
+  color: rgb(59 130 246);
 }
 
 
-/* friday */
+.date-picker:hover {
+  color: rgb(30 64 175);
+}
 
-/* .date-picker:nth-child(6) {
-  color: green;
+/* .date-picker:nth-child(2) {
+  color: rgb(59 130 246);
+}
+
+.date-picker:nth-child(2):hover {
+  color: rgb(30 64 175);
+}
+
+.date-picker:nth-child(3) {
+  color: rgb(59 130 246);
+}
+
+.date-picker:nth-child(3):hover {
+  color: rgb(30 64 175);
+}
+
+.date-picker:nth-child(4) {
+  color: rgb(59 130 246);
+}
+
+.date-picker:nth-child(4):hover {
+  color: rgb(30 64 175);
+}
+
+.date-picker:nth-child(5) {
+  color: rgb(59 130 246);
+}
+
+.date-picker:nth-child(5):hover {
+  color: rgb(30 64 175);
+}
+
+.date-picker:nth-child(6) {
+  color: rgb(59 130 246);
+}
+
+.date-picker:nth-child(6):hover {
+  color: rgb(30 64 175);
+}
+
+.date-picker:nth-child(7) {
+  color: rgb(59 130 246);
+}
+
+.date-picker:nth-child(7):hover {
+  color: rgb(30 64 175);
 } */
 
 #monthAndYear {
