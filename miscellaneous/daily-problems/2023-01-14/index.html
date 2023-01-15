@@ -76,7 +76,43 @@
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-100">
-                    <strong>Solution: </strong> 
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong> We will be using two facts. 
+                    <ol class="py-2 px-8 list-decimal list-inside lg:text-lg md:text-base">
+                      <li>
+                        <a href="https://proofwiki.org/wiki/Cartesian_Product_of_Countable_Sets_is_Countable" target="_blank" class="text-blue-500 hover:text-blue-800">The finite Cartesian product of countable sets is countable.</a>
+                      </li>
+                      <li>
+                        <a href="https://proofwiki.org/wiki/Countable_Union_of_Countable_Sets_is_Countable" target="_blank" class="text-blue-500 hover:text-blue-800">The countable union of countable sets is countable.</a>
+                      </li>
+                    </ol>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="my-2 leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let $\mathcal{P}_n$ denotes the set of all polynomial of degree $n$ with integer coefficients and $\mathcal{P} $ denotes the set of all polynomials with integer coefficient. Let $\mathbb{N}_0 = \mathbb{N} \cup\{0\}$. We will first show that for every $n\in \mathbb{N}_0$ the set $\mathcal{P} _n$ is countable. Then we note that $\mathcal{P} =\cup_{n\in \mathbb{N}_0 }\mathcal{P} _n$ is the countable union of countable sets and hence countable. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="my-2 leading-relaxed lg:text-lg md:text-base text-justify">
+                    Define the map 
+                    \begin{gather*}
+                        \phi:\mathcal{P}_n \to \mathbb{Z}^{n+1};\\
+                        a_0+a_1x+a_2x^{2}+\cdots + a_nx^{n}\mapsto \left( a_0,a_1,a_2,\cdots,a_n \right).
+                    \end{gather*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="my-2 leading-relaxed lg:text-lg md:text-base text-justify">
+                    The above map is an injection. For proving that let 
+                    \begin{align*}
+                        & \phi \left( \sum_{i=0}^{n}a_ix^i  \right)  = \phi\left( \sum_{i=0}^{n}b_ix^i \right) \\
+                        & \implies (a_0,\cdots,a_n)=(b_0,\cdots,b_n)\\
+                        & \implies a_i=b_i,\,\,\text{for }i=0,\ldots,n \\
+                        & \implies \sum_{i=0}^{n}a_ix^i = \sum_{i=0}^{n}b_ix^i.
+                    \end{align*}
+                    Thus, $\phi $ is an injective map. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="my-2 leading-relaxed lg:text-lg md:text-base text-justify">
+                    As $\mathbb{Z} ^{n+1}$ is the finite Cartesian product of the countable set $\mathbb{Z} $, hence countable, and thus $\mathcal{P} _n$ is countable. Therefore, $\mathcal{P} =\cup_{n\in \mathbb{N} _0}$ is countable. 
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
