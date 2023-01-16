@@ -76,7 +76,34 @@
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong> Note that the hypothesis that $\mathop{\mathrm{tr}}(AX)=0 $ is true for any traceless matrix $X$. So our strategy to solve this problem will be to choose different traceless matrix $X$ so that we can find the elements of the matrix $A$ using the given hypothesis.
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="my-2 leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let $E_{ij}$ denotes the matrix of size $n$ with $ij^{\text{th}}$ entry being zero. For $i\neq j$, take $X=E_{ij}$. Then we have 
+                    \begin{align*}
+                        \mathop{\mathrm{tr}}(AX) = 0 & \implies \mathop{\mathrm{tr}}(AE_{ij}) =0 \\
+                        & \implies a_{ji} = 0.
+                    \end{align*}
+                    So we prove that $A$ is a diagonal matrix with entries $a_{ii}, ~ i=1,2,\ldots n$, i.e.,
+                    \[
+                        A = \mathop{\mathrm{diag}}(a_{11},a_{22},\cdots,a_{nn}).
+                    \] 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="my-2 leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now it remains to show that $a_{11}=a_{22}=\cdots=a_{nn}$. Consider the matrix
+                    \[
+                        E_i = \mathop{\mathrm{diag }}(1,0,\cdots,-1,0,\cdots,0), 
+                    \] 
+                    where $-1$ is placed at the $ii^{\text{th}}$ place. If we take $X=E_i$, then
+                    \begin{align*}
+                        \mathop{\mathrm{tr}}(AX) = 0 & \implies \mathop{\mathrm{tr}}(AE_{i}) =0 \\
+                        & \implies a_{11} - a_{ii} = 0 \\
+                        & \implies a_{11} = a_{ii}.
+                    \end{align*}   
+                    Thus, $A = \mathop{\mathrm{diag }}(a_{11},a_{11},\cdots,a_{11})$ and hence, we proved that $A=a_{11}I$.
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
