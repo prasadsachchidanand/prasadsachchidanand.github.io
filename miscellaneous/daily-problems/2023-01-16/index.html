@@ -79,7 +79,21 @@
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong> Note that
+                    \begin{align*}
+                        & \lim_{n \to \infty} \left( \sqrt{n^{2}+n} - \sqrt{n^{2}+1 }   \right) \\
+                        = & \lim_{n \to \infty} \left( \left( \sqrt{n^{2}+n} - \sqrt{n^{2}+1 } \right)     \times \frac{\sqrt{n^{2}+n} + \sqrt{n^{2}+1 }  }{\sqrt{n^{2}+n} + \sqrt{n^{2}+1 }} \right) \\
+                        = & \lim_{n \to \infty} \left( \frac{n^{2}+n-n^2 -1 }{\sqrt{n^2 +n} + \sqrt{n^2 +1}  } \right) \\
+                        = & \lim_{n \to \infty} \frac{n-1}{\sqrt{n^2 +n} + \sqrt{n^2 +1}} \\
+                        = & \lim_{n \to \infty} \frac{1-\frac{1}{n}}{\sqrt{1+\frac{1}{n}} + \sqrt{1+\frac{1}{n^2}} } \quad \boxed{\text{divide by $n$}}\\
+                        = & \frac{1}{1+1} \\
+                        = & \frac{1}{2}.
+                    \end{align*}
+                    Therefore,
+                    \[
+                        \textcolor{blue}{\boxed{\lim_{n \to \infty} \left( \sqrt{n^{2}+n} - \sqrt{n^{2}+1 }   \right) = \frac{1}{2}}}
+                    \]
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
