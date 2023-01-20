@@ -77,8 +77,20 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>If $X$ has at least two points, then it need not be connected with respect to the $\mathcal{T} _2$ topology. For example,
+                    \[
+                        \mathcal{T} _1= \text{Indiscrete topology},~ \mathcal{T} _2 = \text{discrete topology}.
+                    \]
+                    It is clear that $\mathcal{T} _1\subset \mathcal{T} _2$, as the discrete topology is the finest topology. Since $X$ have more than one points, it is not connected, as if $x_1,x_2\in X$, then $\{x_1\}$ and $\{x_2\}$ both are closed and open.
                   </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    The other way around is true, that is if $\left( X,\mathcal{T} _2 \right) $ is connected, then $\left( X,\mathcal{T} _1 \right) $ is also connected. For a proof of this fact, let us suppose that $\left( X,\mathcal{T}_1 \right) $ is not connected. This implies, there exists $A,B\in \mathcal{T} _1$ such that both are non-empty, proper subsets of $X$ and 
+                    \[
+                        X = A\cup B.
+                    \] 
+                    As $\mathcal{T} _1\subset \mathcal{T} _2$, so $A,B\in \mathcal{T} _2$, this implies $A$ and $B$ gives a separation for $\left( X,\mathcal{T} _2 \right)$ also, which implies $\left( X,\mathcal{T} _2 \right) $ is also disconnected, a contradiction. Therefore, $\left( X,\mathcal{T} _1 \right) $ is connected.  
+                  </p>                  
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
