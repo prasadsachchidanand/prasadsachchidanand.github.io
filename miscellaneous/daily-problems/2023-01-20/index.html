@@ -80,7 +80,32 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We have 
+                    \begin{align*}
+                        & 2xy+6x+\left( x^{2} -4 \right) y^\prime = 0 \\
+                        \implies & \left( x^{2} -4 \right) y^\prime =-2xy-6x \\
+                        \implies & \left( x^{2} -4 \right) y^\prime = -2x(y+3) \\
+                        \implies & \frac{y^\prime }{y+3} = \frac{-2x}{x^{2} -4} \\
+                        \implies & \int \frac{\mathrm{d} y}{y+3} = \int\frac{-2x}{x^{2} -4}\mathrm{d} x,\qquad x\neq \pm 2 \\
+                        \implies & \ln \vert y+3 \vert = \int -\frac{\mathrm{d} u}{u},\qquad u=x^{2} -4 \\
+                        \implies & \ln \vert y+3 \vert = -\ln \vert x^{2} -4 \vert +C \\
+                        \implies & \ln \vert y+3 \vert +\ln \vert x^{2} -4 \vert = C, 
+                    \end{align*}
+                    where $C$ is an arbitrary constant.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Simplifying the above, we have
+                    \begin{align*}
+                        & \ln \left( \vert y+3 \vert \vert x^{2} -4 \vert  \right) = C \\
+                        \implies & \vert y+3 \vert \vert x^{2} -4 \vert = e^C  \\
+                        \implies & (y+3)\left( x^{2} -4 \right) =\pm e^C = A\\
+                        \implies & y+3 = \frac{A}{x^{2} -4}.
+                    \end{align*}
+                    Therefore, the solution of the differential equation is 
+                    \[
+                        \textcolor{blue}{\boxed{y(x) = \frac{A}{x^{2} -4},\quad x\neq \pm 2}}
+                    \]
                   </p>
                 </div>
                 <!-- Previous Button -->
