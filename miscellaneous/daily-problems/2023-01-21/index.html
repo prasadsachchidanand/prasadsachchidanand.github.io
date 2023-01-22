@@ -77,8 +77,29 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Given that if $\lambda $ is a root of $p(x) = x^4 -4x^3 +2x^{2} +ax+b$, then $\frac{1}{\lambda }$ is also a root of $p$. So, let us suppose that the roots of the equation is $\lambda ,\frac{1}{\lambda }, \mu ,\frac{1}{\mu }$. We recall that if $p(x) = ax^4 + bx^3 + cx^2 + dx +e$ and $\alpha ,\beta \gamma $ and $\delta $ are roots of it, then
+                    \begin{align*}
+                        & \sum \alpha  \coloneqq \alpha + \beta + \gamma + \delta  = -\frac{b}{a}\\
+                        & \sum \alpha \beta   = \frac{c}{a}\\
+                            & \sum \alpha \beta \delta   = -\frac{d}{a},~\text{and }\\
+                        & \alpha\beta \gamma \delta  = \frac{e}{a}.
+                    \end{align*}   
                   </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    So, we have
+                    \begin{align*}
+                        \lambda \times \frac{1}{\lambda }\times \mu \times \frac{1}{\mu } = \frac{b}{1} & \implies b = 1.
+                    \end{align*}
+                    Similarly, 
+                    \begin{align*}
+                        & \lambda \cdot \frac{1}{\lambda }\cdot \mu + \lambda \cdot \frac{1}{\lambda }\cdot\frac{1}{\mu } + \lambda \cdot \mu \cdot \frac{1}{\mu } + \frac{1}{\lambda }\cdot \mu \cdot \frac{1}{\mu } = -a \\ 
+                        \implies & \mu +\frac{1}{\mu }+\lambda +\frac{1}{\lambda } = -a \\
+                        \implies & -(-4) = -a \\
+                        \implies & a = -4.
+                    \end{align*}
+                  </p>
+                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
