@@ -33,6 +33,12 @@
         margin-left: 2em;
       }
     }
+    .bleft-answer {
+      border-left: 0.25rem solid rgb(197, 211, 9);
+      background-color: rgba(253, 243, 100, 0.205);
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+    }
   </style>
 
   </head>
@@ -82,7 +88,39 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let 
+                    \[
+                        f(x) = \sin x-x+\frac{x^3}{6}.
+                    \]
+                    We will show that the function is strictly increasing for $x>0$. As $f(0)=0$ so for every $x>0$, the function $f(x)>0,$ which will prove the inequality. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Consider the derivatives of $f$.
+                    \begin{align*}
+                        & f^\prime (x) = \cos x-1+\frac{x^2}{2},\quad f^\prime (0)=0 \\
+                        & f^{\prime\prime}(x) = -\sin x + x, \quad f^{\prime\prime }(0) = 0\\
+                        & f^{\prime \prime \prime }(x) = -\cos x+1.
+                    \end{align*} 
+                    Now note that 
+                    \[
+                        f^{\prime \prime \prime }(x) \ge 0,~\forall~x\in \mathbb{R} .
+                    \]
+                    The equality will be achieved on the discrete set $\{2\pi n:n\in \mathbb{Z} \}$. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="bleft-answer mt-4 p-4 text-black-900">
+                    <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                      The following result is easy to prove. The main idea is that the property of increasing is a local property. <br><br>
+                      <strong>Results:</strong> If for a function $f$ the derivative $f^\prime (x)>0$ except for a discrete set, then $f$ is strictly increasing function.
+                    </p>
+                  </div>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Therefore, the function $f^{\prime \prime }$ is strictly increasing function on $\mathbb{R} $. Now note that $f^{\prime \prime }(0)=0$, so for every $x>0$, we have $f^{\prime \prime }(x)>0$, so $f^\prime $ is strictly increasing function on $\mathbb{R} ^+$. Again, $f^\prime (0)=0$ so $f^\prime (x)>0$ for every positive $x$. Thus, $f$ is a strictly increasing function on $\mathbb{R} ^{+}$. Hence,
+                    \[
+                        \textcolor{blue}{\boxed{\sin x > x-\frac{x^3}{6},\quad \forall~x>0}}
+                    \]
                   </p>
                 </div>
                 <!-- Previous Button -->

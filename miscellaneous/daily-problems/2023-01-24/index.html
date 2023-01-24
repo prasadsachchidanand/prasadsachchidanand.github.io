@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NBHM 2006, NBHM 2006 Problem-7, Write down a matrix P such that $P^{-1}AP$ is a a diagonal.">
+    <meta name="description" content="Complex Analysis, CSIR-NET, GATE, NBHM, JAM, mathematics, problems, solutions.">
     
-	<title>Problem of the day | 02-01-2023 - Sachchidanand Prasad</title>
+	<title>Problem of the day | 24-01-2023 | Complex Analysis - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -65,16 +65,71 @@
       <section class="text-gray-600 body-font">
         <div class="container xl:px-36 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
+            <h2 class="text-gray-900 text-3xl title-font font-medium">24-01-2023</h2>
+            <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+          </div>
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
             <div class="p-4 md:w-full flex">
               <div class="flex-grow lg:px-32 px-6">
-                <div class="flex flex-col items-center justify-center">
-                  <img src="https://cdn.pixabay.com/photo/2017/06/20/08/12/maintenance-2422173__340.png"
-                    alt="tailwindcss maintenance">
-                  <h1 class="mb-3 text-3xl font-bold text-center text-purple-600">Accessing Daily Problems: Wait for the Date</h1>
-                  <p class="text-justify text-gray-600">
-                    You are attempting to access a date that has not yet come to pass. It is important to wait until the designated date arrives in order to view the problem that will be posted on this platform.
+                <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
+                    <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                      <strong>Problem: </strong> Prove that for all $x>0$ we have 
+                      \[
+                          \sin x > x-\frac{x^3}{6}.
+                      \]
+                    </p> 
+                </div>
+
+                <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
                   </p>
                 </div>
+                <!-- Previous Button -->
+                <div class="flex justify-center mt-4">
+                  <nav aria-label="Page navigation example">
+                    <ul class="flex list-style-none">
+                      <li class="page-item disabled">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-01-23/">
+                          Previous 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../../daily-problems/#calendar">
+                          All 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-01-25/">
+                          Next 
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                
+                <!-- Disqus Comments-->
+                <div class="mt-16" id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://my-google-site.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <!-- End of comment section -->
+
               </div>
             </div>
           </div>
@@ -133,9 +188,13 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+    <script id="dsq-count-scr" src="//my-google-site.disqus.com/count.js" async></script>
+
     <script>
       MathJax = {
+        loader: {
+          load: ['[tex]/mathtools']
+        },
         tex: {
           inlineMath: [
             ['$', '$'],
@@ -144,7 +203,8 @@
           displayMath: [
             ['$$', '$$'],
             ['\\[', '\\]']
-          ]
+          ],
+          packages: {'[+]': ['mathtools']}
         },
         svg: {
           fontCache: 'global'
