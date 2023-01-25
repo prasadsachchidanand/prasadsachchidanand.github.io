@@ -90,7 +90,77 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> 1. Let us assume that such a function exists. That is, there exists a function $f:\mathbb{C} \setminus \{0\} \to \mathbb{C} \setminus \{0\}$ such that for every $z,w\in \mathbb{C} \setminus \{0\}$ 
+                    \begin{equation}\label{eqn:25Jan-01}
+                        f(zw)=f(z)f(w),~\text{ and }~f \left( z^{2}  \right) =z.
+                    \end{equation}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we set $z=w=1$, then  using \eqref{eqn:25Jan-01}, we have
+                    \begin{align*}
+                        &f(1) = f(1)^2 \text{ and } f(1) = 1 \\
+                        \implies & f(1) = f(1)^2 = 1.
+                    \end{align*} 
+                    Similarly, we set $z=w=-11$, then  using \eqref{eqn:25Jan-01}, we have
+                    \begin{align*}
+                        &f(1) = f(-1)^2 \text{ and } f(1) = -1 \\
+                        \implies & f(1) = f(-1)^2 = -1,
+                    \end{align*} 
+                    which is a contradiction. Hence, such a function does not exist. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    2. Again, we assume that such a function exists. That is, there is a function $f:\mathbb{C} \setminus \{0\}\to \mathbb{C} \setminus \{0\}$ such that 
+                    \[
+                        f(z)^2=z,~\forall~z\in \mathbb{C} \setminus \{0\}.
+                    \] 
+                    Let $z_0\in \mathbb{C} \setminus \{0\}$ and consider the following function.
+                    \[
+                        g(z) = \frac{f\left( z_0z \right) }{f(z)f\left( z_0 \right) }.
+                    \] 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since $f$ is continuous and never takes the value $0$, so $g$ is continuous on $\mathbb{C} \setminus \{0\}$. Observe that 
+                    \begin{align*}
+                        g(z)^2 & = \left( \frac{f\left( z_0z \right) }{f(z)f\left( z_0 \right) } \right) ^2 \\
+                        & = \frac{f\left( z_0z \right) ^2}{f(z)^2f\left( z_0 \right)^2 }\\
+                        & = \frac{z_0z}{zz_0} \\
+                        & = 1.
+                    \end{align*}
+                    Thus,
+                    \[
+                        g(z) = \pm 1.
+                    \]
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    As $g$ is a continuous function on $\mathbb{C} \setminus \{0\}$ and $\mathbb{C} -\{0\}$ is connected set, therefore the image must be connected (<a class="text-blue-500 hover:text-blue-800" href="https://proofwiki.org/wiki/Continuous_Image_of_Connected_Space_is_Connected" target="_blank">continuous image of connected space is connected</a> ). Therefore, 
+                    \[
+                        g(z) \equiv 1, \text{ or } g(z) \equiv -1.
+                    \]
+                    If $g(z)\equiv 1$, then we have
+                    \begin{align*}
+                        f(z)f(z_0) = f\left( zz_0 \right). 
+                    \end{align*}
+                    In particular,
+                    \[
+                        f\left( z_0 \right) ^2 = f\left( z_0^2 \right), \forall~z_0\in \mathbb{C} \setminus \{0\}.
+                    \]
+                    Since the above is true for all $z_0$, so 
+                    \[
+                        f(z)^2 = f\left( z^2 \right)\implies f\left( z^2 \right) = z^2.
+                    \]
+                    Using part (a), this function will not exist and hence we got a contradiction. Therefore, $g(z)\equiv 1$ is not possible.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now take $g(z) \equiv -1$. Then we have
+                    \[
+                        f(z)f\left( z_0 \right) = f\left( zz_0 \right).
+                    \]
+                    If we replace $f$ by $-f$, then we will get a contradiction same as above. So, $g(z)\equiv -1$ is also not possible. Thus, we proved that such a function does not exist.
                   </p>
                 </div>
                 <!-- Previous Button -->
@@ -208,6 +278,7 @@
             ['$', '$'],
             ['\\(', '\\)']
           ],
+          tags: 'ams',
           displayMath: [
             ['$$', '$$'],
             ['\\[', '\\]']
