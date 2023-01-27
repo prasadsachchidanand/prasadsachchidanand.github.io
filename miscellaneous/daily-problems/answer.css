@@ -1,0 +1,10 @@
+.bleft-answer {
+    border-left: 0.25rem solid rgb(197, 211, 9);
+    background-color: rgb(255, 253, 231);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+
+  .text-head {
+    color: rgb(12, 179, 245);
+  }
