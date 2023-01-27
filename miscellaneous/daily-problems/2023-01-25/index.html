@@ -13,9 +13,11 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <link rel="stylesheet" href="../answer.css">
    
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-			
+				
   <!-- Google ad -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
   crossorigin="anonymous"></script>
@@ -100,9 +102,100 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> 
+                    <div class="bleft-answer mt-4 p-4 text-black-900">
+                      <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                        Some important results involving the irreducibility checks are as follows:  <br><br>
+                        <ul class="py-2 px-8 list-decimal list-inside lg:text-lg md:text-base">
+                          <li>
+                            Let $\mathbb{F} $ be a field and let $f(x)\in \mathbb{F} [x]$ be a polynomial with $\deg f(x)$ is either $2$ or $3$, then $f(x)$ is irreducible over $\mathbb{F} $ if and only if it has a zero in $\mathbb{F} $.
+                          </li>
+                          <li>
+                            Let $f(x)\in \mathbb{Z} [x]$. If $f(x)$ is reducible over $\mathbb{Q} $, then it is reducible over $\mathbb{Z} $.
+                          </li>
+                          <li>
+                            <span class="text-red-500">[Mod <em>p</em> Irreducibility Test]</span> Let $p$ be a prime and suppose that $f(x)\in \mathbb{Z} [x]$ with $\deg f(x) \geq 1$. Let $\bar{f} (x)$ denotes the polynomial in $\mathbb{Z} _p[x]$ obtained from $f(x)$ by reducing all the coefficients of $f(x)$ modulo $p$. If $f(x)$ is irreducible over $\mathbb{Z} _p$ and $\deg \bar{f}(x) = \deg f(x)$, then $f(x)$ is irreducible over $\mathbb{Q} $. 
+                          </li>
+                          <li>
+                            <span class="text-red-500">[Eisenstein's Criterion]</span> Let 
+                            \[
+                                f(x) = a_nx^n + a_{n-1}x^{n-1} +\cdots+ a_0\in \mathbb{Z}[x].
+                            \]
+                            If there is a prime $p$ such that $p$ does not divide $a_n$, $p$ divides $a_{n-1},\cdots,a_0$ and $p^2$ does not divide $a_0$, then $f(x)$ is irreducible over $\mathbb{Q} $.
+                          </li>
+                          <li>
+                            <span class="text-red-500">[Irreducibility of <em>p</em>th Cyclotomic Polynomial]</span> For any prime $p$, the $p$th cyclotomic polynomial
+                            \[
+                                \Phi (x) = \frac{x^p - 1}{x-1}= x^{p-1} + x^{p-2} + \cdots + x + 1
+                            \]
+                            is irreducible over $\mathbb{Q} $.
+                          </li>
+                        </ul>
+                      </p>
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    1. The polynomial is $f(x)=x^{2} +x+1\in\mathbb{Z}_2 [x]$, so it will be irreducible if and only if it does not have a zero. Observe that 
+                    \[
+                        f(0) = 1~\mathrm{mod}~2 \text{ and } f(1) = 1~\mathrm{mod}~2.  
+                    \]
+                    Thus, the polynomial does not have a root in $\mathbb{Z} _2$ and hence, it is irreducible.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    2. The polynomial is $f(x)=x^{3} +x+1\in\mathbb{Z}_3 [x]$, so it will be irreducible if and only if it does not have a zero. Note that 
+                    \[
+                        f(1) = 0~\mathrm{mod}~3.
+                    \]
+                    Thus, the polynomial is reducible over $\mathbb{Z} _3$.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    3. The polynomial is $f(x)=x^{4} +10x^{2} +5\in\mathbb{Z}[x]$. We will use the Eisenstein's criterion for this. Take $p=5$. Note that
+                    \[
+                        p \mid 5,~p \mid 10, ~p\nmid 1,\text{ and } p^2\nmid 5.
+                    \]
+                    So using the Eisenstein's criterion, the polynomial is irreducible over $\mathbb{Z} $.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    4. The polynomial is $f(x)=x^5 + 2x + 4\in\mathbb{Q}[x]$. Note that the Eisenstein's criterion will not work here. So we will apply the mod $p$ test. If we take $p=2$, then this is not helpful, so we will try with $p=3$.
+                    \[
+                        \bar{f}(x) = x^5 + 2x + 1. 
+                    \]
+                    Substitution of $0, 1,$ and $2$ into $\bar{f}$ does not yield $0$, so there are no linear factors.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We will now check about the quadratic factors. Let $x^2 + ax +b \in \mathbb{Z} _3[x]$ is a factor. So we have nine choices for $a$ and $b$. Note that
+                    \begin{align*}
+                        & (a,b) = (0,0)\implies \bar{f}(x) = x^2, \\
+                        & (a,b) = (0,1)\implies \bar{f}(x) = x^2 + 1, \\
+                        & (a,b) = (0,2)\implies \bar{f}(x) = x^2 + 2, \\
+                        & (a,b) = (1,0)\implies \bar{f}(x) = x^2 + x, \\
+                        & (a,b) = (1,1)\implies \bar{f}(x) = x^2 + x + 1, \\
+                        & (a,b) = (1,2)\implies \bar{f}(x) = x^2 + x + 2, \\
+                        & (a,b) = (2,0)\implies \bar{f}(x) = x^2 + 2x, \\
+                        & (a,b) = (2,1)\implies \bar{f}(x) = x^2 + 2x + 1, \\
+                        & (a,b) = (2,2)\implies \bar{f}(x) = x^2 + 2x + 2.
+                    \end{align*}
+                    We can immediately rule out each of the nine that has a zero over $\mathbb{Z} _3$, since $\bar{f}$ does not have one.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    This leaves only $x^2+1,~x^{2} +x+2$, and $x^{2} +2x+2$ to check. We can use long division to check these. We have
+                    \begin{align*}
+                        &x^5 + 2x + 1 = \left( x^3 + 2x \right)\left( x^{2} +1 \right)   + 1\\
+                        &x^5 + 2x + 1 = \left( x^3 + 2x^{2} +2x \right)\left( x^{2} +x + 2\right)   + (x+1)\\
+                        &x^5 + 2x + 1 = \left( x^3 + x^{2} +2x \right)\left( x^{2} +2x + 2 \right)   + (x+1).
+                    \end{align*}
+                    Thus, the given polynomial is irreducible over $\mathbb{Z} _3$ and hence irreducible over $\mathbb{Z} $.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    The polynomial is $f(x)=x^5 + 2x + 1\in\mathbb{Q}[x]$. Note that from previous problem we conclude that this is irreducible over $\mathbb{Z} _3$ and hence irreducible over $\mathbb{Q} $.
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
