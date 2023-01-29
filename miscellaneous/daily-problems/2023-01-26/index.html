@@ -13,6 +13,8 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <link rel="stylesheet" href="../answer.css">
    
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 			
@@ -77,15 +79,65 @@
               <div class="flex-grow lg:px-32 px-6">
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong> Let $A$ and $B$ be two connected subspaces of a topological space $X$, such that $A \cap \overline{B}\neq \emptyset$. Prove that $A\cap B$ is connected. If $A$ and $B$ are path connected, need $A\cup B$ be path connected. What about the intersection of two connected spaces if they hae non-empty intersection?
+                      <strong>Problem: </strong> Let $A$ and $B$ be two connected subspaces of a topological space $X$, such that $A\cap B \neq \emptyset$. Prove that $A\cup B$ is connected. What about intersection of two connected spaces if they have non-empty intersection?
                     </p> 
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We will prove a theorem, which will be useful. 
+                    <div class="theorem text-black-900  lg:text-lg md:text-base">
+                      Let $(X,\mathcal{T} )$ be a topological space. Then $X$ is connected if and only if whenever the function $f:(X,\mathcal{T})\to \left(\{0,1\},\mathcal{T}_d\right)$ is continuous, it is constant, where $\mathcal{T} _d$ denotes the discrete topology.
+                    </div>
+                    <div class="proof">
+                      <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                        <strong>Proof: </strong> Let us suppose that whenever $f:X\to \{0,1\}$ is continuous, it is constant. We need to show that $X$ is connected. To the contrary, suppose that $X$ is not connected, so we can find two non-empty proper open subsets $A$ and $B$ of $X$ such that 
+                        \[
+                            X = A\cup B \text{ and } A\cap B \neq \emptyset.
+                        \]
+                      </p>
+                      <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                        Consider the function
+                        \[
+                            f:X\to \{0,1\},~x \mapsto \begin{cases}
+                                1, &\text{ if } x\in A  ;\\
+                                0, &\text{ if } x\in B.
+                            \end{cases}
+                        \]
+                        Then, $f$ is continuous as $f^{-1}(U)$ is open for any open subset of $\{0,1\}$, but $f$ is not constant ant and hence  we arrived to  a contradiction. Hence, $X$ is connected.
+                      </p>
+                      <p class="leading-relaxed lg:text-lg md:text-base text-justify mt-4">
+                        Now we assume that $X$ is connected. Then we need to show that if $f:X\to \{0,1\}$ is continuous, then it must be constant. Suppose that there exists a continuous function $f:X\to \{0,1\}$ such that $f$ is not constant. Define 
+                        \[
+                            A = f^{-1}\left( \{0\} \right),~\text{ and } ~ B = f^{-1}\left( \{1\} \right).
+                        \]  
+                        Since, $f$ is not constant, so both the sets $A$ and $B$ are non-empty set. Moreover, both are open sets and 
+                        \[
+                            X = A \cup B,
+                        \]
+                        which proves that $X$ is not connected, a contradiction. Hence, every continuous function $f:X\to \{0,1\}$ is constant.
+                      </p>
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let $A$ and $B$ be connected and $A\cap B \neq \emptyset$. We need to show that $A\cup B$ is connected. If not, then there exists a non-constant continuous function $f:A\cup B\to \{0,1\}$. Since, $f$ is not constant, there must be elements, say $x\neq y$ such that $f(x) \neq f(y)$. Let $f(x) = 0$ and $f(y)=1$. If $x\in A$, abs as $A$ is connected, $f(A)=0$, similarly, if $x\in B$, then $f(B)=0$. So, without loss of generality, we assume that $f(A) = 0$ and $f(B) = 1$.   As, $A\cap B\neq \emptyset$, let $x\in A\cap B$. This means $f(x)=0$ and $f(x)=1$, which is absurd. Hence, $A\cup B$ is connected.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    The intersection of two connected spaces need not be connected. For example, take $X=\mathbb{R} ^2$ with the Euclidean topology and
+                    \[
+                        A = \mathbb{S} ^1,~\text{ and } B = [-2,2].
+                    \]
+                    Both the spaces are connected, but the intersection which is $\{-1,1\}$ is not connected. 
+                  </p>
+                  <div class="flex flex-wrap justify-center mt-4">
+                    <img
+                      src="../../../assets/img/prob-26-01-23_01.svg"
+                      class="max-w-sm h-auto transition-shadow ease-in-out duration-300 shadow-none hover:shadow-xl"
+                      alt="intersection of circle and an interval"
+                    />
+                  </div>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

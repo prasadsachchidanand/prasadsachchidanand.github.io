@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Differential equations, CSIR-NET, GATE, NBHM, JAM, mathematics, problems, solutions.">
+    <meta name="description" content="ODE, PDE, CSIR-NET, GATE, NBHM, JAM, mathematics, problems, solutions.">
     
 	<title>Problem of the day | 27-01-2023 | Differential Equations - Sachchidanand Prasad</title>
 
@@ -13,6 +13,8 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <link rel="stylesheet" href="../answer.css">
    
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 			
@@ -77,15 +79,79 @@
               <div class="flex-grow lg:px-32 px-6">
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong> Consider the ODE $ty^\prime -3y=t^2 y^{\frac{1}{2}},~y(1)=1$. Find the value of $y(2)$.
+                      <strong>Problem: </strong> Consider the ODE $ty^\prime -3y=t^2 y^{\frac{1}{2}},~y(1)=1$. Find the value of $y(2)$. 
                     </p> 
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> The given differential equation can be written as 
+                    \begin{equation}\label{eq:27Jan2023-1}
+                        y^{-\frac{1}{2}}y^\prime -\frac{3y^{\frac{1}{2}}}{t} = t\quad \left( \text{divide the given ODE by } ty^{\frac{1}{2}} \right)
+                    \end{equation}
+                    Take $y^{\frac{1}{2}} = u$. Then differentiating both sides with respect to  $t$, we have
+                    \begin{align*}
+                        \frac{1}{2}y^{-\frac{1}{2}} \frac{\mathrm{d} y}{\mathrm{d} t} = \frac{\mathrm{d} u}{\mathrm{d} t} \implies \frac{\mathrm{d}y}{\mathrm{d}t } = 2u \frac{\mathrm{d} u}{\mathrm{d} t}.
+                    \end{align*}
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Substituting the above in \eqref{eq:27Jan2023-1}, we obtain
+                    \begin{align*}
+                        2\frac{\mathrm{d} u}{\mathrm{d} t} - \frac{3u}{t} = t & \implies \frac{\mathrm{d} u}{\mathrm{d} t} - \frac{3}{2t}u = \frac{1}{2}t.
+                    \end{align*}
+                    Thus, we obtained a linear differential equation in the form
+                    \[
+                        \frac{\mathrm{d} y}{\mathrm{d} t} + P(t)y = Q(t).
+                    \]
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    In order to solve this differential equation, we multiply both sides by the integrating factor $I$ which is defined as 
+                    \[
+                        I = e^{\int P(t) \mathrm{d} t}.
+                    \]
+                    Here in the given differential equation, we have
+                    \[
+                        P(t) = -\frac{3}{2t},~\text{and }~ Q(t) = \frac{t}{2}.
+                    \]
+                    Thus, the integrating factor will be 
+                    \begin{align*}
+                        I & = e^{\int P(t)~\mathrm{d} t} \\
+                          & = e^{\int -\frac{3t}{2}~\mathrm{d} t} \\  
+                          & =  e^{-\frac{3}{2} \ln t} \\
+                          & = t^{\frac{-3}{2}}.
+                    \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Multiply both sides of the equation by the integrating factor to
+                    \begin{align*}
+                        & t^{-\frac{3}{2}} \frac{\mathrm{d} u}{\mathrm{d} t} - t^{-\frac{3}{2}} \frac{3}{2t}u = t^{-\frac{3}{2}} \frac{1}{2}t  \\
+                        \implies & \frac{\mathrm{d} }{\mathrm{d} t}\left( t^{-\frac{3}{2}} u(t) \right) = \frac{1}{2\sqrt{t} } \\
+                        \implies & \int \frac{\mathrm{d} }{\mathrm{d} t}\left( t^{-\frac{3}{2}} u(t) \right)~\mathrm{d} t = \int \frac{1}{2\sqrt{t} }\mathrm{d} t \\
+                        \implies & t^{-\frac{3}{2}} u(t) = \sqrt{t} + C .
+                    \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that 
+                    \[
+                        y(1) = 1 \implies u(1) = 1.
+                    \]
+                    So,
+                    \[
+                        t^{-\frac{3}{2}} u(t) = \sqrt{t} + C  \implies C = 0.
+                    \]
+                    Thus,
+                    \[
+                        u(t) = t^2 \implies  y(t) = t^4.
+                    \]
+                    Hence,
+                    \[
+                        \textcolor{blue}{\boxed{y(2) = 16}}
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
