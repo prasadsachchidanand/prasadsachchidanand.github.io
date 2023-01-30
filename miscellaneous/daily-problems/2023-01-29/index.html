@@ -108,9 +108,113 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> 1. We need to prove that the set $\mathcal{B} $ is linearly independent, i.e., if 
+                    \begin{equation}\label{eq:30Jan2023-1}
+                        a \sin x + b\cos x + c \tan x + d \sec x = 0,
+                    \end{equation}
+                    then $a=b=c=d=0$. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since \eqref{eq:30Jan2023-1} is true for all $x\in \left(-\frac{\pi}{2}, \frac{\pi}{2} \right) $, so we take $x=0,\frac{\pi}{6},\frac{\pi}{4},\frac{\pi}{3}$. We will get the following system of linear equations. 
+                    \begin{equation}\label{eq:30Jan2023-2}
+                        \begin{gathered}
+                            x= 0 \implies  0\cdot a + 1 \cdot b + 0\cdot c + 1 \cdot d = 0 \\
+                            x= \frac{\pi}{6} \implies  \frac{1}{2}\cdot a + \frac{\sqrt{3} }{2}  \cdot b + \frac{1}{\sqrt{3} }\cdot c + \frac{2}{\sqrt{3} } \cdot d = 0 \\
+                            x= \frac{\pi}{4} \implies  \frac{1}{\sqrt{2} }\cdot a + \frac{1}{\sqrt{2} } \cdot b + 1\cdot c + \sqrt{2}  \cdot d = 0 \\
+                            x= \frac{\pi}{3} \implies  \frac{\sqrt{3} }{2}\cdot a + \frac{1}{2} \cdot b + \sqrt{3} \cdot c + 2 \cdot d = 0.
+                        \end{gathered}
+                    \end{equation}
+                    The above system will have trivial solution if and only if the determinant of the coefficient matrix will be zero.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that
+                    \begin{align*}
+                        \begin{vmatrix}
+                            0 & 1 & 0 &  1 \\[1ex]
+                            \frac{1}{2} & \frac{\sqrt{3} }{2} & \frac{1}{\sqrt{3} } &  \frac{2}{\sqrt{3} } \\[1ex]
+                            \frac{1}{\sqrt{2} } & \frac{1}{\sqrt{2} } & 1 &  \sqrt{2}  \\[1ex]
+                            \frac{\sqrt{3} }{2} & \frac{1}{2} & \sqrt{3} &  2 \\
+                        \end{vmatrix} = 0.
+                    \end{align*}
+                    Thus, the system \eqref{eq:30Jan2023-2} has only trivial solution, and this proves that $a=b=c=d=0$. Therefore, the $\mathcal{B} $ is linearly independent.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    This can be solved in another way also. Consider the equation \eqref{eq:30Jan2023-1}. For every $x\in \left( -\frac{\pi}{2},\frac{\pi}{2} \right) $ we have, 
+                    \begin{align*}
+                        & a \sin x + b\cos x + c \tan x + d \sec x = 0\\
+                        \implies & a \sin x\cos x + b\cos^2 x + c \sin x + d = 0\\
+                        \implies & \sin x (a \cos x+c) = - \left( b \cos ^2x + d \right) \\
+                        \implies & \left[ \sin x (a \cos x+c) \right]^2  = \left( b \cos ^2x + d \right)^2 \\
+                        \implies & \sin ^2x \left( a^2 \cos ^2x + 2ac \cos x + c^2 \right) = b^2 \cos ^4x+2bd \cos ^2x + d^2 \\
+                        \implies & (1-\cos ^2x) \left( a^2 \cos ^2x + 2ac \cos x + c^2 \right) \\ 
+                        & \kern 2cm = b^2 \cos ^4x+2bd \cos ^2x + d^2 \\
+                        \implies & \left( a^2+b^2 \right) \cos ^4x + 2ac \cos ^3x + \left( c^2 -a^2 +2bd \right) \cos^2x \\
+                        & \kern 2cm - 2ac \cos x + (d^2 - c^2) = 0.
+                    \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that the above is a polynomial in $\cos x$, and it is zero for all $x\in \left( -\frac{\pi}{2},\frac{\pi}{2} \right) $, so the polynomial must be identically zero. Hence,
+                    \[
+                        a^2+b^{2} =0 ,~2ac=0,~ c^2 -a^{2} +2bd = 0,~2ac = 0,~d^2 - c^2 =0.
+                    \]
+                    The above proves that $a=b=c=d=0$.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that 
+                    \begin{align*}
+                        \sin ^2x+\cos ^2x = 1 \text{ and } \sec ^2x -\tan ^2x = 1.
+                    \end{align*}
+                    So we have,
+                    \begin{align*}
+                        & \left( \sin ^2x+\cos ^2x \right) + \left( \tan ^2x-\sec ^2x \right) = 0 \\
+                        \implies & \left( \sin ^2x+\cos ^2x \right) + \left( \tan ^2x-\sec ^2x \right) = 0 \\
+                        \implies & T (\sin x) + T(\cos x) + T(\tan x) - T(\sec x) = 0\\
+                        \implies & T (\sin x+\cos x+\tan x-\sec x) = 0.
+                    \end{align*}
+                    Thus, 
+                    \[
+                        \sin x+\cos x+\tan x-\sec x \in \ker T.
+                    \]
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now note that, $\dim W = 4$ and   
+                    \begin{align*}
+                        \sin^2x,\cos ^2x,\tan ^2x \in \mathrm{Im}(T). 
+                    \end{align*}
+                    We also observe that above are linearly independent. 
+                    \begin{align*}
+                        & a \sin ^2x + b \cos ^2x + c \tan ^2x = 0 \\
+                        \implies  & 0\cdot a + 1\cdot b + 0 \cdot c = 0 \\
+                        \implies  & \frac{1}{2}\cdot a + \frac{1}{2}\cdot b + 1 \cdot c = 0 \\
+                        \implies  & \frac{3}{4}\cdot a + \frac{1}{4}\cdot b + 3 \cdot c = 0.
+                    \end{align*}
+                    The coefficient matrix has zero determinant and hence, the system has trivial solution. Therefore, $\left\{ \sin ^2x,\cos ^2x,\tan ^2x \right\} $ is linearly independent.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now using the rank-nullity theorem we have
+                    \[
+                        \mathrm{rank}   + \mathrm{nullity}  = \dim W = 4.
+                    \]
+                    Since, $\mathrm{rank} \ge 3 $ and $\mathrm{nullity} \ge 1 $, so these two inequality must be an equality. Therefore, 
+                    \[
+                        \mathrm{rank} = 3,\text{ and  } \mathrm{nullity} =1. 
+                    \]  
+                    So we proved that,
+                    \[
+                        \ker T = \mathrm{span} \left(  \right).  
+                    \]
+                    So, a basis of kernel will be 
+                    \[
+                      \textcolor{blue}{\boxed{\text{basis of kernel } = \{\sin x+\cos x+\tan x-\sec x\}}}
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
