@@ -93,9 +93,46 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Note that for every natural number $n$, we have
+                    \[
+                        \left\vert \sin \frac{1}{n} \right\vert \le 1.
+                    \]
+                    So, 
+                    \begin{align*}
+                        -1 \le \sin \frac{1}{n} \leq 1 & \implies -\frac{1}{n} \leq \frac{1}{n}\sin \frac{1}{n} \leq \frac{1}{n}.
+                    \end{align*}
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="theorem text-black-900  lg:text-lg md:text-base">
+                      We recall the Sandwich theorem.
+                      Let $\left( a_n \right) ,\left( b_n \right) $ and $\left( c_n \right) $ be sequences such that 
+                      \[
+                          a_n \le b_n\le c_n,~\forall~n\in \mathbb{N} .
+                      \]
+                      If
+                      \[
+                          \lim_{n \to \infty} a_n = l = \lim_{n \to \infty} c_n,
+                      \] 
+                      then
+                      \[
+                          \lim_{n \to \infty} b_n = l.
+                      \]
+                  </div>
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mt-4">
+                    Here we have,
+                    \[
+                        a_n = -\frac{1}{n},~b_n = \frac{1}{n}\sin \frac{1}{n}\text{ and } c_n = \frac{1}{n}.
+                    \]
+                    We also have
+                    \[
+                        \lim_{n \to \infty} a_n = \lim_{n \to \infty} c_n = 0,
+                    \]
+                    hence using the Sandwich theorem, we conclude that 
+                    \[
+                        \lim_{n \to \infty} \frac{1}{n}\sin \left( \frac{1}{n} \right) =0.
+                    \]
+                    Thus, the limit point of the given set is $\{0\}$. 
+                  </p>                  
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
