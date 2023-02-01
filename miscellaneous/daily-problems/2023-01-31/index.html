@@ -94,9 +94,42 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>  In order to solve this problem, we recall the identity theorem. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="theorem text-black-900  lg:text-lg md:text-base mb-2">
+                    (Identity Theorem) Let $\Omega $ be a domain (open and connected) in $\mathbb{C} $ and $f,g:\Omega \to \mathbb{C} $ be analytic functions. If the set $E= \{z\in \Omega :f(z)=g(z)\}$ contains a limit point, then $f(z) = g(z)$ for all $z\in \Omega $.  
+                  </div>
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    The above statement sometimes written as
+                  </p> 
+                  <div class="theorem text-black-900  lg:text-lg md:text-base my-4">
+                    Let $\Omega $ be a domain (open and connected) in $\mathbb{C} $ and $f,g:\Omega \to \mathbb{C} $ be analytic functions. If there exists an infinite sequence $\left\{ z_n \right\} \subset \Omega $ such that $f \left( z_n \right) = g\left( z_n \right),~\forall ~n\in \mathbb{N}$ and $z_n \to z_0\in \Omega $ then $f(z) = g(z)$ for all $z\in \omega $.  
+                  </div>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Here we define 
+                    \[
+                        g: D \to \mathbb{C} ,~ z \mapsto \frac{2}{3+z}.
+                    \]
+                    Note that,
+                    \[
+                        g\left( \frac{1}{n} \right) = \frac{2}{3+\frac{1}{n}} = \frac{2n}{1+3n},
+                    \]
+                    and $\frac{1}{n}\to 0\in D$. Thus using the identity theorem we conclude that 
+                    \[
+                        f(z) = g(z),~\forall~z\in D.
+                    \]
+                    Theretofore, 
+                    \[
+                        f(z) = \frac{2}{3+z},~\forall~z\in D.
+                    \]
+                    So,
+                    \begin{align*}
+                        f(0) + f^\prime (0) = \frac{2}{3} - \frac{2}{9} = \frac{4}{9}.
+                    \end{align*}
+                  </p>
+                  
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
