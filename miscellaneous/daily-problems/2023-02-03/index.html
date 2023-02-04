@@ -94,9 +94,75 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We will solve this by using the Lagrange's method. Recall that if
+                    \[
+                        P(x,y,z) \frac{\partial x}{\partial z} + Q(x,y,z) \frac{\partial y}{\partial z} = R(x,y,z),
+                    \] 
+                    then the auxiliary equations are 
+                    \[
+                        \frac{\mathrm{d} x}{P} = \frac{\mathrm{d} y}{Q} = \frac{\mathrm{d} z}{R}.
+                    \]
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Here in the given problem, the auxiliary equations will be
+                    \[
+                        \frac{\mathrm{d} x}{x} = \frac{\mathrm{d} y}{y} = \frac{\mathrm{d} z}{z}.
+                    \]
+                    We take 
+                    \begin{align*}
+                        \frac{\mathrm{d} x}{x} = \frac{\mathrm{d} y}{y} & \implies \ln x = \ln y + \ln C_1 \\
+                            & \implies \ln \left( \frac{x}{y} \right) = c \\
+                            & \implies \frac{x}{y} = C_1.
+                    \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly, we have
+                    \[
+                        \frac{\mathrm{d} y}{y} = \frac{\mathrm{d} z}{z} \implies \frac{y}{z} = C_2,
+                    \]
+                    and
+                    \[
+                        \frac{\mathrm{d} x}{x} = \frac{\mathrm{d} z}{z} \implies \frac{x}{z} = C_3.
+                    \]
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We can consider any two of the above equations. Let us consider 
+                    \[
+                        \frac{x}{y} = C_1, ~\text{ and }~\frac{y}{z}=C_2.
+                    \]
+                    Then, the general solution of the given PDE will be 
+                    \[
+                        f\left( \frac{x}{y},\frac{y}{z} \right) =0,
+                    \]
+                    where $f$ is an arbitrary function of two variables. This is equivalent to 
+                    \[
+                        \phi \left( \frac{x}{y} \right) = \frac{y}{z},
+                    \]
+                    where $\phi $ is an arbitrary function of two variables.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will use the initial conditions to determine the function. Note that if $x=t$, then 
+                    \[
+                        y = \sqrt{1-t^2},\text{ and } z=1. 
+                    \] 
+                    So, 
+                    \begin{align*}
+                        \phi \left( \frac{x}{y} \right) = \frac{y}{z} & \implies \phi (t) = \sqrt{1-t^2} \\
+                        & \implies \phi \left( \frac{x}{z} \right) = \sqrt{1-\left( \frac{x}{z} \right) ^2} \\
+                        & \implies \frac{y}{z} = \sqrt{1-\frac{x^{2} }{z^{2} }} \\
+                        & \implies \frac{y^2}{z^2}= 1-\frac{x^2}{z^2} \\
+                        & \implies  z^2 = x^2 + y^2\\
+                        & \implies z = \sqrt{x^2 + y^2},~\text{since z>0}. 
+                    \end{align*}
+                    Thus, the solution of the given Cauchy problem will be
+                    \[
+                        \textcolor{blue}{\boxed{z = \sqrt{x^2 + y^2} }}
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
