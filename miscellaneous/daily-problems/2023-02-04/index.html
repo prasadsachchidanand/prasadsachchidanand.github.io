@@ -86,9 +86,101 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We want to find the number of surjective functions from a set of $10$ elements to a set of $9$ elements. This is equivalent to partitioning $10$ balls into $9$ baskets such that non of the baskets is empty assuming all are distinct. This partition can be done by assigning two balls in one of the basket and one ball in other baskets. For the first basket we have $\binom{10}{2}$ choices and for other we have only one choice. We can also permute it, so the total number of ways will be 
+                    \[
+                        \binom{10}{2} \times 9!.
+                    \] 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let us understand with smaller numbers. For example, if we have a set $A$ with $3$ elements and a set $B$ with $2$ elements, then finding the number of surjective function from $A$ to $B$ is same as partition $3$ into two sets. If $A=\{a,b,c\}$ and $B=\{1,2\}$, then the functions that are surjective can be determined as follows. 
+                    \begin{align*}
+                      &
+                      \begin{pmatrix}
+                          a & b &  c \\
+                          1 & 1 &  2 \\
+                      \end{pmatrix}
+                      \begin{pmatrix}
+                          a & b &  c \\
+                          1 & 2 &  1 \\
+                      \end{pmatrix}
+                      \begin{pmatrix}
+                          a & b &  c \\
+                          2 & 1 &  1 \\
+                      \end{pmatrix}
+                      \\[1ex]
+                      &
+                      \begin{pmatrix}
+                          a & b &  c \\
+                          1 & 2 &  2 \\
+                      \end{pmatrix}
+                      \begin{pmatrix}
+                          a & b &  c \\
+                          2 & 1 &  2 \\
+                      \end{pmatrix}
+                      \begin{pmatrix}
+                          a & b &  c \\
+                          2 & 2 &  1 \\
+                      \end{pmatrix}.
+                  \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <div class="flex flex-wrap justify-center mt-4">
+                      <img
+                        src="../../../assets/img/prob-05-02-23_01.svg"
+                        class="h-auto transition-shadow ease-in-out duration-300 shadow-none hover:shadow-xl"
+                        alt="number of surjective functions-2"
+                      />
+                    </div>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                    <div class="flex flex-wrap justify-center mt-4">
+                      <img
+                        src="../../../assets/img/prob-05-02-23_02.svg"
+                        class="h-auto transition-shadow ease-in-out duration-300 shadow-none hover:shadow-xl"
+                        alt="number of surjective functions-2"
+                      />
+                    </div>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    If we try to follow the functions, then we observe that this is a partition of $3$ into $2$ parts, that is, $2+1$. Let us take $1\in B$, then in the preimage we can have  two elements or one element, and same for the $2\in B$. Therefore, total number of surjective function will be 
+                    \[
+                        \binom{3}{2}\times 2! = 6.
+                    \] 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    In general, let 
+                    \[
+                        A = \{x_1,\cdots,x_n\},~\text{and } B = \{y_1,\cdots,y_m\}.
+                    \]
+                    Let $f:A\to B$ be a surjective function. Since, $f$ is surjective, $f^{-1}\left( y_i \right) $ is non-empty for each $i=1,2,\cdots,m$ and they cover the set $A$. Therefore they form a partition of the set $A$. The number of partitions of a set of $n$ elements into $m$ parts is defined by the <a class="text-blue-500 hover:text-blue-800" href="https://en.wikipedia.org/wiki/Stirling_numbers_of_the_second_kind" target="
+                    ">Stirling numbers of thew second kind, $S(n,m)$</a>.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <div class="flex flex-wrap justify-center mt-4">
+                      <img
+                        src="../../../assets/img/prob-05-02-23_03.svg"
+                        class="max-w-md h-auto transition-shadow ease-in-out duration-300 shadow-none hover:shadow-xl"
+                        alt="number of surjective functions-2"
+                      />
+                    </div>
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that each element $y_j\in B$ can be associated to any partition, therefore, each partition gives $m!$ surjections. Thus, the total number of surjective functions from a set of $n$ elements to a set of $m$ elements will be
+                    \[
+                        m!S(n,m).
+                    \]  
+
+                    Just for the reference, we provide a formula for the above function. 
+                    \[
+                        S(n,m) = \frac{1}{m!} \sum_{i=0} ^m (-1)^i \binom{m}{i} (m-i)^n.
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
