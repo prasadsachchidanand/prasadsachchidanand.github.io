@@ -98,9 +98,60 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> It is clear that the function is continuous and all derivative exists other than $0$. We need to check the continuity and differentiability of the given function at $x=0$.
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let us start with the continuity of the function at $0$. Note that 
+                    \[
+                        \lim_{x \to 0} f(x) = \lim_{x \to 0} \frac{\sin x}{x} = 1 = f(0).
+                    \]
+                    Therefore, the function is continuous at $x=0$.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will discuss the differentiability of the function. One easy way to look at this problem is to consider the Taylor series of the $\sin $ function. We have
+                    \begin{align*}
+                        & \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots \\
+                        \implies  & \frac{\sin x}{x} = 1 - \frac{x^2}{3!} + \frac{x^4}{4!} + \cdots.
+                    \end{align*}
+                    Thus the function is differentiable $0$. Moreover, this also implies all the derivatives of the given function exists at $x=0$. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    In order to see the same with the definition of differentiation, we consider the following limit.
+                    \begin{align*}
+                        \lim_{h \to 0} \frac{f(0+h)-f(0)}{h} & = \lim_{h \to 0} \frac{\frac{\sin h}{h}-1}{h} \\
+                        & = \lim_{h \to 0} \frac{\sin h - h}{h^2}.
+                    \end{align*}
+                    <br>
+                    As the above limit is in the form of $\frac{0}{0}$, we will apply the L'Hospital rule. So,
+                    \begin{align*}
+                        \lim_{h \to 0} \frac{\sin h - h}{h^2} & = \lim_{h \to 0} \frac{(\sin h-h)^\prime }{\left( h^2 \right)^\prime  } \\
+                        & = \lim_{h \to 0} \frac{\cos h-1}{2h} \\
+                        & = \lim_{h \to 0} \frac{(\cos h-1)^\prime }{(2h)^\prime } \\
+                        & = \lim_{h \to 0} \frac{-\sin h}{2} \\
+                        & = 0.
+                    \end{align*} 
+                    Thus, the function is differentiable at $x=0$. The derivative will be 
+                    \[
+                        f^\prime (x) = \begin{dcases}
+                            \frac{x \cos x-\sin x}{x^2}, &\text{ if } x\neq 0 ;\\
+                            0, &\text{ if } x=0.
+                        \end{dcases}
+                    \]
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now let us see whether the derivative function is continuous or not. For that, consider the following limit and will apply the L'Hospital rule various times.
+                    \begin{align*}
+                        \lim_{x \to 0} f^\prime (x) & = \lim_{x \to 0} \frac{x\cos x -\sin x}{x^2} \\
+                        & = \lim_{x \to 0} \frac{\cos x-x\sin x-\cos x}{2x} \\
+                        & = \lim_{x \to 0} \frac{-\sin x}{2} \\
+                        & = 0.
+                    \end{align*}
+                    Thus, the derivative function is continuous. 
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
