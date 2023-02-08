@@ -101,9 +101,48 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We will use the <a href="https://en.wikipedia.org/wiki/Liouville%27s_theorem_(complex_analysis)" target="
+                    " class="text-blue-500 hover:text-blue-800">Liouville's theorem</a>. Let us recall the same.
+                    <div class="theorem lg:text-lg md:text-base text-justify">
+                      Let $f:\mathbb{C} \to \mathbb{C}$ be a entire function. Suppose that $f$ is bounded, that is, there exists a real number $M\gt 0$ such that $|f(z)|\lt M$ for all $z$. Then $f$ is a constant function. 
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    1. We take a function $g(z) = e^z$. Note that 
+                    \[
+                        \left\vert e^{-f(z)} \right\vert = \left\vert e^{-u} e^{-\iota v} \right\vert = \left\vert e^{-u} \right\vert \lt e^0 = 1.
+                    \]
+                    Thus, $e^{-f(z)}$ is a constant function. Since $f(z)$ is an entire function and composition of two entire functions is an entire function, so $e^{-f(z)}$ is an entire function. Thus using the Liouville's theorem, we conclude that $e^{-f(z)}$ is constant and hence, $f(z)$ is constant.  
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    2. Choose the function $g(z) = e^{z^2}$. We note that 
+                    \begin{align*}
+                        \left\vert e^{f(z)^2} \right\vert & = \left\vert e^{u^{2+2\iota u v - v^2} } \right\vert \\
+                        & = \left\vert e^{u^2 - v^2}e^{2\iota uv} \right\vert   \\
+                        & = \left\vert e^{u^2 -v^2} \right\vert \\
+                        & \lt e^0 \quad \boxed{u(x,y)^2 \lt v(x,y)^2}\\
+                        & = 1.
+                    \end{align*}
+                    Thus, $e^{f(z)^2}$ is a constant function. Since $f(z)$ is an entire function and composition of two entire functions is an entire function, so $e^{f(z)^2}$ is an entire function. Thus using the Liouville's theorem, we conclude that $e^{f(z)^2}$ is constant which implies $f(z)^2$ is constant and hence, $f(z)$ is a constant function. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    2. Choose the function $g(z) = e^{z^2}$. We note that 
+                    \begin{align*}
+                        \left\vert e^{f(z)^2} \right\vert & = \left\vert e^{u^{2+2\iota u v - v^2} } \right\vert \\
+                        & = \left\vert e^{u^2 - v^2}e^{2\iota uv} \right\vert   \\
+                        & = \left\vert e^{u^2 -v^2} \right\vert \\
+                        & \lt e^0 \quad \boxed{u(x,y)^2 \lt v(x,y)^2}\\
+                        & = 1.
+                    \end{align*}
+                    Thus, $e^{f(z)^2}$ is a constant function. Since $f(z)$ is an entire function, so is $f(z)^2$ and composition of two entire functions is an entire function, therefore, $e^{f(z)^2}$ is an entire function. Thus using the Liouville's theorem, we conclude that $e^{f(z)^2}$ is constant which implies $f(z)^2$ is constant and hence, $f(z)$ is a constant function. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    3. If we replace by greater than sign then also both conclusion will remain same. For the first, we can take $g(z)=e^{f(z)}$ and for the other one, we take $e^{-f(z)^2}$.  
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
