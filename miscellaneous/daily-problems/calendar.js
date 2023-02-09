@@ -41,10 +41,12 @@ function generate_year_range(start, end) {
   
   
   function next() {
-    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
-    currentMonth = (currentMonth + 1) % 12;
-    showCalendar(currentMonth, currentYear);
-    links () 
+    if (currentMonth !== 1 || currentYear !== 2023) {
+      currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+      currentMonth = (currentMonth + 1) % 12;
+      showCalendar(currentMonth, currentYear);
+      links ()
+    }
   }
   
   function previous() {
