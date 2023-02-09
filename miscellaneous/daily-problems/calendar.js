@@ -48,10 +48,12 @@ function generate_year_range(start, end) {
   }
   
   function previous() {
-    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-    showCalendar(currentMonth, currentYear);
-    links () 
+    if(currentMonth != 0 && currentYear != 2022) {
+      currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+      currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+      showCalendar(currentMonth, currentYear);
+      links () 
+    }
   }
   
   function jump() {
