@@ -21,6 +21,22 @@
     font-weight: bold;
   }
 
+  .remark {
+    border-left: 0.25rem solid rgb(67, 89, 255);
+    background-color: rgb(229, 240, 253);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    margin-top: .5rem;
+    padding: 1rem;
+    line-height: 1.625;
+    line-height: 1.625;
+  }
+
+  .remark::before {
+    content: "Remark: ";
+    font-weight: bold;
+  }
+
   .proof {
     border-left: 0.25rem solid rgb(61, 223, 255 );
     background-color: rgb(223, 245, 250);
