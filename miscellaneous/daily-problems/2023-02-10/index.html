@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real analysis, complex analysis, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="Let $(X,d)$ be any metric space. Suppose that every function 
+    <meta name="description" content="Solve the following differential equation. 
     \[
-        f: \left( \mathbb{R}, d_{\textup{Euc}} \right) \to (X,d)
-    \]
-    is continuous, where $d_{\textup{Euc}}$ is the Euclidean metric on $\mathbb{R} $. Then prove that $d$ is the discrete metric.  ">
+        y\mathrm{d} x-x\mathrm{d} y+ \left( 1+x^{2}  \right) \mathrm{d} x + x^{2} \sin y ~\mathrm{d} y=0,~y(1)=0.
+    \]">
     
 	<title>Problem of the day | 10-02-2023 | Differential Equations - Sachchidanand Prasad</title>
 
@@ -84,18 +83,42 @@
               <div class="flex-grow lg:px-32 px-6">
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong> Solve the following differential equation. 
+                      <strong>Problem: </strong>Solve the following differential equation. 
                       \[
-                          y\mathrm{d} x-x\mathrm{d} y+ \left( 1+x^{2}  \right) \mathrm{d} x + x^{2} \sin y ~\mathrm{d} y=0,~y(0)=0.
+                          y\mathrm{d} x-x\mathrm{d} y+ \left( 1+x^{2}  \right) \mathrm{d} x + x^{2} \sin y ~\mathrm{d} y=0,~y(1)=0.
                       \]
                     </p> 
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The given differential equation is 
+                    \[
+                        y\mathrm{d} x-x\mathrm{d} y+ \left( 1+x^{2}  \right) \mathrm{d} x + x^{2} \sin y ~\mathrm{d}.
+                    \]
+                    We divide the above equation by $x^{2} $ we get
+                    \begin{align*}
+                        & \frac{y\mathrm{d} x - x\mathrm{d} y}{x^2} + \frac{1+x^{2} }{x^{2} } \mathrm{d} x + \sin y\mathrm{d} y = 0 \\
+                        \implies  & - \frac{x\mathrm{d} y-y\mathrm{d} x}{x^{2} } + \left( \frac{1}{x^{2} }+1 \right) \mathrm{d} x + \sin y\mathrm{d} y = 0 \\
+                        \implies  & -d\left( \frac{y}{x} \right) + \left( 1+\frac{1}{x^{2} } \right) \mathrm{d} x + \sin y\mathrm{d} y =0.
+                    \end{align*}
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Integrating the above, we get 
+                    \begin{align*}
+                        & -\frac{y}{x} + \left( x-\frac{1}{x} \right) - \cos  y = c \\
+                        \implies  & -y + x^{2} - 1 - x\cos y = cx,
+                    \end{align*}
+                    where $c$ id an arbitrary constant. Now to get the value of $c$, we will use the initial condition. We substitute $x=1$ and $y=0$.  
+                    \begin{align*}
+                        -0 + 1 - 1 - 1 = c & \implies c = -1.
+                    \end{align*}
+                    Thus, the solution of the given differential equation will be
+                    \[
+                        \textcolor{blue}{\boxed{y-x^{2}-x+x\cos y= - 1 }}
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
