@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real analysis, complex analysis, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="Suppose that a set $A$ is countable and $B$ is uncountable. Then whether the set $B\setminus A$ is countable?">
+    <meta name="description" content="Prove tha the following series converges. 
+    \[
+        \sum_{n=1}^{\infty} \frac{n}{n^4 - n^{2} + 1}.
+    \]">
     
-	<title>Problem of the day | 11-02-2023 | Countability - Sachchidanand Prasad</title>
+	<title>Problem of the day | 13-02-2023 | Real Analysis - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -72,7 +75,7 @@
       <section class="text-gray-600 body-font">
         <div class="container xl:px-36 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">11-02-2023</h2>
+            <h2 class="text-gray-900 text-3xl title-font font-medium">13-02-2023</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
@@ -80,29 +83,54 @@
               <div class="flex-grow lg:px-32 px-6">
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong> Suppose that a set $A$ is countable and $B$ is uncountable. Then whether the set $B\setminus A$ is countable?
+                      <strong>Problem: </strong>Prove tha the following series converges. 
+                      \[
+                          \sum_{n=1}^{\infty} \frac{n}{n^4 - n^{2} + 1}.
+                      \]
                     </p> 
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> Given that $A$ is countable and $B$ is uncountable. We claim that $B\setminus A$ is uncountable. For that, let us suppose that $B\setminus A$ is countable, then we have 
-                    \[
-                        B = \left( B\setminus A \right) \cup A.
-                    \]
-                    Since $A$ is countable and $B\setminus A$ is supposed to be countable, and union of countable sets is countable and hence $B$ is countable, a contradiction. Therefore, $B\setminus A$ is uncountable. 
+                    <strong>Solution: </strong> Note that for $n\ge 2$, we have 
+                    \begin{align*}
+                        & n^4 - n^2 + 1 > n^4 - n^{2} = n^2 \left( n^2 - 1 \right) > n^2\times \frac{n^2}{2} > 0.
+                    \end{align*}
+                    Therefore, we have
+                    \begin{align*}
+                        & 0 \lt \frac{1}{n^4 - n^2 + 1} \lt \frac{2}{n^4} 
+                        \\
+                        \implies & 0 \lt \frac{n}{n^4 - n^{2} +1} \lt \frac{2}{n^3}.
+                    \end{align*}
+                    We will now use the comparison test for the convergence of the given series. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
-                </div>
-                <div class="remark leading-relaxed lg:text-lg md:text-base text-justify">
-                  A general result regrading the countability is true which says that countable union of countable sets is countable. 
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="theorem eading-relaxed lg:text-lg md:text-base text-justify">
+                    (<strong>Comparison Test</strong>) Suppose we have two series, $\sum a_n$ and $\sum b_n$ with $a_n,b_n \geq  0$ for all $n$ and $a_n \le b_n$ for all $n$ (we can also assume that there exists $n_0\in \mathbb{N} $ such that this holds for all $n\ge n_0$). Then,
+                    <ol class="py-2 px-8 list-decimal list-inside lg:text-lg md:text-base">
+                      <li>
+                        If $\sum_{n=1}^{\infty}  b_n$ is convergent, then $\sum_{n=1}^{\infty} a_n$ is also convergent.
+                      </li>
+                      <li>
+                        If $\sum_{n=1}^{\infty}  a_n$ is divergent, then $\sum_{n=1}^{\infty} b_n$ is also divergent.
+                      </li>
+                    </ol>
+                  </div>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that using the $p$ series test, which says that $\sum \frac{1}{n^p}$ converges if and only if $p>1$, the series 
+                    \[
+                        \sum_{n=1} ^ \infty  \frac{2}{n^3}
+                    \]
+                    converges. Therefore, using the comparison test, the given series is convergent. 
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-02-10/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-02-12/">
                           Previous 
                         </a>
                       </li>
@@ -112,7 +140,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-02-12/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-02-14/">
                           Next 
                         </a>
                       </li>
