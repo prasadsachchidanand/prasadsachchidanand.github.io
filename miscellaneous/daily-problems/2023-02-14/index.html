@@ -93,9 +93,42 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We will use the Argument principle to solve this problem.
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let $\gamma $ be a simple closed curve, oriented counterclockwise direction. Suppose that $f$ is an analytic function on and inside $\gamma$ except for (possibly) some finite poles inside (not on ) $\gamma $ and some zeros inside (not on) $\gamma $. Then we have
+                    \[
+                        \int_\gamma \frac{f^\prime (z)}{f(z)}\mathrm{d} z = 2\pi \iota \left( Z-P \right) ,
+                    \]
+                    where $Z$ and $P$ denotes the number of zeros and poles of $f(z)$ inside $\gamma $ respectively, with each zero and pole counted with multiplicity.
+                  </div>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Therefore, we have
+                    \begin{equation}\label{eq:14Feb2023-1}
+                        \int_{\vert z \vert =3} \frac{f^\prime (z)}{f(z)}\mathrm{d} z = 2\pi \iota \left( Z-P \right).
+                    \end{equation}
+                    Here we have
+                    \[
+                        \textup{Zeros} = \{2,2,2,0,0,0\},~\textup{Poles} = \{-1,-1,-1,1,1,1,1\}.
+                    \]
+                  </p>
+
+                  <div class="flex flex-wrap justify-center my-4">
+                    <img
+                      src="../../../assets/img/prob-14-02-23_01.svg"
+                      class="max-w-sm h-auto"
+                      alt="Argument principle"
+                    />
+                  </div>
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Thus, $Z=6$ and $P=7$. Therefore, using \eqref{eq:14Feb2023-1} we will get,
+                    \[
+                        \int_{\vert z \vert =3} \frac{f^\prime (z)}{f(z)}\mathrm{d} z = 2\pi \iota (6-7) = -2\pi \iota.
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
