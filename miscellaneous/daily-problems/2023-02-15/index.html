@@ -86,9 +86,37 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Given that order of group $G$ is $9$. Since $o(G)=3^2$, so any non-identity element of $G$ must have order $3$ or $9$ (using the Lagrange's Theorem). If there is an element whose order is $9$, then $G$ will be cyclic and hence abelian. So, let us assume that order of every non-identity element is $3$. Let $x\in G$ and take $y\in G\setminus \langle x \rangle $. So, the elements of $G$ will be of the form $x^i y^j$ for $i,j \in \{0,1,2\}$. It is enough to show that $xy=yx$.
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let $yx=x^iy^j$ for some $i,j\in \{0,1,2\}$. If either of $i$ or $j$ is zero, then we will get $y\in \langle x \rangle $, a contradiction. So, $i$ and $j$ both are non-zero. We will show that all other cases are not possible.
+                    \begin{align*}
+                        yx = x^2 y & \implies yxy^{-1} = x^2 \\
+                                  & \implies \left( yxy^{-1} \right)^3 = \left( x^2 \right)^3 = x^2 \\
+                                  & \implies y^3 x y^{-3} = x^2 \\
+                                  & \implies x = x^2,
+                    \end{align*}   
+                    a contradiction.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly, 
+                    \begin{align*}
+                        yx = xy^2 & \implies x^{-1}yx = y^2 \\
+                                  & \implies x^{-3}yx^3 = y^8 = y^2 \\ 
+                                  & \implies y = y^2,
+                    \end{align*}
+                     a contradiction. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Finally, if 
+                    \begin{align*}
+                        yx = x^2 y^2 & \implies yx = x^{-1} y^{-1} = (yx)^{-1},
+                    \end{align*}
+                    which implies order of $yx$ is either $1$ or $2$, any of this is not possible ($1$ is not possible because it can not be identity and $2$ is not possible due to Lagrange's theorem). Therefore, none of the possibility is true and hence, $yx=xy$. Thus, we proved that $G$ is an abelian group.
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
