@@ -92,10 +92,11 @@
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
                     Let $yx=x^iy^j$ for some $i,j\in \{0,1,2\}$. If either of $i$ or $j$ is zero, then we will get $y\in \langle x \rangle $, a contradiction. So, $i$ and $j$ both are non-zero. We will show that all other cases are not possible.
                     \begin{align*}
-                        yx = x^2 y & \implies yxy^{-1} = x^2 \\
-                                  & \implies \left( yxy^{-1} \right)^3 = \left( x^2 \right)^3 = x^2 \\
-                                  & \implies y^3 x y^{-3} = x^2 \\
-                                  & \implies x = x^2,
+                        yx = x^2 y  & \implies yxy^{-1} = x^2 \\
+                                    & \implies y^2xy^{-2} = y\left( x^2 \right)y^{-1} = \left( yxy^{-1} \right)^2 = x^4 \\
+                                    & \implies y^{3}x y^{-3} = x^8 
+                                    & \implies y^3 x y^{-3} = x^2 \\
+                                    & \implies x = x^2,
                     \end{align*}   
                     a contradiction.
                   </p>
