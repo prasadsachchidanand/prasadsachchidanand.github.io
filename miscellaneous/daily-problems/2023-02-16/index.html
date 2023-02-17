@@ -94,7 +94,11 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $\mathcal{U} = \left\{ U_\alpha  \right\}_{\alpha \in I}$ be an open cover of $X$. We need to show that $\mathcal{U} $ has a finite subcover. Let $U\in \mathcal{U} $. Since $U$ is open, so it either $X$ or $\emptyset$ or $U^c = X\setminus U$ is finite. Since $U$ is non-empty, it can be either $X$ or the complement is finite. If it is $X$, $U$ itself covers $X$ and we are done. Let $U\neq X$, so $U^c$ is finite. Let $U^c = \left\{ x_1,x_2,\ldots, x_k \right\} $. We choose $U_i\in \mathcal{U} $ such that $x_i\in U_i$, for $i=1,2,\ldots,k$. Note tha 
+                    \[
+                        X = U \cup U_1 \cup U_2 \cup \cdots \cup U_k
+                    \]
+                    Thus we obtained a finite subcover of $\mathcal{U} $, and hence, $X$ is compact.
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
