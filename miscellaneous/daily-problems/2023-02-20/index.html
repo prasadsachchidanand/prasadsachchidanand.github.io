@@ -91,9 +91,63 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We need to find compute 
+                    \[
+                        \lim_{(x,y) \to (0,0)} \left( \vert x \vert +\vert y \vert  \right) \ln \left( x^4 + y^4 \right) .
+                    \]
+                    At first we recall the generalized mean inequality.. This inequality will be helpful to solve later problems also. 
+                    <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify my-2">
+                      For any $p \lt q$ we have the following inequality:
+                        \begin{equation}\label{eq:eq:20Feb2023-1}
+                            \left( \sum_{i=1} ^n w_i x_i^p \right) ^{\frac{1}{p}} \lt \left( \sum_{i=1} ^n w_i x_i^q \right) ^{\frac{1}{q}}.
+                        \end{equation}
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    In our problem, we take $p=1$, $q=4$, and $w_1=w_2=\frac{1}{2}$, we get
+                    \begin{align*}
+                        & \left( \frac{1}{2}\cdot \vert x \vert + \frac{1}{2}\cdot \vert y \vert  \right) ^{\frac{1}{1}} \leq \left( \frac{1}{2}\cdots |x|^4+ \frac{1}{2}\cdots \vert y \vert^4 \right)^{\frac{1}{4}}
+                        \\
+                        \implies & \frac{\vert x \vert +\vert y \vert }{2} \leq \frac{1}{2^{\frac{1}{4}}} \left( x^4 + y^4 \right) ^{\frac{1}{4}}
+                        \\
+                        \implies & \vert x \vert + \vert y \vert \leq \frac{2}{\sqrt[4]{2}} \sqrt[4]{x^4 + y^4} .
+                    \end{align*} 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Therefore, we have
+                    \begin{align*}
+                        \left( \vert x \vert +\vert y \vert \right) \left\vert \ln  \left( x^4 + y^4  \right) \right\vert  & \leq  \frac{2}{\sqrt[4]{2}} \sqrt[4]{x^4 + y^4} \left\vert \ln  \left( x^4 + y^4  \right) \right\vert 
+                        \\
+                        & = \frac{2}{\sqrt[4]{2}} \sqrt[4]{x^4 + y^4} \left\vert 4\cdot \ln  \left( x^4 + y^4  \right)^{\frac{1}{4}} \right\vert 
+                        \\
+                        & = \frac{8}{\sqrt[4]{2}} \sqrt[4]{x^4 + y^4} \left\vert \ln \sqrt[4]{x^4 + y^4}  \right\vert.
+                    \end{align*}
+                    So we have 
+                    \[
+                        \lim_{(x,y) \to (0,0)} \frac{8}{\sqrt[4]{2}} \sqrt[4]{x^4 + y^4} \left\vert \ln \sqrt[4]{x^4 + y^4}  \right\vert = 0,
+                    \]
+                    as 
+                    \begin{align*}
+                        \lim_{x \to 0^+} x \ln x & = \lim_{x \to 0^+} \frac{\ln x}{\frac{1}{x}} 
+                        \\
+                        & = \lim_{x \to 0^+} \frac{\frac{1}{x}}{-\frac{1}{x^2}} \quad \left( \text{Applying L'Hospital rule} \right) 
+                        \\
+                        & = \lim_{x \to 0^+} -x = 0.
+                    \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    NNow note that 
+                    \[
+                        0 \leq  \left( \vert x \vert +\vert y \vert  \right) \ln \left( x^4 + y^4 \right) \leq \frac{8}{\sqrt[4]{2}} \sqrt[4]{x^4 + y^4} \left\vert \ln \sqrt[4]{x^4 + y^4}  \right\vert,
+                    \]
+                    applying Sandwich theorem, we conclude that 
+                    \[
+                        \textcolor{blue}{\boxed{\lim_{(x,y) \to (0,0)} \left( \vert x \vert +\vert y \vert  \right) \ln \left( x^4 + y^4 \right) = 0}}
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

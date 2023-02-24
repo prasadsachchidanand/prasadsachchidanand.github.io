@@ -4,15 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NBHM 2006, NBHM 2006 Problem-7, Write down a matrix P such that $P^{-1}AP$ is a a diagonal.">
+    <meta name="description" content="Topology, Real analysis, complex analysis, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
+    <meta name="description" content="This problem gives a way to construct $\mathbb{C} $ from $\mathbb{R} $.  Let 
+    \[
+        \mathcal{C} = \left\{ \begin{pmatrix}
+            a &  b \\
+            -b &  a \\
+        \end{pmatrix} : a,b \in \mathbb{R}  \right\} \subseteq M_2(\mathbb{R} ).
+    \]">
     
-	<title>Problem of the day | 02-01-2023 - Sachchidanand Prasad</title>
+	<title>Problem of the day | 22-02-2023 | Abstract Algebra  - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <link rel="stylesheet" href="../answer.css">
    
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 			
@@ -20,7 +29,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
   crossorigin="anonymous"></script>
   
-  <!-- This will not allow user to slect text -->
+  <!-- This will not allow user to select text -->
   <!-- <style>
     body {
       user-select: none; /* supported by Chrome and Opera */
@@ -69,16 +78,291 @@
       <section class="text-gray-600 body-font">
         <div class="container xl:px-36 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
+            <h2 class="text-gray-900 text-3xl title-font font-medium">22-02-2023</h2>
+            <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+          </div>
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
             <div class="p-4 md:w-full flex">
               <div class="flex-grow lg:px-32 px-6">
-                <div class="flex flex-col items-center justify-center">
-                  <img src="https://cdn.pixabay.com/photo/2017/06/20/08/12/maintenance-2422173__340.png"
-                    alt="tailwindcss maintenance">
-                  <h1 class="mb-3 text-3xl font-bold text-center text-purple-600">Accessing Daily Problems: Wait for the Date</h1>
-                  <p class="text-justify text-gray-600">
-                    You are attempting to access a date that has not yet come to pass. It is important to wait until the designated date arrives in order to view the problem that will be posted on this platform.
+                <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
+                    <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                      <strong>Problem: </strong>This problem gives a way to construct $\mathbb{C} $ from $\mathbb{R} $.  Let 
+                      \[
+                          \mathcal{C} = \left\{ \begin{pmatrix}
+                              a &  b \\
+                              -b &  a \\
+                          \end{pmatrix} : a,b \in \mathbb{R}  \right\} \subseteq M_2(\mathbb{R} ).
+                      \]
+                      <ol class="py-2 px-8 list-decimal list-inside lg:text-lg md:text-base">
+                        <li>
+                          Prove that $\mathcal{C} $ is a subring of $M_2(\mathbb{R} )$.
+                        </li>
+                        <li>
+                          Prove that $\mathcal{C} $ is a field.
+                        </li>
+                        <li>
+                          Let $\mathcal{R} = \left\{ \begin{pmatrix}
+                              r &  0 \\
+                              0 &  r \\
+                          \end{pmatrix}:r \in \mathcal{R}  \right\} \subseteq \mathcal{C} $, and let $\mathbf{i} = \begin{pmatrix}
+                              0 &  1 \\
+                              -1 &  0 \\
+                          \end{pmatrix}\in \mathcal{C} $. Prove that $\mathcal{R} $ is a subring of $\mathcal{C} $ and that $\mathcal{R} \cong \mathbb{R} $. Prove further that every element of $\mathcal{C} $ can be uniquely written as  $\alpha +\mathbf{i}  \beta $ with $\alpha ,\beta \in \mathcal{R} $, and that $\mathbf{i} ^2=-\textbf{1} _\mathcal{R} $. Thus, we can identify $\mathcal{C} $ with the field of $\mathbb{C} $ of complex numbers.
+                        </li>
+                      </ol>
+                    </p> 
+                </div>
+
+                <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong>In order to prove $\mathcal{C} $ is a subring of $M_2(\mathbb{R} )$, we need to check that it is closed under addition and multiplication and each element has an additive inverse. Let $C_i = \begin{pmatrix}
+                        a_i &  b_i \\
+                        -b_i &  a_i \\
+                    \end{pmatrix}\in \mathcal{C} $ for $i=1,2$. Then we have
+                    \begin{align*}
+                        C_1 + C_2 & = \begin{pmatrix}
+                            a_1 &  b_1 \\
+                            -b_1 &  a_1 \\
+                        \end{pmatrix} + \begin{pmatrix}
+                            a_2 &  b_2 \\
+                            -b_2 &  a_2 \\
+                        \end{pmatrix}
+                        \\
+                        & = \begin{pmatrix}
+                            a_1+a_2 &  b_1+b_2 \\
+                            -\left( b_1 + b_2 \right)  &  a_1+a_2 
+                        \end{pmatrix} \in \mathcal{C} .
+                    \end{align*} 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Also,
+                    \begin{align*}
+                        C_1 \cdot C_2 & = \begin{pmatrix}
+                            a_1 &  b_1 \\
+                            -b_1 &  a_1 \\
+                        \end{pmatrix} \cdot \begin{pmatrix}
+                            a_2 &  b_2 \\
+                            -b_2 &  a_2 \\
+                        \end{pmatrix} 
+                        \\
+                        & = \begin{pmatrix}
+                            a_1a_2 - b_1b_2 &  a_1 b_2 + b_1a_2 \\
+                            -b_1a_2-a_1b_2 & -b_1a_2 + a_1b_2  \\
+                        \end{pmatrix} \in \mathcal{C} .
+                    \end{align*}
+                    Now note that
+                    \[
+                        \begin{pmatrix}
+                            a &  b \\
+                            -b &  a \\
+                        \end{pmatrix} + \begin{pmatrix}
+                            -a &  -b \\
+                            b &  -a \\
+                        \end{pmatrix} = \begin{pmatrix}
+                            0 &  0 \\
+                            0 &  0 \\
+                        \end{pmatrix}.
+                    \]
+                    Thus, every element has an additive inverse and hence, we proved that $\mathcal{C} $ is a subring of $M_2(\mathbb{R} )$. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    2. We need to prove that $\mathcal{C}$ is a field. We need to show that every nonzero element has a multiplicative inverse. At first note that the multiplicative identity is 
+                    \[
+                        \begin{pmatrix}
+                            1 &  0 \\
+                            0 &  1 \\
+                        \end{pmatrix} \in \mathcal{C} .
+                    \]
+                    Now consider,
+                    \begin{align*}
+                        \begin{pmatrix}
+                            a &  b \\
+                            -b &  a \\
+                        \end{pmatrix} \cdot \begin{pmatrix}
+                            a & -b \\
+                            b &  a \\
+                        \end{pmatrix} & = \begin{pmatrix}
+                            a^2 + b^2 &  0 \\
+                            0 &  b^2 + a^2 \\
+                        \end{pmatrix} 
+                        \\
+                        & = \left( a^2 + b^2 \right) \begin{pmatrix}
+                            1 &  0 \\
+                            0 &  1 \\
+                        \end{pmatrix}.
+                    \end{align*}
+                    Therefore, 
+                    \[
+                        \begin{pmatrix}
+                            a &  b \\
+                            -b &  a \\
+                        \end{pmatrix}^{-1} = \frac{1}{a^2 + b^2} \begin{pmatrix}
+                            a &  -b \\
+                            b &  a \\
+                        \end{pmatrix}.
+                    \]
+                    Therefore, $\mathcal{C} $ is a field. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    3. It is easy to prove that $\mathcal{R} $ is a subring of $\mathcal{C} $. Let us denote $A_r= \begin{pmatrix}
+                        r &  0 \\
+                        0 &  r \\
+                    \end{pmatrix}$. Note that $\mathcal{R} \subseteq \mathcal{C} $. Note that 
+                    \begin{align*}
+                        A_{r_1}+A_{r_2} & =  \begin{pmatrix}
+                            r_1 &  0 \\
+                            0 &  r_1 \\
+                        \end{pmatrix} + 
+                        \begin{pmatrix}
+                            r_2 &  0 \\
+                            0 &  r_2 \\
+                        \end{pmatrix}
+                        \\
+                        & = \begin{pmatrix}
+                            r_1+r_2 &  0 \\
+                            0 &  r_1+r_2 \\
+                        \end{pmatrix} = A_{r_1+r_2},\text{ and }
+                        \\
+                        A_{r_1}\cdot A_{r_2} & =  \begin{pmatrix}
+                            r_1 &  0 \\
+                            0 &  r_1 \\
+                        \end{pmatrix} \cdot 
+                        \begin{pmatrix}
+                            r_2 &  0 \\
+                            0 &  r_2 \\
+                        \end{pmatrix}
+                        \\
+                        & = \begin{pmatrix}
+                            r_1r_2 &  0 \\
+                            0 &  r_1r_2 \\
+                        \end{pmatrix} = A_{r_1r_2}. 
+                    \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Also, the additive inverse of $A_r$ is $A_{-r}$.
+        
+                    \vf 
+                    \hf Consider the following map 
+                    \[
+                        \varphi : \mathcal{R} \to \mathbb{R},~A_r \mapsto r.
+                    \]
+                    We claim that the above map is an isomorphism. For that, 
+                    \begin{align*}
+                        & \varphi \left( A_{r_1} + A_{r_2} \right) = \varphi \left( A_{r_1+r_2} \right)  =  r_1 + r_2 = \varphi \left( A_{r_1} \right) + \varphi \left( A_{r_2} \right).
+                        \\
+                        & \varphi \left( A_{r_1}\cdot \varphi \left( A_{r_2} \right)  \right) = \varphi \left( A_{r_1r_2} \right) = r_1r_2 = \varphi \left( A_{r_1} \right) \cdot \varphi \left( A_{r_2} \right).
+                    \end{align*}
+                    Thus, $\varphi $ is a homomorphism. Observe that $\varphi^{-1}(r) = A_r$. Thus, $\varphi$  is an isomorphism and hence $\mathcal{R}  \cong \mathbb{R} $.  
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now it remains to show that every element of $\mathcal{C} $ can be uniquely written as $\alpha +\mathbf{i}  \beta $ where $\iota =\begin{pmatrix}
+                        0 &  1 \\
+                        -1 &  0 \\
+                    \end{pmatrix}$. Let $X = \begin{pmatrix}
+                        a &  b \\
+                        -b &  a \\
+                    \end{pmatrix}\in \mathcal{C} $. We claim that $X=A_a + \mathbf{i} A_b$. Observe that 
+                    \begin{align*}
+                        A_a + \mathbf{i} A_b & = \begin{pmatrix}
+                            a &  0 \\
+                            0 &  a \\
+                        \end{pmatrix} + \begin{pmatrix}
+                            0 &  1 \\
+                            -1 &  0 \\
+                        \end{pmatrix} \begin{pmatrix}
+                            b &  0 \\
+                            0 &  b \\
+                        \end{pmatrix}
+                        \\
+                        & = \begin{pmatrix}
+                            a &  0 \\
+                            0 &  a \\
+                        \end{pmatrix} + \begin{pmatrix}
+                            0 &  b \\
+                            -b &  0 \\
+                        \end{pmatrix} 
+                        \\
+                        & = \begin{pmatrix}
+                            a &  b \\
+                            -b &  a \\
+                        \end{pmatrix}.
+                    \end{align*} 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will prove the uniqueness of the choice $A_a$ and $A_b$. Suppose that $X= A_c+\mathbf{i} A_d$. Note that 
+                    \[
+                        A_c + \mathbf{i} A_d = \begin{pmatrix}
+                            c &  d \\
+                            -d &  c \\
+                        \end{pmatrix}.
+                    \]
+                    Since 
+                    \[
+                        X = A_a+\mathbf{i} A_b = A_c + \mathbf{i}  A_d \implies a=c\text{ and } b=d.
+                    \]
+                    Thus, the representation is unique. We also observe that 
+                    \[
+                        \mathbf{i} ^2 = \begin{pmatrix}
+                            0 &  1 \\
+                            -1 &  0 \\
+                        \end{pmatrix}^2 = \begin{pmatrix}
+                            -1 &  0 \\
+                            0 &  -1 \\
+                        \end{pmatrix}= -\textbf{1} _\mathcal{R} .
+                    \]
                   </p>
                 </div>
+                <!-- Previous Button -->
+                <div class="flex justify-center mt-4">
+                  <nav aria-label="Page navigation example">
+                    <ul class="flex list-style-none">
+                      <li class="page-item disabled">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-02-21/">
+                          Previous 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../../daily-problems/#calendar">
+                          All 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-02-23/">
+                          Next 
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                
+                <!-- Disqus Comments-->
+                <div class="mt-16" id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://my-google-site.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <!-- End of comment section -->
+
               </div>
             </div>
           </div>
@@ -137,18 +421,24 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+    <script id="dsq-count-scr" src="//my-google-site.disqus.com/count.js" async></script>
+
     <script>
       MathJax = {
+        loader: {
+          load: ['[tex]/mathtools']
+        },
         tex: {
           inlineMath: [
             ['$', '$'],
             ['\\(', '\\)']
           ],
+          tags: 'ams',
           displayMath: [
             ['$$', '$$'],
             ['\\[', '\\]']
-          ]
+          ],
+          packages: {'[+]': ['mathtools']}
         },
         svg: {
           fontCache: 'global'
