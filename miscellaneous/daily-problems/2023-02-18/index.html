@@ -86,7 +86,16 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let $\phi:A\to B$ be surjective. Given that $A$ is countable, we need to 
+                    show that $B$ is also countable. Since $\phi$ is surjective, for every $b\in B$ we can find $a_b\in A$ such that $\phi \left(a_b\right)=b$. Consider the set 
+                    \[
+                        \tilde{A} = \left\{a_b:b\in B\right\} \subseteq A.
+                    \]   
+                    As $\tilde{A}$ is a subset of $A$ and $A$ is countable, $\tilde{A}$ will also be countable. Now note that 
+                    \[
+                        \phi\big|_{\tilde{A}} :\tilde{A} \to B
+                    \]
+                    is a bijective function and hence $B$ is also countable.
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
