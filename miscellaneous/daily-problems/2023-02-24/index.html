@@ -92,9 +92,59 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> The given differential equation is 
+                    \begin{equation}\label{eq:24Feb2023-1}
+                        y^\prime +6y=3
+                    \end{equation}
+                    which is a linear differential equation. In order to solve this, we will multiply this by the integrating factor. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    In general, if the differential equation is 
+                    \[
+                        y^\prime  + P(x)y = Q(x),
+                    \]
+                    then the integrating factor is 
+                    \[
+                        I = e^{\int P(x)\mathrm{d} x}.
+                    \]
+                    Note that 
+                    \[
+                        I^\prime = P(x) e^{\int P(x)\mathrm{d} x} = P(x)\cdot I.   
+                    \]
+                    In order to solve this differential equation, we multiply by the integrating factor both sides to obtain:
+                    \begin{align*}
+                        & y^\prime I + P(x)y\cdot I = Q(x)\cdot I \\
+                        \implies & \left( y \cdot I\right)^\prime  = Q(x) \cdot I \\
+                        \implies & y\cdot I = \int Q(x)\cdot I \mathrm{d} x + c,
+                    \end{align*}
+                    where $c$ is the constant of integration. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We can apply the same method explain above to obtain the solution of the given differential equation. Here we have 
+                    \[
+                        P(x) = 6,~Q(x) = 3.
+                    \]
+                    So the integrating factor will be 
+                    \[
+                        I(x) = e^{\int 6\mathrm{d} x} = e^{6x}.
+                    \]
+                    So the \eqref{eq:24Feb2023-1} is equivalent to
+                    \[
+                        \left( ye^{6x} \right)^\prime  = 3e^{6x}.
+                    \]
+                    Thus, we have 
+                    \begin{align*}
+                        ye^{6x} = \int 3e^{6x} + c & \implies ye^{6x} = \frac{e^{6x}}{2} + c 
+                        \\
+                        & \implies y(x) = \frac{1}{2}+ ce^{-6x}.
+                    \end{align*}
+                    Thus, the solution of the differential equation \eqref{eq:24Feb2023-1} will be
+                    \[
+                        \textcolor{blue}{\boxed{ y(x) = \frac{1}{2}+ ce^{-6x}}}
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
