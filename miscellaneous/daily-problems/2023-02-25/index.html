@@ -92,9 +92,47 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Recall that the Laplace transformation of a function $f$ is given by 
+                    \[
+                        F(s)\coloneqq \mathcal{L} \left( f(t) \right) = \int_0^{\infty} f(t)e^{-{st} }~\mathrm{d} t.
+                    \]
+                    We will use the following results for solving the problems. 
+                    <ol class="math-list lg:text-lg md:text-base text-justify">
+                        <li>
+                          $\mathcal{L} \left( f(t)+g(t) \right) = F(s) + G(s)$.
+                        </li>
+                        <li>
+                          $\mathcal{L} \left( \alpha \cdot f(t) \right) = \alpha \cdot F(s)$.
+                        </li>
+                        <li>
+                          $\mathcal{L} \left( \sin \omega t \right) = \frac{\omega }{s^2 + \omega ^2} $.
+                        </li>
+                        <li>
+                          $\mathcal{L} \left( \sinh \omega t \right) = \frac{\omega }{s^2 - \omega ^2}$. 
+                        </li>  
+                    </ol>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now observe that 
+                    \begin{align*}
+                        \mathcal{L} \left( 2\sin 3t + 4\sinh 3t \right) & = \mathcal{L} (2 \sin 3t) + \mathcal{L} (4\sinh 3t)
+                        \\
+                        & = 2\cdot\mathcal{L} (\sin 3t) + 4\cdot \mathcal{L} (\sinh 3t)
+                        \\
+                        & = 2\cdot\frac{3}{s^2 + 3^2} + 4\cdot \frac{3}{s^2 - 3^2}
+                        \\
+                        & = \frac{6}{s^2 + 9} + \frac{12}{s^2 - 9}
+                        \\
+                        & = \frac{6s^2 -54 + 12s^2 +108}{\left( s^2 + 9  \right) \left( s^2 -9 \right) }
+                        \\
+                        & = \frac{18 s^2 + 54}{s^4 - 81}.
+                    \end{align*}
+                    Thus, 
+                    \[
+                        \textcolor{blue}{\boxed{\mathcal{L} \left( 2\sin 3t + 4\sinh 3t \right) = \frac{18s^2 + 54}{s^4 - 81}} }
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

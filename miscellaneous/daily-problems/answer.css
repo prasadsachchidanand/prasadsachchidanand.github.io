@@ -51,3 +51,8 @@
   .text-head {
     color: rgb(32, 192, 255);
   }
+
+  .math-list {
+    list-style: decimal;
+    margin-left: 2.5rem;
+  }
