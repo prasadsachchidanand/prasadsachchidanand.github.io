@@ -56,3 +56,8 @@
     list-style: decimal;
     margin-left: 2.5rem;
   }
+
+  .math-list-alpha {
+    list-style: lower-alpha;
+    margin-left: 2.5rem;
+  }

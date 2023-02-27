@@ -109,9 +109,111 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We start by recalling the Gram-Schmidt orthogonalization process. Given a set of linearly independent vectors ${\mathbf{v} _1, \mathbf{v} _2, \ldots , \mathbf{v} _n}$, we can obtain an orthogonal set of vectors ${\mathbf{u} _1, \mathbf{u} _2, \ldots , \mathbf{u} _n}$ using the following steps:
+                    <ol class="math-list">
+                      <li>
+                        Let $\mathbf{u} _1 = \frac{\mathbf{v} _1}{\left\lVert \mathbf{v} _1 \right\rVert }$.
+                      </li>
+                      <li>
+                        For $k = 2,3\ldots n$, compute $\mathbf{u} _k$ as follows:
+                        <ol class="math-list-alpha">
+                          <li>
+                            Compute the projection of $\mathbf{v} _k$ onto $\mathbf{u} _1, \mathbf{u} _2, ..., \mathbf{u} _{k-1}$:
+                            \begin{gather*}
+                                \text{proj}{\mathbf{u} _1}(\mathbf{v} _k) = \frac{\langle \mathbf{v} _k, \mathbf{u} _1 \rangle}{\langle \mathbf{u} _1, \mathbf{u} _1 \rangle} \mathbf{u} _1 = \left\langle \mathbf{v} _k,\mathbf{u} _1 \right\rangle \mathbf{u} _1
+                                \\
+                                \text{proj}{\mathbf{u} _2}(\mathbf{v} _k) = \frac{\langle \mathbf{v} _k, \mathbf{u} _2 \rangle}{\langle \mathbf{u} _2, \mathbf{u} _2 \rangle} \mathbf{u} _2 = \left\langle \mathbf{v} _k,\mathbf{u} _2 \right\rangle \mathbf{u} _2
+                                \\
+                                \vdots 
+                                \\
+                                \text{proj}{\mathbf{u} _{k-1}}(\mathbf{v} _k) = \frac{\langle \mathbf{v} _k, \mathbf{u} _{k-1} \rangle}{\langle \mathbf{u} _{k-1}, \mathbf{u} _{k-1} \rangle} \mathbf{u} _{k-1} = \left\langle \mathbf{v} _k,\mathbf{u} _{k-1} \right\rangle \mathbf{u} _{k-1}
+                            \end{gather*}
+                          </li>
+                          <li>
+                            Compute $\mathbf{u} _k$ by subtracting the projections from $\mathbf{v} _k$:
+                            \begin{equation*}
+                                \mathbf{u} _k = \frac{\mathbf{v} _k - \text{proj}{\mathbf{u} _1}(\mathbf{v} _k) - \text{proj}{\mathbf{u} _2}(\mathbf{v} _k) - ... - \text{proj}{\mathbf{u} _{k-1}}(\mathbf{v} _k)}{\left\lVert \mathbf{v} _k - \text{proj}{\mathbf{u} _1}(\mathbf{v} _k) - \text{proj}{\mathbf{u} _2}(\mathbf{v} _k) - ... - \text{proj}{\mathbf{u} _{k-1}}(\mathbf{v} _k) \right\rVert }
+                            \end{equation*}
+                          </li>
+                        </ol>
+                      </li>
+                    </ol>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Here in the problem, we have 
+                    \[
+                        \mathbf{v}_1 = \begin{pmatrix}
+                            3 \\
+                            0 \\
+                            4 \\
+                      \end{pmatrix},~ \mathbf{v} _2 = \begin{pmatrix}
+                            1 \\
+                            -1 \\
+                            1 \\
+                      \end{pmatrix}.
+                    \]
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Applying the algorithm described above, we have
+                    \[
+                        \mathbf{u} _1 = \frac{\mathbf{v} _1}{\left\lVert \mathbf{v} _1 \right\rVert } = \begin{pmatrix}
+                             \frac{3}{5} \\[1ex]
+                             0 \\[1ex]
+                             \frac{4}{5} \\
+                        \end{pmatrix}.
+                    \]
+                    The other vector will be
+                    \begin{align*}
+                        \mathbf{v} _2 - \left\langle \mathbf{v} _2,\mathbf{u} _1 \right\rangle \mathbf{u} _1 & = \begin{pmatrix}
+                             1 \\
+                             -1 \\
+                             1 \\
+                        \end{pmatrix} - \frac{7}{5} \begin{pmatrix}
+                             \frac{3}{5} \\[1ex]
+                             0 \\[1ex]
+                             \frac{4}{5} \\[1ex]
+                        \end{pmatrix}
+                        \\
+                        & = \begin{pmatrix}
+                             1 \\
+                             -1 \\
+                             1 \\
+                        \end{pmatrix} - 
+                        \begin{pmatrix}
+                             \frac{21}{25} \\[1ex]
+                             0 \\[1ex]
+                             \frac{28}{25} \\[1ex]
+                        \end{pmatrix}
+                        \\
+                        & = \begin{pmatrix}
+                             \frac{4}{25} \\[1ex]
+                             -1 \\[1ex]
+                             -\frac{3}{25} \\[1ex]
+                        \end{pmatrix}
+                    \end{align*}
+                    Thus,
+                    \begin{align*}
+                        \mathbf{u} _2 & =  \frac{\mathbf{v} _2 - \left\langle \mathbf{v} _2,\mathbf{u} _1 \right\rangle \mathbf{u} _1}{\left\lVert \mathbf{v} _2 - \left\langle \mathbf{v} _2,\mathbf{u} _1 \right\rangle \mathbf{u} _1 \right\rVert }
+                        \\
+                        & = \frac{25}{650}\begin{pmatrix}
+                             \frac{4}{25} \\[1ex]
+                             -1 \\[1ex]
+                             -\frac{3}{25} \\[1ex]
+                        \end{pmatrix}
+                        \\
+                        & = \begin{pmatrix}
+                             \frac{4}{650} \\[1ex]
+                             -\frac{25}{650} \\[1ex]
+                             -\frac{3}{650} \\[1ex]
+                        \end{pmatrix} = \begin{pmatrix}
+                            \frac{4}{5\sqrt{26} } \\[1ex]
+                             -\frac{5}{\sqrt{26} } \\[1ex]
+                             -\frac{3}{5\sqrt{26} } \\[1ex]
+                        \end{pmatrix}.
+                    \end{align*}
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
