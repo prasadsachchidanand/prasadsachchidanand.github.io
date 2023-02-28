@@ -5,21 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real analysis, complex analysis, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="Using Gram-Schmidt orthogonalization, find an orthogonal basis for the span of the vectors
+    <meta name="description" content="Find out the following limit.
     \[
-        \mathbf{v}_1 = \begin{pmatrix}
-             3 \\
-             0 \\
-             4 \\
-        \end{pmatrix},~ \begin{pmatrix}
-             1 \\
-             -1 \\
-             1 \\
-        \end{pmatrix}.
+        \lim_{n \to \infty} \frac{1^3 + 2^3 + \cdots + n^3}{\sqrt{3n^8 + 5} }.
     \]">
-    <meta name="description" content="Using Gram-Schmidt Orthogonalization, Find an Orthogonal Basis for the Span">
+    <meta name="description" content="Limit of the following sequence.">
     
-	<title>Problem of the day | 26-02-2023 | Linear Algebra  - Sachchidanand Prasad</title>
+	<title>Problem of the day | 27-02-2023 | Real Analysis  - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -84,7 +76,7 @@
       <section class="text-gray-600 body-font">
         <div class="container xl:px-36 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">26-02-2023</h2>
+            <h2 class="text-gray-900 text-3xl title-font font-medium">28-02-2023</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
@@ -101,9 +93,38 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We want to evaluate 
+                    \[
+                        \lim_{n \to \infty} \frac{1^3 + 2^3 + \cdots + n^3}{\sqrt{3n^8 + 5} }.
+                    \]
+                    Recall that 
+                    \[
+                        1^3 + 2^3 + \cdots + n^3 = \left( \frac{n(n+1)}{2} \right) ^2.
+                    \]
+                    So we have
+                    \begin{align*}
+                        \frac{1^3 + 2^3 + \cdots + n^3}{\sqrt{3n^8 + 5} } & = \frac{n^2 (n+1)^2}{4 \sqrt{3n^8 + 5} } 
+                        \\
+                        & = \frac{n^2 \left( n^2 + 2n + 1 \right) }{4 \sqrt{n^8 \left( 3 + \frac{5}{n^8} \right) } } 
+                        \\
+                        & = \frac{n^4 \left( 1 + \frac{2n}{n^2} + \frac{1}{n^2} \right) }{4n^4 \sqrt{3+\frac{5}{n^8}} }
+                        \\
+                        & = \frac{1+\frac{2}{n} + \frac{1}{n^2}}{4 \sqrt{3+\frac{5}{n^8}} }.
+                    \end{align*}
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Thus, we got
+                    \begin{align*}
+                        \lim_{n \to \infty} \frac{1^3 + 2^3 + \cdots + n^3}{\sqrt{3n^8 + 5} } & = \lim_{n \to \infty} \frac{1+\frac{2}{n} + \frac{1}{n^2}}{4 \sqrt{3+\frac{5}{n^8}} }
+                        \\
+                        & = \frac{1}{4\sqrt{3} }.
+                    \end{align*}
+                    Therefore,
+                    \[
+                        \textcolor{blue}{\boxed{\lim_{n \to \infty} \frac{1^3 + 2^3 + \cdots + n^3}{\sqrt{3n^8 + 5} } = \frac{1}{4\sqrt{3} }}}
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
