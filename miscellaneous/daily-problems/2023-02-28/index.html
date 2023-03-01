@@ -86,9 +86,55 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let us write the function 
+                    \[
+                        f(z) = \sqrt{\vert xy \vert } = u(x,y) + \iota v(x,y).
+                    \] 
+                    So, $u(x,y) = \sqrt{\vert xy \vert } $ and  $v(x,y)=0$. Note that 
+                    \begin{align*}
+                        \left.\frac{\partial u}{\partial x}\right|_{(x,y)=(0,0)} & = \lim_{h \to 0} \frac{u(h,0)-u(0,0)}{h} 
+                        \\
+                        & = \lim_{h \to 0} \frac{0}{h} = 0.
+                    \end{align*}
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly, 
+                    \begin{align*}
+                        \left.\frac{\partial u}{\partial y}\right|_{(x,y)=(0,0)} & = \lim_{k \to 0} \frac{u(0,k)-u(0,0)}{k} 
+                        \\
+                        & = \lim_{k \to 0} \frac{0}{k} = 0.
+                    \end{align*}
+                    Thus, 
+                    \[
+                        \frac{\partial u}{\partial x} = 0 = \frac{\partial v}{\partial y},~\text{ and } \frac{\partial u}{\partial y} = 0 = - \frac{\partial v}{\partial x}.
+                    \]
+                    Therefore, $f$ satisfies the Cauchy-Riemann equations at $z=0$. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we need ot show that  $f$ is not differentiable at $z=0$. Consider the following limit 
+                    \begin{align*}
+                        \lim_{h \to 0} \frac{\vert f(h,0)-f(0,0) \vert }{\vert (h,0) \vert } & = 0 = \lim_{k \to 0} \frac{\vert f(0,k)-f(0,0) \vert }{\vert (0,k) \vert }.
+                    \end{align*} 
+                    If $f$ is differentiable at $z=0$, then the derivative would be zero (since if $f$ is differentiable, the derivative would be the partial derivatives in a matrix) but note that 
+                    \begin{align*}
+                        \lim_{h \to 0} \frac{\vert f(h,h)-f(0,0)-0 \vert }{\vert (h,h) \vert } & = \lim_{h \to 0} \frac{\sqrt{h^2} }{\sqrt{2h^2} } = \frac{1}{\sqrt{2}}
+                    \end{align*} 
+                    which is not equal to zero and hence $f$ is not differentiable at $z=0$.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Another way is to directly show that limit 
+                    \[
+                        \lim_{z \to 0} \frac{f(z)-f(0)}{z}
+                    \]
+                    does not exist. We will show that the above limit does not exist along the line $y=x$. 
+                    \[
+                        \lim_{x \to 0} \frac{f(x+\iota x)-0}{x+\iota x} = \lim_{x \to 0} \frac{\sqrt{\vert x\cdot x \vert } }{x+\iota x} = \left( \frac{1}{1+\iota } \right) \lim_{x \to 0} \frac{\vert x \vert }{x},
+                    \]
+                    which does not exist. Thus, we proved that the function is not differentiable at $z=0$.
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
