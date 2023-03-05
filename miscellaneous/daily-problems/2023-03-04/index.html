@@ -5,9 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real analysis, complex analysis, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="Show that, if $U$ is an open set and $F$ is a closed set, then $U\setminus F$ is open and $F\setminus U$ is closed.">
+    <meta name="description" content="Let $C_r(x,y)$ denotes the circle with center $(x,y)$ and radius $r$. Consider the set 
+    \[
+        S = \left\{ C_r(x,y):x,y,r\in \mathbb{Q}  \right\} .
+    \]
+    Show that $S$ is countable.">
     
-	<title>Problem of the day | 04-03-2023 | Topology  - Sachchidanand Prasad</title>
+	<title>Problem of the day | 04-03-2023 | Countability  - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -90,7 +94,15 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We need to show that 
+                    \[
+                        S = \left\{ C_r(x,y):x,y,r\in \mathbb{Q}  \right\} 
+                    \]
+                    is a countable set. Consider the map 
+                    \[
+                        \varphi : S \to \mathbb{Q} \times \mathbb{Q} \times \mathbb{Q} ,~C_r(x,y) \mapsto (r,x,y).
+                    \]
+                    It is clear that the map $\varphi $ is a bijection. Since $\mathbb{Q} $ is countable and countable product of countable sets is countable, thence $\mathbb{Q} \times \mathbb{Q} \times \mathbb{Q} $ is countable. Therefore, $S$ is countable. </span>
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
