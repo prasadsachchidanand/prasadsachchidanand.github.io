@@ -102,7 +102,33 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We will use the row reduction to find out the rank and nullity of the given matrix.
+                    \begin{align*}
+                        & \begin{pmatrix}
+                            0 & 0 & -1 &  5 \\
+                            0 & 0 & -3 &  8 \\
+                            0 & 0 & 1 &  2 \\
+                        \end{pmatrix} 
+                        \xrightarrow{R_1 \rightarrow -R_1} 
+                        \begin{pmatrix}
+                            0 & 0 &  1 &  -5 \\
+                            0 & 0 & -3 &  8 \\
+                            0 & 0 & 1 &  2 \\
+                        \end{pmatrix} 
+                        \\[1ex]
+                        \xrightarrow[R_3 \rightarrow R_3-R_1]{R_2 \rightarrow R_2+3R_1} &  
+                        \begin{pmatrix}
+                            0 & 0 & 1 &  -5 \\
+                            0 & 0 & 0 &  -7 \\
+                            0 & 0 & 0 &  7 \\
+                        \end{pmatrix} \xrightarrow{R_3 \rightarrow R_3 + R_2} 
+                        \begin{pmatrix}
+                            0 & 0 & 1 &  -5 \\
+                            0 & 0 & 0 &  -7 \\
+                            0 & 0 & 0 &  0 \\
+                        \end{pmatrix}.
+                    \end{align*}
+                    Since the matrix has two non-zero rows and one zero row, the rank of the matrix is $2$ and the nullity is one. 
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
