@@ -93,9 +93,86 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let $A$ be a nonempty subset of $\mathbb{R} $. 
+                    <ol class="math-list-alpha">
+                      <li>
+                        <span class="font-bold text-red-400">Upper bound:</span> We say that $\alpha $ is an <em>upper bound</em> of $A$ if for every $a\in A,~a\leq \alpha $. In terms of quantifiers
+                        \[
+                            \forall a\in A,~a\leq \alpha .
+                        \] 
+                      </li>
+                      <li>
+                        <span class="font-bold text-red-400">Lower bound:</span> We say that $\beta $ is a <em>lower bound</em>  of $A$ if for every $a\in A,~\beta \leq a$. In terms of quantifiers
+                        \[
+                            \forall a\in A,~\beta \leq a.
+                        \] 
+                      </li>
+                      <li>
+                        <span class="font-bold text-red-400">Least upper bound:</span> We say that $\alpha$ is a <em>least upper bound</em> of $A$ if
+                        <ol class="math-list-roman">
+                          <li>
+                            $\alpha $ is an upper bound of $A$ and 
+                          </li>
+                          <li>
+                            If $\beta $ is an upper bound of $A$, then $\alpha \leq \beta $ ( that is, least among all upper bounds).
+                          </li>
+                        </ol>
+                        <br>
+                        There is an equivalent definition in terms of $\varepsilon $. 
+                        \[
+                            \forall~ \varepsilon >0, ~\exists ~a \in A \text{ such that } \alpha -\varepsilon < a.
+                        \]
+                      </li>
+                      <li>
+                        <span class="font-bold text-red-400">Greatest lower bound:</span> We say that $\beta$ is a <em>greatest lower bound</em> of $A$ if
+                        <ol class="math-list-roman">
+                          <li>
+                            $\beta $ is a lower bound of $A$ and 
+                          </li>
+                          <li>
+                            If $\alpha $ is a lower bound of $A$, then $\alpha \leq \beta $ ( that is, greatest among all lower bounds).
+                          </li>
+                        </ol>
+                        <br>
+                        There is an equivalent definition in terms of $\varepsilon $. 
+                        \[
+                            \forall~ \varepsilon >0, ~\exists ~a \in A \text{ such that } a < \beta + \varepsilon.
+                        \]
+                      </li>
+                    </ol>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <ol class="math-list">
+                      <li>
+                        Given that $\alpha $ is a least upper bound of $A$  and $\beta $ is a greatest lower bound of $A$. We need to show that $\beta \leq \alpha $. Note that  for any $a\in A$ we have
+                        \[
+                            \beta \leq a \leq \alpha \implies \beta \leq \alpha .
+                        \]
+                      </li>
+                      <li>
+                        At first we will show that LUB of $A$ is unique. Let $\alpha $ and $\alpha ^\prime $ be two LUBs of $A$. Since $\alpha $ is an LUB and $\alpha ^\prime$ is an upper bound so we must have
+                        \begin{equation}\label{eq:06Mar2023-1}
+                            \alpha \leq \alpha ^\prime .
+                        \end{equation}
+                        Similarly, $\alpha ^\prime $ is an LUB and $\alpha $ is an upper bound implies 
+                        \begin{equation}\label{eq:06Mar2023-2}
+                            \alpha ^\prime \leq \alpha .
+                        \end{equation}
+                        Using, \eqref{eq:06Mar2023-1} and \eqref{eq:06Mar2023-2}, we conclude that $\alpha =\alpha ^\prime $ and hence we can use &lsquo;the&rsquo; LUB of $A$.   
+                        <hr class="h-px my-4 bg-gray-300 border-0">
+                        Now we will show that GLB of $A$ is unique. Let $\beta $ and $\beta ^\prime $ be two GLBs of $A$. Since $\beta $ is an GLB and $\beta ^\prime$ is a lower bound so we must have
+                        \begin{equation}\label{eq:06Mar2023-3}
+                            \beta^\prime  \leq \beta.
+                        \end{equation}
+                        Similarly, $\beta ^\prime $ is an GLB and $\beta $ is a lower bound implies 
+                        \begin{equation}\label{eq:06Mar2023-4}
+                            \beta \leq \beta^\prime.
+                        \end{equation}
+                        Using, \eqref{eq:06Mar2023-3} and \eqref{eq:06Mar2023-4}, we conclude that $\beta =\beta ^\prime $ and hence we can use &lsquo;the&rsquo; GLB of $A$.  
+                      </li>
+                    </ol>
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

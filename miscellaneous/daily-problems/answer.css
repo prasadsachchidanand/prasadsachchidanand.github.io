@@ -61,3 +61,8 @@
     list-style: lower-alpha;
     margin-left: 2.5rem;
   }
+  
+  .math-list-roman {
+    list-style: lower-roman;
+    margin-left: 2.5rem;
+  }
