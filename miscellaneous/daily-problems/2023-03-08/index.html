@@ -86,9 +86,68 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $R$ as the set of all $2\times 2$ upper triangular matrices over $\mathbb{R}$ (we can take any non-zero field). 
+                    \[
+                        R = \left\{ \begin{pmatrix}
+                            a &  b \\
+                            0 &  c \\
+                        \end{pmatrix} : a,b,c\in \mathbb{R}  \right\}.
+                    \]
+                    Let 
+                    \[
+                        x = \begin{pmatrix}
+                            1 &  0 \\
+                            0 &  0 \\
+                        \end{pmatrix}.
+                    \]  
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that 
+                    \begin{align*}
+                        Rx  & = \left\{ r \begin{pmatrix}
+                            1 &  0 \\
+                            0 &  0 \\
+                        \end{pmatrix} : r\in R \right\} 
+                        \\[1ex]
+                            & = \left\{  \begin{pmatrix}
+                            a &  b \\
+                            0 &  c \\
+                        \end{pmatrix} \begin{pmatrix}
+                            1 &  0 \\
+                            0 &  0 \\
+                        \end{pmatrix} : a,b,c \in \mathbb{R}   \right\} 
+                        \\[1ex]
+                        & = \left\{ \begin{pmatrix}
+                            a &  0 \\
+                            0 &  0 \\
+                        \end{pmatrix}: a\in \mathbb{R}  \right\} .
+                    \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly 
+                    \begin{align*}
+                        xR & = \left\{ \begin{pmatrix}
+                            1 &  0 \\
+                            0 &  0 \\
+                        \end{pmatrix}r : r\in R \right\} 
+                        \\[1ex]
+                        & = \left\{ \begin{pmatrix}
+                            1 &  0 \\
+                            0 &  0 \\
+                        \end{pmatrix} \begin{pmatrix}
+                            a &  b \\
+                            0 &  c \\
+                        \end{pmatrix}: a,b,c\in \mathbb{R}  \right\} 
+                        \\[1ex]
+                        & = \left\{ \begin{pmatrix}
+                            a &  b \\
+                            0 &  0 \\
+                        \end{pmatrix} \right\} .
+                    \end{align*}
+                    It is clear that $Rx \subsetneqq xR$. 
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
