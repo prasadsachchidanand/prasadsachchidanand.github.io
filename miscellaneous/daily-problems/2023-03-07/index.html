@@ -102,9 +102,40 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> The given curve is 
+                    \[
+                        C: z=t^{2}+\iota t,~0\le t \leq  2.
+                    \]
+                    So, we have 
+                    \[
+                        \mathrm{d} z = \mathrm{d}  \left( t^{2}+\iota t \right) = \left( 2t + \iota  \right) \mathrm{d}t.
+                    \]
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Thus, the integral will be 
+                    \begin{align*}
+                        \int_C \bar{z}\mathrm{d} z & = \int_0^2 \overline{\left( t^{2}+\iota t \right) } \left( 2t + \iota  \right) \mathrm{d}t 
+                        \\
+                        & = \int _0^2 \left( t^2 -\iota t \right) (2t + \iota )\mathrm{d} t 
+                        \\
+                        & = \int _0^2 \left( 2t^3 + \iota t^2 -2\iota t^2 + t \right) \mathrm{d} t
+                        \\
+                        & = \int _0^2 \left( 2t^3 - \iota t^2 + t \right) \mathrm{d} t
+                        \\
+                        & = 2\int _0^2 t^3 \mathrm{d} t - \iota \int _0^2 t^2 \mathrm{d} t  + \int _0^2 t\mathrm{d} t 
+                        \\
+                        & = 2 \left[ \frac{t^4}{4} \right]_0^2 - \iota  \left[ \frac{t^3}{3} \right]_0^2 + \left[ \frac{t^2}{2} \right]_0^2 
+                        \\
+                        & = 8 - \iota \frac{8}{3} + 2 
+                        \\
+                        & = 10 - \frac{8}{3}\iota .
+                    \end{align*}
+                    Therefore, 
+                    \[
+                        \textcolor{blue}{\boxed{\int_C \bar{z}\mathrm{d} z  = 10 - \frac{8}{3}\iota }}
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
