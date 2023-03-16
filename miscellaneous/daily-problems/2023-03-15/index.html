@@ -101,9 +101,48 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that <em>an element $a\in \mathbb{Z} _n$ is called a <span class="text-red-600">unit</span> if the equation $ax=1$ has a solution in $\mathbb{Z} _n$.</em> We have the following important result.
+                    <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify">
+                      Let $a$ and $n$ be integers with $n>1$. Then $\bar{a}$ is a unit in $\mathbb{Z} _n$ if and only if $\gcd(a,n)=1$ in $\mathbb{Z} $. Thus, for a  prime $p$ every nonzero element is a unit. 
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                    <li class="my-4">
+                      $\mathbb{Z} _7$. Since $7$ is a prime number, so all nonzero elements will be unit. Let us denote the set of all units in $\mathbb{Z} _n$ by $\mathcal{U}_n$, then
+                      \[
+                          \mathcal{U}_7 = \left\{ \bar{1}, \bar{2} ,\bar{3} ,\bar{4} ,\bar{5} ,\bar{6}   \right\} .
+                      \]
+                    </li>
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <li class="my-4">
+                      $\mathbb{Z} _8$. The units will be 
+                      \[
+                          \mathcal{U} _8 = \left\{ \bar{1} ,\bar{3} ,\bar{5} ,\bar{7}  \right\}. 
+                      \] 
+                    </li>
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <li class="my-4">
+                      $\mathbb{Z} _9$. The units will be 
+                      \[
+                          \mathcal{U} _9 = \left\{ \bar{1} ,\bar{2} ,\bar{4} ,\bar{5} ,\bar{7} ,\bar{8}  \right\}.
+                      \]
+                    </li>
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <li class="my-4">
+                      $\mathbb{Z} _{10}$. The units will be 
+                      \[
+                          \mathcal{U} _{10} = \left\{ \bar{1} ,\bar{3} ,\bar{7} ,\bar{9}  \right\} .
+                      \]
+                    </li>
+                  </ol>
+                </div>
+                <div class="remark leading-relaxed lg:text-lg md:text-base text-justify">
+                  Note that the number of units in $\mathbb{Z}_n$ will be the cardinality of the set 
+                  \[
+                    \mathcal{U}_n = \left\{\bar{a}: \gcd(a,n) = 1\right\}.
+                  \]
+                  The cardinality of the above set is given by the <a href="https://en.wikipedia.org/wiki/Euler%27s_totient_function" target="_blank" class="text-blue-500 hover:text-blue-800">Euler's totient function</a>. Therefore, the number of units in $\mathbb{Z}_n$ will be $\phi(n)$.
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
