@@ -96,7 +96,71 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Note that all the elements of $\mathcal{C} _1$ and $\mathcal{C} _2$ are open. So we just need to prove that they cover the set $(0,1)$.
+                    <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        We need to show that $(0,1)\subseteq \mathcal{C} _1$. Let $x \in (0,1)$ We need to show that $x\in \mathcal{C} _1$, that is, there exists $n_0\in \mathbb{N} $ such that $x\in \left( 0,\frac{n_0-1}{n_0} \right) $. Observe that 
+                        \begin{align*}
+                            x\in \left( 0,\frac{n-1}{n} \right) & \implies 0 \lt x \lt \frac{n-1}{n} 
+                            \\
+                            & \implies 0 \lt x \lt 1 -\frac{1}{n}
+                            \\
+                            & \implies 1-x > \frac{1}{n}.
+                        \end{align*}
+                        Since $x<1$ which implies $1-x > 0$ and hence by the Archimedean property we can find  $n_0\in \mathbb{N} $ such that 
+                          \[
+                              1-x > \frac{1}{n_0}.
+                          \]
+                          Therefore, $x\in \left( 0,\frac{n_0-1}{n_0} \right) $.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We need to show that $(0,1)\subseteq \mathcal{C} _2$. Let $x \in (0,1)$ We need to show that $x\in \mathcal{C} _2$, that is, there exists $n_0\in \mathbb{N} $ such that $x\in \left( \frac{1}{2}- \delta_{n_0},\frac{1}{2} + \delta _{n_0} \right) $. Observe that 
+                        \begin{align*}
+                            \frac{1}{2} - \delta _n \lt x \lt \frac{1}{2} + \delta _n & \implies  \frac{1}{2} - \frac{n-2}{2n} \lt x \lt \frac{1}{2} + \frac{n-2}{2n}
+                            \\
+                            & \implies \frac{1}{2} - \frac{n}{2n} + \frac{2}{2n} \lt x \lt \frac{1}{2} + \frac{n}{2n} - \frac{2}{2n} 
+                            \\
+                            & \implies \frac{1}{2} - \frac{1}{2} + \frac{1}{n} \lt x \lt \frac{1}{2} + \frac{1}{2} - \frac{1}{n} 
+                            \\
+                            & \implies \frac{1}{n} \lt x \lt 1-\frac{1}{n}.
+                        \end{align*}
+                        Therefore, we need to find $n_0\in \mathbb{N} $ such that 
+                        \[
+                            \frac{1}{n_0} \lt x \lt 1- \frac{1}{n_0}.
+                        \]
+                        Note that 
+                        \begin{align*}
+                            x \lt 1- \frac{1}{n_0} \implies 1-x> \frac{1}{n_0}.
+                        \end{align*}
+                        Thus, we want $n_0$ such that 
+                        \[
+                            x > \frac{1}{n_0} \text{ and } 1-x > \frac{1}{n_0}.
+                        \]
+
+                        <hr class="h-px my-4 bg-gray-300 border-0">
+
+                        <div class="flex flex-wrap justify-center mt-4">
+                          <img
+                            src="../../../assets/img/prob-16-03-23_01.svg"
+                            class="h-auto"
+                            alt="Archimedean Property"
+                          />
+                        </div>
+
+                        <hr class="h-px my-4 bg-gray-300 border-0">
+
+                        If $x \lt \frac{1}{2}$, then we have $0 \lt x \lt 1-x$. By the Archimedean property, we choose $n_0$ such that 
+                        \[
+                            \frac{1}{n_0} \lt x \lt 1-x.
+                        \] 
+                        If $x > \frac{1}{2}$, then we have $0 \lt 1-x \lt x$. By the Archimedean property, we choose $n_0$ such that 
+                        \[
+                            \frac{1}{n_0} \lt 1-x \lt x.
+                        \] 
+                        Thus, we found $n_0\in \mathbb{N}$ such that $\frac{1}{n_0} \lt x \lt 1-\frac{1}{n_0}$ and hence $x\in \mathcal{C} _2$. Hence, $\mathcal{C} _2$ is an open cover of $(0,1)$.
+                      </li>
+                    </ol>
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
