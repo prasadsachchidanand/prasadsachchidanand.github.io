@@ -93,9 +93,82 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We want to solve the differential equation 
+                    \[
+                        \frac{\mathrm{d} y}{\mathrm{d} x} + y\tan x = y^3 \sec^4 x.
+                    \]
+                    This is the Bernoulli's differential equation. It is in the form of 
+                    \[
+                        y' + p\left( x \right)y = q\left( x \right){y^n},
+                    \]
+                    where $p(x)$ and $q\left( x \right) $ are continuous functions. In order to solve the differential equation we will follow the following steps.
+                    <ol class="math-list-roman leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        Divide both sides of the equation by $y^n$:
+                        \begin{equation}\label{eq:17Mar2023-1}
+                            \frac{y^\prime }{y^n} + \frac{p(x)}{y^{n-1}} = q(x).
+                        \end{equation}
+                      </li>
+                      <li class="my-4">
+                        Now substitute $z=\frac{1}{y^{n-1}}$ which implies 
+                        \[
+                            \frac{\mathrm{d}z}{\mathrm{d} x} = \frac{-(n-1)}{y^n} \frac{\mathrm{d} y}{\mathrm{d} x} \implies \frac{y^\prime }{y^n} = \frac{z^\prime }{1-n}. 
+                        \]
+                      </li>
+                      <li class="my-4">
+                        Substitute the above in \eqref{eq:17Mar2023-1} to get 
+                        \begin{equation}\label{eq:17Mar2023-2}
+                            \frac{z^\prime }{1-n} + z p(x) = q(x).
+                        \end{equation}
+                      </li>
+                      <li class="my-4">
+                        The equation \eqref{eq:17Mar2023-2} is a linear differential equation which can be solved by multiplying the differential equation by an integrating factor. 
+                      </li>
+                    </ol>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We will now solve the given differential equation. We have 
+                    \[
+                        p(x) = \tan x,~q(x) = \sec^4 x,~\text{and } n = 3.
+                    \] 
+                    Following the above steps we have 
+                    \begin{equation}\label{eq:17Mar2023-3}
+                        z^\prime -2 z \tan x = -2\sec ^4x.
+                    \end{equation}
+                    As explained above, we can use the integrating factor method to solve the linear differential equation. Integrating factor will be
+                    \begin{equation}\label{eq:17Mar2023-4}
+                        \mu(x) = e^{\int -2 \tan x ~\mathrm{d} x} = e^{-2 \ln  \vert \sec x \vert } = \frac{1}{\sec ^2x}.
+                    \end{equation}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Multiplying \eqref{eq:17Mar2023-3} by the integrating factor.
+                    \begin{equation*}
+                        \frac{z^\prime }{\sec ^2x} - \frac{2z \tan x}{\sec ^2x} = -2\sec ^2x.
+                    \end{equation*}
+                
+                    Now observe that 
+                    \begin{align*}
+                        & \frac{z^\prime }{\sec ^2x} - \frac{2z \tan x}{\sec ^2x} = -2\sec ^2x 
+                        \\
+                        \implies & \left( \frac{z}{\sec ^2x} \right)^\prime = -2\sec ^2x
+                        \\
+                        \implies & \int \left( \frac{z}{\sec ^2x} \right)^\prime = \int -2\sec ^2x~\mathrm{d} x 
+                        \\
+                        \implies & \frac{z}{\sec ^2x}  = c - 2\tan x
+                        \\
+                        \implies &  z = (c-2\tan x)\sec ^2x.
+                    \end{align*}
+                    So we have 
+                    \begin{align*}
+                        z(x) = \frac{1}{y^2} \implies y^2 = \frac{1}{(c-2\tan x)\sec ^2x}.
+                    \end{align*}
+                    Therefore, 
+                    \[
+                        \textcolor{blue}{\boxed{y(x) = \frac{1}{\sqrt{(c-2\tan x)\sec ^2x} } \text{ or } y(x) = -\frac{1}{\sqrt{(c-2\tan x)\sec ^2x} } }}
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
