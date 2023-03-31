@@ -13,6 +13,8 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  
+  <link rel="stylesheet" href="../answer.css">
    
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	
@@ -90,7 +92,83 @@
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
-                    <strong>Solution: </strong> 
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong> Given that $f:\mathbb{R}\to \mathbb{R} $ satisfies $f(x+y)=f(x)+f(y)$ for each $x,y\in \mathbb{R} $.
+                    <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        Note that for any $x\in \mathbb{R} $ and $n\in \mathbb{N} $ we have
+                        \begin{align*}
+                            f(nx) & = f(x+ x+\cdots+x) \\
+                                  & = \underbrace{f(x) + f(x) + \cdots + f(x)}_{n\text{-times}} \\
+                                  & = n f(x).
+                        \end{align*}
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We need to show that $f$ is continuous at a single point if and only if $f$ is continuous on $\mathbb{R}$. If $f$ is continuous on $\mathbb{R} $, then it will be continuous at a single point. So we only need to show that if $f$ is continuous at a single point then it is continuous on $\mathbb{R} $. Let us assume that $f$ is continuous at $a \in \mathbb{R}$ and $x_0\in \mathbb{R} $ be any point. We claim that $f$ is continuous at $x_0$. <br>
+                        Note that 
+                        \begin{align*}
+                            \lim_{x \to x_0} f(x) & = \lim_{x \to a} f \left( x -a +x_0 \right) 
+                            \\
+                            & =  \lim_{x \to a} \left[ f\left( x+\left( x_0-a \right)  \right)  \right] 
+                            \\
+                            & = \lim_{x \to a} \left( f(x) + f\left( x_0-a \right)  \right) 
+                            \\
+                            & = \lim_{x \to a} f(x) + \lim_{x \to a} f\left( x_0-a \right) 
+                            \\
+                            & = f(a) + f\left( x_0 - a \right) 
+                            \\
+                            & = f \left( a + x_0 -a  \right) 
+                            \\
+                            & = f \left( x_0 \right).
+                        \end{align*}  
+                        Thus, $f$  is continuous at $x_0$. 
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        Note that if $f(x)=\alpha x$ for some $\alpha \in \mathbb{R} $, then it is continuous. Now we will prove that if $f$ is continuous then $f(x)=\alpha x$ for some $\alpha \in \mathbb{R} $. Observe that 
+                        \[
+                            f(0) = f(0+0) = f(0) + f(0) \implies f(0) = 0.
+                        \]
+                        Similarly, 
+                        \[
+                            f(0) = f(x-x) = f(x) + f(-x) \implies -f(x) = f(-x).
+                        \]
+                        So for any $n\in \mathbb{N} $, we have 
+                        \begin{align*}
+                            f(n) = f(1 + \cdots + 1) = n f(1) \\
+                            f(-n) = -f(n) = -n f(1). 
+                        \end{align*}
+                        Let us set $f(1) = \alpha $. Then we have for any $n\in \mathbb{Z} $
+                        \[
+                            f(n) = \alpha n.
+                        \] 
+                        Now we take $x\in \mathbb{Q} $, so $x=\frac{p}{q}$ for some $p,q\in \mathbb{Z} $ and $q\neq 0$. Note that,
+                        \begin{align*}
+                            q\cdot f\left( \frac{1}{q} \right) = f\left( q\cdot \frac{1}{q} \right) = f(1) \implies f\left( \frac{1}{q} \right) = \frac{\alpha}{q}.
+                        \end{align*}
+                        So we have 
+                        \begin{align*}
+                            f(x) & = f\left( \frac{p}{q} \right) \\
+                                 & = f \left( p\cdot \frac{1}{q} \right) \\
+                                 & = p f\left( \frac{1}{q} \right) \\
+                                 & = \frac{p}{q}\cdot \alpha \\
+                                 & = \alpha x.
+                        \end{align*}
+                        Therefore, we proved that for any rational number $x$ $f(x) = \alpha x$. 
+                        <br> <br>
+                        Now let $x$ be an irrational number. Since, rationals are dense in $\mathbb{R} $, we can find a sequence $\left( x_n \right) \subseteq \mathbb{Q} $ such that $x_n\to x$. As $f$ is continuous, $f(x_n)$ must converge to $f(x)$. Note that 
+                        \[
+                            f\left( x_n \right) = \alpha x_n \to \alpha x.
+                        \]
+                        Therefore, 
+                        \[
+                            f(x) = \alpha x.
+                        \]
+                        Hence, we proved that if $f$ is continuous, then $f(x)=\alpha x$ where $\alpha =f(1)$.  
+                      </li>
+                    </ol>
+                  </p> 
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

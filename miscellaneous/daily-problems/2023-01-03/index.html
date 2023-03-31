@@ -83,7 +83,30 @@
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
-                    <strong>Solution: </strong> 
+                    <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                      <strong>Solution: </strong> Note that 
+                      \[
+                          \frac{1}{\sqrt{2}} + \frac{\iota}{\sqrt{2} } = \cos \frac{\pi}{4} + \iota \sin \frac{\pi}{4}.
+                      \]
+                      We also recall the \emph{De moire's Theorem:}
+                      For any complex number $z=r(\cos \theta +\iota \sin \theta )$ and for any $n\in \mathbb{Z}$, we have
+                      \[
+                          z^ = r^n \left( \cos n \theta +\sin n \theta  \right) .
+                      \] 
+                      Thus, 
+                      \begin{align*}
+                          \left( \frac{1}{\sqrt{2}} + \frac{\iota}{\sqrt{2} } \right) ^{2023} & = \cos \left( \frac{2023\pi}{4} \right) + \iota \sin \left( \frac{2023\pi}{4} \right)\\
+                          & = \cos \left( 505\pi+\frac{3\pi}{4} \right) + \iota \sin \left( 505\pi+\frac{3\pi}{4} \right) \\
+                          & = -\cos \frac{3\pi}{4}  + \iota \left( -\sin \frac{3\pi}{4} \right) \\
+                          & = -\left( -\frac{1}{\sqrt{2} } \right) +\iota \left( -\frac{1}{\sqrt{2} } \right) \\
+                          & = \frac{1}{\sqrt{2} } -\frac{\iota}{\sqrt{2}}\\
+                          & = \frac{1-\iota}{\sqrt{2} }.
+                      \end{align*}
+                      Therefore,
+                      \[
+                          \textcolor{blue}{\boxed{ \left( \frac{1+\iota}{\sqrt{2}} \right)^{2023}=\frac{1-\iota}{\sqrt{2} }}}
+                      \]
+                    </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

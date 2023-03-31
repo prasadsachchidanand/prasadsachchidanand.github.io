@@ -101,7 +101,60 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> On $\mathcal{P} (\mathbb{R} )$ we have the $A\sim B \iff \vert A \vert = \vert B \vert $. 
+                    <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        We want to prove that the relation is an equivalence relation.
+                        <ul class="list-disc ml-4">
+                          <li class="my-2">
+                            <strong>Reflexive: </strong>We need to show that for every $A\in \mathcal{P} (\mathbb{R} )$, $A\sim A$. This is true as the cardinality of $A$ is same as $A$.
+                          </li>
+                          <li class="my-2">
+                            <strong>Symmetric: </strong>If $A\sim B$, then 
+                            \[
+                                \vert A \vert = \vert B \vert \implies \vert B \vert = \vert A \vert \implies B\sim A.
+                            \]     
+                          </li>
+                          <li class="my-2">
+                            <strong>Transitive: </strong>Let $A\sim B$ and $B\sim C$. We need to prove that $A\sim C$. Note that 
+                            \[
+                                A \sim B \implies \vert A \vert =\vert B \vert, \text{ and } B\sim C \implies \vert B \vert = \vert C \vert .
+                            \]
+                            Therefore, we have 
+                            \[
+                                \vert A \vert =\vert B \vert =\vert C \vert .
+                            \]
+                            Hence, $B\sim C$.
+                          </li>
+                        </ul>
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        The equivalence class of the set $I_n \coloneqq \left\{ 0,1,\ldots ,n \right\} $ will be 
+                        \begin{align*}
+                            \left[ I_n \right] &  = \left\{ A\subseteq \mathbb{R} : I_n \sim A \right\} 
+                            \\
+                            & = \left\{ A\subseteq \mathbb{R} : \left\vert I_n \right\vert = \vert A \vert \right\} 
+                            \\
+                            & = \left\{ A \subseteq \mathbb{R} : \vert A \vert = n \right\}.
+                        \end{align*} 
+                        Similarly, the equivalence class of $\mathbb{Z} $ will be 
+                        \begin{align*}
+                            \left[ \mathbb{Z}  \right] & = \left\{ A\subseteq \mathbb{R}  : \vert A \vert = \left\vert \mathbb{Z}  \right\vert  \right\} 
+                            \\
+                            & = \left\{ A \subseteq \mathbb{R} : A \text{ is countable} \right\}.
+                        \end{align*}
+                        Therefore, $\mathbb{Q} \in \left[ \mathbb{Z}  \right] $ and hence, $\left[ \mathbb{Q}  \right] = \left[ \mathbb{Z}  \right] $.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        From the above examples, we have the following equivalence classes of this relation. 
+                        \[
+                            \left\{ I_n : n\in \mathbb{N}  \right\}, ~ \mathbb{Z} ,~\mathbb{R} .
+                        \] 
+                        The first one contains all finite subsets of $\mathbb{R} $ the second one contains all countable sets and the last one contains all uncountable subsets of $\mathbb{R} $. A subset of $\mathbb{R} $can either be of finite cardinality, or countable or uncountable and have the same cardinality as of $\mathbb{R} $. Thus, these are the all equivalence classes of the given relation. 
+                      </li>
+                    </ol>
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

@@ -82,3 +82,10 @@
     list-style: lower-roman;
     margin-left: 2.5rem;
   }
+  
+  .math-list-disc {
+    list-style: disc;
+    margin-left: 2.5rem;
+  }
+
+  /* class for ol and ul leading-relaxed lg:text-lg md:text-base text-justify */

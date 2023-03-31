@@ -90,9 +90,123 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Given that the matrix $A= \begin{pmatrix}
+                        1  &  1 \\
+                        1 &  1 \\
+                    \end{pmatrix}$, we want to compute $A^{2023}$. At first we will check whether $A$ is diagonalizable or not, if it is diagonalizable, then the computation of the power will be very easy. Let us find out the eigenvalues of the matrix $A$. Note that the determinant of $A$ is zero, so one of the eigenvalues will be $0$. Since the sum of all the eigenvalues is the trace of the matrix, so the other eigenvalue will be $2$. We now will find out the corresponding eigenvectors. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Consider the eigenvalue $\lambda _1 = 0$. We have 
+                    \begin{align*}
+                        A \mathbf{v}  = \lambda _1 \mathbf{v} 
+                        & \implies \begin{pmatrix}
+                            1 &  1 \\
+                            1 &  1 \\
+                        \end{pmatrix} 
+                        \begin{pmatrix}
+                             v_1 \\
+                             v_2 \\
+                        \end{pmatrix} = 
+                        \begin{pmatrix}
+                             0 \\
+                             0 \\
+                        \end{pmatrix} 
+                        \\
+                        & \implies v_1 + v_2 = 0 \\
+                        & \implies v_2 = -v_1.
+                    \end{align*}
+                    Thus one of the eigenvector will be 
+                    \[
+                        \mathbf{v} = \begin{pmatrix}
+                             1 \\
+                             -1 \\
+                        \end{pmatrix}.
+                    \]                
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly for the eigenvalue $\lambda _2 = 1$. We have 
+                    \begin{align*}
+                        A \mathbf{v}  = \lambda _2 \mathbf{v} 
+                        & \implies (A-I \lambda _2)\mathbf{v}  = \begin{pmatrix}
+                             0 \\
+                             0 \\
+                        \end{pmatrix}
+                        \\
+                        & \implies \begin{pmatrix}
+                            -1 &  1 \\
+                            1 &  -1 \\
+                        \end{pmatrix} 
+                        \begin{pmatrix}
+                             v_1 \\
+                             v_2 \\
+                        \end{pmatrix} = 
+                        \begin{pmatrix}
+                             0 \\
+                             0
+                        \end{pmatrix} 
+                        \\
+                        & \implies v_1 - v_2 = 0 \\
+                        & \implies v_2 = v_1.
+                    \end{align*}
+                    Thus one of the eigenvector will be 
+                    \[
+                        \mathbf{v} = \begin{pmatrix}
+                             1 \\
+                             1 \\
+                        \end{pmatrix}.
+                    \]            
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    If we write 
+                    \[
+                        P = \begin{pmatrix}
+                            1 &  1 \\
+                            -1 &  1 \\
+                        \end{pmatrix} \text{ and } 
+                        D = \begin{pmatrix}
+                            0 &  0 \\
+                            0 &  2 \\
+                        \end{pmatrix},
+                    \]
+                    then,
+                    \[
+                        A = PDP^{-1} \implies A^{2023} = PD^{2023}P^{-1} 
+                    \]
+                    We have 
+                    \[
+                        P^{-1} = \frac{1}{2} \begin{pmatrix}
+                            1 &  -1 \\
+                            1 &  1 \\
+                        \end{pmatrix}.
+                    \]
+                    Therefore, 
+                    \begin{align*}
+                        A^{2023} & = \frac{1}{2} \begin{pmatrix}
+                            1 &  1 \\
+                            - &  1 \\
+                        \end{pmatrix} \begin{pmatrix}
+                            0 &  0 \\
+                            0 &  2^{2023} \\
+                        \end{pmatrix} \begin{pmatrix}
+                            1 &  -1 \\
+                            1 &  1 \\
+                        \end{pmatrix}
+                        \\
+                        & = \frac{1}{2}\begin{pmatrix}
+                            2^{2023} &  2^{2023} \\
+                            2^{2023} &  2^{2023} \\
+                        \end{pmatrix}
+                        \\
+                        & = 2^{2022}
+                        \begin{pmatrix}
+                            1 &  1 \\
+                            1 &  1 \\
+                        \end{pmatrix}.
+                    \end{align*}         
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
