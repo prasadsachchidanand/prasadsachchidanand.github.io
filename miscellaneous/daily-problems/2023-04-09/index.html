@@ -95,9 +95,34 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $v\in V$. We need to show that there exists $\alpha ,\beta ,\gamma ,\delta \in \mathbb{F}$ such that 
+                    \begin{align*}
+                        & \alpha \left( v_1-v_2 \right) + \beta \left( (v_2-v_3) \right)+ \gamma \left(v_3-v_4\right) + \delta v_4 = v.
+                    \end{align*}
+                    The above implies 
+                    \begin{equation}\label{eq:09Apr2023-1}
+                        \alpha v_1 + \left( \beta -\alpha  \right) v_2 + \left( \gamma -\beta  \right) v_3 + \left( \delta -\gamma  \right) v_4 = v.
+                    \end{equation}
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since $\left\{ v_1,v_2,v_3,v_4 \right\} $ spans $V$, so there exits $a,b,c,d\in \mathbb{F} $ such that 
+                    \begin{equation}\label{eq:09Apr2023-2}
+                        av_1 + bv_2 + cv_3 + dv_4 = v.
+                    \end{equation}
+                    Using \eqref{eq:09Apr2023-1} and \eqref{eq:09Apr2023-2}, we have 
+                    \begin{align*}
+                        & \alpha = a, \\
+                        & \beta -\alpha =b \implies \beta = \alpha +b = a+b \\
+                        & \gamma - \beta = c \implies \gamma = c+\beta = a + b + c \\
+                        & \delta -\gamma = d \implies \delta = d+ \gamma = a + b + c + d.
+                    \end{align*}
+                    Therefore, we proved that 
+                    \[
+                        v \in \text{span} \left\{ v_1-v_2,v_2-v_3,v_3-v_4,v_4 \right\} 
+                    \]
+                    and hence $\left\{ v_1-v_2,v_2-v_3,v_3-v_4,v_4 \right\} $ spans $V$.
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
