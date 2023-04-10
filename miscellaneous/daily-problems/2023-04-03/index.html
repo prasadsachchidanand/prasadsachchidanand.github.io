@@ -98,7 +98,50 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We recall that if $A$ is a nonepty subset of $\mathbb{R}$ is bounded, then its supremum and infimum exist. 
+                    <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        Since the set $A$ is non-empty and bounded, the supremum and infimum of $A$ will exists. Since $A$ is bounded, $-A$ will also be bounded and hence $-A$ has also the supremum and the infimum. Let $\sup(-A) = -\alpha $. We need to show that 
+                        \[
+                            \inf A = \alpha .
+                        \]  
+                        Note that since $-\alpha $ is the supremum of $-A$, so it is an upper bound of $-A$ and therefore, for all $a\in A$, we have 
+                        \[
+                            -\alpha \geq -a \implies \alpha \leq a ,
+                        \] 
+                        which implies $\alpha $ is a lower bound of $A$. Now it remains to show that $\alpha $ is the infimum, that is if $\beta $ is another lower bound of $A$, then $\beta \leq \alpha $. Since $\beta $ is a lower bound of $A$, so for all $a\in A$ 
+                        \begin{align*}
+                            \beta \leq a \implies -\beta \geq -a,
+                        \end{align*}  
+                        which implies $-\beta $ is an upper bound for $-A$. As $-\alpha $ is the supremum of $-A$, so we must have 
+                        \[
+                            -\alpha \leq -\beta \implies \alpha \geq \beta .
+                        \]  
+                        Therefore, we showed that 
+                        \[
+                            \sup(-A) = -\inf (A).
+                        \]
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        This is again similar to the previous one. Let $-\alpha =\inf(-A)$. We need to show that $\sup(A) = \alpha $. As $-\alpha $ is an infimum of $-A$, so a lower bound of $-A$, thus for all $a\in A$ we have 
+                        \[
+                            -\alpha \leq -a \implies \alpha \geq a,
+                        \]  
+                        which implies $\alpha $ is an upper bound of $A$. Now we need to show that it is the least upper bound (supremum) of $A$. If $\beta $ is another upper bound of $A$, then for all $a\in A$ 
+                        \[
+                            a\leq \beta \implies -a \geq -\beta ,
+                        \] 
+                        which implies $-\beta $ is a lower bound of $-A$ and hence 
+                        \[
+                            -\beta \leq -\alpha \implies \beta \geq \alpha .
+                        \]
+                        Thus,
+                        \[
+                            \inf(-A) = -\sup(A).
+                        \]
+                      </li>
+                    </ol>
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

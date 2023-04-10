@@ -94,9 +94,37 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We will use the <a href="https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula" class="text-blue-500 hover:text-blue-800" target="_blank">Cauchy integral formula</a> to evaluate the given integral. Recall that 
+                    <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify">
+                      Suppose $\gamma $ is a simple closed curve oriented positively and the function $f(z)$ is analytic on a region containing $\gamma $ and its interior. Then for any $z_0$ inside $\gamma $ 
+                      \begin{equation}\label{eq:04Apr2023-1}
+                          \int _{\gamma }\frac{f(z)}{z-z_0} = 2\pi \iota f\left( z_0 \right).
+                      \end{equation}
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    In the given problem, note that 
+                    \[
+                        f(z) = \frac{e^{\iota \pi z}}{(z-3\iota )^2}
+                    \]
+                    is analytic inside the circle $\vert z \vert =2$. Therefore, using the Cauchy integral formula we have 
+                    \begin{align*}
+                        \frac{1}{2\pi \iota }\int_{\gamma }\frac{e^{\iota \pi z}}{(z-1)(z-3\iota )^2}\mathrm{d} z & = f(1) 
+                        \\
+                        & = \frac{e^{\iota \pi}}{(1-3\iota )^2} 
+                        \\
+                        & = \frac{-1}{1 - 9 - 6\iota }
+                        \\
+                        & = \frac{1}{8+6\iota } .
+                    \end{align*} 
+                    Therefore,
+                    \[
+                        \textcolor{blue}{\boxed{
+                            \frac{1}{2\pi \iota }\int_{\gamma }\frac{e^{\iota \pi z}}{(z-1)(z-3\iota )^2}\mathrm{d} z = \frac{1}{8+ 6\iota }
+                        }}
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

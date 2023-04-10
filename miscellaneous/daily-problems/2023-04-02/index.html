@@ -93,9 +93,63 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We will first show that $W_{\text{even}}$ and $W_{\text{odd}}$ are vector subspaces of $V$. Recall that $W$ is a vector subspace of $V$ if for any $w_1,w_2\in W$ and $\alpha \in \mathbb{F} $, we have $\alpha w_1 + w_2\in W$.
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let $f_1,f_2\in W_{\text{even}}$ and $\alpha \in \mathbb{F} $ be given. We need to show that $\alpha f_1+f_2$ is an even function. Note that $f_1$ and $f_2$ are even functions, so 
+                    \[
+                        f_1(-x) = f_1(x) \text{ and } f_2(-x) = f_2(x).
+                    \]  
+                    Observe that 
+                    \begin{align*}
+                        \left( \alpha f_1+f_2 \right) (-x) & = \left( \alpha f_1 \right) (-x) + f_2(-x) \\
+                        & = \alpha f_1(-x) + f_2(x) \\
+                        & = \alpha f_1(x) + f_2(x) \\
+                        & = \left( \alpha f_1+f_2 \right) (x).
+                    \end{align*}   
+                    Thus, $\alpha f_1+f_2\in W_{\text{even}}$.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly, if $f_1,f_2$ are odd functions, we have 
+                    \[
+                        f_1(-x) = -x, \text{ and } f_2(-x) = -f_2(x).
+                    \]
+                    So, for any $\alpha \in \mathbb{F} $,
+                    \begin{align*}
+                        \left( \alpha f_1+f_2 \right) (-x) & = \left( \alpha f_1 \right) (-x) + f_2(-x) \\
+                        & = \alpha f_1(-x) - f_2(x) \\
+                        & = -\alpha f_1(x) - f_2(x) \\
+                        & = -\left( \alpha f_1+f_2 \right) (x).
+                    \end{align*}
+                    Thus, $\alpha f_1+f_2\in W_{\text{odd}}$.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will show that $V= W_{\text{even}} \oplus W_{\text{odd}} $. If $f\in V$, then note that 
+                    \begin{align*}
+                        g(x) & = \frac{f(x) + f(-x)}{2} \in W_{\text{even}},~\text{and } \\
+                        h(x) & = \frac{f(x) - f(-x)}{2} \in W_{\text{odd}}.
+                    \end{align*} 
+                    For that,
+                    \begin{align*}
+                        & g(-x) = \frac{f(-x)+f(-(-x))}{2} = \frac{f(-x)+f(x)}{2}= g(x) \\
+                        & h(-x) = \frac{f(-x)-f(-(-x))}{2} = \frac{f(-x)-f(x)}{2}= -h(x).
+                    \end{align*}
+                    Now observe that 
+                    \[
+                        f(x) = g(x) + h(x).
+                    \]
+                    Thus, we showed that $V = W_{\text{even}} + W_{\text{odd}}$. Now to show it is a direct sum, we need to show that $W_{\text{even}} \cap W_{\text{odd}} = \{0\}$. If $f\in W_{\text{even}}\cap W_{\text{odd}}$, then for any $x\in \mathbb{R} $, 
+                    \begin{align*}
+                        -f(x) = f(-x) = f(x) \implies f(x) +f(x) = 0 \implies f(x) = 0.
+                    \end{align*}    
+                    Since, $f(x)=0$ for every $x\in \mathbb{R} $, so $f\equiv 0$. Thus, we proved that 
+                    \[
+                        V = W_{\text{even}} \oplus W_{\text{odd}}.
+                    \]  
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
