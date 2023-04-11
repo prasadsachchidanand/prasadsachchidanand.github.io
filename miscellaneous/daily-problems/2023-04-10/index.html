@@ -101,9 +101,61 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> The only problem is to understand whether or not this function is differentiable at point $(0,0)$. If the given function is differentiable at $(0,0)$, then it must be linear and hence all the directional derivatives will also be linear. Recall that the directional derivative at a point $\mathbf{x} $ in the direction of $\mathbf{v} $ is given by 
+                    \[
+                        df_{\mathbf{x} }(\mathbf{v} ) = \lim_{t \to 0} \frac{f(\mathbf{x} -t\mathbf{v} )-f(\mathbf{x} )}{t}.
+                    \]
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    If $\mathbf{v} = (v_1,v_2)$, then the directional derivative of the given function at $(0,0)$ will be 
+                    \begin{align*}
+                        df_{(0,0)}(\mathbf{v} ) & = \lim_{t \to 0} \frac{f(t \mathbf{v} ) - f(0,0)}{t} \\[1ex]
+                        & = \lim_{t \to 0} \frac{\frac{t^3 v_1^3 + v_2^4 t^4}{t^2 v_1^2 + t^2 v_2^2}-0}{t} \\[2ex]
+                        & = \lim_{t \to 0} \frac{v_1^3 + tv_2^4}{v_1^2 + v_2^2} \\[1ex]
+                        & = \frac{v_1^3}{v_1^2 + v_2^2},
+                    \end{align*}
+                    which is not linear. Hence, the given function is not differentiable at $0$.
+                  </p>
+                  <hr class="h-px my-4 bg-green-400 border-2">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Another way to tackle this problem is to see the linear approximation of $f(x,y)$ at $(0,0)$. The linear approximation of the function is given by 
+                    \[
+                        L(x,y) = f(0,0) + x\cdot\frac{\partial f}{\partial x}(0,0)+ y\cdot \frac{\partial f}{\partial y} (0,0).
+                    \] 
+                    Note that using the directional derivative computation, we have 
+                    \begin{align*}
+                        \frac{\partial f}{\partial x}(0,0) = df_{(0,0)}(1,0) = 1 \\
+                        \frac{\partial f}{\partial y}(0,0) = df_{(0,0)}(0,1) = 0.
+                    \end{align*}
+                    Therefore, the linear approximation will be 
+                    \[
+                        L(x,y) = x.
+                    \]
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    For $f$ to be differentiable at $(0,0)$ we would need the limit 
+                    \[
+                        \lim_{(x,y) \to (0,0)} \frac{f(x,y)-L(x,y)}{\sqrt{x^2 +y^2} }
+                    \]
+                    to be equal to $0$. Note that 
+                    \begin{align*}
+                        \lim_{(x,y) \to (0,0)} \frac{f(x,y)-L(x,y)}{\sqrt{x^2 +y^2} } & = \lim_{(x,y) \to (0,0)} \frac{\frac{x^3 + y^4}{x^2 + y^2}-x}{\sqrt{x^2 +y^2} } \\[1ex]
+                        & = \lim_{(x,y) \to (0,0)} \frac{x^3 + y^4 -x^3 -y^2x}{(x^2 + y^2)^{\frac{3}{2}}} \\[1ex]
+                        & = \lim_{(x,y) \to (0,0)} \frac{y^4 - y^2x}{(x^2 +y^2)^{\frac{3}{2}}}.
+                    \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that the above limit does not exist. For that take the limit along the line $y=mx$. Then we have 
+                    \begin{align*}
+                        \lim_{(x,y) \to (0,0)} \frac{y^4 - y^2x}{(x^2 +y^2)^{\frac{3}{2}}} & = \lim_{x \to 0} \frac{m^4x^4 - m^2 x^3}{\left( x^2 + m^2 x^2 \right) ^{\frac{3}{2}}} \\[1ex]
+                        & = \lim_{x \to 0} \frac{x^3m^2 \left( m^2 - 1 \right) }{x^3 \left( 1+m^2 \right) ^{\frac{3}{2}}} \\[1ex]
+                        & = \frac{m^2 \left( m^2 - 1 \right)}{ \left( m^2 + 1 \right) ^{\frac{3}{2}}}.
+                    \end{align*}
+                    The above limit depends upon $m$ and hence the limit does not exist as the limit along two different lines are different. Therefore, the function is not differentiable at $(0,0)$. 
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
