@@ -87,9 +87,30 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Given that the function $g$ is analytic in a neighborhood of $z_0$. Consider the following function: 
+                    \[
+                        f(z) = 
+                        \begin{dcases}
+                            \frac{g(z)}{z-z_0}, &\text{ if } z\neq z_0 ;\\
+                            g^\prime (z_0), &\text{ if } z=z_0.
+                        \end{dcases}
+                    \] 
+                    Since, $g$ is analytic function in a neighborhood of $z_0$, the function $f$ will also be analytic in the same neighborhood. We need to check whether this is analytic at $z_0$. We recall here <em>Riemann's removable singularity theorem</em>.
+                    <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify">
+                      Let $U$ be an open subset of $\mathbb{C} $ and $z_0\in U$. Let $f$ be an analytic function on $U\setminus \{z_0\}$. Then $f$ has an analytic extension over $z_0$ if and only if it is continuously extendable over $z_0$.
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    In order to prove that the function $f(z)$ is analytic $z_0$, we need to check if it is continuous at $z=z_0$. Note that 
+                    \begin{align*}
+                        \lim_{z \to z_0} f(z) & = \lim_{z \to z_0} \frac{g(z)}{z-z_0} \\
+                        & = \lim_{z \to z_0} \frac{g(z)-g(z_0)}{z-z_0} \\
+                        & = g^\prime (z_0)\\
+                        & = f(z_0).
+                    \end{align*} 
+                    Therefore, $f$ is continuos at $z_0$ and hence $f$ is an analytic extension of $\frac{g(z)}{z-z_0}$ at $z=z_0$. 
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
