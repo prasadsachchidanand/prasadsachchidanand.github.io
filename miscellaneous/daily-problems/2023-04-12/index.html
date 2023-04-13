@@ -87,9 +87,23 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall the following result.
+                    <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify">
+                      The sum of positive integers less than $n$ and relatively prime to $n$ is equal to $\frac{n \varphi (n)}{2}$.
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Therefore, using the above theorem, we have 
+                    \begin{align*}
+                        \frac{n \varphi (n)}{2} = 1008n & \implies \frac{ \varphi (n)}{2} = 1008 \\
+                        & \implies \varphi (n) = 2016.
+                    \end{align*} 
+                    Hence, 
+                    \[
+                        \textcolor{blue}{\boxed{\varphi (n) = 2016}}
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
