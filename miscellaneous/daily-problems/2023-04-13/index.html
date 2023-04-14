@@ -95,9 +95,75 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let us write three equivalent definitions of boundary of a set $A \subseteq X$. Let $\bar{A} $ denotes the closure of $A$ in $X$ and $\mathrm{int}(A) $ denotes the interior of $A$ in $X$.
+                    <ol class="math-list-roman leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        Definition given in the problem.
+                      </li>
+                      <li class="my-4">
+                        $\partial A = \bar{A} \setminus \mathrm{int}(A) $. 
+                      </li>
+                      <li class="my-4">
+                        $\partial A = \bar{A} \cap \overline{\left( X\setminus A \right)}$. 
+                      </li>
+                    </ol>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Consider the following subsets: 
+                    <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        Take $A=\mathbb{Z} $. We claim that $\partial \mathbb{Z} =\mathbb{Z} $. Let $n\in \mathbb{Z} $. Take any neighborhood of $n$, say $U$ is an open neighborhood of $n$. We have 
+                        \[
+                            n\in U\cap \mathbb{Z},
+                        \]  
+                        so, $U$ intersects $\mathbb{Z} $. Now we need to show that it intersects $\mathbb{Z} ^c$. But this is clear as $U$ is an open subset of $\mathbb{R} $ containing $n$ and hence there exists $\varepsilon >0$ such that $(n-\varepsilon ,n+\varepsilon )\subseteq U$. Therefore, $U$ intersects $\mathbb{Z} ^c$ . Thus, $n\in \partial Z$ and hence, $\partial \mathbb{Z} \subseteq \mathbb{Z} $.
+                        <br><br>
+                        On the other hand, if $x\in \partial \mathbb{Z} $, and $x\notin \mathbb{Z} $, then let $n$ be the integer such that $n \lt x \lt x+1$. Here $n=[x]$, where $[x]$ is the greatest integer function of $x$. Take
+                        \[
+                            \varepsilon = \min \left\{ x-n, n+1-x  \right\}.
+                        \] 
+                        <div class="flex flex-wrap justify-center my-4">
+                          <img
+                            src="../../../assets/img/prob-13-04-23_01.svg"
+                            class="h-auto"
+                            alt="choice of epsilon"
+                          />
+                        </div>
+                        Then, the open set $U = (x-\varepsilon ,x+\varepsilon )$ does not intersect $\mathbb{Z} $ and hence we $x\notin \partial \mathbb{Z} $. Therefore, we got a contradiction. Hence, if $x\in \partial \mathbb{Z} $, then $x\in \mathbb{Z} $. This proves that $\partial \mathbb{Z} \subseteq \mathbb{Z} $ and hence, $\partial \mathbb{Z} = \mathbb{Z} $. 
+                      </li>
+                      <li class="my-4">
+                        Take $A = \mathbb{Z} \cup (1,2)$.  Let us prove that the boundary $A$ is $\mathbb{Z} $ with the second definition. Recall that 
+                        \[
+                            \overline{A \cup B} = \bar{A} \cup \bar{B} 
+                        \]
+                        \begin{align*}
+                            \bar{A} & =  \overline{\mathbb{Z} \cup (1,2)}  \\
+                                    & = \overline{\mathbb{Z} } \cup \overline{(0,1)} \\
+                                    & = \mathbb{Z}  \cup [1,2] \\
+                                    & = \mathbb{Z} \cup (1,2).
+                        \end{align*}
+                        We need to determine the interior of $\mathbb{Z} \cup (1,2)$. We claim that 
+                        \[
+                            \mathrm{int}\left( \mathbb{Z} \cup (1,2) \right)  = (1,2).
+                        \] 
+                        It is clear that $(1,2)\subseteq \mathrm{int}\left( \mathbb{Z} \cup (1,2) \right) $. For the reverse inequality, let $x\in \mathrm{int}\left( \mathbb{Z} \cup (1,2) \right) $. We need to show that $x\in (1,2)$. Suppose that $x\notin (1,2)$. Since we know that for any subset $A$ we have $\mathrm{int}(A) \subseteq A $. Therefore, $\mathrm{int}\left( \mathbb{Z} \cup (1,2) \right) \subseteq \mathbb{Z} \cup (1,2)$. Since $x\notin (1,2)$, so $x$ must be an integer. Thus any open neighborhood of $x$ does not contain in $A$ and hence $x$ can not be an interior point. Therefore, $x\in (1,2)$. Hence, 
+                        \[
+                            \mathrm{int}\left( \mathbb{Z} \cup (1,2) \right)  = (1,2).
+                        \]     
+                        Therefore, 
+                        \begin{align*}
+                            \partial A & = \bar{A} \setminus \mathrm{int} (A) \\
+                                       & = \left( \mathbb{Z}  \cup  (1,2) \right)  \setminus (1,2) \\
+                                       & = \mathbb{Z} .
+                        \end{align*}  
+                      </li>
+                      <li class="my-4">
+                        Take $A= \mathbb{Z} \cup (2,3)$.   
+                      </li>
+                    </ol>
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
