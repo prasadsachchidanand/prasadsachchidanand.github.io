@@ -125,6 +125,23 @@
                   </p>
                 </div>
                 
+                <div class="my-4">
+                  <div class="flex">
+                    <div class="w-1/2 mr-2">
+                      <h2 class="text-center font-bold mb-2">(in Hindi)</h2>
+                      <div id="player1"></div>
+                    </div>
+                    <div class="w-1/2 ml-2">
+                      <h2 class="text-center font-bold mb-2">(in English)</h2>
+                      <div id="player2"></div>
+                    </div>
+                  </div>
+                  <div class="flex mt-4 justify-center">
+                    <button id="subscribe-btn">Subscribe to Channel</button>
+                  </div>
+                </div>
+                
+                
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
                   <nav aria-label="Page navigation example">
@@ -224,6 +241,32 @@
       }
       myFunction()
     </script>
+
+    <!-- YouTube -->
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+      var player1, player2;
+    
+      function onYouTubeIframeAPIReady() {
+        player1 = new YT.Player('player1', {
+          height: '360',
+          width: '100%',
+          videoId: 'Zx5ISuR_dVY',
+        });
+        player2 = new YT.Player('player2', {
+          height: '360',
+          width: '100%',
+          videoId: 'PCmgSVQkYrI',
+        });
+      }
+    
+      document.getElementById("subscribe-btn").addEventListener("click", function() {
+        window.open('https://www.youtube.com/channel/UCfd9y4oaR7sGwB8WHIBZlLw', '_blank');
+      });
+    </script>
+    
+    <!-- YouTube Finish -->
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     
