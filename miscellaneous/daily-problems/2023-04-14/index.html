@@ -93,9 +93,51 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Note that the function $f(y) = y^{\frac{1}{3}}$ is not Lipschitz continuous on any interval containing the origin and hence the solution need not be unique. To see it is not Lipschitz, note that 
+                    \begin{align*}
+                        \frac{f(y)-f(0)}{y-0} = \frac{y^{\frac{1}{3}}}{y} = \frac{1}{y^{\frac{2}{3}}}.
+                    \end{align*}
+                    Since the above difference quotients is not bounded on any interval containing $x=0$, the function $f(y)=y^{\frac{1}{3}}$ is not Lipschitz continuous on any interval containing $0$.  Note that if $f:\mathbb{R} \to \mathbb{R} $ is a differentiable function, then it is Lipschitz if and only if the derivative is bounded. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Observe that one solution can be obtained by just integrating the differential equation. 
+                    \begin{align*}
+                        \frac{2}{3} \frac{\mathrm{d}y }{\mathrm{d} x} = y^{\frac{1}{3}}  & \implies \frac{2}{3} \frac{\mathrm{d} y}{y^{\frac{1}{3}}} = \mathrm{d} x \\
+                        & \implies \int  \frac{2}{3} y^{-\frac{1}{3}} \mathrm{d} y = \int \mathrm{d} x \\
+                        & \implies \frac{2}{3} \left( \frac{y^{-\frac{1}{3} + 1}}{-\frac{1}{3}+1} \right) = x + c \\[1ex]
+                        & \implies \frac{2}{3}\left( \frac{y^{\frac{2}{3}}}{\frac{2}{3}} \right) = x+ c \\[1ex]
+                        & \implies  y^{\frac{2}{3}} = x + c \\[1ex]
+                        & \implies y(x) = (x+c)^{\frac{3}{2}}.
+                    \end{align*}
+                    The initial condition implies $c=0$ and therefore, one solution of this differential equation will be 
+                    $y(x) = x^{\frac{3}{2}}$.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Another solution is $y\equiv 0$.
+                    <br> <br>
+                     Now we will show that this differential equation has infinitely many solutions. For that let $a>0$ be any real number. Let 
+                    \[
+                        y(x) = 
+                        \begin{dcases}
+                            0, &\text{ if } x\leq a ;\\
+                            (x-a)^{\frac{3}{2}}, &\text{ if } x > a.
+                        \end{dcases}
+                    \]
+                    Note that the above is also a solution and hence, we conclude that the given differential equation has infinitely many solutions. The above solutions are demonstrated in the below figure. 
+
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-14-04-23_01.svg"
+                        class="h-auto"
+                        alt="solutions of the differential equation"
+                      />
+                    </div>
+                  </p>
+
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
