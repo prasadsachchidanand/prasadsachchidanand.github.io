@@ -89,3 +89,14 @@
   }
 
   /* class for ol and ul leading-relaxed lg:text-lg md:text-base text-justify */
+
+  /* Image */
+  /* 
+  <div class="flex flex-wrap justify-center my-4">
+    <img
+      src="../../../assets/img/prob-15-04-23_01.svg"
+      class="h-auto"
+      alt="solutions of the differential equation"
+    />
+  </div>
+  */

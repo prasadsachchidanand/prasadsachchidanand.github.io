@@ -87,9 +87,38 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Given that a plane meets coordinate axes at points $A,B$ and $C$. So we assume that the coordinates of $A=(a,0,0), B= (0,b,0)$ and $C=(0,0,c)$. We need to find the equation of the plane. Recall that the equation of the plane which intersects axes at $(a,0,0),(0,b,0)$ and $(0,0,c)$ is given by 
+                    \[
+                        \frac{x}{a}  + \frac{y}{b} + \frac{z}{c} = 1.
+                    \]
+                    We have the following picture: 
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-15-04-23_01.svg"
+                        class="h-auto"
+                        alt="Intersection of plane and axes"
+                      />
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Recall that the centroid of the triangle with vertices $(x_i,y_i,z_i),~ i = 1,2,3$ is given by 
+                    \[
+                        \left( \frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3}, \frac{z_1 + z_2 + z_3}{3} \right).
+                    \]  
+                    Therefore, the centroid of the given triangle will be 
+                    \[
+                        \left( \frac{a+0+0}{3}, \frac{0+b+0}{3}, \frac{0+0+c}{3} \right) = \left( \frac{a}{3},\frac{b}{3}, \frac{c}{3} \right)  .
+                    \]
+                    From the given data in the problem, we have 
+                    \begin{align*}
+                        \left(  \frac{a}{3},\frac{b}{3}, \frac{c}{3}  \right) = \left( 1,\frac{1}{2},-\frac{1}{3} \right) \implies a=3,~b=\frac{3}{2} \text{ and } c = -1.
+                    \end{align*}
+                    Therefore, the equation of the plane will be 
+                    \[
+                        \frac{x}{a}+ \frac{y}{b} + \frac{z}{c} = 1 \implies \frac{x}{3} + \frac{2y}{3} - z = 1.
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
