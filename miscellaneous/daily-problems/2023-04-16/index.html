@@ -87,9 +87,41 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We need to find the trace of $A^2$. If $\lambda _1$ and $\lambda _2$ are the eigenvalues of $A$, then we recall the following: 
+                    <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        $\lambda _1 + \lambda_2 = \mathop{\mathrm{trace}}(A) $. 
+                      </li>
+                      <li class="my-4">
+                        $\lambda _1\cdot \lambda _2 = \det A$. 
+                      </li>
+                      <li class="my-4">
+                        The eigenvalues of $A^2$ will be $\lambda _1^2$ and $\lambda _2^2$.  
+                      </li>
+                    </ol>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Using these facts we have 
+                    \begin{align*}
+                        \lambda _1 + \lambda _2 & = 3, \\
+                        \lambda _1 \cdot \lambda _2 & = 1.
+                    \end{align*}
+                    We need to find out 
+                    \[
+                        \mathop{\mathrm{trace}}(A^2) =  \lambda _1^2 + \lambda _2^2.
+                    \]
+                    Note that 
+                    \begin{align*}
+                        & \left( \lambda _1 + \lambda _2 \right)^2 = \lambda _1^2 + \lambda _2^2 + 2\lambda _1\lambda _2 \\
+                        \implies & \lambda _1^2 + \lambda _2^2 = 3^2 - 2 \times 1 = 7.
+                    \end{align*}
+                    Therefore, 
+                    \[
+                        \mathop{\mathrm{trace}}\left( A^2 \right) = 7.
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
