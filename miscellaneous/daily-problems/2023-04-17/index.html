@@ -87,9 +87,48 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We recall that if a function $f:\mathbb{R} ^m \to \mathbb{R} ^n$ is given by
+                    \[
+                        f(\mathbf{x} ) = \left( f_1(\mathbf{x} ),f_2(\mathbf{x} ),\ldots ,f_n(\mathbf{x} ) \right),
+                    \] 
+                    where $\mathbf{x}  = \left( x_1,x_2,\ldots , x_m \right) $, then the derivative at $\mathbf{x} $ will be 
+                    \[
+                        df_{\left( \mathbf{x}  \right) } \coloneqq 
+                        \begin{pmatrix}
+                            \frac{\partial f_1}{\partial x_1}(\mathbf{x}) & \frac{\partial f_1}{\partial x_2}(\mathbf{x}) & \cdots  &  \frac{\partial f_1}{\partial x_m}(\mathbf{x}) \\[2ex]
+                            \frac{\partial f_2}{\partial x_1}(\mathbf{x}) & \frac{\partial f_2}{\partial x_2}(\mathbf{x}) & \cdots  &  \frac{\partial f_2}{\partial x_m}(\mathbf{x}) \\[2ex]
+                             \vdots & \vdots  & \cdots  & \vdots   \\
+                             \frac{\partial f_n}{\partial x_1}(\mathbf{x}) & \frac{\partial f_n}{\partial x_2}(\mathbf{x}) & \cdots  &  \frac{\partial f_n}{\partial x_m}(\mathbf{x}) \\[2ex]
+                        \end{pmatrix}_{n\times m}.
+                    \]  
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Here the function is 
+                    \[
+                        f(x,y) = \left( x^2 , y^2 + \sin x \right) = \left( f_1(x,y),f_2(x,y) \right).
+                    \]
+                    Therefore, 
+                    \begin{align*}
+                        df_{(2,3)} & = 
+                        \begin{pmatrix}
+                           \frac{\partial f_1}{\partial x}(2,3)   & \frac{\partial f_1}{\partial y}(2,3)  \\[2ex]
+                            \frac{\partial f_2}{\partial x}(2,3) & \frac{\partial f_2}{\partial y}(2,3)  \\
+                        \end{pmatrix}
+                        \\[1ex]
+                        & = 
+                        \left.\begin{pmatrix}
+                            2x &  0 \\
+                            \cos x &  2y \\
+                        \end{pmatrix}\right|_{(2,3)} 
+                        \\[1ex]
+                        & = \begin{pmatrix}
+                            4 &  0 \\
+                            \cos 2 &  6 \\
+                        \end{pmatrix}.
+                    \end{align*}
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

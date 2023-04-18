@@ -77,11 +77,17 @@
     list-style: lower-alpha;
     margin-left: 2.5rem;
   }
+
+  .math-list-Alpha {
+    list-style: upper-alpha;
+    margin-left: 2.5rem;
+  }
   
   .math-list-roman {
     list-style: lower-roman;
     margin-left: 2.5rem;
   }
+  
   
   .math-list-disc {
     list-style: disc;
