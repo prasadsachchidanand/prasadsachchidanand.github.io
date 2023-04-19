@@ -101,9 +101,55 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>First of all note that the discriminant of the polynomial is given by 
+                    \begin{align*}
+                        a^2 - 4p^{11}.  
+                    \end{align*}
+                    From the given condition, we have 
+                    \[
+                        a^2 \leq 4p^{11} \implies a^2 - 4p^{11} \leq 0.
+                    \]
+                    If $a^2 - 4p^{11}=0$, then 
+                    \[
+                        a^2 = 4p^{11} \implies a = \pm \sqrt{4p^{11}} = \pm 2p^{5}\sqrt{p}.
+                    \]
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since $p$ is a prime number, $\sqrt{p} $ must be an irrational number and hence $a$ is an irrational number, which is a contradiction to the fact that $a\in \mathbb{Z} \setminus \{0\}$. Therefore, $a^2 < 4p^{11}$, and hence the roots of this quadratic equation will be distinct and imaginary roots. Thus, option (D) is wrong and option (C) is correct. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will analyze the other two options. Recall that roots of the quadratic equation $az^2 + bz + c$ is given by 
+                    \[
+                        z = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.
+                    \]
+                    We have $a^2 - 4p^{11} \leq $, so the roots will be 
+                    \begin{align*}
+                        z = \frac{-a \pm \sqrt{a^2 - 4p^{11}} }{2} = \frac{-a \pm \iota \sqrt{4p^{11}-a^2} }{2}.
+                    \end{align*}
+                    The real part and the imaginary parts are 
+                    \begin{align*}
+                        \text{real part } & = \frac{-a}{2} \text{ and } \\
+                        \text{imaginary part } & = \pm \frac{\sqrt{4p^{11}-a^2}}{2}.
+                    \end{align*}
+                    Note that $a\neq 0$, so real part is non zero and hence option (A) is also false. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Finally, if option (B) is correct, then 
+                    \begin{align*}
+                        -\frac{a}{2} = \pm \frac{\sqrt{4p^{11}-a^2} }{2} & \implies a^2 = 4p^{11} - a^2 \\
+                        & \implies 2a^2 = 4p^{11} \\
+                        & \implies a^2 = p^{11} \\
+                        & \implies  a = \pm \sqrt{p^{11} } = \pm p^5\sqrt{p},
+                    \end{align*} 
+                    which is a contradiction as $p$ is a prime number and $a$ is an integer. Therefore, option (B) is also false. Hence the only option which is correct is option (C).
+                  </p>
+
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
