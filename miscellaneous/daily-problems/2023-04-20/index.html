@@ -108,9 +108,18 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Note that here $C(x)$ is the equivalence class of $x$, which contains all the elements which are related to $y$. We have the following property for the equivalence classes. 
+                    \begin{equation}\label{eq:20Apr2023-1}
+                        C(x) \cap  C(y) \neq \emptyset \iff C(x) = C(y) \iff x\sim y.
+                    \end{equation}
+                    Let us prove this property. We have $z\in C(x) \cap C(y) $ if and only if $z\sim x$ and $z\sim y$. By the transitive property we have $x\sim y$ this implies $C(x) = C(y)$. Hence we proved the claim. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    By using the equation \eqref{eq:20Apr2023-1}, we conclude that options $(B),(C)$ and $(D)$ are correct. Note that option $(A)$ need not be true.  For example, let $X= \mathbb{R} $ with the euclidean topology and $A=[-1,1]$. Then note that $C(-0.5) = C(0.5)$ as we can take the $C= (-0.6,0.6)$, but $x \neq y$.
+                  </p>
+
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
