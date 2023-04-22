@@ -97,9 +97,93 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that for the given boundary value problem (BVP), we say $\lambda $ is an eigenvalue of the given BVP if the solution corresponding to the $\lambda $ is non trivial. The solution is called the eigenfunction corresponding to the eigenvalue $\lambda $. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let $\lambda \lt 0$. We take $\lambda = -k^2$, where $k$ is a real number. Then the solution of the differential equation 
+                    \[
+                        y^{\prime\prime}  - k^2 y = 0 
+                    \]  
+                    is 
+                    \[
+                        y(x) = Ae^{kx} + B e^{-kx}.
+                    \]
+                    Now we will use the boundary condition to find the values of $A$ and $B$. Note that 
+                    \[
+                        y^\prime (x) = Ake^{kx} - Bke^{-kx} .
+                    \]We have 
+                    \begin{align*}
+                        y(0) = 0 & \implies A + B = 0\\ 
+                        y^\prime (\pi) = 0 & \implies Ake^{k\pi} - Bke^{-k\pi} = 0 \\
+                        & \implies A e^{k\pi} - Be^{-k\pi} = 0.
+                    \end{align*} 
+                    This is a system of linear homogeneous equation and finding the determinant of the coefficient matrix will help to find the solution. The determinant of the coefficient matrix will be 
+                    \[
+                        \det \begin{pmatrix}
+                            1 &  1 \\
+                            e^{k\pi} &  -e^{-k\pi} \\
+                        \end{pmatrix} = -e^{-k\pi} - e^{k\pi} = - \left( e^{k\pi} + \frac{1}{e^{k\pi}} \right) \neq 0.
+                    \]
+                    Since, the determinant is nonzero, the system has trivial solution and hence, $A=B=0$. Therefore, the solution of  the differential equation will be trivial, that is $y\equiv 0$. Hence, if  $\lambda \lt 0$, it can not be an eigenvalue.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now take $\lambda =0$. Then the solution of the differential equation 
+                    \[
+                        y^{\prime\prime} = 0 
+                    \] 
+                    will be 
+                    \[
+                        y(x) = Ax + B.
+                    \]
+                    Applying the boundary conditions, we have 
+                    \begin{align*}
+                        y(0) = 0 \implies B = 0 \\
+                        y^\prime (\pi) = 0 \implies  A = 0.
+                    \end{align*}
+                    Hence, the solution is trivial and therefore, $\lambda =0$ is also not an eigenvalue of the given BVP.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Finally, take $\lambda >0$. Let $\lambda =k^2,~k\in \mathbb{R} $. Then the differential equation will be 
+                    \[
+                        y^{\prime\prime} + k^2 y = 0
+                    \]  
+                    and the solution will be 
+                    \[
+                        y(x) = A\cos kx + B \sin kx.
+                    \]
+                    Note that 
+                    \[
+                        y^\prime (x) = -Ak \sin kx + Bk\cos kx.
+                    \]
+                    Applying the boundary conditions, we have 
+                    \begin{align*}
+                        y(0) = 0 & \implies A = 0 \\
+                        y^\prime (\pi) = 0 & \implies Bk \cos (k\pi) = 0 \\
+                                           & \implies B \cos(k\pi) = 0.
+                    \end{align*}
+                    If $B=0$, then again the solution will be trivial and hence we will not get the eigenvalue. Let $\cos k\pi = 0$. This implies $k = \frac{2n+1}{2}$, where $n$ is an integer. Thus, 
+                    \[
+                        \lambda _n = k^2 = \left( \frac{2n+1}{2} \right) ^2,~n\in \mathbb{Z} .
+                    \]    
+                    Note that the above collection is same as 
+                    \[
+                        \lambda _n = \left( \frac{2n+1}{2} \right) ^2,~n= 0,1,2,\ldots .
+                    \]
+                    Therefore, the eigenvalues of the given BVP will be 
+                    \[
+                        \left\{ \lambda _n = \left(\frac{2n+1}{2} \right) ^2 : n = 0,1,2,\ldots . \right\} 
+                    \]
+                    Note that $\lambda _n$ is an increasing function of $n$ and hence the difference between the least two eigenvalues will be 
+                    \[
+                        \lambda _1 - \lambda _0 = \frac{9}{4} - \frac{1}{4} = \frac{8}{4} = 2.
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
