@@ -95,7 +95,23 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>It is easy to check that the given map is a linear transformation. Observe that 
+                    \begin{align*}
+                        T(1) & = 0 \implies 0\cdot 1+ 0\cdot x + 0\cdot x^2 + 0\cdot x^3 \\ 
+                        T(x) & = 1 \implies 1\cdot 1+ 0\cdot x + 0\cdot x^2 + 0\cdot x^3 \\ 
+                        T\left( x^2 \right)  & = 2x \implies 0\cdot 1+ 2\cdot x + 0\cdot x^2 + 0\cdot x^3 \\ 
+                        T\left( x^3 \right)  & = 3x^2 \implies 0\cdot 1+ 0\cdot x + 3\cdot x^2 + 0\cdot x^3.
+                    \end{align*}
+                    Therefore, the matrix of the given linear transformation will be 
+                    \[
+                        [T] = 
+                        \begin{pmatrix}
+                            0 & 1 & 0 &  0 \\
+                            0 & 0 & 2 &  0 \\
+                            0 & 0 & 0 &  3 \\
+                            0 & 0 & 0 &  0 \\
+                        \end{pmatrix}.
+                    \]
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
@@ -104,7 +120,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-04-21/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-04-22/">
                           Previous 
                         </a>
                       </li>
@@ -114,7 +130,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-04-23/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-04-24/">
                           Next 
                         </a>
                       </li>
