@@ -93,7 +93,28 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Note that we want to evaluate 
+                    \begin{align*}
+                        \sum_{n=1}^\infty \left( \frac{1}{2^n\cdot 3^n} + \frac{1}{2^{n+1} \cdot 3^n} \right) & = \sum_{n=1} ^{\infty} \left( \frac{1}{2^n\cdot 3^n} + \frac{1}{2}\cdot\frac{1}{2^{n} \cdot 3^n} \right) \\[1ex]
+                        & = \sum_{n=1}^\infty  \frac{1}{2^n\cdot 3^n}\left(1+\frac{1}{2}\right) \\[1ex]
+                        & = \frac{3}{2} \sum_{n=1}^{\infty}  \frac{1}{2^n\cdot 3^n}.
+                    \end{align*}
+                    Now we recall that 
+                    \[
+                        \sum_{n=1}^\infty x^n = \frac{x}{1-x},~\iff |x| \lt 1.
+                    \]
+                    Here we have 
+                    \[
+                        \sum_{n=1} ^{\infty} \left( \frac{1}{6} \right) ^n.
+                    \]
+                    Since $\frac{1}{6} \lt 1$, so
+                    \[
+                        \sum_{n=1} ^{\infty} \left( \frac{1}{6} \right) ^n = \frac{\frac{1}{6}}{1-\frac{1}{6}} = \frac{1}{5}.
+                    \] 
+                    Therefore, 
+                    \[
+                        \sum_{n=1}^\infty \left( \frac{1}{2^n\cdot 3^n} + \frac{1}{2^{n+1} \cdot 3^n} \right) = \frac{3}{2}\sum_{n=1} ^{\infty} \left( \frac{1}{6} \right) ^n = \frac{3}{10}.
+                    \]
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
