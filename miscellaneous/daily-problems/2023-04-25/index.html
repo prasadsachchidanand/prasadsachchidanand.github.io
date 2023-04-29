@@ -93,9 +93,70 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that if $z=z_0$ is an isolated singularity of a function $f$, then we have the Laurent series of $f$ in a deleted neighborhood of $z_0$, given by 
+                    \[
+                        f(z) = \sum_{n=-\infty }^{\infty } a_n z(z-z_0)^n.
+                    \]
+                    We call $a_{-1}$ the residue of $f$ at $z_0$. We also recall that 
+                    \[
+                        \int_\gamma f(z) = 2\pi \iota a_{-1},
+                    \]  
+                    where $\gamma $ is counterclockwise simple closed curve containing $z_0$ and does not contain any other poles of $f$.
+
+                    <br><br>
+                    We also have the <a href="https://en.wikipedia.org/wiki/Cauchy%27s_integral_theorem" class="text-blue-500 hover:text-blue-800" target="_blank">Cauchy's integral theorem</a> which says that 
+                    <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify">
+                      If $f(z)$ is analytic in a simply connected region $\Omega$, then 
+                      \[
+                          \int_\gamma f(z)~\mathrm{d}z = 0
+                      \]
+                      for any closed contour $\gamma$ completely contained in $\Omega$.
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We also now by the Cauchy theorem, that the integration of a analytic function on a closed curve is zero. So using these facts, we now compute the integral. 
+
+                    \vf 
+                    \hf Note that 
+                    \begin{align*}
+                        ze^{\frac{1}{z}} & = z \left( 1 + \frac{1}{z} + \frac{1}{2z^2} + \frac{1}{3!z^3} + \dots \right) \\
+                        & = z + 1 + \frac{1}{2z} + \frac{1}{6z^2} + \dots.
+                    \end{align*} 
+                    Therefore, the residue of $ze^{\frac{1}{z}}$ at $z=0$ will be $\frac{1}{2}$. Hence, 
+                    \[
+                        \int _C ze^{\frac{1}{z}} \mathrm{d} z = 2\pi \iota \frac{1}{2}  = \pi \iota .
+                    \] 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now look at the second term under the integral. Note that 
+                    \[
+                        \tan \frac{z}{2} = \frac{\sin \frac{z}{2}}{\cos \frac{z}{2}}.
+                    \]
+                    Since $\cos \frac{z}{2}$ vanishes on $z= (2n+1)\pi$, where $n\in \mathbb{Z} $ and these points are lying outside the given circle.  Therefore, $\tan \frac{z}{2}$ is analytic inside $C$ and hence, using the Cauchy's integral theorem we conclude that 
+                    \[
+                        \int_C \tan \frac{ z}{2} \mathrm{d} z = 0.
+                    \]
+                    </p>
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+
+                    <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    The final integral can be solved either using the partial fraction or by Cauchy's integral formula. Note that 
+                    \begin{align*}
+                        \frac{1}{(z-1)(z-2)} & = \frac{1}{z-2} - \frac{1}{z-1}.
+                    \end{align*}
+                    The function $\frac{1}{z-2}$ is analytic inside $|z|=2$ and hence the integral over $C$ will vanish. The other integral will be 
+                    \[
+                        \int_C \frac{1}{z-1}~\mathrm{d} z  = 2\pi \iota \implies \int_C \frac{1}{(z-1)(z-2)}\mathrm{d} z = -2\pi \iota  .
+                    \]  
+                    Thus, 
+                    \begin{align*}
+                        \frac{2}{\pi\iota} \int _C \left( ze^{\frac{1}{z}} + \tan \frac{z}{2} + \frac{1}{(z-1)(z-2)} \right)\mathrm{d}z = \frac{2}{\pi \iota } \left( \pi \iota  + 0 - 2\pi \iota  \right) = -2.
+                    \end{align*}
+                  </p>
                 </div>
 
                 <!-- YouTube Video -->

@@ -87,10 +87,35 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We recall the following isomorphism theorem. This ic called the third isomorphism theorem for rings. 
+                    <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify">
+                      Let $R$ be a ring and $J$ be an ideal of $R$. Let $I$ be an ideal of $J$. Then, $I/J$ is an ideal of $R/J$ and we have the following isomorphism
+                      \[
+                          \frac{R/J}{I/J} \cong R/I.
+                      \]
+                    </div>                     
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We also recall that $R/I$ is a field if and only if $I$ is a maximal ideal in $R$.  <br><br>
+                    In this problem, we note that if $I$ is an ideal of $\left\langle x^4 -1 \right\rangle $, then using the above theorem, we have 
+                    \[
+                        \frac{\mathbb{Q} [x]/I}{I/\left\langle x^4 - 1 \right\rangle } \cong \mathbb{Q} [x]/I.
+                    \]
+                    Now $I$ is maximal if and only if $\mathbb{Q} [x]/I$ is a field. Therefore, we need to consider the ideals of $\left\langle x^4 - 1 \right\rangle $ which are irreducible. Note that 
+                    \[
+                        x^4 - 1 = \left( x^2 + 1 \right) (x-1)(x+1).
+                    \]
+                    Therefore, ideals of $\left\langle x^4 - 1 \right\rangle $ which are maximal $\mathbb{Q} [x]/\left\langle x^4 - 1 \right\rangle $ will be
+                    \[
+                        \left\langle x-1 \right\rangle/\left\langle x^4-1 \right\rangle , \left\langle x+1 \right\rangle/\left\langle x^4-1 \right\rangle \text{ and } (x^2 +1)/\left\langle x^4-1 \right\rangle. 
+                    \] 
+                    Hence, there are three maximal ideals of $\mathbb{Q} [x]/\left\langle x^4 - 1 \right\rangle $. 
+                  </p>
+                
                 </div>
+
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
                   <nav aria-label="Page navigation example">
