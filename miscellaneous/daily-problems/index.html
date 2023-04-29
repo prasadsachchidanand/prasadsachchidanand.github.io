@@ -145,15 +145,19 @@
                 </div>
 
                 <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="problem-of-the-day">
-                  <a class="text-blue-500 hover:text-blue-800" href="2023-04-28/">Problem of the day (28-04-2023)</a>
+                  <a class="text-blue-500 hover:text-blue-800" href="2023-04-29/">Problem of the day (29-04-2023)</a>
               </h2>
               <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md hover:bg-red-200">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>Let $u(x,y)$ solve the Cauchy problem,   
+                      <strong>Problem: </strong>Let $l^2$ denotes the set of all sequences which is square summable, that is,  
                       \[
-                          \frac{\partial u}{\partial y} - x \frac{\partial u}{\partial x} + u - 1= 0,
+                          l^2 = \left\{ \left( x_n \right) : \sum_n \vert x_n \vert^2 < \infty  \right\} .
                       \]
-                      where $-\infty \lt x \lt \infty,~y\geq 0$ and $u(x,0)=\sin x$. Then find the value of $u(0,1)$.
+                      Let the continuous linear operator $T:l^2 \to l^2$ be defined by 
+                      \[
+                          T\left( x_1,x_2,\dots \right) = \left( 0,x_1,0,x_3,0,x_5,\dots \right) .
+                      \]
+                      Then show that $T^2 = T\circ T$ is compact whereas $T$ is not compact.
                   </p> 
               </div>
               
