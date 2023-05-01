@@ -95,9 +95,61 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>  The given differential equation can be written as 
+                    \begin{equation}\label{eq:28Apr2023-1}
+                        -x\frac{\partial u}{\partial x} + \frac{\partial u}{\partial y} = 1-u.
+                    \end{equation}
+                    We recall that Lagrange's auxiliary equation for the linear partial differential equations
+                    \[
+                        P(x,y,u) \frac{\partial u}{\partial x} + Q(x,y,u) \frac{\partial u}{\partial u} = R(x,y,u)
+                    \]
+                    is given by 
+                    \[
+                        \frac{\mathrm{dx} }{P} = \frac{\mathrm{d} y}{Q} = \frac{\mathrm{d} u}{R}.
+                    \]
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Thus, Lagrange's auxiliary equations for \eqref{eq:28Apr2023-1} will be 
+                    \begin{equation}\label{eq:28Apr2023-2}
+                        -\frac{\mathrm{d} x}{x} = \frac{\mathrm{d} y}{1} = \frac{\mathrm{d} u}{1-u}.
+                    \end{equation}
+                    Considering first two terms of \eqref{eq:28Apr2023-2}, 
+                    \begin{align*}
+                        -\frac{\mathrm{d} x}{x} = \frac{\mathrm{d} y}{1} & \implies -\ln x + \ln c_1 = y  \\
+                        & \implies \ln \left( \frac{c_1}{ x } \right) = y \\
+                        & \implies c_1 = x e^y \tag{$\star_1$} \label{eq:28Apr2023-3} .
+                    \end{align*}
+                    Similarly, considering the last two terms of \eqref{eq:28Apr2023-2}, 
+                    \begin{align*}
+                        \frac{\mathrm{d} y}{1} = -\frac{\mathrm{d} u}{u-1} & \implies y = -\ln (u-1) + \ln c_2 \\
+                        & \implies y = \ln \left( \frac{c_2}{u-1} \right) \\
+                        & \implies c_2 = (u-1) e^y \tag{$\star_2$} \label{eq:28Apr2023-4}.
+                    \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    General solution of the given linear differential equation will be 
+                    \begin{align*}
+                        c_2 = \varphi\left( c_1 \right),
+                    \end{align*}
+                    where $\varphi $ is an arbitrary function. So using \eqref{eq:28Apr2023-3} and \eqref{eq:28Apr2023-4} and the condition that $u(x,0) = \sin x$, we have 
+                    \begin{align*}
+                        (u-1)e^y = \varphi \left( xe^y \right) & \implies  (\sin x -1) e^0 = \varphi \left( x \right) \\
+                        & \implies \varphi (x) = \sin x - 1.
+                    \end{align*}
+                    Therefore, the solution of \eqref{eq:28Apr2023-1} will be 
+                    \[
+                        (u-1)e^y = \sin \left( xe^y \right) -1
+                    \]
+                    Hence, 
+                    \[
+                        (u(0,1) - 1)e^1 = \sin (0) - 1 \implies u(0,1) = 1-\frac{1}{e}.
+                    \]
+                  </p>
+
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
