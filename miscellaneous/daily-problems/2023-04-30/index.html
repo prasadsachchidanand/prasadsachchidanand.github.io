@@ -101,10 +101,72 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let us write 
+                    \[
+                        A(\theta ) = 
+                        \begin{pmatrix}
+                            \cos \theta  &  \sin \theta  \\
+                            -\sin \theta  &  \cos \theta  \\
+                        \end{pmatrix}.
+                    \]
+                    Note that 
+                    \begin{align*}
+                        & A\left( \theta _1 \right) A\left( \theta _2 \right) 
+                        \\
+                        = & 
+                        \begin{pmatrix}
+                            \cos \theta_1  &  \sin \theta_1  \\
+                            -\sin \theta_1  &  \cos \theta_1  \\
+                        \end{pmatrix}
+                        \begin{pmatrix}
+                            \cos \theta_2  &  \sin \theta_2  \\
+                            -\sin \theta_2  &  \cos \theta_2  \\
+                        \end{pmatrix}
+                        \\[1ex]
+                        = & 
+                        \begin{pmatrix}
+                            \cos \theta _1\cos \theta _2 - \sin \theta _1 \sin \theta _2 & \cos \theta _1\sin \theta _2+ \sin \theta _1\cos \theta _2  \\
+                            -\sin \theta _1\cos \theta _2-\cos \theta _1\sin \theta _2 & -\sin \theta _1\sin \theta _2 + \cos \theta _1\cos \theta _2  \\
+                        \end{pmatrix}
+                        \\[1ex]
+                        = & 
+                        \begin{pmatrix}
+                            \cos \left( \theta _1 + \theta _2 \right)  &  \sin \left( \theta _1 + \theta _2 \right)  \\
+                            -\sin \left( \theta _1 + \theta _2 \right)  &  \cos \left( \theta _1 + \theta _2 \right)  \\
+                        \end{pmatrix}.
+                    \end{align*}
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Therefore, 
+                    \begin{align*}
+                        A^{2023} & = 
+                        \begin{pmatrix}
+                            \cos (2023\theta) &  \sin (2023\theta ) \\[1ex]
+                            -\sin (2023\theta ) &  \cos (2023\theta) \\
+                        \end{pmatrix} \\[1ex]
+                        & = 
+                        \begin{pmatrix}
+                            \cos \left( 2023\times \frac{2\pi}{17} \right)  & \sin \left( 2023\times \frac{2\pi}{17} \right) \\[1ex]
+                            -\sin \left( 2023\times \frac{2\pi}{17} \right)  &  \cos \left( 2023\times \frac{2\pi}{17} \right)  \\
+                        \end{pmatrix} \\[1ex]
+                        & = 
+                        \begin{pmatrix}
+                            \cos \left( 119\times 2\pi \right)  &  \sin \left( 119\times 2\pi \right)  \\[1ex]
+                            -\sin \left( 119\times 2\pi \right)  &  \cos \left( 119\times 2\pi \right)  \\
+                        \end{pmatrix}\\[1ex]
+                        & = 
+                        \begin{pmatrix}
+                            1 &  0 \\
+                            0 &  1 \\
+                        \end{pmatrix}.
+                    \end{align*}
+                  </p>
                 </div>
+
+                
+
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
                   <nav aria-label="Page navigation example">
