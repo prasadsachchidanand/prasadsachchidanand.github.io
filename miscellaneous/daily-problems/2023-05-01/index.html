@@ -95,9 +95,42 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We recall that if $\nabla f(\mathbf{x} )$ denotes the gradient of $f$ at $\mathbf{x} $ and $df_{\mathbf{u} }(\mathbf{x} )$ denotes the directional derivative of $f$ at $\mathbf{x} $ in the direction of $\mathbf{v} $, then 
+                    \[
+                        df_ \mathbf{v} (\mathbf{x} ) = \left\langle \mathbf{v} , \nabla f(\mathbf{x} ) \right\rangle .
+                    \]   
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let find the directional derivative of $f$ in the direction of $\mathbf{v} $. We have 
+                    \[
+                        df _\mathbf{v} (\mathbf{x} ) \coloneqq \lim_{t \to 0} \frac{ f(\mathbf{x} +t \mathbf{v} ) - f(\mathbf{x} )}{t}.
+                    \]
+                    We have 
+                    \begin{align*}
+                        f\left( \mathbf{x}  + t \mathbf{v}  \right) & = \left( \mathbf{x} + t \mathbf{v}  \right) ^T A (\mathbf{x}  + t \mathbf{v} ) \\ 
+                        & = \left( \mathbf{x} ^T + t \mathbf{v} ^T \right) \left( A \mathbf{x}  + tA \mathbf{v}  \right) \\
+                        & = \mathbf{x} ^T A \mathbf{x} + t\left( \mathbf{x} ^T A \mathbf{v}  + \mathbf{v} ^T A \mathbf{x}  \right) + t^2 \mathbf{v}  A \mathbf{v} \\
+                        & = f(\mathbf{x} ) + t\left( \mathbf{x} ^T A \mathbf{v}  + \mathbf{v} ^T A \mathbf{x}  \right) + t^2 f(\mathbf{v} ).
+                    \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    So, 
+                    \begin{align*}
+                        df _\mathbf{v} (\mathbf{x} ) & = \lim_{t \to 0} \frac{f(\mathbf{x} ) + t\left( \mathbf{x} ^T A \mathbf{v}  + \mathbf{v} ^T A \mathbf{x}  \right) + t^2 f(\mathbf{v} ) - f(\mathbf{x} )}{t} \\[1ex]
+                        & = \left( \mathbf{x} ^T A \mathbf{v}  + \mathbf{v} ^T A \mathbf{x} \right) \\
+                        & = \left\langle A^T \mathbf{x} , \mathbf{v}  \right\rangle + \left\langle \mathbf{v} , A \mathbf{x}  \right\rangle \\
+                        & = \left\langle \mathbf{v} , A^T \mathbf{x}  \right\rangle + \left\langle \mathbf{v} , A \mathbf{x}  \right\rangle \\
+                        & = \left\langle \mathbf{v} , \left( A+A^T \right) \mathbf{x}   \right\rangle .
+                    \end{align*}
+                    Therefore, 
+                    \[
+                        \nabla f(\mathbf{x} ) = \left( A+A^T \right) \mathbf{x} .
+                    \]
+                  </p>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
