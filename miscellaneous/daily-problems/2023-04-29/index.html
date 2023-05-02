@@ -103,10 +103,36 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that an operator on a Banach space $X$  is compact if and only if for every bounded sequence $\left( x_n \right) _{n\in \mathbb{N} }$ the image $\left( T\left( x_n \right)  \right) _{n\in \mathbb{N} }$ has a convergent subsequence. Let $e_i = \left( 0,0,\dots,1,0,\dots \right) $, where $1$ is at the $i^{\text{th}}$ place. It is clear that $e_i\in l^2$. We take the sequence defined as 
+                    \[
+                        x_n = e_{2n-1},~n\in \mathbb{N} .
+                    \]
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since $\lVert e_n \rVert = 1$, the sequence is bounded. But observe that the image sequence is not Cauchy and hence it can not have a convergent subsequence.  
+                    \begin{align*}
+                        T\left( x_1 \right) & = \left( 0,1,0,0,0,0,\dots, \right) = e_2 \\
+                        T\left( x_2 \right) & = \left( 0,0,0,1,0,0,\dots, \right) = e_4 \\
+                        \vdots \\ 
+                        T\left( x_n \right) & = \left( 0,0,\ldots, 1,\ldots , \right) = e_{2n}. 
+                    \end{align*}
+                    Note that 
+                    \[
+                        \lVert T\left( x_m \right) - T\left( x_n \right)  \rVert = \lVert e_{2m} - e_{2n} \rVert = \sqrt{2},
+                    \]
+                    and hence the sequence $\left( T\left( x_n \right)  \right)$ is not Cauchy. Thus, $T$ is not compact. 
+                
+                    \vf 
+                    \hf On the other hand 
+                    \[
+                        T^2 (x_1,x_2,x_3,\dots,) = T(0,x_1,0,x_3,0,\dots) = (0,0,0,\ldots,).
+                    \]  
+                    So, $T^2 = 0$ and hence it is a compact operator.
+                  </p>
                 </div>
+                
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
                   <nav aria-label="Page navigation example">
