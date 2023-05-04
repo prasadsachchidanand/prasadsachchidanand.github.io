@@ -53,6 +53,22 @@
     font-weight: bold;
   }
 
+  .result {
+    border-left: 0.25rem solid rgb(255, 227, 67);
+    background-color: rgb(253, 250, 229);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    margin-top: .5rem;
+    padding: 1rem;
+    line-height: 1.625;
+    line-height: 1.625;
+  }
+
+  .result::before {
+    content: "Result: ";
+    font-weight: bold;
+  }
+
   .proof {
     border-left: 0.25rem solid rgb(61, 223, 255 );
     background-color: rgb(223, 245, 250);

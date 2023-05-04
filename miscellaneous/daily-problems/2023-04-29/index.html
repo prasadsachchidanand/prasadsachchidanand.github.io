@@ -133,6 +133,30 @@
                   </p>
                 </div>
                 
+                <!-- YouTube Video -->
+                <div class="my-4">
+                  <div class="flex">
+                    <div class="w-1/2 mr-2">
+                      <h2 class="text-center font-bold mb-2">(in Hindi)</h2>
+                      <div id="player1"></div>
+                    </div>
+                    <div class="w-1/2 ml-2">
+                      <h2 class="text-center font-bold mb-2">(in English)</h2>
+                      <div id="player2"></div>
+                    </div>
+                  </div>
+               
+                  <div class="flex justify-center items-center mt-10">
+                    <a href="https://www.youtube.com/channel/UCfd9y4oaR7sGwB8WHIBZlLw?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition ease-in-out duration-150">
+                      <svg class="w-6 h-6 fill-current mr-2" viewBox="0 0 24 24">
+                        <path d="M21.15 7.66c-.22-.82-.86-1.45-1.68-1.68C17.47 5 12 5 12 5s-5.47 0-7.47.98c-.82.22-1.46.85-1.68 1.68C2 9.66 2 12 2 12s0 2.34.85 4.34c.22.82.86 1.45 1.68 1.68C6.53 19 12 19 12 19s5.47 0 7.47-.98c.82-.22 1.46-.85 1.68-1.68C22 14.34 22 12 22 12s0-2.34-.85-4.34zM9.5 15.44V8.56L15.75 12l-6.25 3.44z"/>
+                      </svg>
+                      <span>Subscribe</span>
+                    </a>
+                  </div>     
+                </div>
+                <!-- End of YouTube Video -->
+
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
                   <nav aria-label="Page navigation example">
@@ -234,6 +258,28 @@
     </script>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+     <!-- YouTube -->
+
+     <script src="https://www.youtube.com/iframe_api"></script>
+     <script>
+       var player1, player2;
+     
+       function onYouTubeIframeAPIReady() {
+         player1 = new YT.Player('player1', {
+           height: '360',
+           width: '100%',
+           videoId: '1G7YgcG5IK8',
+         });
+         player2 = new YT.Player('player2', {
+           height: '360',
+           width: '100%',
+           videoId: 'xl6iPQrPJUE',
+         });
+       };
+     </script>
+     
+     <!-- YouTube Finish -->
     
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script id="dsq-count-scr" src="//my-google-site.disqus.com/count.js" async></script>
