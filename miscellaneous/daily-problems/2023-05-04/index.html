@@ -107,9 +107,48 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Note that for any $x\neq y$, 
+                    \begin{align*}
+                        \left\vert f(x) - f(y)  \right\vert & = \left\vert x+\frac{1}{x} - y -\frac{1}{y} \right\vert \\[1ex]
+                        & = \left\vert x-y + \frac{1}{x} - \frac{1}{y} \right\vert \\[1ex]
+                        & = \left\vert (x-y) + \left( \frac{y-x}{xy} \right) \right\vert \\[1ex]
+                        & = \left\vert (x-y)\left( 1-\frac{1}{xy} \right)  \right\vert \\[1ex]
+                        & = \vert x-y \vert \left\vert 1 - \frac{1}{xy} \right\vert. 
+                    \end{align*}
+                    As $x\neq y$ and $x,y\geq 1$ so we have 
+                    \[
+                        xy \gt 1 \implies  1-\frac{1}{xy} \lt 1.
+                    \]
+                    Hence, we have 
+                    \[
+                        \vert f(x) - f(y) \vert = \vert x-y \vert \left\vert 1 - \frac{1}{xy} \right\vert 
+                        lt \vert x-y \vert .
+                    \]
+                    <br> <br>
+                    Observe that $f$ does not have a fixed point. If 
+                    \[
+                        f(x) = x \implies x + \frac{1}{x} = x \implies \frac{1}{x} = 0,
+                    \]
+                    not possible. Hence $f$ does not have a fixed point. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We recall the <em>contraction mapping theorem:</em>
+                    <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify">
+                      Let $\left( X,d_X \right) $ and $\left( Y,d_Y \right) $ be two metric spaces. Let $f:\left( X,d_x \right) \to \left( Y,d_Y \right) $ be a continuous function. Suppose that there exists a real number $k$ with $0\leq k \lt 1$ and for every distinct points $x,y\in X$ we have
+                      \[
+                          d_Y\left( f(x), f(y) \right) \leq k d_X(x,y).
+                      \] 
+                      Then $f$ has a fixed point.
+                    </div>
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that in  the theorem $k \lt 1$, but we showed that the $|f(x)-f(y)| \lt \vert x-y \vert $, which does not satisfy the hypothesis of the contraction mapping theorem and hence, it does not contradict the contraction mapping theorem.   
+                  </p>
+                  
                 </div>
 
                 <!-- Previous Button -->
