@@ -99,7 +99,24 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $X = \left\{ 1,2,\dots,2023 \right\} $. Note that for any $n \leq 2023$ we have the following choices: 
+                    <ol class="math-list-disc leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        $n \in A,~ n\notin B,\text{ and } n \notin C$;
+                      </li>
+                      <li class="my-4">
+                        $n \notin A,~ n\in B,\text{ and } n \notin C$;
+                      </li>
+                      <li class="my-4">
+                        $n \notin A,~ n\notin B,\text{ and } n \in C$ and
+                      </li>
+                      <li class="my-4">
+                        $n \notin A,~ n\notin B,\text{ and } n \notin C$.
+                      </li>
+                    </ol>
+                    Therefore, the total number of elements in the set $\mathcal{S} $ is $4^{2023}$. 
+                    <br><br>
+                    Equivalently, let $D = X\setminus \left( A\cup B\cup C\cup  \right) $, then each of $2023$ elements will be in exactly one of the four of $A,B,C$ and $D$. This is also equivalent to the total number of functions from the set $X$ to ${0,1,2,3}$.
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

@@ -106,9 +106,57 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that a second order PDE of the form 
+                    \[
+                        a(x,y) \frac{\partial ^2 u}{\partial x^2} + b(x,y) \frac{\partial ^2 u}{\partial x\partial y} + c(x,y) \frac{\partial ^2 u}{\partial y^2} = f\left( x,y,u,\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y} \right) 
+                    \]
+                    is 
+                    <ul class="math-list-disc leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        <em>elliptic</em> if $b^2 - 4ac \lt 0$;
+                      </li>
+                      <li class="my-4">
+                        <em>parabolic</em> if $b^2 - 4ac = 0$;                        
+                      </li>
+                      <li class="my-4">
+                        <em>hyperbolic</em> if $b^2 - 4ac \gt 0$.
+                      </li>
+                    </ul>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We will examine each of the given PDEs. 
+                    <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        Here $a(x,y) = 0,~ b(x,y) = x^2$ and $c(x,y) = 0$. So, 
+                        \[
+                            b^2 - 4ac = x^2,
+                        \]  
+                        and hence the given PDE is not parabolic. 
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        Here $a(x,y) = x^2,~ b(x,y) = -2xy$ and $c(x,y) = y^2$. So, 
+                        \[
+                            b^2 - 4ac = 4x^2 y^2 - 4x^2 y^2 - 0,
+                        \]
+                        and hence, the given PDE is parabolic.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We have $a(x,y) = x^2, ~b(x,y) = 2xy$ and $c(x,y) = y^2$. Since, 
+                        \[
+                            b^2 - 4ac = 4x^2 - 4x^2 y^2 = 0,
+                        \]
+                        the given PDE is parabolic. 
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        Finally, $a(x,y) = x^2,~ b(x,y) = -2xy$ and $c(x,y) = y^2$ which gives $b^2 - 4ac = 0$, and hence the given PDE is parabolic.  
+                      </li>
+                    </ol>
+                  </p>
                 </div>
 
                 <!-- Previous Button -->

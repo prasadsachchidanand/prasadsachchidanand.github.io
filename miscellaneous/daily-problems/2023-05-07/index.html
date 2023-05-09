@@ -91,9 +91,30 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Given that the sum of each row of $A$ is $\lambda $. Let $\mathbf{v} =(1,1,1\dots,1)^t$. We claim that $\lambda $ is an eigenvalue of $A$ with eigenvector $\mathbf{v} $. Note that 
+                    \begin{align*}
+                        A \mathbf{v} & = \begin{pmatrix}
+                             a_{11} + a_{12} + \dots + a_{1n} \\
+                             a_{21} + a_{22} + \dots + a_{2n} \\
+                             \vdots \\
+                             a_{n1} + a_{n2} + \dots + a_{nn} \\
+                        \end{pmatrix} 
+                        = 
+                        \begin{pmatrix}
+                             \lambda  \\
+                             \lambda  \\
+                             \lambda  \\
+                             \lambda  \\
+                        \end{pmatrix} 
+                        = \lambda \mathbf{v}.
+                    \end{align*} 
+                    Thus, $\lambda $ is an eigenvalue of $A$ with eigenvector $\mathbf{v} $.
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    If sum of each column of $A$ is $\mu $, then the sum of each row of $A^t$ will be $\mu $ and hence $\mu $ is an eigenvalue of $A^t$ with an eigenvector $\mathbf{v} $.  
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
