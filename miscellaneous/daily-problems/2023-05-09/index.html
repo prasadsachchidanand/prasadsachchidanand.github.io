@@ -91,9 +91,42 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> 
+                    Before solving this problem, we recall the identity theorem. 
+                    <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify">
+                      Let $\Omega $ be a domain (open and connected) in $\mathbb{C} $ and $f,g:\Omega \to \mathbb{C} $ be analytic functions. If the set $E= \{z\in \Omega :f(z)=g(z)\}$ contains a limit point, then $f(z) = g(z)$ for all $z\in \Omega $.
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Consider the function 
+                    \[
+                        g(z) = f^{\prime\prime} (z) - 10 + 3z.
+                    \]
+                    Note that 
+                    \[
+                        g\left( 1+\frac{1}{n} \right) = f^{\prime\prime} \left( 1+\frac{1}{n} \right) - 10 + 3\left( 1 + \frac{1}{n} \right) = f^{\prime\prime} \left( 1+\frac{1}{n} \right) -7 + \frac{3}{n} = 0
+                    \]
+                    The set $\left\{ 1+\frac{1}{n}:n\in \mathbb{N}  \right\} $ has a limit point, so $g\equiv 0$ on all of $\mathbb{C} $(by using the identity theorem)
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Thus, we have 
+                    \[
+                        f^{\prime\prime} (z) = 10 - 3z.
+                    \] 
+                    This implies 
+                    \[
+                        f^\prime (z) = 10z - \frac{3z^2}{2} + c. 
+                    \]
+                    Using the condition that $f^\prime (0) = 0$, gives $c=0$. Thus, 
+                    \[
+                        f^\prime (z) = 10z - \frac{3z^2}{2} \implies f(z) = 5z^2 -\frac{z^3}{2} + c,
+                    \]  
+                    where $c$ is an arbitrary constant. 
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
