@@ -107,9 +107,85 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We recall that a function $f:U\subseteq \mathbb{R} \to \mathbb{R} $ is said to be uniformly continuous on $U$ if for every $\varepsilon >0$ there exists $\delta >0$ such that for all $x,y\in U$ if $|x-y|< \delta $ then $\vert f(x)-f(y) \vert < \varepsilon $. Equivalently, if for every sequences $\left( x_n \right) $ and $\left( y_n \right) $ if $\left\vert x_n - y_n \right\vert \to 0$ as $n\to \infty $, then $\left\vert f\left( x_n \right) - f\left( y_n \right)  \right\vert \to \infty $ as $n\to \infty $.
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <ul class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        Take $x_n = n$ and $y_n = n + \frac{1}{n}$, then 
+                        \[
+                            \left\vert x_n - y_n \right\vert = \left\vert n - n - \frac{1}{n} \right\vert = \left\vert \frac{1}{n} \right\vert \to 0 \text{ as } n\to \infty .
+                        \]
+                        Whereas, 
+                        \begin{align*}
+                            \left\vert f\left( x_n \right) - f\left( y_n \right)  \right\vert & = \left\vert n^2 - \left( n + \frac{1}{n} \right) ^2 \right\vert \\
+                            & = \left\vert -2 - \frac{2}{n^2} \right\vert \to 2,
+                        \end{align*}
+                        hence $f$ is not uniformly continuous on $\mathbb{R} $.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We consider the sequences, 
+                        \[
+                            x_n^2 = n\pi,~ y_n^2 = n\pi + \frac{\pi}{2}.
+                        \]
+                        Note that 
+                        \begin{align*}
+                            \left\vert x_n - y_n \right\vert & = \left\vert \sqrt{n\pi} - \sqrt{n\pi + \frac{\pi}{2}} \right\vert  \\
+                            & = \left\vert \left( \sqrt{n\pi} - \sqrt{n\pi + \frac{\pi}{2}} \right)  \times \frac{\sqrt{n\pi} + \sqrt{n\pi + \frac{\pi}{2}}}{\sqrt{n\pi} + \sqrt{n\pi + \frac{\pi}{2}}} \right\vert  \\
+                            & = \left\vert \frac{n\pi - n\pi - \frac{\pi}{2}}{\sqrt{n\pi} + \sqrt{n\pi + \frac{\pi}{2}}} \right\vert \\
+                            & = \left\vert \frac{-\frac{\pi}{2}}{\sqrt{n\pi} + \sqrt{n\pi + \frac{\pi}{2}}  } \right\vert \to 0,~\text{ as } n\to \infty .
+                        \end{align*}
+                        But 
+                        \begin{align*}
+                            \left\vert g\left( x_n \right) - g\left( y_n \right) \right\vert & = \left\vert \sin x_n^2 - \sin y_n^2 \right\vert \\
+                            & = \left\vert \sin n\pi - \sin \left( n\pi + \frac{\pi}{2} \right)  \right\vert \\
+                            & = \left\vert \sin \frac{\pi}{2} \right\vert = 1.
+                        \end{align*}
+                        Hence, the function is not uniformly continuous on $\mathbb{R} $.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We recall that if we can extend a continuous function defined on $(a,b)$ to $[a,b]$ and the extended function is uniformly continuous on $[a,b]$, then $f$ is uniformly continuous on $(a,b)$. Here the function if $f(x) = x \sin \frac{1}{x}$, $x\in(0,1)$. Note that the given function is continuous on $(0,1)$ and 
+                        \[
+                            \lim_{x \to 0} x \sin \frac{1}{x} = 0,
+                        \]
+                        as $\sin \frac{1}{x}$ is bounded. Also,
+                        \[
+                            \lim_{x \to 1} x \sin \frac{1}{x} = \sin 1.
+                        \]
+                        So we extended the given function as 
+                        \[
+                            \tilde{h}(x) =
+                            \begin{dcases}
+                                x \sin \frac{1}{x}, &\text{ if } x\in (0,1] ;\\
+                                0, &\text{ if } x = 0.
+                            \end{dcases}
+                        \]
+                        The function $\tilde{h} $ is continuous on $[0,1]$ and hence uniformly continuous on $[0,1]$ (<em>continuous function on a compact set is uniformly continuous</em>). Therefore, the given function is uniformly continuous on $(0,1)$.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        The function is $w(x) = x^2 \sin x$ is not uniformly continuous. Take the sequences 
+                        \[
+                            x_n = n\pi ~ y_n = n\pi + \frac{1}{n}.
+                        \]
+                        It is clear that $\left\vert x_n - y_n \right\vert \to 0$ as $n\to \infty $. Now we consider 
+                        \begin{align*}
+                            \left\vert w\left( x_n \right) - w\left( y_n \right)  \right\vert & = \left\vert x_n^2 \sin x_n - y_n^2 \sin y_n \right\vert \\
+                            & = \left\vert n^2\pi^2 \sin (n\pi) - \left( n\pi + \frac{1}{n} \right)^2 \sin \left( n\pi + \frac{1}{n} \right)  \right\vert \\
+                            & = \left\vert n^2 \sin \left( \frac{1}{n} \right)  + 2\pi \sin  \left( \frac{1}{n} \right)  + \frac{1}{n^2} \sin \left( \frac{1}{n} \right)  \right\vert.
+                        \end{align*} 
+                        But note that 
+                        \[
+                            n^2 \sin \frac{1}{n} = n \frac{\sin \left( \frac{1}{n} \right) }{\frac{1}{n}} \to \infty,~ \text{as } n \to  \infty .
+                        \]
+                        Thus, $w$ is not uniformly continuous on $\mathbb{R} $.
+                      </li>
+                    </ul>
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
