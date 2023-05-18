@@ -106,9 +106,58 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We recall that the sum and product of algebraic numbers is again an algebraic number. For a proof we observe the following: 
+                    <div class="result leading-relaxed lg:text-lg md:text-base text-justify">
+                      If $K$ is a finite extension of $F$ and $a\in K$, then $a$ is algebraic over $F$.
+                      <br><br>
+                      <em>Proof:</em> Since $K$ is a finite extension of $F$, which implies $[K:F]<\infty $, say $[K:F]=n$. Since, $a\in K$, and the degree of the extension is $n$, the elements $1,a,a^2, \cdots ,a^n$ must be linearly dependent. So, there exists $\alpha _i\in F,~i=0,1,\cdots ,n$ with not all zero, such that 
+                      \[
+                          \alpha _0 + \sum_{i=1} ^n \alpha _i a^i = 0.
+                      \]     
+                      Take $f(x) = \sum_{i=0} ^n \alpha _ix^i\in F[x]$ We have $f(a) = 0$,  thus $\alpha $ is an algebraic number over $F$.
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    The next result is also useful. 
+                    <div class="result leading-relaxed lg:text-lg md:text-base text-justify">
+                      Let $a,b\in F$, then 
+                      \[
+                          [F(a,b):F(a)] \leq [F(b):F].
+                      \]   
+                    </div>
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Using the above two results, we note that if $a$ and $b$ be two algebraic numbers over $F$, then $[F(a):F] \lt \infty $ and $[F(b):F]\lt\infty $, thus, 
+                    \[
+                        [F(a,b):F] = [F(a,b):F(a)][F(a):F] \leq [F(b):F][F(a):F] \lt \infty ,
+                    \]   
+                    and hence using Result 1, we conclude that all the elements of $F(a,b)$ is algebraic. In particular, $a+b,~a\cdot b$ are algebraic. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will show that each of the given numbers are algebraic. 
+                    <ul class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        $\cos \left( \frac{2\pi}{n} \right) $. Note that $x^{n}+1 $ has roots $\cos \left( \frac{2\pi}{n} \right) \pm \sin \left( \frac{2\pi}{n} \right)  $. Therefore, these two are algebraic and hence there sum is also algebraic. Therefore, $\cos  \left( \frac{2\pi}{n} \right) $ is algebraic. 
+                      </li>
+                      <li class="my-4">
+                        Note that the numbers $5^{\frac{1}{7}}$ and $7^{\frac{1}{5}}$ are algebraic as the satisfy the polynomials $x^7 - 5$ and $x^5 - 7$ respectively. Therefore, the sum will also be an algebraic number.
+                      </li>
+                      <li class="my-4">
+                        Note that $\sqrt{2} $ satisfies $x^2 - 2$ and $\sqrt[7]{7} $ satisfies $x^7 - 7$. Therefore, each of the numbers is algebraic and hence the sum. 
+                      </li>
+                      <li class="my-4">
+                        Here also, each of the numbers is algebraic and therefore the given number is algebraic.
+                      </li>
+                    </ul>
+                  </p>
+
+
                 </div>
 
                 <!-- Previous Button -->

@@ -4,15 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NBHM 2006, NBHM 2006 Problem-7, Write down a matrix P such that $P^{-1}AP$ is a a diagonal.">
+    <meta name="description" content="Topology, Real analysis, complex analysis, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
+    <meta name="description" content="">
+
     
-	<title>Problem of the day | 02-01-2023 - Sachchidanand Prasad</title>
+	<title>Problem of the day | 14-05-2023 | Linear Algebra - Set of orthogonal matrices is compact - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <link rel="stylesheet" href="../answer.css">
    
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 			
@@ -20,7 +24,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
   crossorigin="anonymous"></script>
   
-  <!-- This will not allow user to slect text -->
+  <!-- This will not allow user to select text -->
   <!-- <style>
     body {
       user-select: none; /* supported by Chrome and Opera */
@@ -58,7 +62,7 @@
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../"> Home </a>
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../research/"> Research </a>
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../resume/"> CV </a>
-		    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../articles/">Articles</a>
+		        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../articles/">Articles</a>
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../miscellaneous/"> Miscellaneous </a>
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../contact/">Contact</a>
           </nav>
@@ -69,16 +73,143 @@
       <section class="text-gray-600 body-font">
         <div class="container xl:px-36 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
+            <h2 class="text-gray-900 text-3xl title-font font-medium">14-05-2023</h2>
+            <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+          </div>
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
             <div class="p-4 md:w-full flex">
               <div class="flex-grow lg:px-32 px-6">
-                <div class="flex flex-col items-center justify-center">
-                  <img src="https://cdn.pixabay.com/photo/2017/06/20/08/12/maintenance-2422173__340.png"
-                    alt="tailwindcss maintenance">
-                  <h1 class="mb-3 text-3xl font-bold text-center text-purple-600">Accessing Daily Problems: Wait for the Date</h1>
-                  <p class="text-justify text-gray-600">
-                    You are attempting to access a date that has not yet come to pass. It is important to wait until the designated date arrives in order to view the problem that will be posted on this platform.
-                  </p>
+                
+                <!-- Problem -->
+                <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
+                    <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                      <strong>Problem: </strong>Let 
+                      \[
+                          V = \left\{ (x,y,z)\in \mathbb{R} ^3: x+y+2z = 0 \right\} 
+                      \]
+                      and 
+                      \[
+                          W = \left\{ (x,y,z)\in \mathbb{R} ^3: x + y = 0 \right\}. 
+                      \]
+                      Then 
+                      <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                        <li class="my-4">
+                          Find out an invertible linear transformation $T:\mathbb{R} ^3\to \mathbb{R} ^3$ which maps $V$ onto $W$. 
+                        </li>
+                        <li class="my-4">
+                          Find out a non-invertible linear transformation $T:\mathbb{R} ^3 \to \mathbb{R} ^3$ such that $T(V) \cap W$ is not $\{0\}$ and $1$ is an eigenvalue of $T$. 
+                        </li>
+                      </ol>
+                    </p> 
                 </div>
+
+                <!-- Solution -->
+
+                <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong>Let us find a basis for the spaces $V$ and $W$. Since $V$ is determined by the equation $x+y + 2z = 0$, so 
+                    \begin{align*}
+                        V & = \left\{ (x,y,z) \in \mathbb{R} ^3 : x + y + 2z = 0  \right\} \\
+                        & = \left\{ (x,y,z) \in \mathbb{R} ^3 : x + y = -2z \right\} \\
+                        & = \left\{ \left( x, y, \frac{-(x+y)}{2} \right) : x,y\in \mathbb{R}  \right\} \\
+                        & = \text{span} \left\{ \left( 2,0,-1 \right), \left( 0,2,-1 \right)   \right\} .
+                    \end{align*} 
+                    Similarly, 
+                    \begin{align*}
+                        W & = \left\{ (x,y,z) \in \mathbb{R} ^3: x+ y = 0 \right\} \\
+                          & = \left\{ (x,-x,z): x,z\in \mathbb{R}  \right\} \\
+                          & = \text{span}\left\{ (1,-1,0), (0,0,1) \right\}. 
+                    \end{align*}
+                    In order to find the linear transformation we recall the following theorem, 
+                    <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify">
+                      Let $V$ and $W$ be vector spaces with dimensions $n$ and $m$ respectively. Let $\left\{ v_1,v_2,\dots,v_n \right\} $ be a basis of $V$ and $\left\{ w_1,w_2,\dots,w_n \right\} $ be any $m$ elements of $W$. Then there exists a unique linear transformation $T: V \to W$ such that $T(v_i) = w_i$ for $i=1,2,\dots,n$.
+                    </div>
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        We want to find an invertible linear transformation $T:\mathbb{R} ^3 \to \mathbb{R} ^3$ which maps $V$ onto $W$. We take a basis of $\mathbb{R} ^3$ 
+                        \[
+                            \mathcal{B}_{\mathbb{R} ^3} = \left\{ v_1 = (2,0,-1)^T, v_2 = (0,2,-1)^T, v_3 = (1,0,0)^T \right\}
+                        \]
+                        and consider vectors
+                        \[
+                            \mathcal{B} _{\mathbb{R} ^3} = \left\{ w_1 = (1,-1,0)^T, w_2 = (0,0,1)^T, w_3 = (0,1,0)^T \right\}. 
+                        \] 
+                        Then using the above theorem, there exists a unique linear transformation $T:\mathbb{R} ^3 \to \mathbb{R} ^3$ such that  
+                        \[
+                            T(v_1) = w_1, ~T(v_2) = w_2,~T(v_3) = w_3.
+                        \]
+                        Therefore, the above linear transformation has the property that $T(V)= W$. Also, note that $T$ is invertible because we took basis on both sides.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We will again apply the same theorem by considering the vectors: 
+                        \[
+                            \mathcal{B}_{\mathbb{R} ^3} = \left\{ v_1 = (2,0,-1)^T, v_2 = (0,2,-1)^T, v_3 = (1,0,0)^T \right\}
+                        \]
+                        and
+                        \[
+                            \left\{ w_1 = (1,-1,0)^T, w_2 = (0,2,-1)^T, w_3 = (0,0,0)^T \right\}. 
+                        \]
+                        Then the linear transformation with the property 
+                        \[
+                            T(v_1) = w_1, T(v_2) = w_2 = v_2, \text{ and } T(v_3) = w_3
+                        \]
+                        has the desired property.
+                      </li>
+                    </ol>
+                  </p>
+                
+                </div>
+
+                <!-- Previous Button -->
+                <div class="flex justify-center mt-4">
+                  <nav aria-label="Page navigation example">
+                    <ul class="flex list-style-none">
+                      <li class="page-item disabled">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-05-13/">
+                          Previous 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../../daily-problems/#calendar">
+                          All 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-05-15/">
+                          Next 
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                
+                <!-- Disqus Comments-->
+                <div class="mt-16" id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://my-google-site.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <!-- End of comment section -->
+
               </div>
             </div>
           </div>
@@ -137,18 +268,24 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+    <script id="dsq-count-scr" src="//my-google-site.disqus.com/count.js" async></script>
+
     <script>
       MathJax = {
+        loader: {
+          load: ['[tex]/mathtools']
+        },
         tex: {
           inlineMath: [
             ['$', '$'],
             ['\\(', '\\)']
           ],
+          tags: 'ams',
           displayMath: [
             ['$$', '$$'],
             ['\\[', '\\]']
-          ]
+          ],
+          packages: {'[+]': ['mathtools']}
         },
         svg: {
           fontCache: 'global'
