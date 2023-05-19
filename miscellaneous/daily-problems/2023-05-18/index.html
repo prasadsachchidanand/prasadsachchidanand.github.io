@@ -86,9 +86,9 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>Let $X$ be a topological space and $\mathcal{U} $ be a collection of subsets of $X$. Prove that 
+                      <strong>Problem: </strong>Let $X$ be a topological space and $\mathcal{A} $ be a collection of subsets of $X$. Prove that 
                       \[
-                          \text{Int}\left( \bigcup_{A\in \mathcal{A}} A  \right) \supseteq \bigcup_{A\in \mathcal{A} } \text{Int}(A). 
+                          \bigcup_{A\in \mathcal{A} } \text{Int}(A)\subseteq\text{Int}\left( \bigcup_{A\in \mathcal{A}} A  \right). 
                       \] 
                 </div>
 
@@ -96,9 +96,32 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We need to show that 
+                      \[
+                          \bigcup_{A\in \mathcal{A} } \text{Int}(A)\subseteq\text{Int}\left( \bigcup_{A\in \mathcal{A}} A  \right).
+                      \] 
+                      Let $x\in \bigcup_{A\in \mathcal{A} } \text{Int}(A)$. This means there exists $A\in \mathcal{A} $ such that $x\in \text{Int }(A)$ which implies there exists an open neighborhood $U$ of $x$ such that $U\subseteq A$. So, 
+                      \[
+                          x\in U \subseteq A \subseteq \bigcup_{A\in \mathcal{A} } A.
+                      \]    
+                      Thus, $x\in \text{Int}\left( \bigcup_{A\in \mathcal{A}} A  \right)$.
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that the reverse inequality need not be true. For example, take 
+                    \[
+                        A = [0,1],\text{ and } B = [1,2].
+                    \]
+                    Then 
+                    \[
+                        \text{Int}(A) = (0,1),~\text{Int}(B) = (1,2).
+                    \]
+                    But, 
+                    \[
+                        \text{Int}(A\cup B) = (0,2) \text{ and } \text{Int}(A) \cup \text{Int}(B) = (0,2)\setminus \{1\}.
+                    \]
+                  </p>
                 </div>
 
                 <!-- Previous Button -->

@@ -90,9 +90,49 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let $x\in G$. Let $n\in \mathbb{N} $. We will prove that $\phi \left( x^n \right) = \phi (x)^n$ by the mathematical induction.
+                    <ul class="math-list-disc leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        For $n=1$, we have $\phi \left( x^1 \right) = \phi (x)^1$.
+                      </li>
+                      <li class="my-4">
+                        Let us suppose that the result is true for $n\leq k$.
+                      </li>
+                      <li class="my-4">
+                        We will prove that $\phi \left( x^{k+1} \right) = \phi \left( x \right) ^{k+1}$. Note that 
+                        \begin{align*}
+                            \phi \left( x^{k+1} \right) & = \phi \left( x^{k} \cdot x\right) \\
+                            & = \phi \left( x^k \right) \cdot \phi (x) \\
+                            & = \phi (x)^k \cdot \phi (x) \\
+                            & = \phi (x)^{k+1}.
+                        \end{align*}
+                        Thus, using the mathematical induction we proved that for $x\in G$ and $n\in \mathbb{N} $ 
+                        \[
+                            \phi \left( x^n \right) = \phi (x)^n.
+                        \] 
+                      </li>
+                    </ul>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now note that
+                    \[
+                        \phi \left( x^{-1} \right) \cdot \phi (x) = \phi \left( x^{-1} \cdot x \right) = \phi (e) = e. 
+                    \]
+                    The above implies 
+                    \[
+                        \phi \left( x^{-1}  \right) = \phi (x)^{-1} .
+                    \]
+                    Take $y=x^{-1} $. Then  
+                    \[
+                        \phi \left( x^{-n} \right) = \phi \left( y^n \right) = \phi (y)^n = \phi \left( x^{-1}  \right) ^n = \phi (x)^{-n}.
+                    \]
+                    Hence, for every $n\in \mathbb{Z} $ and $x\in G$ we have 
+                    \[
+                        \phi \left( x^n \right) = \phi (x)^n.
+                    \] 
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
