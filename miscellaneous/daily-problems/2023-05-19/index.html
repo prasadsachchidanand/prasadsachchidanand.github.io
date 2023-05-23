@@ -96,9 +96,32 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We have 
+                    \begin{align*}
+                        & \left( x^3 + 3x^2 \right) \mathrm{d} x + \left( y^3 + 3x^{2} y \right) \mathrm{d} y = 0 \\
+                        \implies & \frac{\mathrm{d} y}{\mathrm{d} x} = \frac{-x^3 - 3x y^2 }{y^3 + 3x^2 y} = - \frac{1 + 3 \left( \frac{y}{x} \right) }{\left( \frac{y}{x} \right) ^3 + 3 \left( \frac{y}{x} \right) }.
+                    \end{align*}
+                    Take $v = \frac{y}{x}$, which implies
+                    \[
+                        y = vx \implies \frac{\mathrm{d} y}{\mathrm{d} x} = v + x \frac{\mathrm{d} v}{\mathrm{d} x}.
+                    \] 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Therefore,
+                    \begin{align*}
+                        & v + x \frac{\mathrm{d} v}{\mathrm{d} x} = - \frac{1 + 3v^2 }{v^3 + 3v} \\
+                        \implies & x \frac{\mathrm{d} v}{\mathrm{d} x} = - \frac{1+ 3v^2}{v^3 + 3v} - v \\
+                        \implies &x \frac{\mathrm{d} v}{\mathrm{d} x} = - \frac{v^4 + 6v^2 + 1}{v^3 + 3v} \\
+                        \implies & \frac{\mathrm{d} x}{x} = -\left( \frac{v^3 + 3v}{v^4 + 6v^2 + 1} \right) \mathrm{d} v \\
+                        \implies & \int \frac{\mathrm{d} x}{x} = - \int \frac{v^3 + 3v}{v^4 + 6v^2 + 1} \mathrm{d} v \\
+                        \implies & \ln x = -\frac{1}{4} \int \frac{\mathrm{d} t}{t},~\text{take } t= v^4 + 6v^2 + 1 \\
+                        \implies & \ln x^4 = \ln \frac{c}{t},~ c \text{ is a constant} \\
+                        \implies & \ln x^4 = \ln \left( \frac{c}{v^4 + v^2 _ 1} \right) \\
+                        \implies & x^4 + y^4 + 6x^2 y^2 = c.
+                    \end{align*}
+                  </p>
                 </div>
 
                 <!-- Previous Button -->

@@ -90,7 +90,27 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Note that 
+                    \begin{align*}
+                        \vert f(x) \vert & = \left\vert \int _0^x f^\prime (t)~\mathrm{d} t \right\vert \\
+                        & \leq \int _0^x \left\vert f^\prime (t) \right\vert ~\mathrm{d} t \\
+                        & \leq \int _0^x \vert f(t) \vert \mathrm{d} t.
+                    \end{align*}
+                    If we assume that 
+                    \[
+                        F(x) = \int _0^x \vert f(t) \vert \mathrm{d} t,
+                    \]
+                    then $F(x)$ is antiderivative of $\vert f(x) \vert $. We have 
+                    \begin{align*}
+                        \vert f(t) \vert \leq F(t) & \implies \frac{\vert f(t) \vert }{F(t)} \leq 1 \\
+                        & \implies \int _0^x \frac{\vert f(t) \vert }{F(t)} \mathrm{d} t \leq \int _0^{x} \mathrm{d} t \\
+                        & \implies \ln F(x) \leq x \\
+                        & \implies F(x) \leq e^x.
+                    \end{align*}
+                    Therefore, we proved that  
+                    \[
+                        \vert f(x) \vert \leq e^x,~ \forall~x > 0.
+                    \]
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
