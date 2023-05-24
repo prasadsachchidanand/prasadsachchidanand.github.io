@@ -97,9 +97,32 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Since the function $f(z) = z^3 + 2$ is an analytic function and hence, the integral will be independent of paths. So the integral will be same along any path. 
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-23-05-23_01.svg"
+                        class="h-auto"
+                        alt="Integral is independent of path"
+                      />
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Therefore, 
+                    \begin{align*}
+                        \int _\gamma \left( z^3 + 1 \right) \mathrm{d} z & = \int _0^{1+3\iota} \left( z^3 + 1 \right) \mathrm{d} z \\
+                        & = \left[ \frac{z^4}{4} + z \right]_0 ^{1+3\iota } \\
+                        & = \left[ \frac{(1+3\iota )^4}{4} + (1+3\iota ) - 0 \right] \\
+                        & = \frac{28-96\iota}{4}+ 1+3\iota \\
+                        & = 7 - 24\iota  + 1 + 3\iota  \\
+                        & = 8 - 21\iota .
+                    \end{align*}
+                    Hence,
+                    \[
+                        \int _\gamma \left( z^3 + 1 \right) \mathrm{d} z = 8 - 21\iota .
+                    \]
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
