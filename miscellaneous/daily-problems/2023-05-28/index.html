@@ -8,7 +8,7 @@
     <meta name="description" content=" Which of the following quadratic forms are positive definite">
 
     
-	<title>Problem of the day | 28-05-2023 | Linear Algebra - Which of the following quadratic forms are positive definite - Sachchidanand Prasad</title>
+	<title>Problem of the day | 27-05-2023 | Linear Algebra - Which of the following quadratic forms are positive definite - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -105,7 +105,40 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We say that a quadratic form $Q$  on $\mathbb{R} ^2$ is positive definite if $Q(x,y)>0$ for all $x,y\neq 0$. We will examine the same for all the given problems. 
+                    <ul class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        $Q(x,y) = xy$. This is not positive definite as 
+                        \[
+                            Q(1,-1) = -1 \lt 0.
+                        \] 
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        $Q(x,y) = x^2 - xy + y^2$.   Note that from AM-GM inequality on $x^2$ and $y^2$, we have 
+                        \[
+                            x^{2} + y^2 \geq \frac{x^2 + y^2}{2} \geq  \sqrt{x^2 y^2} = xy.
+                        \]
+                        Therefore, for $x,y$ nonzero, we have 
+                        \[
+                            x^2 + y^2 > xy \implies x^2 - xy + y^2 \gt 0.
+                        \] 
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        $Q(x,y) = x^2 + 2xy + y^2$.  This is not positive definite as 
+                        \[
+                            Q(1,-1) = 0.
+                        \] 
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        $Q(x,y) = x^2 + xy$. Similarly, $Q(x,y) = x^2 + xy$ is not positive definite, as 
+                        \[
+                            Q(1,-2) = -1 \lt 0.
+                        \]
+                      </li>
+                    </ul>
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
