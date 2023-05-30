@@ -83,7 +83,7 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>Show that the polynomial $x^3 - \sqrt{3} $ is irreducible over $\mathbb{Q} \left( \sqrt{3}  \right) $.
+                      <strong>Problem: </strong>Show that the polynomial $x^3 - 3 $ is irreducible over $\mathbb{Q} \left( \sqrt{3}  \right) $.
                     </p> 
                 </div>
 
@@ -91,9 +91,17 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Since $x^3 - \sqrt{3} $ is a polynomial of degree $3$, so it is reducible over $\mathbb{Q}\left( \sqrt{3}  \right) $ if and only if the polynomial has a root in $\mathbb{Q} \left( \sqrt{3}  \right) $. We note that $x^3 - 3$ is irreducible over $\mathbb{Q} $. Therefore, if $\alpha $ is a root of $x^3 - 3$, then the degree of $\mathbb{Q} (\alpha )$ over $\mathbb{Q} $ must be $3$.
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Suppose that the polynomial $x^3 - 3$ is reducible over $\mathbb{Q} (\sqrt{3})$. Then there must be a root of $x^3 - 3$ in $\mathbb{Q} \left( \sqrt{3}  \right) $, say $\alpha $. So we have 
+                    \begin{align*}
+                        2 = \left[ \mathbb{Q} \left( \sqrt{3}  \right) , \mathbb{Q}  \right] = \left[ \mathbb{Q} \left( \sqrt{3}  \right) , \mathbb{Q} (\alpha ) \right] \left[ \mathbb{Q} (\alpha ), \mathbb{Q}  \right] \geq 3,
+                    \end{align*}      
+                    which is a contradiction. Hence the polynomial is irreducible over $\mathbb{Q} \left( \sqrt{3}  \right) $. 
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
