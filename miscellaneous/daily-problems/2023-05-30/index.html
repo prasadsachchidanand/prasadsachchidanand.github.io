@@ -91,7 +91,15 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Consider the function 
+                    \[
+                        g(z) = e^{f(z)}.
+                    \]
+                    Note that 
+                    \begin{align*}
+                        \vert g(z) \vert & = \left\vert e^{f(z)} \right\vert = \left\vert e^{u + \iota v} \right\vert = \left\vert e^u e^{\iota v} \right\vert = \left\vert e^u \right\vert .
+                    \end{align*}S
+                    Since $u$ is bounded, implies $e^u$ is bounded and consequently, $g$ is bounded. As $f$ is an entire function, so is $e^{f(z)}$. Now using Liouville's theorem, we conclude that $g(z)$ is constant and hence $f(z)$ is constant.    
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

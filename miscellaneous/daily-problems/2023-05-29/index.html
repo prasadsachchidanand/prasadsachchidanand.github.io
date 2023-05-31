@@ -91,9 +91,21 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> et $A$ be any bounded subset of $\mathbb{R} $, then there exists $M>0$ such that for all $a\in A$ we have $\vert a \vert \leq M$. Therefore, $A \subseteq [-M,M].$ Since a continuous function maps a compact set to a compact set and we have 
+                    \[
+                        A\subseteq B \implies  f(A) \subseteq f(B),
+                    \] 
+                    so, 
+                    \[
+                        f(A) \subseteq f([-M,M]),
+                    \]
+                    which implies $f(A)$ is bounded.
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that if we do not assume the function to be defined on $\mathbb{R} $, this conclusion need not be true. For example, take $f(x) = \tan x$ where $x\in \left( \frac{-\pi}{2}, \frac{\pi}{2} \right) $. 
+                  </p>
                 </div>
 
                 <!-- Previous Button -->

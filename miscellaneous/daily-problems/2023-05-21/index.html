@@ -106,9 +106,39 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Note that 
+                    \begin{align*}
+                        W_1 & = \left\{ \left( x_1,x_2,x_3 \right)\in \mathbb{R} ^3 : x_1+2x_2-x_3 = 0  \right\} \\
+                        & = \left\{ \left( x_1,x_2,x_3 \right) \in \mathbb{R} ^3 : x_1 - x_3 = 2x_2 \right\} \\
+                        & = \left\{ \left( x_1,\frac{x_1 - x_3}{2}, x_3 \right) : x_1,x_3\in \mathbb{R}  \right\} \\
+                        & = \text{span}\left\{ \left( 2,1,0 \right), \left( 0,-1,2 \right)   \right\} .
+                    \end{align*}
+                    Therefore, the dimension of $W_1$ is $2$. Similarly, note that 
+                    \begin{align*}
+                        W_2 & = \left\{ \left( x_1,x_2,x_3 \right) \in \mathbb{R} ^3: 2x_1 =-3x_3 \right\} \\
+                        & = \left\{ \left( x_1,x_2, -\frac{2}{3}x_1 \right) : x_1,x_2\in \mathbb{R}  \right\} \\
+                        & = \text{span} \left\{ \left( 3,0,-2 \right), \left( 0,1,0 \right)   \right\}.
+                    \end{align*} 
+                    Hence, the dimension of $W_2$ is also $2$. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We observe that the rank of the matrix 
+                    \begin{align*}
+                        \begin{pmatrix}
+                            2 & 1 &  0 \\
+                            0 & -1 &  2 \\
+                            3 & 0 &  -2 \\
+                            0 & 1 &  0 \\
+                        \end{pmatrix}
+                    \end{align*}
+                    is $3$ and hence the dimension of $W_1+W_2$ will be $3$. Since
+                    \begin{align*}
+                        & \dim \left( W_1 + W_2 \right) = \dim W_1 + \dim W_2 - \dim \left( W_1 \cap W_2 \right) \\
+                        \implies & \dim \left( W_1 \cap  W_2 \right) = 4-3 = 1
+                    \end{align*} 
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
