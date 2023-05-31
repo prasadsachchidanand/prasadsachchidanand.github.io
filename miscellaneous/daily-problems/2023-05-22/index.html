@@ -91,7 +91,27 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Consider the functions 
+                    \[
+                        f(x) = 
+                        \begin{dcases}
+                            1, &\text{ if } x \in \mathbb{Q}  ;\\
+                            0, &\text{ if } x \notin \mathbb{Q}
+                        \end{dcases}
+                    \]
+                    and 
+                    \[
+                        g(x) = 
+                        \begin{dcases}
+                            0, &\text{ if } x \in \mathbb{Q}  ;\\
+                            1, &\text{ if } x \notin \mathbb{Q} .
+                        \end{dcases}
+                    \]
+                    None of the functions is $C^k$, in fact they are not continuous anywhere. But, the product of these two functions are 
+                    \[
+                        \left( f\cdot g \right) (x) = f(x) \cdot g(x) = 0,
+                    \]   
+                    which is a smooth function.
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
