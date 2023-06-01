@@ -105,9 +105,101 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We recall that $\varphi : R_1 \to R_2 $ is said to be a ring homomorphism between two rings $R_1$ and $R_2$ if for $r_1,r_2 \in R$ 
+                    <ol class="math-list-roman leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        $\varphi \left( r_1 + r_2 \right) = \varphi \left( r_1 \right) + \varphi \left( r_2 \right) $ 
+                      </li>
+                      <li class="my-4">
+                        $\varphi \left( r_1\cdot r_2 \right) = \varphi \left( r_1 \right) \cdot \varphi \left( r_2 \right) $ and 
+                      </li>
+                      <li class="my-4">
+                        $\varphi (1) = 1$. 
+                      </li>
+                    </ol>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let $z_1 , z_2 \in \mathbb{C} $ and assume that 
+                    \[
+                        z_j = a_j + \iota b_j,~ j = 1,2.
+                    \]  
+                    Then we have 
+                    \begin{align*}
+                        \varphi \left( z_1 + z_2 \right) & = \varphi \left( \left( a_1 + a_2 \right)  + \iota \left( b_1 + b_2 \right)  \right) \\
+                        & = \begin{pmatrix}
+                            a_1 + a_2 &  b_1 + b_2 \\
+                            -\left( b_1 + b_2 \right)  &  a_1 + a_2 \\
+                        \end{pmatrix} \\
+                        & = \begin{pmatrix}
+                            a_1 &  b_1 \\
+                            -b_1 &  a_1 \\
+                        \end{pmatrix} + 
+                        \begin{pmatrix}
+                            a_2 &  b_2 \\
+                            -b_2 &  a_2 \\
+                        \end{pmatrix} \\
+                        & = \varphi \left( a_1 + \iota b_1 \right) + \varphi \left( a_2 + \iota b_2 \right) \\
+                        & = \varphi \left( z_1 \right) + \varphi \left( z_2 \right) .
+                    \end{align*}
+                  </p>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly, 
+                    \begin{align*}
+                        z_1 \cdot z_2 & = \left( a_1 + \iota b_1 \right) \cdot \left( a_2 + \iota b_2 \right) \\
+                        & = \left( a_1 a_2 - b_1 b_2 \right) + \iota \left( a_1 b_2 + a_2 b_1 \right) .
+                    \end{align*}
+                    Therefore, 
+                    \begin{align*}
+                        \varphi \left( z_1 \cdot z_2 \right) & = \varphi \left( a_1 a_2 - b_1 b_2 \right) + \iota \left( a_1 b_2 + a_2 b_1  \right) \\
+                        & = \begin{pmatrix}
+                            a_1 a_2 - b_1 b_2 &  a_1 b_2 + a_2 b_1 \\
+                            - \left(  a_1 b_2 + a_2 b_1 \right)  & a_1 a_2 - b_1 b_2  \\
+                        \end{pmatrix} \\
+                        & = \begin{pmatrix}
+                            a_1 &  b_1 \\
+                            -b_1 &  a_1 \\
+                        \end{pmatrix} 
+                        \begin{pmatrix}
+                            a_2 &  b_2 \\
+                            -b_2 &  a_2 \\
+                        \end{pmatrix} \\
+                        & = \varphi \left( z_1 \right) \cdot \varphi \left( z_2 \right) .
+                    \end{align*}
+                  </p>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Finally we need to  show that $\varphi (1) = \text{Id}_2$, where $\text{Id}_2$ is the identity matrix of size $2$. Note that 
+                    \[
+                        \varphi \left( 1 \right) = \varphi (1 + \iota 0) = \begin{pmatrix}
+                            1 &  0 \\
+                            0 &  1 \\
+                        \end{pmatrix} = \text{Id}_2.
+                    \] 
+                    Therefore, $\varphi $ is a ring homomorphism. 
+                  </p>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we need to show that it is injective. Let $z_1, z_2 \in \mathbb{C} $ such that $\varphi (z_1) = \varphi (z_2)$. We need to show that $z_1 = z_2$. Note that 
+                    \begin{align*}
+                        \varphi (z_1) = \varphi (z_2) & \implies \varphi \left( a_1 + \iota b_1 \right) = \varphi \left( a_2 + \iota  b_2 \right) \\ 
+                        & \implies \begin{pmatrix}
+                            a_1 &  b_1 \\
+                            -b_1 &  a_1 \\
+                        \end{pmatrix} = 
+                        \begin{pmatrix}
+                            a_2 &  b_2 \\
+                            -b_2 &  a_2 \\
+                        \end{pmatrix} \\
+                        & \implies  a_1 = a_2 \text{ and } b_1 = b_2 .
+                    \end{align*}  
+                    Thus, $\varphi $ is injective. 
+                  </p>
+
                 </div>
 
                 <!-- Previous Button -->
