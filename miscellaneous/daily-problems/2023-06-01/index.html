@@ -91,9 +91,70 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let us take two points $A = (p,q)$ and $B=(x,y)$. We will show that there exists a path lies in $\mathbb{R} ^2 \setminus  \mathbb{Q} ^2$ joining $A$ to $B$. There are four possibilities
+                    <ul class="math-list-roman leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        $q \in \mathbb{Q} ^c$ and $x \in \mathbb{Q} ^c$
+                      </li>
+                      <li class="my-4">
+                        $p \in \mathbb{Q} ^c$ and $y \in \mathbb{Q} ^c$ 
+                      </li>
+                      <li class="my-4">
+                        $p \in \mathbb{Q} ^c$ and $x \in \mathbb{Q} ^c$ and
+                      </li>
+                      <li class="my-4">
+                        $q \in \mathbb{Q} ^c$ and $y \in \mathbb{Q} ^c$.
+                      </li>
+                    </ul>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that in the first case, we have a path shown in <a href="#fig-prob-01-06-23_01" class="text-blue-500 hover:text-blue-800">Figure 1</a> which lies in $\mathbb{R} ^2 \setminus \mathbb{Q} ^2$ because $q\in \mathbb{R} ^2 \setminus  \mathbb{Q} ^2$ and $x \in \mathbb{R} ^2 \setminus  \mathbb{Q} ^2$. Similarly, if $p,y \in \mathbb{R} ^2 \setminus \mathbb{Q} ^c$, then <a href="#fig-prob-01-06-23_01" class="text-blue-500 hover:text-blue-800">Figure 2</a> shows a valid path between $A$ and $B$.
+                    <div class="flex flex-col md:flex-row">
+                      <div class="w-full md:w-1/2 p-4" id="fig-prob-01-06-23_01">
+                        <img src="../../../assets/img/prob-01-06-23_01.svg" alt="q and x are irrationals" class="w-full h-auto">
+                        <p class="text-center mt-2">Figure 1: $q\in \mathbb{Q} ^c$ and $x\in \mathbb{Q} ^c$</p>
+                      </div>
+                      <div class="w-full md:w-1/2 p-4" id="ig-prob-01-06-23_02">
+                        <img src="../../../assets/img/prob-01-06-23_02.svg" alt="Image 2" class="w-full h-auto">
+                        <p class="text-center mt-2">Figure 2: $p\in \mathbb{Q} ^c$ and $y\in \mathbb{Q} ^c$</p>
+                      </div>
+                    </div>
+                  </p>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now, if $p\in \mathbb{Q} ^c$ and $x\in \mathbb{Q} ^c$, then  we can not follow the vertical line and horizontal  line trick. So we choose an irrational number smaller than $y$ (one can take larger also), say $q^\prime $. The path 
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-01-06-23_05.svg"
+                        class="h-auto"
+                        alt="solutions of the differential equation"
+                      />
+                    </div>
+                    <span class="leading-relaxed lg:text-lg md:text-base text-justify">completely lies in $\mathbb{R} ^2 \setminus \mathbb{Q} ^2$.</span>
+                  </p>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Therefore, we have the following path in the last two cases.
+                    <div class="flex flex-col md:flex-row">
+                      <div class="w-full md:w-1/2 p-4" id="fig-prob-01-06-23_03">
+                        <img src="../../../assets/img/prob-01-06-23_03.svg" alt="q and x are irrationals" class="w-full h-auto">
+                        <p class="text-center mt-2">Figure 3: $p\in \mathbb{Q} ^c$ and $x\in \mathbb{Q} ^c$</p>
+                      </div>
+                      <div class="w-full md:w-1/2 p-4" id="ig-prob-01-06-23_04">
+                        <img src="../../../assets/img/prob-01-06-23_04.svg" alt="Image 2" class="w-full h-auto">
+                        <p class="text-center mt-2">Figure 4: $q\in \mathbb{Q} ^c$ and $y\in \mathbb{Q} ^c$</p>
+                      </div>
+                    </div>
+                  </p>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We claim that the set $\mathbb{R} \setminus \mathbb{Q} $ is not path connected. For proving this, consider points $A = \sqrt{2} $ and $B = -\sqrt{2} $, then there does not exist any path joining $A$ and $B$ which completely lies in $\mathbb{R} \setminus \mathbb{Q} $, as $\mathbb{Q}$ is dense in $\mathbb{R}$ so any path will intersect rational points. Hence, $\mathbb{R} \setminus \mathbb{Q} $ is not path connected. 
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
