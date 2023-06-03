@@ -110,6 +110,13 @@
     margin-left: 2.5rem;
   }
 
+  .equation {
+    color: #3b82f6;
+  }
+  :hover.equation {
+    color: #1e40af;
+  }
+
   /* class for ol and ul leading-relaxed lg:text-lg md:text-base text-justify */
 
   /* Image */

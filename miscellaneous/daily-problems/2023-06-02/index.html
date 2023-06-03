@@ -97,9 +97,41 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> This is called a Bernoulli's equation. To solve this we need to find an integrating factor. First let us simplify the problem. Note that 
+                    \begin{align*}
+                        & \frac{\mathrm{d}y}{\mathrm{d}x} + \frac{1}{x}\sin 2y = x^2 \cos ^2 y \\
+                        \implies & \frac{1}{\cos ^2 y} \frac{\mathrm{d}y}{\mathrm{d}x} + \frac{1}{x} \frac{2 \sin y \cos y}{\cos ^2 y} = x^2   \\
+                        \implies & sec^2 y \frac{\mathrm{d}y}{\mathrm{d}x} + \frac{2}{x}\tan y = x^2.
+                    \end{align*}
+                    We take
+                    \[
+                        u = \tan y  \implies \frac{\mathrm{d}u}{\mathrm{d}x} = \sec^2 y \frac{\mathrm{d}y}{\mathrm{d}x} .
+                    \] 
+                    Therefore, we have 
+                    \begin{equation}\label{eq:01Jun2023-1}
+                        \frac{\mathrm{d}u}{\mathrm{d}x} + \frac{2}{x}u = x^2.
+                    \end{equation}
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    The integrating factor of this differential equation is 
+                    \[
+                        e^{\int \frac{2}{x}\mathrm{d} x} = e^{2\log x} = x^2.
+                    \]
+                    So, multiplying the differential equation <span class="equation">\eqref{eq:01Jun2023-1}</span> by the integrating factor we obtained
+                    \begin{align*}
+                        & x^2\left( \frac{\mathrm{d}u}{\mathrm{d}x} + \frac{2}{x}u \right)  = x^4 \\
+                        \implies & \int \mathrm{d} \left( ux^2 \right) = \int x^4 \mathrm{d} x \\
+                        \implies & ux^2 = \frac{x^5}{5} + c \\
+                        \implies & x^2 \tan y = \frac{x^5}{5} + c.
+                    \end{align*}
+                    Therefore, the solution of the given differential equation will be 
+                    \[
+                        \tan y = \frac{x^5}{5} + \frac{c}{x^2},
+                    \]
+                    where $c$ is an arbitrary constant.
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
