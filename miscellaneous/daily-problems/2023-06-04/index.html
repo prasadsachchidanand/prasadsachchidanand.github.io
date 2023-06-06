@@ -83,7 +83,7 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>Let $V$ and $W$ be two vector spaces and $T: V\to W$ is a linear map between them. Let $\ker (T)$ denotes the kernel of $T$. Let $V/\ker T$ is the quotient space. Define 
+                      <strong>Problem: </strong>Let $V$ and $W$ be two vector spaces and $T: V\to W$ is a linear map between them. Let $\ker T$ denotes the kernel of $T$. Let $V/\ker T$ is the quotient space. Define 
                       \[
                           V/\ker T \coloneqq \left\{ v + \ker T: v\in V \right\}.
                       \] 
@@ -116,7 +116,72 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> 
+                    <ul class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        We need to show that $\tilde{T} $ is well defined, that is, if $v_1 + \ker T = v_2 + \ker T,~ v_1, v_2 \in V$, then the image should be same. Note that the above implies 
+                        \[
+                            v_1 - v_2 \in \ker T \implies T\left( v_1 - v_2\right) = 0 \implies  T\left( v_1 \right) = T\left( v_2 \right) .
+                        \]
+                        Now observe that 
+                        \begin{align*}
+                            \tilde{T}\left( v_1 + \ker T \right) = T\left( v_1 \right)  = T\left( v_2 \right) = \tilde{T} \left( v_2 + \ker T \right).
+                        \end{align*}
+                        Hence, $\tilde{T}$ is well defined.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        Let $v_1, v_2 \in V$ and $\alpha \in \mathbb{R} $. We need to show that 
+                        \[
+                            \tilde{T} \left( \alpha \cdot (v_1 + \ker T) + (v_2 + \ker T)\right) = \alpha \cdot \tilde{T} \left( v_1 + \ker T \right) + \tilde{T} \left( v_2 + \ker T \right).
+                        \]
+                        Recall that  that 
+                        \[
+                            \alpha \cdot (v_1 + \ker T) + (v_2 + \ker T) = (\alpha v_1 + v_2) + \ker T.
+                        \]
+                        Therefore, 
+                        \begin{align*}
+                            \tilde{T} \left( \alpha \cdot (v_1 + \ker T) + (v_2 + \ker T)\right) & = \tilde{T} \left( \alpha v_1 + v_2 + \ker T \right) \\
+                            & = T \left( \alpha v_1 + v_2 \right) \\
+                            & = \alpha T\left( v_1 \right) + T\left( v_2 \right), 
+                        \end{align*}
+                        as $T$ is linear. 
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We need to show that $\tilde{T} $ is injective. Let 
+                        \begin{align*}
+                            \tilde{T} \left( v_1 + \ker T \right) = \tilde{T} \left( v_2 + \ker T \right) & \implies  T\left( v_1 \right) = T\left( v_2 \right) \\
+                            & \implies T\left( v_1 - v_2 \right) = 0 \\
+                            & \implies v_1 - v_2 \in \ker T \\
+                            & \implies v_1 + \ker T = v_2 + \ker T.
+                        \end{align*}
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We need to  show that $\operatorname{im}\left( \tilde{T}  \right) = \operatorname{im}\left( T \right) $. Let $w \in \operatorname{im}\left( \tilde{T}  \right) $, this implies there exists $v\in V$ such that 
+                        \[
+                            w = \tilde{T} \left( v + \ker T \right) = T(v).
+                        \] 
+                        Therefore, $w \in \operatorname{im}\left( T \right) $ and hence, 
+                        \[
+                            \operatorname{im}\left( \tilde{T}  \right) \subseteq \operatorname{im}\left( T \right) .
+                        \]
+                        On the other hand, take $w\in \operatorname{im}\left( T \right) $. So, there exists $v\in V$ such that $T(v) = w$. Since $v\in V$ so, $v + \ker T \in V/\ker T$. Now, 
+                        \[
+                            \tilde{T} \left( v + \ker T \right) = T(v) = w,
+                        \]   
+                        which implies $w \in \operatorname{im}\left( \tilde{T}  \right) $ and hence 
+                        \[
+                            \operatorname{im}\left( T \right) \subseteq \operatorname{im}\left( \tilde{T}  \right) .
+                        \] 
+                        Therefore, we have the equality.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        Finally, we need to show that $V/\ker T$ is isomorphic to $\operatorname{im}\left( T \right) $. Note that $\tilde{T} $ is an isomorphism between these two spaces.
+                      </li>
+                    </ul>
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
