@@ -75,7 +75,7 @@
       
       <!-- section -->
       <section class="text-gray-600 body-font">
-        <div class="container xl:px-36 py-24 mx-auto">
+        <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
             <h2 class="text-gray-900 text-3xl title-font font-medium">06-06-2023</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
@@ -99,9 +99,33 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let $z_1, z_2 \in D$. We will show that 
+                    \[
+                        \left\vert f\left( z_1 \right) - f\left( z_2 \right)  \right\vert \leq \left\vert z_1 - z_2 \right\vert .
+                    \]
+                    Let $\gamma $ be the line joining $z_1$ and $z_2$. Since $D$ is convex, $\gamma \subseteq D$.
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-06-06-23_01.svg"
+                        class="h-auto"
+                        alt="curve gamma lies in D"
+                      />
+                    </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    As function is analytic we can consider the following integral.
+                    \[
+                        f\left( z_2 \right) - f\left( z_1 \right) = \int _\gamma f^\prime (z)~\mathrm{d} z 
+                    \]
+                    Let $\ell(\gamma)$ denotes the length of $\gamma$. We have 
+                    \begin{align*}
+                        \left\vert f\left( z_1 \right) - f\left( z_2 \right)  \right\vert & \leq \left\vert \int _\gamma f^\prime (z)~\mathrm{d} z \right\vert \\
+                        & \leq \left\vert f^\prime (z) \right\vert \cdot \ell (\gamma ) \\
+                        & \leq 1\cdot \left\vert z_2 - z_1  \right\vert \\
+                        & = \left\vert z_2 - z_1 \right\vert.
+                    \end{align*}
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
