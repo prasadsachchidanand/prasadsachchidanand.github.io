@@ -102,7 +102,55 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> 
+                    <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        We will solve it by two ways; the first way is the usual axioms check. Clearly, $\mathcal{S} \neq \emptyset $. Let $x^2, y^2 \in \mathcal{S} $, we need to show that $x^2 \cdot y^2 \in \mathcal{S} $. Since $G$ is abelian, we have
+                        \[
+                            x^2 \cdot y^2 = (x\cdot y)^2 \in \mathcal{S} .
+                        \]  
+                        Now we need to show that it is closed under inversion, that is if $x\in \mathcal{S} $, then $x^{-1} \in \mathcal{S} $. Let $x^2 \in \mathcal{S} $. Note that $x\in G$ implies $x^{-1} \in G$. So  
+                        \[
+                            \left( x^{-1} \right)^2 \cdot x^2 = e = x^2 \left( x^{-1}  \right) ^2.  
+                        \]
+                        Therefore, $\left( x^{-1}  \right) ^2 $ is the inverse of $x^2$ and it belongs to the set $\mathcal{S} $ as $x^{-1} \in G$. Therefore, $\mathcal{S} $ is a subgroup of $G$. 
+                        <br>  <br>
+                        We can also show the same by considering the map 
+                        \[
+                            \varphi : G \to  G,~ x \mapsto x^2.
+                        \]
+                        Then 
+                        \[
+                            \varphi \left( xy \right) = (xy)^2 = x^2 y^2 = \varphi (x) \varphi (y)
+                        \]
+                        and hence, $\varphi $ is a group homomorphism. Note that 
+                        \[
+                            \mathcal{S} = \operatorname{im}\left( \varphi  \right) 
+                        \]
+                        and hence $\mathcal{S} $ is a subgroup of $G$. 
+                      </li>
+                      <li class="my-4">
+                        We need to show that the index of $\mathcal{S} $ in $G$ is $2$. Note that from the first isomorphism theorem we have 
+                        \[
+                            G/\ker \varphi \cong \operatorname{im}\left( \varphi  \right) = \mathcal{S} .
+                        \]
+                        Note that if $x\in \ker \varphi $, then $x^2 \equiv 1 $ mod $p$, which implies $(x-1)(x+1) \equiv 1 $ mod $p$. Since $\mathbb{Z} /p\mathbb{Z} $ is an integral domain, $x \equiv \pm 1$ mod $p$. Therefore, $\ker \varphi = \{ -1,1 \}$. So, 
+                        \[
+                            \left\vert \mathcal{S}  \right\vert = \left\vert G \right\vert / \left\vert \ker \varphi  \right\vert = \frac{p-1}{2}.
+                        \]
+                        Hence, 
+                        \[
+                            [G:\mathcal{S} ] = \frac{\left\vert G \right\vert }{\left\vert \mathcal{S}  \right\vert } = 2.
+                        \]
+                      </li>
+                      <li class="my-4">
+                        Since $-1 \notin \mathcal{S} $ and $[G:\mathcal{S} ] = 2$, so we can write 
+                        \[
+                            G = \mathcal{S} \sqcup \left( -\mathcal{S}  \right),
+                        \]
+                        where $\sqcup$ denotes the disjoint union. If $a\in G\setminus \mathcal{S}  $. Since $a \notin \mathcal{S} $ but in $G$ so $a \in -\mathcal{S} $. Therefore, there exists $b\in \mathcal{S} $ such that $a = -b$ which implies $b = -a \in \mathcal{S} $. Thus we proved that exactly one of $a$ or $-a$ will be in $\mathcal{S}$.   
+                      </li>
+                    </ol>
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
