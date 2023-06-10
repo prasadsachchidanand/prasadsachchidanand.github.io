@@ -97,9 +97,42 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>This is a differential equation in the form of 
+                    \[
+                        M\mathrm{d}x + N \mathrm{d}y = 0.  
+                    \] 
+                    Note that 
+                    \[
+                        \frac{\partial M}{\partial y} = -1 = \frac{\partial N}{\partial x}.
+                    \]
+                    Therefore, the equation is exact. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let $F(x,y) = 0$ is a solution then 
+                    \[
+                        \frac{\partial F}{\partial x} = M \text{ and } \frac{\partial F}{\partial y} = N.
+                    \] 
+                    We have 
+                    \begin{align*}
+                        \frac{\partial F}{\partial x} = M & \implies \frac{\partial F}{\partial x} = 2x - y + 1 \\
+                        & \implies F(x,y) = x^2 - xy + x + f(y),
+                    \end{align*}
+                    where $f$ is any function of $y$ only. Now we also have 
+                    \begin{align*}
+                        \frac{\partial F}{\partial y} = N & \implies -x + f^\prime (y) = 2y - x - 1 \\
+                        & \implies f^\prime (y) = 2y - 1 \\
+                        & \implies f(y) = y^2 - y + c,
+                    \end{align*}  
+                    where $c$ is an arbitrary constant. Therefore, 
+                    \[
+                        F(x,y) = x^2 -xy + x + y^2 - y + c.
+                    \]
+                    Thus, a solution of the given differential equation will be 
+                    \[
+                        x^2 + y^2 - xy + x - y = c .
+                    \]
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
