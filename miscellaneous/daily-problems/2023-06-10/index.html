@@ -101,9 +101,21 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We will solve this with two methods; the first one is by substitution and other one is by using the Chinese Remainder theorem. Let $x = 7k + 6$. We want 
+                    \begin{align*}
+                        7k + 6 \equiv 4 \mod 5 & \implies 2k \equiv -2 \mod 5 \\
+                                               & \implies  k \equiv -1 \mod 5.
+                    \end{align*}  
+                    Note that $k = 4$ is a solution. Therefore $x = 34$ is a solution satisfying the last two congruent equations. A general solution satisfying the last two congruent equations will be $x = 34 + 35k$. Therefore we have 
+                    \begin{align*}
+                        35k + 34 \equiv 2 \mod 3 & \implies 2k + 1 \equiv 2 \mod 3 \\
+                                                 & \implies 2k \equiv 1 \mod 3.
+                    \end{align*} 
+                    Hence, a solution to the given system of congruence equation will be $x = 35\times 2 + 34 = 104$. This will be the least positive number as the solution is unique in $\mathbb{Z} _{105}$.
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+
                 </div>
 
                 <!-- Previous Button -->

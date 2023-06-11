@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="88.635414mm"
+   height="137.31874mm"
+   viewBox="0 0 88.635414 137.31873"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   sodipodi:docname="IFT.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="1"
+     inkscape:cx="168"
+     inkscape:cy="260"
+     inkscape:window-width="1512"
+     inkscape:window-height="916"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="183.99998"
+       y="328"
+       width="275"
+       height="95"
+       id="rect1805" />
+    <rect
+       x="183.99998"
+       y="328"
+       width="275"
+       height="98"
+       id="rect1799" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient977">
+      <stop
+         style="stop-color:#473cc5;stop-opacity:0.87425148;"
+         offset="0"
+         id="stop973" />
+      <stop
+         style="stop-color:#4758c9;stop-opacity:0.65269452;"
+         offset="1"
+         id="stop975" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient977"
+       id="linearGradient979"
+       x1="82.285423"
+       y1="155.31041"
+       x2="82.285416"
+       y2="43.920826"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.2211765,-170.65625,-221.85157)" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-41.010414,-31.220825)">
+    <rect
+       style="opacity:0.98;fill:url(#linearGradient979);fill-opacity:1;stroke:none;stroke-width:0.773548;stroke-linecap:round;paint-order:stroke fill markers;stop-color:#000000"
+       id="rect234"
+       width="88.635414"
+       height="137.31874"
+       x="-129.64583"
+       y="-168.53957"
+       transform="scale(-1)" />
+    <rect
+       style="opacity:0.98;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.898517;stroke-linecap:round;paint-order:stroke fill markers;stop-color:#000000"
+       id="rect1159"
+       width="88.635414"
+       height="45.772915"
+       x="41.010414"
+       y="76.993744" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text1797"
+       style="font-size:12px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;white-space:pre;shape-inside:url(#rect1799);display:inline;opacity:0.98;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.64567;stroke-linecap:round;paint-order:stroke fill markers;stop-color:#000000" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.48385856,0,0,0.48385856,-70.407585,-67.666929)"
+       id="text1803"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect1805);display:inline;opacity:0.98;fill:#800000;fill-opacity:1;stroke:none;stroke-width:2.64567;stroke-linecap:round;paint-order:stroke fill markers;stop-color:#000000"><tspan
+         x="245.77051"
+         y="338.8139"
+         id="tspan1879">Inverse Function Theorem
+</tspan><tspan
+         x="307.56055"
+         y="353.8139"
+         id="tspan1881"> and 
+</tspan><tspan
+         x="276.69922"
+         y="368.8139"
+         id="tspan1883">its Applications</tspan></text>
+  </g>
+</svg>
