@@ -91,7 +91,15 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We know that for any matrix $A \in M_{m\times n}(\mathbb{R} )$ the row rank is same as column rank, i.e., the number of linearly independent rows are same as the number of linearly independent columns. In other words, we can sya that 
+                      \[
+                          \operatorname{rank}(A) \leq \min \{ m,n \}. 
+                      \]   
+                      
+                      Here the first matrix is of size $10 \times 7$, so there can be at most $7$ linearly independent rows or columns. Since $A$ has $10$ rows, they must be linearly dependent. 
+                      
+                      <br> <br> 
+                      Similarly, if the size of the matrix $A$ is $5 \times 7$, then there can be at most $5$ linearly independent rows or columns. As the number of columns is $7$, they must be linearly dependent.
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
