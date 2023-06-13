@@ -92,9 +92,38 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>  Let $x\in \mathbb{R} $ be given. We need to show that there exists a unique integer $n$ such that $n \leq x \lt n - 1$. Consider the following set 
+                    \[
+                        A \coloneqq \{ a \in \mathbb{Z} : a \leq x \}. 
+                    \]   
+                    Since $\mathbb{Z} $ is not bounded below, so the set $A$ is non-empty. $x$ is an upper bound of $A$, therefore by the least upper bound property of $\mathbb{R} $, the set $A$ has the least upper bound (LUB), say $\alpha $. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since $\alpha $ is the LUB of $A$, so $\alpha - 1$ can not be an upper bound of $A$, therefore, there exists an integer $n\in A$ such that $n > \alpha - 1$. This implies $n+1 > \alpha $ which implies $n+1 \notin A $. Therefore,  
+                    \[
+                        n + 1 > x.
+                    \] 
+                    Since $n \in A$ so we must have $n \leq x$. Look at the figure below, we have $\alpha -1 \lt n \leq \alpha \lt n+1.$ We also have $n \leq x \lt x$.   
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-12-06-23_01.svg"
+                        class="h-auto"
+                        alt="existence of greatest integer function"
+                      />
+                    </div>
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now it remains to show that the above integer is unique. If there exits $n,m\in \mathbb{Z} $ such that $n \leq x \lt n+1$ and $m \leq x \lt m + 1$. Let $n \leq m$. we have 
+                    \[
+                        n \lt m \leq x \lt n + 1 \lt m + 1,
+                    \]    
+                    which is a contradiction as there does not exist any integer between $m$ and $m+1$ . 
+                  </p>
+
                 </div>
 
                 <!-- Previous Button -->
