@@ -1,0 +1,192 @@
+\documentclass{article}
+
+\usepackage{amsmath, amssymb, mathtools, amsthm}
+\allowdisplaybreaks
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+    \begin{enumerate}
+        \item A nonempty set $A\subseteq \mathbb{R} $ is said to be bounded above in $\mathbb{R} $ if there exists a real number $M$ such that for all $a\in A$ we have $a \le M$.  
+        \item A nonempty set $A\subseteq \mathbb{R} $ is said to be bounded below in $\mathbb{R} $ if there exists a real number $m$ such that for all $a\in A$ we have $a \ge M$.  
+        \item A nonempty subset $A\subseteq \mathbb{R} $ is said to be bounded if it is bounded above and bounded below. 
+        \item A sequence $\left( x_n \right) $  is said to be convergent, if there exists a real number $l$ such that for every $\epsilon >0$ there exists $n_0\in \mathbb{N} $ such that for all $n\ge n_0$ we have
+        \[
+             \left\vert x_n-l \right\vert < \epsilon .
+        \]
+        \item The real number $l$ is said to be the limit of the sequence. 
+        \item If a sequence $\left( x_n \right) $ is convergent, then the limit is unique.
+        \item The space of real (or complex) convergent sequences forms a vector space over $\mathbb{R} $ (or $\mathbb{C} $).
+        \item Let $A\subseteq \mathbb{R} $ be a non-empty set. We say that $\alpha \in \mathbb{R}$ is a least upper bound of $A$ if
+        \begin{itemize}
+            \item $\alpha $ is an upper bound of $A$ and 
+            \item if $\beta $ is an upper bound of $A$, then $\alpha \leq \beta$.  
+        \end{itemize}
+        \item Let $A\subseteq \mathbb{R} $ be a non-empty set. We say that $\alpha \in \mathbb{R}$ is a greatest lower bound of $A$ if
+        \begin{itemize}
+            \item $\alpha $ is a lower bound of $A$ and 
+            \item if $\beta $ is a lower bound of $A$, then $\alpha \geq \beta$.  
+        \end{itemize}
+        \item Let $A$ be a nonempty subset of $\mathbb{R} $. Let 
+        \begin{align*}
+            M & = \textup{an upper bound of } A
+            \\
+            m & = \textup{a lower bound of } A
+            \\
+            \alpha  & = \textup{the least  upper bound of } A
+            \\
+            \beta  & = \textup{he greatest  lower bound of } A.
+        \end{align*}
+        Then, we have
+        \[
+            m \le \beta  \le \alpha  \le M.
+        \]
+    \end{enumerate}
+    There are two equivalent Archimedean properties. 
+    \begin{enumerate}
+        \item $\mathbb{N} $ is not bounded above in $\mathbb{R} $. That is give any $x\in \mathbb{N} $, there exists a natural number $n$ such that $x>n$.
+        \item Given any $x,y\in \mathbb{R} $ there exists a natural number $n$ such  that $nx>y$. 
+    \end{enumerate}
+    
+    \begin{enumerate}
+        \item If the sequences $\left( x_n \right) $ and $\left( y_n \right) $ are convergent, then the product will converge. That is,
+        \[
+            \lim_{n \to \infty} \left( x_n\cdot y_n \right) = \lim_{n \to \infty} x_n \cdot \lim_{n \to \infty} y_n.
+        \]
+    \end{enumerate}
+
+    \[
+        \lim_{n \to \infty} x_n = l
+    \]
+
+    \begin{itemize}
+        \item A sequence $\left( x_n \right) $ converges if and only if $\left( \left\vert x_n \right\vert  \right) $ converges.
+        \item Let $\left( x_n \right) $ be a sequence such that $x_n\neq 0$ for all $n$. Let the sequence is convergent. Then the sequence $\left( \frac{1}{x_n} \right) $ converges and 
+        \[
+            \lim_{n \to \infty} \frac{1}{x_n} = \frac{1}{\lim_{n \to \infty} x_n}.
+        \]
+    \end{itemize}
+    
+    A sequence $\left( x_n \right) \subseteq \mathbb{R} $ is said to be Cauchy if for each $\epsilon >0$ there exists $n_0\in \mathbb{N} $ such that for all $m,n\ge n_0$ we have $\left\vert x_m-x_n \right\vert < \epsilon $. 
+
+    A sequence $\left( x_n \right) \subseteq \mathbb{R} $ is convergent if and only if it is Cauchy.
+
+    Space of all Cauchy sequences form a vector space over $\mathbb{R} $.
+    A sequence $\left( x_n \right) $ is said to be increasing if $x_n \leq  x_{n+1}$ for all $n\in \mathbb{N} $ and it is said to be decreasing if $x_n \ge x_{n+1}$ for all $n\in \mathbb{N} $. We say a sequence $\left( x_n \right) $ to be monotone if it is either increasing or decreasing. 
+    \begin{theorem}
+        Let $\left( x_n \right) $ is a sequence. Then we have the following results.
+        \begin{enumerate}
+            \item If $\left( x_n \right) $ is increasing then it is convergent if and only if it is bounded above.
+            \item If $\left( x_n \right) $ is decreasing then it is convergent if and only if it is bounded below.
+            \item If $\left( x_n \right) $ is monotone then it is convergent if and only if it is bounded.
+        \end{enumerate}
+    \end{theorem}
+
+    \begin{definition}
+        Let $f:\mathbb{N} \to \mathbb{R} $ be a sequence and $S$ be any infinite subset of $\mathbb{N} $. Then a subsequence is the restriction of $f$ to the set $S$.
+    \end{definition}
+
+    \begin{theorem}
+        Given any real sequence $\left( x_n \right) $ there exists a monotone subsequence. 
+    \end{theorem}
+    \begin{theorem}[Bolzano Weierstrass Theorem]
+        Every bounded sequence has a convergent subsequence.
+    \end{theorem}
+
+    \begin{theorem}
+        Let $\left( x_n \right) ,\left( y_n \right) $ and $\left( z_n \right) $ be sequences such that $x_n\to \alpha $, $y_n\to  \alpha $ and $x_n \leq  z_n \leq y_n$ for all $n$. Then $z_n \to \alpha $.
+    \end{theorem}
+
+    \begin{theorem}
+        \begin{enumerate}
+            \item Let $0\leq r < 1$, then $r^n\to 0$.
+            \item $-1 < t < 1$, thn $t^n \to  0$.
+            \item Let $\vert r \vert < 1$, then $nr^n \to  0$.
+            \item Let $a>0$, then $a^{\frac{1}{n}}\to  0$.
+            \item $n^{\frac{1}{n}}\to  1$.
+            \item For any $a\in \mathbb{R} $, we have $\frac{a^n}{n!}\to 0$.  
+            \item Let $\left( x_n \right)\to 0 $. Let $\left( s_n \right) $ denotes the arithmetic mean defined by 
+            \[
+                s_n = \frac{x_1+ \cdots + x_n}{n}.
+            \]
+            Then $s_n \to 0$.
+        \end{enumerate}
+    \end{theorem}
+
+    \begin{definition}
+        A series $\sum_{n=1} ^\infty a_n$ is said to be convergent if the sequence of partial sum converges. That is, the sequence 
+        \[
+            S_N = \sum_{n=1}^N a_n
+        \]
+        converges. 
+    \end{definition}
+    \begin{definition}
+        The series $\sum a_n$ is said to be absolutely convergent if $\sum \vert a_n \vert $ converges.
+    \end{definition}
+    \begin{enumerate}
+        \item If $\sum a_n$ converges, then $an \to  0$. The converse need nit bve true. For example, $\sum \frac{1}{n}$ is not converges but $\frac{1}{n}\to 0$. 
+        \item If a series is absolutely convergent, then it is convergent. Th converse need not be true. For example, $\sum \frac{(-1)^n}{n} $ is convergent, but $\sum \frac{1}{n}$ is not. 
+        \item For a positive number $p$ the series 
+        \[
+            \sum_{n=1}^\infty \frac{1}{n^p}
+        \]
+        converges if and only if $p>1$.
+        \item The space of all (absolutely) convergent series forms a vector space over $\mathbb{R} $. 
+    \end{enumerate}
+
+    \section{Convergence Tests}
+    \begin{enumerate}
+        \item Let $\sum a_n$ be a series such that $a_n\geq 0$ for all $n$. 
+        \begin{itemize}
+            \item If $\sum a_n$ converges and $\left\vert b_n \right\vert \le a_n$ for all $n$, then $\sum b_n$ converges.
+            \item If $\sum a_n$ diverges and $a_n \geq  b_n$, then $\sum b_n$ also diverges.
+        \end{itemize}
+        \item Suppose $\sum a_n$ and $\sum b_n$ are two series. Suppose that $r = \lim \left\vert \frac{a_n}{b_n} \right\vert $ exists, and $0<r<\infty$. Then $\sum a_n$ converges absolutely if and only if $\sum b_n$ converges absolutely.
+        \item Suppose $\left( a_n \right) $ is a decreasing sequence of positive terms. Then the series $\sum a_n$ converges if and only if the series $\sum 2^k a_{2^k}$ converges.
+        \item Let $\sum a_n$ be a series and let $r = \displaystyle \lim_{n \to \infty} \left\vert \frac{a_n}{a_{n+1}} \right\vert  $. Then the series
+        \begin{enumerate}
+            \item converges absolutely if $r<1$,
+            \item diverges if $r>1$.
+            \item If $r=1$,  then the test is inconclusive. 
+        \end{enumerate}
+        \item Let $\sum a_n$ be a series and let $r = \displaystyle \lim_{n \to \infty} \left\vert a_n \right\vert ^{\frac{1}{n}}$. Then the series
+        \begin{enumerate}
+            \item converges absolutely if $r<1$,
+            \item diverges if $r>1$.
+            \item If $r=1$,  then the test is inconclusive. 
+        \end{enumerate}
+        
+    \end{enumerate}
+
+    \section{Limit}
+    \begin{definition}
+        Let $f:U\subseteq \mathbb{R} \to  \mathbb{R} $ be a function. Let $a\in U$. We say that $\displaystyle \lim_{x\to a}f(x)=l$ if for every $\epsilon >0$ there exists a $\delta >0$ such that for all $x\in \left( a-\delta  ,a+\delta   \right) $ we have $\left\vert f(x)-l\right\vert < \epsilon $.  
+    \end{definition}
+    
+    We say that $\displaystyle \lim_{x \to a} f(x) = l$ if for every sequence $\left( x_n \right)\subseteq U $ converging to $a$ the sequence $\left( f\left( x_n \right)  \right) $ should converge to $l$.  
+
+    If $f,g:U\to \mathbb{R} $ be two functions, then we have 
+    \[
+        \lim_{x \to a} (f(x)+g(x)) = \lim_{x \to a} f(x) + \lim_{x \to a} g(x),
+    \] 
+    provided both limit exist.
+    We have 
+    \[
+        \lim_{x \to a} (cf(x)) = c \lim_{x \to a} f(x),
+    \]
+    provided the limit exists.
+
+    \section{Continuity of a function}
+    \begin{definition}
+        Let $f:U\subseteq \mathbb{R} \to \mathbb{R} $ be a function. We say that $f$ is continuous at $a\in U$ if for every $\epsilon >0$ there exists $\delta >0$ such that for all $x\in \left( a-\delta ,a+\delta  \right) $ we have
+        \[
+            \left\vert f(x)-f(a) \right\vert < \epsilon.
+        \]
+    \end{definition}
+
+    \begin{definition}
+        We say that $f:U\subseteq \mathbb{R} $ is continuous at $a\in U$ if for every sequence $\left( x_n \right) $ converging to $a$ we have $f\left( x_n \right) \to f(a)$.
+    \end{definition}
+\end{document}

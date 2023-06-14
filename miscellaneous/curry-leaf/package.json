@@ -1,0 +1,44 @@
+{
+  "name": "@shower/material",
+  "description": "Material theme for Shower HTML presentation engine",
+  "version": "2.5.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "Vadim Makeev",
+    "url": "https://pepelsbey.net/"
+  },
+  "homepage": "https://github.com/shower/material",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shower/material.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shower/material/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "shower",
+    "presentation",
+    "material",
+    "theme"
+  ],
+  "files": [
+    "fonts/**",
+    "pictures/**",
+    "styles/**",
+    "index.html",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@shower/core": "^3.2.0",
+    "browser-sync": "^2.27.5",
+    "stylelint": "^13.13.1"
+  },
+  "scripts": {
+    "test": "stylelint 'styles/**/*.css'",
+    "start": "browser-sync start --server --no-notify --no-ui --no-ghost-mode --files 'fonts/*,pictures/*,styles/**,index.html'"
+  }
+}
