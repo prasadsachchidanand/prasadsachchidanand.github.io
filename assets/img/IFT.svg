@@ -27,7 +27,7 @@
      showgrid="false"
      showguides="true"
      inkscape:zoom="1"
-     inkscape:cx="168"
+     inkscape:cx="51"
      inkscape:cy="260"
      inkscape:window-width="1512"
      inkscape:window-height="916"
@@ -71,6 +71,16 @@
        y2="43.920826"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1,0,0,1.2211765,-170.65625,-221.85157)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient977"
+       id="linearGradient979-7"
+       x1="82.285423"
+       y1="155.31041"
+       x2="82.285416"
+       y2="43.920826"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5940298,0,0,1.7317648,-18.435139,-140.37381)" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -78,7 +88,7 @@
      id="layer1"
      transform="translate(-41.010414,-31.220825)">
     <rect
-       style="opacity:0.98;fill:url(#linearGradient979);fill-opacity:1;stroke:none;stroke-width:0.773548;stroke-linecap:round;paint-order:stroke fill markers;stop-color:#000000"
+       style="opacity:0.98;fill:url(#linearGradient979);fill-opacity:1;stroke:none;stroke-width:1.16303;stroke-linecap:round;paint-order:stroke fill markers;stop-color:#000000;font-variation-settings:normal;vector-effect:none;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-opacity:1"
        id="rect234"
        width="88.635414"
        height="137.31874"
@@ -104,14 +114,14 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect1805);display:inline;opacity:0.98;fill:#800000;fill-opacity:1;stroke:none;stroke-width:2.64567;stroke-linecap:round;paint-order:stroke fill markers;stop-color:#000000"><tspan
          x="245.77051"
          y="338.8139"
-         id="tspan1879">Inverse Function Theorem
+         id="tspan693">Inverse Function Theorem
 </tspan><tspan
          x="307.56055"
          y="353.8139"
-         id="tspan1881"> and 
+         id="tspan695"> and 
 </tspan><tspan
          x="276.69922"
          y="368.8139"
-         id="tspan1883">its Applications</tspan></text>
+         id="tspan697">its Applications</tspan></text>
   </g>
 </svg>
