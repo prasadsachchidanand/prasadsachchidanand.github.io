@@ -14,6 +14,19 @@
 		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
+		<!-- highlight.js -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+		<script>hljs.highlightAll();</script>
+		<style>
+			.bib-content pre {
+				background-color: #f8f8f8;
+				padding: 10px;
+				border-radius: 4px;
+				max-width: 100%;
+				overflow-x: auto;
+			}
+		</style>
 
 		<!-- Google ad -->
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
@@ -54,70 +67,433 @@
 
 			<!-- section -->
 			<section class="text-gray-600 body-font">
-				<div class="container px-5 py-24 mx-auto">
+				<div class="container xl:px-36 py-24 mx-auto">
 					<div class="flex flex-col items-center text-center justify-center">
 						<h2 class="text-gray-900 text-3xl title-font font-medium">Articles</h2>
 						<div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
 					</div>
+					<p class="leading-relaxed lg:text-lg md:text-base text-justify my-4 mb-4">
+						Here, you'll find all our publications, preprints, and notes, regularly updated to keep you informed about our latest work. Explore our diverse collection spanning various fields of study.
+					</p>
 
-					<div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-						<div class="p-4 md:w-full flex">
-						  	
-							<div class="flex-grow lg:px-32 px-6">
-								
-								<!-- Paste here take from temp -->
-								
-								<p class="mt-4 leading-relaxed text-lg text-justify">
-									Some of my articles are listed here. This will be updated in the future.
-								</p>
-								<p class="mt-4 leading-relaxed text-lg text-justify">
-									<ol class="pl-8 list-disc">
-										<li>
-											<a href="https://arxiv.org/pdf/2303.08798.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Independence complexes of wedge of graphs</a>
-										</li>
+					<hr class="h-0.5 my-4 bg-gray-300 border-0">
 
-										<li>
-											PhD Thesis (Cut Locus of Submanifolds: A Geometric and Topological Viewpoint)
-											<ol class="pl-8 list-decimal">
-												<li>
-													<a href="../assets/attachments/Thesis_Sachchidanand_large.pdf" target="_blank" class="text-blue-500 hover:text-blue-800"> With cover</a>
-												</li>
-												<li>
-													<a href="../assets/attachments/Thesis_Sachchidanand_small.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Without cover</a>
-												</li>
-											</ol>
-										</li>
-
-										<li>
-											<a href="https://arxiv.org/pdf/2206.08827.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">The image of polynomials and Waring type problems on upper triangular matrix algebras</a>
-										</li>
-
-										<li>
-											<a href="https://arxiv.org/pdf/2205.15024.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Counterexample to a conjecture about dihedral quandle</a>
-										</li>
-
-										<li>
-											<a href="https://arxiv.org/pdf/2011.02972.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">A connection between cut locus, Thom space and Morse-Bott functions</a>
-										</li>
-										<li>
-											<a href="../assets/attachments/Inverse_Function_Theorem.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Inverse function theorem and its applications.</a>
-										</li>
-										<li>
-											<a href="../assets/attachments/Geodesic_Equation_with_Euler_Lagrange_Equation.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Geodesic Equation with Euler Lagrange Equation.</a>
-										</li>
-										<li>
-											<a href="https://drive.google.com/open?id=1fffDE2uLAsV-JGinJDuFT_JljHxlWTHg" target="_blank" class="text-blue-500 hover:text-blue-800">Riemannian Geometry MA4206 Scanned Notes.</a>
-										</li>
-										<li>
-											<a href="https://www.youtube.com/playlist?list=PLrcy-sY3vswGIgB9FpImU9kYd5y6SMMpJ" target="_blank" class="text-blue-500 hover:text-blue-800">YouTube videos of the lectures on Riemannian Geometry (Somnath Basu).</a>
-										</li>
-									</ol>
-								</p>
-						  	</div>
-						</div>
+					<div class="text-center">
+						<h1 class="text-2xl font-bold">Preprints</h1>
 					</div>
-					
-				</div>
+								
+					<hr class="h-0.5 my-4 bg-gray-300 border-0">
+
+					<div class="-my-8">
+						<div class="py-8 flex flex-wrap md:flex-nowrap">
+							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+								<img src="../assets/img/arxiv.svg" alt="preprint" class="w-36 h-auto ">
+							</div>
+							<div class="md:flex-grow">
+								<p class="mb-4 text-lg">
+									Independence complexes of wedge of graphs
+								</p>
+								<p class="mb-4">
+									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong>, Saikat Panja and Navnath Daundkar
+								</p>
+								<p class="mb-4">
+									<span class="text-gray-400">Year of arXiv: 2023 </span>
+								</p>
+								<div class="flex space-x-4 items-center my-2">
+									<div class="border rounded-lg border-gray-600 p-1">
+										<button class="abstract-button text-white rounded text-blue-500">Abstract</button>
+									</div>
+									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+										<div class="abstract-content p-4 bg-white rounded w-1/2">
+											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
+												In this article, we introduce the notion of a wedge of graphs and provide detailed computations for the independence complex of a wedge of path and cycle graphs. In particular, we show that these complexes are either contractible or wedges of spheres. 
+											</p>
+											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
+										</div>
+									</div>
+									<div class="border rounded-lg border-gray-600 p-1">
+										<button class="abstract-button text-white rounded text-blue-500">bib</button>
+									</div>
+									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+										<div class="bib-content p-2 bg-white rounded w-1/2">
+											<pre>
+<code class="latex"> 
+@article{daundkarpanjaprasad2023independence,
+	title={Independence complexes of wedge of graphs},
+	author={Daundkar, Navnath and Panja, Saikat and Prasad, Sachchidanand},
+	journal={arXiv preprint arXiv:2303.08798},
+	year={2023}
+}
+</code>
+											</pre>
+											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
+										</div>
+									</div>  
+									<div class="border rounded-lg border-gray-600 p-1">
+										<a href="https://arxiv.org/abs/2206.08827" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv</a>
+									</div>
+									<div class="border rounded-lg border-gray-600 p-1">
+										<a href="https://arxiv.org/pdf/2303.08798.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr class="w-1/2 h-px mx-auto bg-gray-300 border-0">
+
+						<div class="py-8 flex flex-wrap md:flex-nowrap">
+							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+								<img src="../assets/img/arxiv.svg" alt="preprint" class="w-36 h-auto ">
+							</div>
+							<div class="md:flex-grow">
+								<p class="mb-4 text-lg">
+									Counterexample to a conjecture about dihedral quandle
+								</p>
+								<p class="mb-4">
+									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong> and Saikat Panja
+								</p>
+								<p class="mb-4">
+									<span class="text-gray-400">Year of arXiv: 2022</span>
+								</p>
+								<div class="flex space-x-4 items-center my-2">
+									<div class="border rounded-lg border-gray-600 p-1">
+										<button class="abstract-button text-white rounded text-blue-500">Abstract</button>
+									</div>
+									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+										<div class="abstract-content p-4 bg-white rounded w-1/2">
+											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
+												It was conjectured that the augmentation ideal of a dihedral quandle of even order $n>2$ satisfies $|\Delta^k(\text{R}_n)/\Delta^{k+1}(\text{R}_{n})|=n$ for all $k\geq 2$. In this article we provide a counterexample against this conjecture. 
+											</p>
+											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
+										</div>
+									</div>
+									<div class="border rounded-lg border-gray-600 p-1">
+										<button class="abstract-button text-white rounded text-blue-500">bib</button>
+									</div>
+									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+										<div class="bib-content p-2 bg-white rounded w-1/2">
+											<pre>
+<code class="latex"> 
+@article{panjaprasad2022counterexample,
+	title={Counterexample to a conjecture about dihedral quandle},
+	author={Panja, Saikat and Prasad, Sachchidanand},
+	journal={arXiv preprint arXiv:2205.15024},
+	year={2022}
+}
+</code>
+											</pre>
+											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
+										</div>
+									</div> 
+									<div class="border rounded-lg border-gray-600 p-1">
+										<a href="https://arxiv.org/abs/2205.15024v1" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv</a>
+									</div>
+									<div class="border rounded-lg border-gray-600 p-1">
+										<a href="https://arxiv.org/pdf/2205.15024.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr class="h-0.5 my-4 bg-gray-300 border-0">
+
+						<div class="text-center">
+							<h1 class="text-2xl font-bold">Accepted Publications</h1>
+						</div>
+						
+						<hr class="h-0.5 my-4 bg-gray-300 border-0">
+								
+						<div class="py-8 flex flex-wrap md:flex-nowrap">
+							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+								<img src="../assets/img/journal-of-algebra.jpeg" alt="preprint" class="w-36 h-auto ">
+							</div>
+							<div class="md:flex-grow">
+								<p class="mb-4 text-lg">
+									The image of polynomials and Waring type problems on upper triangular matrix algebras
+								</p>
+								<p class="mb-4">
+									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong> and Saikat Panja
+								</p>
+								<p class="mb-4">
+									<span class="text-gray-400">Year of arXiv: 2022</span>
+									<br>
+									<span class="text-gray-400">Year of publication: 2023</span>
+									<br>
+									<span class="text-gray-400">Volume 631, 1 October 2023, Pages 148-193</span>
+								</p>
+								<div class="flex space-x-4 items-center my-2">
+									<div class="border rounded-lg border-gray-600 p-1">
+										<button class="abstract-button text-white rounded text-blue-500">Abstract</button>
+									</div>
+									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+										<div class="abstract-content p-4 bg-white rounded w-1/2">
+											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
+												Let $p$ be a polynomial in non-commutative variables $x_1,x_2,\ldots,x_n$ with constant term zero over an algebraically closed field $K$. The object of study in this paper is the image of this kind of polynomial over the algebra of upper triangular matrices $T_m(K)$. We introduce a family of polynomials called multi-index $p$-inductive polynomials for a given polynomial $p$. Using this family we will show that, if $p$ is a polynomial identity of $T_t(K)$ but not of $T_{t+1}(K)$, then $p \left(T_m(K)\right)\subseteq T_m(K)^{(t-1)}$. Equality is achieved in the case $t=1,~m-1$ and an example has been provided to show that equality does not hold in general. We further prove existence of $d$ such that each element of $T_m(K)^{(t-1)}$ can be written as sum of $d$ many elements of $p\left( T_m(K) \right)$. It has also been shown that the image of $T_m(K)^\times$ under a word map is Zariski dense in $T_m(K)^\times$. 
+											</p>
+											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
+										</div>
+									</div>
+									<div class="border rounded-lg border-gray-600 p-1">
+										<button class="abstract-button text-white rounded text-blue-500">bib</button>
+									</div>
+									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+										<div class="bib-content p-2 bg-white rounded w-1/2">
+											<pre>
+<code class="latex"> 
+@article{panjaprasad2023,
+	title={The image of polynomials and Waring type problems on upper triangular matrix algebras},
+	author={Panja, Saikat and Prasad, Sachchidanand},
+	journal={Journal of Algebra},
+	year={2023},
+	publisher={Academic Press}
+}
+</code>
+											</pre>
+											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
+										</div>
+									</div>
+									<div class="border rounded-lg border-gray-600 p-1">
+										<a href="https://www.sciencedirect.com/science/article/pii/S002186932300220X" target="_blank" class="text-blue-500 hover:text-blue-800">Journal</a>
+									</div>
+									<div class="border rounded-lg border-gray-600 p-1">
+										<a href="https://arxiv.org/pdf/2206.08827.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<hr class="w-1/2 h-px mx-auto bg-gray-300 border-0">
+
+						<div class="py-8 flex flex-wrap md:flex-nowrap">
+							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+								<img src="../assets/img/AGT.jpg" alt="preprint" class="w-36 h-auto ">
+							</div>
+							<div class="md:flex-grow">
+								<p class="mb-4 text-lg">
+									A connection between cut locus, Thom space and Morse-Bott functions
+								</p>
+								<p class="mb-4">
+									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong> and Saikat Panja
+								</p>
+								<p class="mb-4">
+									<span class="text-gray-400">Year of arXiv: 2020 </span>
+									<br>
+									<span class="text-gray-400">Year of acceptance: 2021 </span>
+								</p>
+								<div class="flex space-x-4 items-center my-2">
+									<div class="border rounded-lg border-gray-600 p-1">
+										<button class="abstract-button text-white rounded text-blue-500">Abstract</button>
+									</div>
+									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+										<div class="abstract-content p-4 bg-white rounded w-1/2">
+											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
+												Associated to every closed, embedded submanifold $N$ in a connected Riemannian manifold $M$, there is the distance function $d_N$ which measures the distance of a point in $M$ from $N$. We analyze the square of this function and show that it is Morse-Bott on the complement of the cut locus $\mathrm{Cu}(N)$ of $N$, provided $M$ is complete. Moreover, the gradient flow lines provide a deformation retraction of $M-\mathrm{Cu}(N)$ to $N$. If $M$ is a closed manifold, then we prove that the Thom space of the normal bundle of $N$ is homeomorphic to $M/\mathrm{N}$. We also discuss several interesting results which are either applications of these or related observations regarding the theory of cut locus. These results include, but are not limited to, a computation of the local homology of singular matrices, a classification of the homotopy type of the cut locus of a homology sphere inside a sphere, a deformation of the indefinite unitary group $U(p,q)$ to $U(p)\times U(q)$ and a geometric deformation of $GL(n,\mathbb{R})$ to $O(n,\mathbb{R})$ which is different from the Gram-Schmidt retraction.
+											</p>
+											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
+										</div>
+									</div>
+									<div class="border rounded-lg border-gray-600 p-1">
+										<button class="abstract-button text-white rounded text-blue-500">bib</button>
+									</div>
+									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+										<div class="bib-content p-2 bg-white rounded w-1/2">
+											<pre>
+<code class="latex"> 
+	@article{basuprasad2020connection,
+		title={A connection between cut locus, Thom space and Morse-Bott functions},
+		author={Basu, Somnath and Prasad, Sachchidanand},
+		journal={arXiv preprint arXiv:2011.02972},
+		year={2020}
+	}
+</code>
+											</pre>
+											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
+										</div>
+									</div>
+									<div class="border rounded-lg border-gray-600 p-1">
+										<a href="https://msp.org/soon/coming.php?jpath=agt" target="_blank" class="text-blue-500 hover:text-blue-800">Journal</a>
+									</div>
+									<div class="border rounded-lg border-gray-600 p-1">
+										<a href="https://arxiv.org/pdf/2011.02972.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<hr class="h-0.5 my-4 bg-gray-300 border-0">
+
+						<div class="text-center">
+							<h1 class="text-2xl font-bold">PhD Thesis</h1>
+						</div>
+									
+						<hr class="h-0.5 my-4 bg-gray-300 border-0">
+
+						<div class="-my-8">
+							<div class="py-8 flex flex-wrap md:flex-nowrap">
+								<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+									<img src="../assets/img/thesis.png" alt="thesis" class="w-36 h-auto ">
+								</div>
+								<div class="md:flex-grow">
+									<p class="mb-4 text-lg">
+										Cut Locus of Submanifolds: A Geometric and Topological Viewpoint
+									</p>
+									<p class="mb-4">
+										<span class="authors">Supervisor: </span> Somnath Basu
+									</p>
+									<p class="mb-4">
+										<span class="text-gray-400">Year of defense: 2022 </span>
+									</p>
+									<div class="flex space-x-4 items-center my-2">
+										<div class="border rounded-lg border-gray-600 p-1">
+											<button class="abstract-button text-white rounded text-blue-500">bib</button>
+										</div>
+										<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+											<div class="bib-content p-2 bg-white rounded w-1/2">
+												<pre>
+<code class="latex"> 
+	@article{prasad2023cut,
+	title={Cut Locus of Submanifolds: A Geometric and Topological Viewpoint},
+	author={Prasad, Sachchidanand},
+	journal={arXiv preprint arXiv:2303.14931},
+	year={2023}
+	}
+</code>
+												</pre>
+												<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
+											</div>
+										</div>  
+										<div class="border rounded-lg border-gray-600 p-1">
+											<a href="../assets/attachments/Thesis_Sachchidanand_large.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Color PDF</a>
+										</div>
+										<div class="border rounded-lg border-gray-600 p-1">
+											<a href="../assets/attachments/Thesis_Sachchidanand_gray.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Grayscale PDF</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr class="h-0.5 my-4 bg-gray-300 border-0">
+
+						<div class="text-center">
+							<h1 class="text-2xl font-bold capitalize">Some other notes</h1>
+						</div>
+										
+						<hr class="h-0.5 my-4 bg-gray-300 border-0">
+
+						<div class="-my-8">
+							<div class="py-8 flex flex-wrap md:flex-nowrap">
+								<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+									<img src="../assets/img/IFT.svg" alt="Inverse Function theorem" class="w-36 h-auto ">
+								</div>
+								<div class="md:flex-grow">
+									<p class="mb-4 text-lg">
+										Inverse function theorem and its application
+									</p>
+									<div class="flex space-x-4 items-center my-2">
+										<div class="border rounded-lg border-gray-600 p-1">
+											<button class="abstract-button text-white rounded text-blue-500">bib</button>
+										</div>
+										<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+											<div class="bib-content p-2 bg-white rounded w-1/2">
+												<pre>
+<code class="latex"> 
+	@article{prasadinverse,
+		title={Inverse Function Theorem and its Applications},
+		author={Prasad, Sachchidanand}
+	}
+</code>
+												</pre>
+												<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
+											</div>
+										</div>  
+										<div class="border rounded-lg border-gray-600 p-1">
+											<a href="../assets/attachments/Inverse_Function_Theorem.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<hr class="w-1/2 h-px mx-auto bg-gray-300 border-0 my-4">
+
+						<div class="-my-8">
+							<div class="py-8 flex flex-wrap md:flex-nowrap">
+								<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+									<img src="../assets/img/geodesic-equations.svg" alt="geodesic equations" class="w-36 h-auto ">
+								</div>
+								<div class="md:flex-grow">
+									<p class="mb-4 text-lg">
+										Geodesic Equation with Euler Lagrange Equation
+									</p>
+									<p class="mb-4">
+										<span class="text-gray"></span>
+									</p>
+									<div class="flex space-x-4 items-center my-2">
+
+										<div class="border rounded-lg border-gray-600 p-1">
+											<a href="../assets/attachments/Geodesic_Equation_with_Euler_Lagrange_Equation.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr class="h-0.5 my-4 bg-gray-300 border-0">
+						
+					<!-- <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+						<div class="p-4 md:w-full flex">
+						  <div class="flex-grow lg:px-32 px-6">
+							<p class="mt-4 leading-relaxed text-lg text-justify">
+								Some of my articles are listed here. This will be updated in the future.
+							</p>
+							<p class="mt-4 leading-relaxed text-lg text-justify">
+								<ol class="pl-8 list-disc">
+									<li>
+										<a href="https://arxiv.org/pdf/2303.08798.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Independence complexes of wedge of graphs</a>
+									</li>
+
+									<li>
+										PhD Thesis (Cut Locus of Submanifolds: A Geometric and Topological Viewpoint)
+										<ol class="pl-8 list-decimal">
+											<li>
+												<a href="../assets/attachments/Thesis_Sachchidanand_large.pdf" target="_blank" class="text-blue-500 hover:text-blue-800"> With cover</a>
+											</li>
+											<li>
+												<a href="../assets/attachments/Thesis_Sachchidanand_small.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Without cover</a>
+											</li>
+										</ol>
+									</li>
+
+									<li>
+										<a href="https://arxiv.org/pdf/2206.08827.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">The image of polynomials and Waring type problems on upper triangular matrix algebras</a>
+									</li>
+
+									<li>
+										<a href="https://arxiv.org/pdf/2205.15024.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Counterexample to a conjecture about dihedral quandle</a>
+									</li>
+
+									<li>
+										<a href="https://arxiv.org/pdf/2011.02972.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">A connection between cut locus, Thom space and Morse-Bott functions</a>
+									</li>
+									<li>
+										<a href="../assets/attachments/Inverse_Function_Theorem.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Inverse function theorem and its applications.</a>
+									</li>
+									<li>
+										<a href="../assets/attachments/Geodesic_Equation_with_Euler_Lagrange_Equation.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Geodesic Equation with Euler Lagrange Equation.</a>
+									</li>
+									<li>
+										<a href="https://drive.google.com/open?id=1fffDE2uLAsV-JGinJDuFT_JljHxlWTHg" target="_blank" class="text-blue-500 hover:text-blue-800">Riemannian Geometry MA4206 Scanned Notes.</a>
+									</li>
+									<li>
+										<a href="https://www.youtube.com/playlist?list=PLrcy-sY3vswGIgB9FpImU9kYd5y6SMMpJ" target="_blank" class="text-blue-500 hover:text-blue-800">YouTube videos of the lectures on Riemannian Geometry (Somnath Basu).</a>
+									</li>
+								</ol>
+							</p>
+						  </div>
+						</div>
+					  </div>
+				</div> -->
 			</section>
 
 			<!-- footer -->
@@ -170,45 +546,60 @@
 				myFunction()
 		</script>
 
-		<script>
-			const abstractButton = document.getElementById('abstract-button');
-			const closeButton = document.getElementById('close-button');
-			const abstractPopup = document.getElementById('abstract-popup');
-		  
-			abstractButton.addEventListener('click', () => {
-			  abstractPopup.classList.remove('hidden');
-			});
-		  
-			closeButton.addEventListener('click', () => {
-			  abstractPopup.classList.add('hidden');
-			});
-		  </script>
-
+		<!-- MathJax -->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 		<script id="dsq-count-scr" src="//my-google-site.disqus.com/count.js" async></script>
-
+		
 		<script>
-		MathJax = {
-			loader: {
-			load: ['[tex]/mathtools']
-			},
+		  MathJax = {
 			tex: {
-			inlineMath: [
+			  inlineMath: [
 				['$', '$'],
 				['\\(', '\\)']
-			],
-			tags: 'ams',
-			displayMath: [
+			  ],
+			  displayMath: [
 				['$$', '$$'],
 				['\\[', '\\]']
-			],
-			packages: {'[+]': ['mathtools']}
+			  ]
 			},
 			svg: {
-			fontCache: 'global'
+			  fontCache: 'global'
 			}
-		};
+		  };
 		</script>
+
+		<!-- Script for abstract pop-up -->
+		<script>
+			const abstractButtons = document.querySelectorAll('.abstract-button');
+			const abstractOverlays = document.querySelectorAll('.abstract-overlay');
+			const closeButtons = document.querySelectorAll('.close-button');
+		  
+			function toggleAbstract(index) {
+			  abstractOverlays[index].classList.toggle('hidden');
+			}
+		  
+			abstractButtons.forEach((button, index) => {
+			  button.addEventListener('click', () => {
+				toggleAbstract(index);
+			  });
+			});
+		  
+			closeButtons.forEach((button, index) => {
+			  button.addEventListener('click', () => {
+				toggleAbstract(index);
+			  });
+			});
+		  
+			document.addEventListener('keydown', (event) => {
+			  if (event.key === 'Escape') {
+				abstractOverlays.forEach((overlay) => {
+				  overlay.classList.add('hidden');
+				});
+			  }
+			});
+		  </script>
 	</body>
 </html>
 
