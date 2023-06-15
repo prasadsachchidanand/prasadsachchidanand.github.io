@@ -100,9 +100,44 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We will solve this by two methods; one is by using a result (which will be important) and other is by looking at the expansion of the given function around $z=0$. Recall that a point $z_0$ is called a removable singularity of $f$ is 
+                      \[
+                          \lim_{z \to z_0} f(z) \text{ exists }.
+                      \]   
+                      We note that 
+                      \begin{align*}
+                          & 1 - \cos z = 1 - \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}z^{2n} = \sum_{n=1}^{\infty} \frac{(-1)^n}{(2n)!}z^{2n} \\
+                          \implies & \frac{\cos z}{z^2} = \frac{1}{z^2} \sum_{n = 1}^{\infty} \frac{(-1)^n}{(2n)!}z^{2n} = \sum_{n=0}^{\infty} \frac{(-1)^{n+1}}{(2n+2)!}z^{2n}. 
+                      \end{align*}
+                      Note that the function 
+                      \[
+                          g(z) = \sum_{n=0}^{\infty} \frac{(-1)^{n+1}}{(2n+2)!}z^{2n} = \frac{\cos z}{z^2},
+                      \]
+                      and as
+                      \[
+                          \lim_{z \to 0} g(z) = -\frac{1}{2}, 
+                      \] 
+                      the point $z=0$ is a removable singularity. 
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We recall the following theorem which will be important to verify if some singularity is removable or not.                  
+                    <div class="theorem eading-relaxed lg:text-lg md:text-base text-justify">
+                      Let $z = z_0$ is an isolated singularity of $f(z)$. Then the point $z_0$ is removable if and only if 
+                      \[
+                          \lim_{z \to z_0} \left( z - z_0 \right)f(z) = 0.
+                      \]
+                    </div> 
+                  </p>
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mt-4">
+                    Using the above theorem, we need to see if the limit of $z \frac{\cos z}{z^2}$ vanishes or not as $z$ approaches to zero. Observe that
+                    \begin{align*}
+                        \lim_{z \to 0} z\cdot \frac{\cos z}{z^2} = \lim_{z \to 0} \frac{\cos z}{z} = 0.  
+                    \end{align*}  
+                    Therefore, $z=0$ is a removable singularity. 
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
