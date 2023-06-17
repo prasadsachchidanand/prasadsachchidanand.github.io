@@ -100,9 +100,35 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <ol class="leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        This is not true. For example, take $X = \mathbb{R} ^2$ with the standard topology and let $\mathbb{B} [\mathbf{0} ,1]$ denotes the closed unit ball in $\mathbb{R} ^2$ and $\mathbb{B} (\mathbf{0} ,1)$ denotes the open unit ball in $\mathbb{R} ^2$. Take $A = \mathbb{B} [\mathbf{0} ,1]\setminus \{ (0,1) \} $ and $B = \mathbb{B} [\mathbf{0} ,1]$. Then 
+                        \[
+                            A \subsetneq B ~  \text{but} ~ \mathrm{int}(A) = \mathbb{B} (\mathbf{0} ,1) = \mathrm{int}(B).
+                        \]
+                        <div class="flex flex-wrap justify-center my-4">
+                          <img
+                            src="../../../assets/img/prob-15-06-23_01.svg"
+                            class="h-auto"
+                            alt="Choice of set A and B"
+                          />
+                        </div>
+                        <br><br>
+                        But the inclusion is always true. That is, if $A \subset B$, then $\mathrm{int }(A) \subset \mathrm{int}(B)$. For proving this, take $a\in \mathrm{int } (A)$. Then there exists an open set $U$ containing $a$ such that $U \subset A$. Since $A \subset B$, so $U \subset B$. Therefore, $a\in \mathrm{int } (B)$. 
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        This is also not true. For example, take $X = \mathbb{R} $ with the standard topology. Take $A = \mathbb{R} \setminus \{ 1 \} $. Since $\{ 1 \} $ is closed, $\mathbb{R} -\{ 1 \} $ is open. We have 
+                        \[
+                            \overline{\mathbb{R} - \{ 1 \} } = \mathbb{R}.
+                        \]
+                        But 
+                        \[
+                            \mathrm{int}(A) = \mathbb{R} - \{ 1 \} \neq \mathbb{R} = \mathrm{int}\left( \bar{A} \right). 
+                        \] 
+                      </li>
+                    </ol>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
 
                 <!-- Previous Button -->
