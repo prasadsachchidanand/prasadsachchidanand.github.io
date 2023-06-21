@@ -106,9 +106,62 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Since $f$ is a probability density function, the integral should be $1$. That is, 
+                    \begin{align*}
+                        \int_{\infty }^{\infty } f_X(x)~\mathrm{d} x = 1 & \implies \int _0^{\infty} kx^2 e^{-\lambda  x} \mathrm{d}x = 1 \\
+                        & \implies k \int_0^{\infty} x^2 e^{-\lambda x}\mathrm{d} x = 1.  
+                    \end{align*}  
+                
+                    We will use the integration by parts to compute tha above integral. Take $u = x^2$ and $\mathrm{d}v = e^{-\lambda x}~\mathrm{d}x$. Then  
+                    \[
+                        du = 2x~\mathrm{d}x, \text{ and } v = -\frac{1}{\lambda}e^{-\lambda x}
+                    \]
+                    Recall that 
+                    \[
+                        \int u~\mathrm{d}v = uv - \int v~\mathrm{d}u.
+                    \]
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Therefore, 
+                    \begin{align*}
+                        \int_0^\infty x^2 e^{-\lambda x}~\mathrm{d}x & = \left[-\frac{1}{\lambda}x^2 e^{-\lambda x}\right]_0^\infty - \int_0^\infty \left(-\frac{1}{\lambda}e^{-\lambda x}\right)(2x~\mathrm{d}x) \\[1ex]
+                        & = \frac{2}{\lambda }\int _0^{\infty}  x e^{-\lambda x}~\mathrm{d}x \\
+                        & = \frac{2}{\lambda } \left[ -\frac{1}{\lambda } x e^{-\lambda x} \right]_0^{\infty} - \frac{2}{\lambda } \int _0^{\infty} \left( -\frac{1}{\lambda}e^{-\lambda x} \right) \mathrm{d}x \\
+                        & = \frac{2}{\lambda ^2} \int _0^{\infty} e^{-\lambda x}\mathrm{d}x \\
+                        & = \frac{2}{\lambda ^2}\left[ -\frac{1}{\lambda } \right] _0^{\infty} \\
+                        & = \frac{2}{\lambda ^3}.
+                    \end{align*}
+                
+                    Therefore, we have 
+                    \begin{align*}
+                        \int_{\infty }^{\infty } f_X(x)~\mathrm{d} x = 1 & \implies k \left( \frac{2}{\lambda ^3} \right) = 1\\
+                        & \implies k = \frac{\lambda ^3}{2}.
+                    \end{align*}
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we need to find the corresponding cumulative distribution function (CDF). Recall that the CDF will be 
+                    \[
+                        F_X(x) = \int _{-\infty }^x f_X(t)~\mathrm{d}t. 
+                    \]
+                    When $x \lt 0$, the integral is equal to $0$. When $x\geq 0$, we use again the integrating by parts to find the CDF. 
+                    \begin{align*}
+                        F_X(x) & = \int _0^x f_X(t)~\mathrm{d}t \\
+                               & = \frac{\lambda ^3}{2} \int _0^x t^2 e^{-\lambda t}~\mathrm{d}t \\
+                               & = \frac{\lambda ^3}{2} \left[ -t^2 \left( \frac{1}{\lambda }e^{-\lambda t} \right)_0^x  + \int_0^x \frac{2t}{\lambda }e^{-\lambda t}\right]  \\
+                               & = \frac{\lambda ^3}{2} \left[ \frac{-x^2 e^{-\lambda x}}{\lambda } + \frac{2}{\lambda }\left[  \left( -\frac{t}{\lambda}e^{-\lambda t} \right)_0^x - \int _0^x \frac{-e^{-\lambda t}}{\lambda } \mathrm{d}t  \right]  \right] \\
+                               & = \frac{\lambda ^3}{2}\left[ \frac{-x^2 e^{-\lambda x}}{\lambda } - \frac{2x e^{-\lambda x}}{\lambda ^2} + \frac{2}{\lambda ^2}\left( -\frac{e^{-\lambda t}}{\lambda } \right)_0^x  \right] \\
+                               & = \frac{\lambda ^3}{2}\left[ \frac{-x^2 e^{-\lambda x}}{\lambda } - \frac{2x e^{-\lambda x}}{\lambda ^2} - \frac{2}{\lambda ^2}\left( \frac{e^{-\lambda x}}{\lambda } - \frac{1}{\lambda } \right)  \right] \\
+                               & = 1 - \left( 1 + \lambda x + \frac{\lambda ^2 x^2}{2} \right) e^{-\lambda x}.
+                    \end{align*}   
+                    Thus, the CDF will be 
+                    \[
+                        F_X(x) = 1 - \left( 1 + \lambda x + \frac{\lambda ^2 x^2}{2} \right) e^{-\lambda x}.
+                    \]
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
