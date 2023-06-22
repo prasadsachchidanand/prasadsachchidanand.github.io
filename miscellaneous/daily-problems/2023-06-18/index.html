@@ -106,9 +106,29 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Note that a basis for $U$ can be given as 
+                    \[
+                        \mathcal{B} _U = \{ (1,0,1,1,2), (0,1,-1,1,0) \}. 
+                    \]
+                    Since, we need to find subspaces $U_1,U_2,U_3$ such that $\mathbb{R} ^5 = U \oplus U_1 \oplus U_2$, each of the $U_i$ should have one dimensional. We will start with a choice of $U_1$ as follows. Take a vector $\mathbf{v}_1 \in \mathbb{R} ^5$ which is not in $U$, then $U_1 = \operatorname{span}\left\{ \mathbf{v}_1  \right\} $. Note that $\mathbf{v} _1 = (1,0,0,0,0) \notin U$ as if $\mathbf{v} _1 \in U$, then there exists $\alpha ,\beta \in \mathbb{R} $ such that 
+                    \[
+                        \left( \alpha , \beta , \alpha -\beta ,\alpha +\beta, 2\alpha  \right) = (1,0,0,0,0)
+                    \]            
+                    which does not have a solution.   
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    A similar strategy will be follow to find the subspaces $U_2$ and $U_3$. We choose $\mathbf{v}_2 \in \mathbb{R} ^5$ such that $\mathbf{v} _2 \notin \operatorname{span}\left\{ \mathcal{B} _U  \cup \{ \mathbf{v} _1 \}  \right\}$. We choose $\mathbf{v} _2 = (0,1,0,0,0)$. Again note that $\mathbf{v} _2 \notin \operatorname{span}\left\{ \mathcal{B} _U  \cup \{ \mathbf{v} _1 \}  \right\} $. So, $U_2 = \operatorname{span}\left\{ \mathbf{v} _2 \right\} $. Similarly, we take $\mathbf{v} _3 = (0,0,1,0,0)$ and note that $\mathbf{v} _3 \notin  \operatorname{span}\left\{ \mathcal{B}_U  \cup \{ \mathbf{v} _1  \cup \{ \mathbf{v} _2 \}  \}  \right\} $.
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    What we did in this process is we extended the set $\mathcal{B} _U$ to a basis of $\mathbb{R} ^5$. Since we need at least $5$ vectors in the basis, so we assigned span of each of the remaining three vectors to the subspaces $U_i$. Another way to find $U_1,U_2$ and $U_3$ is to find the orthogonal complement of $U$, which will be a subspace and the dimension will be three, let us say $\left\{ \mathbf{v} _1, \mathbf{v} _2 \mathbf{v}_3 \right\} $ is a basis of $U^\perp$ which is the orthogonal complement of $U$.  Now we take 
+                    \[
+                        U_i = \operatorname{span}\left\{ \mathbf{v} _i \right\} ,~ i=1,2,3.
+                    \]
+                  </p>
                 </div>
 
                 <!-- Previous Button -->

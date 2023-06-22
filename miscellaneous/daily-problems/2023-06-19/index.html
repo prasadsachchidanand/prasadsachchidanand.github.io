@@ -92,7 +92,22 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $\varepsilon > 0$ be given. Since $\left( x_n \right) $ is convergent, say converges to $x$, then there exists $n_0\in \mathbb{N} $ such that for every $n\geq n_0$, 
+                    \[
+                        \left\vert x_n - x \right\vert \lt \varepsilon .
+                    \]       
+                    We claim that $\left( \left\vert x_n \right\vert  \right) $ converges to $\vert x \vert $. We recall that 
+                    \[
+                        \vert \vert a \vert - \vert b \vert  \vert \leq \vert a-b \vert .
+                    \] 
+                    Note that for $n\geq n_0$ we have 
+                    \[
+                        \left\vert \vert x_n \vert - \vert x \vert  \right\vert \leq \left\vert x_n - x \right\vert \lt \varepsilon,
+                    \] 
+                    which proves the claim. 
+                
+                    <br> <br>
+                    The converse need not be true, for example, take $x_n = (-1)^n$. Then $\left\vert x_n \right\vert = 1$, which is convergent but $\left( x_n \right) $ does not. 
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
