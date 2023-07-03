@@ -92,9 +92,51 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Take $X = \mathbb{R} ^2$ with the Euclidean topology. Let $B[\mathbf{x} ,r] \left( B(\mathbf{x} ,r) \right) $ denotes the closed (open) ball centered at $\mathbf{x} $ and radius $r$  Consider the set 
+                      \[
+                          A = B[(-1,0), 0.5]  \cup [-0.5, 0.5]  \cup B[(1,0), 0.5].
+                      \] 
+                      Then the interior of the set $A$ will be two open balls, namely 
+                      \[
+                          \text {Int}(A) = B((-1,0), 0.5)  \cup B((1,0),0.5)
+                      \] 
+                      which is not connected. Thus, $A$ is connected does not imply $\text{Int}(A)$ is connected. 
+                      <div class="flex flex-wrap justify-center my-4">
+                        <img
+                          src="../../../assets/img/prob-22-06-23_01.svg"
+                          class="h-auto"
+                          alt="A and B "
+                        />
+                      </div>
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    On the other hand, if $A$ is connected, then its closure will be connected. We will prove it by two methods. The first method uses <a href="../2023-01-26#thm:26-01-2023" class="text-blue-500 hover:text-blue:800">one of the characterizations of connectedness</a>. Let $\bar{A} $ denotes the closure of $A$. Let
+                    \[
+                        f: \bar{A} \to \left( \{ 0,1 \}, \mathcal{T} _d \right)  
+                    \]  
+                    be continuous. Since $f$ is continuous its restriction to any subset will be continuous and hence $f\big|_{A} : A \to \left( \{ 0,1\}, \mathcal{T} _d \right) $ is continuous. Since $A$ is connected, $f$ must be constant. Without loss of generality, we assume that $f(A) = \{ 0 \} $. Now we claim that $f\left( \bar{A}  \right) = \{ 0 \} $. Since $f$ is continuous, we have 
+                    \[
+                        f\left( \bar{A}  \right) \subset \overline{f(A)} = \{ 0 \}.  
+                    \]    
+                    Therefore, $f\left( \bar{A}  \right) = \{ 0 \} $ and hence, $\bar{A} $ is connected. 
+                  </p>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Secondly, we can use the definition of connectedness. Suppose that $\bar{A} = E  \cup F$, where $\bar{E} \cap F = E  \cap  \bar{F} = \emptyset $. Suppose that $E\neq \emptyset $. We will prove that $F = \emptyset $. Note that we can write 
+                    \[
+                        A = \left( A  \cap E \right)  \cup \left( A  \cap F \right). 
+                    \]    
+                    Since $ E \neq \emptyset $ so $A  \cap E \neq \emptyset $. As $A$ is connected, $A  \cap F$ must be an emptyset. Now, $A \subseteq E  \cup F$ and $A  \cap  F = \emptyset $, which implies  
+                    \[
+                        A \subseteq E \implies \bar{A} \subseteq \bar{E}. 
+                    \]
+                    Now note that 
+                    \[
+                        \bar{A} = E  \cup F \implies F = F  \cap \bar{A} \subseteq F  \cap  \bar{E} = \emptyset .
+                    \]
+                    Thus, $F= \emptyset $ and hence, $\bar{A} $ is connected. 
+                  </p>
                 </div>
 
                 <!-- Previous Button -->

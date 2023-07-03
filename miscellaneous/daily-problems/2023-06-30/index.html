@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real analysis, complex analysis, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Solve the following differential equation. 
+    \[
+        y^{\prime\prime} = \frac{2}{x}y^\prime .
+    \]">
 
     
-	<title>Problem of the day | 30-06-2023 | Differential Equations -  - Sachchidanand Prasad</title>
+	<title>Problem of the day | 30-06-2023 | Differential Equations - Solve Cauchy-Euler equation - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -83,7 +86,10 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong> 
+                      <strong>Problem: </strong> Solve the following differential equation. 
+                      \[
+                          y^{\prime\prime} = \frac{2}{x}y^\prime .
+                      \]
                     </p> 
                 </div>
                 
@@ -92,7 +98,18 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Rewriting the given differential equation, by multiplying with $y^2$ we get 
+                    \[
+                        x^2 y^{\prime\prime} = 2xy^\prime \implies x^2 y^{\prime\prime}  - 2xy^\prime  = 0.
+                    \]
+                    The above differential equation is in the Cauchy-Euler form which has indicial equation 
+                    \[
+                        m(m-1) - 2m = 0.
+                    \]
+                    The roots of the above indicial equations are $m = 0$ and $m=3$. Therefore, the general solution of the given differential equation will be 
+                    \[
+                        y(x) = c_1 + c_2 t^3.
+                    \] 
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
