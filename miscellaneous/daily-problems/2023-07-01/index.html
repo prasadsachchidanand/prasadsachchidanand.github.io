@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real analysis, complex analysis, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="Let $(X,\mathcal{T} )$ be a topological space. We say that $U \subset X$ is open if $U\in \mathcal{T} $. Let $A$ be a subset of $X$. Suppose that for each $x\in A$ there is an open set $U \ni x$ such that $U \subset X$. Show that $A$ is open in $X$.">
+    <meta name="description" content="Solve the following equation if sum of its two roots is zero. 
+    \[
+        6x^4 - 3x^3 + 8x^2 -x + 2 = 0.
+    \]">
 
     
-	<title>Problem of the day | 29-06-2023 | Topology - If for every $x\in A$ there is an open set $U$ containing $x$ such that $U \subseteq A$, then $A$ is open - Sachchidanand Prasad</title>
+	<title>Problem of the day | 01-07-2023 | Quartic Equation - Find roots of the quartic equation if sum of the two roots is zero - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -73,7 +76,7 @@
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">29-06-2023</h2>
+            <h2 class="text-gray-900 text-3xl title-font font-medium">01-07-2023</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
@@ -83,7 +86,10 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong> Let $(X,\mathcal{T} )$ be a topological space. We say that $U \subset X$ is open if $U\in \mathcal{T} $. Let $A$ be a subset of $X$. Suppose that for each $x\in A$ there is an open set $U \ni x$ such that $U \subset X$. Show that $A$ is open in $X$.
+                      <strong>Problem: </strong> Solve the following equation if sum of its two roots is zero. 
+                      \[
+                          6x^4 - 3x^3 + 8x^2 -x + 2 = 0.
+                      \]
                     </p> 
                 </div>
                 
@@ -92,13 +98,48 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> Given that for any $x\in A$, there exists $U_x \in \mathcal{T} $ such that $U_x \subset A$. We claim that 
+                    <strong>Solution: </strong> We recall that sum of the roots of a quartic polynomial $a_4x^4 + a_3x^3 + a_2x^2 + a_1 x + a_0$ is $-\frac{a_3}{a_4}$. Let the roots of the give polynomial be $\alpha ,\beta ,\gamma ,\delta $. We have 
                     \[
-                        A = \bigcup_{x\in A } U_x \coloneqq \mathcal{U}.
+                        \alpha + \beta + \gamma + \delta = -\frac{-3}{6} = \frac{1}{2}.
                     \]   
-                    Let $y\in A$. Then from the given hypothesis $y\in U_y$ and hence $y \in  \mathcal{U} $. Therefore, $A \subset \mathcal{U} $. On the other hand if $y \in \mathcal{U} $, then there exists $x \in A$ such that $y \in U_x$. Since $U_x \subset A$, so $y \in A$ and hence $\mathcal{U} \subset A$. Therefore, $A = \mathcal{U} $. Now for each $x\in A$ the set $U_x$ is open and arbitrary union of open set is open, therefore, $A$ is open.  
+                    Given that sum of two roots is zero. Let $\alpha + \beta = 0$ which implies $\alpha = - \beta $. Now we have 
+                    \begin{equation}\label{eq:01Jul2023-1}
+                        \gamma + \delta  = \frac{1}{2}
+                    \end{equation}  
+                    We also have the following relations: 
+                    \begin{align}
+                        & \alpha \beta + \beta \gamma + \gamma \delta + \delta \alpha = \frac{4}{3} \label{eq:01Jul2023-2} \\
+                        & \alpha \beta \gamma + \beta \gamma \delta + \gamma \delta \alpha + \delta \alpha \beta = \frac{1}{6} \label{eq:01Jul2023-3} \\
+                        & \alpha \beta \delta \gamma = \frac{1}{3} \label{eq:01Jul2023-4}
+                    \end{align}
                   </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    From \eqref{eq:01Jul2023-1} and \eqref{eq:01Jul2023-3},
+                    \begin{align*}
+                        \alpha \beta \gamma + \beta \gamma \delta + \gamma \delta \alpha + \delta \alpha \beta = \frac{1}{6} & \implies (\alpha +\beta)\gamma \delta + (\gamma +\delta) \alpha \beta = \frac{1}{6} \\ 
+                        & \implies 0 + \frac{\alpha \beta }{2} = \frac{1}{6} \\
+                        & \implies \alpha \beta = \frac{1}{3}.
+                    \end{align*}
+                    Substitute the value of $\alpha \beta $ in \eqref{eq:01Jul2023-4} to obtain 
+                    \[
+                        \gamma \delta = 1.
+                    \] 
+                    Now we have $\beta =-\alpha $ and $\alpha \beta = \frac{1}{3}$ which implies 
+                    \[
+                        -\alpha ^2 = \frac{1}{3} \implies \alpha = \pm \iota \frac{1}{\sqrt{3} }.
+                    \]  
+                    Similarly, $\gamma + \delta = \frac{1}{2}$ and $\gamma \delta =1$ implies 
+                    \begin{align*}
+                        \gamma + \frac{1}{\gamma } = \frac{1}{2} & \implies 2\gamma ^2 - \gamma  - 2 = 0 \\
+                        & \implies \gamma = \frac{1 \pm \iota \sqrt{15} }{4}.
+                    \end{align*}  
+                    Therefore, the roots are 
+                    \[
+                        \pm \frac{\iota }{\sqrt{3} }, \frac{1\pm \iota \sqrt{15} }{4}.
+                    \]
+                  </p>
                 </div>
 
                 <!-- Previous Button -->
@@ -106,7 +147,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-06-28/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-06-30/">
                           Previous 
                         </a>
                       </li>
@@ -116,7 +157,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-06-30/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-07-02/">
                           Next 
                         </a>
                       </li>
