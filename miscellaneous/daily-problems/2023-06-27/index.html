@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real analysis, complex analysis, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="Prove that the fields $\mathbb{Q} \left( \sqrt{2}  \right) $ and $\mathbb{Q} \left( \sqrt{3}  \right) $ are not isomorphic.">
+    <meta name="description" content="Let $f(z)$ be an analytic function on the unit disc such that $\left\vert f(z) \right\vert = 1$ for all $\vert z \vert \leq 1$. Prove that $f(z)$ is constant.">
 
     
-	<title>Problem of the day | 27-06-2023 | Abstract Algebra - $Q(\sqrt{2})$ and $Q(\sqrt{3})$ are not isomorphic - Sachchidanand Prasad</title>
+	<title>Problem of the day | 27-06-2023 | Complex Analysis - Show that $f$ is constant - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -83,7 +83,18 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong> Prove that the fields $\mathbb{Q} \left( \sqrt{2}  \right) $ and $\mathbb{Q} \left( \sqrt{3}  \right) $ are not isomorphic.
+                      <strong>Problem: </strong> Let $f(z)$ be an analytic function on the unit disc such that $\left\vert f(z) \right\vert = 1$ for all $\vert z \vert \leq 1$. Prove that $f(z)$ is constant, using 
+                      <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                        <li class="my-4">
+                          The Open Mapping Theorem
+                        </li>
+                        <li class="my-4">
+                          The Cauchy-Riemann equations, and the identity 
+                          \[
+                              \left\vert f(x + \iota y) \right\vert ^2 = u(x,y)^2 + v(x,y)^2.
+                          \]
+                        </li>
+                      </ol>
                     </p> 
                 </div>
                 
@@ -92,34 +103,48 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> We need to show that the fields $\mathbb{Q} \left( \sqrt{2}  \right) $ and $\mathbb{Q} \left( \sqrt{3}  \right) $ are not isomorphic. If they are isomorphic, then let $f: \mathbb{Q} \left( \sqrt{2}  \right) \to \mathbb{Q} \left( \sqrt{3}  \right) $ is an isomorphism. Let 
-                    \[
-                        f\left( \sqrt{2}  \right) = a + b\sqrt{3},~ a,b \in \mathbb{Q} . 
-                    \]
-                    Since $f(1) = 1$, so for any $p \in \mathbb{Z} \setminus \{ 0 \} $, 
-                    \[
-                        f (p) = p f(1) = p, \text{ and } f\left( \frac{1}{p} \right) = \frac{1}{p},
-                    \] 
-                    therefore, $f$ fixes the elements of $\mathbb{Q} $. (Note that we only used $f$ being homomorphism). Therefore,
-                    \begin{align*}
-                        f(2) = 2 & \implies f\left( \sqrt{2} ^2 \right) = 2 \\
-                        & \implies f\left( \sqrt{2}  \right) ^2 = 2 \\
-                        & \implies \left( a + b\sqrt{3}  \right) ^2 = 2 \\
-                        & \implies a^2 + 3b^2 + 2ab \sqrt{3} = 2. 
-                    \end{align*} 
-                    Thus we have 
-                    \[
-                        a^2 + 3b^2 = 2,~ \text{ and } 2ab = 0 \implies a = 0 \text{ or } b =0.
-                    \]
-                    If $a = 0$, then 
-                    \[
-                        b^2 = \frac{2}{3} \implies b = \pm \sqrt{\frac{2}{3}} \notin \mathbb{Q} , 
-                    \] 
-                    so $a\neq 0$. Therefore, $b = 0$, which implies 
-                    \[
-                        a^2 = 2 \implies  a = \pm\sqrt{2}, 
-                    \]  
-                    which is not a rational number. Thus we arrived at a contradiction and hence the fields $\mathbb{Q} \left( \sqrt{2}  \right) $ and $\mathbb{Q} \left( \sqrt{3}  \right) $ are not isomorphic. 
+                    <strong>Solution: </strong> iven that $f(z)$ is a holomorphic function on the unit disc and $\vert f(z) \vert = 1$ for all $\vert z \vert \leq 1$.
+                    <ol class="math-list leading-relaxed lg:text-lg md:text-base text-justify">
+                      <li class="my-4">
+                        We will show that $f$ is constant using the Open Mapping Theorem. Let us recall the Open Mapping Theorem: 
+                        <div class="theorem leading-relaxed lg:text-lg md:text-base text-justify mb-4" id="thm:OpenMappingTheorem">
+                          Let $U$ be an open and connected subset of $\mathbb{C} $ anf $f: U \to  \mathbb{C} $ be a non-constant holomorphic function, then $f$ is an open map, that is it sends an open subset of $U$ to an open subset of $\mathbb{C} $.
+                        </div>
+                        If $f$ is not constant, then the image of $|z| \lt 1$ will be open by the open mapping theorem. As the set $|z| \lt 1$ is connected, the image must be connected, since $f$ is continuous. As the image of $f$ is the unit circle, this can not be possible, since no connected subset of the unit circle is open in the complex plane. Therefore, $f$ must be constant. 
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        Now we will show the same by using the CR-equations and the identity 
+                        \begin{equation}\label{eq:27Jun2023-1}
+                            \left\vert f(x + \iota y) \right\vert ^2 = u(x,y)^2 + v(x,y)^2
+                        \end{equation}  
+                        Since $\vert f(z) \vert  = 1$, we have $u^2 + v^2 = 1$. Differentiating, we get 
+                        \begin{align}
+                            & u u_x + v v_x = 0, \label{eq:27Jun2023-2}\\
+                            & u u_y + v v_y = 0. \label{eq:27Jun2023-3}
+                        \end{align}  
+                        Now we multiply the equation \eqref{eq:27Jun2023-2} by $u$ and substitute  $v_x = -u_y$ (CR equation) to obtain 
+                        \[
+                            u^2 u_x - uv u_y = 0.
+                        \] 
+                        Similarly, we multiply the equation \eqref{eq:27Jun2023-3} by $v$ and substitute  $v_y = u_x$ (CR equation) to obtain 
+                        \[
+                            uv u_x v^2 u_x = 0.
+                        \] 
+                        Adding the last two equations to get 
+                        \[
+                            u_x \left( u^2 + v^2 \right) = 0 \implies u_x = 0 \implies v_y = 0.
+                        \]
+                        Substituting these values in the equations \eqref{eq:27Jun2023-2} and \eqref{eq:27Jun2023-3} we obtain 
+                        \begin{align*}
+                            vv_x = uu_y = 0 & \implies  v^2v_x = u^2u_y = 0 \\
+                            & \implies v^2 v_x -  u^2 u_y = 0 \\
+                            & \implies v^2 v_x - u^2 (-v_x) = 0\\
+                            & \implies v_x \left( u^2 + v^2 \right) = 0.
+                        \end{align*}
+                        This implies, $v_x = -u_y = 0$. Hence both $u$ and $v$ are constant on the unit disc. So $f$ is constant ant on an infinite number of points and therefore, constant in all of $\mathbb{C} $. 
+                      </li>
+                    </ol>
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
