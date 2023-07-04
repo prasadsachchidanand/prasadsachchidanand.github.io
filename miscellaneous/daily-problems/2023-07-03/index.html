@@ -88,7 +88,7 @@
                     <p class="leading-relaxed lg:text-lg md:text-base text-justify">
                       <strong>Problem: </strong> Let $f: \mathbb{R} \to \mathbb{R} $ be continuous. Let $t\in \mathbb{R} $. Evaluate the following limit: 
                       \[
-                          \lim_{h \to 0} \int _{t-h}^{t+h} f(s)\mathrm{d} s.
+                          \lim_{h \to 0} \frac{1}{h}\int _{t-h}^{t+h} f(s)\mathrm{d} s.
                       \] 
                     </p> 
                 </div>
@@ -98,7 +98,15 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Note that 
+                    \[
+                        \lim_{h \to 0} \frac{1}{h} \int _{t -h} ^ {t + h} f(s)~\mathrm{d}s  
+                    \]
+                    is of the form $\frac{0}{0}$, so we can use the L'Hosptial's rule to evaluate the limit. 
+                    \begin{align*}
+                        \lim_{h \to 0} \frac{\int _{t-h}^{t+h} f(s)~\mathrm{d} s}{h} &  = \lim_{h \to 0} \frac{f(t + h) + f(t - h)}{1} \\
+                        & = f(t) + f(t) = 2f(t).
+                    \end{align*}
                   </p>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
