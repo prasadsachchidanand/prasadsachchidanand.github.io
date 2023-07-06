@@ -97,10 +97,71 @@
                 <!-- Solution -->
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
-                  </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong> Recall that 
+                    \begin{align*}
+                        & i^2 = j^2 = k^2 = -1,\\
+                        & ij=k,jk=i,~\text{and}~ki=j,\\
+                        & i^4 = j^4 = k^4 = 1. 
+                    \end{align*}
+                    Thus, we can write $Q_8$ as 
+                    \[
+                        \langle i,j \rangle = \langle j,k \rangle = \langle k,i \rangle.
+                    \]
+                  </div>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We can now solve the problem by listing all the cyclic subgroups, namely
+                    \begin{align*}
+                        & \left\langle i \right\rangle   = \langle i,-1,1 \rangle ,~~ \langle j \rangle  = \langle j,-1,1 \rangle ,~~ \langle k \rangle = \langle k,-1,1 \rangle  \\
+                        & \langle -1 \rangle  = \{-1,1\}~~\text{and}~~\langle 1 \rangle  = \{1\}
+                    \end{align*}
+                    Since, the quaternion group has order $8$ and hence using the Lagrange's Theorem, the possible order of subgroups are  $1,2,4$ and $8$. Since the group is not cyclic, we will not have any element of order $8$. Therefore we have
+                    \begin{align*}
+                        & 1 ~~\text{element of of order}~~ 1, \\
+                        & 1 ~~\text{element of of order}~~ 2, \text{ and } \\
+                        & 6 ~~\text{element of of order}~~ 4.
+                    \end{align*}
+                  </div>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    The following theorem determines the number of cyclic subgroup of order $k$ of a finite group
+                    <p class="theorem">
+                      Let $G$ be a finite group. Then the number of cyclic subgroups of order $k$ is $G$ is
+                      \begin{equation*}
+                          \dfrac{\text{number of elements of order $k$ in $G$}}{\phi(k)},
+                      \end{equation*}
+                      where $\phi(k)$ is the  Euler's phi function which is the number of positive integers less than $k$ that are relatively-prime to $k$.
+                    </p> 
+                  </div>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will use the above theorem to find number of  cyclic subgroups of order $1,2$ and $4$.
+                    <ol class="math-list-alpha">
+                      <li class="my-4">
+                        Number of cyclic subgroups of order $1:$
+                        \begin{align*}
+                            & = \dfrac{\text{number of elements of order $1$ in $G$}}{\phi(1)} = \frac{1}{1} = 1.
+                        \end{align*}  
+                      </li>
+                      <li class="my-4">
+                        Number of cyclic subgroups of order $2:$
+                        \begin{align*}
+                            & = \dfrac{\text{number of elements of order $2$ in $G$}}{\phi(2)} = \frac{1}{1} = 1.
+                        \end{align*}
+                      </li>
+                      <li class="my-4">
+                        Number of cyclic subgroups of order $4:$
+                        \begin{align*}
+                            & = \dfrac{\text{number of elements of order $4$ in $G$}}{\phi(4)} = \frac{6}{2} = 3.
+                        \end{align*}
+                      </li>
+                    </ol>
+                    Thus, the total number of cyclic subgroups of $Q_8$ is $1 + 1 + 3 = 5$.
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
