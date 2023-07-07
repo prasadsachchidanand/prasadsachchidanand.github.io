@@ -82,19 +82,28 @@
                 
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
-                    <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                       <strong>Problem: </strong> Show that if $A$ is closed in $X$ and $B$ is closed in $Y$ then $A \times B$ is closed in $X \times Y$.
-                    </p> 
+                    </div> 
                 </div>
                 
 
                 <!-- Solution -->
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
-                  </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong> Since $A$ is closed in $X$ and $B$ is closed in $Y$, so $X\setminus A \left( = A^c \right) $ is open in $X$ and $Y \setminus B \left( = B^c \right) $ is open in $Y$. We need to show that $A \times B$ is closed in $X \times Y$, that is $\left( X\times Y \right) \setminus \left( A \times B \right) $ is open in $X \times Y$. We claim that 
+                    \[
+                        \left( X\times Y \right) \setminus \left( A \times B \right) = \left( A^c \times Y \right)  \cup \left( X \times B^c \right). 
+                    \]  
+                    Take $(x,y) \in (X \times Y) \setminus (A \times B)$. Since $(x,y) \notin A \times B$, either $x \notin A$ or $y \notin B$. That is, either $(x,y) \in A^c \times Y$ or $(x,y) \in X \times B^c$, which means $(x,y) \in \left( A^c \times Y \right)  \cup \left( X \times B^c \right)$. Therefore, $(X \times Y)\setminus (A \times B) \subseteq \left( A^c \times Y \right)  \cup \left( X \times B^c \right)$.
+                    <br><br>
+                    On the other hand, let $(x,y) \in \left( A^c \times Y \right)  \cup \left( X \times B^c \right)$. If $(x,y) \in \left( A^c \times Y \right) $, then $x \notin A$, that means, $(x,y) \in X \times Y$ but $(x,y) \notin A \times B$. Therefore, $(x,y) \in (X \times Y) \setminus  (A \times B)$. Hence, $A^c \times Y \subseteq (X \times Y) \setminus  (A \times B)$. Similarly, $X \times B^c \subseteq (X \times Y) \setminus  (A \times B)$, and hence, $\left( A^c \times Y \right)  \cup \left( X \times B^c \right) \subseteq (X \times Y) \setminus  (A \times B)$.
+                  </div>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since $A^c$ is open in $X$, and product of open sets is open implies that $A^c \times Y$ is open in $X \times Y$. Similarly, $X \times B^c$ is open in $X \times Y$ and hence their union is open is $X \times Y$. Therefore, $A \times B$ is closed in $X \times Y$.    
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
