@@ -92,7 +92,22 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let $\lVert au + bv \rVert = \lVert av + bu \rVert $ for all $a,b\in \mathbb{R} $. Take $a = 1$ and $b = 0$. Then, 
+                    \[
+                        \lVert u \rVert = \lVert v \rVert .
+                    \]   
+                    On the other hand, let $\lVert u \rVert \lVert v \rVert $ and $a,b\in \mathbb{R}$ be given. We need to prove that $\lVert au + bv \rVert = \lVert av + bu \rVert $. Consider 
+                    \begin{align*}
+                        \lVert au + bv \rVert ^2 & = \left\langle au + bv, au + bv \right\rangle \\
+                        & = a^2\lVert u \rVert^2  + 2ab \left\langle u,v \right\rangle + b^2 \lVert v \rVert^2  \\
+                        & = a^2 \lVert v \rVert ^2 + 2ab\left\langle u,v \right\rangle + b^2 \lVert u \rVert^2 \\
+                        & = \left\langle av + bu, av + bu \right\rangle \\
+                        & = \lVert av + bu \rVert ^2 . 
+                    \end{align*}  
+                    Since both are non-negative, we have, 
+                    \[
+                        \lVert au + bv \rVert = \lVert av + bu \rVert .
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

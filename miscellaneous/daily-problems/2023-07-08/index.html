@@ -100,7 +100,24 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Given that for any polynomial of degree at most $2$, we have 
+                    \[
+                        \frac{\mathrm{d}f}{\mathrm{d}x} = a f(x) + 2 f(x + 1) + b f(x + 2),~ \text{for all } x \in \mathbb{R}.
+                    \] 
+                    As the above equation is true for any polynomial of degree at most $2$, so we take $f(x) = x$. Then we have
+                    \begin{align*}
+                        \frac{\mathrm{d}f}{\mathrm{d}x} = 1 & \implies a x + 2(x+1) + b (x + 2) = 1\\
+                        & \implies (a+b+2)x + 2b + 2 = 1 \\
+                        & \implies \begin{dcases}
+                            a + b + 2 = 0 \\
+                            2b + 2  = 1.
+                        \end{dcases} \\
+                        & \implies a = -\frac{3}{2} \text{ and } b = -\frac{1}{2}.
+                    \end{align*} 
+                    Therefore, 
+                    \[
+                        4a + 3b = -6 - 1.5 = -7.5.
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

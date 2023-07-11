@@ -101,9 +101,75 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>To solve Laplace's equation $\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0$ with the given conditions, we can separate variables and assume a solution of the form:
+                    \[
+                        u(x, y) = X(x)Y(y).
+                    \] 
+                    Substituting this into the equation and dividing by $XY$  yields:
+                    \[
+                        \frac{X''}{X} + \frac{Y''}{Y} = 0 \implies  -\frac{X''}{X} = \frac{Y''}{Y} = -\lambda,
+                    \]
+                    where $\lambda$ is a constant. Solving the equation $\frac{Y''}{Y} = -\lambda$ gives:
+                    \[
+                        Y'' + \lambda Y = 0
+                    \]
+                    The boundary conditions implies that 
+                    \[
+                        u(x,0) = u(x, \pi ) = 0 \implies Y(0) = Y(\pi ) = 0.        
+                    \]
+                    The above conditions gives $\lambda = n^2$ and the corresponding nonzero solutions are 
+                    \[
+                        Y_n(x) = \sin (nx).
+                    \] 
+                    The ODE for $X$ with $\lambda = n^2$ is 
+                    \[
+                        X^{\prime\prime} - n^2 X = 0
+                    \]
+                    Solutions are 
+                    \[
+                        X(x) = X_n(x) = a_n e^{nx} + b_n e^{-nx}.
+                    \]
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now using the boundary condition $u = 0$ on the left side of the rectangle (that is $u(0,y) = 0$) implies that $X_n(0) = 0$, that is, $X_n(0) = a_n(0) + b_n(0) = 0 $ or $b_n = -a_n$. This gives 
+                    \[
+                        X_n(x) = a_n \left( e^{nx} - e^{-nx} \right) = 2a_n \sinh nx.
+                    \]   
+                    Writing the constant $2a_n = A_n$, we obtain the eigenfunction of the given problem 
+                    \[
+                        u_n(x,y) = A_n \sin ny \sinh nx.
+                    \]  
+                    Therefore, the solution of the given PDE will be 
+                    \[
+                        u(x,y) = \sum_{n=1}^{\infty} u_n(x,y) = \sum_{n=1}^{\infty} A_n \sin ny \sinh nx.
+                    \]
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we use the another condition that $u_x(\pi ,y ) = \sin y$. 
+                    \begin{align*}
+                        & u_x(x,y) = \sum_{n=1}^{\infty} n A_n \sin ny \cosh nx \\
+                        \implies & \sin y = u_x(\pi ,y) = \sum_{n=1}^{\infty} n A_n \sin ny \cosh n\pi \\
+                        \implies & A_n = \frac{2}{n\pi \cosh n\pi} \int _0^\pi \sin y \sin ny \mathrm{d}y \\
+                        & \kern 0.45cm = \frac{2}{n\pi \cosh n\pi}
+                        \begin{dcases}
+                            \frac{\pi}{2} , &\text{ if } n=1 ;\\
+                            0, &\text{ if } \text{ otherwise}.
+                        \end{dcases} \\
+                        \implies & A_1 = \frac{1}{\cosh \pi} \text{ and } A_n = 0 \text{ for all } n \geq 2.
+                    \end{align*} 
+                    Therefore, 
+                    \[
+                        u(x,y) = A_1 \sin y \sinh x = \frac{\sin y \sinh x}{\cosh \pi}.
+                    \]
+                    Thus, 
+                    \begin{align*}
+                        u\left( x, \frac{\pi}{2}\right) = \frac{\sin \left( \frac{\pi}{2} \right) \sinh x}{\cosh \pi} = \frac{e^{x} - e^{-x}}{e^{\pi}+e^{-\pi }}.
+                    \end{align*}
+                  </div>
                 </div>
 
                 <!-- Previous Button -->

@@ -98,7 +98,17 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Substituting $x^{n+1}=t$, we have $(n+1)x^n \mathrm{d} x=\mathrm{d} t$. At $x=0$, $t=0$ and at $x=1$, $t=1$. Thus, we get
+                    \[
+                        \int_{0}^{1}nx^ne^{x^2}\,{\mathrm{d} }x=\int_{0}^{1}\frac{n}{n+1}e^{t^{\frac{2}{n+1}}}\,{\mathrm{d} }t. 
+                    \]
+                    Now $e^{t^{\frac{2}{n+1}}}$ is bounded in $(0,1)$ for all $n$, and $e^{t^{\frac{2}{n+1}}}\to e$ pointwise in $(0,1)$. 
+                    Thus, by Dominated Convergence Theorem, we have
+                    \begin{align*}
+                        \lim_{n\to \infty}\int_{0}^{1}nx^ne^{x^2}\,{\mathrm{d} }x= &\lim_{n\to \infty}\int_{0}^{1}\frac{n}{n+1}e^{t^{\frac{2}{n+1}}}\,{\mathrm{d} }t\\
+                        &=\int_{0}^{1}\lim_{n\to \infty}\frac{n}{n+1}e^{t^{\frac{2}{n+1}}}\,{\mathrm{d} }t\\
+                        &=\int_{0}^{1}1\cdot e \,{\mathrm{d} }t=e
+                    \end{align*}
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
