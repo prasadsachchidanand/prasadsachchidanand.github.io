@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real analysis, complex analysis, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Number of zeros of $f$ in a ball">
 
     
 	<title>Problem of the day | 11-07-2023 | Complex Analysis - Number of zeros of $f$ in a ball of radius 2 - Sachchidanand Prasad</title>
@@ -92,7 +92,19 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We will use Rouché's Theorem to find the number of zeros of the given polynomial in the ball of radius $2$. 
+                    <p class="theorem my-4">
+                      <strong>Rouché's Theorem</strong> Let $f,g: U \to  \mathbb{C} $ be analytic on $U \subset \mathbb{C} $ open, and let $\gamma $  be any closed curve such that $\gamma \subset U$. If $\vert f(z) \vert \leq \vert g(z) \vert $ on $\gamma $ then $f(z)$ and $f(z) = g(z)$ have the same number of zeros inside $\gamma $. 
+                    </p>
+                    Let $g(z) = z^6 + 10$ and $h(z) = -5z^4$. Note that $f(z) = g(z) + h(z)$ and 
+                    \begin{align*}
+                        \left\vert h(z) \right\vert = \left\vert -5z^4 \right\vert = 5\vert z \vert ^4 = 80
+                    \end{align*}   
+                    on $|z|=2$. On the other hand, 
+                    \begin{align*}
+                        \vert g(z) \vert = \left\vert z^6 + 10 \right\vert \leq \vert z \vert ^6 + 10 \leq 42.
+                    \end{align*} 
+                    Therefore, $\vert g(z) \vert \leq \vert h(z) \vert $ on $\vert z \vert = 2$, so by Rouché's Theorem, the number of zeros of $h(z)$ and $g(z) + h(z)$ will be same inside $|z|=2$. Since $h(z)$ has $4$ zeros, $f(z) = g(z) = h(z)$ will also have $4$ roots in $\vert z \vert =2$.
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
