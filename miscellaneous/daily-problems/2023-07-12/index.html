@@ -8,7 +8,7 @@
     <meta name="description" content="Find the number of elements conjugate to $(1234567)$ in $S_7$.">
 
     
-	<title>Problem of the day | 12-07-2023 | Complex Analysis - Find the number of elements conjugate to $(1234567)$ in $S_7$ - Sachchidanand Prasad</title>
+	<title>Problem of the day | 12-07-2023 | Abstract Algebra - Find the number of elements conjugate to $(1234567)$ in $S_7$ - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -92,7 +92,14 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>To find the number of elements conjugate to the given permutation $(1234567)$ in $S_{7}$, we can determine the conjugacy class to which it belongs. In general, two permutations in the symmetric group $S_n$ are conjugate if and only if they have the same cycle structure. Therefore, $g\in S_7$ will be conjugate to $(1234567)$ if and only if $g = \left( a_1 a_2 a_3 a_4 a_5 a_6 a_7 \right) $, where $a_i \in \{ 1,2,3,\dots,7 \} $. That is, we need to determine how many $7$-cycles are there in $S_7$. In general, the number of $k$-cycles in $S_n$ is given by 
+                    \[
+                        m = (k-1)! \dbinom{n}{k} = \dfrac {n!} {k (n-k)!}
+                    \]
+                    Therefore, the number of $7$-cycle in $S_7$ will be
+                    \[
+                        \text{ Number of $7$-cycles in $S_7$ } = (7-1)! \dbinom{7}{7} = 6!.
+                    \] 
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
