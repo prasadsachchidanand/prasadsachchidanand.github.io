@@ -102,9 +102,40 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Note that we need to shrink or expand the disc. We know that any two closed intervals are homeomorphic, in particular, 
+                    \[
+                        \left[ 0, r_1 \right] \xrightarrow{\cong} \left[ 0, r_2 \right] , ~ x \mapsto x \cdot \frac{r_2}{r_1}.
+                    \]
+                    In a similar way, we can define a map between the discs which will give a homeomorphism.
+                    \begin{align*}
+                        f : D_{r_1} \to  D_{r_2},~ \mathbf{x} = \left( x_1, x_2 \right)  \mapsto \mathbf{x} \cdot \frac{r_2}{r_1}.
+                    \end{align*}
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-13-07-23_01.svg"
+                        class="h-auto"
+                        alt="homemorphism between discs"
+                      />
+                    </div>
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <p>
+                      Let us first check that the above map is well-defined, in the sense that if $\lVert \mathbf{x}  \rVert \leq r_1$, then $\left\lVert f\left( \mathbf{x}  \right)  \right\rVert \leq r_2$. 
+                      \begin{align*}
+                          \left\lVert f\left( \mathbf{x} \right)  \right\rVert = \left\lVert \mathbf{x} \cdot \frac{r_2}{r_1} \right\rVert = \lVert \mathbf{x}  \rVert \left\vert \frac{r_2}{r_1} \right\vert \leq r_1 \frac{r_2}{r_1} = r_2.
+                      \end{align*}
+                      Clearly, $f$ is continuous and injective. As
+                      \[
+                          f\left( \mathbf{x} \right) = f\left( \mathbf{y} \right) \implies \mathbf{x} \cdot \frac{r_2}{r_1} = \mathbf{y} \cdot \frac{r_2}{r_1} \implies \mathbf{x} = \mathbf{y} .
+                      \]
+                      The inverse of $f$ is defined as 
+                      \[
+                          f^{-1} (\mathbf{y} ) = \mathbf{y} \cdot \frac{r_1}{r_2},\kern 0.5cm  \mathbf{y} \in D_{r_2},
+                      \]
+                      which is also continuous. Therefore, $f$ is a homeomorphism between the two discs.
+                    </p>
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
                 </div>
 
                 <!-- Previous Button -->
