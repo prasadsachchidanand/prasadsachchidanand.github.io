@@ -100,7 +100,47 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let $f: U \to  \mathbb{R} $ be the given function. 
+                    <ol class="math-list-roman">
+                      <li class="my-4">
+                        We are given that $\displaystyle \lim_{x \to a} f(x) = l$ and need to show that $\displaystyle \lim_{x \to a} \vert f(x) \vert = \vert l \vert  $. Let $\varepsilon > 0$ be given. Since $\displaystyle \lim_{x \to a} f(x) = l$, so for the given $\varepsilon $ there exists $\delta >0$ such that 
+                        \[
+                            \vert x - a \vert \lt \delta \implies \vert f(x) - l \vert \lt \varepsilon .
+                        \]
+                        Now let $\vert x - a \vert \lt \delta$. Since
+                        \begin{align*}
+                            \vert \vert f(x) \vert - \vert l \vert  \vert & \leq \vert f(x) - l \vert \lt \varepsilon .
+                        \end{align*} 
+                        Therefore, $\displaystyle \lim_{x \to a} \vert f(x) \vert = \vert l \vert $.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        The converse need not be true. For example, consider the function 
+                        \[
+                            f(x) = 
+                            \begin{dcases}
+                                1 - x, &\text{ if }  x \leq 2;\\
+                                x - 1, &\text{ if } x > 2.
+                            \end{dcases}
+                        \]
+                        Note that $\displaystyle \lim_{x \to 2} f(x)$ does not exist. 
+                        <div class="flex flex-wrap justify-center my-4">
+                          <img
+                            src="../../../assets/img/prob-17-07-23_01.svg"
+                            class="h-auto"
+                            alt="plot of f(x)"
+                          />
+                        </div>
+                        On the other hand, $\displaystyle \lim_{x \to 2} \vert f(x) \vert $ exists and it is equal to $1$.
+                        <div class="flex flex-wrap justify-center my-4">
+                          <img
+                            src="../../../assets/img/prob-17-07-23_02.svg"
+                            class="h-auto"
+                            alt="plot of |f(x)|"
+                          />
+                        </div>
+                      </li>
+                    </ol>
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
