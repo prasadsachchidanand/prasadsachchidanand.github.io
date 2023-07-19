@@ -100,9 +100,42 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> If $(x,y) \in D$, then $x^2 + y^2 \leq 1$. We have  
+                    \begin{align*}
+                        T(D) & = \left\{ \left( \frac{x+y}{\sqrt{2}} , \frac{x-y}{\sqrt{2} } \right) : x^2 + y^2 \leq 1  \right\}.
+                    \end{align*}  
+                    Consider 
+                    \begin{align*}
+                        \left( \frac{x+y}{\sqrt{2} } \right) ^2 + \left( \frac{x-y}{\sqrt{2} } \right) ^2 & = \frac{(x+y)^2}{2} + \frac{(x-y)^2}{2} = x^2 + y^2.
+                    \end{align*}
+                    Therefore, $T(D) = D$ and hence the area of $T(D)$ will be $\pi $.
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <p>
+                      We can also solve this problem by using the following fact: <em>the area of the image of a figure under a linear transformation is the area of the figure times the absolute value of determinant of the transformation</em>.
+                      <div class="flex flex-wrap justify-center my-4">
+                        <img
+                          src="../../../assets/img/prob-16-07-23_01.svg"
+                          class="h-auto"
+                          alt="Image of a linear transformation"
+                        />
+                      </div>
+                    </p>
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <p>
+                      Let us first find the determinant of the given linear transformation. We take a basis of $\mathbb{R} ^2$ as $\{ (1,0), (0,1) \} $. With respect to this basis the matrix of $T$ will be 
+                      \[
+                          [T] = 
+                          \begin{pmatrix}
+                              \frac{1}{\sqrt{2} } &  \frac{1}{\sqrt{2} } \\[1ex]
+                              \frac{1}{\sqrt{2} } &  -\frac{1}{\sqrt{2} } \\
+                          \end{pmatrix} \implies \det [T] = -1.
+                      \] 
+                      Therefore,
+                      \[
+                          \text{area of $T(D)$} = \text{area of $D$} \cdot \vert \det [T] \vert  = \pi \times 1 = \pi . 
+                      \]
+                    </p>
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
 
                 <!-- Previous Button -->
