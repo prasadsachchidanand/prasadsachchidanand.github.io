@@ -100,7 +100,18 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Note that 
+                    \begin{align*}
+                        (Tf)(x) & = \int_{0}^{1} \sin (x + y) f(y) \,\mathrm{d}y \\
+                        & = \int_{0}^{1} \left( \sin x \cos y + \cos x \sin y \right) f(y) \,\mathrm{d}y \\
+                        & = \sin x \int_{0}^{1} \cos y f(y) \,\mathrm{d}y + \cos x \int_{0}^{1} \sin y f(y) \,\mathrm{d}y \\
+                        & = \alpha \sin x + \beta \cos x,
+                    \end{align*}
+                    where
+                    \[
+                        \alpha = \int_{0}^{1} \cos y f(y) \,\mathrm{d}y, ~ \text{ and } ~ \beta = \int_{0}^{1} \sin y f(y) \,\mathrm{d}y.  
+                    \] 
+                    Therefore, for any $f\in V$, $(Tf)$ is in the span of $\{ \sin x, \cos x \} $, therefore, a basis for range space of $T$ will be $\{ \sin x, \cos x \} $ and hence the dimension of range of $T$ will be $2$.  
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
