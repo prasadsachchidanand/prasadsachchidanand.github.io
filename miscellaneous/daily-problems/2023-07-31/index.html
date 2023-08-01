@@ -92,7 +92,20 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $\varepsilon \gt 0$ be given. We need to show that there exists $n_0 \in \mathbb{N} $ such that for $m, n \geq n_0$ we have $d\left( y_n, y_m \right) \lt \varepsilon $. Since $\left( x_n \right) $ is Cauchy, for the given $\varepsilon $ we will get $n_1 \in \mathbb{N} $ such that for $m,n \geq n_1$ 
+                    \begin{equation}\label{eq:31Jul2023-1}
+                        d \left( x_n, x_m \right) \lt \frac{\varepsilon }{3}.
+                    \end{equation} 
+                    Now we also have $\displaystyle \lim_{n \to \infty} d \left( x_n, y_n \right) = 0$, so there exists $n_2 \in \mathbb{N} $ such that for $n \geq n_2$ 
+                    \begin{equation}\label{eq:31Jul2023-2}
+                        d \left( x_n, y_n \right) \lt \frac{\varepsilon}{3}. 
+                    \end{equation} 
+                    Take $n_0 = \max \left\{ n_1, n_2 \right\} $. Now observe that for $n\geq n_0$ 
+                    \begin{align*}
+                        d \left( y_n, y_m \right) & \leq d \left( y_n, x_n \right) + d \left( x_n, x_m \right) + d \left( x_m, y_m \right) \\
+                        & \lt \frac{\varepsilon }{3} + \frac{\varepsilon }{3} + \frac{\varepsilon }{3} = \varepsilon .
+                    \end{align*}
+                    This proves that $\left( y_n \right) $ is Cauchy.
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
