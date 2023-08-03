@@ -98,7 +98,20 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We have 
+                    \[
+                        z^3 -1 = (z -1 )(z- \omega )\left( z - \omega ^2 \right), 
+                    \]
+                    where $\omega $ is a primitive third root of unity. We also note that $\omega $ and $\omega ^2$ are outside the given contour $\gamma $ and thus, the curve $\gamma $ contains only one singularity, that is, $z_0 = 1$. Therefore, 
+                    \begin{align*}
+                        \frac{1}{2\pi \iota }\int \limits_\gamma \frac{1}{z^3 -1} \mathrm{d} z & = \frac{1}{2\pi \iota }\int \limits _\gamma \frac{1}{(z-1)\left( z^2 + z + 1 \right) }\mathrm{d} z \\
+                        & = \frac{1}{2\pi \iota }\int \limits_\gamma \frac{f(z)}{z-1}\mathrm{d} z,~ f(z) = \frac{1}{z^2 + z + 1} \\
+                        & = f(1) = \frac{1}{3}.
+                    \end{align*}   
+                    Therefore, 
+                    \[
+                        \frac{1}{2\pi \iota } \int \limits_\gamma \frac{\mathrm{d} z}{z^3 - 1} = \frac{1}{3}.
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
