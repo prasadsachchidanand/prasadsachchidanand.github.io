@@ -92,9 +92,63 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>  Let the differential equation be 
+                    \begin{equation}\label{eq:04Aug2023-1}
+                        y^{\prime\prime} + a y^\prime  + by = R(x),
+                    \end{equation}
+                    where $a,b$ are real constants and $R(x)$ is a function of $x$. Given that $x, x + e^x$ and $1 + x + e^x$ are solution of \eqref{eq:04Aug2023-1}, we get 
+                    \begin{align*}
+                        & a + bx = R(x) \\
+                        & e^x + a \left( e^x + 1 \right) + b \left( x + e^x \right) = R(x) \\
+                        & e^x + a \left( e^x + 1 \right) + b \left(1 + x + e^x \right) = R(x) .
+                    \end{align*} 
+                    Using the last two equations, we get
+                    \[
+                        b + R(x) = R(x) \implies b = 0 \implies  a = R(x).
+                    \]
+                    Substituting the value of $a$, in 
+                    \begin{align*}
+                        e^x + a \left( e^x + 1 \right) + b \left( x + e^x \right) = R(x) & \implies e^x + R(x)\left( e^x + 1 \right) = R(x) \\
+                        & \implies R(x) = -1.
+                    \end{align*}
+                    Therefore, the differential equation \eqref{eq:04Aug2023-1} will be 
+                    \begin{equation}\label{eq:04Aug2023-2}
+                        y^{\prime\prime} - y = -1.
+                    \end{equation}
+                    We need to find the solution of \eqref{eq:04Aug2023-2}. The characteristic equation for the above differential equation will be 
+                    \[
+                        m^2 - m = 0 \implies  m = 0, 1.
+                    \] 
+                    Thus, solution of the corresponding homogeneous equation will be
+                    \begin{equation}\label{eq:04Aug2023-3}
+                        y_c(x) = c_1 + c_2 e^x,
+                    \end{equation} 
+                    where $c_1$ and $c_2$ are arbitrary constants.
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we need to find a general solution. If $D$ is the differential operator, then we have 
+                    \begin{align*}
+                        \frac{1}{D^2 - D} (-1) & = \frac{1}{D} (1- D)^{-1} (1) \\
+                        & = \frac{1}{D} \left( 1 + D + D^2 + \cdots \right) (1) \\
+                        & = \frac{1}{D} (1) \\
+                        & = x.
+                    \end{align*}
+                    Therefore, we got 
+                    \[
+                        y(x) = c_1 = c_2 e^x +x .
+                    \]
+                    Now we will use the conditions to determine constants $c_1$ and $c_2$. We have 
+                    \begin{align*}
+                        y(0) = 3 & \implies c_1 + c_2 = 3 \\
+                        y^\prime (0) = 4 & \implies c_2 + 1 = 4 .
+                    \end{align*} 
+                    Therefore, we have $c_1 = 0$ and $c_2 = 3$. Hence, the solution of \eqref{eq:04Aug2023-2} is 
+                    \[
+                        y(x) = 3e^x + x,
+                    \]
+                    and $y(1) = 3e + 1$. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
