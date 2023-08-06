@@ -100,9 +100,33 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Without loss of generality, let us assume that $p(z)$ is a monic polynomial. Let $z_1, z_2, \dots, z_n$ be zeros of $p$ with $\vert z_i \vert = 1$ and $z_i$'s not necessarily distinct. So we can write 
+                    \[
+                        p(z) = \prod_{i=1}^{n} \left( z - z_1 \right) .
+                    \]
+                    Let us denote $2z p^\prime (z) - n p(z)$ by $q(z)$. Note that 
+                    \begin{align*}
+                        q(z) & = 2z \sum_{j=1}^n \left(  \prod_{\substack{i = 1 \\ i\neq j }}^{n} \left( z - z_i \right)  \right) - \underbrace{p(z) - p(z) - p(z) - \dots - p(z)}_{n\text{-times}} \\
+                        & = p(z) \left[ \sum_{i = n}^n \left( \frac{2z}{z - z_i} - 1 \right) \right]  \\ 
+                        & = \sum_{i= 1}^n  p(z) \left( \frac{z + z_i}{z - z_i} .\right)
+                    \end{align*}  
+                    Thus, 
+                    \[
+                        \frac{q(z)}{p(z)} = \sum_{i = 1} ^n \frac{z + z_i}{z - z_i}.
+                    \]
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let us suppose that $\vert z \vert \neq 1$. We will show that $\frac{q(z)}{p(z)} \neq 0$. Note that
+                    \begin{align*}
+                        \text{Re} \left( \frac{q(z)}{p(z)} \right) & = \text{Re} \sum_{i=1}^{n} \frac{z + z_i}{z - z_i} \\
+                        & = \sum_{i=1}^{n} \text{Re} \left( \frac{z + z_i}{z - z_i} \right) \\
+                        & = \sum_{i=1}^{n} \frac{\vert z \vert ^2 - \vert z_i \vert ^2}{\vert z - z_i \vert ^2} \\
+                        & = \sum_{i=1}^{n} \frac{\vert z \vert - 1}{\vert z - z_i \vert ^2} \neq 0.
+                    \end{align*}  
+                    Since, $\text{Re} \left( \frac{q(z)}{p(z)} \right) \neq 0$ for $\vert z \vert =1$, so the zeros of $\frac{q(z)}{p(z)}$ does not lie outside the unit circle and hence all zeros of $q(z)$ lie on the unit circle.
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
