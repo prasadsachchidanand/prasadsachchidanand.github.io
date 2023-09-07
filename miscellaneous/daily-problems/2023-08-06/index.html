@@ -122,7 +122,67 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let $I$ denotes the identity matrix. Observe that 
+                    \[
+                        \begin{bmatrix}
+                            A &  B \\
+                            C &  D \\
+                        \end{bmatrix} \begin{bmatrix}
+                            E &  F \\
+                            G &  H \\
+                        \end{bmatrix} = \begin{bmatrix}
+                            I &  0 \\
+                            0 &  I \\
+                        \end{bmatrix} \implies \begin{bmatrix}
+                            AE + BG &  AF + BH \\
+                            CE + DG &  CF + DH \\
+                        \end{bmatrix} = 
+                        \begin{bmatrix}
+                            I &  0 \\
+                            0 &  I \\
+                        \end{bmatrix}.    
+                    \]
+                    Note that 
+                    \[
+                        \det 
+                        \begin{bmatrix}
+                            E & I \\
+                            G & 0 \\
+                        \end{bmatrix} = -\det G.
+                    \]
+                    Therefore, 
+                    \begin{align*}
+                        \det M \cdot (-\det G) & = \det \begin{bmatrix}
+                            A &  B \\
+                            C &  D \\
+                        \end{bmatrix} \cdot \det \begin{bmatrix}
+                            E & I \\
+                            G & 0 
+                        \end{bmatrix} \\
+                        & = \det \begin{bmatrix}
+                            A &  B \\
+                            C &  D \\
+                        \end{bmatrix} 
+                        \begin{bmatrix}
+                            E & I \\
+                            G & 0
+                        \end{bmatrix} \\
+                        & = \det 
+                        \begin{bmatrix}
+                            AE + BG & A \\
+                            CE + DG & C 
+                        \end{bmatrix} \\
+                        & = \det 
+                        \begin{bmatrix}
+                            I & A \\
+                            0 & C \\
+                        \end{bmatrix} \\
+                        & = \det C.
+                    \end{align*}
+                    Therefore, we proved that 
+                    \[
+                        \det M \cdot \det G = -\det C.
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
