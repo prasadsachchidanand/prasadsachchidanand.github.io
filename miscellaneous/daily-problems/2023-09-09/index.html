@@ -92,7 +92,20 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> et $G = (V,E)$ be an undirected graph with $n$ edges. Let $V_e$ and $V_o$ denotes the set of vertices of even degree and the set of vertices of odd degree of $G$, respectively. We recall the <em>Handshaking Theorem</em>. 
+                    <div class="theorem mb-4">
+                      Let $G = (V,E)$ be an undirected graph with $n$ edges. Then 
+                      \[
+                          \sum_{v \in V} \deg(v) = 2n,  
+                      \]
+                      where $\deg(v)$ denotes the degree of the vertex $v$.  
+                    </div>
+                    Using the Handshaking theorem, 
+                    \begin{align*}
+                        & 2n = \sum_{v \in V} \deg(v) = \sum_{v \in V_e} \deg(v) + \sum_{v \in V_o} \deg{v} \\
+                        \implies & 2n - \sum_{v \in V_e} \deg(v) = \sum_{v \in V_o} \deg{v}.
+                    \end{align*}
+                    Since, $\sum_{v \in V_e} \deg(v) $ is even, the sum $\sum_{v \in V_o} \deg{v}$ must be even. But each of the terms $\deg(v)$ is odd, so there must be even number of elements in $V_o$. Hence, there are eben number of vertices with odd degree.  
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
