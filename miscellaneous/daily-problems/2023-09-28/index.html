@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Let $X$ be a topological space. Show that $X$ is Hausdorff if and only if the diagonal 
+    \[
+        \Delta = \left\{ (x,x) : x \in X \right\} 
+    \]
+    is closed in $X \times X$ with the product topology.">
 
     
-	<title>Problem of the day | 28-09-2023 | Topology -  - Sachchidanand Prasad</title>
+	<title>Problem of the day | 28-09-2023 | Topology - The space $X$ is Hausdorff if and only if the diagonal is closed - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -83,7 +87,11 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>
+                      <strong>Problem: </strong>Let $X$ be a topological space. Show that $X$ is Hausdorff if and only if the diagonal 
+                      \[
+                          \Delta = \left\{ (x,x) : x \in X \right\} 
+                      \]
+                      is closed in $X \times X$ with the product topology. 
                     </div> 
                 </div>
                 
@@ -92,9 +100,17 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>
+                    <strong>Solution: </strong>Let us suppose that $X$ be Hausdorff. We will show that the complement of the diagonal is open in $X \times X$. Define 
+                    \[
+                        U \coloneqq \Delta ^c = \left\{ (x,y) \in X \times X : x \neq y \right\} .
+                    \]
+                    Since $X$ is Hausdorff, for any $(x,y) \in U$ we can find disjoint open neighborhoods $V_x$ and $V_y$ of $x$ and $y$ respectively. Since $V_x \cap V_y = \emptyset $, so $(V_x \times V_y)  \cap  (X \times X) = \emptyset $. Therefore, $V_x \times V_y \subseteq U$ and hence, $U$ is open. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Conversely, assume that $\Delta $ is closed. Let $x \neq y$ be two points in $X$. This implies that $(x,y) \in \Delta ^c$, which is an open set. Hence, there exists basis set for the product topology $U \times V \subseteq X \times X$ satisfying $(x,y) \in U \times V \subseteq \Delta ^c$. Thus, $x\in U$ and $y \in V$ and $U  \cap  V = \emptyset $. Therefore, $X$ is Hausdorff. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
