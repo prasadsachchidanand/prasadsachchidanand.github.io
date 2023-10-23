@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Show that for any $\varepsilon >0$ there exists $K\in \mathbb{N} $ such that for any $k \geq K$,
+    \[
+        3 - \varepsilon < \frac{3k + 1}{k + 3} < 3 + \varepsilon .
+    \] ">
 
     
-	<title>Problem of the day | 01-10-2023 | Linear Algebra -  - Sachchidanand Prasad</title>
+	<title>Problem of the day | 02-10-2023 | Real Analysis - Problem on Archimedean property - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -73,7 +76,7 @@
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">01-10-2023</h2>
+            <h2 class="text-gray-900 text-3xl title-font font-medium">02-10-2023</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
@@ -83,7 +86,10 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>
+                      <strong>Problem: </strong>Show that for any $\varepsilon >0$ there exists $K\in \mathbb{N} $ such that for any $k \geq K$,
+                      \[
+                          3 - \varepsilon \lt \frac{3k + 1}{k + 3} \lt 3 + \varepsilon .
+                      \] 
                     </div> 
                 </div>
                 
@@ -92,10 +98,42 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>
+                    <strong>Solution: </strong>We need to find $K \in \mathbb{N} $ such that for any $k \geq K$ 
+                    \begin{align*}
+                        3 - \varepsilon \lt \frac{3k + 1}{k + 3} \lt 3 + \varepsilon.
+                    \end{align*}
+                    At first we will find $K$ such that for any $k \geq K$ 
+                    \[
+                        3 - \varepsilon \lt \frac{3k + 1}{k + 3}
+                    \]
+                    is true. So,
+                    \begin{align*}
+                        3 - \varepsilon \lt \frac{3k + 1}{k + 3} & \iff (3 - \varepsilon ) (k + 3) \lt 3k + 1 \\
+                        & \iff 9 - k \varepsilon - 3\varepsilon \lt 1 \\
+                        & \iff 8 \lt \varepsilon (k + 3) \\
+                        & \iff k \gt \frac{8}{\varepsilon } - 3.
+                    \end{align*}
                   </div>
 
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    From the Archimedean property, we choose $K \in \mathbb{N} $ such that $K > \frac{8}{\varepsilon } - 3$. So for any $k \geq K_1$, we have 
+                    \[
+                        k > \frac{8}{\varepsilon } - 3 \implies 3 - \varepsilon \lt \frac{3k + 1}{k + 3}.
+                    \]  
+                    On the other hand, note that for any $k \in \mathbb{N} $
+                    \[
+                        3 - \frac{3k + 1}{k + 3} = \frac{3k + 3 - 3k - 1}{k + 3} = \frac{2}{k + 3} > 0.
+                    \] 
+                    Thus, for any $k \in \mathbb{N} $ we have 
+                    \[
+                        \frac{3k + 1}{k + 3} \lt 3 + \varepsilon .
+                    \] 
+                    Thus, for any $k \geq K$ we have 
+                    \[
+                        3 - \varepsilon \lt \frac{3k + 1}{k + 3} \lt 3 + \varepsilon.
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
@@ -103,7 +141,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-09-30/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-10-01/">
                           Previous 
                         </a>
                       </li>
@@ -113,7 +151,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-10-02/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-10-03/">
                           Next 
                         </a>
                       </li>

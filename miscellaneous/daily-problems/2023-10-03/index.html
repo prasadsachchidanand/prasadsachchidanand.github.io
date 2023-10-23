@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Prove that $(\cosh x - \sinh x)^n = \cosh nx - \sinh nx $ for any $n\in \mathbb{Z} $.  ">
 
     
-	<title>Problem of the day | 01-10-2023 | Linear Algebra -  - Sachchidanand Prasad</title>
+	<title>Problem of the day | 03-10-2023 | Complex Analysis - Prove that $(\cosh x - \sinh x)^n = \cosh nx - \sinh nx $ for any $n\in \mathbb{Z} $ - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -73,7 +73,7 @@
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">01-10-2023</h2>
+            <h2 class="text-gray-900 text-3xl title-font font-medium">03-10-2023</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
@@ -83,7 +83,7 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>
+                      <strong>Problem: </strong>Prove that $(\cosh x - \sinh x)^n = \cosh nx - \sinh nx $ for any $n\in \mathbb{Z} $.
                     </div> 
                 </div>
                 
@@ -92,7 +92,23 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>
+                    <strong>Solution: </strong>Recall that 
+                    \[
+                        \cosh x = \frac{e^x + e^{-x}}{2}, \text{ and } \sinh x = \frac{e^x - e^{-x}}{2}.
+                    \]
+                    So, we have 
+                    \begin{align*}
+                        (\cosh x - \sinh x)^n & = \left( \frac{e^x + e^{-x}}{2} -  \frac{e^x - e^{-x}}{2}\right)^n \\
+                        & = \left( \frac{2e^{-x}}{2} \right) ^n \\
+                        & = e^{-nx}.
+                    \end{align*}
+                    The RHS will be 
+                    \begin{align*}
+                        (\cosh x - \sinh x) & = \frac{e^{nx} + e^{-nx}}{2} -  \frac{e^{nx} - e^{-nx}}{2} \\
+                        & = \frac{2 e^{-nx}}{2} \\
+                        & = e^{-nx} \\
+                        & = \left( \cosh x - \sinh x \right) ^n.
+                    \end{align*}
                   </div>
 
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
@@ -103,7 +119,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-09-30/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-10-02/">
                           Previous 
                         </a>
                       </li>
@@ -113,7 +129,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-10-02/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-10-04/">
                           Next 
                         </a>
                       </li>
