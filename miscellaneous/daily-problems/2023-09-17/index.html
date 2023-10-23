@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Let $A$ be the matrix given by
+    \[
+        A = \begin{bmatrix} 
+                -2 & 0 & 1 \\ 
+                -5 & 3 & \alpha  \\ 
+                4 & -2 & -1 
+            \end{bmatrix}.
+    \]
+    Find values of $\alpha \in \mathbb{R}$ such that $A$ has eigenvalues $0,3$ and $-3$.  ">
 
     
-	<title>Problem of the day | 14-09-2023 | Topology -  - Sachchidanand Prasad</title>
+	<title>Problem of the day | 17-09-2023 | Linear Algebra - Finding the value of $\alpha$ if the eigenvalues are given - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -73,7 +81,7 @@
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">14-09-2023</h2>
+            <h2 class="text-gray-900 text-3xl title-font font-medium">17-09-2023</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
@@ -83,7 +91,15 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>
+                      <strong>Problem: </strong>Let $A$ be the matrix given by
+                      \[
+                          A = \begin{bmatrix} 
+                                  -2 & 0 & 1 \\ 
+                                  -5 & 3 & \alpha  \\ 
+                                  4 & -2 & -1 
+                              \end{bmatrix}.
+                      \]
+                      Find values of $\alpha \in \mathbb{R}$ such that $A$ has eigenvalues $0,3$ and $-3$.  
                     </div> 
                 </div>
                 
@@ -92,9 +108,46 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>
+                    <strong>Solution: </strong>Let us write the characteristic polynomial of $A$. 
+                    \begin{align*}
+                        p(t) & = \det (A - \lambda I) \\
+                             & = \det 
+                             \begin{bmatrix}
+                                -2 - t & 0 &  1 \\
+                                -5 & 3 - t &  \alpha  \\
+                                4 & -2 &  -1 - t \\
+                             \end{bmatrix} \\
+                             & = -(2+t) 
+                             \begin{vmatrix}
+                                3 - t &  \alpha  \\
+                                -2 &  -1 - t \\
+                             \end{vmatrix} + 1
+                             \begin{vmatrix}
+                                -5 &  3 - t \\
+                                4 &  -2 \\
+                             \end{vmatrix} \\
+                             & = -(t + 2) \left( (t+1)(t - 3)  + 2\alpha  \right) + \left( 10 + 4 (t - 3) \right) \\
+                             & = - (2 + t) \left( t^2 - 2t - 3 + 2\alpha  \right) + 4t + 7 \\
+                             & = -2t^2 + 4t + 6 - 4\alpha - t^3 + 2t^2 + 3t - 2t \alpha + 4t + 7 \\
+                             & = -t^3 + (11 - 2\alpha )t + 4 - 4\alpha.
+                    \end{align*} 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since $A$ has the eigenvalues $0, 3$ and $-3$, the characteristic polynomial will be
+                    \[
+                        p(t) = -t(t - 3)(t + 3) = -t^3 + 9t.
+                    \]   
+                    Therefore, 
+                    \begin{align*}
+                        & -t^3 + (11 - 2\alpha )t + 4 - 4\alpha. = -t^3 + 9t \\
+                        \implies & t^3 + (11 - 2\alpha )t + 4 - 4\alpha = -t^3 + 9t \\
+                        \implies & 11 - 2\alpha = 9, -4 + 4\alpha = 0 \\ 
+                        \implies & \alpha =  1.
+                    \end{align*}
+                    Therefore, the required value of $\alpha $ will be $1$. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
@@ -102,7 +155,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-09-13/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-09-16/">
                           Previous 
                         </a>
                       </li>
@@ -112,7 +165,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-09-15/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-09-18/">
                           Next 
                         </a>
                       </li>

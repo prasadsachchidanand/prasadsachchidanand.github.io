@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Consider the function $f$ defined on $\mathbb{R} $ by 
+    \[
+        f(x) = 
+        \begin{cases}
+            x^2 \sin \frac{1}{x}, &\text{ if } x \neq 0 ;\\
+            0, &\text{ otherwise} .
+        \end{cases}
+    \]
+    Prove that the function is differentiable at $x=0$  but $f^\prime $ is not continuous at zero. ">
 
     
-	<title>Problem of the day | 14-09-2023 | Topology -  - Sachchidanand Prasad</title>
+	<title>Problem of the day | 18-09-2023 | Real Analysis - $f$ is differentiable at $0$ but the derivative is not continuous at $0$ - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -73,7 +81,7 @@
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">14-09-2023</h2>
+            <h2 class="text-gray-900 text-3xl title-font font-medium">18-09-2023</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
@@ -83,7 +91,15 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>
+                      <strong>Problem: </strong>Consider the function $f$ defined on $\mathbb{R} $ by 
+                      \[
+                          f(x) = 
+                          \begin{cases}
+                              x^2 \sin \frac{1}{x}, &\text{ if } x \neq 0 ;\\
+                              0, &\text{ otherwise} .
+                          \end{cases}
+                      \]
+                      Prove that the function is differentiable at $x=0$  but $f^\prime $ is not continuous at zero. 
                     </div> 
                 </div>
                 
@@ -92,9 +108,49 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>
+                    <strong>Solution: </strong>Note that for $x\neq 0$, 
+                    \[
+                        \vert f(x) \vert = \left\vert x^2 \sin \frac{1}{x} \right\vert \leq \vert x^2 \vert. 
+                    \]
+                    So the function $f$ satisfies the property that $\vert f(x) \vert \leq x^2$ in some neighborhood of zero and $f(0) = 0$. Then we claim that the function is differentiable at $x=0$. The difference quotient at $x_0 = 0$ will be 
+                    \[
+                        \frac{f(x) - f(0)}{x - 0} = \frac{f(x)}{x},
+                    \]
+                    from which we have 
+                    \begin{align*}
+                        \left\vert \frac{f(x)}{x} \right\vert \leq \left\vert \frac{x^2}{x} \right\vert = \vert x \vert .
+                    \end{align*}
+                    So,
+                    \[
+                        0 \leq \lim_{x \to 0} \left\vert \frac{f(x)}{x} \right\vert \leq \lim_{x \to 0} \vert x \vert = 0.
+                    \]
+                    Therefore, $f^\prime (0) = 0$. So this proves that the function is differentiable at $x = 0$.  
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will prove that the derivative of $f$ is not continuous at $x = 0$. Just a simple computation gives us
+                    \[
+                        f^\prime (x) = 
+                        \begin{cases}
+                            \cos \frac{1}{x} + 2x \sin \frac{1}{x}, &\text{ if } x \neq 0 ;\\
+                            0 , &\text{ otherwise} .
+                        \end{cases}
+                    \] 
+                    To prove that the $f^\prime (x)$ is not continuous at $x= 0$, we consider the following sequence: 
+                    \[
+                        x_n = \frac{1}{\pi n}.
+                    \]
+                    Clearly, $x_n \rightarrow 0$. Note that 
+                    \[
+                        f^\prime \left( x_n \right) = 
+                        \begin{cases}
+                            \cos \pi n, &\text{ if } x \neq 0 ;\\
+                            0 , &\text{ otherwise} .
+                        \end{cases}
+                    \]
+                    Since $\cos (\pi n)$ takes the number $\pm 1$ and hence the sequence is an alternating sequence with values $1$ and $-1$. This implies $f^\prime \left( x_n \right) $ is not a convergent sequence and hence $f^\prime (x)$ is not continuous at $x = 0$.
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
@@ -102,7 +158,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-09-13/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-09-17/">
                           Previous 
                         </a>
                       </li>
@@ -112,7 +168,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-09-15/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2023-09-19/">
                           Next 
                         </a>
                       </li>
