@@ -128,9 +128,88 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let 
+                    \[
+                        v_1 = \begin{bmatrix}
+                             1 \\
+                             2 \\
+                        \end{bmatrix}, \text{ and } v_2 = \begin{bmatrix}
+                             3 \\
+                             5 \\
+                        \end{bmatrix}.
+                    \]
+                    We need to find $\alpha ,\beta \in \mathbb{R}$ such that 
+                    \[
+                        \alpha \begin{bmatrix}
+                             1 \\
+                             2 \\
+                        \end{bmatrix}+ \beta \begin{bmatrix}
+                             3 \\
+                             5 \\
+                        \end{bmatrix} = \begin{bmatrix}
+                             -2 \\
+                             4 \\
+                        \end{bmatrix}.
+                    \] 
+                    Equivalently, we want to solve the system of linear equations
+                    \begin{align*}
+                        \alpha + 3\beta & = -2 \\
+                        2\alpha  + 5\beta & = 4.
+                    \end{align*}
+                    Solving the above two equations, give $\alpha = 22$ and $\beta =-8$. Therefore, the coordinates in terms of the basis $B$ are 
+                    \[
+                        \begin{bmatrix}
+                            22 \\
+                            -8 \\
+                        \end{bmatrix}.
+                    \] 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    At first, we will find the image of the basis vectors under the linear transformation $T$. 
+                    \begin{align*}
+                        w_1 = T \begin{bmatrix}
+                             1 \\
+                             2 \\
+                        \end{bmatrix} = \begin{bmatrix}
+                             0 \\
+                             -1 \\
+                        \end{bmatrix}, \text{ and } 
+                        w_2 = T \begin{bmatrix}
+                             3 \\
+                             5 \\
+                        \end{bmatrix} = \begin{bmatrix}
+                             1 \\
+                             -1 \\
+                        \end{bmatrix}.
+                    \end{align*} 
+                    One way to find the matrix of the linear transformation is to write the vectors $w_1$ and $w_2$ in terms of $v_1$ and $v_2$. The matrix of $T$ will be given by the coordinates for the vectors $w_1$ and $w_2$. Another way is to apply the change of the basis matrix. It is easy to find the matrix with respect to the standard basis, say $T_s$,  and then the matrix with respect to $B$ will be 
+                    \[
+                        T_B = \begin{bmatrix}
+                            T_s ^{-1}  \left( w_1 \right)  &  T_s ^{-1}  \left( w_2 \right)  \\
+                        \end{bmatrix}.
+                    \]
+                    Here we have
+                    \[
+                        T_s ^{-1}  = \begin{bmatrix}
+                            1 &  3 \\
+                            2 &  5 \\
+                        \end{bmatrix}^{-1}  = \begin{bmatrix}
+                            -5 &  3 \\
+                            2 &  -1 \\
+                        \end{bmatrix}.
+                    \]
+                    Therefore, 
+                    \begin{align*}
+                        T_B & = \begin{bmatrix}
+                            T_s ^{-1} \left( w_1 \right)  &  T_s ^{-1} \left( w_2 \right)  \\
+                        \end{bmatrix} \\
+                        & = \begin{bmatrix}
+                            -3 &  -8 \\
+                            1 &  3 \\
+                        \end{bmatrix}.
+                    \end{align*}
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
