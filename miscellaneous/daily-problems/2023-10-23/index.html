@@ -100,9 +100,27 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $n > m$. Consider 
+                    \begin{align*}
+                        \left\vert x_n - x_m \right\vert & = \left\vert \int\limits_{1}^n \frac{\cos t}{t^2} \mathrm{d}t  - \int\limits_{1}^m \frac{\cos t}{t^2}\mathrm{d}t \right\vert \\
+                        & = \left\vert \int\limits_{1}^m \frac{\cos t}{t^2}\mathrm{d}t + \int\limits_{m}^n \frac{\cos t}{t^2}\mathrm{d}t - \int\limits_{1}^m \frac{\cos t}{t^2}\mathrm{d}t   \right\vert \\
+                        & = \left\vert \int\limits_{m}^n \frac{\cos t}{t^2} \mathrm{d}t  \right\vert \\
+                        & \leq \int\limits_m^n \frac{1}{t^2}\mathrm{d}t = \frac{1}{m} - \frac{1}{n}. 
+                    \end{align*}
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since, the sequence $\left( \frac{1}{n} \right) $ is Cauchy, we can find $n_n \in \mathbb{N} $ such that for $n>m\geq n_0$
+                    \[
+                        \frac{1}{m} - \frac{1}{n} \lt \varepsilon .
+                    \]  
+                    For the above $n_0$, and $n \gt m \geq n_0$, we have
+                    \[
+                        \left\vert x_n - x_m \right\vert = \frac{1}{m} - \frac{1}{n} \lt \varepsilon .
+                    \] 
+                    Thus, the sequence is Cauchy.
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
