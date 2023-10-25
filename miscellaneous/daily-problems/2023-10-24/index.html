@@ -101,9 +101,60 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Look at the figure below. This represents the given curve with counterclockwise orientation.
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-24-10-23_01.svg"
+                        class="h-auto"
+                        alt="The curve gamma"
+                      />
+                    </div>
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <ul class="math-list">
+                      <li class="my-4">
+                        The parametrization for each of the three smooth parts of $\gamma $ is given by 
+                        \begin{align*}
+                            & \gamma _1: [0,1] \to  \mathbb{C}, \ t \mapsto 2t \\
+                            & \gamma _2: [0,1] \to  \mathbb{C}, \ t \mapsto (2-t) + t \iota  \\
+                            & \gamma _3: [0,1] \to  \mathbb{C}, \ t \mapsto (1 + \iota)(1 - t) .
+                        \end{align*}
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        The integral will be 
+                        \begin{equation}\label{eq:24Oct2023-1}
+                            \int\limits_\gamma \mathop{\mathrm{Re}}(z)^2 \mathrm{d}z =  \int\limits_{\gamma_1} \mathop{\mathrm{Re}}(z)^2 \mathrm{d}z + \int\limits_{\gamma_2} \mathop{\mathrm{Re}}(z)^2 \mathrm{d}z + \int\limits_{\gamma_3} \mathop{\mathrm{Re}}(z)^2 \mathrm{d}z 
+                        \end{equation}
+                        Let us compute the integral over each path. 
+                        \begin{align*}
+                            \int\limits_{\gamma_1} \mathop{\mathrm{Re}}(z)^2 \mathrm{d}z & = \int\limits_{0}^{1} (2t)^2(2 \cdot \mathrm{d}t)
+                            = 8 \int\limits_{0}^{1}t^2 \mathrm{d}t
+                            = 8 \left[ \frac{t^3}{3} \right]_0^1
+                            = \frac{8}{3}.
+                        \end{align*}
+                        \begin{align*}
+                            \int\limits_{\gamma_2} \mathop{\mathrm{Re}}(z)^2 \mathrm{d}z & = \int\limits_{0}^{1} (2-t)^2((-1 + \iota ) \cdot \mathrm{d}t) \\
+                            & = (-1 + \iota )\int\limits_{0}^{1}(t-2)^2 \mathrm{d}t  \\
+                            & = (-1 + \iota )\left[ \frac{(t-2)^3}{3} \right]_0^1 \\
+                            & = (-1 + \iota ) \left( -\frac{1}{3} + \frac{8}{3} \right) = \frac{7}{3}(-1 + \iota).
+                        \end{align*}
+                        Finally, 
+                        \begin{align*}
+                            \int\limits_{\gamma_3} \mathop{\mathrm{Re}}(z)^2 \mathrm{d}z & = \int\limits_{0}^{1} (1-t)^2((-1 - \iota ) \cdot \mathrm{d}t) \\
+                            & = (-1 - \iota )\int\limits_{0}^{1}(t-1)^2 \mathrm{d}t  \\
+                            & = (-1 - \iota )\left[ \frac{(t-1)^3}{3} \right]_0^1 \\
+                            & = (1 + \iota ) \left( 0 + \frac{1}{3} \right) = \frac{1}{3}(-1 - \iota).
+                        \end{align*}
+                        Therefore, using \eqref{eq:24Oct2023-1},
+                        \[
+                            \int\limits_\gamma \mathop{\mathrm{Re}}(z)^2 \mathrm{d}z = \frac{8}{3} + \frac{7}{3}(-1 + \iota ) + \frac{1}{3}(-1 - \iota ) = 2\iota .
+                        \]
+                      </li>
+                  </ul>
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
