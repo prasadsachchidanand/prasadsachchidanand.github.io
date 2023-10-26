@@ -83,7 +83,7 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>A field $\mathbb{F} $ is said to be an <em>algebraically closed</em> if each non-constant polynomial in $\mathbb{F} [x]$ has a root in $\mathbb{F} $. Show that $\mathbb{R} $ is not algebraically closed.  Prove that any algebraically closed field is infinite. 
+                      <strong>Problem: </strong>A field $\mathbb{F} $ is said to be an <em>algebraically closed field</em> if each non-constant polynomial in $\mathbb{F} [x]$ has a root in $\mathbb{F} $. Show that $\mathbb{R} $ is not algebraically closed.  Prove that any algebraically closed field is infinite. 
                     </div> 
                 </div>
                 
@@ -92,9 +92,21 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>  To show that $\mathbb{R} $ is not algebraically closed, we need to find a polynomial in $\mathbb{R} [x]$ which does not have a zero in $\mathbb{R} $. The polynomial $p(x) = x^2 + 1$ does not have a zero in $\mathbb{R} [x]$ and hence, $\mathbb{R} $ is not algebraically closed. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let $\mathbb{F} $ be an algebraically closed field. We need to show that an $\mathbb{F} $ is infinite. Let us assume that $\mathbb{F} $ is a finite field with $a_1,a_2,\dots,a_n$ elements. Consider the polynomial 
+                    \[
+                        p(x) = \prod_{i=1}^n \left( x - a_i \right) + 1.
+                    \] 
+                    Since the coefficient of $p(x)$ lies in $\mathbb{F} [x]$, it is clear that $p(x) \in \mathbb{F} [x]$. But note that for each $i= 1,2,\dots,n$ 
+                    \[
+                        p\left( a_i \right) = 1 \neq 0.
+                    \]
+                    Thus, $p(x)$ does not have a root in $\mathbb{F} [x]$, which gives a contradiction to the fact that $\mathbb{F} $ is an algebraically closed field. Thus, $\mathbb{F} $ must be an infinite field. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
