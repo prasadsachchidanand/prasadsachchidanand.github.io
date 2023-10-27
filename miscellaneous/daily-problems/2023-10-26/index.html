@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Prove that the identity map from $X$ with co-countable topology to $X$ with co-finite topology is continuous. Prove that the other way map is continuous if and only if $X$ is finite.">
 
     
 	<title>Problem of the day | 26-10-2023 | Topology - Identity map from a co-countable topology to co-finite topology - Sachchidanand Prasad</title>
@@ -92,9 +92,21 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $\mathcal{T} _{cc}$ and $\mathcal{T} _{cf}$  denote the co-countable and co-finite topology on $X$ respectively. We need to show that the identity map 
+                    \[
+                        f : \left( X, \mathcal{T} _{cc} \right) \to \left( X, \mathcal{T} _{cf} \right) 
+                    \]
+                    is continuous. Let $U \in \mathcal{T} _{cf}$. This means that $U^c$ is either $X, \emptyset$ or finite. If $U^c$ is either $X$ or $\emptyset$, then $f^{-1} (U) $ will also be either $X$ or $\emptyset$ which belongs to $\mathcal{T} _{cc}$. So let us assume that $U^c$  is neither the full set nor the empty set. Consider $f^{-1} (U) = U$. Since, $U^c$ is finite and hence countable, $U \in \mathcal{T} _{cc}$. Thus, $I$ is continuous. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now, let 
+                    \[
+                        g: \left( X, \mathcal{T} _{cf} \right) \to \left( X, \mathcal{T} _{cc} \right) 
+                    \]
+                    is the identity map. Let $g$ be continuous. We need to show that $X$ is finite. If $X$ is not finite, choose a set $U$ such that $U^c$ is not finite but countable. Thus, $U \in \mathcal{T} _{cc}$. Note that $g^{-1} (U) (=U)$ is not finite and hence $U \notin \mathcal{T} _{cf}$. Thus, $X$ has to be finite. On the other hand if $X$ is finite, then we note that $\mathcal{T} _{cc} = \mathcal{T} _{cf}$ and hence the identity map is continuous. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
