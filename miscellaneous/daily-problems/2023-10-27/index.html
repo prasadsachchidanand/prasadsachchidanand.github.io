@@ -92,9 +92,45 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let us first derive the equation of a circle passing through the origin and whose center lying on the $x$-axis (look at the figure below).
+                    <div class="flex flex-wrap justify-center my-4" id="prob-27-10-23_01">
+                      <img
+                        src="../../../assets/img/prob-27-10-23_01.svg"
+                        class="h-auto"
+                        alt="Circle passing through origin and center lying on x-axis"
+                      />
+                    </div>
+                    The equation of the circle will be 
+                    \begin{align*}
+                        (x-a)^2 + y^2 = a^2 & \implies x^2 + a^2 - 2ax + y^2 = a^2 \\
+                                            & \implies x^2 + y^2 - 2ax = 0.
+                    \end{align*}        
+                    Since the center is arbitrary, we can write the equation of all such circles as 
+                    \begin{equation}\label{eq:27OCt2023-1}
+                        x^2 + y^2 + 2ax = 0,
+                    \end{equation}
+                    where $a$ is an arbitrary constant. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now to determine the differential equation, we need to eliminate the arbitrary constant $a$. Differentiating \eqref{eq:27OCt2023-1} with respect to $x$, 
+                    \begin{equation}\label{eq:27Oct2023-2}
+                        2x + 2y \frac{\mathrm{d}y}{\mathrm{d}x} + 2a = 0.
+                    \end{equation}  
+                    Substituting the value of $2a$ in \eqref{eq:27Oct2023-2} using \eqref{eq:27OCt2023-1}, we get 
+                    \[
+                        2x + 2y\frac{\mathrm{d}y}{\mathrm{d}x} + \left( - \frac{x^2 + y^2}{x} \right) = 0,
+                    \]
+                    which simplifies to 
+                    \[
+                        2x^2 + 2xy \frac{\mathrm{d}y}{\mathrm{d}x} - x^2 - y^2 = 0 \implies 2xy \frac{\mathrm{d}y}{\mathrm{d}x} + x^2 - y^2 = 0.
+                    \]
+                    Thus, the required differential equation will be 
+                    \[
+                        2xy \frac{\mathrm{d}y}{\mathrm{d}x} + x^2 - y^2 = 0.
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
