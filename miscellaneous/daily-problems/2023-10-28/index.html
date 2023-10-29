@@ -108,9 +108,38 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The probability density function of $X$ must satisfy 
+                    \begin{align*}
+                        \int\limits_{-\infty } ^{\infty } f(x) = 1 & \implies \int\limits_{0}^{2} \alpha \left( 4x - 2x^2 \right) ~\mathrm{d}x = 1\\
+                        & \implies \alpha \left[ \frac{4x^2}{2} - \frac{2x^3}{3} \right] _{0}^2 = 1 \\
+                        & \implies \alpha \left[ 8 - \frac{16}{3} \right] = 1 \\
+                        & \implies \alpha = \frac{3}{8}.
+                    \end{align*}
+                    Thus, the function will be
+                    \[
+                        f(x) = 
+                        \begin{cases}
+                            \frac{3}{8}\left( 4x - 2x^2 \right) , &\text{ if } 0 \lt x \lt 2 ;\\
+                            0, &\text{ otherwise} .
+                        \end{cases}
+                    \]
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we have 
+                    \begin{align*}
+                        \mathbb{P} \left( \frac{1}{2} \lt X \lt \frac{3}{2} \right) & = \int\limits_{\frac{1}{2}}^{\frac{3}{2}} f(x) \mathrm{d}x \\
+                        & = \int\limits_{\frac{1}{2}}^{\frac{3}{2}} \frac{3}{8} \left( 4x - 2x^2 \right) \mathrm{d}x \\
+                        & = \frac{3}{8}  \left[ \frac{4x^2}{2} - \frac{2x^3}{3} \right] _{\frac{1}{2}}^{\frac{3}{2}} \\
+                        & = \frac{3}{8}\left[ \frac{9}{2} - \frac{9}{4} - \frac{1}{2} + \frac{1}{12} \right] \\
+                        & = \frac{11}{16}.
+                    \end{align*}
+                    Thus, 
+                    \[
+                        \mathbb{P} \left( \frac{1}{2} \lt X \lt \frac{3}{2} \right) = \frac{11}{16}.
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
