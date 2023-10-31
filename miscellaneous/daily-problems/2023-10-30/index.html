@@ -104,7 +104,36 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The sequence of function is given by 
+                    \[
+                        f_n(x) = \sin \sqrt{x + 4n^2 \pi ^2},\ \ x \in [0,+\infty ).
+                    \]
+                    <ul class="math-list">
+                      <li class="my-4">
+                        We will start by recalling the definition of equicontinuity. A family $\mathcal{F} $ of functions is said to be <em>equicontinuous</em> at $a$ if given any $\varepsilon >0$ there exists $\delta >0$ such that 
+                        \[
+                            \vert x - a \vert \lt \delta \implies \vert f(x) - f(a) \vert \lt \varepsilon ,\ \ \forall\ f \in \mathcal{F} .
+                        \] 
+                        Fix $n\in \mathbb{N} $ and $a \in [0, +\infty )$. Let $\varepsilon > 0$ be given and choose $\delta = \varepsilon $. Then   
+                        \begin{align*}
+                            & \left\vert \sin \sqrt{x + 4n^2 \pi ^2} - \sin \sqrt{a + 4n^2 \pi ^2}  \right\vert \\
+                            = &\  \left\vert 2 \cos \left( \frac{\sqrt{X} + \sqrt{ A}}{2} \right) \sin \left( \frac{\sqrt{X} - \sqrt{A}}{2} \right)    \right\vert \\
+                            \leq & \ 2\left\vert \sin \left( \frac{\sqrt{X} - \sqrt{A}  }{2} \right)  \right\vert \leq 2 \left\vert \frac{\sqrt{X} - \sqrt{A}  }{2}  \right\vert \\
+                            = & \ \left\vert  (\sqrt{X} - \sqrt{A}  ) \frac{\sqrt{X} + \sqrt{A}  }{ \sqrt{X} + \sqrt{A}  }  \right\vert \\
+                            \leq & \ \vert X - A \vert, \ \text{since } \sqrt{X} + \sqrt{A} \geq 1 \\
+                            & = \vert x-a \vert \lt \delta = \varepsilon.
+                        \end{align*}  
+                        Here $X = x + 4n^2\pi ^2$ and $A = a + 4n^2 \pi ^2$. Thus, the given family is equicontinuous at $a$. Since $a$ is arbitrary, the sequence is equicontinuous.  
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        To show that $\left\{ f_n \right\} $ is uniformly bounded, we note that for any $n \in \mathbb{N} $
+                        \[
+                            \left\vert f_n(x) \right\vert = \left\vert \sin \sqrt{x+4n^2\pi ^2}  \right\vert \leq 1.
+                        \]
+                        Thus, the uniform bound is $1$ and hence the sequence is uniformly bounded. 
+                      </li>
+                    </ul>
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
