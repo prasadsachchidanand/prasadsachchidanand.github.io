@@ -91,7 +91,7 @@
                       \[
                           \frac{z}{1- z - z^2} = \sum_{n = 0}^{\infty} a_n z^n,\ \ a_n \in \mathbb{R} 
                       \]
-                      for all $z$ in some neighbourhood of $0$ in $\mathbb{C} $. Then find the value of $a_6 + a_5$.
+                      for all $z$ in some neighbourhood of $0$ in $\mathbb{C} $. Then find the value of $a_5 + a_6$.
                     </div> 
                 </div>
                 
@@ -100,9 +100,52 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Recall that if $\vert z \vert \lt 1$, then 
+                    \[
+                        \sum_{n=0}^{\infty} z^n = \frac{1}{1-z}.
+                    \] 
+                    We will use this for evaluating the given expression. Take a neighbourhood of $0$ such that $\vert z + z^2 \vert \lt 1$. Consider,  
+                    \begin{align*}
+                        & \frac{1}{1 - (z + z^2)} = \sum_{n=0}^{\infty} \left( z + z^2 \right) ^n \\
+                        \implies & \frac{z}{1 - z - z^2} = \sum_{n=0}^{\infty} z\left( z + z^2 \right) ^n.
+                    \end{align*}
+                    According to the given condition, 
+                    \begin{align*}
+                        \sum_{n=0}^{\infty} z\left( z + z^2 \right) ^n = \sum_{n=0}^{\infty} a_n z^n.
+                    \end{align*}
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Therefore, $a_5$ and $a_6$ will be the coefficient of $z^5$ and $z^6$ in $\sum_{n = 0} ^{\infty} z \left( z + z^2 \right) ^n$, respectively. Equivalently, 
+                    \begin{align*}
+                        a_5 & = \text{ coefficient of $z^4$ in} \sum_{n=0}^{\infty} \left( z + z^2 \right) ^n \\
+                            & = \text{ coefficient of $z^4$ in} \left[ \left( z + z^2 \right) ^2 + \left( z + z^2 \right) ^3 + \left( z + z^2 \right) ^4 \right]  \\
+                            & = \text{ coefficient of $z^0(z^2)^2$ in} \left( z + z^2 \right) ^2 \\
+                            & \kern 0.5cm + \text{ coefficient of $z^2(z^2)^1$ in} \left( z + z^2 \right) ^3 \\
+                            & \kern 0.5cm + \text{ coefficient of $z^4(z^2)^0$ in} \left( z + z^2 \right) ^4 \\
+                            & = \binom{2}{2} + \binom{3}{1} + \binom{4}{0} \\
+                            & = 1 + 3 + 1 = 5.
+                    \end{align*}
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly, 
+                    \begin{align*}
+                        a_6 & = \text{ coefficient of $z^5$ in} \sum_{n=0}^{\infty} \left( z + z^2 \right) ^n \\
+                            & = \text{ coefficient of $z^5$ in} \left[ \left( z + z^2 \right) ^3 + \left( z + z^2 \right) ^4 + \left( z + z^2 \right) ^5 \right]  \\
+                            & = \text{ coefficient of $z^1(z^2)^2$ in} \left( z + z^2 \right) ^3 \\
+                            & \kern 0.5cm + \text{ coefficient of $z^3(z^2)^1$ in} \left( z + z^2 \right) ^4 \\
+                            & \kern 0.5cm + \text{ coefficient of $z^5(z^2)^0$ in} \left( z + z^2 \right) ^5 \\
+                            & = \binom{3}{2} + \binom{4}{3} + \binom{5}{0} \\
+                            & = 3 + 4 + 1 = 8.
+                    \end{align*}
+                    Thus,
+                    \[
+                        a_5 + a_6 = 5 + 8 = 13.
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
