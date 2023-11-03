@@ -8,7 +8,7 @@
     <meta name="description" content="A metric space $(X,d)$ is said to be separable if it contains a countable dense subset. Prove that $\mathbb{R} \setminus \mathbb{Q} $ is separable. ">
 
     
-	<title>Problem of the day | 02-11-2023 | Abstratct Algebra - $\mathbb{R} \setminus \mathbb{Q}$ is Separable - Sachchidanand Prasad</title>
+	<title>Problem of the day | 02-11-2023 | Topology - R \ Q is Separable - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -92,7 +92,15 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>To prove that $\mathbb{R} \setminus \mathbb{Q} $ is separable, we need to find $A \subseteq \mathbb{R} \setminus \mathbb{Q} $ such that $A$ is dense in $\mathbb{R} \setminus \mathbb{Q} $, that is, $\bar{A} = \mathbb{R} \setminus \mathbb{Q} $. Consider the set 
+                    \[
+                        A = \left\{ \frac{\sqrt{2} p}{q} : p,q\in \mathbb{Z},\ q\neq 0   \right\}. 
+                    \] 
+                    It is clear that $A$ is countable. We claim that $A$ is dense in $\mathbb{R} \setminus \mathbb{Q} $. For this, we will show that given any irrational number $x$, we can find a sequence of numbers from $A$ converging to $A$. Let $\tilde{x} = \frac{x}{\sqrt{2} }$. We know that given any real number $a$, there exists a sequence of rational numbers converging to $a$. Therefore, we can find a sequence of rational numbers, say $\left\{ \frac{p_n}{q_n} \right\} $, converging to $\tilde{x} $. Thus,
+                    \[
+                        \frac{p_n}{q_n} \rightarrow \frac{x}{\sqrt{2} } \implies \sqrt{2} \cdot \frac{p_n}{q_n} \to  x. 
+                    \]      
+                    Thus, we found a sequence, namely $\left\{ \frac{p_n\sqrt{2} }{q_n}  \right\} $, converging to $x$, and therefore, $A$ is dense in $\mathbb{R} -\mathbb{Q} $.
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
