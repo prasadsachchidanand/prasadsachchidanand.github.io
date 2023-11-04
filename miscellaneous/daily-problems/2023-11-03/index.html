@@ -100,9 +100,48 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Before proceeding for the solution, let us recall some of the facts for this problem. Consider the second order ODE, $a_0(x) y^{\prime\prime} + a_1(x) y^\prime  + a_2(x) y = 0$ for $x > x_0$. Also, at $x = x_0 ,\ a_0(x_0) = 0$. Then the point $x = x_0$ is said to be a <em>regular singular point</em> of the ODE if the following two limits exist: 
+                    \begin{align*}
+                        \lim_{x \to x_0} \left( x - x_0 \right) \frac{a_1(x)}{a_0(x)} = p_0 (\text{ say } ) \\
+                        \lim_{x \to x_0} \left( x - x_0 \right)^2 \frac{a_2(x)}{a_0(x)} = q_0 (\text{ say }).
+                    \end{align*}    
+                    Then the indicial equation of the given ODE is the characteristic equation of the Cauchy-Euler differential equation 
+                    \[
+                        y^{\prime\prime} (x) + \frac{p_0}{x - x_0} y^\prime (x) + \frac{q_0}{(x - x_0)^2} y(x) = 0
+                    \]
+                    which is 
+                    \[
+                        r(r - 1) + p_0 r + q_0 = 0.
+                    \]
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We have the differential equation 
+                    \begin{equation}\label{eq:03Nov2023-1}
+                        4 \ln x y^{\prime\prime}  + 3y^\prime + y = 0,\ x > 1.
+                    \end{equation}
+                    Given that $x = 1$ is the regular singular point of \eqref{eq:03Nov2023-1}. Comparing with the standard form discussed above, we have 
+                    \[
+                        a_2(x) = \ln x,\ a_1(x) = 3, \text{ and } a_2(x) = 1.
+                    \] 
+                    Thus, 
+                    \begin{align*}
+                        p_0 & = \lim_{x \to 1} (x - 1) \frac{a_1(x)}{a_0(x)} = \lim_{x \to 1} \frac{3(x - 1)}{4 \ln x} = \lim_{x \to 1} \frac{3}{4 / x} = \frac{3}{4} \\
+                        q_0 & = \lim_{x \to 1} (x - 1)^2 \frac{a_2(x)}{a_0(x)} = \lim_{x \to 1} \frac{(x-1)^2}{4 \ln x} = \lim_{x \to 1} \frac{2(x-1)}{4 / x} = 0.
+                    \end{align*}
+                    Thus, the indicial equation at the regular singular point $x = 1$ will be 
+                    \begin{align*}
+                        & r(r - 1) + p_0 r + q_0 = 0 \\
+                        \implies & r^2 - r + \frac{3}{4} r + 0 = 0 \\
+                        \implies & r^2 - \frac{1}{4} r = 0 \\
+                        \implies & r = 0, \frac{1}{4}.
+                    \end{align*}
+                    Therefore, 
+                    \[
+                        \left\vert r_1 - r_2 \right\vert = \left\vert \frac{1}{4} - 0 \right\vert = \frac{1}{4}.
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
