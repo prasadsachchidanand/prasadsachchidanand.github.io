@@ -92,9 +92,42 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that the parametrization $\sigma (t)$ of the circle $x^2 + y^2 = 1$, in the counter-clockwise direction with $\sigma (0) = (1,0)$ is given by 
+                    \[
+                        \sigma (t) = \left( \cos t, \sin t \right) , 0\leq t \le 2\pi. 
+                    \] 
+                    We will find the parametrization of the asked circle in the following steps: 
+                    <ul class="math-list-disc">
+                      <li class="my-4">
+                        Orient $\sigma $ in the clockwise direction. For this we will replace $t$ with $-t$ and this will give 
+                        \[
+                            \gamma _1(t) = \sigma (-t) = \left( \cos t, - \sin t \right). 
+                        \]  
+                      </li>
+                      <li class="my-4">
+                        Now instead of starting from $(1,0)$ we need to start from $(0,1)$, so we need to start from $t = \frac{\pi}{2} $ in $\gamma_1$. That is,
+                        \begin{align*}
+                            \gamma (t) & = \gamma _1\left( t - \frac{\pi}{2}  \right) \\
+                            & = \left( \cos \left( t - \frac{\pi }{2} \right), -\sin \left( t - \frac{\pi }{2} \right)   \right) \\
+                            & = \left( \sin t, \cos t \right) 
+                        \end{align*}
+                      </li>
+                    </ul>
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Therefore, the required parametrization will be 
+                    \[
+                        \gamma (t) = \left( \sin t, \cos t \right),\ 0 \leq t \leq 2\pi. 
+                    \]
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-04-11-23_01.svg"
+                        class="h-auto"
+                        alt="The curve gamma"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
