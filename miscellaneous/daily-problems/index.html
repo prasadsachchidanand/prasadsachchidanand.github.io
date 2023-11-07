@@ -145,15 +145,23 @@
                 </div>
 
                 <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="problem-of-the-day">
-                  <a class="text-blue-500 hover:text-blue-800" href="2023-11-06/">Problem of the day (06-11-2023)</a>
+                  <a class="text-blue-500 hover:text-blue-800" href="2023-11-07/">Problem of the day (07-11-2023)</a>
               </h2>
               <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md hover:bg-red-200">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>Let $f,g : \mathbb{R} ^2 \to  \mathbb{R} $ be defined by 
+                      <strong>Problem: </strong>Let $\langle \cdot \rangle _{\mathbb{R}} $ denote the usual inner product in $\mathbb{R} ^2$. For any $\mathbf{x} = (x_1, x_2)$ and $\mathbf{y} = (y_1, y_2)$, we have
                       \[
-                          f(x,y) = x^2 - \frac{3}{2}xy^2 \text{ and  } g(x,y) = 4x^4 - 5x^2 y + y^2
+                          \langle \mathbf{x} ,\mathbf{y}  \rangle_{\mathbb{R}} = x_1 y_1 + x_2 y_2.
+                      \]   
+                      Similarly, we define a Hermitian inner product $\langle \cdot \rangle $ in $\mathbb{C} $ by 
+                      \[
+                          \langle z, w \rangle_{\mathbb{C}}  = z \bar{w} .
                       \]
-                      for all $(x,y) \in \mathbb{R} ^2$. Prove that $(0,0)$ is a critical point for $f$ and $g$. Check the nature of the critical point $(0,0)$ for both these functions. 
+                      Show that 
+                      \[
+                          \langle z, w \rangle _{\mathbb{R} } = \frac{1}{2} \left[ \langle z,w \rangle _{\mathbb{C} } + \langle w,z \rangle _{\mathbb{C} } \right] = \text{Re}\left( \langle z,w \rangle _{\mathbb{C} } \right) , 
+                      \]
+                      where we use the usual identification $z = x + \iota y \in \mathbb{C} $ with $(x,y) \in \mathbb{R} ^2$.
                   </div> 
               </div>
               
