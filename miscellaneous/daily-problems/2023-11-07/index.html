@@ -95,11 +95,11 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>Let $\langle \cdot \rangle _{\mathbb{R}} $ denote the usual inner product in $\mathbb{R} ^2$. For any $\mathbf{x} = (x_1, x_2)$ and $\mathbf{y} = (y_1, y_2)$, we have
+                      <strong>Problem: </strong>Let $\langle \cdot, \cdot \rangle _{\mathbb{R}} $ denote the usual inner product in $\mathbb{R} ^2$. For any $\mathbf{x} = (x_1, x_2)$ and $\mathbf{y} = (y_1, y_2)$, we have
                       \[
                           \langle \mathbf{x} ,\mathbf{y}  \rangle_{\mathbb{R}} = x_1 y_1 + x_2 y_2.
                       \]   
-                      Similarly, we define a Hermitian inner product $\langle \cdot \rangle $ in $\mathbb{C} $ by 
+                      Similarly, we define a Hermitian inner product $\langle \cdot, \cdot \rangle $ in $\mathbb{C} $ by 
                       \[
                           \langle z, w \rangle_{\mathbb{C}}  = z \bar{w} .
                       \]
@@ -116,9 +116,36 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let us write $z = z_1 + \iota z_2$ and $w = w_1 + \iota w_2$. Now we consider 
+                    \begin{align*}
+                        \langle z,w \rangle _{\mathbb{R} } & = z_1 w_1 + z_2 w_2.
+                    \end{align*} 
+                    Now we consider the complex inner products.
+                    \begin{align*}
+                        \langle z,w \rangle_{\mathbb{C} } = z \bar{w} \text{ and }  \langle w,z \rangle _{\mathbb{C} } = w \bar{z}. 
+                    \end{align*}
+                    Thus, 
+                    \begin{align*}
+                        \frac{1}{2} \left[ \langle z,w \rangle _{\mathbb{C} } + \langle w,z \rangle _{\mathbb{C} } \right] & = \frac{z \bar{w} + w \bar{z} }{2} \\
+                        & = \frac{z \bar{w} + \overline{z \bar{w} } }{2} \\
+                        & = \text{Re}(z \bar{w} ) \\
+                        & = \text{Re} \left( \langle z, w \rangle_{\mathbb{C} }  \right).   
+                    \end{align*}
+                    We proved the last two inequalities.
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we observe that
+                    \begin{align*}
+                        \text{Re}\left( z \bar{w}  \right) & = \text{Re} \left( z_1 w_1 + z_2 w_2 + \iota \left( z_2 w_1 - z_1 w_2 \right)  \right)  \\
+                        & = z_1 w_1 + z_2 w_2 = \langle z, w \rangle _{\mathbb{R} }.
+                    \end{align*}
+                    Therefore, 
+                    \[
+                        \langle z, w \rangle _{\mathbb{R} } = \frac{1}{2} \left[ \langle z,w \rangle _{\mathbb{C} } + \langle w,z \rangle _{\mathbb{C} } \right] = \text{Re}\left( \langle z,w \rangle _{\mathbb{C} } \right) , 
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->

@@ -145,23 +145,19 @@
                 </div>
 
                 <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="problem-of-the-day">
-                  <a class="text-blue-500 hover:text-blue-800" href="2023-11-07/">Problem of the day (07-11-2023)</a>
+                  <a class="text-blue-500 hover:text-blue-800" href="2023-11-09/">Problem of the day (09-11-2023)</a>
               </h2>
               <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md hover:bg-red-200">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>Let $\langle \cdot \rangle _{\mathbb{R}} $ denote the usual inner product in $\mathbb{R} ^2$. For any $\mathbf{x} = (x_1, x_2)$ and $\mathbf{y} = (y_1, y_2)$, we have
+                      <strong>Problem: </strong>Let $X$ be a nonempty set and $\mathcal{F} (X)$ denote the set of all finite subsets of $X$. For any $A,B \in \mathcal{F} (X)$, let $\Delta (A,B)$ denote the symmetric difference of $A$ and $B$, that is 
                       \[
-                          \langle \mathbf{x} ,\mathbf{y}  \rangle_{\mathbb{R}} = x_1 y_1 + x_2 y_2.
+                          \Delta (A, B) = (A \setminus B)  \cup (B \setminus  A).
                       \]   
-                      Similarly, we define a Hermitian inner product $\langle \cdot \rangle $ in $\mathbb{C} $ by 
+                      We define a map 
                       \[
-                          \langle z, w \rangle_{\mathbb{C}}  = z \bar{w} .
+                          d : \mathcal{F}(X) \times \mathcal{F} (X),\ \ (A,B) \mapsto \#(\Delta (A,B)),
                       \]
-                      Show that 
-                      \[
-                          \langle z, w \rangle _{\mathbb{R} } = \frac{1}{2} \left[ \langle z,w \rangle _{\mathbb{C} } + \langle w,z \rangle _{\mathbb{C} } \right] = \text{Re}\left( \langle z,w \rangle _{\mathbb{C} } \right) , 
-                      \]
-                      where we use the usual identification $z = x + \iota y \in \mathbb{C} $ with $(x,y) \in \mathbb{R} ^2$.
+                      where $\#(A)$ is the number of elements of the set $A$. Prove that $d$ is a metric on $\mathcal{F} (X)$.
                   </div> 
               </div>
               
