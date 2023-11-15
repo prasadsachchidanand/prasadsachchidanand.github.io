@@ -92,7 +92,16 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We consider the function 
+                    \[
+                        g(z) = e^{-f(z)},\ z \in \mathbb{C} .
+                    \]
+                    As $f$ is an entire function, so is $g$. Note that 
+                    \begin{align*}
+                        \vert g(z) \vert = \left\vert e^{-f(z)} \right\vert & = \left\vert e^{-[\mathrm{Re}(f(z)) + \iota \mathrm{Im}(f(z))] } \right\vert  \\
+                        & = e^{- \mathrm{Re}(f(z)) } \leq e^{-2}.
+                    \end{align*} 
+                    Now we will use Liouville's theorem to conclude that $g$ is a constant function as it is entire and bounded. Thus, $e^{-f(z)} = k$ (constant) for any $z \in \mathbb{C} $ and this proves that $f$ is a constant function.
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
