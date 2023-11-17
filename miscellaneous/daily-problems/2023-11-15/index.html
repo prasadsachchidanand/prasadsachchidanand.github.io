@@ -108,7 +108,79 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $A, B \in G$. Let 
+                    \[
+                        A = 
+                        \begin{bmatrix}
+                            1 & a_1 &  a_2 \\
+                            0 & 1 &  a_3 \\
+                            0 & 0 &  1 \\
+                        \end{bmatrix} \text{ and } B = 
+                        \begin{bmatrix}
+                            1 & b_1 &  b_2 \\
+                            0 & 1 &  b_3 \\
+                            0 & 0 &  1 \\
+                        \end{bmatrix}.
+                    \]  
+                    Then, the multiplication 
+                    \[
+                        AB = 
+                        \begin{bmatrix}
+                            1 & b_1 + a_1 &  b_2 + a_1 b_3 + a_2 \\
+                            0 & 1 &  b_3 + a_3 \\
+                            0 & 0 &  1 \\
+                        \end{bmatrix} \in G.
+                    \]
+                    Since, matrix multiplication is associative, for any $A,B,C \in G$ we have $A(BC) = (AB)C$. Clearly, the identity matrix is an element of $G$. Now for the inverse of $A$, we multiply by any matrix $B \in G$ and solve for the unknowns. Let $A$ and $B$ be as given above.  
+                    \begin{align*}
+                        A B = I & \implies b_1 + a_1 = 0,\ b_2 + a_1 b_3 + a_2 = 0 \text{ and } b_3 + a_3 = 0 \\
+                        & \implies b_1 = -a_1,\ b_3 = -a_3 \ \text{ and } b_2 = -a_1(-a_3) - a_2 = a_1 a_3 - a_2.  
+                    \end{align*} 
+                    Therefore, the inverse of $A$ will be 
+                    \[
+                        A^{-1} = 
+                        \begin{bmatrix}
+                            1 & -a_1 &  a_1 a_3 - a_2 \\
+                            0 & 1 &  -a_3 \\
+                            0 & 0 &  1 \\
+                        \end{bmatrix}.
+                    \]
+                    Thus, $G$ is a group under matrix multiplication.
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we need to determine the center of $G$. Let $Z(G)$ denote the center of $G$, then
+                    \[
+                        Z(G) = \left\{ B \in G: AB = BA ,~ A \in G \right\}. 
+                    \] 
+                    Let $A \in Z(G)$. Then $A$ commutes with every element of $G$. We take $B\in G$ and find conditions on $a_1, a_2$ and $a_3.$
+                    \begin{align*}
+                        & AB = BA \\
+                        \implies & 
+                        \begin{bmatrix}
+                            1 & b_1 + a_1 &  b_2 + a_1 b_3 + a_2 \\
+                            0 & 1 &  b_3 + a_3 \\
+                            0 & 0 &  1 \\
+                        \end{bmatrix} = 
+                        \begin{bmatrix}
+                            1 & a_1 + b_1 &  a_2 + b_1 a_3 + b_2 \\
+                            0 & 1 &  a_3 + b_3 \\
+                            0 & 0 &  1 \\
+                        \end{bmatrix} \\
+                        \implies & b_1 + a_1 b_3 + a_2 = a_2 + b_1 a_3 + b_2 \\
+                        \implies & a_1 b_3 = b_1 a_3.
+                    \end{align*}
+                    With the help of the condition, we take two matrices, one with $b_1 = 0$ and $b_3 \neq 0$ and other $b_3 = 0$ and $b_1 \neq 0 $. If $b_1 = 0$ and $b_3 \neq 0$, then we have $a_1 = 0$. Similarly, if $b_1 \neq 0$ and $b_3 = 0$, then $a_3 = 0$. Therefore, the center of the group will be 
+                    \[
+                        Z(G) = \left\{ 
+                            \begin{bmatrix}
+                                1 & 0 &  a \\
+                                0 & 1 &  0 \\
+                                0 & 0 &  1 \\
+                            \end{bmatrix}: a \in \mathbb{R} 
+                         \right\} .
+                    \]   
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
