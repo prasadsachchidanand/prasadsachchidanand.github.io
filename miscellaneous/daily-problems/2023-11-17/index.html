@@ -98,9 +98,68 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> The given differential equation can be written in terms of $D \equiv \frac{\mathrm{d}}{\mathrm{d}x} $ as 
+                    \begin{equation}\label{eq:17Nov2023-1}
+                        \left( x^3 D^3 + 2x^2 D^2 + 2 \right)y = 10 \left( x + \frac{1}{x} \right).
+                    \end{equation}
+                    We substitute $x = e^z$ in to the given differential equation \eqref{eq:17Nov2023-1}. Let us simplify the derivatives. Note that
+                    \begin{align*}
+                        & z = \ln x \implies \frac{\mathrm{d}z}{\mathrm{d}x} = \frac{1}{x}, \\
+                        & \frac{1}{x} = e^{-z} \implies \frac{\mathrm{d}}{\mathrm{d}z} \left( \frac{1}{x} \right) = - e^{-z} 
+                    \end{align*}
+                    Using chain rule, we have 
+                    \begin{align*}
+                        \frac{\mathrm{d}y}{\mathrm{d}x} & = \frac{\mathrm{d}y}{\mathrm{d}z} \cdot \frac{\mathrm{d}z}{\mathrm{d}x} =  \frac{1}{x} \frac{\mathrm{d}y}{\mathrm{d}z} 
+                        \\[1ex]
+                        \frac{\mathrm{d}^{2} y}{\mathrm{d} x^{2}} & = \frac{\mathrm{d}}{\mathrm{d}x} \left( \frac{\mathrm{d}y}{\mathrm{d}x}  \right) \\
+                        & = \frac{\mathrm{d}}{\mathrm{d}z} \left( \frac{1}{x} \frac{\mathrm{d}y}{\mathrm{d}z}  \right) \cdot \frac{\mathrm{d}z}{\mathrm{d}x}  \\
+                        & = \left( \frac{\mathrm{d}}{\mathrm{d}z} \left( \frac{1}{x} \right) \frac{\mathrm{d}y}{\mathrm{d}z} + \frac{1}{x} \frac{\mathrm{d}^{2} y}{\mathrm{d} z^{2}} \right) \cdot \frac{1}{x} \\
+                        & = \left( -\frac{1}{x} \frac{\mathrm{d}y}{\mathrm{d}z}  + \frac{1}{x}\frac{\mathrm{d}^{2} y}{\mathrm{d} z^{2}} \right) \cdot \frac{1}{x} \\
+                        & = \frac{1}{x^2}\left( \frac{\mathrm{d}^{2} y}{\mathrm{d} z^{2}} - \frac{\mathrm{d}y}{\mathrm{d}z}  \right) 
+                        \\[1ex]
+                        \frac{\mathrm{d}^{3} y}{\mathrm{d} x^{3}} & = \frac{1}{x^3} \left( \frac{\mathrm{d}^{3} y}{\mathrm{d} z^{3}} - 3 \frac{\mathrm{d}^{2} y}{\mathrm{d} z^{2}} - 2 \frac{\mathrm{d}y}{\mathrm{d}z}  \right) .
+                    \end{align*} 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    If we write $D_1 = \frac{\mathrm{d}}{\mathrm{d}z} $, then \eqref{eq:17Nov2023-1} becomes
+                    \begin{align*}
+                        & x^3 \cdot \left[ \frac{1}{x^3} \left( D_1^3 - 3D_1^2 - 2D_1 \right) y \right] + 2x^2 \left[ \frac{1}{x^2} \left( D_1^2 - D_1 \right) y \right] + 2y \\
+                        & \kern 2cm = 10 \left( e^z + e^{-z} \right) \\
+                        \implies & \left( D_1^3 - 3D_1^2 -2 D_1 + 2 D_1^2 - 2 D_1 + 2 \right) y = \left( e^z + e^{-z} \right) \\
+                        \implies & \left( D_1^3 - D_1^2 + 2 \right) y = 10 \left( e^z + e^{-z} \right). 
+                    \end{align*} 
+                    Corresponding to the above differential equation, the auxiliary equation will be
+                    \[
+                        m^3 - m^2 + 2 = 0 \implies (m+1)(m^2 - 2m + 2) = 0.
+                    \]
+                    Thus, the roots of the auxiliary equation will be $-1, 1 \pm \iota $. Hence, the complementary function (the solution corresponding to the homogeneous differential equation) will be 
+                    \begin{equation}\label{eq:17Nov2023-2}
+                        y_h(x) = c_1 e^{-z} + e^z \left( c_2 \cos z + c_3 \sin z \right) = \frac{c_1}{x} + \frac{c_2 \cos \ln x + c_3 \sin \ln x}{x}.
+                    \end{equation}
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we need to find the particular integral. For the function $10 e^z$, the particular integral will be 
+                    \begin{align*}
+                        \frac{1}{\left( D_1 + 1 \right) \left( D_1^2 - 2D_1 + 2 \right) }(10 e^z) & = \frac{10}{(1 + 1)(1^2 - 2 + 2)}e^z \\
+                        & = 5e^z = 5x.
+                    \end{align*}
+                    Similarly, for $-10e^{-z}$, the particular integral will be 
+                    \begin{align*}
+                        \frac{1}{\left( D_1 + 1 \right) \left( D_1^2 - 2D_1 + 2 \right) }(10 e^{-z}) & = \frac{1}{D_1 + 1}\cdot \frac{1}{(-1)^2 - 2(-1) +2 }(10e^{-z}) \\
+                        & = \frac{1}{D_1 + 1}(2 e^{-z}) \\
+                        & = 2e^{-z} \frac{1}{D_1 -1 + 1} \cdot 1 \\
+                        & = 2e^{-z} \frac{1}{D_1}(1) \\
+                        & = 2e^{-z} z = \frac{2}{x}\cdot \ln x
+                    \end{align*}
+                    Thus, the solution will be 
+                    \[
+                        y(x) = \frac{c_1}{x} + \frac{c_2 \cos \ln x + c_3 \sin \ln x}{x} + 5x + \frac{2 \ln x}{x}.
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->

@@ -98,7 +98,40 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $a\in A$ be fixed. For any $b \in B$ the point $(a,b) \in A \times B$ and $N$ is an open neighbourhood of $A$ implies, there exists open sets $U_b(a) \subseteq X$ and $V_b(a) \subseteq Y$ such that 
+                    \[
+                        (a,b) \in U_b(a) \times V_b(a) \subseteq N.
+                    \] 
+                    The collection $\mathcal{V} \coloneqq \left\{ V_b(a): b \in B \right\} $ of open sets is an open cover of $B$ and $B$ is compact implies $\mathcal{V} $ has a finite subcover of $B$, say, $\left\{ V_{b_i}(a) : i = 1,2,\dots, k \right\} $ such that $B \subseteq  \cup _{i=1}^k V_{b_i}(a)$. Let 
+                    \[
+                        U(a) = \bigcap_{i=1}^{k} U_{b_i}(a) \text{ and } V(a) = \bigcup_{i=1}^{k} V_{b_i}(a).
+                    \] 
+                    It is clear that the sets $U(a)$ and $V(a)$ are open subsets of $X$ and $Y$ respectively. We also have 
+                    \[
+                        \mathcal{U} \coloneqq \left\{ U(a): a \in A \right\} 
+                    \] 
+                    is an open cover of $A$ and as $A$is compact it posses a finite subcover, say
+                    \[
+                        \left\{ U(a_i) : i = 1,2, \dots, l \right\}.
+                    \]
+                  </div>
+
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-16-11-23_01.svg"
+                        class="h-auto"
+                        alt="Choice of U and V"
+                      />
+                    </div>
+                    Set 
+                    \[
+                        U = \bigcup_{i=1}^{l} U(a_i) \text{ and } V = \bigcap_{i=1}^{l} V(a_i).
+                    \]
+                    Now it is clear that $U$ and $V$ are open subsets of $X$ and $Y$ respectively and  
+                    \[
+                        A \times B \subseteq U \times V \subseteq N.
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
