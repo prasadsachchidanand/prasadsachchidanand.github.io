@@ -92,9 +92,60 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $f$ be a continuous function satisfying the property that for any $x,y \in \mathbb{R} $,  
+                    \begin{equation}\label{eq:20Nov2023-1}
+                        x - y \in \mathbb{Q} \implies f(x) - f(y) \in \mathbb{Q} \tag{$\mathcal{P}$}
+                    \end{equation}
+                    For any rational $q$, we define the function 
+                    \[
+                        g_q(x) \coloneqq f(x + q) - f(x).
+                    \] 
+                    Since $f$ is continuous and satisfying the property \eqref{eq:20Nov2023-1}, the function $g$ will also be continuous and takes only rational values. This implies, the function $g$ will be constant. Now we set 
+                    \begin{gather*}
+                        f(1) - f(0) = g_1(0) = a  \\
+                        f(0) = b \\
+                        f\left( \frac{1}{n} \right) - f(0) = g_{\frac{1}{n}}(0) = r,\ n \in \mathbb{N} .
+                    \end{gather*}
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    For any $n\in \mathbb{N} $, since  
+                    \[
+                        f\left( x + \frac{1}{n} \right) - f(0) = g_{\frac{1}{n}}(x) = g_{\frac{1}{n}}(0) = r,
+                    \]
+                    so for any $m \in \mathbb{N} $ 
+                    \begin{align*}
+                        f\left( \frac{m}{n} \right) - f(0) & = \left[ f\left( \frac{1}{n} \right) - f(0)  \right] + \left[ f\left( \frac{2}{n} \right) - f\left( \frac{1}{n} \right)  \right] \\
+                        & \ + \dots + \left[ f\left( \frac{m}{n} \right) - f\left( \frac{m-1}{n} \right)  \right] \\
+                        & = g_{\frac{1}{n}}(0) + g_{\frac{1}{n}}\left( \frac{1}{n} \right) + \dots + g_{\frac{1}{n}}\left( \frac{m-1}{n} \right) \\
+                        & = m r.
+                    \end{align*}
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly,
+                    \[
+                        f\left( -\frac{m}{n} \right) - f(0) = -mr.
+                    \]
+                    To determine the function, we need to find the value of $r$. If $m = n$, then
+                    \[
+                        nr = f\left( \frac{n}{n} \right) - f(0) = f(1) - f(0) = a \implies r = \frac{a}{n}.
+                    \]  
+                    Therefore,
+                    \[
+                        f\left( \frac{m}{n} \right) - f(0) = mr = m\cdot \frac{a}{n} = a \cdot \frac{m}{n}.
+                    \]
+                    Combining with the assumption that $f(0) = b$, we proved that for any rational $x$,
+                    \[
+                        f(x) = ax + b.
+                    \] 
+                    Since, $f$ is continuous and rationals are dense in reals, for any real number $x$ we have 
+                    \[
+                        f(x) = ax + b.
+                    \] 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
