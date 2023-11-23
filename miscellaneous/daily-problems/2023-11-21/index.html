@@ -108,7 +108,106 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> The given rectangular region is 
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-21-11-23_01.svg"
+                        class="h-auto"
+                        alt="The region R"
+                      />
+                    </div>
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <ul class="math-list my-4">
+                      <li class="my-4">
+                        The given transformation is 
+                        \[
+                            w = z + (1 - 2\iota ) = x + \iota y + (1 - 2\iota ) = (x + 1) + \iota (y-2).
+                        \]
+                        Therefore,
+                        <ul class="math-list-disc">
+                          <li class="my-4">
+                            the line $x = 0$ will transform to $u = 0$
+                          </li>
+                          <li class="my-4">
+                            the line $x = 2$ will transform to $u = 3$
+                          </li>
+                          <li class="my-4">
+                            the line $y = 0$ will transform to $v = -2$ and 
+                          </li>
+                          <li class="my-4">
+                            the line $y = 1$ will transform to $v = -1$. 
+                          </li>
+                        </ul>
+                        In summary, the given transformation translate each point of the region $\mathcal{R} $ by $1 - 2\iota $ units, and hence the transformed region will be 
+                        <div class="flex flex-wrap justify-center my-4">
+                          <img
+                            src="../../../assets/img/prob-21-11-23_02.svg"
+                            class="h-auto"
+                            alt="R'"
+                          />
+                        </div>
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        The given transformation is 
+                        \[
+                            w = \sqrt{2}e^{\pi \iota /4}z = (x - y) + \iota (x + y) = u + \iota v
+                        \]
+                        Therefore,
+                        <ul class="math-list-disc">
+                          <li class="my-4">
+                            the line $x = 0$ will transform to $u = -y$ and $v = y$, that is $u = -v$. 
+                          </li>
+                          <li class="my-4">
+                            The line $x = 2$ will transform to $u = 2 - y$ and $v = 2 + y$, that is $u + v = 4$.   
+                          </li>
+                          <li class="my-4">
+                            The line $y = 0$ will transform to $u = x$ and $v = x$, that is $u = v$.
+                          </li>
+                          <li class="my-4">
+                            Finally, the line $y = 1$ will transform to $u = x - 1$ and $v = x + 1$, that is, $v - u = 2$. 
+                          </li>
+                        </ul>
+                        In summary, the given transformation rotate each point of the region $\mathcal{R} $ by an angle of $\pi /4$, and stretches the region by $\sqrt{2} $ units. Hence the transformed region will be 
+                        <div class="flex flex-wrap justify-center my-4">
+                          <img
+                            src="../../../assets/img/prob-21-11-23_03.svg"
+                            class="h-auto"
+                            alt="R'"
+                          />
+                        </div>
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        The given transformation is 
+                        \[
+                            w = \sqrt{2}e^{\pi \iota /4}z + (1 - 2\iota ).
+                        \]
+                        This translates the last region by $1$ unit right and $2$ units down. In particular, 
+                        <ul class="math-list-disc">
+                          <li class="my-4">
+                            the line $x = 0$ will transform $u + v = 1$.
+                          </li>
+                          <li class="my-4">
+                            The line $x = 2$ will transform to $u + v =3$.    
+                          </li>
+                          <li class="my-4">
+                            The line $y = 0$ will transform to $u - v =3$.
+                          </li>
+                          <li class="my-4">
+                            Finally, the line $y = 1$ will transform to $u - v =1$. 
+                          </li>
+                        </ul>
+                        Hence the transformed region will be 
+                        <div class="flex flex-wrap justify-center my-4">
+                          <img
+                            src="../../../assets/img/prob-21-11-23_04.svg"
+                            class="h-auto"
+                            alt="R'"
+                          />
+                        </div>
+                      </li>
+                    </ul>
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
