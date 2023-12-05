@@ -100,7 +100,21 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>To show that $(X,\mathcal{T} )$ is path-connected, we need to give a path from $0$ to $1$. Consider the function
+                    \[
+                        \gamma : [0,1] \to  X, \ \gamma (t) = 
+                        \begin{cases}
+                            1, &\text{ if } t = 1 ;\\
+                            0, &\text{ if } \text{ otherwise}.
+                        \end{cases}
+                    \] 
+                    It is clear that $\gamma (0) = 0$ and $\gamma (1) = 1$ and hence this is path from joining $0$ to $1$. It just remain to show that $\gamma $ is continuous. As we have three open sets, we will show that preimage of all these open sets are open in $[0,1]$ with the Euclidean subspace topology. Note that 
+                    \begin{align*}
+                        \gamma ^{-1} (X) & = [0,1] , \text{ open by definition }. \\
+                        \gamma ^{-1} (\emptyset) & = \emptyset , \text{ open by definition }. \\ 
+                        \gamma ^{-1} (\{ 0 \} ) & = (0,1] = (0,2) \cap [0,1].   
+                    \end{align*}
+                    The last set is open in the subspace topology and hence $\gamma $ is a continuous path joining $0$ to $1$. 
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

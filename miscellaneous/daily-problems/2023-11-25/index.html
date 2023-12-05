@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Let $A$ be an infinite set of real numbers such that $\vert a_1 + a_2 + \dots + a_k \vert < 1$ for every finite subset $\left\{ a_1, a_2, \dots, a_k \right\} $ of $A$. Show that $A$ is countable.">
 
     
 	<title>Problem of the day | 25-11-2023 | Foundation - Show that $A$ is countable - Sachchidanand Prasad</title>
@@ -83,7 +83,7 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>
+                      <strong>Problem: </strong>Let $A$ be an infinite set of real numbers such that $\vert a_1 + a_2 + \dots + a_k \vert \lt 1$ for every finite subset $\left\{ a_1, a_2, \dots, a_k \right\} $ of $A$. Show that $A$ is countable.
                     </div> 
                 </div>
                 
@@ -92,7 +92,19 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Consider the set
+                    \[
+                        A_n = A \cap \left( \frac{1}{n}, \infty  \right),~ n \in \mathbb{N} .
+                    \]
+                    Since for any finite subset of $A$, the absolute sum is less than $1$, we have $\left\vert A_n \right\vert \lt n$, where $\left\vert A_n \right\vert $ denotes the number of elements in the set $A_n$. Similarly, the set 
+                    \[
+                        A_{-n} = A  \cap \left( -\infty ,-\frac{1}{n} \right) , n \in \mathbb{N} 
+                    \]
+                    has the same property. Note that for any  $x\neq 0$, there exists $n\in \mathbb{N} $ such that $x > \frac{1}{n}$ or $x \lt -\frac{1}{n}$.  Therefore, any nonzero element of $A$ must be an element of either $A_{n}$ or $A_{-n}$ for some $n \in \mathbb{N} $. Thus,
+                    \[
+                        A \subseteq \{ 0 \}  \bigcup_{n \in \mathbb{N} } \left( A_n  \cup A_{-n} \right).
+                    \]
+                    The right hand side is a countable union of finite sets and hence countable. Now any subset of a countable set is countable implies that $A$ is countable.
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

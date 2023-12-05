@@ -5,7 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Let $\lambda =3$ is an eigenvalue of the matrix 
+    \[
+        \begin{bmatrix}
+            11 & -4 &  -8 \\
+            4 & 1 &  -4 \\
+            8 & -4 &  -5 \\
+        \end{bmatrix}
+    \]. 
+    Find the eigenspace of $A$ corresponding to the eigenvalue $\lambda =3$.">
 
     
 	<title>Problem of the day | 26-11-2023 | Linear Algebra - Find the eigenspace of $A$ corresponding to the eigenvalue - Sachchidanand Prasad</title>
@@ -83,7 +91,15 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>
+                      <strong>Problem: </strong>Let $\lambda =3$ is an eigenvalue of the matrix 
+                      \[
+                          \begin{bmatrix}
+                              11 & -4 &  -8 \\
+                              4 & 1 &  -4 \\
+                              8 & -4 &  -5 \\
+                          \end{bmatrix}
+                      \]. 
+                      Find the eigenspace of $A$ corresponding to the eigenvalue $\lambda =3$. 
                     </div> 
                 </div>
                 
@@ -92,7 +108,85 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that the eigenspace of the eigenvalue $\lambda $ is the null space of the matrix $A - \lambda I$. Here,
+                    \[
+                        A - 3I = 
+                        \begin{bmatrix}
+                            11 & -4 &  -8 \\
+                            4 & 1 &  -4 \\
+                            8 & -4 &  -5 \\
+                        \end{bmatrix} - 
+                        \begin{bmatrix}
+                            1 & 0 &  0 \\
+                            0 & 1 &  0 \\
+                            0 & 0 &  1 \\
+                        \end{bmatrix} = 
+                        \begin{bmatrix}
+                            8 & -4 &  -8 \\
+                            4 & -2 &  -4 \\
+                            8 & -4 &  -8 \\
+                        \end{bmatrix}.
+                    \]
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we need to find the null space of the matrix $A - 3I$. We will use the row reduction to find the null space of $A - 3I$.
+                    \begin{align*}
+                        A- 3I = 
+                        \begin{bmatrix}
+                            8 & -4 &  -8 \\
+                            4 & -2 &  -4 \\
+                            8 & -4 &  -8 \\
+                        \end{bmatrix} \xrightarrow[R_3 \to R_3 - R_1 ]{R_2 \to R_2 - \frac{1}{2}R_1} 
+                        \begin{bmatrix}
+                            8 & -4 &  -8 \\
+                            0 & 0 &  0 \\
+                            0 & 0 &  0 \\
+                        \end{bmatrix} = 
+                        4\begin{bmatrix}
+                            2 & -1 &  -2 \\
+                            0 & 0 &  0 \\
+                            0 & 0 &  0 \\
+                        \end{bmatrix}.
+                    \end{align*} 
+                    Therefore, any vector $\mathbf{x} = \begin{bmatrix}
+                         x_1 \\
+                         x_2 \\
+                         x_3 \\
+                    \end{bmatrix}$ which is in the null space must satisfy 
+                    \[
+                        2x_1 - x_2 - 2x_3 = 0 \implies x_2 = 2x_1 - 2x_3.
+                    \]
+                    Thus, 
+                    \[
+                        \mathbf{x} = x_1 
+                        \begin{bmatrix}
+                             1 \\
+                             2 \\
+                             0 \\
+                        \end{bmatrix} + x_3 
+                        \begin{bmatrix}
+                             0 \\
+                             -2 \\
+                             1 \\
+                        \end{bmatrix}.
+                    \]
+                    Therefore, the eigenspace of $A$ corresponding to the eigenvalue $\lambda =3$ will be 
+                    \[
+                        \operatorname{span}\left\{ %
+                            \begin{bmatrix}
+                                1 \\
+                                2 \\
+                                0 \\
+                           \end{bmatrix}, 
+                           \begin{bmatrix}
+                            0 \\
+                            -2 \\
+                            1 \\
+                       \end{bmatrix}
+                         \right\} .
+                    \] 
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

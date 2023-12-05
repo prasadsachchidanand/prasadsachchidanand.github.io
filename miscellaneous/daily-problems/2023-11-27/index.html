@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Let $f: \mathbb{R} \to \mathbb{R} $ be a twice differentiable function. Suppose that $f(0) = 0$. Prove that there exists $c \in \left( (-\frac{\pi}{2}, \frac{\pi}{2}) \right) $ such that 
+    \[
+        f^{\prime\prime} (c) = f(c) \left( 1 + 2 \tan ^2 c \right) .
+    \] ">
 
     
 	<title>Problem of the day | 27-11-2023 | Real Analysis - Find $c$ such that $f^{\prime\prime} (c) = f(c) \left( 1 + 2 \tan ^2 c \right)$ - Sachchidanand Prasad</title>
@@ -83,7 +86,10 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>
+                      <strong>Problem: </strong>Let $f: \mathbb{R} \to \mathbb{R} $ be a twice differentiable function. Suppose that $f(0) = 0$. Prove that there exists $c \in \left( (-\frac{\pi}{2}, \frac{\pi}{2}) \right) $ such that 
+                      \[
+                          f^{\prime\prime} (c) = f(c) \left( 1 + 2 \tan ^2 c \right) .
+                      \] 
                     </div> 
                 </div>
                 
@@ -92,8 +98,41 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $g(x) = f(x) \cos x$. Since 
+                    \[
+                        g\left( -\frac{\pi}{2}  \right) = 0 = g(0) = g\left( \frac{\pi}{2}  \right),
+                    \]
+                    by Rolle's theorem there exists $c_1 \in \left( -\frac{\pi}{2},0  \right) $ and $c_2 \in \left( 0, \frac{\pi}{2}  \right) $ such that 
+                    \[
+                        f^\prime \left( c_1 \right) = f^\prime \left( c_2 \right)  = 0.
+                    \] 
+                    Now we consider the function 
+                    \[
+                        h(x) = \frac{g^\prime (x)}{\cos ^2x} = \frac{f^\prime (x) \cos  x - f(x) \sin x}{\cos ^2x}.
+                    \]
                   </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since $g(c_1) = g(c_2) =0$, so $h(c_1) = h(c_2) = 0$ and hence again by Rolle's theorem we can find $c \in (c_1, c_2)$ such that $h^\prime \left( c \right) = 0$. That is,
+                    \begin{align*}
+                        0 = h^\prime (c) & = \frac{g^{\prime\prime} (c) \cos ^2c - g^\prime (c) 2 \cos c (-\sin c)}{\cos ^4 c} 
+                        \\[1ex]
+                        & = \frac{g^{\prime\prime} (c) \cos c + 2 g^\prime (c) \sin c}{\cos ^3 c} 
+                        \\[1ex]
+                        & = \frac{\left( f^{\prime\prime} (c) \cos c - 2f^\prime (c) \sin c - f(c) \cos c \right) \cos c }{\cos ^3c} \\
+                        & \kern 0.4cm + \frac{2\left( f^\prime (c) \cos c - f(c) \sin c \right) \sin c }{\cos ^3c}
+                        \\[1ex]
+                        & = \frac{f^{\prime\prime} (c) \cos ^2 c - f(c) \left( \cos ^2 c + 2\sin ^2c \right) }{\cos ^3c} 
+                        \\[1ex]
+                        & = \frac{1}{\cos c} \left( f^{\prime\prime} (c) - f(c) (1+2\tan ^2 c) \right) .
+                    \end{align*}    
+                    Thus, there exists $c \in \left( -\frac{\pi}{2}, \frac{\pi}{2}\right) $ such that
+                    \[
+                        f^{\prime\prime} (c) = f(c) \left( 1 + 2\tan ^2c \right) .
+                    \]
+                  </div>
+
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
 

@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content=" If the functions $u$ and $v$ are harmonic in a region $\mathcal{R} $, then prove that 
+    \[
+        \left( \frac{\partial u}{\partial y} - \frac{\partial v}{\partial x}  \right) + \iota \left( \frac{\partial u}{\partial x}  + \frac{\partial v}{\partial y}  \right) 
+    \]
+    is analytic in $\mathcal{R} $.">
 
     
-	<title>Problem of the day | 28-11-2023 | Complex Analysis - Find $c$ such that $f^{\prime\prime} (c) = f(c) \left( 1 + 2 \tan ^2 c \right)$ - Sachchidanand Prasad</title>
+	<title>Problem of the day | 28-11-2023 | Complex Analysis - $(u_y - v_x) + \iota (u_x + v_y)$ is analytic - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -83,7 +87,11 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>
+                      <strong>Problem: </strong> If the functions $u$ and $v$ are harmonic in a region $\mathcal{R} $, then prove that 
+                      \[
+                          \left( \frac{\partial u}{\partial y} - \frac{\partial v}{\partial x}  \right) + \iota \left( \frac{\partial u}{\partial x}  + \frac{\partial v}{\partial y}  \right) 
+                      \]
+                      is analytic in $\mathcal{R} $.
                     </div> 
                 </div>
                 
@@ -92,7 +100,16 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let 
+                    \[
+                        U = \frac{\partial u}{\partial y} - \frac{\partial v}{\partial x} = u_y - v_x \text{ and } V = \frac{\partial u}{\partial x}  + \frac{\partial v}{\partial y} = u_x + v_y.
+                    \]
+                    Consider the function $f = U(x,y) + \iota V(x,y)$. Then we have 
+                    \begin{align*}
+                        U_x & = u_{yx} - v_{xx}, \kern 0.4cm U_y = u_{yy} - v_{xy} \\
+                        V_x & = u_{xx} + v_{yx}, \kern 0.4cm V_y = u_{xy} + v_{yy}.
+                    \end{align*} 
+                    Since $u$ and $v$ are harmonic, they both have continuous derivatives up to the second order. Therefore, the first derivatives of $U$ and $V$ are continuous. Also, $u_{xx} + u_{yy} = 0 $ and $v_{xx} + v_{yy} = 0$ implies that $U_x = V_y$ and $U_y = -V_x$. Therefore, $f$ satisfies the Cauchy-Riemann equation. Thus, $f$ is analytic in $\mathcal{R} $.  
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
