@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Solution: </strong>Let the order of the group $G$ be $n$. According to the given hypothesis, $3$ does not divide $n$. Since, $3$ is a prime number, so we have 
                     \[
                         \gcd(3,n) = 1.
@@ -94,9 +94,9 @@
                     \begin{equation}\label{eq:01Mar2023-1}
                         3x+ny = 1 .
                     \end{equation}
-                  </p>
+                  </div>
                   <hr class="h-px my-4 bg-gray-300 border-0">
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     Now note that for any $a,b\in G$,
                     \begin{align*}
                         ab & = (ab)^{3x+ny} \\
@@ -115,9 +115,9 @@
                            & = a^3 (ba) \left( a^{-3}b^{-3} \right)  b^3 \\
                            & = a^3 b a^{-2}.
                     \end{align*}
-                  </p>
+                  </div>
                   <hr class="h-px my-4 bg-gray-300 border-0">
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     Therefore, we got 
                     \begin{align*}
                         & ab = a^3 b a^{-2} = a^3 b^3 b^{-2} a^{-2} \\
@@ -129,9 +129,9 @@
                         \implies & ba = ab.
                     \end{align*}
                     Hence, we proved that $G$ is abelian. 
-                  </p>
+                  </div>
                   <hr class="h-px my-4 bg-gray-300 border-0">
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     Second method (taken from <a class="text-blue-500 hover:text-blue:900" href="https://yutsumura.com/prove-a-group-is-abelian-if-ab3a3b3-and-no-elements-of-order-3/" target="
                     ">here</a>). 
                     Given that for any $a,b\in G$ 
@@ -148,9 +148,9 @@
                     \begin{equation}\label{eq:01Mar2023-2}
                         (ba)^2 = a^2b^2 \qquad\forall~a,b\in G.
                     \end{equation} 
-                  </p>
+                  </div>
                   <hr class="h-px my-4 bg-gray-300 border-0">
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     Now we consider the commutator of $a,b$ which is $aba^{-1} b^{-1} $ 
                     \begin{align*}
                         \left( aba^{-1} b^{-1}  \right) ^2 & = \left( a^{-1} b^{-1}  \right) ^2 (ab)^2 \quad \textcolor{magenta}{\boxed{\text{from }\eqref{eq:01Mar2023-2}}}\\
@@ -163,9 +163,9 @@
                     \begin{equation}\label{eq:01Mar2023-3}
                         \left( aba^{-1} b^{-1}  \right) ^2 = b^{-1} a^{-1} ba \qquad\forall~a,b\in G.
                     \end{equation}
-                  </p>
+                  </div>
                   <hr class="h-px my-4 bg-gray-300 border-0">
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     Squaring \eqref{eq:01Mar2023-3}, we get
                     \begin{align*}
                         \left( aba^{-1} b^{-1}  \right) ^4 & = \left( b^{-1} a^{-1} ba \right) ^2 \\
@@ -177,7 +177,7 @@
                         aba^{-1} b^{-1} = e \implies ab = ba.
                     \]
                     Hence, $G$ is abelian. 
-                  </p>
+                  </div>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

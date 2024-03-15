@@ -92,7 +92,19 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let us prove the general statement, that is, given any compact set $K$, if $f: K \to  \mathbb{R} $ is continuous, then $f$ is uniformly continuous. Let $\varepsilon >0$ be given and take $x, y \in K$. Let $B(x,r)$ denotes the open ball of radius $r$ centered at $x$.  Since $f$ is continuous, so for $\varepsilon > 0$ and for any $y \in K$, there exists $\delta_y > 0$ such that $x \in B\left( y, \delta _y \right)  $  implies $f(x) \in B\left( f(y), \varepsilon  \right) $. Consider the open cover of $K$ 
+                      \[
+                          \mathcal{C} = \left\{ B\left( y,\delta _y \right): y\in K   \right\}. 
+                      \] 
+                      As $K$ is a compact set, $\mathcal{C} $ must admit a finite subcover, say,
+                      \[
+                          \left\{ B\left( y_i, \delta _{i} \right): i = 1,2,\dots, n \right\}.
+                      \] 
+                      Now choose $\delta = \max \left\{ \delta _i : i = 1,2,\dots,n \right\} $. Now we have
+                      \[
+                          x \in B\left( y,\delta  \right) \implies f(x) \in B\left( f(x), \varepsilon  \right).  
+                      \]  
+                      Thus, $f$ is uniformly continuous on $K$. 
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
