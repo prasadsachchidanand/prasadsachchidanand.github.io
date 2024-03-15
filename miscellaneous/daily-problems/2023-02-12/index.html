@@ -79,7 +79,7 @@
       
       <!-- section -->
       <section class="text-gray-600 body-font">
-        <div class="container xl:px-36 py-24 mx-auto">
+        <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
             <h2 class="text-gray-900 text-3xl title-font font-medium">12-02-2023</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
@@ -103,10 +103,57 @@
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
-                  </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong>et us find the eigenvalues of the given matrix. 
+                    \begin{align*}
+                        \det (A - \lambda I) = 0 & \implies 
+                        \begin{vmatrix}
+                            -\lambda & 0 & 0 &  -4 \\
+                            1 & -\lambda & 0 &  0 \\
+                            0 & 1 & -\lambda &  5 \\
+                            0 & 0 & 1 &  -\lambda \\
+                        \end{vmatrix} = 0 \\[1ex]
+                        & \implies -\lambda
+                        \begin{vmatrix}
+                            -\lambda  & 0 & 0  \\
+                            1 & -\lambda  & 5  \\
+                            0 & 1 & -\lambda  \\
+                        \end{vmatrix} + 4 
+                        \begin{vmatrix}
+                            1 & -\lambda &  0 \\
+                            0 & 1 &  -\lambda \\
+                            0 & 0 &  1 \\
+                        \end{vmatrix} = 0 \\[1ex]
+                        & \implies \lambda ^2 \left( \lambda ^2 -5 \right) + 4 = 0 \\
+                        & \implies \lambda ^4 - 5\lambda ^2 + 4 = 0 \\
+                        & \implies (\lambda -1)(\lambda +1)(\lambda -2)(\lambda +2) = 0.
+                    \end{align*}
+                    Thus, the characteristic polynomial of $A$ will be 
+                    \[
+                        p(x) = (x - 1)(x + 1)(x - 2)(x + 2).
+                    \]
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since each of the factor only occurs once, the minimal polynomial will be same as the characteristic polynomial. Hence, the Jordan canonical form of $A$ will be 
+                    \[
+                        J = 
+                        \begin{bmatrix}
+                            \begin{bmatrix} 1 \end{bmatrix} & 0 & 0 &  0 \\
+                            0 & \begin{bmatrix} -1 \end{bmatrix} & 0 &  0 \\
+                            0 & 0 & \begin{bmatrix} 2 \end{bmatrix} &  0 \\
+                            0 & 0 & 0 & \begin{bmatrix} -2 \end{bmatrix} \\
+                        \end{bmatrix} = 
+                        \begin{bmatrix}
+                            1 & 0 & 0 &  0 \\
+                            0 & -1 & 0 &  0 \\
+                            0 & 0 & 2 &  0 \\
+                            0 & 0 & 0 &  -2 \\
+                        \end{bmatrix}.
+                    \] 
+                  </div>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

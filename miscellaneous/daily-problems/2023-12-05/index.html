@@ -92,7 +92,25 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We will use Rouché's theorem to solve this problem. Let us recall the Rouché's theorem.
+                    
+                    <div class="theorem my-4" id="RoucheTheorem">
+                      (Rouché Theorem) Let $f,g: U \to  \mathbb{C} $ be analytic on $U \subset \mathbb{C} $ open, and let $\gamma $  be any closed curve such that $\gamma \subset U$. If $\vert f(z) \vert \leq \vert g(z) \vert $ on $\gamma $ then $f(z)$ and $f(z) = g(z)$ have the same number of zeros inside $\gamma $.
+                    </div>
+
+                    Let $f(z) = z^5 + 6z^3 - 10$, $g(z) = z^5$ and $h(z) = 6z^3$. By the triangle's inequality and $\vert z \vert = 3$, we have 
+                    \[
+                        \vert f(z) - g(z) \vert = \vert 6z^3 - 10 \vert \leq 6 \vert z \vert ^3 + 10 = 226. 
+                    \] 
+                    Also, if $\vert z \vert \lt 3$, then $\vert g(z) \vert = 729$. Thus, for $\vert z \vert = 3$, 
+                    \[
+                        \vert f(z) - g(z) \vert \lt \vert g(z) \vert  .
+                    \] 
+                    Similarly, on the circle $\vert z \vert = 2$, we have 
+                    \[
+                        \vert f(z) - h(z)  \vert \lt h(z).
+                    \] 
+                    So, by Rouché's theorem, $f$ has $5$ zeros (counting with  multiplicities) inside the open disk $\vert z \lt 3 \vert $ and three zeros (counting with multiplicities) inside the open disk $\vert z \vert \lt 2$. Since $f$ has no zeros on the smaller circle $\vert z \vert = 2$, (by the triangle inequality $\vert f(z) \vert \lt \vert g(z) \vert $ ). Thus, the total number of zeros of $f$ inside the annulus is $5 - 3 = 2$. 
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
