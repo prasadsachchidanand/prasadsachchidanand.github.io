@@ -93,10 +93,41 @@
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> Will be updated soon.
-                  </p>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong> We recall that two  metrics $d_1$ and $d_2$ on a set $X$ are equivalent, if for any $x\in X$ and $r > 0$, there exist $s_1,s_2 >0$ such that 
+                    \[
+                        B_{d_1}(x,s_1) \subseteq B_{d_2}(x,r) \text{ and } B_{d_2}(x,s_2) \subseteq B_{d_1}(x,r). 
+                    \]
+                    To prove that the metrics $d$ and $\rho $ are equivalent, we will show that for any $x\in X$ and $r>0$  there exist $s_1, s_2 >0$ such that
+                    \[
+                        B_\rho (x,s_1) \subseteq B_d(x,r) \subseteq B_\rho (x,s_2).
+                    \]  
+                    Take 
+                    \[
+                        s_1 = \frac{r}{1+r}.
+                    \] 
+                    Then, for any $y \in B_\rho (x,s_1)$
+                    \[
+                        \rho (x,y) \lt s_1 = \frac{r}{1 + r} \implies \frac{d(x,y)}{1 + d(x,y)} \lt \frac{r}{1+r} \implies d(x,y) \lt r,
+                    \] 
+                    and hence, $y\in B_d(x,r)$. This proves that $B_\rho (x,s_1) \subseteq B_d(x,r)$. 
+                  </div>
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now for the other inequality, we take 
+                    \[
+                        s_2 = \frac{r}{1 + r}.
+                    \]
+                    Then, for any $y\in B_d(x,r)$, 
+                    \begin{align*}
+                        d(x,y) \lt r & \implies \frac{1}{d(x,y)} \gt \frac{1}{r} \\
+                                   & \implies 1 + \frac{1}{d(x,y)} \gt 1 + \frac{1}{r} \\
+                                   & \implies \frac{1 + d(x,y)}{d(x,y)} \gt \frac{1 + r}{r} \\
+                                   & \implies \frac{d(x,y)}{1 + d(x,y)} \lt \frac{r}{1 + r} \\
+                                   & \implies \rho (x,y) \lt s_2.
+                    \end{align*} 
+                    Thus, we obtained the other inequality. Hence, the metrics $d$ and $\rho $ are equivalent.   
+                  </div>
                 </div>
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Let $X$ and $Y$ be two topological space with $Y$ being Hausdorff. Let $f,g : X \to  Y$ be continuous. Prove that the set 
+    \[
+        E = \left\{ x \in X : f(x) = g(x) \right\} 
+    \]
+    is closed.">
 
     
-	<title>Problem of the day | 05-10-2023 | Topology -  - Sachchidanand Prasad</title>
+	<title>Problem of the day | 05-10-2023 | Topology - Show that $E = \left\{ x \in X : f(x) = g(x) \right\}$ is closed set - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -83,7 +87,11 @@
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
                     <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>
+                      <strong>Problem: </strong>Let $X$ and $Y$ be two topological space with $Y$ being Hausdorff. Let $f,g : X \to  Y$ be continuous. Prove that the set 
+                      \[
+                          E = \left\{ x \in X : f(x) = g(x) \right\} 
+                      \]
+                      is closed.
                     </div> 
                 </div>
                 
@@ -92,7 +100,16 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>
+                    <strong>Solution: </strong>We will show that the complement $E^c$ is open in $X$. Let $x \in E^c$. Since $x \in E^c$, so $f(x) \neq g(x)$. As $Y$ is Hausdorff, we can find two disjoint open sets $V_{f(x)}$ and $V_{g_{x}}$ containing $f(x)$ and $g(x)$ respectively. Define the set 
+                    \[
+                        U = f^{-1} \left( V_{f(x)} \right)  \cap g^{-1} \left( V_{g(x)} \right) .
+                    \]
+                    Since $f$ and $g$ are continuous, and intersection of two open sets is open, $U$ is open. We claim that $U \subseteq E^c$. Let
+                    \begin{align*}
+                        y \in U & \implies f^{-1} \left( V_{f(x)} \right)  \cap g^{-1} \left( V_{g(x)} \right) \\
+                        & \implies f(y) \in V_{f(x)} \text{ and } g(y) \in V_{g(x)}.
+                    \end{align*}  
+                    Since $V_{f(x)}  \cap V_{g(x)} = \emptyset$, so $f(y) \neq g(y)$ and hence $y \in E^c$. Thus, $U \subseteq E^c$ and hence, $E^c$ is open.    
                   </div>
 
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->

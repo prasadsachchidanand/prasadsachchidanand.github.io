@@ -100,9 +100,29 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Define a map 
+                    \[
+                        f: \mathbb{R} ^2 \to  \mathbb{R} , ~ (x,y) \mapsto x + y^2.
+                    \]
+                    Note that the map $f$ is continuous. Also, if $\left( x_1, y_1 \right) \sim \left( x_2, y_2 \right) $, then 
+                    \[
+                        x_1 + y_1^2 = x_2 + y_2^2 \implies f\left( x_1,y_1 \right) = f\left( x_2, y_2 \right) 
+                    \]
+                    and hence $f$ preserves the equivalence relation. Therefore, the following theorem implies that there is a continuous map from the quotient space to $\mathbb{R} $. 
+                    <div class="theorem mb-4">
+                      Let $X$ and $Y$ be two topological space and let $f : X \to Y$ be a continuous map. Let $\sim $ be the equivalence relation on $X$ defined by $x_1 \sim x_2$ if and only if $f\left( x_1 \right) = f\left( x_2 \right) $. Then there exists a continuous function $g : X / \mathord{\sim } \to Y$  such that $f = g\circ \pi$. 
+                    </div>
+                    So we got a continuos map $g : \mathbb{R} ^2 / \mathord{\sim } \to  \mathbb{R} $ defined by $g[(x,y)] \mapsto x + y^2 $. Define a map 
+                    \[
+                        h : \mathbb{R} \to  \mathbb{R} ^2 / \mathord{\sim },~ x \mapsto [(x,0)].
+                    \]   
+                    Note that $h$ is defined as the composition of maps $h_1 : \mathbb{R} \to  \mathbb{R} ^2, ~ x \mapsto (x,0)$ and the quotient map. Therefore, it is continuous. Now we only need to show that $g \circ h$ and $h\circ g$ are identity. 
+                    \begin{align*}
+                        (g \circ h)(x) & = g([x,0]) = x \\
+                        (h \circ g)([x,y]) & = h\left( x + y^2 \right) = \left[ (x + y^2, 0) \right] = [(x,y)].
+                    \end{align*}
+                    Therefore, the quotient space is homeomorphic to $\mathbb{R} $. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
 
                 <!-- Previous Button -->

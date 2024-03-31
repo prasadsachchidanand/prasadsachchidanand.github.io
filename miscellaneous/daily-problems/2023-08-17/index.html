@@ -92,9 +92,38 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Consider the set 
+                    \[
+                        A = \{ i + \frac{1}{n} : i = 1,2,3 \text{ and } n \in \mathbb{N}   \} .
+                    \]
+                    If $A^\prime $ denotes the set of all limit points of $A$, then it is clear that $\{ 1,2,3 \} \subset A^\prime $ as every deleted neighbourhood of $1,2$ or $3$ contains a point of $A$. To be more precise, let $\varepsilon >0 $ and $(1-\varepsilon , 1 + \varepsilon )$ be a neighbourhood of $1$. By the Archimedean property, there exists a natural number $n$ such that $\frac{1}{n} < \varepsilon $. Thus, 
+                    \[
+                        1 - \varepsilon \lt 1 + \frac{1}{n} \lt 1 + \varepsilon.
+                    \]  
+                    Similarly, for other points. Now we need to show the converse. If $x \notin \{ 1,2,3 \} $. We will find a deleted neighbourhood of $x$ which does not contain any point of $A$. Take $\delta = \min \{ \vert x-1 \vert , \vert x-2 \vert , \vert x-3 \vert \} $.
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Consider the set 
+                    \[
+                        U = \left\{ s \in \mathbb{R} : \vert x-s \vert \lt \frac{\delta}{2}  \right\} 
+                    \]  
+                    Since the set 
+                    \[
+                        V = \bigcup_{i=1}^{3} \left( i, i + \frac{\delta }{2} \right) 
+                    \]
+                    contains all but finitely many points of $A$ and it is disjoint from $U$, the set $U$ contains only finitely many points of $A$. Let $a_1, a_2, \dots, a_k$ are the points of $A  \cap  U$. 
+                    \[
+                        \gamma  = \min \{ \left\vert x - a_i \right\vert , \frac{\delta }{2},~ x\neq a_i \}.  
+                    \]
+                    Then the neighbourhood 
+                    \[
+                        W = \left\{ y \in \mathbb{R} :\vert y - x \vert \lt \gamma  \right\} 
+                    \] 
+                    contains no point of $A$ except possibly $x$. Therefore, $x$ is not a limit point of $A$ and hence, $A^\prime  = \{ 1,2,3 \} $.  
+                  </div>
                 </div>
 
                 <!-- Previous Button -->

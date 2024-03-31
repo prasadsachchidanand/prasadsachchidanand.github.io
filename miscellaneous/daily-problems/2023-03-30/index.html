@@ -71,7 +71,7 @@
       
       <!-- section -->
       <section class="text-gray-600 body-font">
-        <div class="container xl:px-36 py-24 mx-auto">
+        <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
             <h2 class="text-gray-900 text-3xl title-font font-medium">30-03-2023</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
@@ -86,9 +86,24 @@
                 </div>
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
-                  </p>
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong> We will give a homeomorphism between these two intervals as follows. Map $a$ to $c$ and $b$ to $d$. The map will be the line joining $(a,c)$ to $(b,d)$. The equation of the line will be 
+                    \[
+                        y(x) = \left( \frac{c-d}{a-b} \right) (x-a) + c.
+                    \]   
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-30-03-23_01.svg"
+                        class="h-auto"
+                        alt="The line joining (a,c) to (b,d)"
+                      />
+                    </div>
+                    So, we define the map 
+                    \[
+                        \varphi : (a,b) \to  (c,d), \quad \varphi (x) = \left( \frac{c-d}{a-b} \right) (x-a) + c.
+                    \]
+                    Note that, $\varphi $ maps into $(c,d)$. It is continuous as it is a linear polynomial. Also, it is clear that it is a bijection between $(a,b)$ into $(c,d)$.
+                  </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
                 <!-- Previous Button -->
