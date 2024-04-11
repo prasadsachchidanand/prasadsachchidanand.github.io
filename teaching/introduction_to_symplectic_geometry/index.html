@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-	<title>Research - Sachchidanand Prasad</title>
+	<title>Introduction to Symplectic Geometry - Sachchidanand Prasad</title>
 
-  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png"/>
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.png"/>
 
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
 
@@ -41,7 +41,7 @@
       <div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
         <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
           <div class="p-4 flex flex-row items-center justify-between">
-            <a href="../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
+            <a href="../../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
             <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
               <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
                 <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -50,25 +50,19 @@
             </button>
           </div>
           <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../"> Home </a>
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../research/"> Research </a>
-            <!-- <div @click.away="open = false" class="relative" x-data="{ open: false }">
-              <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                <span>Research</span>
-                <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-              </button>
-              <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
-                <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
-                  <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Overview</a>
-                  <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Publications</a>
-                  <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #3</a>
-                </div>
-              </div>
-            </div>  -->
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../resume/"> CV </a>
-		      	<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../articles/">Articles</a>
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../miscellaneous/">Miscellaneous</a>
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../contact/">Contact</a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../"> Home </a>
+
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../research/"> Research </a>
+
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../teaching/">Teaching</a>
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../resume/"> CV </a>
+
+		      	<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../articles/">Articles</a>
+
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../miscellaneous/">Miscellaneous</a>
+
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../contact/">Contact</a>
           </nav>
         </div>
       </div>
@@ -77,116 +71,24 @@
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">Teaching</h2>
-            <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-          </div>
-          <div class="flex flex-col items-center text-center justify-center">
-            <img class="md:w-f sm:w-f" src="../assets/img/course-page.svg" alt="sphere cut locus" >
+            <img class="md:w-f sm:w-f" src="../../assets/img/course-page.svg" alt="sphere cut locus" >
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
             <div class="p-4 md:w-full flex">
-              <div class="flex-grow lg:px-32 px-6">
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify"> 
-                  My area of interest includes <em>differential geometry</em>, <em>differential topology</em>, <em>algebraic topology</em> and <em>polynomial maps</em>. More specifically, I am working on the <em class="font-medium">cut locus of a submanifold</em>. Below, I have given a brief overview of cut locus of a submanifold. Recently, I also made an interest towards combinatorial topology. I am studying independence complex of graphs. I am also working on Lvov-Kaplansky conjecture, which says that image of $n\times n$ matrices over any field $K$ under the multilinear polynomial in non-commutative variables is a vector space.
-                </p>
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  For a given Riemannian manifold $M$ and $N\subset M$ the <em class="font-medium">cut locus of $N$</em>, $\mathrm{Cu}(N)$, is the collection of points $q\in M$ such that there exists a distance minimal geodesic $\gamma$ joining $N$ to $q$ such that any extension of $\gamma$ beyond $q$ is no longer a distance minimal geodesic. Here, by the <em class="font-medium">distance minimal geodesic $\gamma$ joining $N$ to $q$</em> we mean that there exists $p\in N$ such that the length of $\gamma$ from $p$ to $q$ is same as the distance from $N$ to $q$.
-                </p>
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  If $N$ is a smooth submanifold of $M$, then we say it is <em class="font-medium">non-degenerate critical submanifold of $f:M\to \mathbb{R}$</em> if $N\subseteq \mathrm{Cr}(f)$ (critical points of $f$) and for any $p\in N$, the Hessian of $f$ at $p$ is non-degenerate in the direction normal to $N$ at $p$. The function $f$ is said to be <em class="font-medium">Morse-Bott</em> if the connected components of $\mathrm{Cr}(f)$ are non-degenerate critical submanifolds. 
-                </p>
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  The <em class="font-medium">Thom space</em> $\mathrm{Th}(E)$ of a real vector bundle $E\to B$ of rank $k$ is $D(E)/S(E)$, where $D(E)$ is the unit disk bundle and $S(E)$ is the unit sphere bundle. Here we have chosen a Euclidean metric on $E$.
-                </p>
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  In one of my <a href="#cut-locus-relation" class="text-blue-500 hover:text-blue-800">papers</a> (joint with Dr Somnath Basu),
-                  we discussed the cut locus of a closed submanifold and described the relation between it with Thom spaces and Morse-Bott functions. 
-                </p>
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify"> Currently, I am working on the cut locus of a quotient manifold and its applications to classifying spaces.
-                </p>
-                <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="publications">Publications and Preprints</h2>
-                <ol class="pl-8 list-decimal">
+              <div class="flex-grow lg:px-32 px-6 text-center">
 
-                  <!-- On the cut locus of submanifolds of a Finsler manifold  -->
-                  <li class="text-lg mt-8" id="image-of-polynomials">
-                    <em>On the cut locus of submanifolds of a Finsler manifold </em> (joint with Aritra Bhowmick), July 2023 <br>
-                    <span class="pl-4">
-                      <a href="https://arxiv.org/abs/2307.11045" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv link</a>
-                    </span>
-                    <div class="mt-2 ml-4 border-l-2 border-indigo-500 hidden md:block xs:hidden">
-                      <p class="pl-2 leading-relaxed text-base text-gray-500 text-justify">
-                        <span class="text-gray-900">Abstract:</span>In this paper, we investigate the cut locus of submanifolds in a Finsler manifolds, a natural generalization of Riemannian manifolds. We explore the deformation and characterization of the cut locus, extending the results of \cite{BaPr21}. We also obtain a generalization of Klingenberg's lemma for closed geodesic (\cite{Kli59}) in the Finsler setting. 
-                      </p>
-                    </div>
+                <ol class="pl-8 text-lg font-normal mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center">
+                  <li class="mb-2">
+                      <a href="Course_introduction.pdf" target="_blank" class="block bg-blue-500 text-white py-2 px-4 rounded-lg transition duration-300 hover:bg-blue-700">Course Introduction</a>
                   </li>
-
-                  <!-- Independence complexes of wedge of graphs -->
-                  <li class="text-lg mt-8" id="image-of-polynomials">
-                    <em>Independence complexes of wedge of graphs</em> (joint with Saikat Panja and Navnath Daundkar), March 2023 <br>
-                    <span class="pl-4">
-                      <a href="https://arxiv.org/abs/2303.08798" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv link</a>
-                    </span>
-                    <div class="mt-2 ml-4 border-l-2 border-indigo-500 hidden md:block xs:hidden">
-                      <p class="pl-2 leading-relaxed text-base text-gray-500 text-justify">
-                        <span class="text-gray-900">Abstract:</span> In this article, we introduce the notion of a wedge of graphs and provide detailed computations for the independence complex of a wedge of path and cycle graphs. In particular, we show that these complexes are either contractible or wedges of spheres. 
-                      </p>
-                    </div>
+                  <li class="mb-2">
+                      <a href="#" class="block bg-blue-500 text-white py-2 px-4 rounded-lg transition duration-300 hover:bg-blue-700">References</a>
                   </li>
-
-                  <!-- The image of polynomials on upper triangular matrix algebras -->
-                  <li class="text-lg mt-8" id="image-of-polynomials">
-                    <em>The image of polynomials and Waring type problems on upper triangular matrix algebras</em> (joint with Saikat Panja), June 2022 <br>
-                    <span class="text-gray-900 ">
-											Journal of Algebra <span class="text-gray-500 text-sm">Volume 631, October 2023, Pages 148-193</span>
-										</span> <br>
-                    <span class="pl-4">
-                      <a href="https://arxiv.org/abs/2206.08827" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv link</a> &nbsp;
-                      <a href="https://www.sciencedirect.com/science/article/abs/pii/S002186932300220X?via%3Dihub" target="_blank" class="text-blue-500 hover:text-blue-800">Journal link</a>
-                    </span>
-                    <div class="mt-2 ml-4 border-l-2 border-indigo-500 hidden md:block xs:hidden">
-                      <p class="pl-2 leading-relaxed text-base text-gray-500 text-justify">
-                        <span class="text-gray-900">Abstract:</span> Let $p$ be a polynomial in non-commutative variables $x_1,x_2,\ldots,x_n$ with constant term zero over an algebraically closed field $K$. The object of study in this paper is the image of this kind of polynomial over the algebra of upper triangular matrices $T_m(K)$. We introduce a family of polynomials called multi-index $p$-inductive polynomials for a given polynomial $p$. Using this family we will show that, if $p$ is a polynomial identity of $T_t(K)$ but not of $T_{t+1}(K)$, then $p \left(T_m(K)\right)\subseteq T_m(K)^{(t-1)}$. Equality is achieved in the case $t=1,~m-1$ and an example has been provided to show that equality does not hold in general. We further prove existence of $d$ such that each element of $T_m(K)^{(t-1)}$ can be written as sum of $d$ many elements of $p\left( T_m(K) \right)$. It has also been shown that the image of $T_m(K)^\times$ under a word map is Zariski dense in $T_m(K)^\times$. 
-                      </p>
-                    </div>
-                  </li>
-
-                  <!-- Counterexample to a conjecture about dihedral quandle -->
-                  <li class="text-lg mt-8" id="quandles">
-                    <em>Counterexample to a conjecture about dihedral quandle</em> (joint with Saikat Panja), May 2022 <br>
-                    <span class="text-gray-900">
-											To appear in the Miskolc Mathematical Notes
-                    </span>
-                    <br>
-                    <span class="pl-4">
-                      <a href="https://arxiv.org/abs/2205.15024" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv link</a> 
-                    </span>
-                    <div class="mt-2 ml-4 border-l-2 border-indigo-500 hidden md:block xs:hidden">
-                      <p class="pl-2 leading-relaxed text-base text-gray-500 text-justify">
-                        <span class="text-gray-900">Abstract:</span> It was conjectured that the augmentation ideal of a dihedral quandle of even order $n>2$ satisfies $\left|\Delta^k(\textup{R}_n)/\Delta^{k+1}(\textup{R}_{n})\right|=n$ for all $k\ge 2$. In this article we provide a counterexample against this conjecture.
-                      </p>
-                    </div>
-                  </li>
-
-                  <!--A connection between cut locus, Thom spaces and Morse-Bott functions -->
-                  <li class="text-lg mt-8" id="cut-locus-relation">
-                    <em>A connection between cut locus, Thom spaces and Morse-Bott functions</em> (joint with Dr Somnath Basu), June 2021 <br>
-                    <span class="text-gray-900 ">
-											Algebraic <span style="font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
-											font-style: italic;
-											font-weight: normal;">&amp;</span> Geometric Topology <span class="text-gray-500 text-sm">Volume 23, November 2023, Pages 4185-4233</span>
-										</span> <br>
-                    <span class="pl-4">
-                      <a href="https://arxiv.org/abs/2011.02972" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv link</a>
-                      &nbsp; 
-                      <a href="https://msp.org/agt/2023/23-9/p06.xhtml" target="_blank" class="text-blue-500 hover:text-blue-800">Journal link</a>
-                    </span>
-                    <div class="mt-2 ml-4 border-l-2 border-indigo-500 hidden md:block xs:hidden">
-                      <p class="pl-2 leading-relaxed text-base text-gray-500 text-justify">
-                        <span class="text-gray-900">Abstract:</span> Associated to every closed, embedded submanifold $N$ in a connected Riemannian manifold $M$, there is the distance function $d_N$ which measures the distance of a point in $M$ from $N$. We analyze the square of this function and show that it is Morse-Bott on the complement of the cut locus $\mathrm{Cu}(N)$ of $N$, provided $M$ is complete. Moreover, the gradient flow lines provide a deformation retraction of $M-\mathrm{Cu}(N)$ to $N$. If $M$ is a closed manifold, then we prove that the Thom space of the normal bundle of $N$ is homeomorphic to $M/\mathrm{N}$. We also discuss several interesting results which are either applications of these or related observations regarding the theory of cut locus. These results include, but are not limited to, a computation of the local homology of singular matrices, a classification of the homotopy type of the cut locus of a homology sphere inside a sphere, a deformation of the indefinite unitary group $U(p,q)$ to $U(p)\times U(q)$ and a geometric deformation of $GL(n,\mathbb{R})$ to $O(n,\mathbb{R})$ which is different from the Gram-Schmidt retraction.
-                      </p>
-                    </div>
+                  <li class="mb-2">
+                      <a href="introduction-to-symplectic_geometry.pdf" target="_blank" class="block bg-blue-500 text-white py-2 px-4 rounded-lg transition duration-300 hover:bg-blue-700">Lecture notes</a>
                   </li>
                 </ol>
+               
               </div>
             </div>
           </div>
