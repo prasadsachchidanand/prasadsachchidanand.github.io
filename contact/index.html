@@ -14,6 +14,12 @@
   		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
    
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <style>
+            .cursor-not-allowed {
+                cursor: not-allowed;
+            }
+        </style>
         
 	</head>
 
@@ -58,7 +64,7 @@
 						<h1 class="sm:text-3xl text-2xl font-medium title-font mb-1 text-gray-900">Drop me a message!</h1>
 					</div>
 					<div class="lg:w-1/2 md:w-2/3 mx-auto">
-						<form class="flex flex-wrap -m-2" method="post" autocomplete="off" name="google-sheet">
+						<form class="flex flex-wrap -m-2" method="post" action="https://script.google.com/macros/s/AKfycbyur3ERt7Lx3zvPg8nfH25En13lds5Ti00yfdD0Dcn6AO_OIFF8TfqZMsLYJd0dAfbZ/exec" autocomplete="off" name="google-sheet">
 							<div class="p-2 w-1/2">
 								<div class="relative">
 									<label for="name" class="leading-7 text-sm text-gray-600">Name</label>
@@ -71,14 +77,18 @@
 									<input type="email" id="email" name="email" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
 								</div>
 							</div>
+
 							<div class="p-2 w-full">
 								<div class="relative">
 									<label for="message" class="leading-7 text-sm text-gray-600">Message</label>
 									<textarea id="message" name="message" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
 								</div>
 							</div>
+
 							<div class="p-2 w-full">
-								<button class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Send Message!</button>
+								
+                                <button class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg" id="send-message-btn">Send Message!</button>
+
 							</div>
 						</form>
 						
@@ -182,17 +192,47 @@
 		</script>
 
 		<script>
-			const scriptURL = 'https://script.google.com/macros/s/AKfycbyur3ERt7Lx3zvPg8nfH25En13lds5Ti00yfdD0Dcn6AO_OIFF8TfqZMsLYJd0dAfbZ/exec'
-			const form = document.forms['google-sheet']
-		
-			form.addEventListener('submit', e => {
-			e.preventDefault()
-			fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-				.then(response => alert("Thanks for messaging me. I will get back soon."))
-				.catch(error => console.error('Error!', error.message))
-			})
+			document.addEventListener('DOMContentLoaded', function() {
+				const scriptURL = 'https://script.google.com/macros/s/AKfycbyur3ERt7Lx3zvPg8nfH25En13lds5Ti00yfdD0Dcn6AO_OIFF8TfqZMsLYJd0dAfbZ/exec';
+				const form = document.forms['google-sheet'];
+				const sendMessageBtn = document.getElementById('send-message-btn');
+				const sendingMessageText = 'Sending...';
+				
+
+				form.addEventListener('submit', e => {
+					e.preventDefault();
+					sendMessageBtn.disabled = true; // Disable the button to prevent multiple submissions
+					sendMessageBtn.innerHTML = sendingMessageText; // Change the button text to indicate sending
+					sendMessageBtn.classList.add('cursor-not-allowed'); // Add cursor-not-allowed class
+					fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+						.then(response => {
+							showAlert("Thanks for messaging me. I will get back to you soon.", "bg-green-500", "text-white");
+							form.reset(); // Reset the form
+						})
+						.catch(error => {
+							showAlert("Error! Please try again later.", "bg-red-500", "text-white");
+							console.error('Error!', error.message);
+						})
+						.finally(() => {
+							sendMessageBtn.disabled = false; // Re-enable the button
+							sendMessageBtn.innerHTML = 'Send Message!'; // Restore the original button text
+							sendMessageBtn.classList.remove('cursor-not-allowed'); // Remove cursor-not-allowed class
+						});
+				});
+
+				function showAlert(message, bgColorClass, textColorClass) {
+					const alertDiv = document.createElement('div');
+					alertDiv.className = `flex justify-center mt-4 p-4 ${bgColorClass} ${textColorClass} font-semibold text-center rounded`;
+					alertDiv.textContent = message;
+					const formParent = form.parentElement;
+					formParent.insertBefore(alertDiv, form.nextSibling);
+					setTimeout(() => alertDiv.remove(), 5000); // Remove the alert after 10 seconds
+				}
+			});
 		</script>
+
+
+
 
 	</body>
 </html>
-
