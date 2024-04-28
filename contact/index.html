@@ -199,13 +199,14 @@
 				const form = document.forms['google-sheet'];
 				const sendMessageBtn = document.getElementById('send-message-btn');
 				const sendingMessageText = 'Sending...';
-				
+				const originalButtonText = sendMessageBtn.innerHTML;
 
 				form.addEventListener('submit', e => {
 					e.preventDefault();
 					sendMessageBtn.disabled = true; // Disable the button to prevent multiple submissions
 					sendMessageBtn.innerHTML = sendingMessageText; // Change the button text to indicate sending
 					sendMessageBtn.classList.add('cursor-not-allowed'); // Add cursor-not-allowed class
+					sendMessageBtn.classList.remove('hover:bg-blue-600'); // Remove hover effect
 					fetch(scriptURL, { method: 'POST', body: new FormData(form) })
 						.then(response => {
 							showAlert("Thanks for messaging me. I will get back to you soon.", "bg-green-500", "text-white");
@@ -217,8 +218,9 @@
 						})
 						.finally(() => {
 							sendMessageBtn.disabled = false; // Re-enable the button
-							sendMessageBtn.innerHTML = 'Send Message!'; // Restore the original button text
+							sendMessageBtn.innerHTML = originalButtonText; // Restore the original button text
 							sendMessageBtn.classList.remove('cursor-not-allowed'); // Remove cursor-not-allowed class
+							sendMessageBtn.classList.add('hover:bg-blue-600'); // Restore hover effect
 						});
 				});
 
@@ -232,9 +234,6 @@
 				}
 			});
 		</script>
-
-
-
 
 	</body>
 </html>
