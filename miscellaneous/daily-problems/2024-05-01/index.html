@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
-    <meta name="description" content="">
+    <meta name="description" content="Every nonzero element of $\mathbb{Z} _n$ is either a unit or a zero divisor, but not both">
 
     
-	<title>Problem of the day | 01-05-2024 | Abstract Algebra -  - Sachchidanand Prasad</title>
+	<title>Problem of the day | 01-05-2024 | Abstract Algebra - Every nonzero element of $\mathbb{Z} _n$ is either a unit or a zero divisor, but not both - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -44,11 +44,17 @@
           </div>
           <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../"> Home </a>
+
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../research/"> Research </a>
+
 						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../teaching/"> Teaching </a>
+
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../resume/"> CV </a>
+
 		        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../articles/">Articles</a>
+
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../miscellaneous/"> Miscellaneous </a>
+
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../contact/">Contact</a>
           </nav>
         </div>
@@ -77,9 +83,20 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>  Let $a$ be a nonzero element of $\mathbb{Z} _n$. Suppose that $a$ is a unit. We claim that $a$ can not be a zero divisor. If $a$ is a zero divisor, then there exists a nonzero $b \in \mathbb{Z} _n$ such that 
+                    \[
+                        a b = 0 \implies a^{-1} \left( a b \right) = 0 \implies b = 0,
+                    \] 
+                    a contradiction. Thus, $a$ is not a zero divisor. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    On the other hand, if $a$ is a zero divisor, then $a$ can not be a unit. If not, then there exists $c \in \mathbb{Z} _n$ such that $ac = 1$. Since $a$ is a zero divisor, there exists a nonzero element $d\in \mathbb{Z} _n$ such that $ad = 0$. We have 
+                    \[
+                        ad = 0 \implies c (ad) = 0 \implies d = 0,
+                    \]    
+                    a contradiction. Thus, $a$ can not be a unit. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
@@ -87,7 +104,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-05-02/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-04-30/">
                           Previous 
                         </a>
                       </li>
@@ -97,7 +114,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-04-20/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-05-02/">
                           Next 
                         </a>
                       </li>
