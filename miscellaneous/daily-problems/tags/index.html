@@ -98,21 +98,6 @@
                                     Number Theory
                                   </button>
                                 </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Number Theory
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Number Theory
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Number Theory
-                                  </button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -172,14 +157,14 @@
 
                             // Create a container div for each link with the provided classes
                             const linkContainer = document.createElement('div');
-                            linkContainer.classList.add('flex', 'flex-wrap', 'sm:-m-4', '-mx-4', '-mb-10', '-mt-4', 'md:space-y-0', 'space-y-6');
+                            linkContainer.classList.add('flex', 'flex-wrap', 'sm:-m-4', '-mx-4', '-mb-10', '-mt-4', 'md:space-y-0', 'space-y-6', 'my-2');
 
                             // Create inner divs with additional classes
                             const innerDiv1 = document.createElement('div');
                             innerDiv1.classList.add('p-4', 'md:w-full', 'flex' );
 
                             const innerDiv2 = document.createElement('div');
-                            innerDiv2.classList.add('flex-grow', 'lg:px-32', 'px-6');
+                            innerDiv2.classList.add('flex-grow', 'lg:px-32', 'px-6', 'py-2');
 
                             // Create the link element
                             const link = document.createElement('a');
@@ -206,7 +191,7 @@
                         });
                     } else {
                         // Display a message if no problems are associated with the tag
-                        problemsContainer.innerText = `No problems found for the tag "${tag}".`;
+                        problemsContainer.innerText = `The links will be updated soon for "${tag}".`;
                     }
                 });
             });
