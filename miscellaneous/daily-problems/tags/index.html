@@ -72,7 +72,7 @@
                 <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
                     <div class="p-4 md:w-full flex">
                         <div class="flex-grow lg:px-32 px-6">
-                            <div class="grid grid-cols-4 gap-4">
+                            <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
                                 <div>
                                   <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
                                     Abstract Algebra
@@ -98,6 +98,21 @@
                                     Number Theory
                                   </button>
                                 </div>
+                                <div>
+                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
+                                    Number Theory
+                                  </button>
+                                </div>
+                                <div>
+                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
+                                    Number Theory
+                                  </button>
+                                </div>
+                                <div>
+                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
+                                    Number Theory
+                                  </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -108,85 +123,94 @@
         </section>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+		
+    <script>
+			function myFunction() {
+				var x = document.lastModified;
+				document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+				}
+
+				myFunction()
+		</script>
+
    <!-- Add JavaScript code for handling button clicks and displaying problems -->
-   <script>
-          document.addEventListener('DOMContentLoaded', function() {
-    // Get all buttons with the class 'tag-button'
-    const buttons = document.querySelectorAll('.tag-button');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all buttons with the class 'tag-button'
+            const buttons = document.querySelectorAll('.tag-button');
 
-    // Iterate over buttons and add click event listener
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Reset the classes of all buttons to their default state
-            buttons.forEach(b => {
-                b.className = 'tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br  font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2';
-            });
+            // Iterate over buttons and add click event listener
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Reset the classes of all buttons to their default state
+                    buttons.forEach(b => {
+                        b.className = 'tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br  font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2';
+                    });
 
-            // Change the classes of the clicked button to the desired state
-            button.className = 'tag-button text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br  font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2';
+                    // Change the classes of the clicked button to the desired state
+                    button.className = 'tag-button text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br  font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2';
 
-            // Get the tag from the button text
-            const tag = button.innerText.trim().toLowerCase().replace(/ /g, '-');
+                    // Get the tag from the button text
+                    const tag = button.innerText.trim().toLowerCase().replace(/ /g, '-');
 
-            // Get the problems container div
-            let problemsContainer = document.getElementById('problems-container');
+                    // Get the problems container div
+                    let problemsContainer = document.getElementById('problems-container');
 
-            // Clear any existing content in the problems container
-            problemsContainer.innerHTML = '';
+                    // Clear any existing content in the problems container
+                    problemsContainer.innerHTML = '';
 
-            // Look up the problems for the tag in tagsToProblems.js
-            const problemDirs = tagsToProblems[tag];
+                    // Look up the problems for the tag in tagsToProblems.js
+                    const problemDirs = tagsToProblems[tag];
 
-            // Check if there are associated problems
-            if (problemDirs) {
-                // Create links for each problem directory
-                problemDirs.forEach(dir => {
-                    // Extract the date from the directory path
-                    const date = dir.replace('../', '');
+                    // Check if there are associated problems
+                    if (problemDirs) {
+                        // Create links for each problem directory
+                        problemDirs.forEach(dir => {
+                            // Extract the date from the directory path
+                            const date = dir.replace('../', '');
 
-                    // Create a container div for each link with the provided classes
-                    const linkContainer = document.createElement('div');
-                    linkContainer.classList.add('flex', 'flex-wrap', 'sm:-m-4', '-mx-4', '-mb-10', '-mt-4', 'md:space-y-0', 'space-y-6');
+                            // Create a container div for each link with the provided classes
+                            const linkContainer = document.createElement('div');
+                            linkContainer.classList.add('flex', 'flex-wrap', 'sm:-m-4', '-mx-4', '-mb-10', '-mt-4', 'md:space-y-0', 'space-y-6');
 
-                    // Create inner divs with additional classes
-                    const innerDiv1 = document.createElement('div');
-                    innerDiv1.classList.add('p-4', 'md:w-full', 'flex');
+                            // Create inner divs with additional classes
+                            const innerDiv1 = document.createElement('div');
+                            innerDiv1.classList.add('p-4', 'md:w-full', 'flex' );
 
-                    const innerDiv2 = document.createElement('div');
-                    innerDiv2.classList.add('flex-grow', 'lg:px-32', 'px-6');
+                            const innerDiv2 = document.createElement('div');
+                            innerDiv2.classList.add('flex-grow', 'lg:px-32', 'px-6');
 
-                    // Create the link element
-                    const link = document.createElement('a');
-                    link.href = `${dir}/index.html`;
-                    link.innerText = date; // Display only the date as the link text
+                            // Create the link element
+                            const link = document.createElement('a');
+                            link.href = `${dir}/index.html`;
+                            link.innerText = date; // Display only the date as the link text
 
-                    // Add the desired classes to the link
-                    link.classList.add('text-blue-500', 'hover:text-blue-800', 'font-medium', 'text-lg');
+                            // Add the desired classes to the link
+                            link.classList.add('text-blue-500', 'hover:text-blue-800', 'font-medium', 'text-lg');
 
-                    // Add the target attribute to the link to open in a new tab
-                    link.target = '_blank';
+                            // Add the target attribute to the link to open in a new tab
+                            link.target = '_blank';
 
-                    // Append the link to innerDiv2
-                    innerDiv2.appendChild(link);
+                            // Append the link to innerDiv2
+                            innerDiv2.appendChild(link);
 
-                    // Append innerDiv2 to innerDiv1
-                    innerDiv1.appendChild(innerDiv2);
+                            // Append innerDiv2 to innerDiv1
+                            innerDiv1.appendChild(innerDiv2);
 
-                    // Append innerDiv1 to linkContainer
-                    linkContainer.appendChild(innerDiv1);
+                            // Append innerDiv1 to linkContainer
+                            linkContainer.appendChild(innerDiv1);
 
-                    // Append the linkContainer to the problems container
-                    problemsContainer.appendChild(linkContainer);
+                            // Append the linkContainer to the problems container
+                            problemsContainer.appendChild(linkContainer);
+                        });
+                    } else {
+                        // Display a message if no problems are associated with the tag
+                        problemsContainer.innerText = `No problems found for the tag "${tag}".`;
+                    }
                 });
-            } else {
-                // Display a message if no problems are associated with the tag
-                problemsContainer.innerText = `No problems found for the tag "${tag}".`;
-            }
+            });
         });
-    });
-});
-
-
-   </script>
+    </script>
 </body>
 </html>
