@@ -72,7 +72,60 @@
                 <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
                     <div class="p-4 md:w-full flex">
                         <div class="flex-grow lg:px-32 px-6">
-                            <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+                            <div id="linear-algebra-buttons">
+                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-4 my-4">
+                                <div>
+                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
+                                    Linear Algebra
+                                  </button>
+                                </div>
+                                <div>
+                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
+                                    Eigenvalues
+                                  </button>
+                                </div>
+                                <div>
+                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
+                                    Eigenvectors
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div id="linear-algebra-links">
+                              <!-- Links will be appended here -->
+                            </div>
+
+                            <div id="real-analysis-buttons">
+                                <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-4 my-4">
+                                  <div>
+                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
+                                      Real Analysis
+                                    </button>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div id="real-analysis-links">
+                              <!-- Links will be appended here -->
+                            </div>
+
+                            <div id="complex-analysis-buttons">
+                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-4 my-4">
+                                <div>
+                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
+                                    Complex Analysis
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div id="complex-analysis-links">
+                              <!-- Links will be appended here -->
+                            </div>
+
+                            <div id="abstract-algebra-buttons">
+                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-4 my-4">
                                 <div>
                                   <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
                                     Abstract Algebra
@@ -93,6 +146,15 @@
                                     Field Theory
                                   </button>
                                 </div>
+                              </div>
+                            </div>
+
+                            <div id="abstract-algebra-links">
+                              <!-- Links will be appended here -->
+                            </div>
+
+                            <div id="topology-buttons">
+                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-4 my-4">
                                 <div>
                                   <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
                                     Topology
@@ -103,14 +165,78 @@
                                     Metric Space
                                   </button>
                                 </div>
+                              </div>
                             </div>
+
+                            <div id="topology-links">
+                              <!-- Links will be appended here -->
+                            </div>
+
+                            <div id="differential-equation-buttons">
+                              
+                            </div>
+
+                            <div id="differential-equation-links">
+                              <!-- Links will be appended here -->
+                            </div>
+
+                            <div id="miscellaneous-buttons">
+                              
+                            </div>
+
+                            <div id="miscellaneous-links">
+                              <!-- Links will be appended here -->
+                            </div>
+
+                          
                         </div>
                     </div>
                 </div>
+
                  <!-- Add a container to display the links to the problems -->
                  <div id="problems-container" class="mt-6 px-5 py-2.5"></div>
             </div>
         </section>
+
+        <!-- footer -->
+      <footer class="foot mt-auto border-t border-gray-200">
+        <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> Sachchidanand
+          </p>
+          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
+          </p>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-gray-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+              <i class="ai ai-researchgate ai-lg"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+              <i class="ai ai-academia"></i>
+            </a>
+          </span>
+        </div>
+        <hr class="py-1 w-1/4 m-auto">
+				<div class="items-center">
+					<p class="text-center">
+						<span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+						<img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
+						alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
+						<span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+					</p>
+				</div>
+      </footer>
+      
     </div>
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -126,81 +252,120 @@
 
    <!-- Add JavaScript code for handling button clicks and displaying problems -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all buttons with the class 'tag-button'
-            const buttons = document.querySelectorAll('.tag-button');
+      document.addEventListener('DOMContentLoaded', function() {
+          // Get all buttons with the class 'tag-button'
+          const buttons = document.querySelectorAll('.tag-button');
 
-            // Iterate over buttons and add click event listener
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Reset the classes of all buttons to their default state
-                    buttons.forEach(b => {
-                        b.className = 'tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br  font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2';
-                    });
+          // Dictionary to map main categories and their links containers
+          const linksContainers = {
+              'linear-algebra': document.getElementById('linear-algebra-links'),
+              'real-analysis': document.getElementById('real-analysis-links'),
+              'complex-analysis': document.getElementById('complex-analysis-links'),
+              'abstract-algebra': document.getElementById('abstract-algebra-links'),
+              'topology': document.getElementById('topology-links'),
+              'differential-equation': document.getElementById('differential-equation-links'),
+              'miscellaneous': document.getElementById('miscellaneous-links')
+              // Add more main categories and their links containers as needed
+          };
 
-                    // Change the classes of the clicked button to the desired state
-                    button.className = 'tag-button text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br  font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2';
+          // Mapping dictionary to map subcategories to main categories
+          const subcategoryToCategoryMap = {
+              // linear algebra subcategories
+              'eigenvalues': 'linear-algebra',
+              'eigenvectors': 'linear-algebra',
+              // real analysis subcategotries
 
-                    // Get the tag from the button text
-                    const tag = button.innerText.trim().toLowerCase().replace(/ /g, '-');
+              // complex analysis subcategotries
 
-                    // Get the problems container div
-                    let problemsContainer = document.getElementById('problems-container');
+              // abstract algebra subcategories
+              'group-theory': 'abstract-algebra',
+              'ring-theory': 'abstract-algebra',
+              'field-theory': 'abstract-algebra',
 
-                    // Clear any existing content in the problems container
-                    problemsContainer.innerHTML = '';
+              // Topology subcategories
+              'metric-space': 'topology',
 
-                    // Look up the problems for the tag in tagsToProblems.js
-                    const problemDirs = tagsToProblems[tag];
+              // differential equations subcategories
+              'ODE': 'differential-equation',
+              'PDE': 'differential-equation',
 
-                    // Check if there are associated problems
-                    if (problemDirs) {
-                        // Create links for each problem directory
-                        problemDirs.forEach(dir => {
-                            // Extract the date from the directory path
-                            const date = dir.replace('../', '');
+              // miscellaneous subcategories
+              'number-theory': 'miscellaneous'
+              // Add more subcategory to main category mappings as needed
+          };
 
-                            // Create a container div for each link with the provided classes
-                            const linkContainer = document.createElement('div');
-                            linkContainer.classList.add('flex', 'flex-wrap', 'sm:-m-4', '-mx-4', '-mb-10', '-mt-4', 'md:space-y-0', 'space-y-6', 'my-2');
+          // Iterate over buttons and add click event listener
+          buttons.forEach(button => {
+              button.addEventListener('click', function() {
+                  // Reset the classes of all buttons to their default state
+                  buttons.forEach(b => {
+                      b.className = 'tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2';
+                  });
 
-                            // Create inner divs with additional classes
-                            const innerDiv1 = document.createElement('div');
-                            innerDiv1.classList.add('p-4', 'md:w-full', 'flex' );
+                  // Change the class of the clicked button
+                  button.className = 'tag-button text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2';
 
-                            const innerDiv2 = document.createElement('div');
-                            innerDiv2.classList.add('flex-grow', 'lg:px-32', 'px-6', 'py-2');
+                  // Get the tag from the button text
+                  const tag = button.innerText.trim().toLowerCase().replace(/ /g, '-');
+                  console.log('Tag clicked:', tag);
 
-                            // Create the link element
-                            const link = document.createElement('a');
-                            link.href = `${dir}/index.html`;
-                            link.innerText = date; // Display only the date as the link text
+                  // Determine the main category from the subcategory
+                  const mainCategory = subcategoryToCategoryMap[tag] || tag;
 
-                            // Add the desired classes to the link
-                            link.classList.add('text-blue-500', 'hover:text-blue-800', 'font-medium', 'text-lg');
+                  // Get the links container for the main category
+                  const linksContainer = linksContainers[mainCategory];
+                  console.log('Links container:', linksContainer);
 
-                            // Add the target attribute to the link to open in a new tab
-                            link.target = '_blank';
+                  // Hide all links containers
+                  Object.values(linksContainers).forEach(container => {
+                      if (container) {
+                          container.style.display = 'none';
+                      }
+                  });
 
-                            // Append the link to innerDiv2
-                            innerDiv2.appendChild(link);
+                  // If links container exists, proceed
+                  if (linksContainer) {
+                      // Display the links container
+                      linksContainer.style.display = 'block';
 
-                            // Append innerDiv2 to innerDiv1
-                            innerDiv1.appendChild(innerDiv2);
+                      // Clear existing content
+                      linksContainer.innerHTML = '';
 
-                            // Append innerDiv1 to linkContainer
-                            linkContainer.appendChild(innerDiv1);
+                      // Look up the problems for the tag in `tagsToProblems`
+                      const problemDirs = tagsToProblems[tag];
+                      console.log('Problem directories:', problemDirs);
 
-                            // Append the linkContainer to the problems container
-                            problemsContainer.appendChild(linkContainer);
-                        });
-                    } else {
-                        // Display a message if no problems are associated with the tag
-                        problemsContainer.innerText = `The links will be updated soon for "${tag}".`;
-                    }
-                });
-            });
-        });
+                      // Check if there are associated problems
+                      if (problemDirs && problemDirs.length > 0) {
+                          // Create links for each problem directory
+                          problemDirs.forEach(dir => {
+                              // Extract the date from the directory path
+                              const date = dir.replace('../', '');
+
+                              // Create the link element
+                              const link = document.createElement('a');
+                              link.href = `${dir}/index.html`;
+                              link.innerText = date;
+
+                              // Add classes to the link
+                              link.classList.add('text-blue-500', 'hover:text-blue-800', 'font-medium', 'text-lg', 'mx-4');
+
+                              // Add the target attribute to open the link in a new tab
+                              link.target = '_blank';
+
+                              // Append the link directly to the links container
+                              linksContainer.appendChild(link);
+                              console.log('Added link:', link.innerText);
+                          });
+                      } else {
+                          // Display message if no problems found
+                          linksContainer.innerText = `Links will be updated for the tag "${tag}".`;
+                      }
+                  }
+              });
+          });
+      });
     </script>
+    
 </body>
 </html>

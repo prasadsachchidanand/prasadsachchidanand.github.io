@@ -1,9 +1,28 @@
 const tagsToProblems = {
-    'abstract-algebra': ['../2024-05-01'],
+    // linear algebra
+    'linear-algebra': ['../2023-01-01'],
+    'eigenvalues': ['../2023-01-01'],
+    'eigenvectors': ['../2023-01-01'],
+
+    // real analysis
+    'real-analysis': ['../2023-01-02'],
+
+    // complex analysis
+    'complex-analysis': ['../2023-01-03'],
+
+    // abstract algebra
+    'abstract-algebra': ['../2023-01-04','../2024-05-01'],
     'group-theory': ['../2024-05-01'],
-    // 'ring-theory': ['../2024-05-02', '../2024-04-19'],
-    // 'field-theory': ['../2024-04-30', '../2024-04-15', '../2023-03-25', '../2023-04-25', '../2023-03-18', '../2023-03-11'],
-    'topology': ['../2024-05-02'],
+    // 'ring-theory': [],
+    // 'field-theory': [],
+
+    // topoloy
+    'topology': ['../2023-01-05', '../2024-05-02'],
     'metric-space': ['../2024-05-02'],
-    // Add more tags and associated problems here
+
+    // ODE and PDE
+    'ode': ['../2023-01-06'],
+
+    // number theory
+    'number-theory': [],
 };
