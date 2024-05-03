@@ -25,7 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
         'metric-space': 'topology',
         'ode': 'differential-equation',
         'pde': 'differential-equation',
-        'number-theory': 'miscellaneous'
+        'probability-theory': 'miscellaneous',
+        'normal-distribution': 'miscellaneous',
+        'number-theory': 'miscellaneous',
     };
 
     // Define the active button and container

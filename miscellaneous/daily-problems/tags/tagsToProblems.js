@@ -44,9 +44,7 @@ const miscellaneous = generateDateArray(startDates['miscellaneous']);
 
 // Each array contains dates in the 'YYYY-MM-DD' format, starting from the given start date and incrementing by seven days
 
-
-
-
+// Define the `tagsToProblems` object
 const tagsToProblems = {
     // linear algebra
     'linear-algebra': linearAlgebra,
@@ -67,15 +65,39 @@ const tagsToProblems = {
 
     // topology
     'topology': topology,
-    'metric-space': ['../2023-01-05', '../2024-05-02'],
+    'metric-space': ['../2023-01-05'],
 
     // ODE and PDE
     'differential-equation': differentialEquation,
-    'ode': ['../2023-01-06'],
+    'ode': ['../2023-01-06', '../2024-05-03'],
 
-    // Miscellaneous
+    // miscellaneous
     'miscellaneous': miscellaneous,
+    'probability-theory': ['../2024-05-04'],
+    'normal-distribution': ['../2024-05-04'],
 
     // number theory
     'number-theory': [],
 };
+
+// Function to sort arrays by date
+function sortDateArrays(tagsToProblems) {
+    // Iterate over the keys in the `tagsToProblems` object
+    for (const key in tagsToProblems) {
+        // Check if the value is an array
+        if (Array.isArray(tagsToProblems[key])) {
+            // Sort the array by date
+            tagsToProblems[key].sort((a, b) => {
+                // Parse the date from the file paths and compare
+                const dateA = new Date(a.replace('../', ''));
+                const dateB = new Date(b.replace('../', ''));
+                return dateA - dateB; // Sort in ascending order
+            });
+        }
+    }
+}
+
+// Call the function to sort the arrays in `tagsToProblems`
+sortDateArrays(tagsToProblems);
+
+// The `tagsToProblems` object now has arrays sorted by date

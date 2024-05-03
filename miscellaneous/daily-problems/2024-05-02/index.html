@@ -83,7 +83,52 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let $U$ be any set. We need to show that $U$ is regular open if $U^c$ is regular closed, and $U$ is regular closed if $U^c$ is regular open. Let us first see relations between interior, closure and complement.
+                    <div class="result">
+                      For any set $U$, we have 
+                      <ol class="math-list">
+                        <li class="my-2">
+                          $(\mathrm{int} (U))^c =  \overline{U^c} $ and 
+                        </li>
+                        <li class="my-2">
+                          $\left( \bar{U} \right)^c = \mathrm{int}\left( U^c \right)   $.  
+                        </li>
+                      </ol>
+                    </div>
+                    <div class="proof">
+                      We recall the topological definition of $\bar{U} $ and $\mathrm{int}(U) $. 
+                      \begin{align*}
+                          \mathrm{int}(U)  & \coloneqq \bigcup \left\{ G: G \subseteq U \text{ and $G$ is open}  \right\},  \\
+                          \bar{U} & \coloneqq \bigcap \left\{ F: U \subseteq F \text{ and $F$ is closed}  \right\} .
+                      \end{align*}  
+                      <ol class="math-list">
+                        <li class="my-2">
+                          We have 
+                          \begin{align*}
+                              \left( \mathrm{int}(U) \right) ^c  & = \left( \bigcup \left\{ G: G \subseteq U \text{ and $G$ is open}  \right\} \right) ^c \\
+                              & = \bigcap \left\{ G^c: G^c \supseteq U^c \text{ and $G^c$ is closed}  \right\} = \overline{U^c}. 
+                          \end{align*}
+                        </li>
+                        <li class="my-2">
+                          Similarly, 
+                          \begin{align*}
+                              \left( \bar{U}  \right) ^c & = \left( \bigcap \left\{ F: U \subseteq F \text{ and $F$ is closed}  \right\} \right) ^c \\
+                              & = \bigcup \left\{ F^c: F^c \subseteq U^c \text{ and $F^c$ is open}  \right\} = \mathrm{int} \left( U^c \right) 
+                          \end{align*}
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                  
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify my-4">
+                    Set $U$ be regular open, that is, $\mathrm{int} (\bar{U} ) = U$. Using the above results, we have 
+                    \[
+                        U^c = \left( \mathrm{int} (\bar{U} ) \right) ^c \overset{(1)}{=}  \overline{\left( \bar{U}\right)^c } \overset{(2)}{=}  \overline{\mathrm{int} \left( U^c \right) }.   
+                    \]
+                    Similarly, if $U$ is regular closed, that is, $\overline{\mathrm{int}(U) } = U $, then 
+                    \[
+                        U^c = \left( \overline{\mathrm{int}(U) } \right) ^c \overset{(2)}{=} \mathrm{int} \left( \mathrm{int}(U)^c  \right) \overset{(1)}{=} \mathrm{int} \left( \overline{U^c}  \right).   
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
@@ -216,7 +261,7 @@
       };
     </script>
     <script>
-      const tags = ['topology', 'metric-space'];
+      const tags = ['topology'];
     </script>
   </body>
 </html>
