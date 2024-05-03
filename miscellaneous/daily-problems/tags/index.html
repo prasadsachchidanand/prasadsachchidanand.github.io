@@ -273,6 +273,7 @@
               // linear algebra subcategories
               'eigenvalues': 'linear-algebra',
               'eigenvectors': 'linear-algebra',
+              
               // real analysis subcategotries
 
               // complex analysis subcategotries
@@ -291,6 +292,7 @@
 
               // miscellaneous subcategories
               'number-theory': 'miscellaneous'
+
               // Add more subcategory to main category mappings as needed
           };
 
@@ -307,14 +309,14 @@
 
                   // Get the tag from the button text
                   const tag = button.innerText.trim().toLowerCase().replace(/ /g, '-');
-                  console.log('Tag clicked:', tag);
+                  // console.log('Tag clicked:', tag);
 
                   // Determine the main category from the subcategory
                   const mainCategory = subcategoryToCategoryMap[tag] || tag;
 
                   // Get the links container for the main category
                   const linksContainer = linksContainers[mainCategory];
-                  console.log('Links container:', linksContainer);
+                  // console.log('Links container:', linksContainer);
 
                   // Hide all links containers
                   Object.values(linksContainers).forEach(container => {
@@ -333,7 +335,7 @@
 
                       // Look up the problems for the tag in `tagsToProblems`
                       const problemDirs = tagsToProblems[tag];
-                      console.log('Problem directories:', problemDirs);
+                      // console.log('Problem directories:', problemDirs);
 
                       // Check if there are associated problems
                       if (problemDirs && problemDirs.length > 0) {
@@ -344,7 +346,7 @@
 
                               // Create the link element
                               const link = document.createElement('a');
-                              link.href = `${dir}/index.html`;
+                              link.href = `${dir}`;
                               link.innerText = date;
 
                               // Add classes to the link
@@ -355,7 +357,7 @@
 
                               // Append the link directly to the links container
                               linksContainer.appendChild(link);
-                              console.log('Added link:', link.innerText);
+                              // console.log('Added link:', link.innerText);
                           });
                       } else {
                           // Display message if no problems found
