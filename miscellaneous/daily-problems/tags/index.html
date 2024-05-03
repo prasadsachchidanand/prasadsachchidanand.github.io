@@ -67,7 +67,7 @@
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-col items-center text-center justify-center">
                     <h2 class="text-gray-900 text-3xl title-font font-medium">Tags</h2>
-                    <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                    <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
                 </div>
                 <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
                     <div class="p-4 md:w-full flex">
@@ -136,7 +136,7 @@
                                     Group Theory
                                   </button>
                                 </div>
-                                <div>
+                                <!-- <div>
                                   <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
                                     Ring Theory
                                   </button>
@@ -145,7 +145,7 @@
                                   <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
                                     Field Theory
                                   </button>
-                                </div>
+                                </div> -->
                               </div>
                             </div>
 
@@ -173,20 +173,32 @@
                             </div>
 
                             <div id="differential-equation-buttons">
-                              
+                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-4 my-4">
+                                <div>
+                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
+                                    Differential Equation
+                                  </button>
+                                </div>
+                              </div>
                             </div>
 
                             <div id="differential-equation-links">
                               <!-- Links will be appended here -->
                             </div>
 
-                            <div id="miscellaneous-buttons">
-                              
-                            </div>
+                            <!-- <div id="miscellaneous-buttons">
+                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-4 my-4">
+                                <div>
+                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
+                                    Miscellaneous
+                                  </button>
+                                </div>
+                              </div>
+                            </div> -->
 
-                            <div id="miscellaneous-links">
-                              <!-- Links will be appended here -->
-                            </div>
+                            <!-- <div id="miscellaneous-links">
+                              
+                            </div> -->
 
                           
                         </div>
@@ -250,124 +262,6 @@
 				myFunction()
 		</script>
 
-   <!-- Add JavaScript code for handling button clicks and displaying problems -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          // Get all buttons with the class 'tag-button'
-          const buttons = document.querySelectorAll('.tag-button');
-
-          // Dictionary to map main categories and their links containers
-          const linksContainers = {
-              'linear-algebra': document.getElementById('linear-algebra-links'),
-              'real-analysis': document.getElementById('real-analysis-links'),
-              'complex-analysis': document.getElementById('complex-analysis-links'),
-              'abstract-algebra': document.getElementById('abstract-algebra-links'),
-              'topology': document.getElementById('topology-links'),
-              'differential-equation': document.getElementById('differential-equation-links'),
-              'miscellaneous': document.getElementById('miscellaneous-links')
-              // Add more main categories and their links containers as needed
-          };
-
-          // Mapping dictionary to map subcategories to main categories
-          const subcategoryToCategoryMap = {
-              // linear algebra subcategories
-              'eigenvalues': 'linear-algebra',
-              'eigenvectors': 'linear-algebra',
-              
-              // real analysis subcategotries
-
-              // complex analysis subcategotries
-
-              // abstract algebra subcategories
-              'group-theory': 'abstract-algebra',
-              'ring-theory': 'abstract-algebra',
-              'field-theory': 'abstract-algebra',
-
-              // Topology subcategories
-              'metric-space': 'topology',
-
-              // differential equations subcategories
-              'ODE': 'differential-equation',
-              'PDE': 'differential-equation',
-
-              // miscellaneous subcategories
-              'number-theory': 'miscellaneous'
-
-              // Add more subcategory to main category mappings as needed
-          };
-
-          // Iterate over buttons and add click event listener
-          buttons.forEach(button => {
-              button.addEventListener('click', function() {
-                  // Reset the classes of all buttons to their default state
-                  buttons.forEach(b => {
-                      b.className = 'tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2';
-                  });
-
-                  // Change the class of the clicked button
-                  button.className = 'tag-button text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2';
-
-                  // Get the tag from the button text
-                  const tag = button.innerText.trim().toLowerCase().replace(/ /g, '-');
-                  // console.log('Tag clicked:', tag);
-
-                  // Determine the main category from the subcategory
-                  const mainCategory = subcategoryToCategoryMap[tag] || tag;
-
-                  // Get the links container for the main category
-                  const linksContainer = linksContainers[mainCategory];
-                  // console.log('Links container:', linksContainer);
-
-                  // Hide all links containers
-                  Object.values(linksContainers).forEach(container => {
-                      if (container) {
-                          container.style.display = 'none';
-                      }
-                  });
-
-                  // If links container exists, proceed
-                  if (linksContainer) {
-                      // Display the links container
-                      linksContainer.style.display = 'block';
-
-                      // Clear existing content
-                      linksContainer.innerHTML = '';
-
-                      // Look up the problems for the tag in `tagsToProblems`
-                      const problemDirs = tagsToProblems[tag];
-                      // console.log('Problem directories:', problemDirs);
-
-                      // Check if there are associated problems
-                      if (problemDirs && problemDirs.length > 0) {
-                          // Create links for each problem directory
-                          problemDirs.forEach(dir => {
-                              // Extract the date from the directory path
-                              const date = dir.replace('../', '');
-
-                              // Create the link element
-                              const link = document.createElement('a');
-                              link.href = `${dir}`;
-                              link.innerText = date;
-
-                              // Add classes to the link
-                              link.classList.add('text-blue-500', 'hover:text-blue-800', 'font-medium', 'text-lg', 'mx-4');
-
-                              // Add the target attribute to open the link in a new tab
-                              link.target = '_blank';
-
-                              // Append the link directly to the links container
-                              linksContainer.appendChild(link);
-                              // console.log('Added link:', link.innerText);
-                          });
-                      } else {
-                          // Display message if no problems found
-                          linksContainer.innerText = `Links will be updated for the tag "${tag}".`;
-                      }
-                  }
-              });
-          });
-      });
-
-    </script>
+    <script src="tags.js"></script>
 </body>
 </html>

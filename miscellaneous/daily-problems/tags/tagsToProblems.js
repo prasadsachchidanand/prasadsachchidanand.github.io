@@ -1,142 +1,81 @@
+// Define the end date
+const endDate = new Date();
+
+// Function to generate date arrays for each category
+function generateDateArray(startDateString) {
+    // Initialize the date array
+    const dateArray = [];
+
+    // Parse the start date
+    let currentDate = new Date(startDateString);
+    
+    // Loop to generate the dates in seven-day intervals
+    while (currentDate <= endDate) {
+        // Add the date in the format 'YYYY-MM-DD' to the array
+        dateArray.push(`../${currentDate.toISOString().slice(0, 10)}`);
+        
+        // Increment the date by seven days
+        currentDate.setDate(currentDate.getDate() + 7);
+    }
+
+    // Return the generated date array
+    return dateArray;
+}
+
+// Define the start dates for each category
+const startDates = {
+    'linear-algebra': '2023-01-01',
+    'real-analysis': '2023-01-02',
+    'complex-analysis': '2023-01-03',
+    'abstract-algebra': '2023-01-04',
+    'topology': '2023-01-05',
+    'differential-equation': '2023-01-06',
+    'miscellaneous': '2023-01-07'
+};
+
+// Initialize the arrays for each category
+const linearAlgebra = generateDateArray(startDates['linear-algebra']);
+const realAnalysis = generateDateArray(startDates['real-analysis']);
+const complexAnalysis = generateDateArray(startDates['complex-analysis']);
+const abstractAlgebra = generateDateArray(startDates['abstract-algebra']);
+const topology = generateDateArray(startDates['topology']);
+const differentialEquation = generateDateArray(startDates['differential-equation']);
+const miscellaneous = generateDateArray(startDates['miscellaneous']);
+
+// Each array contains dates in the 'YYYY-MM-DD' format, starting from the given start date and incrementing by seven days
+
+
+
+
 const tagsToProblems = {
     // linear algebra
-    'linear-algebra': ['../2023-01-01'],
+    'linear-algebra': linearAlgebra,
     'eigenvalues': ['../2023-01-01'],
     'eigenvectors': ['../2023-01-01'],
 
     // real analysis
-    'real-analysis': ['../2023-01-02'],
+    'real-analysis': realAnalysis,
 
     // complex analysis
-    'complex-analysis': ['../2023-01-03'],
+    'complex-analysis': complexAnalysis,
 
     // abstract algebra
-    'abstract-algebra': ['../2023-01-04','../2024-05-01'],
+    'abstract-algebra': abstractAlgebra,
     'group-theory': ['../2024-05-01'],
     // 'ring-theory': [],
     // 'field-theory': [],
 
-    // topoloy
-    'topology': ['../2023-01-05', '../2024-05-02'],
+    // topology
+    'topology': topology,
     'metric-space': ['../2023-01-05', '../2024-05-02'],
 
     // ODE and PDE
+    'differential-equation': differentialEquation,
     'ode': ['../2023-01-06'],
+
+    // Miscellaneous
+    'miscellaneous': miscellaneous,
 
     // number theory
     'number-theory': [],
 };
-
-
-// Declare `tagsToProblems` globally
-// let tagsToProblems = {};
-// let isTagsToProblemsReady = false;
-
-// // Define `defineTagsToProblems` function
-// async function defineTagsToProblems() {
-//     // Define base URL and date range
-//     const baseUrl = '../';
-//     const startDate = new Date('2023-01-01');
-//     const endDate = new Date('2024-05-31');
-
-//     // Function to fetch and process problem files
-//     async function fetchProblemFiles() {
-//         const problemFiles = [];
-
-//         async function fetchDirectory(date) {
-//             const formattedDate = date.toISOString().split('T')[0];
-//             const directoryUrl = `${baseUrl}${formattedDate}/index.html`;
-
-//             try {
-//                 const response = await fetch(directoryUrl);
-//                 if (!response.ok) return;
-
-//                 const text = await response.text();
-
-//                 // Find and extract tags from the script tag
-//                 const tagsMatch = text.match(/<script>[^>]*const tags = \[(.*?)\];[^<]*<\/script>/);
-//                 if (tagsMatch && tagsMatch[1]) {
-//                     const tags = tagsMatch[1].split(',').map(tag => tag.trim().replace(/['"]/g, ''));
-//                     problemFiles.push({ filePath: `${baseUrl}${formattedDate}`, tags });
-//                 }
-//             } catch (error) {
-//                 console.error(`Error fetching ${directoryUrl}:`, error);
-//             }
-//         }
-
-//         let currentDate = startDate;
-//         while (currentDate <= endDate) {
-//             await fetchDirectory(currentDate);
-//             currentDate.setDate(currentDate.getDate() + 1);
-//         }
-
-//         return problemFiles;
-//     }
-
-//     // Fetch and process problem files
-//     const problemFiles = await fetchProblemFiles();
-
-//     // Populate `tagsToProblems`
-//     problemFiles.forEach(({ filePath, tags }) => {
-//         if (tags) {
-//             tags.forEach(tag => {
-//                 if (!tagsToProblems[tag]) tagsToProblems[tag] = [];
-//                 tagsToProblems[tag].push(filePath);
-//             });
-//         }
-//     });
-
-//     isTagsToProblemsReady = true;
-//     console.log('tagsToProblems:', tagsToProblems);
-// }
-
-// // Event handler for button clicks
-// function handleButtonClick(event) {
-//     if (!isTagsToProblemsReady) {
-//         console.warn('Please wait, data is still being processed.');
-//         return;
-//     }
-
-//     const button = event.target;
-//     const tag = button.innerText.trim().toLowerCase().replace(/ /g, '-');
-//     const linksContainer = document.getElementById(`${tag}-links`);
-
-//     if (linksContainer) {
-//         updateLinksForTag(tag, linksContainer);
-//     }
-// }
-
-// // Function to update links for a given tag
-// function updateLinksForTag(tag, container) {
-//     container.innerHTML = '';
-
-//     if (tagsToProblems[tag]) {
-//         tagsToProblems[tag].forEach(filePath => {
-//             const dateOnly = filePath.split('/')[1];
-//             const link = document.createElement('a');
-//             link.href = filePath; // Use filePath directly without `/index.html`
-//             link.innerText = dateOnly;
-
-//             // Styling and link target attributes
-//             link.classList.add('text-blue-500', 'hover:text-blue-800');
-//             link.target = '_blank';
-
-//             container.appendChild(link);
-//         });
-//     } else {
-//         container.innerText = `No problems found for the tag "${tag}".`;
-//     }
-// }
-
-// // Initialize after DOM content is loaded
-// document.addEventListener('DOMContentLoaded', async function () {
-//     // Define and wait for `tagsToProblems` to be ready
-//     await defineTagsToProblems();
-//     console.log('tagsToProblems is ready.');
-
-//     // Set up button click event listeners
-//     const buttons = document.querySelectorAll('.tag-button');
-//     buttons.forEach(button => button.addEventListener('click', handleButtonClick));
-// });
-
-
