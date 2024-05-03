@@ -174,13 +174,6 @@
 											</p>
 										</li>
 
-										<li class="mb-2">
-											<a href="https://www.intelligent.com/create-a-study-plan/" target="_blank" class="text-blue-500 hover:text-blue-800">Create a Study Plan</a>
-											<p class="leading-relaxed text-sm text-gray-500 text-justify px-2 py-1">
-												It is a particular blog which helps in organize the study plan for an undergradute student (not specifically in Mathematics).
-											</p>
-										</li>
-
 									</ol>
 								</p>
 							</div>
@@ -530,6 +523,14 @@
 											<a href="https://mathworld.wolfram.com/" target="_blank" class="text-blue-500 hover:text-blue-800">Wolfram MathWorld</a>
 										</li>
 										
+
+										<li class="mb-2">
+											<a href="https://aareyanmanzoor.github.io/Texromancers.html" target="_blank" class="text-blue-500 hover:text-blue-800">The TeXromancers</a>
+											<p class="leading-relaxed text-sm text-gray-500 text-justify px-2 py-1">
+												This is a group that TeX's up old book and modernizes notation in them. 
+											</p>
+										</li>
+										
 									</ol>
 								</p>
 							</div>
@@ -727,7 +728,6 @@
 											</span>
 										</li>
 
-										
 									</ol>
 								</p>
 							</div>
@@ -791,18 +791,39 @@
 
         <!-- accordion script -->
 		<script>
-			var acc = document.getElementsByClassName("accordion");
-			var i;
-			for (i = 0; i < acc.length; i++) {
-				acc[i].addEventListener("click", function() {
-					var panel = this.nextElementSibling;
-					if (panel.style.maxHeight) {
-					panel.style.maxHeight = null;
-					} else {
-					panel.style.maxHeight = panel.scrollHeight + "px";
-					} 
-				});
-			}
+			document.addEventListener('DOMContentLoaded', function() {
+				var acc = document.getElementsByClassName("accordion");
+				var i;
+
+				// Function to hide all accordions except the clicked one
+				function hideAllAccordionsExcept(clickedAccordion) {
+					for (i = 0; i < acc.length; i++) {
+						if (acc[i] !== clickedAccordion) {
+							var panel = acc[i].nextElementSibling;
+							if (panel.style.maxHeight) {
+								panel.style.maxHeight = null; // Hide the panel
+							}
+						}
+					}
+				}
+
+				// Add click event listener to each accordion
+				for (i = 0; i < acc.length; i++) {
+					acc[i].addEventListener("click", function() {
+						// Hide all accordions except the clicked one
+						hideAllAccordionsExcept(this);
+
+						// Toggle the clicked accordion's panel
+						var panel = this.nextElementSibling;
+						if (panel.style.maxHeight) {
+							panel.style.maxHeight = null; // Collapse the panel
+						} else {
+							panel.style.maxHeight = panel.scrollHeight + "px"; // Expand the panel
+						}
+					});
+				}
+			});
+
 		</script>
 
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
