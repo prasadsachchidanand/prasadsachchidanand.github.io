@@ -50,6 +50,7 @@ const tagsToProblems = {
     'linear-algebra': linearAlgebra,
     'eigenvalues': ['../2023-01-01'],
     'eigenvectors': ['../2023-01-01'],
+    'linear-transformation': ['../2024-05-05'],
 
     // real analysis
     'real-analysis': realAnalysis,

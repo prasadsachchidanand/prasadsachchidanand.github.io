@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const subcategoryToCategoryMap = {
         'eigenvalues': 'linear-algebra',
         'eigenvectors': 'linear-algebra',
+        'linear-transformation': 'linear-algebra',
         'real-analysis': 'real-analysis',
         'complex-analysis': 'complex-analysis',
         'group-theory': 'abstract-algebra',
