@@ -54,6 +54,7 @@ const tagsToProblems = {
 
     // real analysis
     'real-analysis': realAnalysis,
+    'supremum': ['../2024-05-06'],
 
     // complex analysis
     'complex-analysis': complexAnalysis,
