@@ -58,12 +58,14 @@ const tagsToProblems = {
 
     // complex analysis
     'complex-analysis': complexAnalysis,
+    'infinite-series': ['../2024-05-07'],
 
     // abstract algebra
     'abstract-algebra': abstractAlgebra,
     'group-theory': ['../2024-05-01'],
     // 'ring-theory': [],
-    // 'field-theory': [],
+    'field-theory': ['../2024-05-08'],
+    'spliting-field': ['../2024-05-08'],
 
     // topology
     'topology': topology,

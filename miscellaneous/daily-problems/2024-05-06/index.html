@@ -92,7 +92,11 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $\alpha $ be the supremum of $A$. We need to show that $\alpha \in \bar{A} $. Suppose not, then there exists $\varepsilon >0$ such that $(\alpha -\varepsilon , \alpha + \varepsilon )  \cap A = \emptyset $. This means, the interval $(\alpha -\varepsilon , \alpha +\varepsilon )$ does not contain any element of $A$ thus for any $a\in A$,
+                    \[
+                        a \lt \alpha - \varepsilon \lt \alpha. 
+                    \]        
+                    This is a contradiction as $\alpha = \sup A$. Thus, $\alpha \in A$.
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
@@ -225,7 +229,7 @@
       };
     </script>
     <script>
-      const tags = ['linear-algebra', 'linear-transformation'];
+      const tags = ['real-analysis', 'supremum'];
     </script>
   </body>
 </html>
