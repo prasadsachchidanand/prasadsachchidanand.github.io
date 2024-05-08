@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add Tailwind classes for responsive grid layout
             linksContainer.classList.add(
                 'grid', 'gap-4', 'grid-cols-1', 'sm:grid-cols-2', 'md:grid-cols-3',
-                'lg:grid-cols-4', 'xl:grid-cols-5', '2xl-grid-cols-6'
+                'lg:grid-cols-4', 'xl:grid-cols-5', '2xl-grid-cols-6', 'text-center'
             );
 
             // Populate links container with links
