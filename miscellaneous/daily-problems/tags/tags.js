@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'field-theory': 'abstract-algebra',
         'spliting-field': 'abstract-algebra',
         'metric-space': 'topology',
+        'product-topology': 'topology',
         'ode': 'differential-equation',
         'pde': 'differential-equation',
         'probability-theory': 'miscellaneous',

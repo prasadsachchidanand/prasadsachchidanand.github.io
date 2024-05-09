@@ -8,7 +8,7 @@
     <meta name="description" content="Let $\mathbb{F}$ be the field of complex numbers which are algebraic over $\mathbb{Q} $. Then show that $[\mathbb{F} : \mathbb{Q} ]$ is infinite.">
 
     
-	<title>Problem of the day | 07-05-2024 | Abstract Algebra - $[\mathbb{F} : \mathbb{Q} ]$ is infinite. - Sachchidanand Prasad</title>
+	<title>Problem of the day | 08-05-2024 | Abstract Algebra - $[\mathbb{F} : \mathbb{Q} ]$ is infinite. - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -92,7 +92,19 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We need to show that $[\mathbb{F} : \mathbb{Q} ]$ is infinite. Let us assume that it is finite and $[\mathbb{F} : \mathbb{Q} ] = n$. Choose a prime number $p$ such that $p > n + 2$. Then the polynomial 
+                    \[
+                        x^p - 1 = (x - 1) \left( x^{p-1} + \dots + x + 1 \right) \implies \frac{x^p - 1}{x - 1} = x^{p-1} + \dots + x + 1.
+                    \]
+                    By Eisenstein criteria (for irreducibility of a polynomial), this is an irreducible polynomial as the polynomial
+                    \begin{align*}
+                        \frac{(x + 1)^p - 1}{(x + 1) - 1} = x^{p-1} + p x^{p-2} + \dots p x + p
+                    \end{align*}
+                    is irreducible. Since $\mathbb{F} $ is algebraic, every $p^{\text{th} }$ root of unity is in $\mathbb{F} $. Hence for the prime $p$, there exists an element $\alpha _p$ algebraic over $\mathbb{Q} $ and $[\mathbb{Q} (\alpha _p): \mathbb{Q} ] \geq p-1$. Thus, 
+                    \begin{align*}
+                        n = [\mathbb{F} : Q] \geq [\mathbb{Q} (\alpha _p) : \mathbb{Q} ] \geq p-1 > n + 1,
+                    \end{align*}
+                    a contradiction. Thus, $[\mathbb{F} : \mathbb{Q} ]$ is infinite. 
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
