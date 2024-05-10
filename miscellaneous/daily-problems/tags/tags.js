@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'product-topology': 'topology',
         'ode': 'differential-equation',
         'pde': 'differential-equation',
+        'characteristics': 'differential-equation',
         'probability-theory': 'miscellaneous',
         'normal-distribution': 'miscellaneous',
         'number-theory': 'miscellaneous',

@@ -75,6 +75,8 @@ const tagsToProblems = {
     // ODE and PDE
     'differential-equation': differentialEquation,
     'ode': ['../2023-01-06', '../2024-05-03'],
+    'pde': ['../2024-05-10'],
+    'characteristics': ['../2024-05-10'],
 
     // miscellaneous
     'miscellaneous': miscellaneous,
