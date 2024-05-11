@@ -103,7 +103,18 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The first characteristic equation is 
+                    \[
+                        \frac{\mathrm{d}x(t)}{\mathrm{d}t} = 5 \implies x(t) = 5t + c \implies c = x(t) - 5t.
+                    \]
+                    Thus, 
+                    \begin{align*}
+                        u(x(t), t) = f(c) = e^{-c^2} = e^{-\left[ x(t) - 5t \right] ^2}.
+                    \end{align*} 
+                    Thus, the solution of the given PDE is,
+                    \[
+                        u(x,t) = e^{-(x-5t)^2}.
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
