@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'probability-theory': 'miscellaneous',
         'normal-distribution': 'miscellaneous',
         'number-theory': 'miscellaneous',
+        'numerical-analysis': 'miscellaneous',
     };
 
     // Define the active button and container

@@ -82,6 +82,7 @@ const tagsToProblems = {
     'miscellaneous': miscellaneous,
     'probability-theory': ['../2024-05-04'],
     'normal-distribution': ['../2024-05-04'],
+    'numerical-analysis': ['../2024-05-11'],
 
     // number theory
     'number-theory': [],
