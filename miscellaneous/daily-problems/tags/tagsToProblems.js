@@ -51,6 +51,7 @@ const tagsToProblems = {
     'eigenvalues': ['../2023-01-01'],
     'eigenvectors': ['../2023-01-01'],
     'linear-transformation': ['../2024-05-05'],
+    'inner-product-space': ['../2024-05-12'],
 
     // real analysis
     'real-analysis': realAnalysis,

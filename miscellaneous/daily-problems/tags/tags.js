@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'eigenvalues': 'linear-algebra',
         'eigenvectors': 'linear-algebra',
         'linear-transformation': 'linear-algebra',
+        'inner-product-space': 'linear-algebra',
         'supremum': 'real-analysis',
         'infinite-series': 'complex-analysis',
         'group-theory': 'abstract-algebra',
