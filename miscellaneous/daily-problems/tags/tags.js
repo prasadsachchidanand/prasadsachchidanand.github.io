@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'linear-transformation': 'linear-algebra',
         'inner-product-space': 'linear-algebra',
         'supremum': 'real-analysis',
+        'sequences': 'real-analysis',
         'infinite-series': 'complex-analysis',
         'group-theory': 'abstract-algebra',
         'ring-theory': 'abstract-algebra',
