@@ -50,7 +50,7 @@ const tagsToProblems = {
     'linear-algebra': linearAlgebra,
     'eigenvalues': ['../2023-01-01'],
     'eigenvectors': ['../2023-01-01'],
-    'linear-transformation': ['../2024-05-05'],
+    'linear-transformation': ['../2024-05-05', '../2024-05-19'],
     'inner-product-space': ['../2024-05-12'],
 
     // real analysis
@@ -79,15 +79,20 @@ const tagsToProblems = {
     'ode': ['../2023-01-06', '../2024-05-03'],
     'pde': ['../2024-05-10'],
     'characteristics': ['../2024-05-10'],
+    'heat-equation': ['../2024-05-17'],
 
     // miscellaneous
     'miscellaneous': miscellaneous,
     'probability-theory': ['../2024-05-04'],
     'normal-distribution': ['../2024-05-04'],
     'numerical-analysis': ['../2024-05-11'],
-
-    // number theory
-    'number-theory': [],
+    'lagrange-multiplier': ['../2024-05-18'],
+    
+    // GATE
+    'gate': ['../2024-05-14'],
+    'gate-2006': ['../2024-05-14'],
+    'gate-2007': ['../2024-05-15'],
+    'gate-2022': ['../2024-05-16'],
 };
 
 // Function to sort arrays by date

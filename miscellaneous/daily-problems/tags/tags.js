@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'abstract-algebra': document.getElementById('abstract-algebra-links'),
         'topology': document.getElementById('topology-links'),
         'differential-equation': document.getElementById('differential-equation-links'),
-        'miscellaneous': document.getElementById('miscellaneous-links')
+        'miscellaneous': document.getElementById('miscellaneous-links'),
+        'gate': document.getElementById('gate-links')
     };
 
     // Map subcategories to main categories
@@ -31,10 +32,15 @@ document.addEventListener('DOMContentLoaded', function() {
         'ode': 'differential-equation',
         'pde': 'differential-equation',
         'characteristics': 'differential-equation',
+        'heat-equation': 'differential-equation',
         'probability-theory': 'miscellaneous',
         'normal-distribution': 'miscellaneous',
         'number-theory': 'miscellaneous',
         'numerical-analysis': 'miscellaneous',
+        'lagrange-multiplier': 'miscellaneous',
+        'gate-2006': 'gate',
+        'gate-2007': 'gate',
+        'gate-2022': 'gate',
     };
 
     // Define the active button and container

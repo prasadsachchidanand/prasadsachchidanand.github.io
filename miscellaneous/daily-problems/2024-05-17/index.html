@@ -4,18 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NBHM 2006, NBHM 2006 Problem-7, Write down a matrix P such that $P^{-1}AP$ is a a diagonal.">
+    <meta name="description" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Countable sets, Euler phi functions, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions.">
+    <meta name="description" content="Solve the homogeneous Dirichlet problem for the heat equation
+    \begin{equation}\label{eq:17May2024-1}
+        \begin{gathered}
+            \frac{\partial u}{\partial t} = k \frac{\partial^2 u}{\partial x^2} , \quad 0 < x < a,\ t > 0,\\
+            u(0,t) = 0 \quad \text{ and } \quad u(a,t) = 0 \\
+            u(x,0) = 
+            \begin{cases}
+                1, &\text{ if }\ 0 < x < \frac{a}{2} ;\\
+                2, &\text{ if }\ \frac{a}{2} \leq x < a.
+            \end{cases} 
+        \end{gathered}
+    \end{equation}">
+
     
-	<title>Problem of the day | 02-01-2023 - Sachchidanand Prasad</title>
+	<title>Problem of the day | 17-05-2024 | PDE - Solving heat equation - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
   <link href="../../../assets/style.css" rel="stylesheet" />
 
-  <!-- academic icons -->
+
+  <!-- Academic icon -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-   <!--font-awesome  -->
+  <link rel="stylesheet" href="../answer.css">
+   
+  <!-- font awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 			
   <!-- Google ad -->
@@ -28,7 +44,6 @@
       <!-- navbar -->
       <div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
         <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-
           <div class="p-4 flex flex-row items-center justify-between">
             <a href="../../../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
             <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
@@ -38,10 +53,9 @@
               </svg>
             </button>
           </div>
-
           <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../"> Home </a>
-
+            
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../research/"> Research </a>
 
 						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../teaching/"> Teaching </a>
@@ -59,18 +73,181 @@
       
       <!-- section -->
       <section class="text-gray-600 body-font">
-        <div class="container xl:px-36 py-24 mx-auto">
+        <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
+            <h2 class="text-gray-900 text-3xl title-font font-medium">17-05-2024</h2>
+            <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+          </div>
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
             <div class="p-4 md:w-full flex">
               <div class="flex-grow lg:px-32 px-6">
-                <div class="flex flex-col items-center justify-center">
-                  <img src="https://cdn.pixabay.com/photo/2017/06/20/08/12/maintenance-2422173__340.png"
-                    alt="tailwindcss maintenance">
-                  <h1 class="mb-3 text-3xl font-bold text-center text-purple-600">Accessing Daily Problems: Wait for the Date</h1>
-                  <p class="text-justify text-gray-600">
-                    You are attempting to access a date that has not yet come to pass. It is important to wait until the designated date arrives in order to view the problem that will be posted on this platform.
-                  </p>
+                
+                <!-- Problem -->
+                <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
+                  <ul class="leading-relaxed lg:text-lg md:text-base text-justify">
+                      <strong>Problem: </strong>Solve the homogeneous Dirichlet problem for the heat equation
+                      \begin{equation}\label{eq:17May2024-1} 
+                          \begin{gathered}
+                              \frac{\partial u}{\partial t} = k \frac{\partial^2 u}{\partial x^2} , \quad 0 \lt x \lt a,\ t > 0,\\[1pt]
+                              u(0,t) = 0 \quad \text{ and } \quad u(a,t) = 0 \\[1pt]
+                              u(x,0) = 
+                              \begin{cases}
+                                  1, &\text{ if }\ 0 \lt x \lt \frac{a}{2} ;\\
+                                  2, &\text{ if }\ \frac{a}{2} \leq x \lt a.
+                              \end{cases} 
+                          \end{gathered}
+                      \end{equation}
+                  <div class="mt-2">
+                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                        pde
+                    </a>
+                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                        heat-equation
+                    </a>
+                  </div>
                 </div>
+              
+                
+
+                <!-- Solution -->
+
+                <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong> We will use separation of variables. Let 
+                    \begin{equation}\label{eq:17May2024-2}
+                        u(x,t) = X(x) T(t), \quad 0 \lt x \lt a \text{ and } t > 0.
+                    \end{equation}
+                    Substituting $u(x,t)$ into the given heat equation (Equation \ref{eq:17May2024-1}), we have
+                    \begin{align*}
+                        XT' = k X''T & \implies \frac{X''}{X} = \frac{T'}{kT} = -\lambda \\
+                                     & \implies X'' + \lambda X = 0 \text{ and } T' + k \lambda  T = 0.
+                    \end{align*}
+                    Now we have wo ordinary differential equations. Let us determine the boundary conditions. 
+                    \begin{align*}
+                        u(0,t) = 0 \implies X(0)T(t) = 0 \implies X(0) = 0 \\
+                        u(a,t) = 0 \implies X(a)T(t) = 0 \implies X(a) = 0.
+                    \end{align*}
+                    Thus, we have an ODE
+                    \begin{equation}\label{eq:17May2024-3}
+                        \begin{gathered}
+                            X'' (x) + \lambda  X(x) = 0 \quad 0 \lt x \lt a \\
+                            X(0) = 0 = X(a).
+                        \end{gathered}
+                    \end{equation}
+                    Note that if $\lambda \leq 0$, then $u\equiv 0$, which is not possible. Thus,  $\lambda >0$. So, we assume that $\lambda =s^2$ for some $s\in \mathbb{R} \setminus \{ 0 \} $.
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Solving Equation \eqref{eq:17May2024-3}, we get 
+                    \[
+                        X(x) = C_1 \cos sx + C_2 \sin sx .
+                    \]    
+                    Applying the given boundary conditions, we obtain
+                    \begin{align*}
+                        X(0) = 0 & \implies C_1 = 0 \text{ and } X(a) = 0 \implies C_2 \sin sa = 0 . 
+                    \end{align*}
+                    If $C_2 = 0$, then $X\equiv 0$ which implies $u\equiv 0$. Thus, $\sin sa=0$. So, 
+                    \[
+                        sa = n\pi \implies s = \frac{n\pi }{a} \implies \lambda = s^2 = \frac{n^2 \pi ^2}{a^2}. 
+                    \]  
+                    For each $\lambda _n$ the corresponding eigenfunction will be 
+                    \begin{equation}\label{eq:17May2024-4}
+                        X_n(x) = \sin \left( \frac{n\pi x}{a} \right), \quad n\geq 1.
+                    \end{equation}
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly the other differential equation 
+                    \[
+                        T_n'(t) + \lambda _n k T_n(t) = 0
+                    \]
+                    will have solution given by 
+                    \[
+                        T_n(t) = e^{-\lambda _n kt} = e^{\frac{-n^2 \pi ^2}{a^2}kt}.
+                    \]
+                    Thus, 
+                    \begin{equation}\label{eq:17May2024-5}
+                        u_n(x,t) = X_n(x) T_n(t) = e^{\frac{-n^2 \pi ^2}{a^2}kt} \sin \left( \frac{n\pi x}{a} \right),\quad n\geq 1.
+                    \end{equation}
+                    So, using the superposition of these solutions, we get 
+                    \begin{equation}\label{eq:17May2024-6}
+                        u(x,t) = \sum_{n=1}^{\infty} u_n(x,t) = \sum_{n=1}^{\infty} b_n \sin \left( \frac{n\pi x}{a} \right)e^{\frac{-n^2 \pi ^2}{a^2}kt},
+                    \end{equation}
+                    where $b_n$ is determined by the initial condition of Equation \eqref{eq:17May2024-1}. Let $u(x,0) = f(x)$. Then substituting $t = 0$ in Equation \eqref{eq:17May2024-6}, we obtain 
+                    \begin{align*}
+                        f(x) = u(x,0) = \sum_{n=1}^{\infty} b_n \sin \left( \frac{n\pi x}{a} \right).
+                    \end{align*} 
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Hence, we need to find the Fourier sine series of $u(x, 0)$ on the interval $[0,a]$, and the coefficients are 
+                    \begin{align*}
+                        b_n & = \frac{2}{a} \int _0^a f(x) \sin \left( \frac{n\pi x}{a} \right), \mathrm{d} x, \ n\geq 1 \\
+                            & = \frac{2}{a} \left[ \int _0^{\frac{a}{2}} \sin \left( \frac{n\pi x}{a} \right) \mathrm{d} x + \int_{\frac{a}{2}}^a 2 \sin \left( \frac{n\pi x}{a} \right) \mathrm{d}x \right]  \\
+                            & = \frac{2}{a} \left[ -\cos \left( \frac{n\pi x}{a} \right) \right]_0 ^ {\frac{a}{2}} + \frac{4}{a} \left[ -\cos \left( \frac{n\pi x}{a} \right) \right] _{\frac{a}{2}} ^a \\
+                            & = \frac{2}{n\pi } \left[ 1 - \cos \left(\frac{n\pi }{2}\right) \right] + \frac{4}{n\pi }\left[ \cos \left( \frac{n\pi }{2} \right) - \cos (n \pi )  \right] \\
+                            & = \frac{2}{n\pi } + \frac{2}{n\pi } \cos \left( \frac{n\pi }{2} \right) - \frac{4}{n\pi } \cos (n\pi ) \\
+                            & = \frac{2}{n\pi } + \frac{2}{n\pi } \cos \left( \frac{n\pi }{2} \right) - \frac{4}{n\pi } (-1)^n.
+                    \end{align*} 
+                    Thus, the solution of Equation \eqref{eq:17May2024-1} is given by 
+                    \begin{gather*}
+                        u(x,t) = \sum_{n=1}^{\infty} b_n \sin \left( \frac{n\pi x}{a} \right)e^{\frac{-n^2 \pi ^2}{a^2}kt},\ 0 \lt x \lt a \text{ and } t>0, 
+                    \end{gather*}
+                    where 
+                    \[
+                        b_n = \frac{2}{n\pi } + \frac{2}{n\pi } \cos \left( \frac{n\pi }{2} \right) - \frac{4}{n\pi } (-1)^n.
+                    \]
+                  </div>
+                </div>
+
+                <!-- Previous Button -->
+                <div class="flex justify-center mt-4">
+                  <nav aria-label="Page navigation example">
+                    <ul class="flex list-style-none">
+                      <li class="page-item disabled">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-05-16/">
+                          Previous 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../../daily-problems/#calendar">
+                          All 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-05-18/">
+                          Next 
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                
+                <!-- Disqus Comments-->
+                <div class="mt-16" id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://my-google-site.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <!-- End of comment section -->
+
               </div>
             </div>
           </div>
@@ -129,23 +306,32 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+    <script id="dsq-count-scr" src="//my-google-site.disqus.com/count.js" async></script>
+
     <script>
       MathJax = {
+        loader: {
+          load: ['[tex]/mathtools']
+        },
         tex: {
           inlineMath: [
             ['$', '$'],
             ['\\(', '\\)']
           ],
+          tags: 'ams',
           displayMath: [
             ['$$', '$$'],
             ['\\[', '\\]']
-          ]
+          ],
+          packages: {'[+]': ['mathtools']}
         },
         svg: {
           fontCache: 'global'
         }
       };
+    </script>
+    <script>
+      const tags = ['pde', 'heat-equation'];
     </script>
   </body>
 </html>

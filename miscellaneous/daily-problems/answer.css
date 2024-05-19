@@ -40,8 +40,8 @@
   .remark {
     border-left: 0.25rem solid rgb(67, 89, 255);
     background-color: rgb(229, 240, 253);
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+    /* border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem; */
     margin-top: .5rem;
     padding: 1rem;
     line-height: 1.625;
@@ -82,6 +82,10 @@
 
   .text-head {
     color: rgb(32, 192, 255);
+  }
+
+  .math-list-nothing {
+    margin-left: 2.5rem;
   }
 
   .math-list {
