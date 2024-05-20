@@ -57,6 +57,7 @@ const tagsToProblems = {
     'real-analysis': realAnalysis,
     'supremum': ['../2024-05-06'],
     'sequences': ['../2024-05-13'],
+    'continuity': ['../2024-05-20'],
 
     // complex analysis
     'complex-analysis': complexAnalysis,
@@ -65,7 +66,6 @@ const tagsToProblems = {
     // abstract algebra
     'abstract-algebra': abstractAlgebra,
     'group-theory': ['../2024-05-01'],
-    // 'ring-theory': [],
     'field-theory': ['../2024-05-08'],
     'spliting-field': ['../2024-05-08'],
 

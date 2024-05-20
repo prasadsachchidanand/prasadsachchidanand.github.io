@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'inner-product-space': 'linear-algebra',
         'supremum': 'real-analysis',
         'sequences': 'real-analysis',
+        'continuity': 'real-analysis',
         'infinite-series': 'complex-analysis',
         'group-theory': 'abstract-algebra',
         'ring-theory': 'abstract-algebra',

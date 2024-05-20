@@ -91,9 +91,30 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $B = \{ v_1, v_2, \dots, v_k \} $ be linearly independent set in $V$. We need to prove that $T\left( B \right) = \{ T(v_1), T(v_2),\ldots , T(v_k) \} $ is also linearly independent. Note that as $T$ is $1-1$, the kernel of $T$ is trivial, that is $T(v) = 0$ if and only if $v = 0$.    Let 
+                    \begin{align*}
+                        \sum_{i=1}^{k} \alpha _i T(v_i) = 0 & \implies \sum_{i=1}^{k} T\left( \alpha _i v_i \right) = 0 \\
+                        & \implies T \left( \sum_{i=1}^{k} \alpha _i v_i \right) = 0 \\
+                        & \implies \sum_{i=1}^{k} \alpha _i v_i = 0 \\
+                        & \implies \alpha _i = 0 \quad i = 1,2,\ldots k,
+                    \end{align*}
+                    where in the last step we used that $\{ v_1,v_2,\ldots ,v_k \} $ is linearly independent. Thus, $T(B)$ is linearly independent. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    If $T$ is onto, then image of a spanning set of $V$ will be a spanning set of $W$. This is easy to prove. If $B = \{ v_1,v_2,\ldots ,v_k \} $ is a spanning set of $V$, then we claim that  $T(B) = \{ T(v_1), T(v_2),\ldots ,T(v_k) \} $ is a spanning set of $W$. Let $w \in W$. Since $T$ is onto, we can find $v\in V$ such that $T(v) = w$. As $B$ is a spanning set of $V$, there exists $\alpha _i \in \mathbb{R}, i = 1,2,\ldots ,k $, such that   
+                    \begin{align*}
+                        v = \sum_{i=1}^{k} \alpha _i v_i  \implies T(v) & = T\left( \sum_{i=1}^{k} \alpha _i v_i \right) \\
+                        & =\sum_{i=1}^{k} T\left( \alpha _i v_i \right) \\
+                        & = \sum_{i=1}^{k} \alpha _i T(v_i).
+                    \end{align*} 
+                    Thus, $T(B)$ is a spanning set of $W$. 
+                  </div>
+                </div>
+
+                <div class="remark leading-relaxed lg:text-lg md:text-base text-justify">
+                  If $T$ is an isomorphism, then a basis of $V$ will map to a basis of $W$. 
                 </div>
 
                 <!-- Previous Button -->
