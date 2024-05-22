@@ -69,6 +69,7 @@ const tagsToProblems = {
     'group-theory': ['../2024-05-01'],
     'field-theory': ['../2024-05-08'],
     'spliting-field': ['../2024-05-08'],
+    'group-homomorphism': ['../2024-05-22'],
 
     // topology
     'topology': topology,

@@ -91,9 +91,41 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> In order to compute the integration, we will take $z = 2e^{\iota \theta }$. Since the integration is taken from $(2,0)$ to $(0,2)$, we have $0\leq \theta \lt \pi /2$ (look at the <a href="#fig:prob-21-05-24_01" class="text-blue-500 hover:text-blue-800">figure below</a> ). So we have 
+                    \[
+                        z = 2e^{\iota \theta } \implies \mathrm{d} z = 2\iota e^{\iota \theta }\mathrm{d} \theta 
+                    \]
+                    We now will evaluate the integral by substituting these values.
+                    
+                    \begin{align*}
+                        \int _C (z^2 + 3z)\mathrm{d} z & = \int _0^{\pi /2} \left( 4e^{2\iota \theta } + 6 e^{\iota \theta } \right) \left( 2\iota e^{\iota \theta } \right) \mathrm{d} \theta \\
+                        & = 8\iota \int _0^{\pi /2} e^{3\iota \theta }\mathrm{d} \theta + 12\iota \int _0^{\pi /2} e^{2\iota \theta }\mathrm{d} \theta \\[1ex]
+                        & = 8\iota \left[ \frac{e^{3\iota \theta }}{3\iota } \right]_0 ^{\pi /2} + 12\iota \left[ \frac{e^{2\iota \theta }}{2\iota } \right]_0 ^{\pi /2} \\[1ex]
+                        & = \frac{8}{3} \left[ e^{\frac{3\pi}{2}} - 1 \right] + 6 \left[ e^{\pi \iota } - 1 \right] \\[1ex]
+                        & = \frac{8}{3}(-i - 1) + 6 (-1 - 1) \\
+                        & = \frac{-8\iota}{3} - \frac{44}{3}.
+                    \end{align*}
+                    Thus, the value of the integration will be 
+                    \[
+                        \int _C (z^2 + 3z) \mathrm{d}z = \frac{-8\iota}{3} - \frac{44}{3}.
+                    \]
+                    <div class="flex flex-wrap justify-center my-4" id="fig:prob-21-05-24_01">
+                      <img
+                        src="../../../assets/img/prob-21-05-24_01.svg"
+                        class="h-auto"
+                        alt="circle from (2,0) to (0,2)"
+                      />
+                    </div>
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                </div>
+                <div class="remark leading-relaxed lg:text-lg md:text-base text-justify">
+                  One can also solve this integral without changing into polar form. Note that the integral is varying from $2$ to  $2\iota $. That is, 
+                  \begin{align*}
+                      \int _C (z^2 + 3z) \mathrm{d}z & = \int _{2}^{2\iota } (z^2 + 3z) \mathrm{d} z \\[1ex]
+                      & = \left[ \frac{z^3}{3} + \frac{3z^2}{2} \right] _2 ^ {2\iota } \\[1ex]
+                      & = \frac{-8\iota}{3} - \frac{44}{3}.
+                  \end{align*}  
                 </div>
 
                 <!-- Previous Button -->
