@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'sequences': 'real-analysis',
         'continuity': 'real-analysis',
         'infinite-series': 'complex-analysis',
+        'complex-integration': 'complex-analysis',
         'group-theory': 'abstract-algebra',
         'ring-theory': 'abstract-algebra',
         'field-theory': 'abstract-algebra',

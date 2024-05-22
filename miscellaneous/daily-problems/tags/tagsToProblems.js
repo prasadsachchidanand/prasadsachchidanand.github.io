@@ -62,6 +62,7 @@ const tagsToProblems = {
     // complex analysis
     'complex-analysis': complexAnalysis,
     'infinite-series': ['../2024-05-07'],
+    'complex-integration': ['../2024-05-21'],
 
     // abstract algebra
     'abstract-algebra': abstractAlgebra,

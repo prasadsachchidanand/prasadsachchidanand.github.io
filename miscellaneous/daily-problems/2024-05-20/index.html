@@ -105,9 +105,23 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>It is clear that the function is continuous away from zero (as $\cos $ and $\frac{1}{x}$ both are continuous away from zero). We will prove that $f$ is not continuous at $x = 0$. For that let us use the sequential criteria for continuity. We know that if $f$ is a continuous function at $x$, then for every sequence $(x_n)$ if  $x_n \rightarrow 0$, then $f(x_n) \rightarrow f(0).$ Consider the sequence 
+                    \[
+                        x_n = \frac{1}{2\pi n}, \ n\in \mathbb{N}  \implies x_n \to 0.
+                    \]  
+                    Now consider the sequence $f(x_n)$. 
+                    \begin{align*}
+                        f(x_n) = \cos \left( \frac{1}{x_n} \right) = \cos (2\pi n) = 1 \neq f(0).
+                    \end{align*} 
+                    Thus, the function is not continuos at $x = 0$. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                </div>
+                <div class="remark leading-relaxed lg:text-lg md:text-base text-justify">
+                  We can not make the given function continuous at $x = 0$. For example, if we choose $x_n = \frac{1}{\pi n}$ which converges to $0$, then the sequence 
+                  \[
+                      f(x_n) = \cos \left( \frac{1}{x_n} \right) = \cos (\pi n) = (-1)^n.
+                  \]  
+                  The above sequence is divergent. Therefore, whatever be the value of $f(0)$, the function will not be continuos at $x = 0$. 
                 </div>
 
                 <!-- Previous Button -->
