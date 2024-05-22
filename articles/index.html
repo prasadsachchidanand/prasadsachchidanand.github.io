@@ -225,6 +225,10 @@
 									<span class="text-gray-400">Year of arXiv: 2022</span> 
 									<br>
 									<span class="text-gray-400">Year of acceptance: 2023 </span>
+									<br>
+									<span class="text-gray-400">Year of publication: 2024 </span>
+									<br>
+									<span class="text-gray-400">Volume 25 (2024), No. 1, pp. 425-428</span>
 								</p>
 								<div class="flex space-x-4 items-center my-2">
 									<div class="border rounded-lg border-gray-600 p-1">
@@ -245,13 +249,17 @@
 										<div class="bib-content p-2 bg-white rounded w-1/2">
 											<pre>
 <code class="latex" data-target="dihedralQuandle"> 
-@article{panjaprasad2022counterexample,
-	title={Counterexample to a conjecture about dihedral quandle},
-	author={Panja, Saikat and Prasad, Sachchidanand},
-	journal={arXiv preprint arXiv:2205.15024},
-	year={2022},
-	notes={accepted Miskolc Mathematical Notes}
-}
+	@article {PanjaPrasadMMN24,
+		AUTHOR = {Panja, Saikat and Prasad, Sachchidanand},
+		TITLE = {Counterexample to a conjecture about dihedral quandle },
+		JOURNAL = {Miskolc Math. Notes},
+		FJOURNAL = {Miskolc Mathematical Notes. A Publication of the University of Miskolc},
+		VOLUME = {25},
+		YEAR = {2024},
+		PAGES = {425--428},
+		DOI = {10.18514/MMN.2024.4383},
+		URL = {http://mat76.mat.uni-miskolc.hu/mnotes/article/4383},
+	}
 </code>
 											</pre>
 											<button class="copy-button bg-green-500 text-white py-2 px-4 mt-4 rounded" data-target="dihedralQuandle">Copy</button>
@@ -259,7 +267,7 @@
 										</div>
 									</div> 
 									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="http://mat76.mat.uni-miskolc.hu/mnotes/general?volume=0&number=0" target="_blank" class="text-blue-500 hover:text-blue-800">Journal</a>
+										<a href="http://mat76.mat.uni-miskolc.hu/mnotes/article/4383" target="_blank" class="text-blue-500 hover:text-blue-800">Journal</a>
 									</div>
 									<div class="border rounded-lg border-gray-600 p-1">
 										<a href="https://arxiv.org/pdf/2205.15024.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
@@ -310,13 +318,21 @@
 										<div class="bib-content p-2 bg-white rounded w-1/2">
 											<pre>
 <code class="latex" data-target="upperTriangularMatrices"> 
-@article{panjaprasad2023,
-	title={The image of polynomials and Waring type problems on upper triangular matrix algebras},
-	author={Panja, Saikat and Prasad, Sachchidanand},
-	journal={Journal of Algebra},
-	year={2023},
-	publisher={Academic Press}
-}
+	@article {PanjaPrasadJoA23,
+		AUTHOR = {Panja, Saikat and Prasad, Sachchidanand},
+		TITLE = {The image of polynomials and {W}aring type problems on upper triangular matrix algebras},
+		JOURNAL = {J. Algebra},
+		FJOURNAL = {Journal of Algebra},
+		VOLUME = {631},
+		YEAR = {2023},
+		PAGES = {148--193},
+		ISSN = {0021-8693},
+		MRCLASS = {16S50 (16R10)},
+		MRNUMBER = {4592319},
+		MRREVIEWER = {Pedro Souza Fagundes},
+		DOI = {10.1016/j.jalgebra.2023.04.027},
+		URL = {https://doi.org/10.1016/j.jalgebra.2023.04.027},
+	}
 </code>
 											</pre>
 											<button class="copy-button bg-green-500 text-white py-2 px-4 mt-4 rounded" data-target="upperTriangularMatrices">Copy</button>
@@ -375,7 +391,7 @@
 										<div class="bib-content p-2 bg-white rounded w-1/2">
 											<pre>
 <code class="latex" data-target="cutLocusAGT"> 
-	@article {BaPr21,
+	@article {BasuPrasadAGT21,
 		AUTHOR = {Basu, Somnath and Prasad, Sachchidanand},
 		 TITLE = {A connection between cut locus, {T}hom space and
 				  {M}orse--{B}ott functions},
@@ -602,54 +618,63 @@
 			const abstractButtons = document.querySelectorAll('.abstract-button');
 			const abstractOverlays = document.querySelectorAll('.abstract-overlay');
 			const closeButtons = document.querySelectorAll('.close-button');
-		  
+		
 			function toggleAbstract(index) {
-			  abstractOverlays[index].classList.toggle('hidden');
+			abstractOverlays[index].classList.toggle('hidden');
 			}
-		  
+		
 			abstractButtons.forEach((button, index) => {
-			  button.addEventListener('click', () => {
+			button.addEventListener('click', () => {
 				toggleAbstract(index);
-			  });
 			});
-		  
+			});
+		
 			closeButtons.forEach((button, index) => {
-			  button.addEventListener('click', () => {
+			button.addEventListener('click', () => {
 				toggleAbstract(index);
-			  });
 			});
-		  
+			});
+		
 			document.addEventListener('keydown', (event) => {
-			  if (event.key === 'Escape') {
+			if (event.key === 'Escape') {
 				abstractOverlays.forEach((overlay) => {
-				  overlay.classList.add('hidden');
+				overlay.classList.add('hidden');
 				});
-			  }
+			}
 			});
-
+		
 			// for copy
 			document.addEventListener('DOMContentLoaded', function () {
-				const copyButtons = document.querySelectorAll('.copy-button');
-
-				copyButtons.forEach(function (button) {
-					button.addEventListener('click', function () {
-					const targetCodeBlock = document.querySelector(`code[data-target="${button.dataset.target}"]`);
-
-					// Create a temporary textarea to hold the text
-					const textarea = document.createElement('textarea');
-					textarea.value = targetCodeBlock.textContent;
-					document.body.appendChild(textarea);
-
-					// Select and copy the text
-					textarea.select();
-					document.execCommand('copy');
-
-					// Remove the temporary textarea
-					document.body.removeChild(textarea);
-					});
+			const copyButtons = document.querySelectorAll('.copy-button');
+		
+			copyButtons.forEach(function (button) {
+				button.addEventListener('click', function () {
+				const targetCodeBlock = document.querySelector(`code[data-target="${button.dataset.target}"]`);
+		
+				// Create a temporary textarea to hold the text
+				const textarea = document.createElement('textarea');
+				textarea.value = targetCodeBlock.textContent;
+				document.body.appendChild(textarea);
+		
+				// Select and copy the text
+				textarea.select();
+				document.execCommand('copy');
+		
+				// Remove the temporary textarea
+				document.body.removeChild(textarea);
+		
+				// Change button text to "Copied"
+				button.textContent = 'Copied!';
+		
+				// Change the button text back to "Copy" after 2-3 seconds
+				setTimeout(() => {
+					button.textContent = 'Copy';
+				}, 2000); // 2 seconds
 				});
 			});
-		  </script>
+			});
+		</script>
+  
 	</body>
 </html>
 
