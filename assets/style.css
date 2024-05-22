@@ -807,11 +807,6 @@ video {
   margin-bottom: 2rem;
 }
 
-.my-16 {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-}
-
 .-mb-10 {
   margin-bottom: -2.5rem;
 }
@@ -1079,10 +1074,6 @@ video {
   height: 100vh;
 }
 
-.h-1\/2 {
-  height: 50%;
-}
-
 .w-1\/2 {
   width: 50%;
 }
@@ -1153,22 +1144,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-4\/5 {
-  width: 80%;
-}
-
-.w-5\/6 {
-  width: 83.333333%;
-}
-
-.w-\[90\%\] {
-  width: 90%;
-}
-
-.w-1 {
-  width: 0.25rem;
 }
 
 .max-w-md {
