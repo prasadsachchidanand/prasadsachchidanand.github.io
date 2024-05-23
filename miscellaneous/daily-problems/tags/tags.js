@@ -21,33 +21,41 @@ document.addEventListener('DOMContentLoaded', function() {
         'eigenvectors': 'linear-algebra',
         'linear-transformation': 'linear-algebra',
         'inner-product-space': 'linear-algebra',
+
         // real analysis
         'supremum': 'real-analysis',
         'sequences': 'real-analysis',
         'continuity': 'real-analysis',
+
         // complex analysis
         'infinite-series': 'complex-analysis',
         'complex-integration': 'complex-analysis',
+
         // abstract algebra
         'group-theory': 'abstract-algebra',
         'ring-theory': 'abstract-algebra',
         'field-theory': 'abstract-algebra',
         'spliting-field': 'abstract-algebra',
         'group-homomorphism': 'abstract-algebra',
+
         // topology
         'metric-space': 'topology',
         'product-topology': 'topology',
+        'homeomorphism': 'topology',
+
         // differential equations
         'ode': 'differential-equation',
         'pde': 'differential-equation',
         'characteristics': 'differential-equation',
         'heat-equation': 'differential-equation',
+
         // miscellaneous
         'probability-theory': 'miscellaneous',
         'normal-distribution': 'miscellaneous',
         'number-theory': 'miscellaneous',
         'numerical-analysis': 'miscellaneous',
         'lagrange-multiplier': 'miscellaneous',
+
         // gate
         'gate-2006': 'gate',
         'gate-2007': 'gate',

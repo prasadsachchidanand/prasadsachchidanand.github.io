@@ -102,9 +102,46 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We need to find number of group homomorphisms between $S_3$ and $\mathbb{Z} _3$ and vice versa. let us write 
+                    \[
+                        S_3 = \{ e, \sigma = (1,2,3), \sigma ^2, \tau = (1,2), \sigma \tau, \sigma ^2\tau\}. 
+                    \]
+                    <ul class="math-list-roman">
+                      <li class="my-2">
+                        Let $f: S_3 \to  \mathbb{Z} _3$ be a homomorphism. If $f$ is not trivial, then it must be surjective. Therefore, from the first isomorphism theorem we have 
+                        \[
+                            S_3 / \ker f \cong \mathbb{Z} _3 \implies \left\vert S^3 /\ker f \right\vert = \left\vert \mathbb{Z} _3 \right\vert \implies \left\vert \ker f \right\vert = 2.
+                        \]
+                        We also know that $\ker f$ is normal subgroup. Thus if $f$ is nontrivial, then $\ker f$ is of order $2$ normal subgroup of $S_3$. From here we can can get contradiction in two ways. <br>
+                        <ul class="math-list-disc">
+                          <li class="my-2">
+                            If $N \leqslant G$ is a normal subgroup of order $2$ and $G / N$ is cyclic, then $G$ is abelian. (<a href="../2024-04-24/" class="text-blue-500 hover:text-blue-800">See problem for 24th April 2024</a>.) 
+                          </li>
+                          <li class="my-2">
+                            Look at the order $2$ subgroups in $S_3$. Let $N = \{ e, \tau \} $. Consider 
+                            \begin{align*}
+                                \sigma N \sigma ^{-1} = \{ e, \sigma \tau \sigma ^{-1}  \} = \{ e, \sigma ^2\tau \} \neq N.
+                            \end{align*}  
+                            Similarly, if you take the other two subgroups, then also it is easy to see that they are not normal. Therefore, there does not exist any normal subgroup of order $2$.
+                          </li>
+                        </ul>
+                        Therefore, $\ker f$ can not be of order $2$ and hence, $f$ must be the trivial homomorphism. Thus, there is only one homomorphism from $S_3$ to $\mathbb{Z} _3$. 
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-2">
+                        Now we need to find the number of homomorphisms from $\mathbb{Z} _3$ to $S_3$. Since $\mathbb{Z} _3$ is cyclic, any homomorphism is determined by its generator. That is, if $f : \mathbb{Z} _3 \to  S_3$ is a homomorphism, then it is determined by $f(1)$. If $o(g)$ denotes the order of $g$, then we know that $o(f(1))$ must divide $o(1) = 3$. This implies $o(f(1))$ is either $1$ or $3$.  Look at the following possibilities.  
+                        \begin{align*}
+                            & o(f(1)) = 1 \implies f(1) = e \implies f \text{ is trivial}. \\
+                            & o(f(1)) = 3 \implies f(1) \in \{\sigma ,\sigma ^2\}.
+                        \end{align*}
+                        Thus, the total number of homomorphisms are $3$. (The number of nontrivial homomorphisms are precisely the order $3$ elements in $S_3$.)
+                      </li>
+                    </ul>
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                </div>
+                <div class="remark leading-relaxed lg:text-lg md:text-base text-justify">
+                  The second part of the problem can be generalized as the number of nontrivial group homomorphisms from $\mathbb{Z} _p$ to $S_n$, where $p$ is a prime, is the number of order $p$ elements in $S_n$.     
                 </div>
 
                 <!-- Previous Button -->

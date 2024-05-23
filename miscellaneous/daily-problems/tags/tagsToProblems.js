@@ -75,6 +75,7 @@ const tagsToProblems = {
     'topology': topology,
     'metric-space': ['../2023-01-05'],
     'product-topology': ['../2023-05-09'],
+    'homeomorphism': ['../2023-05-23'],
 
     // ODE and PDE
     'differential-equation': differentialEquation,
