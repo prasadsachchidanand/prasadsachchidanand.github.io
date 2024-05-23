@@ -58,6 +58,7 @@ const tagsToProblems = {
     'supremum': ['../2024-05-06'],
     'sequences': ['../2024-05-13'],
     'continuity': ['../2024-05-20'],
+    'improper-integral': ['../2024-04-01'],
 
     // complex analysis
     'complex-analysis': complexAnalysis,

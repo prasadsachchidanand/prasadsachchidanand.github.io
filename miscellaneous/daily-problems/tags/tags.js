@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'supremum': 'real-analysis',
         'sequences': 'real-analysis',
         'continuity': 'real-analysis',
+        'improper-integral': 'real-analysis',
 
         // complex analysis
         'infinite-series': 'complex-analysis',
