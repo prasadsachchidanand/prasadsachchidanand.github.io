@@ -56,11 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
         'number-theory': 'miscellaneous',
         'numerical-analysis': 'miscellaneous',
         'lagrange-multiplier': 'miscellaneous',
+        'linear-programming': 'miscellaneous',
 
         // gate
         'gate-2006': 'gate',
         'gate-2007': 'gate',
         'gate-2022': 'gate',
+        'gate-2024': 'gate',
     };
 
     // Define the active button and container

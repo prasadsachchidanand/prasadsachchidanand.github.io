@@ -80,15 +80,14 @@
                 
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
-                  <ul class="leading-relaxed lg:text-lg md:text-base text-justify">
-                      <strong>Problem: </strong>Find the values of $\lambda ^2$ such that the following boundary value problem has a  nontrivial solution. 
-                      \begin{equation}\label{eq:24May2024-1}
-                          \begin{gathered}
-                              \frac{\mathrm{d}^2u}{\mathrm{d}x^2} + \lambda ^2 u = 0 , \quad 0 \lt x \lt \frac{\pi}{2} \\
-                              u(0) = 0\\
-                              \int _0^{\pi /2} u(t) \mathrm{d} t = 0. 
-                          \end{gathered}
-                      \end{equation}
+                    <strong>Problem: </strong>Find the values of $\lambda ^2$ such that the following boundary value problem has a  nontrivial solution. 
+                    \begin{equation}\label{eq:24May2024-1}
+                        \begin{gathered}
+                            \frac{\mathrm{d}^2u}{\mathrm{d}x^2} + \lambda ^2 u = 0 , \quad 0 \lt x \lt \frac{\pi}{2} \\
+                            u(0) = 0\\
+                            \int _0^{\pi /2} u(t) \mathrm{d} t = 0. 
+                        \end{gathered}
+                    \end{equation}
                   <div class="mt-2">
                     <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
                         differential-equation
@@ -105,9 +104,42 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>At first assume that $\lambda =0$. This implies we have the equation
+                    \begin{align*}
+                        \frac{\mathrm{d}^2u}{\mathrm{d}x^2} = 0 \implies u(x) = ax + b.
+                    \end{align*} 
+                    Applying the given conditions, we obtained
+                    \begin{align*}
+                        u(0) = 0 & \implies b = 0 \\
+                        \int _0^{\pi /2} u(t) \mathrm{d} t = 0 & \implies \frac{a}{2}\left( \frac{\pi ^2}{4} \right) = 0 \implies a = 0.
+                    \end{align*}
+                    Thus, $u(x) = 0$. So $\lambda =0$ does not give any nontrivial solution. So let us assume $\lambda \neq 0$.
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    If $\lambda\neq 0$, then the given differential equation has a solution given by
+                    \[
+                        u(x) = a \cos \lambda x + b \sin \lambda x.
+                    \] 
+                    Applying the conditions, we have
+                    \begin{align*}
+                        u(0) = 0 & \implies a = 0 \\
+                        \int _0^{\pi /2} u(t) \mathrm{d} t = 0 & \implies \int _0^{\pi /2} b\sin \lambda x \mathrm{d} x = 0 \\
+                        & \implies \frac{b}{\lambda } \big[-\cos \lambda x\big]_0 ^{\pi /2} = 0\\
+                        & \implies b \left( 1 - \cos  \frac{\lambda \pi }{2}  \right) = 0 \\
+                        & \implies b =0 \text{ or } \cos \frac{\lambda \pi }{2} = 0. 
+                    \end{align*}
+                    If $b = 0$, then again we will obtain a trivial solution. So, a nontrivial solution to \eqref{eq:24May2024-1} exists if 
+                    \begin{align*}
+                        \cos \frac{\lambda \pi }{2} = 1 & \implies \frac{\lambda \pi }{2} = 2n\pi ,\quad n \in \mathbb{Z}\setminus \{ 0 \}  \\
+                        & \implies \lambda = 4n,\quad n\in \mathbb{Z} \setminus \{ 0 \}  .
+                    \end{align*} 
+                    Thus, the values of $\lambda ^2$ for which the given boundary value problem has a nontrivial solutions are 
+                    \[
+                        \lambda _n = 16n^2, \quad n \in \mathbb{N} .
+                    \] 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->

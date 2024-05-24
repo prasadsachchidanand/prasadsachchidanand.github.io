@@ -91,12 +91,14 @@ const tagsToProblems = {
     'normal-distribution': ['../2024-05-04'],
     'numerical-analysis': ['../2024-05-11'],
     'lagrange-multiplier': ['../2024-05-18'],
+    'linear-programming': ['../2024-05-25'],
     
     // GATE
     'gate': ['../2024-05-14'],
     'gate-2006': ['../2024-05-14'],
     'gate-2007': ['../2024-05-15'],
     'gate-2022': ['../2024-05-16'],
+    'gate-2024': ['../2024-05-25'],
 };
 
 // Function to sort arrays by date
