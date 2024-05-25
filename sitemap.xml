@@ -2,37 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://prasadsachchidanand.github.io/</loc>
-    <lastmod>2024-05-24</lastmod>
-    <priority>1.00</priority>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/research/</loc>
-    <lastmod>2024-05-24</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/teaching/</loc>
-    <lastmod>2024-05-24</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/resume/</loc>
-    <lastmod>2024-05-24</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/articles/</loc>
-    <lastmod>2024-05-24</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/</loc>
-    <lastmod>2024-05-24</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/contact/</loc>
-    <lastmod>2024-05-24</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/</loc>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>
