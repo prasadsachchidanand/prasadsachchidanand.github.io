@@ -52,6 +52,7 @@ const tagsToProblems = {
     'eigenvectors': ['../2023-01-01'],
     'linear-transformation': ['../2024-05-05', '../2024-05-19'],
     'inner-product-space': ['../2024-05-12'],
+    'characteristic-polynomial': ['../2024-05-26'],
 
     // real analysis
     'real-analysis': realAnalysis,
@@ -98,7 +99,7 @@ const tagsToProblems = {
     'gate-2006': ['../2024-05-14'],
     'gate-2007': ['../2024-05-15'],
     'gate-2022': ['../2024-05-16'],
-    'gate-2024': ['../2024-05-25'],
+    'gate-2024': ['../2024-05-25', '../2024-05-26'],
 };
 
 // Function to sort arrays by date

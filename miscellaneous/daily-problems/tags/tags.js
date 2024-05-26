@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'eigenvectors': 'linear-algebra',
         'linear-transformation': 'linear-algebra',
         'inner-product-space': 'linear-algebra',
+        'characteristic-polynomial': 'linear-algebra',
 
         // real analysis
         'supremum': 'real-analysis',
