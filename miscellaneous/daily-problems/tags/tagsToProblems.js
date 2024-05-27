@@ -60,6 +60,7 @@ const tagsToProblems = {
     'sequences': ['../2024-05-13'],
     'continuity': ['../2024-05-20'],
     'improper-integral': ['../2024-04-01'],
+    'partial-derivative': ['../2024-05-27'],
 
     // complex analysis
     'complex-analysis': complexAnalysis,
@@ -99,7 +100,7 @@ const tagsToProblems = {
     'gate-2006': ['../2024-05-14'],
     'gate-2007': ['../2024-05-15'],
     'gate-2022': ['../2024-05-16'],
-    'gate-2024': ['../2024-05-25', '../2024-05-26'],
+    'gate-2024': ['../2024-05-25', '../2024-05-26', '../2024-05-27'],
 };
 
 // Function to sort arrays by date

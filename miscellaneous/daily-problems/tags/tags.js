@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'sequences': 'real-analysis',
         'continuity': 'real-analysis',
         'improper-integral': 'real-analysis',
+        'partial-derivative': 'real-analysis',
 
         // complex analysis
         'infinite-series': 'complex-analysis',

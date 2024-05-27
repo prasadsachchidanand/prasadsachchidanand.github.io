@@ -116,9 +116,104 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We will find the matrix of $T$ respect to the standard basis of $M_2(\mathbb{C} )$. Recall that the standard basis of $M_2(\mathbb{C} )$ is given by
+                    \[
+                        \mathcal{B} = \left\{ e_{11}, e_{12} , e_{21} , e_{22}  \right\}, 
+                    \]
+                    where $e_{ij} \in M_2(\mathbb{C} )$ whose $ij^{\text{th} }$ entry is $1$ and other entries are $0$. We have 
+                    \begin{align*}
+                        T(e_{11} ) & = Ae_{11} = \begin{pmatrix}
+                            0 &  2 \\
+                            2 &  0 \\
+                        \end{pmatrix} \begin{pmatrix}
+                            1 &  0 \\
+                            0 &  0 \\
+                        \end{pmatrix} = \begin{pmatrix}
+                            0 &  0 \\
+                            2 &  0 \\
+                        \end{pmatrix} = 2e_{21} 
+                        \\[1ex] 
+                        T(e_{12} ) & = Ae_{12} = \begin{pmatrix}
+                            0 &  2 \\
+                            2 &  0 \\
+                        \end{pmatrix} \begin{pmatrix}
+                            0 &  1 \\
+                            0 &  0 \\
+                        \end{pmatrix} = \begin{pmatrix}
+                            0 &  0 \\
+                            0 &  2 \\
+                        \end{pmatrix} = 2e_{22} 
+                        \\[1ex] 
+                        T(e_{21} ) & = Ae_{12} = \begin{pmatrix}
+                            0 &  2 \\
+                            2 &  0 \\
+                        \end{pmatrix} \begin{pmatrix}
+                            0 &  0 \\
+                            1 &  0 \\
+                        \end{pmatrix} = \begin{pmatrix}
+                            2 &  0 \\
+                            0 &  0 \\
+                        \end{pmatrix} = 2e_{11}
+                        \\[1ex] 
+                        T(e_{22} ) & = Ae_{12} = \begin{pmatrix}
+                            0 &  2 \\
+                            2 &  0 \\
+                        \end{pmatrix} \begin{pmatrix}
+                            0 &  0 \\
+                            0 &  1 \\
+                        \end{pmatrix} = \begin{pmatrix}
+                            0 &  2 \\
+                            0 &  0 \\
+                        \end{pmatrix} = 2e_{12}
+                         \\[1ex] 
+                    \end{align*}  
+                    So, the matrix of $T$ with respect to the standard basis is
+                    \[
+                        T = [T]_\mathcal{B} 
+                        = \begin{pmatrix}
+                            0 & 0 & 2 &  0 \\
+                            0 & 0 & 0 &  2 \\
+                            2 & 0 & 0 &  0 \\
+                            0 & 2 & 0 &  0 \\
+                        \end{pmatrix}.
+                    \]
+                    Now the characteristic polynomial of $T$ can be find by $\det (T - \lambda I) = 0$. 
+                    \begin{align*}
+                        \det (T - \lambda I) = 0 & \implies 
+                        \begin{vmatrix}
+                            -\lambda & 0 & 2 &  0 \\
+                            0 & -\lambda & 0 &  2 \\
+                            2 & 0 & -\lambda &  0 \\
+                            0 & 2 & 0 &  -\lambda  \\
+                        \end{vmatrix} = 0 \\[1ex]
+                        & \implies -\lambda (-\lambda (\lambda ^2) + 2(2\lambda )) + 2(-2(\lambda ^2 - 4)) = 0 \\
+                        & \implies \lambda ^4 - 8\lambda ^2 + 16 = 0.
+                    \end{align*}
+                    Hence, the characteristic polynomial of $T$ is 
+                    \[
+                        X^4 - 8X^2 + 16 = 0.
+                    \]
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    (An idea from <a href="https://math.stackexchange.com/questions/1785243/given-the-linear-map-tv-rightarrow-v-such-that-tb-abba-for-a-given-a-wh" target="_blank" class="text-blue-500 hover:text-blue-800">math.stackexchange</a> leads to an easier method). 
+                    <br><br>
+                    This can also be solved by observing that $A$ is diagonalizable with eigenvalues $2$ and $-2$. Let 
+                    \[
+                        A u_j = \lambda _j u_j \quad \text{ and } \quad v_j^{\ast} A = \lambda _j v_j^{\ast} 
+                    \]  
+                    for some basis $u_j$ and for some dual basis $v_j^{\ast} $. Then note that $\{ u_j v_k^{\ast}  \} $ forms a basis for $M_2(\mathbb{C} )$. Also,  
+                    \[
+                        T\left( u_j v_k^T \right) = A \left( u_j v_k^T \right) = \lambda _j \left( u_j v_k^T \right). 
+                    \]  
+                    Thus, $u_j v_k^T$ is an eigenvector with eigenvalue $\lambda _j$. Hence the characteristic polynomial of $T$ is given by 
+                    \begin{align*}
+                        (x - 2)(x-2)(x+2)(x+2) & = (x-2)^2 (x+2)^2 \\
+                                               & = (x^2 - 4)^2 \\
+                                               & = x^4 - 8x^2 + 16 = 0.
+                    \end{align*}
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
