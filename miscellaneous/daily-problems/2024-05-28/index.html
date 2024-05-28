@@ -106,9 +106,41 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Note that 
+                    \[
+                        z^2 - 2z + 2 = (z - (1+\iota )) (z - (1-\iota )).
+                    \]
+                    Let us write $\alpha = 1 + \iota $ and $\beta = 1 - \iota $. We need to evaluate the integral 
+                    \[
+                        \oint_C \frac{z^2 \mathrm{d}z }{(z-\alpha )(z-\beta )}.
+                    \] 
+                    Since, 
+                    \begin{align*}
+                        f(\alpha ) = \vert \alpha -2 \vert + \vert \alpha +2 \vert = \sqrt{4} + \sqrt{10} \lt 8 \text{ and }\\ 
+                        f(\beta ) = \vert \beta  -2 \vert + \vert \beta  +2 \vert = \sqrt{4} + \sqrt{10} \lt 8,
+                    \end{align*}
+                    so both $\alpha ,\beta $ lies in the interior of the given contour. We will use <a href="../2024-05-14/#thm:cauchyIntegralFormula" class="text-blue-500 hover:text-blue-800">Cauchy integral formula</a> for evaluating the integral.
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that
+                    \begin{align*}
+                        \frac{z^2}{(z - \alpha )(z-\beta )} & = \frac{1}{\alpha -\beta }\left( \frac{z^2}{z-\alpha } - \frac{z^2}{z-\beta } \right) \\
+                        & = \frac{1}{2\iota }\left( \frac{z^2}{z-\alpha } - \frac{z^2}{z-\beta } \right).
+                    \end{align*}
+                    So, 
+                    \begin{align*}
+                        \oint_C \frac{z^2 \mathrm{d}z }{(z-\alpha )(z-\beta )} & = \frac{1}{2\iota  }\oint_{C} \frac{z^2}{z-\alpha }\mathrm{d}z - \frac{1}{2\iota } \oint_{C} \frac{z^2}{z-\beta }\mathrm{d}z \\
+                        & = \frac{1}{2\iota } \left( 2\pi \iota (\alpha ^2) \right)   - \frac{1}{2\iota }(2\pi \iota (\beta )^2) \\
+                        & = \pi \left( (1+\iota)^2 - (1-\iota )^2 \right) \\
+                        & = 4\pi \iota. 
+                    \end{align*}
+                    Thus, 
+                    \[
+                        \textcolor{teal}{\boxed{\oint_C \frac{z^2 d z}{z^2-2 z+2} = 4 \pi \iota}}
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
