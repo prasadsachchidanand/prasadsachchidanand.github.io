@@ -65,7 +65,7 @@ const tagsToProblems = {
     // complex analysis
     'complex-analysis': complexAnalysis,
     'infinite-series': ['../2024-05-07'],
-    'complex-integration': ['../2024-05-21'],
+    'complex-integration': ['../2024-05-21','../2024-05-28'],
 
     // abstract algebra
     'abstract-algebra': abstractAlgebra,
@@ -100,7 +100,7 @@ const tagsToProblems = {
     'gate-2006': ['../2024-05-14'],
     'gate-2007': ['../2024-05-15'],
     'gate-2022': ['../2024-05-16'],
-    'gate-2024': ['../2024-05-25', '../2024-05-26', '../2024-05-27'],
+    'gate-2024': ['../2024-05-25', '../2024-05-26', '../2024-05-27','../2024-05-28'],
 };
 
 // Function to sort arrays by date
