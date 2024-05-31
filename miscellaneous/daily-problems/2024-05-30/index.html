@@ -113,10 +113,73 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We will analyze each option to see which of them is not true.
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
-                </div>
+                  <div class=" leading-relaxed lg:text-lg md:text-base text-justify space-y-4 mt-4">
+                    <div id="optionA" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-red-600">Option A</h2> We will show that 
+                      \[
+                          \mathrm{int}(X\setminus A) = X\setminus \overline {A}.
+                      \]
+                      In particular, the inclusion also holds. We recall that $\mathrm{int}(A) $ is the largest open set contained in $A$ and $\overline {A} $ is the smallest closed set containing $A$. Observe that 
+                      \begin{align*}
+                          A \subseteq \overline {A} & \implies X \setminus \overline {A} \subseteq X\setminus A.
+                      \end{align*}
+                      As $\overline {A} $ is a closed set $X \setminus \overline {A} $ must be open and hence by definition of the interior of a set we have 
+                      \[
+                          X \setminus \overline {A} \subseteq \mathrm{int}(X\setminus \overline {A} ). 
+                      \] 
+                      This proves one inclusion. 
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      For the other inclusion, we observe that 
+                      \begin{align*}
+                          A = X \setminus (X\setminus A) \subseteq X \setminus \mathrm{int}(X\setminus A). 
+                      \end{align*}
+                      Since $\mathrm{int}(X\setminus A) $ is open, so $X\setminus \mathrm{int}(X\setminus A) $ must be closed and therefore, it must contain the closure of $A$. That is,
+                      \begin{align*}
+                          \overline {A} \subseteq X\setminus \mathrm{int}(X\setminus A) & \implies X \setminus \left( X\setminus \mathrm{int}(X\setminus A)  \right) \subseteq X\setminus \overline {A} \\
+                          & \implies \mathrm{int}(X\setminus A)  \subseteq X\setminus \overline {A} .
+                      \end{align*}
+                      Therefore, we proved that 
+                      \[
+                          \textcolor{teal}{\boxed{
+                              \mathrm{int}(X\setminus A) = X\setminus \overline {A}
+                          }}
+                      \]
+                    </div>
+                
+                    <div id="optionB" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-red-500">Option B</h2>
+                      This is true just  by the definition of the closure of a set. Closure of any set is the smallest set containing that set. If $A$ is closed, then $A = \overline {A} $.
+                    </div>
+                
+                    <div id="optionC" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-green-500">Option C</h2>
+                      This need not be true. We can choose a set $A$ whose interior is empty but boundary is nonempty. For example, 
+                      \[
+                          X = \mathbb{R} \text{ and } A = \mathbb{Q}.
+                      \]
+                      Here we are considering the standard Euclidean topology. Then we have 
+                      \[
+                          \mathrm{int}(A) = \emptyset \text{ and } \partial \mathbb{Q} = \overline {\mathbb{Q}} \setminus \mathrm{int}(\mathbb{Q}) = \mathbb{R} .
+                      \]
+                      But, the other inclusion is always true. To see this, note that 
+                      \begin{align*}
+                          \mathrm{int}(A) \subseteq A \subseteq \overline {A} & \implies \overline{\mathrm{int}(A) } \subseteq \overline{\overline {A} } = \overline {A} \\
+                          & \implies \overline{\mathrm{int}(A) } \setminus \mathrm{int}(A) \subseteq \overline {A} \setminus  \mathrm{int}(A) \\
+                          & \implies \partial (\mathrm{int}(A)) \subseteq \partial A.   
+                      \end{align*}
+                    </div>
+                
+                    <div id="optionD" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-red-500">Option D</h2>
+                      We have $\partial (\overline {A} ) = \overline{\overline {A} } \setminus \mathrm{int}(\overline {A} ) = \overline {A} - \mathrm{int}(\overline {A} )$. Since
+                      \begin{align*}
+                          \mathrm{int}(A) \subseteq A & \implies \overline {A} \setminus A \subseteq \overline {A} \setminus \mathrm{int}(A) \implies \partial (\overline {A} ) \subseteq \partial A.
+                      \end{align*} 
+                    </div>
+                  </div>
+                </div>                
 
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">
