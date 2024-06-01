@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'numerical-analysis': 'miscellaneous',
         'lagrange-multiplier': 'miscellaneous',
         'linear-programming': 'miscellaneous',
+        'functional-analysis': 'miscellaneous',
 
         // gate
         'gate-2006': 'gate',

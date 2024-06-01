@@ -95,6 +95,7 @@ const tagsToProblems = {
     'numerical-analysis': ['../2024-05-11'],
     'lagrange-multiplier': ['../2024-05-18'],
     'linear-programming': ['../2024-05-25'],
+    'functional-analysis': ['../2024-06-01'],
     
     // GATE
     'gate': ['../2024-05-14'],
