@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'linear-transformation': 'linear-algebra',
         'inner-product-space': 'linear-algebra',
         'characteristic-polynomial': 'linear-algebra',
+        'dimension': 'linear-algebra',
 
         // real analysis
         'supremum': 'real-analysis',

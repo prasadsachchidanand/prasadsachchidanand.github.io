@@ -99,9 +99,43 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let $X$ be a normed linear space and $\mathcal{B} = \{ e_n \} $ be Schauder basis of $X$. We need to prove $X$ is separable, that is, it has a countable dense set. For $n\in \mathbb{N} $, we define
+                    \[
+                        A_n \coloneqq \left\{ \sum_{i=1}^{n} q_i e_i : q_i \in \mathbb{Q}  \right\} .
+                    \]  
+                    Then we have a natural bijection from $\mathbb{Q} ^n$ to $A_n$ given by
+                    \[
+                        f: \mathbb{Q} ^n \to  A_n,\quad (q_1, q_2,\dots, q_n) \mapsto \sum_{i=1}^{n} q_i e_i.
+                    \]  
+                    This shows that each $A_n$ is countable. Thus the set 
+                    \[
+                        A \coloneqq  \bigcup _{n\in \mathbb{N} } A_n
+                    \]
+                    is also countable (countable union of countable sets is countable).
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We claim that $A$ is dense in $X$. Let $x\in X$. Since $\mathcal{B} $ is a Schauder basis of $X$, we can find a sequence of real numbers $(c_n)$ such that 
+                    \[
+                        \sum_{i=1}^{n} c_i e_i \rightarrow x.
+                    \]
+                    So, given any $\varepsilon > 0$ we can find $N\in \mathbb{N} $ such that 
+                    \[
+                        \left\lVert \sum_{i=1}^{N} c_i e_i - x \right\rVert \lt \frac{\varepsilon }{2}.
+                    \]     
+                    Since, $\mathbb{Q} $ is dense in $\mathbb{R} $, for $1 \leq i \leq N$, there exists $q_i \in \mathbb{Q} $ such that 
+                    \[
+                        \left\vert q_i - c_i \right\vert \lt \frac{\varepsilon }{2 N \left\lVert e_i \right\rVert }.
+                    \]     
+                    Thus we have 
+                    \begin{align*}
+                        \left\lVert \sum_{i=1}^{N} q_i e_i - x \right\rVert & = \left\lVert \sum_{i=1}^{N} (q_i - c_i)e_i + c_i e_i - x  \right\rVert \\
+                        & \leq \left\lVert \sum_{i=1}^{N} (q_i - c_i) e_i\right\rVert + \left\lVert \sum_{i=1}^{N} c_i e_i - x \right\rVert \\
+                        & \leq \sum_{i=1}^{N} \left\vert q_i - c_i \right\vert \left\lVert e_i \right\rVert + \left\lVert \sum_{i=1}^{N} c_i e_i - x \right\rVert \\
+                        & \lt \sum_{i=1}^{N} \frac{\varepsilon }{2N} + \frac{\varepsilon }{2} = \varepsilon .
+                    \end{align*}
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
