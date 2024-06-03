@@ -105,7 +105,32 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>For any subspace $W \subseteq V$, we have 
+                    \[
+                        W \oplus W^\perp = V \implies \dim W + \dim W^\perp = \dim V.
+                    \] 
+                    Using the above relation, we have 
+                    \[
+                        \dim W_1^\perp = 3 = \dim W_2^\perp .
+                    \]
+                    As $(2,1,0,-1) \notin W_1$, both the subspaces are distinct which implies, $W_1^\perp \neq W_2^\perp $. That is, there exists $v\in W_2^\perp $ such that $v \notin W_1^\perp $. This implies, 
+                    \[
+                        \operatorname{span}\left\{ W_1^\perp  \cup \{ v \}  \right\} = \mathbb{R} ^4 \implies \operatorname{span}\left\{  \right\} \left\{ W_1^\perp  \cup W_2^\perp  \right\} = \mathbb{R} ^4.
+                    \]    
+                    Now recall that for any subspace $W_1, W_2$ of a finite dimensional vector space $V$, we have 
+                    \[
+                        \dim (W_1 + W_2) = \dim W_1 + \dim W_2 - \dim (W_1  \cap  W_2).
+                    \]
+                    Since $\dim \left( W_1^\perp + W_2^\perp  \right) = 4$, we have
+                    \[
+                        4 = 3 + 3 - \dim \left( W_1^\perp  \cap  W_2^\perp  \right) \implies \dim \left( W_1^\perp  \cap  W_2^\perp  \right) = 2.
+                    \] 
+                    Hence, we showed that 
+                    \[
+                        \textcolor{teal}{\boxed{
+                            \dim \left( W_1^\perp  \cap  W_2^\perp  \right) = 2
+                        }}
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
