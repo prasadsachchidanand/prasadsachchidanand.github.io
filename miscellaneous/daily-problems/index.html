@@ -167,20 +167,22 @@
                 </div>
 
                 <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="problem-of-the-day">
-                  <a class="text-blue-500 hover:text-blue-800" href="2024-06-03/">Problem of the day (03-06-2024)</a>
+                  <a class="text-blue-500 hover:text-blue-800" href="2024-06-06/">Problem of the day (06-06-2024)</a>
               </h2>
               <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md hover:bg-red-200">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Problem: </strong>Let $f$ be twice continuously differentiable on $(0,+\infty)$ such that $\displaystyle \lim _{x \rightarrow 0+} f^{\prime}(x)=-\infty$ and $\displaystyle \lim _{x \rightarrow 0+} f^{\prime \prime}(x)=+\infty$. Show that
-                    \[
-                        \lim _{x \rightarrow 0+} \frac{f(x)}{f^{\prime}(x)}=0.
-                    \]
+                    <strong>Problem: </strong>Let $C([a,b])$ denotes the set of all continuous functions $f: [a,b] \to  \mathbb{R} $. We define metrics on $C([a,b])$ as follows:
+                    \begin{align*}
+                        d_1(f,g) & = \int _a^b \vert f(x) - g(x) \vert \mathrm{d} x . \\[2ex]
+                        d_\infty (f,g) & = \sup _{x\in [a,b]} \vert f(x) - g(x) \vert .
+                    \end{align*}  
+                    Compute $d_1(f,g)$ and $d_\infty (f,g)$, where $f,g\in C([0,1])$ are the functions defined by $f(x) = x^2$ and $g(x) = x^3$.   
                     <div class="mt-2">
-                      <a href="tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                          real-analysis
+                      <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                          topology
                       </a>
-                      <a href="tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                          differentiability
+                      <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                          metric-space
                       </a>
                     </div>
                   </div> 

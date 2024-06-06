@@ -67,6 +67,7 @@ const tagsToProblems = {
     'complex-analysis': complexAnalysis,
     'infinite-series': ['../2024-05-07'],
     'complex-integration': ['../2024-05-21','../2024-05-28'],
+    'analytic-function': ['../2024-06-04'],
 
     // abstract algebra
     'abstract-algebra': abstractAlgebra,
@@ -78,7 +79,7 @@ const tagsToProblems = {
 
     // topology
     'topology': topology,
-    'metric-space': ['../2023-01-05'],
+    'metric-space': ['../2023-01-05', '../2024-06-06'],
     'product-topology': ['../2023-05-09'],
     'homeomorphism': ['../2023-05-23'],
 
@@ -103,7 +104,7 @@ const tagsToProblems = {
     'gate-2006': ['../2024-05-14'],
     'gate-2007': ['../2024-05-15'],
     'gate-2022': ['../2024-05-16'],
-    'gate-2024': ['../2024-05-25', '../2024-05-26', '../2024-05-27','../2024-05-28', '../2024-05-30', '../2024-06-02'],
+    'gate-2024': ['../2024-05-25', '../2024-05-26', '../2024-05-27','../2024-05-28', '../2024-05-30', '../2024-06-02', '../2024-06-05'],
 };
 
 // Function to sort arrays by date

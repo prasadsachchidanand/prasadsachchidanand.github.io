@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // complex analysis
         'infinite-series': 'complex-analysis',
         'complex-integration': 'complex-analysis',
+        'analytic-function': 'complex-analysis',
 
         // abstract algebra
         'group-theory': 'abstract-algebra',
