@@ -104,9 +104,51 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Note that 
+                    \[
+                        0 \leq x \leq 1 \implies x^3 \leq x^2 \implies x^2 - x^3 \geq 0.
+                    \]
+                    Let us first compute the distance between $f$ and $g$ with respect $d_1$ metric. 
+                    \begin{align*}
+                        d_1 (x^2, x^3) & = \int _0^1 \vert x^2 - x^3 \vert \mathrm{d} x \\
+                                       & = \int _0^1 \left( x^2 - x^3 \right) \mathrm{d} x \\
+                                       & = \left[ \frac{x^3}{3} - \frac{x^4}{4} \right]_0 ^1 \\
+                                       & = \left[ \frac{1}{3} - \frac{1}{4} \right] - 0 = \frac{1}{12}.
+                    \end{align*} 
+                    Thus, 
+                    \[
+                        \textcolor{teal}{\boxed{
+                            d_1 \left( x^22, x^3 \right) = \frac{1}{12} 
+                        }}
+                    \]
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we need to compute the distance with respect to $d_\infty $ metric. We have 
+                    \[
+                        d_\infty (x^2, x^3) = \sup _{x \in [0,1]} \left\vert x^2 - x^3 \right\vert = \max _{x\in [0,1]} \left( x^2 - x^3 \right) . 
+                    \] 
+                    We need to find the maximum value of the function $x^2 - x^3$. Let 
+                    \[
+                        h(x) = x^2 - x^3.
+                    \] 
+                    Then 
+                    \begin{align*}
+                        h'(x) = 2x - 3x^2 = 0 & \implies x \left( 2 - 3x \right) = 0 \\
+                                              & \implies x = 0 \text{ or } x = \frac{2}{3}. 
+                    \end{align*}
+                    Also, 
+                    \[
+                        h''(x) = 2 - 6x \implies h''(0) = 2, \text{ and } h''\left( \frac{2}{3} \right) = -2 .
+                    \]
+                    Thus, the maximum value of $h$ will be at $\frac{2}{3}$ and the value is $\frac{4}{27}$.    
+                    \[
+                        \textcolor{teal}{\boxed{
+                            d_\infty \left( x^2, x^3 \right) = \frac{4}{27}
+                        }}
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->

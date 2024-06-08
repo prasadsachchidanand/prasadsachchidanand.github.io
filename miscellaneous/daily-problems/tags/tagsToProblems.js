@@ -85,7 +85,7 @@ const tagsToProblems = {
 
     // ODE and PDE
     'differential-equation': differentialEquation,
-    'ode': ['../2023-01-06', '../2024-05-03', '../2024-05-31'],
+    'ode': ['../2023-01-06', '../2024-05-03', '../2024-05-31', '../2024-06-07'],
     'pde': ['../2024-05-10', '../2024-05-24'],
     'characteristics': ['../2024-05-10'],
     'heat-equation': ['../2024-05-17'],
@@ -98,6 +98,7 @@ const tagsToProblems = {
     'lagrange-multiplier': ['../2024-05-18'],
     'linear-programming': ['../2024-05-25'],
     'functional-analysis': ['../2024-06-01'],
+    'number-theory': ['../2024-06-08'],
     
     // GATE
     'gate': ['../2024-05-14'],
