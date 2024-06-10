@@ -48,7 +48,7 @@ const miscellaneous = generateDateArray(startDates['miscellaneous']);
 const tagsToProblems = {
     // linear algebra
     'linear-algebra': linearAlgebra,
-    'eigenvalues': ['../2023-01-01'],
+    'eigenvalues': ['../2023-01-01', '../2024-06-09'],
     'eigenvectors': ['../2023-01-01'],
     'linear-transformation': ['../2024-05-05', '../2024-05-19'],
     'inner-product-space': ['../2024-05-12', '../2024-06-02'],
@@ -62,6 +62,7 @@ const tagsToProblems = {
     'continuity': ['../2024-05-20'],
     'improper-integral': ['../2024-04-01'],
     'partial-derivative': ['../2024-05-27'],
+    'inverse-function-theorem': ['../2024-06-10'],
 
     // complex analysis
     'complex-analysis': complexAnalysis,
@@ -105,7 +106,7 @@ const tagsToProblems = {
     'gate-2006': ['../2024-05-14'],
     'gate-2007': ['../2024-05-15'],
     'gate-2022': ['../2024-05-16'],
-    'gate-2024': ['../2024-05-25', '../2024-05-26', '../2024-05-27','../2024-05-28', '../2024-05-30', '../2024-06-02', '../2024-06-05'],
+    'gate-2024': ['../2024-05-25', '../2024-05-26', '../2024-05-27','../2024-05-28', '../2024-05-30', '../2024-06-02', '../2024-06-05', '../2024-06-09', , '../2024-06-10'],
 };
 
 // Function to sort arrays by date

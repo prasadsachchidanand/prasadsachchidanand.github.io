@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'continuity': 'real-analysis',
         'improper-integral': 'real-analysis',
         'partial-derivative': 'real-analysis',
+        'inverse-function-theorem': 'real-analysis',
 
         // complex analysis
         'infinite-series': 'complex-analysis',

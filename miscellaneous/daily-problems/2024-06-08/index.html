@@ -100,7 +100,20 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We need to prove that $k^3 + 2k $ is divisible by $3$. We recall that if $p$ is a prime and $p \mid (ab)$, then $p \mid a$ or $p \mid b$.  Note that 
+                    \begin{align*}
+                        3 \mid (k^3 + 2k) & \iff 3 \mid k (k^2 + 2) \iff 3 \mid k \text{ or } 3 \mid (k^2  + 2). 
+                    \end{align*} 
+                    If $3 \mid k$, then we are done. If not, then $ k = 3m + 1$ or $3m + 2$. Then
+                    \begin{align*}
+                        k = 3m + 1 \implies k^2 + 2 & = (3m + 1)^2 + 2 \\
+                                                    & = 9m^2 + 6m + 1 + 2 \\
+                                                    & = 3 \left( 3m^2 + 2m + 1 \right). \\
+                        k = 3m + 2 \implies k^2 + 2 & = (3m + 2)^2 + 2 \\
+                                                    & = 9m^2 + 12m + 4 + 2 \\
+                                                    & = 3 \left( 3m^2 ++ 4m + 2 \right) .
+                    \end{align*}   
+                    Therefore, in either case, $3 \mid (k^2 + 2)$. Hence, we proved that $k^3 + 2k$ is divisible by $3$.   
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
