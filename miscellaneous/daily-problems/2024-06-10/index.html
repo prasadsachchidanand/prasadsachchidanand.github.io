@@ -103,7 +103,32 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We will use the <a href="../../../assets/attachments/Inverse_Function_Theorem.pdf" class="text-blue-500 hover:text-blue-800" target="_blank">inverse function theorem</a> to find the Jacobian matrix of $g$ at $f(2,1)$. Since $g$ is the inverse of $f$, we have 
+                    \[
+                        Dg(f(x,y)) = \left( Df(x,y) \right) ^{-1}, 
+                    \] 
+                    where $Dg$ and $Df$ are the derivative matrix of $g$ and $f$ respectively. Thus,
+                    \begin{align*}
+                        Dg(f(2,1)) & = \begin{bmatrix}
+                            \frac{\partial f_1}{\partial x} & \frac{\partial f_1}{\partial y} \\[2ex]
+                            \frac{\partial f_2}{\partial x} & \frac{\partial f_2}{\partial y} \\
+                        \end{bmatrix}_{(2,1)}^{-1}  \\[2ex]
+                        & = \begin{bmatrix}
+                            2x &  -2y \\
+                            2y &  2x \\
+                        \end{bmatrix}_{(2,1)}^{-1}  = \begin{bmatrix}
+                            4 &  -2 \\
+                            2 &  4 \\
+                        \end{bmatrix}^{-1} .
+                    \end{align*} 
+                    Since $\det A^{-1} = (\det A)^{-1} $, we have 
+                    \begin{align*}
+                        \det \begin{bmatrix}
+                            4 &  -2 \\
+                            2 &  4 \\
+                        \end{bmatrix}^{-1} = \frac{1}{20}.
+                    \end{align*} 
+                    Hence, the determinant of the Jacobian matrix of $g$ at $f(2,1)$ is equal to $\frac{1}{20} = 0.05$. 
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
@@ -113,7 +138,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-06-08/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-06-09/">
                           Previous 
                         </a>
                       </li>
@@ -123,7 +148,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-06-10/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-06-11/">
                           Next 
                         </a>
                       </li>
