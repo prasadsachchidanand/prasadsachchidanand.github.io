@@ -37,6 +37,22 @@
     font-weight: bold;
   }
 
+  .lemma {
+    border-left: 0.25rem solid rgb(153, 102, 255);
+    background-color: rgba(240, 230, 255, 0.5); 
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    line-height: 1.625;
+  }
+
+  .lemma::before {
+      content: "Lemma: ";
+      font-weight: bold;
+  }
+
+
   .remark {
     border-left: 0.25rem solid rgb(67, 89, 255);
     background-color: rgb(229, 240, 253);

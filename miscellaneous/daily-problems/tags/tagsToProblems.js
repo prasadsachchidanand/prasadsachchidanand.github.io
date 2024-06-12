@@ -72,11 +72,11 @@ const tagsToProblems = {
 
     // abstract algebra
     'abstract-algebra': abstractAlgebra,
-    'group-theory': ['../2024-05-01', '../2024-05-22'],
+    'group-theory': ['../2024-05-01', '../2024-05-22', '../2024-06-12'],
     'ring-theory': ['../2024-05-29'],
     'field-theory': ['../2024-05-08'],
     'spliting-field': ['../2024-05-08'],
-    'group-homomorphism': ['../2024-05-22'],
+    'group-homomorphism': ['../2024-05-22', '../2024-06-12'],
 
     // topology
     'topology': topology,

@@ -88,7 +88,7 @@
                         \sup \left\{ \left\vert f'(0) \right\vert : f \text{ is an analytic function from $\mathbb{D} $ to $\mathbb{H} $ and $f(0) = \frac{\iota }{2}$  }  \right\} 
                     \] 
                     is equal to 
-                    <ul class="math-list-Roman">
+                    <ul class="math-list-Alpha">
                       <li class="my-4">$\frac{1}{4}$</li>
                       <li class="my-4">$\frac{1}{2}$</li>
                       <li class="my-4">$1$</li>
@@ -113,9 +113,82 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Recall the <a href="https://en.wikipedia.org/wiki/Schwarz_lemma" class="text-blue-500 hover:text-blue-800" target="_blank">Schwarz lemma</a>
+                    <div class="lemma my-4" id="lemma:schwarzLemma">
+                      Let $f$ be an analytic function on a unit disk such that 
+                      <ul class="math-list-roman">
+                        <li class="my-2">
+                          $\vert f(z) \vert \leq 1$ for all $z\in \mathbb{D} $;
+                        </li>
+                        <li class="my-2">
+                          $f(0) = 0$.
+                        </li>
+                      </ul>
+                      Then 
+                      \[
+                          \vert f(z) \vert \leq z \quad \forall\ z\in \mathbb{D} \text{ and } \left\vert f'(0) \right\vert \leq 1.
+                      \]
+                    </div>
+                    We also have a generalized version, called <a href="https://mathworld.wolfram.com/Schwarz-PickLemma.html" class="text-blue-500 hover:text-blue-800" target="_blank">Schwarz-Pick lemma</a>.
+                    <div class="lemma my-4" id="lemma:schwarzPickLemma">
+                      Let $f$ be an analytic function on a unit disk such that 
+                      <ul class="math-list-roman">
+                        <li class="my-2">
+                          $\vert f(z) \vert \leq 1$ for all $z\in \mathbb{D} $;
+                        </li>
+                        <li class="my-2">
+                          $f(a) = b$ for some $a,b \in \mathbb{D} $.
+                        </li>
+                      </ul>
+                      Then 
+                      \[
+                        \left\vert f'(a) \right\vert \leq \frac{1 - \vert a \vert ^2}{1 - \vert b \vert ^2}.
+                      \]
+                    </div>
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since the given function is a function from $\mathbb{D} $ to $\mathbb{H} $, we need to find an analytic function, say $g$, from $\mathbb{H} $  to $\mathbb{D} $ so that the composition $g\circ f$ is an analytic map from $\mathbb{D} $ to $\mathbb{D} $ and hence we can use any of the above results. 
+    
+                    Take 
+                    \[
+                        g(z) = \frac{z - \frac{\iota }{2}}{z + \frac{\iota }{2}} \text{ and } h(z) = \frac{z - \iota }{z + \iota }.
+                    \] 
+                    Both of these functions are analytic and maps the upper half plane to the unit disk. Therefore, $g\circ f$ and $h \circ f$ are analytic functions on unit from unit disk to unit disk. We have 
+                    \begin{align*}
+                        (g\circ f)'(z) & = g'(f(z)) \cdot f'(z) \\
+                                       & = \frac{\left( z + \frac{\iota }{2} \right) - \left( z - \frac{\iota }{2} \right)  }{\left( z + \frac{\iota}{2}  \right)^2 } \cdot f'(z) \\
+                                       & = \frac{\iota }{\left( z + \frac{\iota }{2} \right)^2 } \cdot f'(z) \\
+                        \implies \left\vert (g\circ f)'(0) \right\vert & = \left\vert \frac{\iota }{\iota ^2 } \right\vert \left\vert f'(0) \right\vert = \vert f'(0) \vert .
+                    \end{align*}
+                    Since
+                    \[
+                        g \circ f(0) = g\left( \frac{\iota}{2}  \right) = 0,
+                    \]
+                    by Schwarz Lemma, we conclude that 
+                    \begin{align*}
+                        \left\vert (g\circ f)'(0) \right\vert \leq 1 & \left\vert f'(0) \right\vert \leq 1.
+                    \end{align*}
+                    Thus, the supremum will be $1$.
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We could have also used the function $h\circ f$. We have 
+                    \begin{align*}
+                        (h \circ f)'(z) & = \frac{(z + \iota ) - (z - \iota )}{(z + \iota )^2}\cdot f'(z) \\
+                        & = \frac{2\iota }{(z + \iota )^2} f'(z) \\
+                        \implies \vert (h \circ f)'(0) \vert  & = \left\vert \frac{2\iota }{(z + \iota )^2} \right\vert \cdot \left\vert f'(0) \right\vert \\
+                        & = \frac{8}{9} \vert f'(0) \vert .
+                    \end{align*} 
+                    Therefore using Schwarz-Pick lemma, we have 
+                    \begin{align*}
+                        & \vert (h\circ f)'(0) \vert \leq \frac{1- \vert (h\circ f)(0) \vert^2 }{1} \\
+                        \implies & \frac{8}{9}\cdot \vert f'(0) \vert \leq 1 - \frac{1}{9} \\
+                        \implies & \vert f'(0) \vert \leq 1.
+                    \end{align*}
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
