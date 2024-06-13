@@ -115,7 +115,59 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We are given that $n \mid m$.
+                    <ul class="math-list-roman">
+                      <li class="my-4">
+                        Let us prove that the map is well defined. That is, if $a + m\mathbb{Z} = b + m\mathbb{Z} $, then $a+n\mathbb{Z} = b + n\mathbb{Z} $. Equivalently, if $m \mid (b-a)$ then $n \mid (b-a)$. Since 
+                        \[
+                            m \mid (b-a) \text{ and } n \mid m \implies n \mid (b-a). 
+                        \]
+                        Thus, the map is well defined. 
+                        <div class="flex justify-center">
+                          <hr class="w-1/2 h-px my-4 bg-gray-300 border-0">
+                        </div>
+                        We now prove that $\varphi $ is a homomorphism. Before that we recall that the operation on the quotient group $\mathbb{Z} /n \mathbb{Z} $ is 
+                        \[
+                            (a + n\mathbb{Z}) + (b + n\mathbb{Z}) = (a + b) + n\mathbb{Z} .
+                        \] 
+                        Consider 
+                        \begin{align*}
+                            \varphi \left( (a + m\mathbb{Z}) + (b + m\mathbb{Z} ) \right) & = \varphi \left( (a+b) + m \mathbb{Z} \right) \\
+                            & = (a + b) + n\mathbb{Z} \\
+                            & = (a + n\mathbb{Z} ) + (b + n\mathbb{Z} ) \\
+                            & = \varphi (a + m\mathbb{Z} ) + \varphi (b + m\mathbb{Z} ).
+                        \end{align*} 
+                        Thus, the map is well defined. 
+                        <div class="flex justify-center">
+                          <hr class="w-1/2 h-px my-4 bg-gray-300 border-0">
+                        </div>
+                        Now let us prove that $\varphi $ is surjective. Let $y + n\mathbb{Z} \in \mathbb{Z} /n\mathbb{Z} $. Then $y + m\mathbb{Z} \in \mathbb{Z} /m\mathbb{Z} $ and 
+                        \[
+                            \varphi (y + m\mathbb{Z} ) = y + n\mathbb{Z} .
+                        \]  
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        Let us first find the kernel of the homomorphism. 
+                        \begin{align*}
+                            \ker \varphi & = \left\{ a + m\mathbb{Z} : \varphi (a + m\mathbb{Z} ) = 0 \right\} \\
+                            & = \left\{ a + m\mathbb{Z} : a + n \mathbb{Z} = 0 \right\} \\
+                            & = \left\{ a + m \mathbb{Z} : n \mid a \right\}.
+                        \end{align*}
+                        Let us simplify the kernel that we obtained. If $a + m\mathbb{Z} \in \ker \varphi $, then $n \mid a$, that is, $a = nk$ for some $k \in \mathbb{Z} $. So, $a + m\mathbb{Z} = nk + m\mathbb{Z}$. As $n \mid m$, we can also write $m = nl$ for some $l \in \mathbb{Z} $. Thus we obtained 
+                        \[
+                            a + m\mathbb{Z} = nk + nl \mathbb{Z} .
+                        \]
+                        Thus, 
+                        \[
+                            \ker \varphi = \left\{ nk + nl \mathbb{Z} : k = 0,1,\dots, l-1 \right\}. 
+                        \]
+                        So, the order of $\ker \varphi $ is $l$ and being a subgroup of a cyclic group it must be cyclic. Thus, 
+                        \[
+                            \ker \varphi \cong \mathbb{Z} /l\mathbb{Z} .
+                        \]  
+                      </li>
+                    </ul> 
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
