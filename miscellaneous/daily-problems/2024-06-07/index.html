@@ -103,8 +103,87 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The given differential equation is
+                    \begin{equation}\label{eq:07June2024-1}
+                        (3x + 2)^2 \frac{\mathrm{d}^2y}{\mathrm{d}x^2} + 5(3x + 2) \frac{\mathrm{d}y}{\mathrm{d}x} -3y = x^2 + x + 1.
+                    \end{equation}
+                
+                    In order to  solve \eqref{eq:07June2024-1}, we first substitute 
+                    \begin{align*}
+                        z = \ln (3x + 2) & \implies 3x + 2 = e^z \\
+                                         & \implies \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{\mathrm{d}y}{\mathrm{d}z} \frac{\mathrm{d}z}{\mathrm{d}x} \\
+                                         & \implies \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{3}{3x+2} \frac{\mathrm{d}y}{\mathrm{d}z}. 
+                    \end{align*}
                   </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly, 
+                    \begin{align*}
+                        \frac{\mathrm{d}^2y}{\mathrm{d}x^2} & = \frac{\mathrm{d}^2y}{\mathrm{d}z^2} \left( \frac{\mathrm{d}z}{\mathrm{d}x} ^2 \right)  + \frac{\mathrm{d}^2z}{\mathrm{d}x^2} \frac{\mathrm{d}y}{\mathrm{d}z} \\
+                        & =  \frac{9}{(3x+2)^2} \frac{\mathrm{d}^2y}{\mathrm{d}z^2} - \frac{9}{(3x+2)^2}\frac{\mathrm{d}y}{\mathrm{d}z}. 
+                    \end{align*}
+                    We will write $\frac{d}{dz} \eqqcolon D$. Therefore, \eqref{eq:07June2024-1} can be rewritten as
+                    \begin{align*}
+                        & \left[ 9\left( D^2 - D \right) + 15D - 3 \right] y = \left( \frac{e^z - 2}{3} \right) ^2 + \left( \frac{e^z - 2}{3} \right) + 1 \\[2ex]
+                        \implies & \left( 9D^2 +6D - 3 \right) y = \left( \frac{e^z - 2}{3} \right) ^2 + \left( \frac{e^z - 2}{3} \right) + 1.
+                    \end{align*}
+                    Therefore, we get a simplified equation as 
+                    \begin{equation}\label{eq:07June2024-2}
+                        \left( 9D^2 + 6D - 3 \right) y = \left( \frac{e^z - 2}{3} \right) ^2 + \left( \frac{e^z - 2}{3} \right) + 1.
+                    \end{equation}
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    The auxiliary equation corresponding to \eqref{eq:07June2024-2} is 
+                    \[
+                        9m^2 + 6m - 3 = 0 \implies 3(3m - 1)(m+1) = 0 \implies m = \frac{1}{3},-1.
+                    \]
+                    So, the complimentary function, which is the solution to the corresponding homogeneous equation, will be 
+                    \begin{align*}
+                        y_{\mathsf{cf} } & = c_1e^{-z} + c_2 e^{\frac{z}{3}} \\
+                        & = c_1 (3x + 2)^{-1} + c_2 (3x + 2)^\frac{1}{3}.
+                    \end{align*}
+                    Thus, 
+                    \begin{equation}\label{eq:07June2024-3}
+                        y_{\mathsf{cf} } = \frac{c_1}{3x + 2} + c_2 \sqrt[3]{3x+2}.
+                    \end{equation}
+                    Here one can use the method of undetermined coefficient to find the particular solution. The particular solution will be 
+                    \[
+                        y_{\mathsf{PI} } = \frac{A}{9}e^{2z} + \frac{B}{9} e^z + 7C.
+                    \]
+                    Now we can substitute this into the differential equation, to obtain the value of $A,B$ and $C$. 
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    The other way to solve the particular integral. To find the particular integral let us first simply the right hand side of \eqref{eq:07June2024-2}. 
+                    \begin{align*}
+                        \left( \frac{e^z - 2}{3} \right) ^2 + \left( \frac{e^z - 2}{3} \right) + 1 & = \frac{e^{2z} - e^z + 7}{9}.
+                    \end{align*} 
+                    Now the particular integral will be 
+                    \begin{align*}
+                        y_{\mathsf{PI} } & = \frac{e^{2z} - e^z + 7}{9\left( 9D^2 +6D - 3 \right)} \\[1ex]
+                        & = \frac{1}{27(3D-1)(D+1)}\left( e^{2z} - e^z + 7 \right).
+                    \end{align*}
+                    We recall that if the particular integral has the form $ \frac{1}{f(D)}e^{ax}$, then 
+                    \[
+                        \frac{1}{f(D)}e^{ax} = \frac{1}{f(a)}e^{ax}, \text{ when } f(a) \neq 0.
+                    \]
+                    If $f(D) = 27(3D-1)(D+1)$, then
+                    \begin{align*}
+                        y_{\mathsf{PI} } & = \frac{1}{f(2)}e^{2z} - \frac{1}{f(1)}e^z + \frac{7}{f(0)} \\
+                        & = \frac{e^{2z}}{27\times 15} - \frac{e^z}{27\times 4} + \frac{7}{-27} \\
+                        & = \frac{e^{2z}}{405} - \frac{e^z}{108} - \frac{7}{27} \\
+                        & = \frac{(3x + 2)^2}{405} - \frac{3x + 2}{108} - \frac{7}{27}.
+                    \end{align*}
+                    Hence, the final solution will be 
+                    \[
+                        y(x) = y_{\mathsf{cf} } + y_{\mathsf{PI} }.
+                    \] 
+                  </div>
+                  
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
 

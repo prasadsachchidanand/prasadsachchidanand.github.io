@@ -41,7 +41,7 @@ function generate_year_range(start, end) {
   
   
   function next() {
-    if (currentMonth !== 5 || currentYear !== 2024) {
+    if (currentMonth !== 6 || currentYear !== 2024) {
       currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
       currentMonth = (currentMonth + 1) % 12;
       showCalendar(currentMonth, currentYear);
