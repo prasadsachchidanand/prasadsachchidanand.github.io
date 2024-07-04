@@ -48,18 +48,19 @@ const miscellaneous = generateDateArray(startDates['miscellaneous']);
 const tagsToProblems = {
     // linear algebra
     'linear-algebra': linearAlgebra,
-    'eigenvalues': ['../2023-01-01', '../2024-06-09'],
-    'eigenvectors': ['../2023-01-01'],
-    'linear-transformation': ['../2024-05-05', '../2024-05-19'],
+    'eigenvalues': ['../2023-01-01', '../2024-06-09', , '../2024-06-30'],
+    'eigenvectors': ['../2023-01-01', '../2024-06-30'],
+    'linear-transformation': ['../2024-05-05', '../2024-05-19', '../2024-06-16'],
     'inner-product-space': ['../2024-05-12', '../2024-06-02'],
     'characteristic-polynomial': ['../2024-05-26'],
     'dimension': ['../2024-06-02'],
 
     // real analysis
     'real-analysis': realAnalysis,
-    'supremum': ['../2024-05-06'],
+    'supremum': ['../2024-05-06', '../2024-07-01'],
     'sequences': ['../2024-05-13'],
     'continuity': ['../2024-05-20'],
+    'integral': ['../2024-06-17'],
     'improper-integral': ['../2024-04-01'],
     'partial-derivative': ['../2024-05-27'],
     'inverse-function-theorem': ['../2024-06-10'],
@@ -67,14 +68,15 @@ const tagsToProblems = {
     // complex analysis
     'complex-analysis': complexAnalysis,
     'infinite-series': ['../2024-05-07'],
+    'complex-differentiation': ['../2024-06-18'],
     'complex-integration': ['../2024-05-21','../2024-05-28'],
-    'analytic-function': ['../2024-06-04', '../2024-06-11'],
+    'analytic-function': ['../2024-06-04', '../2024-06-11', '../2024-06-25', '../2024-07-02'],
 
     // abstract algebra
     'abstract-algebra': abstractAlgebra,
-    'group-theory': ['../2024-05-01', '../2024-05-22', '../2024-06-12'],
-    'ring-theory': ['../2024-05-29'],
-    'field-theory': ['../2024-05-08'],
+    'group-theory': ['../2024-05-01', '../2024-05-22', '../2024-06-12', '../2024-06-19'],
+    'ring-theory': ['../2024-05-29', '../2024-06-26', '../2024-07-03'],
+    'field-theory': ['../2024-05-08', '../2024-06-05'],
     'spliting-field': ['../2024-05-08'],
     'group-homomorphism': ['../2024-05-22', '../2024-06-12'],
 
@@ -93,9 +95,11 @@ const tagsToProblems = {
 
     // miscellaneous
     'miscellaneous': miscellaneous,
-    'probability-theory': ['../2024-05-04'],
+    'probability-theory': ['../2024-05-04', '../2024-06-15', '../2024-06-22'],
+    'statistics': ['../2024-06-15'],
     'normal-distribution': ['../2024-05-04'],
-    'numerical-analysis': ['../2024-05-11'],
+    'numerical-analysis': ['../2024-05-11', '../2024-06-29'],
+    'numerical-integration': ['../2024-06-29'],
     'lagrange-multiplier': ['../2024-05-18'],
     'linear-programming': ['../2024-05-25'],
     'functional-analysis': ['../2024-06-01'],
@@ -105,6 +109,7 @@ const tagsToProblems = {
     'gate': ['../2024-05-14'],
     'gate-2006': ['../2024-05-14'],
     'gate-2007': ['../2024-05-15'],
+    'gate-2021': ['../2024-06-16'],
     'gate-2022': ['../2024-05-16'],
     'gate-2024': ['../2024-05-25', '../2024-05-26', '../2024-05-27','../2024-05-28', '../2024-05-30', '../2024-06-02', '../2024-06-05', '../2024-06-09', , '../2024-06-10', '../2024-06-11'],
 };

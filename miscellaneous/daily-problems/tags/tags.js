@@ -28,12 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
         'supremum': 'real-analysis',
         'sequences': 'real-analysis',
         'continuity': 'real-analysis',
+        'integral': 'real-analysis',
         'improper-integral': 'real-analysis',
         'partial-derivative': 'real-analysis',
         'inverse-function-theorem': 'real-analysis',
 
         // complex analysis
         'infinite-series': 'complex-analysis',
+        'complex-differentiation': 'complex-analysis',
         'complex-integration': 'complex-analysis',
         'analytic-function': 'complex-analysis',
 
@@ -57,9 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // miscellaneous
         'probability-theory': 'miscellaneous',
+        'statistics': 'miscellaneous',
         'normal-distribution': 'miscellaneous',
         'number-theory': 'miscellaneous',
         'numerical-analysis': 'miscellaneous',
+        'numerical-integration': 'miscellaneous',
         'lagrange-multiplier': 'miscellaneous',
         'linear-programming': 'miscellaneous',
         'functional-analysis': 'miscellaneous',
@@ -68,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // gate
         'gate-2006': 'gate',
         'gate-2007': 'gate',
+        'gate-2021': 'gate',
         'gate-2022': 'gate',
         'gate-2024': 'gate',
     };
