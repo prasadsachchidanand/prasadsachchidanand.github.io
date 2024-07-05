@@ -101,8 +101,67 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We need to solve the differential equation 
+                    \begin{equation}\label{eq:14June2024-1}
+                        (D-1)(D^2 - 2D +2)y = e^x .
+                    \end{equation}
+                    The corresponding auxiliary equation is 
+                    \begin{align*}
+                        (m-1)(m^2 - 2m + 2) = 0.
+                    \end{align*}
+                    The roots of the auxiliary equation are $1, 1 + \iota $, and $1-\iota $. Thus, the complimentary function, that is, the solution corresponding to the homogeneous equation will be
+                    \begin{equation}\label{eq:14June2024-2}
+                        y_{\mathsf{cf} } = c_1 e^x + e^x \left( c_2 \cos x + c_3 \sin x \right) .
+                    \end{equation}
+                    Let us recall a working rule for finding the particular integral of $f(D)y = e^{ax}$. 
                   </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <ul class="math-list-roman">
+                      <li class="my-4">
+                        If $f(a)\neq 0$, then 
+                        \[
+                            y_{\mathsf{PI} }(x) = \frac{1}{f(D)} e^{ax} = \frac{1}{f(a)}e^{ax}.
+                        \]
+                      </li>
+                      <li class="my-4">
+                        If $f(D) = 0$, then the following two cases arise: 
+                        <ul class="math-list-disc">
+                          <li class="my-4">
+                            If $f(D) = (D-a)^n$, then the particular integral will be
+                            \[
+                                y_{\mathsf{PI} }(x) = \frac{1}{(D-a)^n}e^{ax} = \frac{x^n}{n!}e^{ax}, \quad n\in \mathbb{N} .
+                            \]
+                          </li>
+                          <li class="my-4">
+                            If $f(D) = (D-a)^r \phi (D)$, where $\phi (a)\neq 0$ and $r \in \mathbb{N} $, then   
+                            \begin{align*}
+                                y_{\mathsf{PI} }(x) & = \frac{1}{(D-a)^r \phi (D)} e^{ax} \\
+                                & = \frac{1}{(D-a)^r} \cdot \frac{1}{\phi (a)}e^{ax} \\
+                                & = \frac{1}{\phi (a)} \cdot \frac{x^r}{r!} \cdot e^{ax}.
+                            \end{align*}
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now using the above method, if $f(D) =  (D-1)(D^2 - 2D +2)$, then we have
+                    \begin{align*}
+                        y_{\mathsf{PI} } & = \frac{1}{ (D-1)(D^2 - 2D +2)} e^x \\
+                                         & = \frac{1}{D - 1} \cdot \frac{1}{D^2 - 2D + 2 } e^x \\
+                                         & = \frac{1}{D-1} \frac{e^x}{1-2+2} = \frac{1}{D-1} e^x \\
+                                         & = \frac{x}{1!} e^x = xe^x.
+                    \end{align*}
+                    Thus, the solution to the differential equation \eqref{eq:14June2024-1} will be 
+                    \[
+                        y(x) =  c_1 e^x + e^x \left( c_2 \cos x + c_3 \sin x \right) + xe^x.
+                    \]
+                  </div>
+
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
 

@@ -14,9 +14,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions, daily problems, power series solution, GATE 2024, functional analysis">
-    <meta name="description" content="">
+    <meta name="description" content="prove that $d(x,y) = |tan^{-1}(x) - tan^{-1}(y)|$ is a metric on R">
     
-	  <title>Problem of the day | 04-07-2024 | Topology -  - Sachchidanand Prasad</title>
+	  <title>Problem of the day | 04-07-2024 | Topology - Prove that $d(x,y) = |tan^{-1}(x) - tan^{-1}(y)|$ is a metric on R - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -82,10 +82,17 @@
                 
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
-                    <strong>Problem: </strong>
+                    <strong>Problem: </strong>Let $x,y \in \mathbb{R} $. Define a function 
+                    \[
+                        \delta : \mathbb{R} \times \mathbb{R} \to  \mathbb{R},\ \delta (x,y) = \left\vert \tan ^{-1} x - \tan ^{-1} y \right\vert.
+                    \] 
+                    Then show that $\delta $ is a metric on $\mathbb{R} $.  
                   <div class="mt-2">
                     <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
                         topology
+                    </a>
+                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                        metric-space
                     </a>
                   </div>
                 </div>
@@ -96,9 +103,61 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We need to show that the function
+                    \[
+                        \delta (x,y) = \left\vert \tan ^{-1} x - \tan ^{-1} y \right\vert
+                    \]
+                    is a metric on $\mathbb{R} $. We will verify each property of a metric. 
+                    <ul class="math-list-disc">
+                      <li class="my-4">
+                        <span class="text-violet-600">$\delta (x,y) \geq 0$ for any $x,y \in \mathbb{R} $</span>.
+                        <div class="border-l-2 border-l-sky-400 px-2 py-2 my-2">
+                          This is clear from the definition. 
+                        </div>
+                      </li>
+                      <li class="my-4">
+                        <span class="text-violet-600">$\delta (x,y) = 0$ if and only if $x = y$</span>.
+                        <div class="border-l-2 border-l-sky-400 px-2 py-2 my-2">
+                          Let 
+                          \begin{align*}
+                              \delta (\times y) = 0 & \implies \left\vert \tan ^{-1} x - \tan ^{-1} y \right\vert = 0 \\
+                              & \implies \tan ^{-1} x - \tan ^{-1} y = 0 \\
+                              & \implies \tan ^{-1} x = \tan ^{-1} y \\
+                              & \implies x = y,
+                          \end{align*}
+                          where the last implication is true because $\tan ^{-1} $ is an injective function.  
+                        </div>
+                      </li>
+                      <li class="my-4">
+                        <span class="text-violet-600">$\delta (x,y) = \delta (y,x)$</span>.
+                        <div class="border-l-2 border-l-sky-400 px-2 py-2 my-2">
+                          This is also clear as 
+                          \begin{align*}
+                              \delta (x,y) & = \left\vert \tan ^{-1} x - \tan ^{-1} y \right\vert \\
+                                           & = \left\vert \tan ^{-1} y - \tan ^{-1} x \right\vert \\
+                                           & = \delta (y,x).
+                          \end{align*}
+                        </div>
+                      </li>
+                      <li class="my-4">
+                        <span class="text-violet-600">$\delta (x,z) \leq \delta (x,y) + \delta (y,z)$ for any $x,y,z$</span>.
+                        <div class="border-l-2 border-l-sky-400 px-2 py-2 my-2">
+                          Consider 
+                          \begin{align*}
+                              \delta (x,z) & = \left\vert \tan ^{-1} x - \tan ^{-1} y \right\vert\\
+                                           & = \left\vert \tan ^{-1} x \textcolor{red}{- \tan ^{-1} y + \tan ^{-1} y} - \tan ^{-1} z \right\vert \\
+                                           & \leq \left\vert \tan ^{-1} x - \tan ^{-1} y  \right\vert + \left\vert \tan ^{-1} y - \tan ^{-1} z  \right\vert \\
+                                           & = \delta (x,y) + \delta (y,z).
+                          \end{align*}
+                        </div>
+                      </li>
+                    </ul>
+                    Thus, we proved that $\delta $ is a metric on $\mathbb{R} $.
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                </div>
+                <div class="remark leading-relaxed lg:text-lg md:text-base text-justify">
+                  Note that in the above problem, if we replace $\tan ^{-1} $ by any injective function, then the same result will be true. That is, if $f: X\to X $ is an injective function and $d$ is a metric on $X$, then $\delta (x,y) = d(f(x), f(y))$ is again a metric on $X$. 
                 </div>
 
                 <!-- Previous Button -->
@@ -229,7 +288,7 @@
       };
     </script>
     <script>
-      const tags = ['topology'];
+      const tags = ['topology', 'metric-sapce'];
     </script>
   </body>
 </html>

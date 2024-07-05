@@ -82,7 +82,7 @@ const tagsToProblems = {
 
     // topology
     'topology': topology,
-    'metric-space': ['../2023-01-05', '../2024-06-06', '../2024-06-27'],
+    'metric-space': ['../2023-01-05', '../2024-06-06', '../2024-06-27', '../2024-07-04'],
     'product-topology': ['../2024-05-09'],
     'homeomorphism': ['../2024-05-23', '../2024-06-20'],
 
