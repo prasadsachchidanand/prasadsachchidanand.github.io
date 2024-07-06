@@ -13,18 +13,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NBHM 2006, NBHM 2006 Problem-7, Write down a matrix P such that $P^{-1}AP$ is a a diagonal.">
+    <meta name="keywords" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions, daily problems, power series solution, GATE 2024, functional analysis">
+    <meta name="description" content="Function with second partial derivative not continuous">
     
-	<title>Problem of the day | 02-01-2023 - Sachchidanand Prasad</title>
+	  <title>Problem of the day | 29-04-2024 | Real Analysis - Function with second partial derivative not continuous - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
   <link href="../../../assets/style.css" rel="stylesheet" />
+  <link rel="canonical" href="https://prasadsachchidanand.github.io/assets/attachments/Inverse_Function_Theorem.pdf">
 
-  <!-- academic icons -->
+
+  <!-- Academic icon -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-   <!--font-awesome  -->
+  <link rel="stylesheet" href="../answer.css">
+   
+  <!-- font awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 			
   <!-- Google ad -->
@@ -37,7 +42,6 @@
       <!-- navbar -->
       <div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
         <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-
           <div class="p-4 flex flex-row items-center justify-between">
             <a href="../../../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
             <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
@@ -47,10 +51,9 @@
               </svg>
             </button>
           </div>
-
           <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../"> Home </a>
-
+            
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../research/"> Research </a>
 
 						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../teaching/"> Teaching </a>
@@ -68,18 +71,224 @@
       
       <!-- section -->
       <section class="text-gray-600 body-font">
-        <div class="container xl:px-36 py-24 mx-auto">
+        <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
+            <h2 class="text-gray-900 text-3xl title-font font-medium">29-04-2024</h2>
+            <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+          </div>
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
             <div class="p-4 md:w-full flex">
               <div class="flex-grow lg:px-32 px-6">
-                <div class="flex flex-col items-center justify-center">
-                  <img src="https://cdn.pixabay.com/photo/2017/06/20/08/12/maintenance-2422173__340.png"
-                    alt="tailwindcss maintenance">
-                  <h1 class="mb-3 text-3xl font-bold text-center text-purple-600">Accessing Daily Problems: Wait for the Date</h1>
-                  <p class="text-justify text-gray-600">
-                    You are attempting to access a date that has not yet come to pass. It is important to wait until the designated date arrives in order to view the problem that will be posted on this platform.
-                  </p>
+                
+                <!-- Problem -->
+                <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
+                    <strong>Problem: </strong>Compute
+                    \[
+                        \frac{\partial^2 f}{\partial x \partial y}(0,0) \text { and } 	\frac{\partial^2 f}{\partial y \partial x}(0,0)
+                    \]
+                    for the function
+                    \[
+                        f(x,y) = 
+                        \begin{cases} 
+                            \frac{xy^3}{x + y^2}, & \text{ if }  (x,y) \neq (0,0) \\
+                            0                     & \text{ if }  (x,y) = 0.
+                        \end{cases}
+                    \]  
+                    Also discuss the continuities of 
+                    \[
+                        \frac{\partial^2 f}{\partial x \partial y} \text{ and } \frac{\partial^2 f}{\partial y \partial x} \text{ at } (0,0).   
+                    \]
+                  <div class="mt-2">
+                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                        real-analysis
+                    </a>
+                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                        contuinuity
+                    </a>
+                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                        partial-derivative
+                    </a>
+                  </div>
                 </div>
+              
+                
+
+                <!-- Solution -->
+
+                <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong>We recall that 
+                    \begin{align*}
+                        \frac{\partial f}{\partial x} (a,b) = \lim_{h \to 0} \frac{f(a + h, b) - f(a,b)}{h} \\[2ex]
+                        \frac{\partial f}{\partial y} (a,b) = \lim_{k \to 0} \frac{f(a, b + k) - f(a,b)}{k}.
+                    \end{align*}
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note the function is continuous and differentiable everywhere other that $(0,0)$. We need to check at $(0,0)$. So all the partial derivatives exist at $(a,b)$ if $(a,b) \neq (0,0)$. Let us compute the partial derivatives at $(0,0)$. 
+                    \begin{align*}
+                        \frac{\partial f}{\partial y} (0,0) & = \lim_{k \to 0} \frac{f(0, k) - f(0,0)}{k} \\
+                        & = \lim_{k \to 0} \frac{0 - 0}{k^3} = 0.
+                    \end{align*}
+                    Similarly, 
+                    \begin{align*}
+                        \frac{\partial f}{\partial x} (0,0) & = \lim_{h \to 0} \frac{f(0, k) - f(0,0)}{h} \\
+                        & = \lim_{h \to 0} \frac{0 - 0}{h^2} = 0.
+                    \end{align*}
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    For other points, we can compute the partial derivative as usual
+                    \begin{align*}
+                        \frac{\partial f}{\partial x} & = 
+                        \begin{cases}
+                            \dfrac{\partial }{\partial x} \left( \frac{xy^2}{x + y^2} \right)  , &\text{ if }  (x,y) \neq (0,0);\\
+                            0, &\text{ if } (x,y) = (0,0).
+                        \end{cases} \\[2ex]
+                        & = \begin{cases}
+                            \dfrac{y^2(x + y^2) - xy^2 (1)}{((x + y^2)^2}, &\text{ if }  (x,y) \neq (0,0);\\
+                            0, &\text{ if } (x,y) = (0,0).
+                        \end{cases} \\[2ex]
+                        & = \begin{cases}
+                            \dfrac{y^4}{(x + y^2)^2}, &\text{ if } (x,y) \neq (0,0) ;\\
+                            0, &\text{ if } (x,y) = (0,0).
+                        \end{cases}
+                    \end{align*}
+                    Similarly, 
+                    \begin{align*}
+                        \frac{\partial f}{\partial y} & = 
+                        \begin{cases}
+                            \dfrac{\partial }{\partial y} \left( \frac{xy^2}{x + y^2} \right)  , &\text{ if }  (x,y) \neq (0,0);\\
+                            0, &\text{ if } (x,y) = (0,0).
+                        \end{cases} \\[2ex]
+                        & = \begin{cases}
+                            \dfrac{2xy(x + y^2) - xy^2 (2y)}{((x + y^2)^2}, &\text{ if }  (x,y) \neq (0,0);\\
+                            0, &\text{ if } (x,y) = (0,0).
+                        \end{cases} \\[2ex]
+                        & = \begin{cases}
+                            \dfrac{2x^2 y}{(x + y^2)^2}, &\text{ if }  (x,y) \neq (0,0);\\
+                            0, &\text{ if } (x,y) = (0,0).
+                        \end{cases}
+                    \end{align*}
+                    Now we have two functions namely $\frac{\partial f}{\partial x} $ and $\frac{\partial f}{\partial y} $. 
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We need to compute the second derivative at $(0,0)$. We can use the same methods that we used before. 
+                    \begin{align*}
+                        \frac{\partial^2 f}{\partial x \partial y} (0,0) & = \left.\frac{\partial }{\partial x}\right|_{(0,0)} \left( \frac{\partial f}{\partial y}  \right) \\
+                        & = \lim_{h \to 0} \frac{\frac{\partial f}{\partial y} (h,0) - \frac{\partial f}{\partial y} (0,0)}{h} \\[1ex]
+                        & = \lim_{h \to 0} \frac{0}{h^3} = 0
+                    \end{align*} 
+                    Similarly, 
+                    \begin{align*}
+                        \frac{\partial^2 f}{\partial y \partial x} (0,0) & = \left.\frac{\partial }{\partial y}\right|_{(0,0)} \left( \frac{\partial f}{\partial x}  \right) \\
+                        & = \lim_{k \to 0} \frac{\frac{\partial f}{\partial x} (0,k) - \frac{\partial f}{\partial x} (0,0)}{k} \\[1ex]
+                        & = \lim_{k \to 0} \frac{0}{k^5} = 0
+                    \end{align*} 
+                    Thus, 
+                    \[
+                        \textcolor{teal}{\boxed{
+                            \frac{\partial^2 f}{\partial x \partial y}(0,0) = 0 \text{ and } \frac{\partial^2 f}{\partial y \partial x}(0,0) = 0.
+                        }}
+                    \]
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now to discuss the continuity of the second derivative, we first need to compute at a nonzero point similar to the earlier case. 
+                    \begin{align*}
+                        \frac{\partial^2 f}{\partial x \partial y} & = 
+                        \begin{cases}
+                            \dfrac{\partial }{\partial x} \left( \frac{2x^2 y}{(x + y^2)^2} \right)  , &\text{ if }  (x,y) = (0,0);\\
+                            0, &\text{ if } (x,y) = (0,0).
+                        \end{cases} \\[1ex]
+                        & = \begin{cases}
+                            \dfrac{4xy^3}{(x + y^2)^3}, &\text{ if }  (x,y) \neq (0,0);\\
+                            0, &\text{ if } (0,0).)
+                        \end{cases}
+                    \end{align*}
+                    <br><br>
+                    To talk about the continuity of the function $\frac{\partial^2 f}{\partial x \partial y} $, we take a path 
+                    \[
+                        x = r^2 \cos ^2 \theta , \text{ and } y = r \sin \theta , \ \ r \geq 0.
+                    \]
+                    If the function is continuous, the limit as $r$ approaches to zero, must be zero. That is,
+                    \begin{align*}
+                       \lim_{r \to 0} \frac{\partial^2 f}{\partial x \partial y}(x,y ) & = \lim_{r \to 0} \frac{4 r^5 \cos ^2\theta \sin ^3\theta }{(r^2\cos ^2\theta +r^2\sin ^2\theta )^3} \\
+                       & = \lim_{r \to 0} \frac{4 r^5 \cos ^2 \theta \sin ^3\theta }{r^6} \rightarrow \infty . 
+                    \end{align*}   
+                    Thus, it is not continuous at $(0,0)$.
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly, 
+                    \begin{align*}
+                        \frac{\partial^2 f}{\partial y \partial x} & = 
+                        \begin{cases}
+                            \dfrac{\partial }{\partial y} \left( \frac{y^4}{(x + y^2)^2} \right)  , &\text{ if }  (x,y) = (0,0);\\
+                            0, &\text{ if } (x,y) = (0,0).
+                        \end{cases} \\[1ex]
+                        & = \begin{cases}
+                            \dfrac{4xy^3}{(x + y^2)^3}, &\text{ if }  (x,y) \neq (0,0);\\
+                            0, &\text{ if } (x,y) = (0,0).
+                        \end{cases}
+                    \end{align*}
+                    Since $\frac{\partial^2 f}{\partial y \partial x} = \frac{\partial^2 f}{\partial x \partial y}$, and $\frac{\partial^2 f}{\partial x \partial y}$ is not continuous at $(0,0)$, so is the function $\frac{\partial^2 f}{\partial y \partial x}$.  
+                  </div>
+
+                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                </div>
+
+                <!-- Previous Button -->
+                <div class="flex justify-center mt-4">
+                  <nav aria-label="Page navigation example">
+                    <ul class="flex list-style-none">
+                      <li class="page-item disabled">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-04-28/">
+                          Previous 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../../daily-problems/#calendar">
+                          All 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-04-30/">
+                          Next 
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                
+                <!-- Disqus Comments-->
+                <div class="mt-16" id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://my-google-site.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <!-- End of comment section -->
+
               </div>
             </div>
           </div>
@@ -138,23 +347,32 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+    <script id="dsq-count-scr" src="//my-google-site.disqus.com/count.js" async></script>
+
     <script>
       MathJax = {
+        loader: {
+          load: ['[tex]/mathtools']
+        },
         tex: {
           inlineMath: [
             ['$', '$'],
             ['\\(', '\\)']
           ],
+          tags: 'ams',
           displayMath: [
             ['$$', '$$'],
             ['\\[', '\\]']
-          ]
+          ],
+          packages: {'[+]': ['mathtools']}
         },
         svg: {
           fontCache: 'global'
         }
       };
+    </script>
+    <script>
+      const tags = ['real-analysis', 'contuinuity', 'partial-derivative'];
     </script>
   </body>
 </html>

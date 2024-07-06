@@ -59,10 +59,10 @@ const tagsToProblems = {
     'real-analysis': realAnalysis,
     'supremum': ['../2024-05-06', '../2024-07-01'],
     'sequences': ['../2024-05-13'],
-    'continuity': ['../2024-05-20'],
+    'continuity': ['../2024-04-29', '../2024-05-20'],
     'integral': ['../2024-06-17'],
     'improper-integral': ['../2024-04-01'],
-    'partial-derivative': ['../2024-05-27'],
+    'partial-derivative': ['../2024-04-29', '../2024-05-27'],
     'inverse-function-theorem': ['../2024-06-10'],
 
     // complex analysis
