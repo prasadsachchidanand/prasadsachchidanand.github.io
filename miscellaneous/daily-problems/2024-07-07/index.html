@@ -14,9 +14,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions, daily problems, power series solution, GATE 2024, functional analysis">
-    <meta name="description" content="Solving an LPP problem graphically">
+    <meta name="description" content="If A^{-1} + B^{-1} = (A +B)^{-1}, then det A = det B">
     
-	  <title>Problem of the day | 06-07-2024 | Linear Programming - Solving an LPP problem graphically - Sachchidanand Prasad</title>
+	  <title>Problem of the day | 07-07-2024 | Linear Algebra - If A^{-1} + B^{-1} = (A +B)^{-1}, then det A = det B - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -73,7 +73,7 @@
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">06-07-2024</h2>
+            <h2 class="text-gray-900 text-3xl title-font font-medium">07-07-2024</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
@@ -82,22 +82,14 @@
                 
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
-                    <strong>Problem: </strong>Solve the following optimization problem using graphical method.
+                    <strong>Problem: </strong>Let $A$ and $B$ be two real matrices of size $n \geq 2$ such that 
                     \[
-                        \text{ Maximize } z = 2x_1 + 4x_2
-                    \]
-                    subject to 
-                    \begin{align*}
-                        x_1 + 2x_2 & \leq 5 \\
-                        x_1 + x_2  & \leq 4 \\
-                        x_1, x_2   & \geq 0.
-                    \end{align*}
+                        A^{-1} + B ^{-1} = (A + B)^{-1} .
+                    \]  
+                    Prove that $\det A = \det B$. 
                   <div class="mt-2">
                     <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                        miscellaneous
-                    </a>
-                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                        linear-programming
+                        linear-algebra
                     </a>
                   </div>
                 </div>
@@ -108,8 +100,83 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We have 
+                    \[
+                        A^{-1} + B^{-1} = (A + B) ^{-1} .
+                    \]
+                    Multiplying the above equation by $A + B$, we get
+                    \begin{align*}
+                        A ^{-1}  + B^{-1} = (A + B) ^{-1} & \implies (A + B) \left( A^{-1} + B^{-1} \right) = I \\
+                        & \implies A A ^{-1} + AB^{-1} + BA^{-1} + BB^{-1} = I \\
+                        & \implies AB^{-1} + BA^{-1} + I = 0 \\
+                        & \implies X + X^{-1} + I = 0 \tag{$\star$}
+                    \end{align*} 
+                    where $X = AB^{-1} $. Multiplying $(\star)$ by $(X - I) X$, we get 
+                    \begin{align*}
+                        & (X - I) X \cdot \left( X + X^{-1} + I \right)  = 0 \\
+                        \implies & (X - I) (X^2 + I + X) = 0 \\
+                        \implies & X^3 + X + X^2 - X^2 - I - X = 0 \\
+                        \implies & X^3 - I = 0.
+                    \end{align*} 
+                    Thus, 
+                    \[
+                        \det X^3 = \det I = 1 \implies \det X = 1.
+                    \]
+                    Note that we obtained $\det X = 1$ because $A$ and $B$ are real matrices and so is $X$. Thus, 
+                    \begin{align*}
+                        \det (AB ^{-1} ) = 1 \implies \det A = \det B.
+                    \end{align*} 
                   </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that we have explicitly used that the matrix should be real. If we take complex matrices $A$ and $B$, then it is not true. For example, take
+                    \[
+                        A = \begin{bmatrix}
+                        1  & 0  \\
+                        0 &  1  \\
+                    \end{bmatrix}, \quad \text{ and }\quad 
+                        B = \begin{bmatrix}
+                            \omega  & 0  \\
+                            0 &  \omega  \\
+                        \end{bmatrix},
+                    \]
+                    where $\omega $ is the cube root of unity, that is, $\omega  = \frac{-1 + \sqrt{3} \iota }{2}$. Then, 
+                    \begin{align*}
+                        A^{-1} + B^{-1} & = I + \begin{bmatrix}
+                            \omega ^{-1}  & 0  \\
+                            0 &  \omega ^{-1}  \\
+                        \end{bmatrix} \\
+                        & = I + \begin{bmatrix}
+                            \omega ^2 & 0  \\
+                            0 &  \omega ^2 \\
+                        \end{bmatrix} \\
+                        & = \begin{bmatrix}
+                            1 + \omega^2 & 0  \\
+                            0 & 1 + \omega ^2 \\
+                        \end{bmatrix}.
+                    \end{align*}
+                    On the other hand, 
+                    \begin{align*}
+                        (A + B) ^{-1} & = \begin{bmatrix}
+                            1 + \omega  & 0  \\
+                            0 & 1 + \omega   \\
+                        \end{bmatrix}^{-1} \\
+                        & = \begin{bmatrix}
+                            (1 + \omega )^{-1}  &  0 \\
+                            0 & (1 + \omega )^{-1}   \\
+                        \end{bmatrix} \\
+                        & = \begin{bmatrix}
+                            (1 + \omega^2 )  &  0 \\
+                            0 & (1 + \omega^2 ) \\
+                        \end{bmatrix},
+                    \end{align*}
+                    where the last equality holds because $1 + \omega  + \omega ^2 = 0$. More precisely, 
+                    \begin{align*}
+                        (1 + \omega )(1 + \omega^2 ) = 1 + \omega ^2 + \omega + \omega ^3 = 0 + \omega ^3 = 1.
+                    \end{align*} 
+                  </div>
+                  
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
 
@@ -118,7 +185,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-07-05/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-07-06/">
                           Previous 
                         </a>
                       </li>
@@ -128,7 +195,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-07-07/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-07-08/">
                           Next 
                         </a>
                       </li>
@@ -241,7 +308,7 @@
       };
     </script>
     <script>
-      const tags = ['miscellaneous', 'linear-programming'];
+      const tags = ['linear-algebra'];
     </script>
   </body>
 </html>
