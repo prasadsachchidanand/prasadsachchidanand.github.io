@@ -171,16 +171,24 @@
               </h2>
               <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md hover:bg-red-200">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Problem: </strong>The number of non-isomorphic abelian groups of order $2^2\cdot 3^3\cdot 5^4$ is _______________.
+                    <strong>Problem: </strong>Let $(X, d )$ be a a metric space and $A,B$ be two nonempty subsets of $X$. Then the \emph{diameter} of $A$ is defined as 
+                    \begin{align*}
+                        \mathrm{diam} (A) = \sup \left\{ d (x,y): x,y \in A \right\}. 
+                    \end{align*}
+                    Also, the distance between $A$ and $B$ is defined by 
+                    \[
+                        \mathrm{dist} (A, B) = \inf \left\{ d(a,b): a \in A \text{ and } b \in B  \right\} .
+                    \]
+                    Show that 
+                    \[
+                        \mathrm{diam} (A  \cup B) \leq \mathrm{diam} (A) + \mathrm{diam} (B) + \mathrm{dist} (A, B).
+                    \]
                     <div class="mt-2">
                       <a href="tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                          abstract-algebra
+                          topology
                       </a>
                       <a href="tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                          group-theory
-                      </a>
-                      <a href="tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                          GATE-2022
+                          metric-space
                       </a>
                     </div>
                   </div> 

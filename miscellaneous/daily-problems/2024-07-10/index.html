@@ -102,7 +102,32 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Before proceeding for a solution to the problem, let us see the number of non-isomorphic abelian group of order $p^4$, where $p$ is a prime. We consider all partitions of $4$. Each partition will give an abelian group of order $p^5$. We have 
+                    \begin{align*}
+                        & 4 & & \mathbb{Z} _{p^4} \\
+                        & 3 + 1 & & \mathbb{Z} _{p^3} \oplus \mathbb{Z} _p \\
+                        & 2 + 2 & & \mathbb{Z} _{p^2} \oplus \mathbb{Z} _{p^2} \\
+                        & 2 + 1 + 1 & & \mathbb{Z} _{p^2} \oplus \mathbb{Z} _{p} \oplus \mathbb{Z} _{p} \\
+                        & 1 + 1 + 1 + 1 & & \mathbb{Z} _{p} \oplus \mathbb{Z} _{p} \oplus \mathbb{Z} _{p} \mathbb{Z} _{p} .
+                    \end{align*}   
+                    So there are $5$ non-isomorphic abelian groups of order $p^4$. 
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    In order to determine the number of non-isomorphic groups of order $2^2 \cdot 3^3 \cdot 5^4$, we consider the partition of each powers. So we have 
+                    <ul class="math-list-disc">
+                      <li class="my-2">
+                        The number of non-isomorphic abelian groups of order $2^2$ is parton of $2$, that is, $2$. 
+                      </li>
+                      <li class="my-2">
+                        The number of non-isomorphic abelian groups of order $3^3$ is parton of $3$, that is, $3$.  
+                      </li>
+                      <li class="my-2">
+                        The number of non-isomorphic abelian groups of order $5^4$ is parton of $4$, that is, $5$.
+                      </li>
+                    </ul>
+                    Therefore, total number of non-isomorphic abelian group of order $2^2\cdot 3^3\cdot 5^4$ is $30$. 
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

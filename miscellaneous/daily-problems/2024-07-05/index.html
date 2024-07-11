@@ -103,8 +103,71 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $y_1$ and $y_2$ be linearly dependent solution of the differential equation 
+                    \begin{equation}\label{eq:05July2024-1}
+                        a_2(x) y'' + a_1(x) y' + a_0 (x) y = 0.
+                    \end{equation}
+                    We need to prove that the Wronskian is identically zero. Since $y_1$ and $y_2$ are linearly dependent, there exists $c_1, c_2 in \mathbb{R} $, both are not zero together, such that 
+                    \[
+                        c_1 y_1 (x) + c y_2 (x) = 0 \implies c_ 1y_1 '(x) + c y_2'(x) = 0
+                    \] 
+                    for each $x \in (a,b)$. Thus, we got a system of homogeneous equations in the variables $c_1 $ and $c_2$ with a nontrivial solution. So, 
+                    \begin{align*}
+                        \det 
+                        \begin{bmatrix}
+                            y_1(x) &  y_2(x) \\
+                            y_1'(x) & y_2'(x) \\
+                        \end{bmatrix} = 0 \implies W(x) = 0 ,
+                    \end{align*}
+                    where $W(x)$ is the Wronskian of $y_1$ and $y_2$.
                   </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    For the other direction, let the Wronskian of $y_1$ and $y_2$ be zero, that is,  
+                    \[
+                        W(x) = 
+                        \begin{vmatrix}
+                            y_1(x) &  y_2(x) \\
+                            y_1'(x) & y_2'(x) \\
+                        \end{vmatrix} = 0, \text{ for } x \in (a,b).
+                    \]
+                    In particular, for $x = x_0$, 
+                    \[
+                        W(x_0) = 
+                        \begin{vmatrix}
+                            y_1(x_0) &  y_2(x_0) \\
+                            y_1'(x_0) & y_2'(x_0) \\
+                        \end{vmatrix} = 0.
+                    \] 
+                    This implies the system 
+                    \begin{align*}
+                        c_1 y_1(x_0) + c_2 y_2(x_0) = 0 \\
+                        c_1 y_1'(x_0) + c_2 y_2'(x_0) = 0 
+                    \end{align*}
+                    has a nontrivial solution for $c_1, c_2$. Consider the function 
+                    \begin{equation}\label{eq:05July2024-2}
+                        y(x) = c_1 y_1(x) + c_2 y_2(x).
+                    \end{equation}
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Since $y_1$ and $y_2$ are solutions of \eqref{eq:05July2024-1}, $y(x)$ must also be solution of \eqref{eq:05July2024-1}. This implies,
+                    \[
+                        y(x_0) = 0 = y'(x_0).
+                    \]
+                    We have the differential equation 
+                    \[
+                        a_2(x) y'' + a_1(x) y' + a_0 (x) y = 0, \text{ with } y(x_0) = y'(x_0) = 0.
+                    \]
+                    This equation has a unique solution, namely the trivial solution Thus, $y\equiv 0$. Hence, we have 
+                    \[
+                        c_1 y_1(x) + c_2 y_2(x) = 0, \text{ for } x \in (a,b),
+                    \] 
+                    with $c_1, c_2$ not zero together. Thus, $y_1$ and $y_2$ are linearly dependent. 
+                  </div>
+                  
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
 
