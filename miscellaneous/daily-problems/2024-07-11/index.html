@@ -110,7 +110,39 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The diameter of the union will be 
+                    \[
+                        \mathrm{diam} (A  \cup B) = \sup \left\{ d(a,b): a,b \in A  \cup B \right\} 
+                    \]
+                    Note that for any $a_1, a_2 \in A$ and $b_1, b_2 \in B$, we have 
+                    \begin{align*}
+                        d\left( a_1, a_2 \right) & \leq \sup \left\{ d (x,y): x,y \in A \right\} \\
+                                                 & = \mathrm{diam} (A) \\[1ex]
+                        d\left( b_1, b_2 \right) & \leq \sup \left\{ d (x,y): x,y \in B \right\} \\
+                                                 & = \mathrm{diam} (B) \\
+                    \end{align*} 
+                    Using the above relations, if $a\in A$ and $b\in B$, then for any $a'\in A$ and $b'\in B$, 
+                    \begin{align*}
+                        d(a,b) & \leq d(a,a') + d(a', b') + d(b',b) \\
+                               & \leq \mathrm{diam} (A) + d\left( a', b' \right) + \mathrm{diam} (B).
+                    \end{align*} 
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    From above, we can say that 
+                    \begin{align*}
+                       & \sup \left\{ d(a,b): a, b \in A  \cup B \right\} \leq \mathrm{diam} (A) + d\left( a', b' \right) + \mathrm{diam} (B) \\
+                       \implies & \mathrm{diam} (A  \cup B) \leq \mathrm{diam} (A) + d\left( a', b' \right) + \mathrm{diam} (B).
+                    \end{align*}
+                    Thus, $\mathrm{diam} (A  \cup B) - \mathrm{diam} (A) - \mathrm{diam}(B) $ is a lower bound of the set $\{ d(a',b'): a'\in A,\ b'\in B\}$. Hence, 
+                    \begin{align*}
+                        \mathrm{diam} (A  \cup B) - \mathrm{diam} (A) - \mathrm{diam}(B) \leq \inf \left\{ d(a',b'): a'\in A,\ b'\in B \right\}.
+                    \end{align*}  
+                    Therefore, we obtain the required relation
+                    \[
+                        \mathrm{diam} (A  \cup B) \leq \mathrm{diam} (A) + \mathrm{diam} (B) + \mathrm{dist} (A, B).
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
