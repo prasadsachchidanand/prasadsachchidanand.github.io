@@ -106,9 +106,57 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>he given PDE is 
+                    \begin{equation}\label{eq:12July2024-1}
+                        \left( \frac{b-c}{a} \right) yzp + \left( \frac{c-a}{b} \right) zxq = \left( \frac{a - b}{c} \right) xy.
+                    \end{equation}
+                    The corresponding Lagrange's subsidiary equations are 
+                    \begin{equation}\label{eq:12July2024-2}
+                        \frac{a  \mathrm{d} x}{(b-c)yz} = \frac{b \mathrm{d} y}{(c-a)zx} = \frac{c \mathrm{d} z}{(a - b) xy} .
+                    \end{equation}
+                    We recall that if 
+                    \begin{equation}\label{eq:12July2024-3}
+                        \frac{\mathrm{d} x}{P}  = \frac{\mathrm{d} y}{Q} = \frac{\mathrm{d} z}{Q}
+                    \end{equation}
+                    and $P_1, Q_1, R_1$ are functions of $x,y$ and $z$, then 
+                    \[
+                        \frac{ P_1 \mathrm{d} x + Q_1 \mathrm{d} y + R_1 \mathrm{d} z}{P_1 P + Q_1 Q + R_1 R} 
+                    \] 
+                    is equal to each of the fraction of \eqref{eq:12July2024-3}. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Using the equation \eqref{eq:12July2024-2}, and take $P_1 = x, Q_1 = y$ and $R_1 = z$, we have 
+                    \begin{align*}
+                        \frac{a\mathrm{d} x}{(b-c)yz} & = \frac{ax \mathrm{d} x + by \mathrm{d} y + cz \mathrm{d} z}{xyz\left[ (b - c) + (c - a) + (a - b) \right] } .
+                    \end{align*}
+                    This implies 
+                   \begin{align*}
+                                 & ax \mathrm{d} x + by \mathrm{d} y + cz \mathrm{d} z = 0 \\[1ex]
+                        \implies & 2\left(  ax \mathrm{d} x + by \mathrm{d} y + cz \mathrm{d} z \right) = 0 \\[1ex]
+                        \implies &  2ax \mathrm{d} x + 2by \mathrm{d} y + 2cz \mathrm{d} z = 0 \\[1ex]
+                        \implies & ax^2 + by^2 + cz^2 = k_1,
+                   \end{align*}
+                   where $k_1$ is an arbitrary constant. 
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Again, we can choose $P_1 = ax, Q_1 = by$ and $R_1 = cz$ and each fraction of \eqref{eq:12July2024-2} will be equal to 
+                    \begin{align*}
+                        & \frac{a^2x \mathrm{d} x + b^2y \mathrm{d} y + c^2z \mathrm{d} z}{xyz(a(b-c) + b (c-a) + c(a - b))} = 0\\[2ex]
+                         \implies & a^2x \mathrm{d} x + b^2y \mathrm{d} y + c^2z \mathrm{d} z = 0 \\[2ex]
+                         \implies & a^2 x^2 + b^2y^2 + c^2 z^2 = k_2,
+                    \end{align*} 
+                    where $k_2$ is an arbitrary constant. 
+                    Therefore, the solution of the given PDE is 
+                    \[
+                     \phi (k_1, k_2 ) = 0 \implies \phi \left( ax^2 + by^2 + cz^2 ,a^2 x^2 + b^2y^2 + c^2 z^2\right) = 0 ,
+                    \]
+                    where $\phi$ is an arbitrary function.  
+                  </div>
+
                 </div>
 
                 <!-- Previous Button -->

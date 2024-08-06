@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'topology': document.getElementById('topology-links'),
         'differential-equation': document.getElementById('differential-equation-links'),
         'miscellaneous': document.getElementById('miscellaneous-links'),
-        'gate': document.getElementById('gate-links')
+        'gate': document.getElementById('gate-links'),
+        'csir-net': document.getElementById('csir-net-links')
     };
 
     // Map subcategories to main categories
@@ -32,12 +33,14 @@ document.addEventListener('DOMContentLoaded', function() {
         'improper-integral': 'real-analysis',
         'partial-derivative': 'real-analysis',
         'inverse-function-theorem': 'real-analysis',
+        'sequence-of-functions': 'real-analysis',
 
         // complex analysis
         'infinite-series': 'complex-analysis',
         'complex-differentiation': 'complex-analysis',
         'complex-integration': 'complex-analysis',
         'analytic-function': 'complex-analysis',
+        'singularity': 'complex-analysis',
 
         // abstract algebra
         'group-theory': 'abstract-algebra',
@@ -72,9 +75,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // gate
         'gate-2006': 'gate',
         'gate-2007': 'gate',
+        'gate-2019': 'gate',
         'gate-2021': 'gate',
         'gate-2022': 'gate',
         'gate-2024': 'gate',
+
+        // csir-net
+        'csir-net-feb-2022': 'csir-net',
     };
 
     // Define the active button and container
