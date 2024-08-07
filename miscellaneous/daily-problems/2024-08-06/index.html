@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CVGSV7Y2CE');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions, daily problems, Gaussian ring">
+    <meta name="description" content=""> 
+      
+    <title>Problem of the day | 06-08-2024 | Complex Analysis -  - Sachchidanand Prasad</title>
+
+  <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
+
+  <link href="../../../assets/style.css" rel="stylesheet" />
+
+  <!-- academic icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+   <!--font-awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            
+  <!-- Google ad -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body style="background: #edf2f7;">
+    <div class="flex flex-col h-screen">
+      <!-- navbar -->
+      <div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+        <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+
+          <div class="p-4 flex flex-row items-center justify-between">
+            <a href="../../../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
+            <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+
+          <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../"> Home </a>
+
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../research/"> Research </a>
+
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../teaching/"> Teaching </a>
+
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../resume/"> CV </a>
+
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../articles/"> Articles </a>
+
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../miscellaneous/"> Miscellaneous </a>
+
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../contact/">Contact</a>
+          </nav>
+        </div>
+      </div>
+      
+      <!-- section -->
+      <section class="text-gray-600 body-font">
+        <div class="container xl:px-36 py-24 mx-auto">
+          <div class="flex flex-col items-center text-center justify-center">
+            <div class="p-4 md:w-full flex">
+              <div class="flex-grow lg:px-32 px-6">
+                <div class="flex flex-col items-center justify-center">
+                  <img src="https://cdn.pixabay.com/photo/2017/06/20/08/12/maintenance-2422173__340.png"
+                    alt="tailwindcss maintenance">
+                  <h1 class="mb-3 text-3xl font-bold text-center text-purple-600">Accessing Daily Problems: Wait for the Date</h1>
+                  <p class="text-justify text-gray-600">
+                    You are attempting to access a date that has not yet come to pass. It is important to wait until the designated date arrives in order to view the problem that will be posted on this platform.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- footer -->
+      <footer class="foot mt-auto border-t border-gray-200">
+        <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> Sachchidanand
+          </p>
+          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
+          </p>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-gray-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+              <i class="ai ai-researchgate ai-lg"></i>
+            </a>
+            <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+              <i class="ai ai-academia"></i>
+            </a>
+          </span>
+        </div>
+        <hr class="py-1 w-1/4 m-auto">
+                <div class="items-center">
+                    <p class="text-center">
+                        <span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+                        <img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
+                        alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
+                        <span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+                    </p>
+                </div>
+      </footer>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script>
+      function myFunction() {
+        var x = document.lastModified;
+        document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+      }
+      myFunction()
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [
+            ['$', '$'],
+            ['\(', '\)']
+          ],
+          displayMath: [
+            ['$$', '$$'],
+            ['\[', '\]']
+          ]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+  </body>
+</html>
