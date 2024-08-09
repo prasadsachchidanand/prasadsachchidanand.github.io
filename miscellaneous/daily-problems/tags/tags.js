@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'pde': 'differential-equation',
         'characteristics': 'differential-equation',
         'heat-equation': 'differential-equation',
+        'laplace-transformation': 'differential-equation',
 
         // miscellaneous
         'probability-theory': 'miscellaneous',
@@ -78,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'gate-2019': 'gate',
         'gate-2021': 'gate',
         'gate-2022': 'gate',
+        'gate-2023': 'gate',
         'gate-2024': 'gate',
 
         // csir-net
