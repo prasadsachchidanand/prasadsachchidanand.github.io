@@ -14,9 +14,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="Topology, Real Analysis, Complex Analysis, Differential Equations, Abstract Algebra, Linear Algebra, ODE, PDE, Calculus, Abstract algebra groups, rings, fields, CSIR-NET, GATE, NBHM, JAM, TIFR, ISI, mathematics, problems, solutions, daily problems, power series solution, GATE 2024, GATE 2022">
-    <meta name="description" content="">
+    <meta name="description" content="Solving the 2nd order differential equation using the Laplace transformation, GATE 2023 Problem 33 ">
     
-	  <title>Problem of the day | 09-08-2024 | Differential Equation -  - Sachchidanand Prasad</title>
+	  <title>Problem of the day | 09-08-2024 | Differential Equation - Solving the 2nd order differential equation using the Laplace transformation - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -114,9 +114,114 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We will use the Laplace transformation to solve this problem. Let us recall that the Laplace transformation of $f$ is given by 
+                    \[
+                        F(s) \coloneqq \mathcal{L} \{ f (t)\} = \int _0^{\infty} f(t) e^{-st}\mathrm{d} t. 
+                    \]
+                    Also, we have 
+                    \begin{align*}
+                        \mathcal{L} \{ f'(t) \} & = sF(s) - f(0) \\
+                        \mathcal{L} \{ f''(t) \} & = s^2F(s) - sf(0) - f'(0).
+                    \end{align*}
+                    The given differential equation is 
+                    \[
+                        y'' + 4y = f(t) = 
+                        \begin{cases}
+                            t, &\text{ if } 0 \leq t \leq 2,\\
+                            2, &\text{ if } 2 < t < \infty .
+                        \end{cases}
+                    \]
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let us find the Laplace transformation of $f(t)$. 
+                    \begin{align*}
+                        \mathcal{L} \{ f(t) \}  & = \int _0^{\infty} f(t) e^{-s t}\mathrm{d} t\\
+                                        & = \textcolor{blue}{\int _0^{2} t e^{-s t}\mathrm{d} t} +\textcolor{magenta}{ \int _2^{\infty} 2 e^{-st}\mathrm{d} t}\\[1ex]
+                                        & = \textcolor{blue}{\left[ -\frac{t}{s}e^{-ts} \right] _0^2 - \left[ \frac{1}{s^2}e^{-ts} \right]_0^2 } + \textcolor{magenta}{\left[- \frac{2e^{-ts}}{s} \right]_2^{\infty}  } \\[1ex]
+                                        & = \textcolor{blue}{-\frac{2}{s}e^{-s} - \left( \frac{e^{-2s}}{s^2} - \frac{1}{s^2} \right) } - \textcolor{magenta}{\left( 0 - \frac{2e^{e^{-2s}}}{s} \right) } \\[1ex]
+                                        & = \textcolor{blue}{\frac{1}{s^2} - \frac{(2s+1)}{s^2}e^{-2s}} + \textcolor{magenta}{\frac{2}{s} e^{-2s}} \\[1ex]
+                                        & = \frac{1}{s^2} - \frac{1}{s^2}e^{-2s}.
+                    \end{align*} 
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We now take the Laplace transformation of the given differential equation and write $\mathcal{L} \{ y(t) \} = Y(s) $. 
+                    \begin{align*}
+                        & s^2 Y(s) - sy(0) - y'(0) + 4Y(s) = \frac{1}{s^2} - \frac{1}{s^2}e^{-2s} \\
+                        \implies & s^2 Y(s) + 4Y(s) = \frac{1}{s^2} - \frac{1}{s^2}e^{-2s} \\
+                        \implies & Y(s) = \frac{1}{s^2(s^2+4)} - \frac{e^{-2s}}{s^2 (s^2 + 4)} \\
+                        \implies & y(t) = \mathcal{L} ^{-1} \left\{ \frac{1}{s^2(s^2+4)} - \frac{e^{-2s}}{s^2 (s^2 + 4)} \right\} .
+                    \end{align*}
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    So, we need to find the inverse Laplace transformation. Consider the first term.
+                    \begin{align*}
+                        \mathcal{L} ^{-1} \left\{ \frac{1}{s^2}\cdot \frac{1}{(s^2+4)} \right\}.
+                    \end{align*}
+                    We have 
+                    \[
+                        \mathcal{L} ^{-1} \left\{ \frac{1}{s^2 + 2^2} \right\} = \frac{1}{2}\sin 2t.
+                    \]
+                    Now we recall that 
+                    \[
+                        \int_0^t f(\tau)\mathrm{d} \tau = \mathcal{L} ^{-1} \left\{ \frac{1}{s}F(s) \right\} .
+                    \]
+                    Applying the above formula twice, we get
+                    \begin{align*}
+                        \mathcal{L} ^{-1} \left\{ \frac{1}{s}\cdot \frac{1}{s^2 + 4} \right\} & = \int_0^t \frac{1}{2}\sin 2\tau \mathrm{d} t\\
+                        & = \left[-\frac{1}{4}\cos 2\tau\right]_0^t \\
+                        & = \frac{1}{4}\left( 1 - \cos 2t \right) .
+                    \end{align*}
+                    Now again applying the same, we get
+                    \begin{align*}
+                        \mathcal{L} ^{-1} \left\{ \frac{1}{s}\cdot \frac{1}{s\left( s^2 + 4 \right) } \right\} & = \frac{1}{4} \int_0^t (1 - \cos 2t) \mathrm{d} t\\
+                        & = \frac{1}{4}\left[ t - \frac{\sin 2\tau}{2} \right]_0^t \\
+                        & = \frac{t}{4} - \frac{\sin 2t}{t^3}.
+                    \end{align*}
+                    Thus, 
+                    \[
+                        \mathcal{L} ^{-1} \left\{ \frac{1}{s^2(s^2+4)} \right\} = \frac{t}{4} - \frac{\sin 2t}{t^3}.
+                    \]
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We now need to obtain the inverse Laplace transformation of $\frac{e^{-2s}}{s^2 (s^2 + 4)}$. Recall that 
+                    \[
+                        \mathcal{L} ^{-1} \left\{ \frac{e^{-as}}F(s) \right\} = u(t - a)f(t-a),
+                    \]
+                    where 
+                    \[
+                        u(t -a ) = 
+                        \begin{cases}
+                            0, &\text{ if } t < a ;\\
+                            1, &\text{ if } t > a.
+                        \end{cases}
+                    \]
+                    Therefore, 
+                    \begin{align*}
+                        \mathcal{L} ^{-1} \left\{ \frac{e^{-2s}}{s^2(s^2 + 4)} \right\} & = u(t-2) \left( \frac{t-2}{4} - \frac{\sin 2(t-2)}{(t-2)^3} \right) .
+                    \end{align*}
+                    Therefore, 
+                    \begin{align*}
+                        y(t) & = \mathcal{L} ^{-1} \left\{ \frac{1}{s^2(s^2+4)} - \frac{e^{-2s}}{s^2 (s^2 + 4)} \right\} \\
+                        & = \frac{t}{4} - \frac{\sin 2t}{t^3} - u(t-2) \left( \frac{t-2}{4} - \frac{\sin 2(t-2)}{(t-2)^3} \right).
+                    \end{align*}
+                    We need to find $y\left( \frac{\pi}{2} \right) $. Note that $\frac{\pi}{2} < 2$, so $u(t-2) = 0$. Therefore,   
+                    \begin{align*}
+                        \alpha = y\left( \frac{\pi }{2} \right) & = \frac{\pi }{8}.
+                    \end{align*}
+                    Hence,
+                    \[
+                        \frac{4}{\pi }\alpha = \frac{4}{\pi } \times \frac{\pi}{8} = \frac{1}{2} = 0.5.
+                    \]
+                  </div>
+                  
                 </div>
 
                 <!-- Previous Button -->
