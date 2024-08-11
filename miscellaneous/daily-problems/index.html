@@ -167,24 +167,35 @@
                 </div>
 
                 <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="problem-of-the-day">
-                  <a class="text-blue-500 hover:text-blue-800" href="2024-08-10/">Problem of the day (10-08-2024)</a>
+                  <a class="text-blue-500 hover:text-blue-800" href="2024-08-11/">Problem of the day (11-08-2024)</a>
               </h2>
               <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md hover:bg-red-200">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Problem: </strong>Let $p(x) = x^3 -2x + 2$. If $q(x) $ is the interpolating polynomial of degree less than or equal to $4$ for the data
+                    <strong>Problem: </strong>Let $T: \mathbb{R} ^3 \to  \mathbb{R} ^3$ be a linear transformation satisfying 
                     \[
-                        \begin{array}{|c|c|c|c|c|c|}
-                            \hline x & -2 & -1 & 0 & 1 & 3 \\ \hline 
-                                   f(x) & p(-2) & p(-1) & 2.5 & p(1) & p(3) \\ \hline
-                        \end{array}\ ,
-                    \] 
-                    then the value of $\frac{\mathrm{d}^4q}{\mathrm{d}x^4} $ at $x = 0$ is _____________. 
+                        T(1,0,0) = (0,1,1), \ T(1,1,0) = (1,0,1), \ \text{ and } T(1,1,1) = (1,1,2). 
+                    \]
+                    Then
+                    <ul class="math-list-Alpha">
+                      <li class="my-2">
+                        $T$ is one-one but $T$ is NOT onto
+                      </li>
+                      <li class="my-2">
+                        $T$ is one-one and onto
+                      </li>
+                      <li class="my-2">
+                        $T$ is NEITHER one-one NOR onto
+                      </li>
+                      <li class="my-2">
+                        $T$ is NOT one-one but $T$ is onto
+                      </li>
+                    </ul>
                     <div class="mt-2">
                       <a href="tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                        miscellaneous
+                        linear-algebra
                       </a>
                       <a href="tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                          numerical-analysis
+                          linear-transformation
                       </a>
                       <a href="tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
                           GATE-2023

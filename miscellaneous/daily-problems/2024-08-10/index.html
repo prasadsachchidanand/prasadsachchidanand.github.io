@@ -109,7 +109,40 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>As the polynomial $q(x)$ is of degree $4$, we write 
+                    \[
+                        q(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4, \quad a_i \in \mathbb{R} .
+                    \] 
+                    Now form the given data, we also have 
+                    \begin{align*}
+                        & q(-2) = p(-2) \quad q(-1) = p(-1) \\
+                        & q(1) = p(1) \quad q(3) = p(3).
+                    \end{align*}
+                    So, we can determine the polynomial $q$ completely. Take 
+                    \[
+                        q(x) = p(x) + k (x-1)(x+1)(x+2)(x-3).
+                    \]
+                    Then $q$ satisfies the given data at $x = -2,-1,1$ and $3$. We can determine $k$ by considering $q(0) = 2.5$. We get 
+                    \begin{align*}
+                        q(0) = 2.5 & \implies p(0) + k (-1)(1)(2)(-3) = 2.5 \\
+                                   & \implies 2 + 6k = 2.5 \\
+                                   & \implies k = \frac{.5}{6} \\
+                                   & \implies k = \frac{1}{12}.
+                    \end{align*}    
+                    Therefore, 
+                    \[
+                        q(x) = p(x) + \frac{1}{12}(x^2-1)(x+2)(x-3).
+                    \]
+                    Thus, 
+                    \begin{align*}
+                        \frac{\mathrm{d}^4q}{\mathrm{d}x^4} & = \frac{\mathrm{d^4}}{\mathrm{d}x^4} \left( \frac{1}{12}(x^2-1)(x+2)(x-3) \right)  \\
+                        & = \frac{1}{12}\frac{\mathrm{d^4}}{\mathrm{d}x^4} \left( x^4 + r(x) \right), 
+                    \end{align*}
+                    where $r(x)$ is a cubic polynomial. 
+                    Hence,
+                    \[
+                        \frac{\mathrm{d}^4q}{\mathrm{d}x^4} = 4!\times \frac{1}{12} = 2.
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
