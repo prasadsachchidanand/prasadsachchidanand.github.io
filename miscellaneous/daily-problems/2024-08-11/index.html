@@ -120,7 +120,29 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>At first we note that $\{ (1,0,0), (1,1,0), (1,1,1) \} $ is a basis for $\mathbb{R} ^3$. Using the image of $T$ on the basis elements, we have 
+                    \begin{align*}
+                        T(0,1,0) = T((1,1,0) - (0,1,0)) = (1,-1,0) \\
+                        T(0,0,1) = T((1,1,1) - (1,1,0)) = (0,1,1).
+                    \end{align*} 
+                    Therefore, for any $(x,y,z)$ we have 
+                    \begin{align*}
+                        T(x,y,z) & = T(x(1,0,0) + y(0,1,0) + z(0,0,1)) \\
+                                 & = x (0,1,1) + y (1,-1,0) + z(0,1,1) \\
+                                 & = (y, x - y + z, x + z).
+                    \end{align*}
+                    Observe that $T$ is a linear map from a $3$-dimensional space to a $3$-dimensional space and hence using the Rank-Nullity theorem, it is one-one if and only if it is onto. Let us write the matrix of $T$ with respect to the standard basis $\{ e_1, e_2, e_3 \} $. 
+                    \[
+                        [T] = 
+                        \begin{bmatrix}
+                            0 & 1 &  0 \\
+                            1 & -1 &  1 \\
+                            1 & 0 &  1 \\
+                        \end{bmatrix}.
+                    \]   
+                    Since the determinant of $[T]$ is $0$, so $T$ is neither one-one nor onto.
+                    <br><br>
+                    The correct option is <strong>OPTION C</strong>.
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

@@ -108,22 +108,22 @@
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Solution: </strong>We recall that if $f$ is a holomorphic function in the punctured disc $\mathbb{D} (a,r) - \{ a \} $, then the <em>residue of $f$</em> at $a$ is the coefficient of $(z-a)^{-1} $ in the Laurent series of $f$ around $a$. We have the following important result to find out the residue. 
-                    <div class="theorem">
+                    <div class="theorem" id="thm:residueTheorem">
                       Let $f$ be a holomorphic function in the punctured disc $\mathbb{D} (a,r) - \{ a \} $.
                       <ul class="math-list-alpha">
-                        <li class="my-2">
+                        <li class="my-2" id="thm:residueTheoremRemovableSingularity">
                           If $f(z)$ has a removable singularity at $a$, then 
                           \[
                               \mathrm{Res}(f(z); a) = 0.  
                           \]
                         </li>
-                        <li class="my-2">
+                        <li class="my-2" id="thm:residueTheoremSimplePole">
                           If $a$ is a simple pole of $f(z)$, then 
                           \[
                               \mathrm{Res} (f(z); a) = \lim_{z \to a} (z - a) f(z).
                           \]
                         </li>
-                        <li class="my-2">
+                        <li class="my-2" id="thm:residueTheoremPoleOfOrderK">
                           If $a$ is a pole of order $k (k \geq 2)$ for $f(z)$, then 
                           \[
                               \mathrm{Res} (f(z); a) = \frac{1}{(k-1)!} \lim_{z \to a} \left[ \frac{\mathrm{d}^{k-1}}{\mathrm{d}z^{k-1}}(z-a)^k f(z)  \right] .
