@@ -107,7 +107,28 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $\epsilon > 0$ be given. We need to find $\delta > 0$ such that 
+                    \[
+                        d(x_1, x_2) < \delta \implies \left\vert d(x_1, Y) - d(x_2, Y) \right\vert < \epsilon . 
+                    \]   
+                    Given $x_1 \in X$, the number $d(x_1, X) + \epsilon /2$ is not a lower bound of the set $\left\{ d(x,y): y \in Y \right\} $. Thus, there exists $y_1 \in Y$ such that 
+                    \begin{equation}\label{eq:15Aug2024-1}
+                        d(x_1, y_1) < d(x_1, Y) + \frac{\epsilon}{2}.
+                    \end{equation}    
+                    Therefore, given any $x_2 \in X$, with $d(x_1, x_2) < \frac{\epsilon}{2} $, we have 
+                    \begin{align*}
+                        d\left( x_2, Y \right) & \leq d(x_2, x_1) + d\left( x_1, y_1 \right) \\
+                        & < \frac{\epsilon}{2} + d(x_1, Y) + \frac{\epsilon}{2}  \\
+                        & < \epsilon + d(x_1, Y).        
+                    \end{align*}  
+                    Thus, $d(x_2, Y) - d(x_1, Y) < \epsilon $. Similarly, by changing the role of $x_1$ and $x_2$, we can obtain 
+                    \[
+                        d(x_1, Y) - d(x_2, Y) < \epsilon. 
+                    \]  
+                    Therefore, we proved that 
+                    \[
+                        d(x_1, x_2) < \frac{\epsilon}{2} \implies \left\vert d(x_1, Y) - d(x_2, Y) \right\vert < \epsilon .
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
