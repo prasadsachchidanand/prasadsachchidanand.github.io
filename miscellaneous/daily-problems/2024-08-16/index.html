@@ -103,7 +103,28 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $y(x) = x \cdot v(x)$ be the solution of the given  differential equation. We need to determine $v(x)$. Then we have
+                    \begin{align*}
+                        y'(x) & = xv'(x) + v(x) \\
+                        y''(x) & = xv''(x) + 2v'(x) \\
+                        y'''(x) & = xv'''(x) + 3v''(x).
+                    \end{align*} 
+                    Therefore, the given differential equation reduces to 
+                    \begin{align*}
+                        & x^3 \left( 3v'' + xv''' \right) - 3x^2 \left( 2v' + xv'' \right) \\
+                        & \kern 2cm + (6x - x^3) \left( v + xv' \right) + \left( x^2 - 6 \right) xv = 0 \\
+                        \implies & x^4 v''' + v''\left( 3x^3 - 3x^3 \right) + v'\left( -6x^2 + 6x^2 - x^4 \right) \\
+                        & \kern 2cm  + v\left( 6x - x^3 + x^3 - 6x \right) = 0 \\
+                        \implies & x^4 \left( v''' - v' \right) = 0 .
+                    \end{align*}
+                    This implies $v'''(x) - v'(x) = 0$, and the solution to this differential equation is
+                    \[
+                        v(x) = c_1 + c_2 e^x + c_3 e^{-x}.
+                    \]  
+                    Therefore, the solution of the given differential equation will be 
+                    \[
+                        y(x) = c_1 x + c_2 x e^x + c_3 x e^{-x}.
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
