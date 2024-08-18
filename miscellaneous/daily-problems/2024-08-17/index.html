@@ -109,7 +109,25 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> The given integral will be 
+                    \begin{align*}
+                        \alpha & = \int_0^2 \left( 9x^2 - 5c x^4 \right) \mathrm{d} x \\
+                               & = \left[ 3x^3 - c x^5 \right] _0^2 \\
+                               & = 24 - 32 c.
+                    \end{align*}
+                    It is also given that the value of the integral by the Trapezoidal rule is equal to $\alpha $. We recall that the Trapezoidal rule is given by 
+                    \[
+                        \int_a^b f(x)\mathrm{d} x = \frac{b-a}{2}\left[ f(b) - f(a) \right] .
+                    \] 
+                    So, we have
+                    \begin{align*}
+                        & 24 - 32c = \int_0^2 \left( 9x^2 - 5cx^4 \right) \mathrm{d} x \\
+                        \implies & 24 - 32c = \frac{2+0}{2}\left[ 36 - 80c \right] \\
+                        \implies & 24 - 32c = 36 - 80c \\
+                        \implies & 48c = 12 \\
+                        \implies & c = \frac{12}{48} = \frac{1}{4} = 0.25.
+                    \end{align*}
+                    Therefore, the value of $c$ will be $0.25$.
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
