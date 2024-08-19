@@ -116,9 +116,35 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The matrix $M$ satisfies the equation 
+                    \begin{align*}
+                        6M^{-1} = M^2 - 6M + \alpha I & \implies 6I = M^3 - 6M^2 + \alpha M \\
+                        & \implies M^3 - 6M^2 + \alpha M - 6I = 0.
+                    \end{align*}
+                    Therefore, the characteristic polynomial of the matrix $M$ is 
+                    \[
+                        x^3 - 6x^2 + \alpha x - 6 = 0.
+                    \]
+                    Note that the given matrix $M$ is an upper triangular matrix, so the eigenvalues are the diagonal elements, hence the characteristic polynomial of $M$ will be 
+                    \begin{align*}
+                        (x-3)(x-2)(x-1) = 0 & \implies \left( x^2 - 5x + 6 \right) (x - 1) = 0 \\
+                        & \implies x^3 - 6x^2 + 11x - 6 = 0.
+                    \end{align*}
+                    Therefore, the value of $\alpha$ is equal to $11$.
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    This can also be solved by the following observation. If $a,b$ and $c$ are the roots of a cubic polynomial then, the polynomial can be written as 
+                    \[
+                        p(x) = x^3 - \left( a + b + c \right) x^2 + (ab + bc + ac) x - abc.
+                    \]
+                    Here, the roots are $1,2$ and $3$. So, the characteristic equation will be 
+                    \[
+                        x^3 - 6x + 11x - 6 = 0,
+                    \]
+                    and hence $\alpha = 11$. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
