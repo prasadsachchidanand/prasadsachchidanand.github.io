@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'metric-space': 'topology',
         'product-topology': 'topology',
         'homeomorphism': 'topology',
+        'connectedness': 'topology',
 
         // differential equations
         'ode': 'differential-equation',

@@ -99,9 +99,39 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let $x = \sqrt{2} + \sqrt{3} $. Then we have 
+                    \begin{align*}
+                        x^2 = 2 + 3 + 2\sqrt{6} & \implies x^2 - 5 = 2\sqrt{6} \\
+                        & \implies (x^2 - 5)^2 = 24 \\
+                        & \implies x^4 -10x^2 + 25 - 24 = 0 \\
+                        & \implies x^4 - 10x^2 + 1 = 0.
+                    \end{align*} 
+                    Since the polynomial $p(x) = x^4 - 10x^2 + 1 \in \mathbb{Q} [x]$, the number $\sqrt{2} + \sqrt{3} $ is algebraic over $\mathbb{Q} $.
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    To determine the degree $\sqrt{2} + \sqrt{3} $ over $\mathbb{Q} $, we observe that the polynomial $x^4 - 10x^2 + 1$ is irreducible over $\mathbb{Q} $. To see this note that the only possible rational roots are $\pm 1$. Since $p(1)$ and $p(-1)$ are nonzero, the polynomial $p(x)$ does not have a rational root. Also, $p(x)$ cannot be factored as a product of two quadratic polynomials. For that, let 
+                    \begin{align*}
+                        & p(x) = \left( x^2 + ax + b\right) \left( x^2 - ax + b\right) \\
+                        \implies & x^4 +x^2 \left( 2b - a^2 \right) + b^2.
+                    \end{align*}
+                    Comparing the coefficients, we get 
+                    \begin{align*}
+                        b^2 = 1 \text{ and } 2b - a^2 = -10,
+                    \end{align*}
+                    the above does not have a solution in $\mathbb{Q} $. Thus, $p(x)$ is irreducible and hence $\left[ \mathbb{Q} \left( \sqrt{2} + \sqrt{3} : \mathbb{Q}  \right)  \right] = 4$.  
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly to determine the degree of $\sqrt{2} \cdot \sqrt{3} $, we observe that if
+                    \[
+                        x = \sqrt{2} \cdot \sqrt{3} \implies x^2 = 6.
+                    \] 
+                    Thus, $x^2 - 6$ is the minimal polynomial (as the polynomial is irreducible over $\mathbb{Q} $) that satisfies $\sqrt{2} \cdot \sqrt{3} = \sqrt{6} $. Hence, $\left[ \mathbb{Q} (\sqrt{6} ) : \mathbb{Q}  \right] = 2 $. 
+                  </div>
+
                 </div>
 
                 <!-- Previous Button -->
