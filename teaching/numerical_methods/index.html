@@ -78,35 +78,49 @@
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <img class="md:w-f sm:w-f" src="img/numericalMethods.svg" alt="course_banner" >
+            <img class="md:w-f sm:w-f" src="img/numericalMethods.svg" alt="course_picture" >
           </div>
 
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-            <div class="p-4 md:w-full flex">
-              <div class="flex-grow lg:px-32 px-6 text-center">
-          
-                <ol class="pl-8 text-lg font-normal mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 text-center">
-                  <li class="mb-2">
-                    <a href="Course_introduction.pdf" target="_blank" class="block bg-blue-500 text-white py-2 px-4 rounded-lg transition duration-300 hover:bg-blue-700">Course Introduction</a>
-                    <!-- <div class="mt-2">
-                      <a href="Course_introduction.pdf" class="text-blue-500 hover:text-blue-800" target="_blank">PDF</a>
-                      <span class="mx-2">|</span>
-                      <a href="course_introduction/" class="text-blue-500 hover:text-blue-800">Web</a>
-                    </div> -->
-                  </li>
-          
-                  <li class="mb-2">
-                    <a href="introduction-to-symplectic_geometry.pdf" target="_blank" class="block bg-blue-500 text-white py-2 px-4 rounded-lg transition duration-300 hover:bg-blue-700">Lecture notes</a>
-                    <!-- <div class="mt-2">
-                      <a href="introduction-to-symplectic_geometry.pdf" class="text-blue-500 hover:text-blue-800" target="_blank">PDF</a>
-                      <span class="mx-2">|</span>
-                      <a href="lecture_notes/" class="text-blue-500 hover:text-blue-800">Web</a>
-                    </div> -->
-                  </li>
-                </ol>
-          
+            <div class="p-4 w-full flex flex-col items-center">
+                <div class="w-full max-w-2xl">
+                
+                  <!-- Lecture Notes Section -->
+                    <div class="px-4 text-lg font-normal mt-4">
+                        <button onclick="toggleVisibility('lectureNotes')" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                        Lecture Notes
+                        </button>
+                        <div id="lectureNotes" class="mt-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                        <ul class="text-left pl-4 md:pl-8">
+                            <li class="my-2">
+                              <a href="lecture1.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Lecture-Set 1</a> (Solving algebraic equations)
+                            </li>
+                            <li class="my-2">
+                              <a href="lecture2.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Lecture-Set 2</a> (Finite difference methods)
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                
+                    <!-- Problem Sheets Section -->
+                    <div class="px-4 text-lg font-normal mt-4">
+                        <button onclick="toggleVisibility('problemSheets')" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                        Homeworks
+                        </button>
+                        <div id="problemSheets" class="mt-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                        <ul class="text-left pl-4 md:pl-8">
+                            
+                            <li class="flex justify-between my-2">
+                                <a href="NMHW-01.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Homework 1</a>
+                                <a href="NMSol-01.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Solution 1</a>
+                            </li>
+                            <!-- Add more problem sheets as needed -->
+                        </ul>
+                        </div>
+                    </div>
+              
+                </div>
               </div>
-            </div>
           </div>
           
           
@@ -183,5 +197,17 @@
         }
       };
     </script>
+
+    <!-- Assignments and Lectures -->
+    <script>
+        function toggleVisibility(id) {
+          var element = document.getElementById(id);
+          if (element.style.maxHeight) {
+            element.style.maxHeight = null;
+          } else {
+            element.style.maxHeight = element.scrollHeight + "px";
+          }
+        }
+      </script>      
   </body>
 </html>
