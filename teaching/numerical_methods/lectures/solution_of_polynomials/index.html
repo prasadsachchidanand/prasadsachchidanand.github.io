@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CVGSV7Y2CE');
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CVGSV7Y2CE');
+    </script>
+
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Numerical Methods - Lecture - Solution of polynomials and transcendental equations - Sachchidanand Prasad</title>
+		
+		<link rel="icon" type="image/svg+xml" href="../../../../assets/img/favicon.png"/>
+
+		<link rel="stylesheet" href="../../../../assets/style.css">
+		
+        <link rel="stylesheet" href="../../../../miscellaneous/daily-problems/answer.css">
+
+		<!-- Font awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<!-- academic icons -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+		
+		<!-- Google ad -->
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
+		crossorigin="anonymous"></script>
+		
+	</head>
+
+	<body style="background: #edf2f7;">
+		<div class="flex flex-col h-screen">	
+			
+			<!-- navbar -->
+			<div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+				<div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto   md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+				<div class="p-4 flex flex-row items-center justify-between">
+					<a href="../../../../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
+					<button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+					<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+						<path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+						<path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+					</svg>
+					</button>
+				</div>
+				
+				<nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../../">Home</a>
+			
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../../research/">Research</a>
+			
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../../teaching/">Teaching</a>
+					
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../../resume/">CV</a>
+
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../../articles/">Articles</a>
+
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../../miscellaneous/">Miscellaneous</a>
+					
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../../contact/">Contact</a>	  
+				</nav>
+				</div>
+			</div>
+
+            <!-- section -->
+            <section class="text-gray-600 body-font">
+				<div class="container px-5 py-24 mx-auto">
+					
+					<div class="flex flex-col items-center text-center justify-center">
+						<h2 class="text-gray-900 text-3xl title-font font-medium">Solution of Polynomial and Transcendental Equations</h2>
+						<div class="w-80 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+					</div>
+					
+					<div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+						<div class="p-4 md:w-full flex">
+						<div class="flex-grow lg:px-32 px-6">
+							<div class="border-l-4 border-yellow-500 mt-4 p-4 text-black-900 bg-yellow-50">
+								<h2 class="text-3xl font-semibold text-gray-900 mb-6">Introduction</h2>
+								<p class="text-lg leading-relaxed text-gray-700 my-4">
+									<span class="ml-8"></span>In numerical analysis, the solution of polynomial and transcendental equations is a fundamental topic with widespread applications in various fields of science and engineering. These equations, which are often too complex to solve analytically, require iterative numerical methods to find their roots.
+								</p>
+								<p class="text-lg leading-relaxed text-gray-700 my-4">
+									<span class="ml-8"></span>A polynomial of degree $n$ is of the form 
+									\[
+										f(x) = a_0 + a_1 x + a_2 x^2 + \dots + a_n x^n, \quad \text{where } a_n \neq 0.
+									\]
+									where \( a_n, a_{n-1}, \dots, a_0 \) are coefficients, and \( x \) is the unknown variable. The polynomial $f(x) = 0$ is called an <em>algebraic equation</em> of degree $n$. On the other hand, <em>transcendental equations</em> involve transcendental functions such as exponential, logarithmic, trigonometric, or hyperbolic functions. An example of a transcendental equation is:
+									\[
+										f(x) = e^x - x^2 = 0
+									\]
+									Due to their non-algebraic nature, transcendental equations do not have general solutions and must be solved using numerical methods.
+								</p>
+								<p class="text-lg leading-relaxed text-gray-700 my-4">
+									<span class="ml-8"></span>If there exists a real number $\alpha$ such that $f(\alpha) = 0$, then we say $\alpha$ is a real root (or a zero) of the equation $f(x) = 0$. The main goal of this section is to find a real root of the equation $f(x) = 0$. 
+								</p>
+								<p class="text-lg leading-relaxed text-gray-700 my-4">
+									<span class="ml-8"></span>The root of an equation can be found either analytically or numerically. Not all equations can be solved analytically. For example, the zeros of the equation 
+									\[
+										x^2 - 3x + 2 = 0
+									\]
+									can be found using the quadratic formula. Similarly, the roots of cubic and quartic polynomials can be determined analytically. However, for more complex equations, such as
+									\[
+										\sin x - e^{x} = 0,
+									\]
+									we must rely on iterative or numerical methods. In iterative methods, the root is approximated by starting with an initial guess (or initial approximation) and gradually improving this guess to achieve a more accurate approximation of the root.
+								</p>
+								<p class="text-lg leading-relaxed text-gray-700 my-4">
+									In this section, we will explore various techniques for solving these types of equations, including:
+								</p>
+								<ul class="math-list-disc ml-8 mt-4 text-lg">
+									<li class="my-2">
+										<a href="#" class="text-blue-500 hover:text-blue-800 font-bold">Bisection Method</a>: A simple and robust method that repeatedly bisects an interval and selects the subinterval in which the root lies.
+									</li>
+									<li class="my-2">
+										<a href="#" class="text-blue-500 hover:text-blue-800 font-bold">Regula Falsi Method (False Position Method)</a>: A method that improves upon the bisection method by interpolating a straight line between two points on the function curve.
+									</li>
+									<li class="my-2">
+										<a href="#" class="text-blue-500 hover:text-blue-800 font-bold">Newton-Raphson Method</a>: A powerful and fast method that uses the derivative of the function to iteratively approximate the root.
+									</li>
+								</ul>
+								
+								<p class="text-lg mt-4">
+									Each method has its own advantages, limitations, and applicability depending on the nature of the equation and the desired accuracy of the solution.
+								</p>
+							</div>
+						</div>
+						</div>
+					</div>
+
+					<!-- Navigation Buttons -->
+					<div class="flex justify-between lg:px-32 px-6 mt-8">
+						<a href="../">
+							<button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">Previous</button>
+						</a>
+						<a href="bisection_method/">
+							<button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">Next</button>
+						</a>
+					</div>
+
+				</div>
+			</section>
+
+			<!-- footer -->
+			<footer class="foot mt-auto border-t border-gray-200">
+				<div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+				  <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> Sachchidanand
+				  </p>
+				  <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
+				  </p>
+				  <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+					<a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
+					  <i class="fa-brands fa-facebook-f"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
+					  <i class="fa-brands fa-instagram"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
+					  <i class="fa-brands fa-twitter"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
+					  <i class="fa-brands fa-github"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-green-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+					  <i class="ai ai-researchgate ai-lg"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+					  <i class="ai ai-academia"></i>
+					</a>
+				  </span>
+				</div>
+				<hr class="py-1 w-1/4 m-auto">
+				<div class="items-center">
+					<p class="text-center">
+						<span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+						<img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
+						alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
+						<span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+					</p>
+				</div>
+			  </footer>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+		<script>
+			function myFunction() {
+				var x = document.lastModified;
+				document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+				}
+
+				myFunction()
+		</script>
+
+        <!-- accordion script -->
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+			for (i = 0; i < acc.length; i++) {
+				acc[i].addEventListener("click", function() {
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight) {
+					panel.style.maxHeight = null;
+					} else {
+					panel.style.maxHeight = panel.scrollHeight + "px";
+					} 
+				});
+			}
+		</script>
+
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+			
+		<script>
+		MathJax = {
+			tex: {
+			inlineMath: [
+				['$', '$'],
+				['\\(', '\\)']
+			],
+			displayMath: [
+				['$$', '$$'],
+				['\\[', '\\]']
+			]
+			},
+			svg: {
+			fontCache: 'global'
+			}
+		};
+		</script>
+	</body>
+</html>
+
