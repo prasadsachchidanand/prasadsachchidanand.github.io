@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/</loc>
-    <lastmod>2024-08-18</lastmod>
+    <lastmod>2024-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -554,7 +554,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2024-08-24/</loc>
-    <lastmod>2024-08-07</lastmod>
+    <lastmod>2024-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -578,7 +578,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2024-08-23/</loc>
-    <lastmod>2024-08-07</lastmod>
+    <lastmod>2024-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -716,7 +716,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2024-08-22/</loc>
-    <lastmod>2024-08-07</lastmod>
+    <lastmod>2024-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -740,7 +740,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2024-08-25/</loc>
-    <lastmod>2024-08-07</lastmod>
+    <lastmod>2024-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1922,7 +1922,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/tags/</loc>
-    <lastmod>2024-08-11</lastmod>
+    <lastmod>2024-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2510,7 +2510,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2024-08-20/</loc>
-    <lastmod>2024-08-07</lastmod>
+    <lastmod>2024-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2558,7 +2558,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2024-08-18/</loc>
-    <lastmod>2024-08-18</lastmod>
+    <lastmod>2024-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2666,7 +2666,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2024-08-26/</loc>
-    <lastmod>2024-08-07</lastmod>
+    <lastmod>2024-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2678,7 +2678,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2024-08-19/</loc>
-    <lastmod>2024-08-07</lastmod>
+    <lastmod>2024-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2696,7 +2696,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2024-08-21/</loc>
-    <lastmod>2024-08-07</lastmod>
+    <lastmod>2024-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -3722,13 +3722,49 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/teaching/</loc>
-    <lastmod>2024-05-25</lastmod>
+    <lastmod>2024-08-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/teaching/numerical_methods/</loc>
+    <lastmod>2024-08-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/teaching/numerical_methods/lectures/</loc>
+    <lastmod>2024-08-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/teaching/numerical_methods/lectures/solution_of_polynomials/</loc>
+    <lastmod>2024-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/teaching/numerical_methods/lectures/solution_of_polynomials/regula_falsi_method/</loc>
+    <lastmod>2024-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/teaching/numerical_methods/lectures/solution_of_polynomials/Newton-Raphson_method/</loc>
+    <lastmod>2024-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/teaching/numerical_methods/lectures/solution_of_polynomials/bisection_method/</loc>
+    <lastmod>2024-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/teaching/introduction_to_symplectic_geometry/</loc>
-    <lastmod>2024-05-25</lastmod>
+    <lastmod>2024-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
