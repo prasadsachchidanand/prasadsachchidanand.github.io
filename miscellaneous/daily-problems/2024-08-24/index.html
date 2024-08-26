@@ -118,9 +118,54 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The given probability distribution function is 
+                    \[
+                        f(x) = 
+                        \begin{cases}
+                            \frac{1}{20}e^{-\frac{x}{20}}, &\text{ if }  x > 0;\\
+                            0, &\text{ if } x \leq 0.
+                        \end{cases}
+                    \]
+                    Let $X$ denote the millage in thousand kilometers with a certain kind of tyre.  
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <ul class="math-list">
+                      <li class="my-4">
+                        We need to find the probability that one of the tyres will last at most $10,000$ kilometers. It will be 
+                        \begin{align*}
+                            P( X \leq 10) & = \int _{-\infty }^{10} f(x) \mathrm{d} x\\
+                                          & = \int _0^{10} \frac{1}{20} e^{-\frac{x}{20}} \mathrm{d} x \\[1ex]
+                                          & = \frac{1}{20} \left[ \dfrac{e^{-\frac{x}{20}}}{-1 / 20} \right]_0^{10} \\[1ex]
+                                          & = \left[ -e^{-\frac{10}{20}} + e^{\frac{0}{20}} \right] \\[1ex]
+                                          & = 1 - e^{-\frac{1}{2}} = 0.3935.
+                        \end{align*}
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        The probability that one of the tyres will last between $16,000$ to $24,000$ kilometers will be 
+                        \begin{align*}
+                            P(16 \le X \le 24) & = \int_{16}^{24} f(x) \mathrm{d} x \\
+                                           & = \frac{1}{20} \int_{16}^{24} e^{-\frac{x}{20}} \mathrm{d} x \\[1ex]
+                                           & = \frac{1}{20}\left[ \dfrac{e^{-\frac{x}{20}}}{-1 / 20} \right]_{16}^{24}  \\[1ex]
+                                           & = \left[ - e^{-\frac{24}{20}} + e^{-\frac{16}{20}} \right] \\[1ex]
+                                           & = e^{-\frac{4}{5}} - e^{-\frac{6}{5}} \\
+                                           & = 0.1481.
+                        \end{align*}
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        Finally, the probability that one of the tyres will last at least $30,000$ kilometers will be 
+                        \begin{align*}
+                            P(X \geq 30) & = \int_{30}^{\infty} f(x)\mathrm{d} x\\
+                                         & = \frac{1}{20} \int_{30}^{\infty } e^{-\frac{x}{20}} \mathrm{d} x\\[1ex]
+                                         & = \frac{1}{20} \left[ \dfrac{e^{-\frac{x}{20}}}{-1 /20} \right]_{30}^{\infty } \\[1ex]
+                                         & = e^{-\frac{30}{20}} = 0.2231.
+                        \end{align*}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
