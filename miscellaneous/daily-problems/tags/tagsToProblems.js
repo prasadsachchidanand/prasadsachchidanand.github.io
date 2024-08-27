@@ -71,8 +71,9 @@ const tagsToProblems = {
     'infinite-series': ['../2024-05-07', '../2024-08-06'],
     'complex-differentiation': ['../2024-06-18'],
     'complex-integration': ['../2024-05-21', '../2024-05-28', '../2024-08-13'],
-    'analytic-function': ['../2024-06-04', '../2024-06-11', '../2024-06-25', '../2024-07-02', '../2024-07-23', '../2024-08-20'],
+    'analytic-function': ['../2024-06-04', '../2024-06-11', '../2024-06-25', '../2024-07-02', '../2024-07-23', '../2024-08-20', '../2024-08-27'],
     'singularity': ['../2024-07-16'],
+    'harmonic-conjugate': ['../2024-08-27'],
 
     // abstract algebra
     'abstract-algebra': abstractAlgebra,

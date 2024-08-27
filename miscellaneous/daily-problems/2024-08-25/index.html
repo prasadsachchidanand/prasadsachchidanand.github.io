@@ -118,7 +118,43 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that a matrix $M$ of size $n \times n$ is diagonalizable if and only if $M$ has $n$ linearly independent eigenvectors. Let us find the eigenvalues of the matrix $M$. The characteristic polynomial of $M$ is given by
+                    \begin{align*}
+                        \det (M - \lambda I) & = \det \begin{bmatrix}
+                            4 - \lambda  & -3  \\
+                            1 & -\lambda \\
+                        \end{bmatrix}  \\
+                        & = \lambda ^2 - 4\lambda + 3.
+                    \end{align*}
+                    Eigenvalue of $M$ are the roots of the characteristic polynomial. 
+                    \[
+                        \lambda ^2 - 4\lambda + 3 = (\lambda -3)(\lambda -1) = 0.
+                    \]
+                    Thus, the eigenvalues are $1$ and $3$. Since the eigenvalues are distinct, the corresponding eigenvectors will be linearly independent and hence the matrix $M$ is diagonalizable. Now we will prove the following lemma. 
+                    <div class="lemma">
+                      Let $M$ is a diagonalizable matrix and $p(x)$ be any polynomial. Then $f(M)$ is also diagonalizable. 
+                    </div>
+                    <div class="proof">
+                      <strong>Proof: </strong>Given that $M$ is diagonalizable matrix, so we can find nonsingular matrix $P$ and a diagonal matrix $D = \mathrm{diag}\left[ \lambda _1, \lambda _2, \dots, \lambda _n \right]  $ such that 
+                      \[
+                          M = P D P ^{-1}.
+                      \]
+                      Let 
+                      \[
+                          f(x) = \sum_{i=0}^{k} a_i x^i, \quad a_k \neq 0,
+                      \] 
+                      be any polynomial of degree $k$. Then 
+                      \begin{align*}
+                          f(M) & = \sum_{i=0}^{k} a_i M^i \\
+                               & = \sum_{i= 0} ^{k} a_i \left( P D P ^{-1}  \right)^i \\
+                               & = P \left[ \sum_{i=0}^{k} a_i D^i \right] P ^{-1} \\
+                               & = P D' P ^{-1} ,
+                      \end{align*} 
+                      where $D'$ is a diagonal matrix. Thus, $f(M)$ is diagonalizable.  
+                    </div>
+                    <p class="my-4">
+                      Therefore, $M^8 + M^{12}$  and $M^7 + M^9$ are diagonalizable matrices. Thus, both P and Q are TRUE.  
+                    </p>
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>

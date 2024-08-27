@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'complex-integration': 'complex-analysis',
         'analytic-function': 'complex-analysis',
         'singularity': 'complex-analysis',
+        'harmonic-conjugate': 'complex-analysis',
 
         // abstract algebra
         'group-theory': 'abstract-algebra',

@@ -102,9 +102,55 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We will prove that such a function does not exist by showing the following.
+                    <ul class="math-list-roman">
+                      <li class="my-4">
+                        $h$ is surjective.
+                      </li>
+                      <li class="my-4">
+                        $f$ is strictly monotone function.
+                      </li>
+                      <li class="my-4">
+                        $f$ is bijective.
+                      </li>
+                    </ul>
+                    Since $g$ is continuous, without loss of generality, we can assume that $g(0)= 0$. Note that if the above are true, then for any $x \in \mathbb{R} $, there exists $y \in \mathbb{R} $ such that $f(y) = x$. Thus,   
+                    \[
+                        h(x) = h(f(y) + g(0)) = 0,
+                    \] 
+                    which implies $h\equiv 0$, a contradiction. Thus, there does not exist such continuous functions. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now let us show the above claims. 
+                    <ul class="math-list-roman">
+                      <li class="my-4">
+                        It is clear that $h$ is surjective, by taking $x \in \mathbb{R} $ and $y = 1$.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        Suppose that $f(x) = f (y)$ for $x, y \in \mathbb{R} $. Then for any $z \in \mathbb{R}\setminus \{ 0 \}  $ 
+                        \begin{align*}
+                            & h(f(x) + g(z)) = h \left( f(y) + g(z) \right) \\
+                            \implies & xz = yz \implies x = y.
+                        \end{align*}  
+                        Thus, $f$ is injective function and hence $f$ is strictly monotone function.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        Now note that if $f$ is bounded above, then $\displaystyle \lim_{x \to \infty} f(x) = \alpha $ for some real number $\alpha $. Thus, using the continuity of $h$ we have
+                        \begin{align*}
+                            h(\alpha  + g(1)) & = \lim_{x \to \infty} h\left( f(x) + g(1) \right) \lim_{x \to \infty} x = \infty ,
+                        \end{align*}  
+                        a contradiction. Similarly, if $f$ is bounded below, then $\lim_{x \to -\infty } f(x) = \beta  $. This implies,   
+                        \begin{align*}
+                            h(\beta  + g(1)) & = \lim_{x \to -\infty} h\left( f(x) + g(1) \right) \lim_{x \to -\infty} x = -\infty ,
+                        \end{align*} 
+                        a contradiction. Thus, $f$ is unbounded injective function. Hence, $f$ is bijective function. 
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
