@@ -106,9 +106,59 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that a function $f(x,y)$ is harmonic if the laplacian
+                    \[
+                        \Delta f = f_{xx} + f_{yy} = 0.
+                    \] 
+                    Let us compute the second partial derivatives of $u$.
+                    \begin{align*}
+                        u_x & = - e^{-x} \left( x \sin y - y \cos y \right) + e^{-x} \left( \sin y \right) \\
+                        & = e^{-x} \left( \sin y-x\sin y + y\cos y \right) \\[2ex]
+                        u_{xx} & = e^{-x}\left( -\sin y + x\sin y- y\cos y - \sin y \right) \\
+                        & =  e^{-x}\left( -2\sin y + x\sin y- y\cos y\right) \\[2ex]
+                        u_y & = e^{-x}\left( x\cos y - \cos y + y\sin y \right) \\[2ex]
+                        u_{yy} & = e^{-x}\left( -x\sin y + \sin y + \sin y + y \cos y \right)  \\
+                        & = e^{-x} \left( 2\sin y- x \sin y + y \cos y \right) .
+                    \end{align*}
+                    Therefore, 
+                    \begin{align*}
+                        \Delta u & = u_{xx} + u_{yy} \\
+                                 & = e^{-x}\left( \textcolor{red}{-2\sin y} + \textcolor{blue}{x\sin y} - \textcolor{teal}{y\cos y}\right) \\
+                                 & \kern 0.5cm + e^{-x} \left( \textcolor{red}{2\sin y} - \textcolor{blue}{x \sin y} + \textcolor{teal}{y \cos y} \right)\\
+                                 & = 0.
+                    \end{align*}
+                    Hence, we proved that $u$ is a harmonic function.
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now in order to find its harmonic conjugate $v$, we will use the Cauchy-Riemann equations. Recall that if $f = u + \iota v$ is analytic, then it must satisfy Cauchy-Riemann equations given by 
+                    \begin{align*}
+                        u_x = v_y \text{ and } u_y = -v_x .
+                    \end{align*} 
+                    Therefore, we have 
+                    \begin{align*}
+                        & v_y = e^{-x} \left( \sin y-x\sin y + y\cos y \right) \\
+                        \implies & v = \int \left[ e^{-x} \left( \sin y-x\sin y + y\cos y \right) \right] \mathrm{d} y \\
+                        & \kern 0.2cm = e^{-x} \left( -\cos y + x \cos y + y \sin y + \cos y \right) + g(x)\\
+                        & = \kern 0.2cm e^{-x} \left( x\cos y + y \sin y \right) + g(x),
+                    \end{align*}
+                    where $g(x)$ is an arbitrary function of $x$ only. 
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now again from the Cauchy-Riemann equations, we have $v_x = - u_y$, which implies,  
+                    \begin{align*}
+                        & e^{-x} \left( - x\cos y + \cos y - y\sin y \right)  + g'(x) \\
+                        & \kern 1cm = e^{-x}\left( -x\cos y + \cos y - y\sin y \right) \\
+                        \implies & g'(x) = 0 \implies g(x) = k,
+                    \end{align*}
+                    where $k$ is a constant. Thus, 
+                    \[
+                        v(x,y) = e^{-x} \left( x \cos y + y \sin y \right) + k.
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
