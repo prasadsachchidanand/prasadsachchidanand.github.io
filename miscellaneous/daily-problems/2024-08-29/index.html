@@ -99,9 +99,22 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $(X,d)$ be a complete metric space and $Y \subseteq X$ be any subspace of $X$. We need to prove that $Y$ is complete if and only if it is closed. Let $Y$ be closed. Let $\left( y_n \right) $ be a Cauchy sequence in $Y$. We need to show that $(y_n)$ is convergent. Since $\left( y_n \right) $ is Cauchy in $Y$, it must be Cauchy in $X$, and $X$ is complete, so $y_n \rightarrow x \in X$. Since $Y$ is a closed set, and $y_n \to  x$ implies $x \in Y$. Thus, the Cauchy sequence $\left( y_n \right) $ in $Y$ converges to $x$ in $Y$ and hence $Y$ is complete. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we assume that $Y$ is a complete metric space. We need to show that $Y$ is closed in $X$. Let $\left( y_n \right) $ be a sequence in $Y$ such that $y_n \to y$. We claim that $y \in Y$ which will prove that $Y$ is closed. Since $\left( y_n \right) $ is a convergent sequence, for any $\epsilon > 0$ we can find $n_0 \in \mathbb{N} $ such that for $n\geq n_0$ 
+                    \[
+                        d\left( y_n, y \right) \lt \frac{\epsilon}{2}.
+                    \]     
+                    Therefore, for any $m \geq n_0$ we have $ d\left( y_n, y \right) \lt \frac{\epsilon}{2}$. Hence, for any $m,n \geq n_0$, we have 
+                    \begin{align*}
+                        d\left( y_n, y_m \right) & \leq d\left( y_n , y \right) + d(y, y_m) \\
+                                                 & \lt \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+                    \end{align*}  
+                    Hence $\left( y_n \right) $ is a Cauchy sequence in $Y$. As $Y$ is complete, $y_n \to  y$ and the limit of a converging sequence is unique implies $y \in Y$. This completes the proof that $Y$ is closed.   
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
