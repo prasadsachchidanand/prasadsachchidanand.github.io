@@ -102,9 +102,53 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>At first let us find the complementary function, that is, the solution corresponding to the homogeneous equation. The corresponding homogeneous equation will be 
+                    \[
+                        y'' - y' - 2y = 0.
+                    \]
+                    The characteristic equation is 
+                    \begin{align*}
+                        m^2 - m - 2 = 0 \implies (m-2)(m+1) = 0.
+                    \end{align*} 
+                    Thus, the solution will be 
+                    \begin{equation}\label{eq:30Aug2024-1}
+                        y_{\mathrm{CF} } = c_1 e^{2x} + c_2 e^{-x}. 
+                    \end{equation}
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will use the method of undetermined coefficient to find the particular integral. Since the right hand side of the given differential equation is a second order polynomial, we assume that
+                    \begin{equation}\label{eq:30Aug2024-2}
+                        y_{\mathrm{PI} } = a_0 + a_1 x + a_2 x^2, \quad a_0, a_1, a_2 \in \mathbb{R} .
+                    \end{equation}
+                    Thus, 
+                    \begin{align*}
+                        & y_{\mathrm{PI} }' = a_1 + 2a_2 x \\
+                        & y_{\mathrm{PI} }'' = 2a_2.
+                    \end{align*}
+                    Substituting these values in the given differential equation, we get
+                    \begin{align*}
+                        & 2a_2 - \left( a_1 + 2a_2 x \right) - 2 \left( a_0 + a_1 x + a_2 x^2 \right) = 4x^2 \\
+                        \implies & -2a_2 x^2 + \left( -2a_2 - 2a_1 \right) x + 2a_2 - a_1 - 2a_0 = 4x^2 .
+                    \end{align*}
+                    Equation the coefficients of same power of $x$, we get 
+                    \[
+                        -2a_2 = 4, \quad -2a_2 - 2a_1 = 0,\quad 2a_2 - a_1 - 2a_0 = 0.
+                    \] 
+                    Solving the above system we obtain
+                    \begin{align*}
+                        a_2 = -2, \quad a_1 = 2 \quad \text{ and } \quad a_0 = -3.
+                    \end{align*}
+                    Hence, \eqref{eq:30Aug2024-2} becomes
+                    \[
+                        y_{\mathrm{PI} } = -2x^2 + 2x - 3,
+                    \]
+                    and the general solution will be 
+                    \[
+                        y(x) = c_1 e^{2x} + c_2 e^{-x} -2x^2 + 2x - 3.
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
