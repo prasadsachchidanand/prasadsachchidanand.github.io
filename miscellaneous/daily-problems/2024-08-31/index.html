@@ -99,9 +99,72 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> e want to find the value of $\sqrt{13}$ by Newton-Raphson's method. For that, take the function $f(x) = x^2 - 13$. Clearly, one of the roots of the equation $f(x) = 0$ is $\sqrt{13}$. We will approximate this using the Newton-Raphson method. We have 
+                    \[
+                        f(x) = x^2 - 13 \quad \text{and} \quad f'(x) = 2x.
+                    \]
+                    Thus, the Newton-Raphson iteration scheme will be 
+                    \begin{align*}
+                        x_{n+1} & = x_n - \frac{f(x_n)}{f'(x_n)} \\
+                                & = x_n - \frac{x_n^2 - 13}{2 x_n}, \quad n \geq 0.
+                    \end{align*}
+                    We will start with an initial guess of $x_0 = 1$. Since $f'(1) = 2 \neq 0$, this guess is a valid guess. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <ul class="math-list-disc">
+                      <li class="my-4">
+                        <strong>First iteration:</strong> $x_0 = 1$. 
+                        \[
+                            x_1 = x_0 - \frac{x_0^2 - 13}{2 x_0} = 7.
+                        \]
+                      </li>
+                      
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        <strong>Second iteration:</strong> $x_1 = 7$. 
+                        \[
+                            x_2 = x_1 - \frac{x_1^2 - 13}{2 x_1} = 4.4285714.
+                        \]
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        <strong>Third iteration:</strong> $x_2 = 4.4285714$. 
+                        \[
+                            x_3 = x_2 - \frac{x_2^2 - 13}{2 x_2} = 3.6820276.
+                        \]
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        <strong>Fourth iteration:</strong> $x_3 = 3.6820276$. 
+                        \[
+                            x_4 = x_3 - \frac{x_3^2 - 13}{2 x_3} = 3.606345.
+                        \]
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        <strong>Fifth iteration:</strong> $x_4 = 3.606345$. 
+                        \[
+                            x_5 = x_4 - \frac{x_4^2 - 13}{2 x_4} = 3.605551.
+                        \]
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        <strong>Sixth iteration:</strong> $x_5 = 3.605551$. 
+                        \[
+                            x_6 = x_5 - \frac{x_5^2 - 13}{2 x_5} = 3.605551.
+                        \]
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                    </ul>
+
+                    Thus, the value $\sqrt{13}$ correct to 4 decimal places is $3.6055$.
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
