@@ -232,14 +232,24 @@
 
     <!-- Assignments and Lectures -->
     <script>
-        function toggleVisibility(id) {
+      function toggleVisibility(id) {
           var element = document.getElementById(id);
+          var sections = document.querySelectorAll('[id^="lectureNotes"], [id^="problemSheets"], [id^="examProblems"]');
+          
+          // Close all sections except the clicked one
+          sections.forEach(function(section) {
+              if (section.id !== id) {
+                  section.style.maxHeight = null;
+              }
+          });
+  
+          // Toggle the clicked section
           if (element.style.maxHeight) {
-            element.style.maxHeight = null;
+              element.style.maxHeight = null;
           } else {
-            element.style.maxHeight = element.scrollHeight + "px";
+              element.style.maxHeight = element.scrollHeight + "px";
           }
-        }
-      </script>      
+      }
+    </script>      
   </body>
 </html>
