@@ -83,72 +83,65 @@
 
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
             <div class="p-4 w-full flex flex-col items-center">
-                <div class="w-full max-w-2xl">
                 
-                    <!-- Lecture Notes Section -->
-                    <div class="px-4 text-lg font-normal mt-4">
-                      <button onclick="toggleVisibility('lectures')" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                      Lectures
+              <div class="w-full max-w-2xl">
+              
+                  <!-- Lecture Notes Section -->
+                  <div class="px-4 text-lg font-normal mt-4">
+                    <button onclick="toggleVisibility('lectureNotes')" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    Lectures
+                    </button>
+                    <div id="lectureNotes" class="mt-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                      <ul class="text-left pl-4 md:pl-8">
+                        
+                        <li class="flex justify-between my-2">
+                            <a href="lectures/lec-01.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Lecture 1</a>
+                        </li>
+                        
+                        <li class="flex justify-between my-2">
+                            <a href="lectures/lec-02.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Lecture 2</a>
+                        </li>
+                        
+                        <li class="flex justify-between my-2">
+                            <a href="lectures/lec-03.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Lecture 3</a>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                  </div>
+              
+                  <!-- Problem Sheets Section -->
+                  <div class="px-4 text-lg font-normal mt-4">
+                      <button onclick="toggleVisibility('problemSheets')" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                      Homeworks
                       </button>
-                      <div id="lectures" class="mt-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                      <div id="problemSheets" class="mt-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
                         <ul class="text-left pl-4 md:pl-8">
                           
                           <li class="flex justify-between my-2">
-                              <a href="lectures/lec-01.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Lecture 1</a>
+                              <a href="homework/EM_PS_01.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Homework 1</a>
+                              <a href="#" class="text-blue-500 hover:text-blue-800 cursor-not-allowed" style="pointer-events: none; color: gray;">Solution</a>
                           </li>
                           
                           <li class="flex justify-between my-2">
-                              <a href="lectures/lec-02.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Lecture 2</a>
+                              <a href="homework/EM_PS_02.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Homework 2</a>
+                              <a href="#" class="text-blue-500 hover:text-blue-800 cursor-not-allowed" style="pointer-events: none; color: gray;">Solution</a>
                           </li>
                           
                         </ul>
                       </div>
-                    </div>
-                
-                    <!-- Problem Sheets Section -->
-                    <div class="px-4 text-lg font-normal mt-4">
-                        <button onclick="toggleVisibility('problemSheets')" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                        Homeworks
-                        </button>
-                        <div id="problemSheets" class="mt-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                          <ul class="text-left pl-4 md:pl-8">
-                            
-                            <li class="flex justify-between my-2">
-                                <a href="homework/EM_PS_01.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Homework 1</a>
-                                <a href="#" class="text-blue-500 hover:text-blue-800 cursor-not-allowed" style="pointer-events: none; color: gray;">Solution</a>
-                            </li>
-                            
-                            <li class="flex justify-between my-2">
-                                <a href="homework/EM_PS_02.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Homework 2</a>
-                                <a href="#" class="text-blue-500 hover:text-blue-800 cursor-not-allowed" style="pointer-events: none; color: gray;">Solution</a>
-                            </li>
-                            
-                          </ul>
-                        </div>
-                    </div>
-                
-                    <!-- Class Test Section -->
-                    <div class="px-4 text-lg font-normal mt-4">
-                        <button onclick="toggleVisibility('examProblems')" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                        Exams
-                        </button>
-                        <div id="examProblems" class="mt-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                          <span class="text-red-600 ml-4">Coming soon</span>
-                          <!-- <ul class="text-left pl-4 md:pl-8">
-                            
-                            <li class="flex justify-between my-2">
-                                <a href="exams/test-01.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Class Test 1</a>
-                                <a href="exams/test-01_soln.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Solution</a>
-                            </li>
-                        </ul> -->
-                        </div>
+                  </div>
 
-                    </div>
-              
-                </div>
               </div>
+            </div>
           </div>
           
+          <!-- Back to Course Page Button (Bottom) -->
+          <div class="text-center mt-10">
+            <a href="../" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+              Back to all Courses
+            </a>
+          </div>
           
         </div>
       </section>
@@ -226,14 +219,24 @@
 
     <!-- Assignments and Lectures -->
     <script>
-        function toggleVisibility(id) {
+      function toggleVisibility(id) {
           var element = document.getElementById(id);
+          var sections = document.querySelectorAll('[id^="lectureNotes"], [id^="problemSheets"]');
+          
+          // Close all sections except the clicked one
+          sections.forEach(function(section) {
+              if (section.id !== id) {
+                  section.style.maxHeight = null;
+              }
+          });
+  
+          // Toggle the clicked section
           if (element.style.maxHeight) {
-            element.style.maxHeight = null;
+              element.style.maxHeight = null;
           } else {
-            element.style.maxHeight = element.scrollHeight + "px";
+              element.style.maxHeight = element.scrollHeight + "px";
           }
-        }
-      </script>      
+      }
+    </script>      
   </body>
 </html>
