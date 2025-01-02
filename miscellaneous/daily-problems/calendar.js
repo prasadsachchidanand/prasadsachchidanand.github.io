@@ -13,7 +13,7 @@ function generate_year_range(start, end) {
   var selectMonth = document.getElementById("month");
   
   
-  var createYear = generate_year_range(2023, 2024);
+  var createYear = generate_year_range(2023, 2025);
   /** or
    * createYear = generate_year_range( 1970, currentYear );
    */
@@ -41,7 +41,7 @@ function generate_year_range(start, end) {
   
   
   function next() {
-    if (currentMonth !== 6 || currentYear !== 2024) {
+    if (currentMonth !== 0 || currentYear !== 2025) {
       currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
       currentMonth = (currentMonth + 1) % 12;
       showCalendar(currentMonth, currentYear);

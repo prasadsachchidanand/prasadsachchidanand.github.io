@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'group-theory': 'abstract-algebra',
         'ring-theory': 'abstract-algebra',
         'field-theory': 'abstract-algebra',
-        'spliting-field': 'abstract-algebra',
+        'splitting-field': 'abstract-algebra',
         'group-homomorphism': 'abstract-algebra',
 
         // topology
