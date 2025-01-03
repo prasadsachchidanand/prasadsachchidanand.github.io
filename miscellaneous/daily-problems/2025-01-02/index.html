@@ -99,9 +99,30 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We need to verify the following properties: 
+                    <ol class="math-list-roman">
+                      <li class="my-4">$d(x,y) \geq 0$ for $x,y \in \mathbb{R} $;</li>
+                      <li class="my-4">$d(x,y) = 0 \iff x = y$;</li>
+                      <li class="my-4">$d(x,y) = d(y,x)$ for $x,y \in \mathbb{R} $;</li>
+                      <li class="my-4">$d(x,z) \leq d(x,y) + d(y,z)$ for any $x,y, z\in \mathbb{R} $.</li>
+                    </ol>
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Note that the first three properties are straight forward. We will discuss the last property (triangle's inequality). Let $x,y,z \in \mathbb{R} $. Then, we need to show that 
+                    \[
+                        \sqrt{\vert x-z \vert } \leq \sqrt{\vert x - y \vert } + \sqrt{\vert y - z \vert }.   
+                    \] 
+                    Note that 
+                    \begin{align*}
+                        \left( \sqrt{\vert x - y \vert } + \sqrt{\vert y - z \vert }   \right) ^2 & = \vert x - y \vert + \vert y - z \vert + 2 \sqrt{\vert x - y \vert \cdot \vert y - z \vert } \\[1ex] 
+                        & \geq \vert x - y \vert + \vert y - z \vert \\[1ex]
+                        & \geq \vert x - z \vert \\[1ex]
+                        & \geq \sqrt{\vert x-z \vert }. 
+                    \end{align*}
+                    Thus, $d$ is a metric on $\mathbb{R} $. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
