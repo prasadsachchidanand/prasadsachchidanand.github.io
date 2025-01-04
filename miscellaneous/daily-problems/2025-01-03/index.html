@@ -99,9 +99,37 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The given curve is 
+                    \begin{equation}\label{eq:03Jan2025-1}
+                        x^2 + y^2 + 2ax + 2by + c = 0.
+                    \end{equation}
+                    Differentiating \eqref{eq:03Jan2025-1} with respect to $x$ thrice, we get
+                    \begin{gather}
+                        2x + 2y \frac{\mathrm{d}y}{\mathrm{d}x} + 2a + 2b \frac{\mathrm{d}y}{\mathrm{d}x} = 0 \label{eq:03Jan2025-2} \\[2ex]
+                        1 + \left( \frac{\mathrm{d}y}{\mathrm{d}x} \right) ^2 + y \frac{\mathrm{d}^2y}{\mathrm{d}x^2} + b \frac{\mathrm{d}^2y}{\mathrm{d}x^2} = 0 \label{eq:03Jan2025-3} \\[2ex]
+                        2 \frac{\mathrm{d}y}{\mathrm{d}x} \cdot \frac{\mathrm{d}^2y}{\mathrm{d}x^2} + \frac{\mathrm{d}y}{\mathrm{d}x} \cdot \frac{\mathrm{d}^2y}{\mathrm{d}x^2} + y \frac{\mathrm{d}^3 y}{\mathrm{d}x^3} + d \frac{\mathrm{d}^3 y}{\mathrm{d}x^3}   = 0 \label{eq:03Jan2025-4}.
+                    \end{gather} 
+                    In short, we can write, 
+                    \begin{equation}\label{eq:03Jan2025-5}
+                        3y'y'' + (y + b) y''' = 0.
+                    \end{equation}
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will find $b$ from the above equations. Using \eqref{eq:03Jan2025-3} and \eqref{eq:03Jan2025-4}, we eliminate $b$. More precisely, multiplying both side of \eqref{eq:03Jan2025-3} by $y'''$ and \eqref{eq:03Jan2025-5} by $y''$ and finally subtract them to get 
+                    \[
+                        \left[ 1 + \left( y'  \right) ^2 \right] y''' - 3 y' \left( y'' \right) ^2 = 0.
+                    \] 
+                    Thus, the corresponding differential equation will be
+                    \[
+                        \textcolor{blue}{
+                            \boxed{
+                                \left[ 1 + \left( \frac{\mathrm{d}y}{\mathrm{d}x}   \right) ^2 \right] \frac{\mathrm{d}^3 y}{\mathrm{d}x^3}  - 3 \frac{\mathrm{d}y}{\mathrm{d}x}  \left( \frac{\mathrm{d}^2y}{\mathrm{d}x^2}  \right) ^2 = 0.
+                            }
+                        }
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
