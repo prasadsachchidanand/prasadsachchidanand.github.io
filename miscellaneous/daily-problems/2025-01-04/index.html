@@ -26,6 +26,8 @@
     <!-- Academic Icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
 
+    <link rel="stylesheet" href="../answer.css">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -96,7 +98,31 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let $n_m$, $n_f$ denote the number of male and female employees in the firm respectively. Further assume that 
+                    \begin{align*}
+                        x_m & = \text{ the average salary of male employees } \\
+                        x_f & = \text{ the average salary of female employees } \\
+                        x   & = \text{ average salary of all the employees } .
+                    \end{align*}  
+                    According to the problem, 
+                    \begin{align*}
+                        x_m = 520 \quad x_w = 420 \quad \text{ and } \quad x = 500.
+                    \end{align*}
+                    We have 
+                    \begin{align*}
+                        x = \frac{n_m x_m + n_f x_f}{n_m + n_f} & \implies 500 = \frac{520 n_m + 420 n_f}{n_m + n_f}\\
+                        & \implies 500(n_m + n_f) = 520 n_m + 420 n_f\\
+                        & \implies 20 n_m - 80 n_f = 0 \\
+                        & \implies \frac{n_m}{n_f} = \frac{4}{1}.
+                    \end{align*}
+                    Therefore, the percentage of male employees in the firm will be 
+                    \[
+                        \frac{4}{4 + 1} \times 100 = 80\%
+                    \]
+                    and the percentage of male employees in the firm will be 
+                    \[
+                        \frac{1}{4 + 1} \times 100 = 20\%.
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
@@ -229,7 +255,7 @@
       };
     </script>
     <script>
-      const tags = ['differential-equation', 'ode'];
+      const tags = ['miscellaneous', 'statistics'];
     </script>
   </body>
 </html>
