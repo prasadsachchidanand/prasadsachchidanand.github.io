@@ -114,9 +114,28 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Let 
+                    \[
+                        f(z) = z^{101} + 1\implies  f'(z) = 101 z^{100} .
+                    \]
+                    We recall the <a href="https://en.wikipedia.org/wiki/Argument_principle" class="text-blue-500 hover:text-blue-800" target="_blank">argument principal</a> which says that if $f(z)$ is analytic on and inside a simple closed curve $C$ (oriented counterclockwise) except for (possibly) some finite poles inside (not on) $C$ and some zeros inside (not on) $C$. Then,
+                    \[
+                        \frac{1}{2\pi \iota } \oint_{C} \frac{f'(z)}{f(z)} \mathrm{d} z = Z - P,
+                    \]  
+                    where $Z$ is the number of poles (with multiplicity) of $f$ inside $C$ and $Z$ is the zeros (with multiplicity) of $f$ inside $C$. 
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    In this problem, we have 
+                    \begin{align*}
+                        \frac{1}{2\pi \iota } \oint_{\vert z \vert = 2} \frac{f'(z)}{f(z)} \mathrm{d} z & = \frac{1}{2\pi \iota } \oint_{\vert z \vert = 2}  \frac{101 z^{100}}{z^{101} + 1} \mathrm{d} z = Z - P.
+                    \end{align*}
+                    Since $f$ is a polynomial of degree $101$, it will have $101$ zeros and no poles. Also, all the zeros will lie inside the given circle $\vert z \vert =2$ as all the roots are of unit length. Thus, 
+                    \begin{align*}
+                        \frac{1}{2\pi \iota } \oint_{\vert z \vert = 2}  \frac{101 z^{100}}{z^{101} + 1} \mathrm{d} z = 101 - 0  & \implies \oint_{C} \frac{z^{100}}{z^{101} + 1} \mathrm{d} z = 2\pi \iota .
+                    \end{align*} 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->

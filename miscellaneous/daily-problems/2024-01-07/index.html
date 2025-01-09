@@ -13,18 +13,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NBHM 2006, NBHM 2006 Problem-7, Write down a matrix P such that $P^{-1}AP$ is a a diagonal.">
+    <meta name="keywords" content="GATE 2022, Mathematics, Linear Algebra, Characteristic Equation, Matrix, Problem of the Day, Competitive Exams, CSIR-NET, GATE 2025" />
+    <meta name="description" content="GATE 2022 problem: Problem of the Day for January 7, 2024. A question on the characteristic equation of a complex matrix." />
     
-	<title>Problem of the day | 02-01-2023 - Sachchidanand Prasad</title>
+    
+	  <title>Problem of the day | 07-01-2024 | Linear Algebra - Matrix Characteristic Equation and Cayley-Hamilton Theorem - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
   <link href="../../../assets/style.css" rel="stylesheet" />
+  <link rel="canonical" href="https://prasadsachchidanand.github.io/assets/attachments/Inverse_Function_Theorem.pdf">
 
-  <!-- academic icons -->
+
+  <!-- Academic icon -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-   <!--font-awesome  -->
+  <link rel="stylesheet" href="../answer.css">
+   
+  <!-- font awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 			
   <!-- Google ad -->
@@ -37,7 +43,6 @@
       <!-- navbar -->
       <div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
         <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-
           <div class="p-4 flex flex-row items-center justify-between">
             <a href="../../../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
             <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
@@ -47,10 +52,9 @@
               </svg>
             </button>
           </div>
-
           <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../"> Home </a>
-
+            
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../research/"> Research </a>
 
 						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../teaching/"> Teaching </a>
@@ -68,18 +72,161 @@
       
       <!-- section -->
       <section class="text-gray-600 body-font">
-        <div class="container xl:px-36 py-24 mx-auto">
+        <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
+            <h2 class="text-gray-900 text-3xl title-font font-medium">07-01-2024</h2>
+            <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+          </div>
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
             <div class="p-4 md:w-full flex">
               <div class="flex-grow lg:px-32 px-6">
-                <div class="flex flex-col items-center justify-center">
-                  <img src="https://cdn.pixabay.com/photo/2017/06/20/08/12/maintenance-2422173__340.png"
-                    alt="tailwindcss maintenance">
-                  <h1 class="mb-3 text-3xl font-bold text-center text-purple-600">Accessing Daily Problems: Wait for the Date</h1>
-                  <p class="text-justify text-gray-600">
-                    You are attempting to access a date that has not yet come to pass. It is important to wait until the designated date arrives in order to view the problem that will be posted on this platform.
-                  </p>
+                
+                <!-- Problem -->
+                <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
+                  <strong>Problem: </strong>
+                  Suppose that the characteristic equation of \( M \in \mathbb{C}^{3\times 3} \) is 
+                  \( \lambda^3 + \alpha \lambda^2 + \beta \lambda - 1 = 0 \), where \( \alpha, \beta \in \mathbb{C} \) with 
+                  \( \alpha + \beta \neq 0 \). Which of the following statements is TRUE?
+                  <ol class="math-list-Alpha">
+                    <li class="my-4">
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="answer" value="A" class="hidden" />
+                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                          \( M(I - \beta M) = M^{-1} (M + \alpha I) \)
+                        </span>
+                      </label>
+                    </li>
+                    <li class="my-4">
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="answer" value="B" class="hidden" />
+                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                          \( M(I + \beta M) = M^{-1} (M - \alpha I) \)
+                        </span>
+                      </label>
+                    </li>
+                    <li class="my-4">
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="answer" value="C" class="hidden" />
+                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                          \( M^{-1} (M^{-1} + \beta I) = M - \alpha I \)
+                        </span>
+                      </label>
+                    </li>
+                    <li class="my-4">
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="answer" value="D" class="hidden" />
+                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                          \( M^{-1} (M^{-1} - \beta I) = M + \alpha I \)
+                        </span>
+                      </label>
+                    </li>
+                  </ol>
+                  <div id="feedback" class="mt-4 hidden">
+                    <p id="feedback-message" class="text-lg font-semibold"></p>
+                  </div>
+                  <div class="mt-2">
+                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                      linear-algebra
+                    </a>
+                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                      characteristic-polynomial
+                    </a>
+                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                      GATE-2022
+                    </a>
+                  </div>
                 </div>
+              
+                
+
+                <!-- Solution -->
+
+                <div id="solution" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <strong>Solution: </strong>By using <a href="https://en.wikipedia.org/wiki/Cayley%E2%80%93Hamilton_theorem" class="text-blue-500 hover:text-blue-500" target="_blank">Cayley-Hamilton theorem</a>, we know that $M$ satisfies its characteristic equation and hence 
+                    \[
+                        M ^3 + \alpha M ^2 + \beta M  - I = 0,
+                    \]
+                    where $I$ is the identity matrix of size $3$ and $0$ is the zero matrix of size $3$. <br><br> We will analyze each option to see which of them is not true.
+                  </div>
+                  <div class=" leading-relaxed lg:text-lg md:text-base text-justify space-y-4 mt-4">
+                    <div id="optionA" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-red-600">Option A</h2>The given relation is $M(I - \beta M) = M^{-1} (M + \alpha I)$ which implies, 
+                      \begin{align*}
+                          M(I - \beta M) = M^{-1} (M + \alpha I) & \implies M - \beta M^2 = I + \alpha M^{-1} \\
+                          & \implies M^2 - \beta M^3 - M - \alpha I = 0,
+                      \end{align*}
+                      which can not be true.
+                    </div>
+                    <div id="optionB" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-red-500">Option B</h2>The relation is $M(I + \beta M) = M^{-1} (M-\alpha I)$. Multiplyng with $M$, we get 
+                      \begin{align*}
+                          M^2(I + \beta M) = (M-\alpha I) & \implies M^2 + \beta M^3 - M + \alpha I = 0,
+                      \end{align*}
+                      which is again not true. 
+                    </div>
+                    <div id="optionC" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-red-500">Option C</h2>The given option is $M^{-1} (M^{-1} + \beta I) = M - \alpha I$. Multiplying with $M^2$ on both sides we get,
+                      \begin{align*}
+                          M (M^{-1} + \beta I) = M^3 - \alpha M^2 & \implies I + \beta M - M^3 + \alpha M^2,
+                      \end{align*}
+                      which is not true. 
+                    </div>
+                    <div id="optionD" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-green-500">Option D</h2>Finally, the last option is $M^{-1} (M^{-1} - \beta I) = M + \alpha I$. Let us multiply by  $M^2$, we get
+                      \begin{align*}
+                        M (M^{-1} - \beta I) = M^2 + \alpha M^2 & \implies M^3 + \alpha M^2 + \beta M - I = 0
+                      \end{align*} 
+                      Hence, <strong>Option (D)</strong> is correct.
+                    </div>
+                  </div>
+                </div>               
+
+                <!-- Previous Button -->
+                <div class="flex justify-center mt-4">
+                  <nav aria-label="Page navigation example">
+                    <ul class="flex list-style-none">
+                      <li class="page-item disabled">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-01-06/">
+                          Previous 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../../daily-problems/#calendar">
+                          All 
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2024-01-08/">
+                          Next 
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                
+                <!-- Disqus Comments-->
+                <div class="mt-16" id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://my-google-site.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <!-- End of comment section -->
+
               </div>
             </div>
           </div>
@@ -138,23 +285,83 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+    <script id="dsq-count-scr" src="//my-google-site.disqus.com/count.js" async></script>
+
     <script>
       MathJax = {
+        loader: {
+          load: ['[tex]/mathtools']
+        },
         tex: {
           inlineMath: [
             ['$', '$'],
             ['\\(', '\\)']
           ],
+          tags: 'ams',
           displayMath: [
             ['$$', '$$'],
             ['\\[', '\\]']
-          ]
+          ],
+          packages: {'[+]': ['mathtools']}
         },
         svg: {
           fontCache: 'global'
         }
       };
+    </script>
+    <script>
+      const tags = ['linear-algebra', 'characteristic-polynomial', 'gate-2022'];
+    </script>
+
+    <script>
+      // Correct Answer
+      const correctAnswer = "D";
+    
+      // Add click event listener for radio buttons
+      document.querySelectorAll("input[name='answer']").forEach((radio) => {
+        radio.addEventListener("change", function () {
+          // Reset previous styles
+          document.querySelectorAll("label span").forEach((option) => {
+            option.classList.remove("bg-green-100", "bg-red-100", "border-green-500", "border-red-500");
+          });
+          document.getElementById("feedback").classList.add("hidden");
+    
+          // Highlight the selected answer
+          const selectedOption = this.parentNode.querySelector("span");
+          if (this.value === correctAnswer) {
+            selectedOption.classList.add("bg-green-100", "border-green-500");
+            document.getElementById("feedback-message").textContent = "Correct! Well done!";
+          } else {
+            selectedOption.classList.add("bg-red-100", "border-red-500");
+            document.getElementById("feedback-message").textContent = `Incorrect! The correct answer is (${correctAnswer}).`;
+            // Highlight correct answer
+            document.querySelector(`input[value="${correctAnswer}"]`).parentNode.querySelector("span").classList.add("bg-green-100", "border-green-500");
+          }
+    
+          // Show feedback
+          document.getElementById("feedback").classList.remove("hidden");
+    
+          // Disable all radio buttons
+          document.querySelectorAll("input[name='answer']").forEach((input) => {
+            input.disabled = true;
+          });
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const answerOptions = document.querySelectorAll("input[name='answer']");
+        const feedback = document.getElementById("feedback");
+        const solution = document.getElementById("solution");
+
+        answerOptions.forEach(option => {
+          option.addEventListener("change", () => {
+            feedback.classList.add("hidden"); // Hide the feedback message
+            solution.classList.remove("hidden"); // Show the solution
+          });
+        });
+      });
     </script>
   </body>
 </html>

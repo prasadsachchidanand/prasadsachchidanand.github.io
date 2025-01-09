@@ -112,9 +112,46 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The given sequence is 
+                    \[
+                        x_n = \frac{x_{n-1} }{2} + \frac{1}{x_{n-1} }, \quad  n\geq 1.
+                    \]
+                    Let us suppose that $x_0 > 0$, which implies $x_n > 0$ for all $n \geq 0$. Now apply AM-GM inequality on $\frac{a_{n-1} }{2}$ and $\frac{1}{x_{n-1} }$.   
+                    \begin{gather*}
+                       \frac{x_n}{2} =  \frac{\frac{x_{n-1} }{2} + \frac{1}{ x_{n-1} }}{2} \geq \sqrt{\frac{x_{n-1} }{2} \cdot \frac{1}{x_{n-1}}}  \implies \frac{x_n}{2} \geq  \sqrt{2}. 
+                    \end{gather*}    
+                    Thus, the sequence $\{ x_n \} $ is bounded below by $\sqrt{2} $. Also, 
+                    \begin{align*}
+                        x_n - x_{n-1} & = x_n - \left[ \frac{x_n}{2} + \frac{1}{x_n} \right] \\[1ex]
+                        & = \frac{x_n}{2} - \frac{1}{x_n} = \frac{x_n^2 - 2}{2 x_n}.
+                    \end{align*} 
+                    Now, observe that 
+                    \begin{align*}
+                        x_n^2 - 2 & = \left( \frac{x_{n-1} }{2} + \frac{1}{x_{n-1} } \right) ^2 - 2\\
+                        & = \frac{x_{n-1}^2 }{4} + \frac{1}{x_{n-1}^2 } + 1 - 2\\
+                        & = \frac{x_{n-1}^2}{4} + \frac{1}{x_{n-1}^2} - 1 \\
+                        & = \left( \frac{x_{n-1} }{2} - \frac{1}{x_{n-1} } \right) ^2 \geq 0.
+                    \end{align*}
+                    Therefore, 
+                    \[
+                        x_n - x_{n-1} \geq 0 \implies  x_n \geq x_{n-1}. 
+                    \]
+                    Thus proves that the sequence $\{ x_n \} $ is monotonically decreasing sequence. Hence, by the <a href="https://en.wikipedia.org/wiki/Monotone_convergence_theorem#Convergence_of_a_monotone_sequence_of_real_numbers" class="text-blue-500 hover:text-blue-800" target="_blank">monotone convergence theorem</a>, the sequence $\{ x_n \} $ is convergent, let say it converges to $\ell$.
                   </div>
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    As $x_n \to \ell$ so $x_{n-1} \to \ell$. Thus,
+                    \begin{align*}
+                        x_n = \frac{x_{n-1} }{2} + \frac{1}{x_{n-1} } & \implies \lim_{n \to \infty} x_n = \lim_{n \to \infty} \frac{x_{n-1} }{2} + \frac{1}{x_{n-1} } \\
+                        & \implies \ell = \frac{\ell}{2} + \frac{1}{\ell} \\
+                        & \implies \frac{\ell}{2} = \frac{1}{2} \\
+                        & \implies \ell^2 - 2 = 0 \\
+                        & \implies  \ell = \pm \sqrt{2}. 
+                    \end{align*} 
+                    Since, all the terms of the sequence is positive, the limit must be nonnegative. Hence, $l = \sqrt{2} $. <br><br>imilarly, if $x_0 < 0$, then one can show that $x_n \rightarrow -\sqrt{2} $.
+                    Thus, option (b) is the correct option. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
