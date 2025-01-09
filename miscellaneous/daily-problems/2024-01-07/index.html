@@ -17,7 +17,7 @@
     <meta name="description" content="GATE 2022 problem: Problem of the Day for January 7, 2024. A question on the characteristic equation of a complex matrix." />
     
     
-	  <title>Problem of the day | 07-01-2024 | Linear Algebra - Matrix Characteristic Equation and Cayley-Hamilton Theorem - Sachchidanand Prasad</title>
+	  <title>Problem of the day | 08-01-2024 | Real Analysis - Matrix Characteristic Equation and Cayley-Hamilton Theorem - Sachchidanand Prasad</title>
 
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
 
@@ -83,10 +83,18 @@
                 
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
+                  <!-- Problem Statement -->
                   <strong>Problem: </strong>
-                  Suppose that the characteristic equation of \( M \in \mathbb{C}^{3\times 3} \) is 
-                  \( \lambda^3 + \alpha \lambda^2 + \beta \lambda - 1 = 0 \), where \( \alpha, \beta \in \mathbb{C} \) with 
-                  \( \alpha + \beta \neq 0 \). Which of the following statements is TRUE?
+                    Suppose that the characteristic equation of \( M \in \mathbb{C}^{3\times 3} \) is 
+                    \( \lambda^3 + \alpha \lambda^2 + \beta \lambda - 1 = 0 \), where \( \alpha, \beta \in \mathbb{C} \) with 
+                    \( \alpha + \beta \neq 0 \). Which of the following statements is TRUE?
+                
+                  <!-- Instruction Message -->
+                  <p class="text-blue-600 text-base font-medium my-6">
+                    Choose an answer to see the solution.
+                  </p>
+                
+                  <!-- Answer Options -->
                   <ol class="math-list-Alpha">
                     <li class="my-4">
                       <label class="flex items-center space-x-2">
@@ -121,23 +129,13 @@
                       </label>
                     </li>
                   </ol>
-                  <div id="feedback" class="mt-4 hidden">
-                    <p id="feedback-message" class="text-lg font-semibold"></p>
-                  </div>
-                  <div class="mt-2">
-                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                      linear-algebra
-                    </a>
-                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                      characteristic-polynomial
-                    </a>
-                    <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                      GATE-2022
-                    </a>
-                  </div>
-                </div>
-              
                 
+                  <!-- Feedback Section -->
+                  <div id="feedback" class="hidden text-center text-lg font-semibold p-4 mt-4">
+                    <p id="feedback-message"></p>
+                  </div>
+                  
+                </div>            
 
                 <!-- Solution -->
 
@@ -314,54 +312,63 @@
     </script>
 
     <script>
-      // Correct Answer
-      const correctAnswer = "D";
-    
-      // Add click event listener for radio buttons
-      document.querySelectorAll("input[name='answer']").forEach((radio) => {
-        radio.addEventListener("change", function () {
-          // Reset previous styles
-          document.querySelectorAll("label span").forEach((option) => {
-            option.classList.remove("bg-green-100", "bg-red-100", "border-green-500", "border-red-500");
-          });
-          document.getElementById("feedback").classList.add("hidden");
-    
-          // Highlight the selected answer
-          const selectedOption = this.parentNode.querySelector("span");
-          if (this.value === correctAnswer) {
-            selectedOption.classList.add("bg-green-100", "border-green-500");
-            document.getElementById("feedback-message").textContent = "Correct! Well done!";
-          } else {
-            selectedOption.classList.add("bg-red-100", "border-red-500");
-            document.getElementById("feedback-message").textContent = `Incorrect! The correct answer is (${correctAnswer}).`;
-            // Highlight correct answer
-            document.querySelector(`input[value="${correctAnswer}"]`).parentNode.querySelector("span").classList.add("bg-green-100", "border-green-500");
-          }
-    
-          // Show feedback
-          document.getElementById("feedback").classList.remove("hidden");
-    
-          // Disable all radio buttons
-          document.querySelectorAll("input[name='answer']").forEach((input) => {
-            input.disabled = true;
-          });
-        });
-      });
-    </script>
-
-    <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const answerOptions = document.querySelectorAll("input[name='answer']");
+        // Correct Answer (customize this value)
+        const correctAnswer = "D";
+    
+        // DOM Elements
         const feedback = document.getElementById("feedback");
-        const solution = document.getElementById("solution");
-
-        answerOptions.forEach(option => {
-          option.addEventListener("change", () => {
-            feedback.classList.add("hidden"); // Hide the feedback message
-            solution.classList.remove("hidden"); // Show the solution
+        const feedbackMessage = document.getElementById("feedback-message");
+        const solution = document.getElementById("solution"); // If a "solution" element exists
+    
+        // Add event listeners to all radio buttons
+        document.querySelectorAll("input[name='answer']").forEach((radio) => {
+          radio.addEventListener("change", function () {
+            // Reset previous styles
+            document.querySelectorAll("label span").forEach((option) => {
+              option.classList.remove(
+                "bg-green-100",
+                "bg-red-100",
+                "border-green-500",
+                "border-red-500"
+              );
+            });
+    
+            // Hide feedback initially
+            feedback.classList.add("hidden");
+    
+            // Highlight the selected answer
+            const selectedOption = this.parentNode.querySelector("span");
+            if (this.value === correctAnswer) {
+              selectedOption.classList.add("bg-green-100", "border-green-500");
+              feedbackMessage.textContent = "Correct! Well done!";
+            } else {
+              selectedOption.classList.add("bg-red-100", "border-red-500");
+              feedbackMessage.textContent = `Incorrect! The correct answer is (${correctAnswer}).`;
+    
+              // Highlight the correct answer
+              const correctOption = document
+                .querySelector(`input[value="${correctAnswer}"]`)
+                .parentNode.querySelector("span");
+              correctOption.classList.add("bg-green-100", "border-green-500");
+            }
+    
+            // Show feedback
+            feedback.classList.remove("hidden");
+    
+            // Show the solution (if applicable)
+            if (solution) {
+              solution.classList.remove("hidden");
+            }
+    
+            // Disable all radio buttons
+            document.querySelectorAll("input[name='answer']").forEach((input) => {
+              input.disabled = true;
+            });
           });
         });
       });
-    </script>
+    </script>    
+
   </body>
 </html>
