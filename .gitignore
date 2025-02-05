@@ -1,4 +1,13 @@
+# Ignore all files by default
 *
+
+# Allow tracking of directories and files inside them
+!*/
+
+# Allow all files inside directories (except explicitly ignored types)
+!*.*
+
+# Ignore specific file types
 *.doc
 *.docx
 *.log
