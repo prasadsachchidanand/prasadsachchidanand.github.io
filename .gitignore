@@ -18,3 +18,7 @@ sitemapGen.py
 *.wpd
 *.wps
 *.DS_Store
+*.typ  # Ignores all .typ files
+
+# Ignore specific files
+template.pdf
