@@ -89,6 +89,7 @@ const tagsToProblems = {
     'product-topology': ['../2024-05-09'],
     'homeomorphism': ['../2024-05-23', '../2024-06-20'],
     'connectedness': ['../2024-08-22', '../2024-01-04'],
+    'subspace-topology': ['../2025-01-09'],
 
     // ODE and PDE
     'differential-equation': differentialEquation,

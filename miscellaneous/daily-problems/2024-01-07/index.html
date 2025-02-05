@@ -316,6 +316,17 @@
         // Correct Answer (customize this value)
         const correctAnswer = "D";
     
+        // Shuffle function
+        function shuffleOptions() {
+          const optionsContainer = document.getElementById("options-container"); // Replace with the ID of your options container
+          const options = Array.from(optionsContainer.children);
+          options.sort(() => Math.random() - 0.5); // Shuffle using random sort
+          options.forEach((option) => optionsContainer.appendChild(option)); // Reorder the DOM elements
+        }
+    
+        // Shuffle the options on page load
+        shuffleOptions();
+    
         // DOM Elements
         const feedback = document.getElementById("feedback");
         const feedbackMessage = document.getElementById("feedback-message");
@@ -368,7 +379,7 @@
           });
         });
       });
-    </script>    
+    </script>       
 
   </body>
 </html>

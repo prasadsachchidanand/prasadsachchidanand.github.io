@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'product-topology': 'topology',
         'homeomorphism': 'topology',
         'connectedness': 'topology',
+        'subspace-topology': 'topology',
 
         // differential equations
         'ode': 'differential-equation',
