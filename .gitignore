@@ -1,8 +1,11 @@
-# Ignore all files by default
-*
+# Ignore specific directories
+tailwind/
+.vscode/
 
-# Allow tracking of directories
-!*/
+# Ignore specific Python files
+addGoogleTag.py
+automateSiteMap.py
+sitemapGen.py
 
 # Ignore specific file types
 *.doc
