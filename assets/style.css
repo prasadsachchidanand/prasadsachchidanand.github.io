@@ -686,6 +686,14 @@ video {
   right: 0px;
 }
 
+.bottom-10 {
+  bottom: 2.5rem;
+}
+
+.right-10 {
+  right: 2.5rem;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -3674,6 +3682,11 @@ video {
 .hover\:bg-yellow-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(202 138 4 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-indigo-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gradient-to-br:hover {
