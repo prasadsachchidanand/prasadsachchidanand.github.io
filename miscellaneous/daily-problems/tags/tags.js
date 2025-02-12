@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'supremum': 'real-analysis',
         'sequences': 'real-analysis',
         'continuity': 'real-analysis',
+        'derivatives': 'real-analysis',
         'integral': 'real-analysis',
         'improper-integral': 'real-analysis',
         'partial-derivative': 'real-analysis',
