@@ -14,12 +14,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="Complex Analysis, Contour Integration, Integral, GATE 2022, Problem of the Day, Mathematics, CSIR-NET, GATE 2024, Competitive Exams" />
-    <meta name="description" content="GATE 2022 problem: Evaluate the contour integral involving complex analysis - Problem of the Day for 06-01-2025." />
-
-
-
-    <title>Problem of the Day | 14-01-2025 | Complex Analysis - Contour Integration - Sachchidanand Prasad</title>
+    <meta name="keywords" content="Mathematics, Complex Analysis, Contour Integration, Improper Integrals, Jordan's Lemma, Residue Theorem, Problem of the Day, Jan 21 2025, CSIR-NET, Competitive Exams" />
+    <meta name="description" content="Problem of the Day - 21-01-2025: Evaluate the improper integral ∫(sin x / x) dx from 0 to ∞ using contour integration techniques." />
+    <meta property="og:title" content="Problem of the Day | 21-01-2025 | Complex Analysis - Contour Integration of Improper Integrals - Sachchidanand Prasad" />
+    <meta property="og:description" content="Solve this classic problem in contour integration: Evaluate ∫(sin x / x) dx from 0 to ∞ using complex analysis methods." />
+    <meta property="og:image" content="../../../assets/img/problem_of-the-day-logo.svg" />
+    <meta property="og:url" content="https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-01-21/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Problem of the Day | 21-01-2025 | Complex Analysis - Contour Integration of Improper Integrals" />
+    <meta name="twitter:description" content="Evaluate the improper integral ∫(sin x / x) dx from 0 to ∞ using contour integration. Apply residue theorem and Jordan’s lemma!" />
+    <meta name="twitter:image" content="../../../assets/img/problem_of-the-day-logo.svg" />
+    
+    <title>Problem of the Day | 21-01-2025 | Complex Analysis - Contour Integration of Improper Integrals - Sachchidanand Prasad</title>
+    
 
 
     <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png" />
@@ -75,7 +82,7 @@
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">14-01-2025</h2>
+            <h2 class="text-gray-900 text-3xl title-font font-medium">21-01-2025</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
@@ -84,13 +91,17 @@
                 
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
-                    <strong>Problem: </strong>Let \( f(z) \) be an entire function such that \( |f(z)| \leq M |z|^n \) for some positive constants \( M \) and \( n \), and for all \( z \in \mathbb{C} \). Prove that \( f(z) \) is a polynomial of degree at most \( n \).
+                    <strong>Problem: </strong>Evaluate the integral
+                    \[
+                        \int_{0}^{\infty} \frac{\sin x}{x} \, dx
+                    \]
+                    using contour integration.
                   <div class="mt-2">
                     <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
                         complex-analysis
                     </a>
                     <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                      analytic-function
+                      complex-integration
                     </a>
                   </div>
                 </div>
@@ -101,21 +112,51 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>Since \( f(z) \) is entire, it can be represented by its Taylor series expansion around \( z = 0 \):
-                    \[
-                        f(z) = \sum_{k=0}^{\infty} a_k z^k, \quad a_k = \frac{f^{(k)}(0)}{k!}
-                    \]
-                    By Cauchy's inequality, for any \( R > 0 \), we have:
-                    \[
-                        \left\vert a_k \right\vert  \leq \frac{M R^n}{R^k} = M R^{n - k}.
-                    \]
-                    Letting \( R \to \infty \), we see that \( |a_k| \leq 0 \) for \( k > n \). Therefore, \( a_k = 0 \) for all \( k > n \), and \( f(z) \) reduces to a polynomial of degree at most \( n \)
-                    \[
-                        f(z) = \sum_{k=0}^{n} a_k z^k.
-                    \]
+                    <strong>Solution: </strong>Consider the function \( f(z) = \frac{e^{iz}}{z} \) and the contour \( C \) consisting of
+                    <ol class="math-list-disc">
+                      <li class="my-4">
+                        A semicircle \( \gamma_R \) of radius \( R \) in the upper half-plane,
+                      </li>
+                      <li class="my-4">
+                        The real axis from \( -R \) to \( -\epsilon \), 
+                      </li>
+                      <li class="my-4">
+                        A small semicircle \( \gamma_\epsilon \) of radius \( \epsilon \) around the origin in the upper half-plane,
+                      </li>
+                      <li class="my-4">
+                        The real axis from \( \epsilon \) to \( R \).
+                      </li>
+                    </ol>
+                    <div class="flex flex-wrap justify-center my-4">
+                      <img
+                        src="../../../assets/img/prob-21-01-25_01.svg"
+                        class="h-auto"
+                        alt="solutions of the differential equation"
+                      />
+                    </div>
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    By <a href="https://en.wikipedia.org/wiki/Residue_theorem" class="text-blue-500 hover:text-blue-800" target="_blank">Cauchy's residue theorem</a>, since \( f(z) \) is analytic inside and on \( C \) except at \( z = 0 \), we have:
+                    \[
+                        \oint_C f(z) \, dz = 0.
+                    \]
+                    Breaking the integral into parts:
+                    \[
+                        \int_{-R}^{-\epsilon} \frac{e^{ix}}{x} \, dx + \int_{\gamma_\epsilon} \frac{e^{iz}}{z} \, dz + \int_{\epsilon}^{R} \frac{e^{ix}}{x} \, dx + \int_{\gamma_R} \frac{e^{iz}}{z} \, dz = 0.
+                    \]
+                    As \( R \to \infty \), the integral over \( \gamma_R \) vanishes by <a href="https://en.wikipedia.org/wiki/Jordan%27s_lemma" class="text-blue-500 hover:text-blue-800" target="_blank">Jordan's lemma</a>. As \( \epsilon \to 0 \), the integral over \( \gamma_\epsilon \) approaches \( -i\pi \) (half the residue at \( z = 0 \)).
+                
+                    Taking the imaginary part of the remaining integrals, we get:
+                    \[
+                        2i \int_{0}^{\infty} \frac{\sin x}{x} \, dx = i\pi.
+                    \]
+                    Therefore:
+                    \[
+                        \int_{0}^{\infty} \frac{\sin x}{x} \, dx = \frac{\pi}{2}.
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
@@ -123,7 +164,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-01-13/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-01-20/">
                           Previous 
                         </a>
                       </li>
@@ -133,7 +174,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-01-15/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-01-22/">
                           Next 
                         </a>
                       </li>
@@ -162,6 +203,53 @@
                 </script>
                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                 <!-- End of comment section -->
+
+ 
+<!-- Share Button -->
+<div class="relative flex justify-center">
+  <button id="shareButton" class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-all">
+    <i class="fas fa-share-alt mr-2"></i>
+    Share
+  </button>
+</div>
+
+<!-- Share Modal -->
+<div id="shareModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+  <div class="bg-white rounded-lg p-6 shadow-lg w-96">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-lg font-bold">Share</h2>
+      <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="grid grid-cols-4 gap-4 text-center">
+      <a href="#" id="shareWhatsApp" class="text-green-500 hover:text-green-700" target="_blank">
+        <i class="fab fa-whatsapp fa-2x"></i>
+        <p class="text-xs">WhatsApp</p>
+      </a>
+      <a href="#" id="shareFacebook" class="text-blue-600 hover:text-blue-800" target="_blank">
+        <i class="fab fa-facebook fa-2x"></i>
+        <p class="text-xs">Facebook</p>
+      </a>
+      <a href="#" id="shareTwitter" class="text-black hover:text-gray-700" target="_blank">
+        <i class="fab fa-x-twitter fa-2x"></i>
+        <p class="text-xs">X</p>
+      </a>
+      <a href="#" id="shareEmail" class="text-gray-600 hover:text-gray-800" target="_blank">
+        <i class="fas fa-envelope fa-2x"></i>
+        <p class="text-xs">Email</p>
+      </a>
+    </div>
+    <div class="mt-4 flex items-center bg-gray-100 p-2 rounded-lg relative">
+      <input type="text" id="shareLink" class="w-full bg-transparent outline-none text-gray-700 px-2" readonly>
+      <button id="copyLink" class="text-white bg-blue-500 hover:bg-blue-700 px-3 py-1 rounded-lg ml-2">
+        Copy
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="../share.js"></script>
 
               </div>
             </div>

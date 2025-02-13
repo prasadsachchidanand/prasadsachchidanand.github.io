@@ -199,6 +199,53 @@
                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                 <!-- End of comment section -->
 
+ 
+<!-- Share Button -->
+<div class="relative flex justify-center">
+  <button id="shareButton" class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-all">
+    <i class="fas fa-share-alt mr-2"></i>
+    Share
+  </button>
+</div>
+
+<!-- Share Modal -->
+<div id="shareModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+  <div class="bg-white rounded-lg p-6 shadow-lg w-96">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-lg font-bold">Share</h2>
+      <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="grid grid-cols-4 gap-4 text-center">
+      <a href="#" id="shareWhatsApp" class="text-green-500 hover:text-green-700" target="_blank">
+        <i class="fab fa-whatsapp fa-2x"></i>
+        <p class="text-xs">WhatsApp</p>
+      </a>
+      <a href="#" id="shareFacebook" class="text-blue-600 hover:text-blue-800" target="_blank">
+        <i class="fab fa-facebook fa-2x"></i>
+        <p class="text-xs">Facebook</p>
+      </a>
+      <a href="#" id="shareTwitter" class="text-black hover:text-gray-700" target="_blank">
+        <i class="fab fa-x-twitter fa-2x"></i>
+        <p class="text-xs">X</p>
+      </a>
+      <a href="#" id="shareEmail" class="text-gray-600 hover:text-gray-800" target="_blank">
+        <i class="fas fa-envelope fa-2x"></i>
+        <p class="text-xs">Email</p>
+      </a>
+    </div>
+    <div class="mt-4 flex items-center bg-gray-100 p-2 rounded-lg relative">
+      <input type="text" id="shareLink" class="w-full bg-transparent outline-none text-gray-700 px-2" readonly>
+      <button id="copyLink" class="text-white bg-blue-500 hover:bg-blue-700 px-3 py-1 rounded-lg ml-2">
+        Copy
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="../share.js"></script>
+
               </div>
             </div>
           </div>
