@@ -41,7 +41,7 @@ function generate_year_range(start, end) {
   
   
   function next() {
-    if (currentMonth !== 0 || currentYear !== 2025) {
+    if (currentMonth !== 1 || currentYear !== 2025) {
       currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
       currentMonth = (currentMonth + 1) % 12;
       showCalendar(currentMonth, currentYear);
@@ -65,74 +65,132 @@ function generate_year_range(start, end) {
     links () 
   }
   
+  // function showCalendar(month, year) {
+  
+  //   var firstDay = (new Date(year, month)).getDay();
+  
+  //   tbl = document.getElementById("calendar-body");
+  
+  
+  //   tbl.innerHTML = "";
+  
+  
+  //   monthAndYear.innerHTML = months[month] + " " + year;
+  //   selectYear.value = year;
+  //   selectMonth.value = month;
+  
+  //   // creating all cells
+  //   var date = 1;
+  //   for (var i = 0; i < 6; i++) {
+  //     var row = document.createElement("tr");
+  
+  //     for (var j = 0; j < 7; j++) {
+  //       if (i === 0 && j < firstDay) {
+  //         cell = document.createElement("td");
+  //         cellText = document.createTextNode("");
+  //         cell.appendChild(cellText);
+  //         row.appendChild(cell);
+  //       } else if (date > daysInMonth(month, year)) {
+  //         break;
+  //       } else {
+  //         cell = document.createElement("td");
+  //         cell.setAttribute("data-date", date);
+  //         cell.setAttribute("data-month", month + 1);
+  //         cell.setAttribute("data-year", year);
+  //         cell.setAttribute("data-month_name", months[month]);
+  //         cell.className = "date-picker";
+  //         cell.innerHTML = "<span>" + date + "</span>";
+  
+  //         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+  //           cell.className = "date-picker selected";
+  //         }
+  //         row.appendChild(cell);
+  //         date++;
+  //       }
+  
+  
+  //     }
+  
+  //     tbl.appendChild(row);
+  //   }
+  
+  // }
+
+  // new function showCalender on 14Feb 2025
   function showCalendar(month, year) {
-  
     var firstDay = (new Date(year, month)).getDay();
-  
-    tbl = document.getElementById("calendar-body");
-  
-  
+    var tbl = document.getElementById("calendar-body");
     tbl.innerHTML = "";
-  
-  
-    monthAndYear.innerHTML = months[month] + " " + year;
+
+    monthAndYear.innerHTML = `${months[month]} ${year}`;
     selectYear.value = year;
+    
+    // Limit month dropdown based on year selection
+    selectMonth.innerHTML = "";
+    months.forEach((m, index) => {
+        if (year === today.getFullYear() && index > today.getMonth()) return;
+        selectMonth.innerHTML += `<option value='${index}'>${m}</option>`;
+    });
     selectMonth.value = month;
-  
-    // creating all cells
-    var date = 1;
-    for (var i = 0; i < 6; i++) {
-      var row = document.createElement("tr");
-  
-      for (var j = 0; j < 7; j++) {
-        if (i === 0 && j < firstDay) {
-          cell = document.createElement("td");
-          cellText = document.createTextNode("");
-          cell.appendChild(cellText);
-          row.appendChild(cell);
-        } else if (date > daysInMonth(month, year)) {
-          break;
-        } else {
-          cell = document.createElement("td");
-          cell.setAttribute("data-date", date);
-          cell.setAttribute("data-month", month + 1);
-          cell.setAttribute("data-year", year);
-          cell.setAttribute("data-month_name", months[month]);
-          cell.className = "date-picker";
-          cell.innerHTML = "<span>" + date + "</span>";
-  
-          if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-            cell.className = "date-picker selected";
-          }
-          row.appendChild(cell);
-          date++;
+
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+        let row = document.createElement("tr");
+
+        for (let j = 0; j < 7; j++) {
+            let cell = document.createElement("td");
+            if (i === 0 && j < firstDay) {
+                cell.appendChild(document.createTextNode(""));
+            } else if (date > daysInMonth(month, year)) {
+                break;
+            } else {
+                cell.setAttribute("data-date", date);
+                cell.setAttribute("data-month", month + 1);
+                cell.setAttribute("data-year", year);
+                cell.setAttribute("data-month_name", months[month]);
+                cell.className = "date-picker";
+                let span = document.createElement("span");
+                span.textContent = date;
+                
+                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                    cell.className = "date-picker selected";
+                }
+                
+                cell.appendChild(span);
+                row.appendChild(cell);
+                date++;
+            }
         }
-  
-  
-      }
-  
-      tbl.appendChild(row);
+        tbl.appendChild(row);
     }
-  
+    links();
   }
   
   function daysInMonth(iMonth, iYear) {
     return 32 - new Date(iYear, iMonth, 32).getDate();
   }
   
-  function links () {
-  document.querySelectorAll('td.date-picker > span').forEach(element => {
-    var year = element.parentElement.getAttribute('data-year');
-    var month = element.parentElement.getAttribute('data-month');
-    var day =  element.textContent;
-    if (month.length === 1) {
-      month = "0" + month;
-    }
-      if (day.length === 1) {
-      day = "0" + day;
-    }
-    element.innerHTML = '<a href="../daily-problems/' + year + '-' + month + '-' + day + '">' + element.textContent + '</a> '
-  })
-  }
+  function links() {
+    document.querySelectorAll('td.date-picker > span').forEach(element => {
+        let parent = element.parentElement;
+        let year = parent.getAttribute('data-year');
+        let month = parent.getAttribute('data-month').padStart(2, '0');
+        let day = element.textContent.padStart(2, '0');
+        let date = new Date(year, month - 1, day);
+
+        if (date > today) {
+            element.style.color = "#737272";
+            element.style.cursor = "not-allowed";
+        } else {
+            let link = document.createElement('a');
+            link.href = `../daily-problems/${year}-${month}-${day}`;
+            link.target = "_blank";
+            link.textContent = element.textContent;
+            element.innerHTML = "";
+            element.appendChild(link);
+        }
+    });
+}
+  
   
   links ()
