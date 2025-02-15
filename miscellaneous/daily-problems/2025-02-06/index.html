@@ -9,12 +9,42 @@
         gtag('js', new Date());
         gtag('config', 'G-CVGSV7Y2CE');
     </script>
-
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="Mathematics problem of the day (6th Feb 2025): Let X be a topological space, and let A ⊆ X be a connected subset. Suppose B ⊆ X is such that A ⊆ B ⊆ A̅, where A̅ is the closure of A. Prove that B is also connected." />
+    <meta name="keywords" content="Mathematics, Topology, Connected Sets, Closure, Analysis, Competitive Exams, GATE, CSIR-NET" />
+    <meta name="author" content="Sachchidanand Prasad" />
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-02-06/" />
+    <meta property="og:title" content="Problem of the Day (06-02-2025) | Connectedness and Closures in Topology" />
+    <meta property="og:description" content="Let X be a topological space, and let A ⊆ X be a connected subset. Suppose B ⊆ X is such that A ⊆ B ⊆ A̅, where A̅ is the closure of A. Prove that B is also connected." />
+    <meta property="og:image" content="https://prasadsachchidanand.github.io/assets/img/problem_of-the-day-logo.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Problem of the Day - Sachchidanand Prasad" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Problem of the Day (06-02-2025) | Connectedness and Closures in Topology" />
+    <meta name="twitter:description" content="Let X be a topological space, and let A ⊆ X be a connected subset. Suppose B ⊆ X is such that A ⊆ B ⊆ A̅, where A̅ is the closure of A. Prove that B is also connected." />
+    <meta name="twitter:image" content="https://prasadsachchidanand.github.io/assets/img/problem_of-the-day-logo.svg" />
+    <meta name="twitter:site" content="@your_twitter_handle" />
+    
+    <!-- LinkedIn -->
+    <meta property="og:image:type" content="image/png" />
+    <meta name="linkedin:title" content="Problem of the Day (06-02-2025) | Connectedness and Closures in Topology" />
+    <meta name="linkedin:description" content="Let X be a topological space, and let A ⊆ X be a connected subset. Suppose B ⊆ X is such that A ⊆ B ⊆ A̅, where A̅ is the closure of A. Prove that B is also connected." />
+    <meta name="linkedin:image" content="https://prasadsachchidanand.github.io/assets/img/problem_of-the-day-logo.svg" />
+    
+    <!-- WhatsApp (uses Open Graph tags) -->
+    <meta property="og:image:secure_url" content="https://prasadsachchidanand.github.io/assets/img/problem_of-the-day-logo.svg" />
+    <meta property="og:image:alt" content="Problem of the Day Logo" />
+    
+    <!-- General -->
+    <meta name="robots" content="index, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="Topology, Connected Sets, Closure of a Set, Topology Problems, Mathematics, Problem Solution, Real Analysis, Set Theory, Topology Proof, Connectedness in Topology, Topological Properties, GATE Mathematics, CSIR-NET Mathematics, TIFR, NBHM, JAM, Abstract Mathematics, Sachchidanand Prasad">
-    <meta name="description" content="Daily topology problem for 06-02-2025: Prove that if \( A \) is a connected subset of a topological space \( X \), and \( B \) is such that \( A \subset B \subset \overline{A} \), then \( B \) is also connected. Includes a detailed solution and explanation.">
 
     <title>Problem of the Day | 06-02-2025 | Topology - Connected Sets and Closure - Sachchidanand Prasad</title>
 
@@ -98,7 +128,13 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>To prove that \( B \) is connected, we will proceed by contradiction. Assume that \( B \) is not connected. Then, there exist two non-empty disjoint open sets \( U \) and \( V \) in \( B \) such that \( B = U \cup V \). <br><br>
+
+                    Since \( A \subset B \), we have \( A = (A \cap U) \cup (A \cap V) \). Because \( A \) is connected, either \( A \cap U = \emptyset \) or \( A \cap V = \emptyset \). Without loss of generality, assume \( A \cap V = \emptyset \). Then, \( A \subset U \). <br><br>
+                
+                    Now, consider the closure \( \overline{A} \). Since \( U \) is open in \( B \) and \( A \subset U \), it follows that \( \overline{A} \subset \overline{U} \). But \( B \subset \overline{A} \), so \( B \subset \overline{U} \). This implies that \( V \subset \overline{U} \). <br><br>
+                
+                    However, \( U \) and \( V \) are disjoint open sets in \( B \), and \( V \subset \overline{U} \) implies that \( V \) must intersect \( U \), which is a contradiction. Therefore, our assumption that \( B \) is not connected must be false, and \( B \) is indeed connected.
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
@@ -108,7 +144,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-01-08/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-02-05/">
                           Previous 
                         </a>
                       </li>
@@ -118,7 +154,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-01-10/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-02-07/">
                           Next 
                         </a>
                       </li>

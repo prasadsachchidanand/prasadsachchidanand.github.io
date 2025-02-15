@@ -11,13 +11,40 @@
     </script>
 
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="Topology, Subspace Topology, Open Sets, Closed Sets, Topology Problems, Mathematics, Problem Solution, Real Analysis, Set Theory, Topology Proof, Subspace of Real Numbers, Topological Properties, GATE Mathematics, CSIR-NET Mathematics, TIFR, NBHM, JAM, Abstract Mathematics">
-    <meta name="description" content="A detailed proof that the set {0} is both open and closed in the subset topology on A = {0} ∪ [1/2, 1], where A is equipped with the subspace topology of the real numbers.">
+    <meta name="description" content="Mathematics problem of the day (9th Jan 2025): Consider the set A = {0} ∪ [1/2,1] equipped with the subspace topology of ℝ. Show that {0} is open as well as closed in A." />
+    <meta name="keywords" content="Mathematics, Topology, Subspace Topology, Open Set, Closed Set, Competitive Exams, GATE, CSIR-NET" />
+    <meta name="author" content="Sachchidanand Prasad" />
     
-
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-01-09/" />
+    <meta property="og:title" content="Problem of the Day (09-01-2025) | Openness and Closedness in Subspace Topology" />
+    <meta property="og:description" content="Consider the set A = {0} ∪ [1/2,1] equipped with the subspace topology of ℝ. Show that {0} is open as well as closed in A." />
+    <meta property="og:image" content="https://prasadsachchidanand.github.io/assets/img/problem_of-the-day-logo.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Problem of the Day - Sachchidanand Prasad" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Problem of the Day (09-01-2025) | Openness and Closedness in Subspace Topology" />
+    <meta name="twitter:description" content="Consider the set A = {0} ∪ [1/2,1] equipped with the subspace topology of ℝ. Show that {0} is open as well as closed in A." />
+    <meta name="twitter:image" content="https://prasadsachchidanand.github.io/assets/img/problem_of-the-day-logo.svg" />
+    <meta name="twitter:site" content="@your_twitter_handle" />
+    
+    <!-- LinkedIn -->
+    <meta property="og:image:type" content="image/png" />
+    <meta name="linkedin:title" content="Problem of the Day (09-01-2025) | Openness and Closedness in Subspace Topology" />
+    <meta name="linkedin:description" content="Consider the set A = {0} ∪ [1/2,1] equipped with the subspace topology of ℝ. Show that {0} is open as well as closed in A." />
+    <meta name="linkedin:image" content="https://prasadsachchidanand.github.io/assets/img/problem_of-the-day-logo.svg" />
+    
+    <!-- WhatsApp (uses Open Graph tags) -->
+    <meta property="og:image:secure_url" content="https://prasadsachchidanand.github.io/assets/img/problem_of-the-day-logo.svg" />
+    <meta property="og:image:alt" content="Problem of the Day Logo" />
+    
+    <!-- General -->
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
     <title>Problem of the Day | 09-01-2025 | Topology - ${0}$ is Open and Closed in $A$ - Sachchidanand Prasad</title>
@@ -102,7 +129,22 @@
 
                 <div class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that if $\mathcal{T} $ is the topology on $\mathbb{R} $, then the subspace topology on $A$ is defined as 
+                    \begin{align*}
+                        \mathcal{T} _A = \left\{ A  \cap U: U \in \mathcal{T}  \right\} .
+                    \end{align*}  
+                    Let us show that $\{ 0 \} $ is open in $A$, that is, $\{ 0 \} \in \mathcal{T} _A $. Note that 
+                    \begin{align*}
+                        \{ 0 \} = A \cap \left( -\frac{1}{3}, \frac{1}{3} \right)  \implies \{ 0 \} \in \mathcal{T} _A. 
+                    \end{align*}  
+                    Now note that, 
+                    \begin{align*}
+                        \left[ \frac{1}{2},1 \right] = A  \cap \left( \frac{1}{3},2 \right) \implies \left[ \frac{1}{2},1 \right] \in \mathcal{T} _A.
+                    \end{align*}
+                    Since 
+                    \[
+                        \{ 0 \} = A \setminus \left[ \frac{1}{2},1 \right] \implies \{ 0 \} \text{ is closed in } A.
+                    \]
                   </div>
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
                 </div>
