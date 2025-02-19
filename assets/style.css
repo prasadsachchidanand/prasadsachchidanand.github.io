@@ -3973,6 +3973,10 @@ video {
     justify-content: flex-start;
   }
 
+  .sm\:justify-between {
+    justify-content: space-between;
+  }
+
   .sm\:border-l {
     border-left-width: 1px;
   }
