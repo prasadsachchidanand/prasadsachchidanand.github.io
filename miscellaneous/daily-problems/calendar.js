@@ -118,14 +118,15 @@ function generate_year_range(start, end) {
 
   // new function showCalender on 14Feb 2025
   function showCalendar(month, year) {
-    var firstDay = (new Date(year, month)).getDay();
-    var tbl = document.getElementById("calendar-body");
+    let firstDay = new Date(year, month, 1).getDay(); // Day of the week for 1st of the month
+    console.log(`First day of ${months[month]} ${year}:`, firstDay); // Debugging log
+
+    let tbl = document.getElementById("calendar-body");
     tbl.innerHTML = "";
 
     monthAndYear.innerHTML = `${months[month]} ${year}`;
     selectYear.value = year;
-    
-    // Limit month dropdown based on year selection
+
     selectMonth.innerHTML = "";
     months.forEach((m, index) => {
         if (year === today.getFullYear() && index > today.getMonth()) return;
@@ -138,33 +139,39 @@ function generate_year_range(start, end) {
         let row = document.createElement("tr");
 
         for (let j = 0; j < 7; j++) {
-            let cell = document.createElement("td");
-            if (i === 0 && j < firstDay) {
-                cell.appendChild(document.createTextNode(""));
-            } else if (date > daysInMonth(month, year)) {
-                break;
-            } else {
-                cell.setAttribute("data-date", date);
-                cell.setAttribute("data-month", month + 1);
-                cell.setAttribute("data-year", year);
-                cell.setAttribute("data-month_name", months[month]);
-                cell.className = "date-picker";
-                let span = document.createElement("span");
-                span.textContent = date;
-                
-                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cell.className = "date-picker selected";
-                }
-                
-                cell.appendChild(span);
-                row.appendChild(cell);
-                date++;
-            }
+          let cell = document.createElement("td");
+      
+          if (i === 0 && j < firstDay) {
+              // Empty cells for days before the first day
+              cell.innerHTML = "";
+              row.appendChild(cell);
+          } else if (date > daysInMonth(month, year)) {
+              break;
+          } else {
+              // Add actual date numbers
+              cell.setAttribute("data-date", date);
+              cell.setAttribute("data-month", month + 1);
+              cell.setAttribute("data-year", year);
+              cell.className = "date-picker";
+      
+              let span = document.createElement("span");
+              span.textContent = date;
+      
+              if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                  cell.classList.add("selected");
+              }
+      
+              cell.appendChild(span);
+              row.appendChild(cell);
+              date++;
+          }
         }
         tbl.appendChild(row);
     }
+
     links();
   }
+  // Finish of show calender
   
   function daysInMonth(iMonth, iYear) {
     return 32 - new Date(iYear, iMonth, 32).getDate();
