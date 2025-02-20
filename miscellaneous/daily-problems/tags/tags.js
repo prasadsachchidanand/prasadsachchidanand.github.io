@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'differential-equation': document.getElementById('differential-equation-links'),
         'miscellaneous': document.getElementById('miscellaneous-links'),
         'gate': document.getElementById('gate-links'),
-        'csir-net': document.getElementById('csir-net-links')
+        'csir-net': document.getElementById('csir-net-links'),
+        'mcq': document.getElementById('mcq-links')
     };
 
     // Map subcategories to main categories
@@ -92,6 +93,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // csir-net
         'csir-net-feb-2022': 'csir-net',
+
+        // mcq
+        'mcq': 'mcq',
     };
 
     // Define the active button and container

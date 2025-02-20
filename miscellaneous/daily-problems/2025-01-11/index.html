@@ -11,15 +11,15 @@
     </script>
 
     <!-- Primary Meta Tags -->
-    <meta name="description" content="Mathematics problem of the day (16th Feb 2025): Compute the characteristic and minimal polynomials of two 3×3 matrices A and B. Determine whether they are similar." />
-    <meta name="keywords" content="Mathematics, Linear Algebra, Characteristic Polynomial, Minimal Polynomial, Matrix Similarity, Eigenvalues, Eigenvectors, Competitive Exams, GATE, CSIR-NET" />
+    <meta name="description" content="Mathematics problem of the day (11th Jan 2025): Find the second derivative d²y/dx² if x⁴ + y⁴ = 16." />
+    <meta name="keywords" content="Mathematics, Calculus, Implicit Differentiation, Second Derivative, Differential Calculus, Competitive Exams, GATE, CSIR-NET" />
     <meta name="author" content="Sachchidanand Prasad" />
     
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-02-16/" />
-    <meta property="og:title" content="Problem of the Day (16-02-2025) | Characteristic & Minimal Polynomials, Matrix Similarity" />
-    <meta property="og:description" content="Compute the characteristic and minimal polynomials of two 3×3 matrices A and B. Determine whether they are similar." />
+    <meta property="og:url" content="https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-01-11/" />
+    <meta property="og:title" content="Problem of the Day (11-01-2025) | Second Derivative Calculation" />
+    <meta property="og:description" content="Find the second derivative d²y/dx² if x⁴ + y⁴ = 16." />
     <meta property="og:image" content="https://prasadsachchidanand.github.io/assets/img/problem_of-the-day-logo.svg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -27,15 +27,15 @@
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Problem of the Day (16-02-2025) | Characteristic & Minimal Polynomials, Matrix Similarity" />
-    <meta name="twitter:description" content="Compute the characteristic and minimal polynomials of two 3×3 matrices A and B. Determine whether they are similar." />
+    <meta name="twitter:title" content="Problem of the Day (11-01-2025) | Second Derivative Calculation" />
+    <meta name="twitter:description" content="Find the second derivative d²y/dx² if x⁴ + y⁴ = 16." />
     <meta name="twitter:image" content="https://prasadsachchidanand.github.io/assets/img/problem_of-the-day-logo.svg" />
     <meta name="twitter:site" content="@your_twitter_handle" />
     
     <!-- LinkedIn -->
     <meta property="og:image:type" content="image/png" />
-    <meta name="linkedin:title" content="Problem of the Day (16-02-2025) | Characteristic & Minimal Polynomials, Matrix Similarity" />
-    <meta name="linkedin:description" content="Compute the characteristic and minimal polynomials of two 3×3 matrices A and B. Determine whether they are similar." />
+    <meta name="linkedin:title" content="Problem of the Day (11-01-2025) | Second Derivative Calculation" />
+    <meta name="linkedin:description" content="Find the second derivative d²y/dx² if x⁴ + y⁴ = 16." />
     <meta name="linkedin:image" content="https://prasadsachchidanand.github.io/assets/img/problem_of-the-day-logo.svg" />
     
     <!-- WhatsApp (uses Open Graph tags) -->
@@ -47,7 +47,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-    <title>Problem of the Day | 11-01-2025 | Miscellaneous -  - Sachchidanand Prasad</title>
+    <title>Problem of the Day | 11-01-2025 | Miscellaneous - Find The Second Derivative of an Implicit Function - Sachchidanand Prasad</title>
 
 
     <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png" />
@@ -122,110 +122,59 @@
                     </a>
                   </div>
                   <!-- Hint Button -->
-                  <button onclick="toggleHint('hint-box')" 
+                  <!-- <button onclick="toggleHint('hint-box')" 
                     class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                     Show Hint
-                  </button>
+                  </button> -->
 
                   <!-- Solution Button -->
-                  <button onclick="toggleSolution('solution-box')" 
+                  <!-- <button onclick="toggleSolution('solution-box')" 
                     class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                     Show Solution
-                  </button>
+                  </button> -->
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50">
                   <strong>Hints:</strong> 
-                  <ol class="math-list-roman">
-                    <li class="my-4">
-                      The matrices \( A \) and \( B \) are upper-triangular matrices and the characteristic polynomial of an upper-triangular matrix is the product of the terms \( (t - \lambda_i) \), where \( \lambda_i \) are the diagonal elements of the matrix.
-                    </li>
-                    <li class="my-4">
-                      The minimal polynomial is the smallest degree polynomial \( p(x) \) such that \( p(A) = 0 \). The roots of the minimal polynomial are the eigenvalues of the matrix.
-                    </li>
-                    <li class="my-4">
-                      Similar matrices have the same characteristic and minimal polynomials.
-                    </li>
-                  </ol>
-                </div>
+                  Differentiate the given equation twice. The first time derivative will be 
+                  \begin{align*}
+                     4x^3 + 4y^3 \frac{\mathrm{d}y}{\mathrm{d}x} = 0.
+                  \end{align*}
+                </div> -->
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong> Note that both the matrices are upper-triangular matrices. 
-                    <ul class="math-list">
-                      <li class="my-4">
-                        Since the matrices $A$ and $B$ are upper-triangular matrices, the eigenvalues are the diagonal elements. Thus, the characteristic polynomial of $A$ and $B$ will be
-                        \[
-                            p_A(t) = (t-2)^2 (t-1) \quad \text{and} \quad p_B(t) = (t-1)(t-2)^2.
-                        \]
-                      </li>
-                      <hr class="h-px my-4 bg-gray-300 border-0">
-                      <li class="my-4">
-                        To find the minimal polynomial of \( A \), we need to find the polynomial of the least degree whose roots are all the eigenvalues and also the matrix $A$ satisfies the polynomial. The possible minimal polynomials are 
-                        \[
-                            (t-2)(t-1) \quad \text{ or } \quad (t-2)^2(t-1).
-                        \]
-                        We will check if the matrix $A$ satisfies the polynomial $(t-2)(t-1)$. 
-                        \begin{align*}
-                            (A - 2I)(A- I) & = 
-                            \begin{bmatrix}
-                                0 & 0 &  5 \\
-                                0 & 0 &  -4 \\
-                                0 & 0 &  -1 \\
-                            \end{bmatrix} 
-                            \begin{bmatrix}
-                                1 & 0 &  5 \\
-                                0 & 1 &  -4 \\
-                                0 & 0 &  0 \\
-                            \end{bmatrix} = 
-                            \begin{bmatrix}
-                                0 & 0 &  0 \\
-                                0 & 0 &  0 \\
-                                0 & 0 &  0 \\
-                            \end{bmatrix}.
-                        \end{align*}
-                        Thus the minimal polynomial for the matrix $A$ will be 
-                        \[
-                            m_A(t) = (t-2)(t-1).
-                        \]
-                        <br><br>
-                        Similarly, for the matrix $B$, the possibilities are 
-                        \[
-                            (t-1)(t-2) \quad \text{ or } \quad (t-1)(t-2)^2.
-                        \]
-                        We will check if the matrix $B$ satisfies the polynomial $(t-1)(t-2)$. 
-                        \begin{align*}
-                            (B - I)(B- 2I) & = 
-                            \begin{bmatrix}
-                                0 & 1 &  0 \\
-                                0 & 1 &  1 \\
-                                0 & 0 &  1 \\
-                            \end{bmatrix}
-                            \begin{bmatrix}
-                                -1 & 1 &  0 \\
-                                0 & 0 &  1 \\
-                                0 & 0 &  0 \\
-                            \end{bmatrix} \neq 
-                            \begin{bmatrix}
-                                0 & 0 &  1 \\
-                                0 & 0 &  1 \\
-                                0 & 0 &  0 \\
-                            \end{bmatrix}.
-                        \end{align*}
-                        Thus, the minimal polynomial will be 
-                        \[
-                            (t-1)(t-2)^2.
-                        \]
-                      </li>
-
-                      <hr class="h-px my-4 bg-gray-300 border-0">
-                      <li class="my-4">
-                        We know that similar matrices have the same minimal polynomials (see <a href="../2025-02-09/" class="text-blue-500 hover:text-blue-800" target="_blank">problem for 09-02-2025</a>). Since the minimal polynomials of \( A \) and \( B \) are different, \( A \) and \( B \) are not similar.
-                      </li>
-                    </ul>
+                    <strong>Solution: </strong> The given equation is 
+                    \begin{equation}\label{eq:11Jan2025-1}
+                        x^4 + y^4 = 1.
+                    \end{equation}
+                    Differentiating equation \eqref{eq:11Jan2025-1}, we get 
+                    \begin{equation}\label{eq:11Jan2025-2}
+                        4x^3 + 4 y^3 \frac{\mathrm{d}y}{\mathrm{d}x} = 0.
+                    \end{equation}
+                    Again differentiating the equation \eqref{eq:11Jan2025-2} with respect to $x$, we get 
+                    \begin{equation}\label{eq:11Jan2025-3}
+                        12x^2 + 12 y^2 \frac{\mathrm{d}y}{\mathrm{d}x} + 4y^3 \frac{\mathrm{d}^2y}{\mathrm{d}x^2} = 0 .
+                    \end{equation} 
+                    Using equation \eqref{eq:11Jan2025-2}, we have
+                    \begin{equation}\label{eq:11Jan2025-4}
+                        \frac{\mathrm{d}y}{\mathrm{d}x} = - \frac{x^3}{y^3}.
+                    \end{equation}
+                    Substituting the above into equation \eqref{eq:11Jan2025-3}, we get
+                    \begin{align*}
+                        & 12x^2 + 12y^2 \left[ -\frac{x^3}{y^3} \right] + 4y^3 \frac{\mathrm{d}^2y}{\mathrm{d}x^2} = 0 \\
+                        \implies & 4y^3 \frac{\mathrm{d}^2y}{\mathrm{d}x^2} = -12x^2 + \frac{12x^3}{y} \\
+                        \implies & \frac{\mathrm{d}^2y}{\mathrm{d}x^2} = \frac{3x^3}{y^4} - \frac{3x^2}{y^3} = \frac{3x^3 - 3x^2 y}{y^4}.
+                    \end{align*}
+                    Thus, 
+                    \[
+                        \textcolor{blue}{\boxed{
+                            \frac{\mathrm{d}^2 y}{\mathrm{d} x^2} = \frac{3x^3 - 3x^2 y}{y^4}
+                        }}
+                    \]
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
@@ -236,7 +185,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-02-15/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-01-10/">
                           Previous 
                         </a>
                       </li>
@@ -246,7 +195,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-02-17/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-01-12/">
                           Next 
                         </a>
                       </li>
@@ -408,7 +357,7 @@
     <script src="../share.js"></script>
     
     <script>
-      const tags = ['linear-algebra', 'characteristic-polynomial', 'minimal-polynomial'];
+      const tags = ['miscellaneous', 'calculus'];
     </script>
   </body>
 </html>

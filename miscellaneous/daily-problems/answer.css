@@ -168,6 +168,18 @@
     color:rgb(255, 166, 127)
   }
 
+  /* Ensure the solution box has a default height */
+  #solution-container {
+    min-height: 150px;  /* Adjust as needed */
+    transition: min-height 0.3s ease-in-out;
+  }
+
+  /* When expanded, allow it to grow naturally */
+  #solution-container.expanded {
+    min-height: auto;
+  }
+
+
 
 
   /* class for ol and ul leading-relaxed lg:text-lg md:text-base text-justify */
