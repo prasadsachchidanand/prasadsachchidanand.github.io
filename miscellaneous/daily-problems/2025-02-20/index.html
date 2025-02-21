@@ -123,39 +123,60 @@
                     </a>
                   </div>
                   <!-- Hint Button -->
-                  <!-- <button onclick="toggleHint('hint-box')" 
+                  <button onclick="toggleHint('hint-box')" 
                     class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                     Show Hint
-                  </button> -->
+                  </button>
 
                   <!-- Solution Button -->
-                  <!-- <button onclick="toggleSolution('solution-box')" 
+                  <button onclick="toggleSolution('solution-box')" 
                     class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                     Show Solution
-                  </button> -->
+                  </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
-                  <strong>Hints:</strong> 
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                  <strong>Hints:</strong> To show \( R[A] \) is closed, prove that \( Y \setminus R[A] \) is open. 
                   <ol class="math-list-roman">
                     <li class="my-4">
-                      Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                      Given \( y \notin R[A] \), note that for every \( x \in A \), the point \( (x,y) \notin R \).  
                     </li>
                     <li class="my-4">
-                      Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                      Use the fact that \( R \) is closed to find open sets \( U_x \times V \) separating \( (x,y) \) from \( R \).  
+                    </li>
+                    <li class="my-4">
+                      Use compactness of \( A \) to get an open set $U$ such that $U \times V \subseteq X\times Y \setminus R$. 
+                    </li>
+                    <li class="my-4">
+                      Finally show that $V\subseteq Y \setminus R[A]$.
                     </li>
                   </ol>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We need to show that the set $R[A]$ is a closed subset of $Y$.  For that we will show that $Y\setminus R[A]$ is open in $Y$. Let $y \in Y \setminus R[A]$ this implies for any $x \in A$, $(x,y) \notin R$. Since $R$ is closed, so its complement must be open. Therefore, for every $x\in A$ we can find an open set $U_x \times V$ containing $(x,y)$ such that $U_x \times V \subseteq X\times Y \setminus R[A]$. Thus we get an open cover of $A$, namely 
+                    \[
+                        \mathcal{U} = \{ U_x: x \in A \} .
+                    \]   
+                    Since $A$ is compact, we can find a finite subcover of $\mathcal{U} $, say
+                    \[
+                        \{ U_i \in \mathcal{U} : i = 1,2,\dots, n \} .
+                    \] 
+                    Set $U =  \cup _i U_i$. So, $U\times V \subseteq X\times Y\setminus R$ for any  $x \in A$.  
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We now claim that $V\subseteq Y\setminus R[A]$. Let  $v \in V$. This implies 
+                    \[
+                        \forall\ a \in A \quad (a,v) \notin R \implies v \notin R[A].
+                    \] 
+                    Thus, $V \subseteq Y\setminus R[A]$ and hence $Y\setminus R[A]$ is open and therefore, $R[A]$ is closed. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
