@@ -124,39 +124,87 @@
                     </a>
                   </div>
                   <!-- Hint Button -->
-                  <!-- <button onclick="toggleHint('hint-box')" 
+                  <button onclick="toggleHint('hint-box')" 
                     class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                     Show Hint
-                  </button> -->
+                  </button>
 
                   <!-- Solution Button -->
-                  <!-- <button onclick="toggleSolution('solution-box')" 
+                  <button onclick="toggleSolution('solution-box')" 
                     class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                     Show Solution
-                  </button> -->
+                  </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <strong>Hints:</strong> 
                   <ol class="math-list-roman">
                     <li class="my-4">
-                      Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                      Re-write the equation as 
+                      \[
+                          \left( \frac{1}{\sqrt{z} } p  \right) ^2 + \left( \frac{1}{\sqrt{z}}q\right) ^2 = x^2 + y^2,
+                      \]
+                      and find $Z$ by assuming $\frac{1}{\sqrt{z}} \mathrm{d}z = \mathrm{d} Z.$
                     </li>
                     <li class="my-4">
-                      Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                      Express the transformed equation in terms of new partial derivatives and recognize its structure.  
+                    </li>
+                    <li class="my-4">
+                      Identify separable parts and integrate carefully to obtain \( Z \).  
                     </li>
                   </ol>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The given equation is 
+                    \begin{equation}\label{eq:21Feb2025-1}
+                        p^2 - q^2 = \left( x^2 + y^2 \right) z,
+                    \end{equation}
+                    which can be re-written as 
+                    \begin{equation}\label{eq:21Feb2025-2}
+                        \left( \frac{1}{\sqrt{z} } \frac{\partial z}{\partial x}  \right) ^2 + \left( \frac{1}{\sqrt{z}}\frac{\partial z}{\partial y} \right) ^2 = x^2 + y^2.
+                    \end{equation}
+                    Let 
+                    \[
+                        \frac{1}{\sqrt{z}}\mathrm{d} z = \mathrm{d} Z \implies 2 \sqrt{z} = Z .
+                    \]
+                    Using the above in \eqref{eq:21Feb2025-2}, we get 
+                    \[
+                       \left(  \frac{\partial Z}{\partial x}  \right) ^2 + \left( \frac{\partial Z}{\partial y}  \right) ^2 = x^2 + y^2,
+                    \]
+                    which we can write as 
+                    \[
+                        P^2 + Q^2 = x^2 + y^2 , \quad P = \frac{\partial Z}{\partial x} \text{ and } Q = \frac{\partial Z}{\partial y} .
+                    \]
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Thus we get 
+                    \begin{align*}
+                        P^2 - x^2 = y^2 - Q^2.
+                    \end{align*}
+                    This implies both the equation will be constant. Equating each side to an arbitrary constant $a^2$, we have 
+                    \begin{align*}
+                        &  P^2 - x^2 = a^2 \quad \text{ and } \quad y^2 - Q^2 = a^2 \\
+                        \implies & P = \sqrt{x^2 + a^2} \quad \text{ and } \quad Q = \sqrt{y^2 - a^2} . 
+                    \end{align*}
+                    Since 
+                    \begin{align*}
+                        \mathrm{d} Z = P \mathrm{d} x + Q \mathrm{d} y & \implies \mathrm{d} Z = \sqrt{x^2 + a^2} \mathrm{d} x + \sqrt{y^2 - a^2} \mathrm{d} y \\
+                        & \implies Z = \textcolor{blue}{\int \sqrt{x^2 + a^2}\ \mathrm{d} x} + \textcolor{magenta}{\int \sqrt{y^2 - a^2}\ \mathrm{d} y} \\
+                        & \implies Z = \textcolor{blue}{\frac{1}{2} x \sqrt{x^2 + a^2} + \frac{a^2}{2} \ln  \left\vert x + \sqrt{x^2 + a^2}  \right\vert }\\
+                        & \kern 1.7cm + \textcolor{magenta}{\frac{1}{2} y \sqrt{y^2 - a^2} - \frac{a^2}{2} \ln  \left\vert x + \sqrt{y^2 - a^2}  \right\vert}.
+                    \end{align*}
+                    Since $Z = 2\sqrt{z} $,the required integral will be 
+                    \[
+                        z = \frac{Z^2}{4}.
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
@@ -164,7 +212,7 @@
                   <nav aria-label="Page navigation example">
                     <ul class="flex list-style-none">
                       <li class="page-item disabled">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-02-19/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-02-20/">
                           Previous 
                         </a>
                       </li>
@@ -174,7 +222,7 @@
                         </a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-02-21/">
+                        <a class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg" href="../2025-02-22/">
                           Next 
                         </a>
                       </li>
