@@ -47,7 +47,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-    <title>Problem of the Day | 22-02-2025 | Numerical Differential Equation - Solving Differential Equation by Picard's Iteration | Sachchidanand Prasad</title>
+    <title>Problem of the Day | 22-02-2025 | Numerical Analysis - Solving Differential Equation by Picard's Iteration | Sachchidanand Prasad</title>
 
 
     <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png" />
@@ -125,39 +125,108 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <strong>Hints:</strong> 
                   <ol class="math-list-roman">
                     <li class="my-4">
-                      Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                      The Picard's iteration for the initial value problem
+                      \[
+                          \frac{\mathrm{d}y}{\mathrm{d}x} = f(x, y), \quad y(x_0) = y_0
+                      \]
+                      is given by the iterative formula
+                      \[
+                          y_{n+1}(x) = y_0 + \int_{x_0}^{x} f(t, y_n(t)) \, \mathrm{d}t.
+                      \]
                     </li>
                     <li class="my-4">
-                      Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                      The iteration formula will be 
+                      \[
+                          y_{n+1}(x) = 2 + \int_{0}^{x} \left( 2y_n(t) - 2t^2 - 3 \right) \, \mathrm{d}t.
+                      \]
                     </li>
                   </ol>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that the Picard's iteration for the initial value problem
+                    \[
+                        \frac{\mathrm{d}y}{\mathrm{d}x} = f(x, y), \quad y(x_0) = y_0
+                    \]
+                    is given by the iterative formula
+                    \[
+                        y_{n+1}(x) = y_0 + \int_{x_0}^{x} f(t, y_n(t)) \, \mathrm{d}t.
+                    \]
+                    For the given problem, we have
+                    \[
+                        \frac{\mathrm{d}y}{\mathrm{d}x} = 2y - 2x^2 - 3, \quad y(0) = 2.
+                    \]
+                    Thus, the iterative formula becomes
+                    \[
+                        y_{n+1}(x) = 2 + \int_{0}^{x} \left( 2y_n(t) - 2t^2 - 3 \right) \, \mathrm{d}t.
+                    \]
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Starting with the initial approximation \( y_0(x) = 2 \), we compute the next approximations as follows: <br><br>
+                    <span class="steps font-bold">First Approximation: $y_0(x) = 2$.</span> 
+                    \begin{align*}
+                        y_{1}(x) & = 2 + \int_{0}^{x} \left( 2y_0(t) - 2t^2 - 3 \right) \, \mathrm{d}t \\
+                        & = 2 + \int_{0}^{x} \left( 2 \cdot 2 - 2t^2 - 3 \right) \, \mathrm{d}t \\
+                        & = 2 + \int_{0}^{x} \left( 4 - 2t^2 - 3 \right) \, \mathrm{d}t \\
+                        & = 2 + \int_{0}^{x} \left( 1 - 2t^2 \right) \, \mathrm{d}t\\
+                        & = 2 + \left[ t - \frac{2t^3}{3} \right]_{0}^{x} \\
+                        & = 2 + \left( x - \frac{2x^3}{3} \right) \\
+                        & = 2 + x - \frac{2x^3}{3}.
+                    \end{align*}
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <span class="steps font-bold">Second Approximation: $y_1(x) = 2 + x - \frac{2x^3}{3}.$</span> 
+                    \begin{align*}
+                        y_2(x) & = 2 + \int_{0}^{x} \left( 2 \left( 2 + t - \frac{2t^3}{3} \right) - 2t^2 - 3 \right) \, \mathrm{d}t \\
+                        & = 2 + \int_{0}^{x} \left( 4 + 2t - \frac{4t^3}{3} - 2t^2 - 3 \right) \, \mathrm{d}t \\
+                        & = 2 + \int_{0}^{x} \left( 1 + 2t - 2t^2 - \frac{4t^3}{3} \right) \, \mathrm{d}t\\
+                        & = 2 + \left[ t + t^2 - \frac{2t^3}{3} - \frac{t^4}{3} \right]_{0}^{x}\\
+                        & = 2 +  x + x^2 - \frac{2x^3}{3} - \frac{x^4}{3}.
+                    \end{align*}
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <span class="steps font-bold">Third Approximation: $y_2(x) = 2 +  x + x^2 - \frac{2x^3}{3} - \frac{x^4}{3}.$</span>
+                    \begin{align*}
+                        y_3(x) & = 2 + \int_{0}^{x} \left( 2 \left( 2 + t + t^2 - \frac{2t^3}{3} - \frac{t^4}{3} \right) - 2t^2 - 3 \right) \, \mathrm{d}t \\
+                        & = 2 + \int_{0}^{x} \left( 4 + 2t + 2t^2 - \frac{4t^3}{3} - \frac{2t^4}{3} - 2t^2 - 3 \right) \, \mathrm{d}t \\
+                        & = 2 + \int_{0}^{x} \left( 1 + 2t - \frac{4t^3}{3} - \frac{2t^4}{3} \right) \, \mathrm{d}t \\
+                        & = 2 + \left[ t + t^2 - \frac{t^4}{3} - \frac{2t^5}{15} \right]_{0}^{x} \\
+                        & = 2 + x + x^2 - \frac{x^4}{3} - \frac{2x^5}{15}.
+                    \end{align*}
+                    Thus, the third approximation is
+                    \[
+                        \textcolor{blue}{\boxed{
+                            y_3(x) = 2 + x + x^2 - \frac{x^4}{3} - \frac{2x^5}{15}
+                        }}
+                    \]
+                  </div>
+
                 </div>
 
                 <!-- Previous Button -->
