@@ -136,36 +136,100 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <strong>Hints:</strong> 
                   <ol class="math-list-roman">
                     <li class="my-4">
-                      Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                      Show that if \(\mathbf{x} = A\mathbf{x}\), then \(\mathbf{x}\) is in the column space of \(A\), and conversely, use the idempotence \(A^2 = A\) to verify that every vector in the column space satisfies \(\mathbf{x} = A\mathbf{x}\).
                     </li>
                     <li class="my-4">
-                      Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                       Note that $A(\mathbf{u} - A \mathbf{u}) = \mathbf{0}$. For the other way, choose $\mathbf{u} = \mathbf{x}$.
+                    </li>
+                    <li class="my-4">
+                      To prove \(\mathbf{C}(A) \cap \mathbf{N}(A) = \{\mathbf{0}\}\), start by assuming \(\mathbf{x}\) lies in both spaces and use the properties from parts (1) and (2).
+                    </li>
+                    <li class="my-4">
+                      Consider \(\mathbf{x} \in \mathbf{C}(A)\) and \(\mathbf{x} \in \mathbf{N}(A)\). Then, it follows that \(A \mathbf{x} = \mathbf{x}\) and \(A \mathbf{x} = \mathbf{0}\).
+                    </li>
+                    <li class="my-4">
+                      For the sum, given any \(\mathbf{y} \in \mathbb{R}^n\), consider the decomposition \(\mathbf{y} = A\mathbf{y} + (\mathbf{y} - A\mathbf{y})\) and verify that \(A\mathbf{y} \in \mathbf{C}(A)\) and \(\mathbf{y} - A\mathbf{y} \in \mathbf{N}(A)\).
                     </li>
                   </ol>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Given that $A \in M_n(\mathbb{R} )$ such that $A^2 = A$. 
+                    <ol class="math-list">
+                      <li class="my-4">
+                        Let us denote 
+                        \[
+                            \mathcal{C} = \left\{ \mathbf{x} \in \mathbb{R} ^n: \mathbf{x} = A \mathbf{x}  \right\}.
+                        \]
+                        It is clear that $\mathcal{S} \subseteq \mathbf{C} (A)$. For the other side, let $\mathbf{y} \in \mathbf{C} (A)$. Then, there exists $\mathbf{x} \in \mathbb{R} ^n$ such that $A \mathbf{x} = \mathbf{y} $.  So we have
+                        \begin{align*}
+                            A \mathbf{x} = \mathbf{y} & \implies A A \mathbf{x} = A \mathbf{y}  \\
+                            & \implies  A^2 \mathbf{x} = A \mathbf{y} \\
+                            & \implies A \mathbf{x}  = A \mathbf{y} \\
+                            & \implies \mathbf{y} = A \mathbf{y} \\
+                            & \implies \mathbf{y} \in \mathcal{S} .
+                        \end{align*} 
+                        Thus, we proved that $\mathbf{C} (A) \subseteq \mathcal{C} $ and hence $\mathbf{C}(A) = \mathcal{C} $. 
+                      </li>
+                      <li class="my-4">
+                        Let us denote 
+                        \[
+                            \mathcal{N} = \left\{ \mathbf{x} \in \mathbb{R} ^n: \mathbf{x} = \mathbf{u} - A \mathbf{u} \text{ for some } \mathbf{u} \in \mathbb{R} ^n \right\}.
+                        \]
+                        Note that for any $\mathbf{x} \in \mathcal{N} $, 
+                        \[
+                            A \mathbf{x} = A(\mathbf{u} - A \mathbf{u} ) = A \mathbf{u} - A^2 \mathbf{u} = A \mathbf{u} - A \mathbf{u} = \mathbf{0} .
+                        \]
+                        Thus, $\mathbf{x} \in \mathbf{N} (A)$ and hence, $\mathcal{N} \subseteq \mathbf{N} (A) $. On the other hand, let $\mathbf{x} \in \mathbf{N} (A)$. This means $A \mathbf{x} = \mathbf{0} $. Take 
+                        $\mathbf{u} = \mathbf{x}$. Then, 
+                        \[
+                            \mathbf{x} = \mathbf{u} - A \mathbf{u} = \mathbf{x} - A \mathbf{x} = \mathbf{x} - \mathbf{0}  = \mathbf{x}.
+                        \]
+                        Thus, $\mathbf{x} \in \mathcal{N}$ and hence, $\mathbf{N} (A) \subseteq \mathcal{N}$. Therefore, $\mathbf{N} (A) = \mathcal{N}$.    
+                      </li>
+                      <li class="my-4">
+                        Let $\mathbf{x} \in \mathbf{C} (A)  \cap \mathbf{N} (A)$. Since $x \in \mathbf{N} (A)$, $A \mathbf{x} = \mathbf{0} $.  This implies, from the part (a),
+                        \[
+                            \mathbf{x}  = A \mathbf{x} = \mathbf{0} .
+                        \] 
+                        Thus, $\mathbf{C} (A)  \cap \mathbf{N} (A) = \{ \mathbf{0}  \} $. 
+                      </li>
+                      <li class="my-4">
+                        By the definition of $\mathbf{C} (A)$ and $\mathbf{N} (A)$, we have $\mathbf{C} (A) + \mathbf{N} (A) \subseteq \mathbb{R} ^n$. Let $\mathbf{y} \in \mathbb{R}^n$. We need to show that $\mathbf{y} \in \mathbf{C}(A) + \mathbf{N}(A)$. Define $\mathbf{u} = \mathbf{y} - A\mathbf{y}$. Note that 
+                        \[
+                            A\mathbf{u} = A(\mathbf{y} - A\mathbf{y}) = A\mathbf{y} - A^2\mathbf{y} = A\mathbf{y} - A\mathbf{y} = \mathbf{0}.
+                        \]
+                        Thus, $\mathbf{u} \in \mathbf{N}(A)$. Now, consider $\mathbf{v} = A\mathbf{y}$. We have 
+                        \[
+                            A\mathbf{v} = A(A\mathbf{y}) = A^2\mathbf{y} = A\mathbf{y} = \mathbf{v}.
+                        \]
+                        Thus, $\mathbf{v} \in \mathbf{C}(A)$. Therefore, 
+                        \[
+                            \mathbf{y} = \mathbf{v} + \mathbf{u} \in \mathbf{C}(A) + \mathbf{N}(A).
+                        \]
+                        Hence, $\mathbf{C}(A) + \mathbf{N}(A) = \mathbb{R}^n$.
+                      </li>
+                    </ol>
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
