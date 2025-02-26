@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div id="app" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <!-- Auth Section -->
+        <div id="auth">
+            <h1 class="text-2xl font-bold text-center mb-6">Sign Up</h1>
+            <input type="email" id="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="password" id="password" placeholder="Password" class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button id="signup" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                Sign Up
+            </button>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="text-center" style="display: none;">
+            <h1 class="text-2xl font-bold mb-6">Welcome!</h1>
+            <button id="practice" class="w-full bg-green-500 text-white p-3 rounded-lg mb-4 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
+                Practice
+            </button>
+            <button id="quiz" class="w-full bg-purple-500 text-white p-3 rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                Quiz
+            </button>
+        </div>
+
+        <!-- Quiz Container -->
+        <div id="quiz-container" style="display: none;">
+            <!-- Quiz content will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Firebase and App Script -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
