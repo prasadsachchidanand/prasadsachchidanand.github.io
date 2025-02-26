@@ -5,36 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Page</title>
     <!-- Link to the generated Tailwind CSS file -->
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="./assets/output.css">
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div id="app" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <!-- Auth Section -->
         <div id="auth">
             <h1 class="text-2xl font-bold text-center mb-6">Sign Up / Login</h1>
+            <input type="text" id="name" placeholder="Name" class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <input type="email" id="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <input type="password" id="password" placeholder="Password" class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <button id="signup" class="w-full bg-blue-500 text-white p-3 rounded-lg mb-4 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 Sign Up
             </button>
-            <button id="login" class="w-full bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
+            <button id="login" class="w-full bg-green-500 text-white p-3 rounded-lg mb-4 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
                 Login
+            </button>
+            <button id="forgot-password" class="w-full text-blue-500 underline mt-2 focus:outline-none">
+                Forgot Password?
             </button>
         </div>
 
         <!-- Dashboard Section -->
         <div id="dashboard" class="text-center" style="display: none;">
-            <h1 class="text-2xl font-bold mb-6">Welcome!</h1>
+            <h1 class="text-2xl font-bold mb-6">Welcome, <span id="user-name"></span>!</h1>
             <button id="practice" class="w-full bg-green-500 text-white p-3 rounded-lg mb-4 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
                 Practice
             </button>
-            <button id="quiz" class="w-full bg-purple-500 text-white p-3 rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            <button id="quiz" class="w-full bg-purple-500 text-white p-3 rounded-lg mb-4 hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500">
                 Quiz
+            </button>
+            <button id="logout" class="w-full bg-red-500 text-white p-3 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500">
+                Logout
             </button>
         </div>
 
         <!-- Quiz Container -->
         <div id="quiz-container" style="display: none;">
+            <button id="back-to-dashboard" class="w-full bg-gray-500 text-white p-3 rounded-lg mb-4 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                Back to Dashboard
+            </button>
             <!-- Quiz content will be loaded here -->
         </div>
     </div>
@@ -43,7 +53,7 @@
     <script type="module">
         // Import the functions you need from the Firebase SDK
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
         // Your Firebase configuration
         const firebaseConfig = {
@@ -61,18 +71,24 @@
         const auth = getAuth(app);
 
         // DOM Elements
+        const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
         const passwordInput = document.getElementById('password');
         const signupButton = document.getElementById('signup');
         const loginButton = document.getElementById('login');
+        const forgotPasswordButton = document.getElementById('forgot-password');
         const dashboard = document.getElementById('dashboard');
         const authSection = document.getElementById('auth');
         const practiceButton = document.getElementById('practice');
         const quizButton = document.getElementById('quiz');
         const quizContainer = document.getElementById('quiz-container');
+        const backToDashboardButton = document.getElementById('back-to-dashboard');
+        const logoutButton = document.getElementById('logout');
+        const userNameDisplay = document.getElementById('user-name');
 
         // Sign Up
         signupButton.addEventListener('click', () => {
+            const name = nameInput.value;
             const email = emailInput.value;
             const password = passwordInput.value;
 
@@ -81,9 +97,12 @@
                     // Signed up successfully
                     authSection.style.display = 'none';
                     dashboard.style.display = 'block';
+                    userNameDisplay.textContent = name; // Display user's name
+                    alert("Signup successful!");
                 })
                 .catch((error) => {
                     console.error("Error signing up: ", error);
+                    alert(`Error: ${error.message}`);
                 });
         });
 
@@ -97,10 +116,51 @@
                     // Logged in successfully
                     authSection.style.display = 'none';
                     dashboard.style.display = 'block';
+                    userNameDisplay.textContent = userCredential.user.email; // Display user's email
+                    alert("Login successful!");
                 })
                 .catch((error) => {
                     console.error("Error logging in: ", error);
+                    alert(`Error: ${error.message}`);
                 });
+        });
+
+        // Forgot Password
+        forgotPasswordButton.addEventListener('click', () => {
+            const email = emailInput.value;
+            if (!email) {
+                alert("Please enter your email address.");
+                return;
+            }
+
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    alert("Password reset email sent. Check your inbox.");
+                })
+                .catch((error) => {
+                    console.error("Error sending password reset email: ", error);
+                    alert(`Error: ${error.message}`);
+                });
+        });
+
+        // Logout
+        logoutButton.addEventListener('click', () => {
+            signOut(auth)
+                .then(() => {
+                    dashboard.style.display = 'none';
+                    authSection.style.display = 'block';
+                    alert("Logged out successfully!");
+                })
+                .catch((error) => {
+                    console.error("Error logging out: ", error);
+                    alert(`Error: ${error.message}`);
+                });
+        });
+
+        // Back to Dashboard
+        backToDashboardButton.addEventListener('click', () => {
+            quizContainer.style.display = 'none';
+            dashboard.style.display = 'block';
         });
 
         // Practice Mode
