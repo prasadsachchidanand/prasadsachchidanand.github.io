@@ -225,8 +225,18 @@
                 </div>
                 
                 <div class="commentbox mt-8"></div>
-                <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
-                <script>commentBox('5753362389663744-proj')</script>
+                <script>
+                  // Initialize CommentBox.io with your project ID
+                  commentBox('5753362389663744-proj');
+              
+                  // Reprocess MathJax in the comment box once it's loaded
+                  window.addEventListener('load', function() {
+                    // Delay MathJax rendering until comment box is loaded
+                    setTimeout(function() {
+                      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                    }, 500); // Delay to ensure CommentBox content is fully loaded
+                  });
+                </script>
 
               </div>
             </div>
