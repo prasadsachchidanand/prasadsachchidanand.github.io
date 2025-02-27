@@ -179,6 +179,10 @@
     min-height: auto;
   }
 
+  .commentbox{
+    max-width: 800px !important;
+  }
+
 
 
   /* class for ol and ul leading-relaxed lg:text-lg md:text-base text-justify */
