@@ -149,39 +149,96 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <strong>Hints:</strong> 
                   <ol class="math-list-roman">
                     <li class="my-4">
-                      Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                      Every real number can be approximated by a sequence of rational and irrational numbers. Use this fact to show that for any $\epsilon >0$ there exits $\delta > 0$ such that 
+                      \[
+                          \vert f(x) \vert < \epsilon \quad \text{ whenever } \vert x \vert < \delta.
+                      \]
+                      For this you can take $x$ is rational and $x$ is irrational. 
                     </li>
                     <li class="my-4">
-                      Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                      To prove $f$ is not continuous at any other point, take two sequences (depending upon the type of point, that is the given point is rational or irrational), one consists of rational and other irrational numbers converging to that point. Finally, show that the limit of the function is not equal to the value of the function at that point.
+                    </li>
+                    <li class="my-4">
+                      For differentiability of the function at $x = 0$, use the definition of the derivative and show that the limit exists. 
                     </li>
                   </ol>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Given that the function is 
+                    \[
+                        f(x) = 
+                        \begin{cases}
+                            x^2, &\text{ if } x \text{ is rational}  ;\\
+                            0, &\text{ if } x \text{ is irrational}.
+                        \end{cases}
+                    \]
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <ol class="math-list">
+                      <li class="my-4">
+                        We need to prove that the function is continuous at $x = 0$. Let $\epsilon > 0$ be given. We need to find $\delta > 0$  such that 
+                        \[            
+                            |f(x) - f(0)| < \epsilon \quad \text{whenever} \quad |x - 0| < \delta.
+                        \]
+                        Equivalently, we need to show that 
+                        \[
+                            \vert f(x)  \vert < \epsilon \quad \text{ whenever } \vert x \vert < \delta .
+                        \]
+                        Choose $\delta = \sqrt{\epsilon }$. Any number $x \in (-\delta ,\delta )$ can be either rational or irrational. If $x$ is rational, then $f(x) = x^2$, and the chosen $\delta$, will satisfy the condition. If $x$ is irrational, then $f(x) = 0$, and again for the chosen $\delta $ the condition will be satisfied. Thus we showed that there exists $\delta  > 0$ such that for $x \in (-\delta ,\delta )$ implies $f(x) \in (-\epsilon ,\epsilon )$ and hence $f$ is continuous at $x = 0$.
+                      </li>
+                      
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        In order to show that $f$ is discontinuous at any other point, say $a$, we will use the sequential criteria of continuity. let $a$ be rational number. Let $\left( x_n \right) $ be a sequence of irrational numbers converging to $a$. Then
+                        \[
+                            \lim_{n \to \infty} f\left( x_n \right) = \lim_{n \to \infty} 0 = 0\neq f(a) = a^2. 
+                        \]
+                        Thus $f$ is not continuous at any rational point other than $0$.  <br><br>
+                        On the other hand, if $a$ is an irrational number, then we choose a sequence of rational numbers $\left( x_n \right) $ such that $x_n \to  a$. Then
+                        \[
+                            \lim_{n \to \infty} f\left( x_n \right) = \lim_{n \to \infty} x_n^2 = a^2 \neq f(a) = 0.
+                        \] 
+                        Thus, $f$ is not continuous at any irrational point. 
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0"><li class="my-4">
+                        Finally, we need to show that $f$ is differentiable at $x = 0$. We will use the definition of the derivative. Then,
+                        \begin{align*}
+                            \lim_{h \to 0} \frac{f(0 + h) - f(0)}{h} & = \lim_{h \to 0} \frac{f(h) - f(0)}{h} \\
+                            & = \lim_{h \to 0} \frac{f(h)}{h} \\
+                            & = \begin{cases}
+                                \displaystyle \lim_{h \to 0} \frac{h^2}{h}, &\text{ if } h \text{ is rational};\\
+                                0, &\text{ if } h \text{ is irrational}.
+                            \end{cases} \\
+                            & = 0.
+                        \end{align*}
+                        Note that one can also use the $\epsilon$-$\delta $ definition of the limit to show that the above limit is $0$ (the analysis will be same as in part (1)). Thus, $f$ is differentiable at $x = 0$ with $f'(0) = 0$.  
+                      </li>
+                    </ol>
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
