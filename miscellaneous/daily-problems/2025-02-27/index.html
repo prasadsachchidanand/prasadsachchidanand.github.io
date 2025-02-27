@@ -224,29 +224,10 @@
                   </div>
                 </div>
                 
-                <!-- Comment Box -->
-                <div id="comment-box" class="max-w-4xl mx-auto p-4 mt-8 rounded-lg shadow-md"></div>
-
-                <!-- CommentBox.io Embed Script -->
-                <script type="text/javascript">
-                  window.addEventListener("load", function () {
-                    const commentBox = document.getElementById("comment-box");
-                    const commentBoxScript = document.createElement("script");
-                    commentBoxScript.src = "https://commentbox.io/js/embed.js";
-                    commentBoxScript.setAttribute("data-project-id", "5753362389663744-proj");
-                    commentBoxScript.setAttribute("data-page-id", window.location.pathname);
-                    commentBox.appendChild(commentBoxScript);
-
-                    // Apply custom Tailwind styles to the iframe after it's loaded
-                    commentBoxScript.onload = function () {
-                      const commentBoxIframe = commentBox.querySelector('iframe');
-                      if (commentBoxIframe) {
-                        commentBoxIframe.classList.add('rounded-lg', 'shadow-lg', 'border-none');
-                      }
-                    };
-                  });
-                </script>
-
+                <div class="commentbox"></div>
+                <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+                <script>commentBox('my-project-id')</script>
+                
               </div>
             </div>
           </div>
