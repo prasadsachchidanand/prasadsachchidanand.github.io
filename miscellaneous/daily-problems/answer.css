@@ -178,8 +178,22 @@
   #solution-container.expanded {
     min-height: auto;
   }
-  
 
+  /* Center the comment box and set a max-width */
+  .commentbox {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    padding: 20px;
+  }
+
+  /* Ensure iframe inside commentbox takes full width of its container */
+  .commentbox iframe {
+    width: 100% !important;
+    max-width: 800px !important; /* Override iframe max-width */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
 
 
   /* class for ol and ul leading-relaxed lg:text-lg md:text-base text-justify */

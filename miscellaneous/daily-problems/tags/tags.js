@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'characteristics': 'differential-equation',
         'heat-equation': 'differential-equation',
         'laplace-transformation': 'differential-equation',
+        'charpit-method': 'differential-equation',
 
         // miscellaneous
         'probability-theory': 'miscellaneous',
