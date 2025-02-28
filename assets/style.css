@@ -1207,14 +1207,6 @@ video {
   max-width: 24rem;
 }
 
-.max-w-1 {
-  max-width: 0.25rem;
-}
-
-.max-w-6 {
-  max-width: 1.5rem;
-}
-
 .flex-shrink {
   flex-shrink: 1;
 }
