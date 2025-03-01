@@ -138,39 +138,82 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <strong>Hints:</strong> 
                   <ol class="math-list-roman">
                     <li class="my-4">
-                      Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                      The stationary points of a curve are the points where the first derivative is zero.
                     </li>
                     <li class="my-4">
-                      Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                      The nature of the stationary point can be determined by the second derivative. If the second derivative is positive, the stationary point is a local minimum. If the second derivative is negative, the stationary point is a local maximum.
                     </li>
                   </ol>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The given curve $C$ is defined by the equation
+                    \begin{equation}\label{eq:01Mar2025-1}
+                        y = x^2 - 2x - 24 \sqrt{x}. 
+                    \end{equation}
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <ol class="math-list">
+                      <li class="my-4">
+                        Differentiating equation \eqref{eq:01Mar2025-1} with respect to $x$, we get
+                        \begin{align*}
+                            \frac{\mathrm{d}y}{\mathrm{d}x} & = 2x - 2 - 12 \left( x \right)^{-\frac{1}{2}} \\
+                            & = 2x - 2 - \frac{12}{\sqrt{x}}.
+                        \end{align*}
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        For the second derivative, $\frac{\mathrm{d}^2y}{\mathrm{d}x^2}$, differentiate the expression for $\frac{\mathrm{d}y}{\mathrm{d}x}$ with respect to $x$ to get
+                        \begin{align*}
+                            \frac{\mathrm{d}^2y}{\mathrm{d}x^2} & = 2 + 6 x^{-\frac{3}{2}} = 2 + \frac{6}{x^{3/2}}.
+                        \end{align*}
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        To verify that $C$ has a stationary point when $x = 4$, we need to check if $\frac{\mathrm{d}y}{\mathrm{d}x} = 0$ at $x = 4$. Substituting $x = 4$ into $\frac{\mathrm{d}y}{\mathrm{d}x}$, we get
+                        \begin{align*}
+                            \frac{\mathrm{d}y}{\mathrm{d}x}\bigg|_{x=4} & = 2(4) - 2 - \frac{12}{\sqrt{4}} \\
+                            & = 8 - 2 - 6 \\
+                            & = 0.
+                        \end{align*}
+                        This confirms that there is a stationary point at $x = 4$.  
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        Next, we check the second derivative at the stationary point to determine its nature:
+                        \begin{align*}
+                            \frac{\mathrm{d}^2y}{\mathrm{d}x^2}\bigg|_{x=4} & = 2 + 6(4)^{-\frac{3}{2}} \\
+                            & = 2 + 6 \cdot \frac{1}{8} = \frac{11}{4} > 0.
+                        \end{align*}
+                        This indicates that the stationary point at $x = 4$ is a local minimum.
+                      </li>
+                    </ol>
+                  </div>
                 </div>
 
                 <!-- Previous Button -->

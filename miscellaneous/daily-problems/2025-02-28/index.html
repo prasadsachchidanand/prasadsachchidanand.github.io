@@ -128,39 +128,77 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <strong>Hints:</strong> 
                   <ol class="math-list-roman">
                     <li class="my-4">
-                      Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                      For a given PDE of the form \( f(x,y,z,p,q) = 0 \), the Charpit's auxiliary equations are
+                      \[
+                          \frac{\mathrm{d} x}{-f_p} = \frac{\mathrm{d} y}{-f_q} = \frac{\mathrm{d} z}{-p f_p - q f_q} = \frac{\mathrm{d} p}{f_x + p \mathrm{d} z} = \frac{\mathrm{d} q}{f_y + q \mathrm{d} z}.
+                      \]
                     </li>
                     <li class="my-4">
-                      Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                      Use the auxiliary equations to find $p$ and $q$. Finally use $\mathrm{d}z = p \mathrm{d}x + q \mathrm{d}y$ to find the solution. 
                     </li>
                   </ol>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> The given equation is 
+                    \begin{equation}\label{eq:28Feb2025-1}
+                        z = pq.
+                    \end{equation}
+                    We recall that for $f(x,y,z,p,q) = 0$, the Charpit's auxiliary equations are
+                    \[
+                        \frac{\mathrm{d} x}{-f_p} = \frac{\mathrm{d} y}{-f_q} = \frac{\mathrm{d} z}{-p f_p - q f_q} = \frac{\mathrm{d} p}{f_x + p \mathrm{d} z} = \frac{\mathrm{d} q}{f_y + q \mathrm{d} z}.
+                    \]
+                    In this problem, we have $f = z - pq$. Thus, the above equations become 
+                    \begin{align*}
+                        \frac{\mathrm{d} x}{q} = \frac{\mathrm{d} y}{p} = \frac{\mathrm{d} z}{2pq} = \frac{\mathrm{d} p}{p} = \frac{\mathrm{d} q}{q}.
+                    \end{align*} 
+                    From the last two equations, we get
+                    \begin{align*}
+                        \frac{\mathrm{d} p}{p} = \frac{\mathrm{d} q}{q} & \implies  \ln p = \ln q + \ln  a \\
+                        & \implies p = aq,
+                    \end{align*}
+                    where $a$ is a constant.
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Substituting this into \eqref{eq:28Feb2025-1}, we get
+                    \begin{align*}
+                        z = aq^2 & \implies q = \sqrt{\frac{z}{a}}\\
+                        & \implies p = a \sqrt{\frac{z}{a}} = \sqrt{az}. 
+                    \end{align*}
+                    So, we have 
+                    \begin{align*}
+                        \mathrm{d} z = p \mathrm{d} x + q \mathrm{d} y & \implies \mathrm{d} z = \sqrt{az} \mathrm{d} x + \sqrt{\frac{z}{a}} \mathrm{d} y \\
+                        & \implies \int \frac{\mathrm{d} z}{\sqrt{z}} = \int \sqrt{a} \mathrm{d} x + \int \frac{1}{\sqrt{a}} \mathrm{d} y \\
+                        & \implies 2\sqrt{z} = \sqrt{a} x + \frac{1}{\sqrt{a}} y + c \\
+                        & \implies z = \frac{1}{4} \left( \sqrt{a} x + \frac{1}{\sqrt{a}} y + c \right)^2,
+                    \end{align*}
+                    where $a,b$ are constants. Thus, the complete integral of the given PDE is:
+                    \[
+                        z = \frac{1}{4} \left( \sqrt{a} x + \frac{1}{\sqrt{a}} y + c \right)^2.
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
