@@ -163,9 +163,11 @@ function gradeQuiz() {
   fetch(SCRIPT_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, score: totalScore, timeTaken: timeTaken })
+    body: JSON.stringify({ name, email, score: totalScore, timeTaken: timeTaken }),
+    mode: "no-cors"
   })
-  .then(response => response.json())
+//   .then(response => response.json())
+  .then(() => console.log("Score stored (no-cors)"))
   .then(data => console.log("Score stored:", data))
   .catch(err => console.error("Error storing score:", err));
 }  
