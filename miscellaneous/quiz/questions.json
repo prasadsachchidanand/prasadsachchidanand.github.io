@@ -2,12 +2,15 @@
   {
     "question": "Solve the equation: $x^2 - 5x + 6 = 0$",
     "choices": [
-      "$x = 2, x = 3$",
+      "$x = -2, x = 3$",
       "$x = 2, x = 3$",
       "$x = -2, x = -3$",
-      "$x = 1, x = 6$"
+      "$x = 2, x = -3$"
     ],
-    "correct": "$x = 2, x = 3$"
+    "correct": "$x = 2, x = 3$",
+    "tags": [
+      "real-analysis"
+    ]
   },
   {
     "question": "Evaluate the following integral: $\\int x^2 \\, dx$",
@@ -17,7 +20,11 @@
       "$x^3 + C$",
       "$2x + C$"
     ],
-    "correct": "$\\frac{x^3}{3} + C$"
+    "correct": "$\\frac{x^3}{3} + C$",
+    "tags": [
+      "real-analysis",
+      "GATE"
+    ]
   },
   {
     "question": "If $f(x) = 3x^2 + 2x - 5$, what is $f'(x)$?",
@@ -27,7 +34,11 @@
       "$f'(x) = 6x^2 + 2x$",
       "$f'(x) = 9x^2 + 2$"
     ],
-    "correct": "$f'(x) = 6x + 2$"
+    "correct": "$f'(x) = 6x + 2$",
+    "tags": [
+      "real-analysis",
+      "abstract-algebra"
+    ]
   },
   {
     "question": "What is the value of $\\lim_{x \\to 0} \\frac{\\sin x}{x}$?",
@@ -37,7 +48,990 @@
       "$\\infty$",
       "$-1$"
     ],
-    "correct": "$1$"
+    "correct": "$1$",
+    "tags": [
+      "GATE"
+    ]
+  },
+  {
+    "question": "Evaluate $\\lim_{x \\to 0} \\frac{\\tan x}{x}$.",
+    "choices": [
+      "$0$",
+      "$1$",
+      "$\\infty$",
+      "$-1$"
+    ],
+    "correct": "$1$",
+    "tags": [
+      "real-analysis",
+      "limits"
+    ]
+  },
+  {
+    "question": "Find the value of $\\lim_{x \\to 0} \\frac{1-\\cos x}{x^2}$.",
+    "choices": [
+      "$0$",
+      "$\\frac{1}{2}$",
+      "$1$",
+      "Does not exist"
+    ],
+    "correct": "$\\frac{1}{2}$",
+    "tags": [
+      "real-analysis",
+      "limits"
+    ]
+  },
+  {
+    "question": "For what value of $k$ is the function $f(x) = \\begin{cases}\n                x^2\\sin\\left(\\frac{1}{x}\\right), & x \\neq 0 \\\\\n                k, & x = 0\n            \\end{cases}$ continuous at $x = 0$?",
+    "choices": [
+      "$0$",
+      "$1$",
+      "$-1$",
+      "No value of $k$ makes $f(x)$ continuous at $x = 0$"
+    ],
+    "correct": "$0$",
+    "tags": [
+      "real-analysis",
+      "continuity"
+    ]
+  },
+  {
+    "question": "Calculate $\\lim_{h \\to 0} \\frac{(x+h)^n - x^n}{h}$ where $n$ is a positive integer.",
+    "choices": [
+      "$x^{n-1}$",
+      "$nx^{n-1}$",
+      "$n^2x^{n-1}$",
+      "$nx^n$"
+    ],
+    "correct": "$nx^{n-1}$",
+    "tags": [
+      "real-analysis",
+      "derivatives"
+    ]
+  },
+  {
+    "question": "Determine whether the sequence $a_n = \\frac{n^2+1}{3n^2-1}$ converges. If it does, find its limit.",
+    "choices": [
+      "Does not converge",
+      "Converges to $0$",
+      "Converges to $\\frac{1}{3}$",
+      "Converges to $1$"
+    ],
+    "correct": "Converges to $\\frac{1}{3}$",
+    "tags": [
+      "real-analysis",
+      "sequences"
+    ]
+  },
+  {
+    "question": "Evaluate $\\lim_{x \\to \\infty} \\left(1 + \\frac{3}{x}\\right)^x$.",
+    "choices": [
+      "$1$",
+      "$3$",
+      "$e^3$",
+      "$\\infty$"
+    ],
+    "correct": "$e^3$",
+    "tags": [
+      "real-analysis",
+      "limits"
+    ]
+  },
+  {
+    "question": "Which of the following functions is continuous on $\\mathbb{R}$?",
+    "choices": [
+      "$f(x) = \\frac{1}{x-2}$",
+      "$f(x) = \\lfloor x \\rfloor$ (floor function)",
+      "$f(x) = \\sin(x^2)$",
+      "$f(x) = \\frac{|x-1|}{x-1}$"
+    ],
+    "correct": "$f(x) = \\sin(x^2)$",
+    "tags": [
+      "real-analysis",
+      "continuity"
+    ]
+  },
+  {
+    "question": "If $f(x) = x\\sin(1/x)$ for $x \\neq 0$ and $f(0) = 0$, then $f'(0)$ equals:",
+    "choices": [
+      "Does not exist",
+      "$1$",
+      "$0$",
+      "$-1$"
+    ],
+    "correct": "$1$",
+    "tags": [
+      "real-analysis",
+      "derivatives"
+    ]
+  },
+  {
+    "question": "Determine $\\lim_{x \\to 0^+} x\\ln x$.",
+    "choices": [
+      "$0$",
+      "$1$",
+      "$-\\infty$",
+      "Does not exist"
+    ],
+    "correct": "$0$",
+    "tags": [
+      "real-analysis",
+      "limits"
+    ]
+  },
+  {
+    "question": "The sequence defined by $a_1 = 1$ and $a_{n+1} = \\sqrt{2+a_n}$ for $n \\geq 1$:",
+    "choices": [
+      "Diverges",
+      "Converges to $1$",
+      "Converges to $2$",
+      "Oscillates without converging"
+    ],
+    "correct": "Converges to $2$",
+    "tags": [
+      "real-analysis",
+      "sequences"
+    ]
+  },
+  {
+    "question": "Evaluate $\\lim_{n \\to \\infty} \\sum_{k=1}^{n} \\frac{1}{n}\\sin\\left(\\frac{k\\pi}{n}\\right)$.",
+    "choices": [
+      "$0$",
+      "$\\frac{2}{\\pi}$",
+      "$1$",
+      "$\\pi$"
+    ],
+    "correct": "$\\frac{2}{\\pi}$",
+    "tags": [
+      "real-analysis",
+      "integrals"
+    ]
+  },
+  {
+    "question": "For the function $f(x) = \\begin{cases}\n                \\frac{\\sin(ax)}{x}, & x \\neq 0 \\\\\n                a, & x = 0\n            \\end{cases}$, what value of $a$ makes $f(x)$ continuous at $x = 0$?",
+    "choices": [
+      "$0$",
+      "$1$",
+      "$\\pi$",
+      "No value of $a$ makes $f(x)$ continuous at $x = 0$"
+    ],
+    "correct": "$1$",
+    "tags": [
+      "real-analysis",
+      "continuity"
+    ]
+  },
+  {
+    "question": "Determine whether the series $\\sum_{n=1}^{\\infty} \\frac{n}{2^n}$ converges. If it does, find its sum.",
+    "choices": [
+      "Diverges",
+      "Converges to $1$",
+      "Converges to $2$",
+      "Converges to $\\infty$"
+    ],
+    "correct": "Converges to $2$",
+    "tags": [
+      "real-analysis",
+      "series"
+    ]
+  },
+  {
+    "question": "The function $f(x) = \\begin{cases}\n                \\frac{x^2-4}{x-2}, & x \\neq 2 \\\\\n                k, & x = 2\n            \\end{cases}$ is continuous at $x = 2$ if $k$ equals:",
+    "choices": [
+      "$0$",
+      "$2$",
+      "$4$",
+      "$-4$"
+    ],
+    "correct": "$4$",
+    "tags": [
+      "real-analysis",
+      "continuity"
+    ]
+  },
+  {
+    "question": "Given that $f(x) = x^2$ and $g(x) = \\sin x$, find the value of $\\frac{d}{dx}[f(g(x))]$ at $x = 0$.",
+    "choices": [
+      "$0$",
+      "$2$",
+      "$1$",
+      "$-1$"
+    ],
+    "correct": "$2$",
+    "tags": [
+      "real-analysis",
+      "differentiation"
+    ]
+  },
+  {
+    "question": "If $A$ is a $3 \\times 3$ matrix with eigenvalues $2$, $3$, and $5$, what is the determinant of $A$?",
+    "choices": [
+      "$10$",
+      "$30$",
+      "$15$",
+      "$25$"
+    ],
+    "correct": "$30$",
+    "tags": [
+      "linear-algebra",
+      "eigenvalues"
+    ]
+  },
+  {
+    "question": "If $A$ is a $2 \\times 2$ matrix such that $A^2 = 0$ but $A \\neq 0$, then the rank of $A$ is:",
+    "choices": [
+      "$0$",
+      "$1$",
+      "$2$",
+      "Cannot be determined"
+    ],
+    "correct": "$1$",
+    "tags": [
+      "linear-algebra",
+      "matrices"
+    ]
+  },
+  {
+    "question": "If $A$ is a $4 \\times 4$ matrix with characteristic polynomial $p(\\lambda) = \\lambda^4 - 5\\lambda^3 + 8\\lambda^2 - 6\\lambda + 2$, what is the sum of all eigenvalues of $A$?",
+    "choices": [
+      "$2$",
+      "$5$",
+      "$8$",
+      "$6$"
+    ],
+    "correct": "$5$",
+    "tags": [
+      "linear-algebra",
+      "eigenvalues"
+    ]
+  },
+  {
+    "question": "Let $V$ be the vector space of all $2 \\times 2$ matrices over $\\mathbb{R}$. What is the dimension of the subspace of symmetric matrices?",
+    "choices": [
+      "$2$",
+      "$3$",
+      "$4$",
+      "$1$"
+    ],
+    "correct": "$3$",
+    "tags": [
+      "linear-algebra",
+      "vector-spaces"
+    ]
+  },
+  {
+    "question": "Let $T: \\mathbb{R}^3 \\to \\mathbb{R}^3$ be a linear transformation such that $T(1,0,0) = (1,1,0)$, $T(0,1,0) = (1,0,1)$, and $T(0,0,1) = (0,1,1)$. What is the determinant of the matrix representing $T$?",
+    "choices": [
+      "$0$",
+      "$1$",
+      "$2$",
+      "$-1$"
+    ],
+    "correct": "$2$",
+    "tags": [
+      "linear-algebra",
+      "linear-transformation"
+    ]
+  },
+  {
+    "question": "Which of the following matrices is diagonalizable?",
+    "choices": [
+      "$\\begin{pmatrix} 2 & 1 \\\\ 0 & 2 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 3 & 1 \\\\ -1 & 1 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 0 & 0 \\\\ 1 & 0 \\end{pmatrix}$"
+    ],
+    "correct": "$\\begin{pmatrix} 3 & 1 \\\\ -1 & 1 \\end{pmatrix}$",
+    "tags": [
+      "linear-algebra",
+      "diagonalization"
+    ]
+  },
+  {
+    "question": "Let $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 0 & 0 & 0 \\end{pmatrix}$. The dimension of the null space of $A$ is:",
+    "choices": [
+      "$0$",
+      "$1$",
+      "$2$",
+      "$3$"
+    ],
+    "correct": "$2$",
+    "tags": [
+      "linear-algebra",
+      "null-space"
+    ]
+  },
+  {
+    "question": "In $\\mathbb{R}^3$ with the standard inner product, what is the distance from the point $(1,2,3)$ to the plane $x + y + z = 0$?",
+    "choices": [
+      "$\\sqrt{3}$",
+      "$2$",
+      "$\\frac{6}{\\sqrt{3}}$",
+      "$\\frac{6}{3}$"
+    ],
+    "correct": "$\\frac{6}{\\sqrt{3}}$",
+    "tags": [
+      "linear-algebra",
+      "inner-product"
+    ]
+  },
+  {
+    "question": "If $A$ is an $n \\times n$ matrix with eigenvalues $\\lambda_1, \\lambda_2, \\ldots, \\lambda_n$, then the eigenvalues of $A^2$ are:",
+    "choices": [
+      "$2\\lambda_1, 2\\lambda_2, \\ldots, 2\\lambda_n$",
+      "$\\lambda_1^2, \\lambda_2^2, \\ldots, \\lambda_n^2$",
+      "$\\lambda_1 + \\lambda_1, \\lambda_2 + \\lambda_2, \\ldots, \\lambda_n + \\lambda_n$",
+      "$|\\lambda_1|, |\\lambda_2|, \\ldots, |\\lambda_n|$"
+    ],
+    "correct": "$\\lambda_1^2, \\lambda_2^2, \\ldots, \\lambda_n^2$",
+    "tags": [
+      "linear-algebra",
+      "eigenvalues"
+    ]
+  },
+  {
+    "question": "Which of the following sets of vectors in $\\mathbb{R}^3$ is linearly independent?",
+    "choices": [
+      "$\\{(1,2,3), (2,4,6), (3,6,9)\\}$",
+      "$\\{(1,0,1), (0,1,1), (1,1,0)\\}$",
+      "$\\{(1,1,1), (2,2,2), (0,1,-1)\\}$",
+      "$\\{(1,0,0), (1,1,0), (1,1,1), (0,0,1)\\}$"
+    ],
+    "correct": "$\\{(1,0,1), (0,1,1), (1,1,0)\\}$",
+    "tags": [
+      "linear-algebra",
+      "linear-independence"
+    ]
+  },
+  {
+    "question": "If $A$ and $B$ are similar matrices, i.e., there exists an invertible matrix $P$ such that $B = P^{-1}AP$, then:",
+    "choices": [
+      "$\\text{trace}(A) = \\text{trace}(B^{-1})$",
+      "$\\text{trace}(A) = -\\text{trace}(B)$",
+      "$\\text{trace}(A) = \\text{trace}(B)$",
+      "$\\text{trace}(A) = \\text{trace}(P)$"
+    ],
+    "correct": "$\\text{trace}(A) = \\text{trace}(B)$",
+    "tags": [
+      "linear-algebra",
+      "trace"
+    ]
+  },
+  {
+    "question": "In $\\mathbb{R}^3$ with the standard inner product, the set of all vectors orthogonal to both $(1,1,1)$ and $(1,2,3)$ forms:",
+    "choices": [
+      "A plane",
+      "A line",
+      "A point",
+      "A circle"
+    ],
+    "correct": "A line",
+    "tags": [
+      "linear-algebra",
+      "orthogonality"
+    ]
+  },
+  {
+    "question": "If $A$ is a $3 \\times 3$ matrix and $\\text{det}(A) = 4$, then $\\text{det}(2A)$ equals:",
+    "choices": [
+      "$8$",
+      "$16$",
+      "$32$",
+      "$64$"
+    ],
+    "correct": "$32$",
+    "tags": [
+      "linear-algebra",
+      "determinants"
+    ]
+  },
+  {
+    "question": "The vectors $(1,1,0)$, $(1,0,1)$, and $(0,1,1)$ in $\\mathbb{R}^3$:",
+    "choices": [
+      "Form a linearly dependent set",
+      "Form a basis for $\\mathbb{R}^3$",
+      "Span a plane",
+      "Are mutually orthogonal"
+    ],
+    "correct": "Form a basis for $\\mathbb{R}^3$",
+    "tags": [
+      "linear-algebra",
+      "basis"
+    ]
+  },
+  {
+    "question": "Let $A$ be a $5 \\times 7$ matrix with rank 4. The dimension of the null space of $A$ is:",
+    "choices": [
+      "$1$",
+      "$2$",
+      "$3$",
+      "$4$"
+    ],
+    "correct": "$3$",
+    "tags": [
+      "linear-algebra",
+      "rank-nullity"
+    ]
+  },
+  {
+    "question": "If $G$ is a group of order $15$, then $G$ is:",
+    "choices": [
+      "Not abelian",
+      "Cyclic",
+      "Simple",
+      "Isomorphic to $D_{15}$ (dihedral group)"
+    ],
+    "correct": "Cyclic",
+    "tags": [
+      "abstract-algebra",
+      "groups"
+    ]
+  },
+  {
+    "question": "In the ring $\\mathbb{Z}_6$ of integers modulo $6$, the element $[4]$ is:",
+    "choices": [
+      "A unit",
+      "A zero divisor and a unit",
+      "A zero divisor",
+      "Neither a zero divisor nor a unit"
+    ],
+    "correct": "A zero divisor",
+    "tags": [
+      "abstract-algebra",
+      "rings"
+    ]
+  },
+  {
+    "question": "Let $\\phi: \\mathbb{Z}_8 \\to \\mathbb{Z}_4$ be a group homomorphism. What is the order of $\\text{ker}(\\phi)$?",
+    "choices": [
+      "$1$",
+      "$2$",
+      "$4$",
+      "$8$"
+    ],
+    "correct": "$2$",
+    "tags": [
+      "abstract-algebra",
+      "homomorphisms"
+    ]
+  },
+  {
+    "question": "The number of elements in a finite field must be:",
+    "choices": [
+      "Even",
+      "A prime number",
+      "A power of a prime number",
+      "A multiple of $2$"
+    ],
+    "correct": "A power of a prime number",
+    "tags": [
+      "abstract-algebra",
+      "fields"
+    ]
+  },
+  {
+    "question": "If a group $G$ acts on a set $X$ with $|X| = 7$, and all orbits have size $1$ or $3$, then the number of fixed points is:",
+    "choices": [
+      "$0$",
+      "$1$",
+      "$4$",
+      "$7$"
+    ],
+    "correct": "$1$",
+    "tags": [
+      "abstract-algebra",
+      "group-actions"
+    ]
+  },
+  {
+    "question": "Which of the following is a field?",
+    "choices": [
+      "$\\mathbb{Z}_4$",
+      "$\\mathbb{Z}_5$",
+      "$\\mathbb{Z}_6$",
+      "$\\mathbb{Z}_8$"
+    ],
+    "correct": "$\\mathbb{Z}_5$",
+    "tags": [
+      "abstract-algebra",
+      "rings"
+    ]
+  },
+  {
+    "question": "Let $G$ be a group of order $20$. What is the possible order of a subgroup of $G$?",
+    "choices": [
+      "$3$",
+      "$6$",
+      "$15$",
+      "$10$"
+    ],
+    "correct": "$10$",
+    "tags": [
+      "abstract-algebra",
+      "subgroups"
+    ]
+  },
+  {
+    "question": "The center of the dihedral group $D_8$ has order:",
+    "choices": [
+      "$1$",
+      "$2$",
+      "$4$",
+      "$8$"
+    ],
+    "correct": "$2$",
+    "tags": [
+      "abstract-algebra",
+      "group-theory"
+    ]
+  },
+  {
+    "question": "Which of the following groups is isomorphic to $\\mathbb{Z}_2 \\times \\mathbb{Z}_2$?",
+    "choices": [
+      "$\\mathbb{Z}_4$",
+      "Klein four-group",
+      "$D_4$ (dihedral group of order $8$)",
+      "$\\mathbb{Z}_2 \\times \\mathbb{Z}_4$"
+    ],
+    "correct": "Klein four-group",
+    "tags": [
+      "abstract-algebra",
+      "isomorphism"
+    ]
+  },
+  {
+    "question": "The polynomial $x^2 + 1$ is irreducible over:",
+    "choices": [
+      "$\\mathbb{C}$",
+      "$\\mathbb{Z}_2$",
+      "$\\mathbb{R}$",
+      "$\\mathbb{Z}_5$"
+    ],
+    "correct": "$\\mathbb{R}$",
+    "tags": [
+      "abstract-algebra",
+      "polynomials"
+    ]
+  },
+  {
+    "question": "Which of the following sets with the standard metric is not complete?",
+    "choices": [
+      "$[0,1]$",
+      "$(0,1)$",
+      "$\\{0, 1\\}$",
+      "$\\mathbb{R}$"
+    ],
+    "correct": "$(0,1)$",
+    "tags": [
+      "metric-space",
+      "completeness"
+    ]
+  },
+  {
+    "question": "In the metric space $(\\mathbb{R}, d)$ where $d(x,y) = |x-y|$, the set $(0, 1) \\cup (2, 3)$ is:",
+    "choices": [
+      "Closed but not open",
+      "Open but not closed",
+      "Both open and closed",
+      "Neither open nor closed"
+    ],
+    "correct": "Open but not closed",
+    "tags": [
+      "metric-space",
+      "open-sets"
+    ]
+  },
+  {
+    "question": "Which of the following subsets of $\\mathbb{R}$ with the usual metric is compact?",
+    "choices": [
+      "$(0,1)$",
+      "$[0, \\infty)$",
+      "$[0,1]$",
+      "$\\mathbb{R}$"
+    ],
+    "correct": "$[0,1]$",
+    "tags": [
+      "metric-space",
+      "compactness"
+    ]
+  },
+  {
+    "question": "In the discrete metric space $(X, d)$ where $d(x,y) = 0$ if $x = y$ and $d(x,y) = 1$ if $x \\neq y$, a sequence $(x_n)$ converges if and only if:",
+    "choices": [
+      "$(x_n)$ is bounded",
+      "$(x_n)$ is Cauchy",
+      "$(x_n)$ is eventually constant",
+      "$(x_n)$ is monotone"
+    ],
+    "correct": "$(x_n)$ is eventually constant",
+    "tags": [
+      "metric-space",
+      "convergence"
+    ]
+  },
+  {
+    "question": "Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces. A function $f: X \\to Y$ is continuous at a point $a \\in X$ if and only if:",
+    "choices": [
+      "For all $\\epsilon > 0$, there exists $\\delta > 0$ such that $d_X(x, a) < \\delta$ implies $d_Y(f(x), f(a)) = \\epsilon$",
+      "For all $\\epsilon > 0$, there exists $\\delta > 0$ such that $d_X(x, a) < \\delta$ implies $d_Y(f(x), f(a)) < \\epsilon$",
+      "For all $\\delta > 0$, there exists $\\epsilon > 0$ such that $d_X(x, a) < \\delta$ implies $d_Y(f(x), f(a)) < \\epsilon$",
+      "For all $\\delta > 0$, there exists $\\epsilon > 0$ such that $d_Y(f(x), f(a)) < \\epsilon$ implies $d_X(x, a) < \\delta$"
+    ],
+    "correct": "For all $\\epsilon > 0$, there exists $\\delta > 0$ such that $d_X(x, a) < \\delta$ implies $d_Y(f(x), f(a)) < \\epsilon$",
+    "tags": [
+      "metric-space",
+      "continuity"
+    ]
+  },
+  {
+    "question": "A subset $S$ of a metric space $(X,d)$ is disconnected if and only if:",
+    "choices": [
+      "$S$ is not compact",
+      "$S$ can be written as the union of two non-empty, disjoint open sets (relative to $S$)",
+      "$S$ does not contain a convergent sequence",
+      "$S$ is not complete"
+    ],
+    "correct": "$S$ can be written as the union of two non-empty, disjoint open sets (relative to $S$)",
+    "tags": [
+      "metric-space",
+      "connectedness"
+    ]
+  },
+  {
+    "question": "Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces. A function $f: X \\to Y$ is an isometry if:",
+    "choices": [
+      "$f$ is continuous and bijective",
+      "$f$ preserves distances approximately",
+      "$d_Y(f(x), f(y)) = d_X(x, y)$ for all $x, y \\in X$",
+      "$f$ maps open sets to open sets"
+    ],
+    "correct": "$d_Y(f(x), f(y)) = d_X(x, y)$ for all $x, y \\in X$",
+    "tags": [
+      "metric-space",
+      "isometry"
+    ]
+  },
+  {
+    "question": "If $(X, d)$ is a metric space and $A \\subset X$, then the closure of $A$ is:",
+    "choices": [
+      "The set of all limit points of $A$",
+      "The set $A$ together with its boundary",
+      "The smallest closed set containing $A$",
+      "The set of all points at distance $0$ from $A$"
+    ],
+    "correct": "The smallest closed set containing $A$",
+    "tags": [
+      "metric-space",
+      "topology"
+    ]
+  },
+  {
+    "question": "The metric space $(\\mathbb{Q}, d)$ where $d(x,y) = |x-y|$ is:",
+    "choices": [
+      "Complete",
+      "Not complete",
+      "Complete if and only if it's bounded",
+      "Complete if and only if it's compact"
+    ],
+    "correct": "Not complete",
+    "tags": [
+      "metric-space",
+      "completeness"
+    ]
+  },
+  {
+    "question": "A metric space $(X, d)$ is separable if and only if:",
+    "choices": [
+      "$X$ is complete",
+      "$X$ is compact",
+      "$X$ contains a countable dense subset",
+      "Every sequence in $X$ has a convergent subsequence"
+    ],
+    "correct": "$X$ contains a countable dense subset",
+    "tags": [
+      "metric-space",
+      "separability"
+    ]
+  },
+  {
+    "question": "The general solution of the differential equation $\\frac{dy}{dx} = y$ is:",
+    "choices": [
+      "$y = x + C$",
+      "$y = Ce^x$",
+      "$y = Cx$",
+      "$y = \\ln(x) + C$"
+    ],
+    "correct": "$y = Ce^x$",
+    "tags": [
+      "differential-equations",
+      "first-order"
+    ]
+  },
+  {
+    "question": "The general solution of $y'' + 4y = 0$ is:",
+    "choices": [
+      "$y = C_1e^{2x} + C_2e^{-2x}$",
+      "$y = C_1\\cos(2x) + C_2\\sin(2x)$",
+      "$y = C_1 + C_2e^{-4x}$",
+      "$y = C_1x + C_2x^2$"
+    ],
+    "correct": "$y = C_1\\cos(2x) + C_2\\sin(2x)$",
+    "tags": [
+      "differential-equations",
+      "second-order"
+    ]
+  },
+  {
+    "question": "The Laplace transform of $f(t) = te^{-2t}$ is:",
+    "choices": [
+      "$\\frac{1}{(s-2)^2}$",
+      "$\\frac{1}{(s+2)^2}$",
+      "$\\frac{s}{(s+2)^2}$",
+      "$\\frac{1}{(s+2)}$"
+    ],
+    "correct": "$\\frac{1}{(s+2)^2}$",
+    "tags": [
+      "differential-equations",
+      "laplace-transform"
+    ]
+  },
+  {
+    "question": "A differential equation of the form $\\frac{dy}{dx} = F(\\frac{y}{x})$ is called:",
+    "choices": [
+      "Linear",
+      "Homogeneous",
+      "Exact",
+      "Separable"
+    ],
+    "correct": "Homogeneous",
+    "tags": [
+      "differential-equations",
+      "homogeneous"
+    ]
+  },
+  {
+    "question": "The initial value problem $y' = \\sqrt{|y|}$, $y(0) = 0$ has:",
+    "choices": [
+      "No solution",
+      "Exactly one solution",
+      "More than one solution",
+      "A unique solution only for $x > 0$"
+    ],
+    "correct": "More than one solution",
+    "tags": [
+      "differential-equations",
+      "existence-uniqueness"
+    ]
+  },
+  {
+    "question": "In the power series solution $y = \\sum_{n=0}^{\\infty} a_n x^n$ of the differential equation $y'' + xy' + y = 0$ around $x = 0$, if $a_0 = 1$ and $a_1 = 2$, then $a_2$ equals:",
+    "choices": [
+      "$-1$",
+      "$-\\frac{1}{2}$",
+      "$0$",
+      "$\\frac{1}{2}$"
+    ],
+    "correct": "$-\\frac{1}{2}$",
+    "tags": [
+      "differential-equations",
+      "series-solutions"
+    ]
+  },
+  {
+    "question": "The system of equations $\\dot{x} = 3x + 4y$, $\\dot{y} = 2x + y$ has:",
+    "choices": [
+      "Only one critical point",
+      "No critical points",
+      "Infinitely many critical points",
+      "Exactly two critical points"
+    ],
+    "correct": "No critical points",
+    "tags": [
+      "differential-equations",
+      "systems"
+    ]
+  },
+  {
+    "question": "The general solution of the partial differential equation $\\frac{\\partial u}{\\partial x} = \\frac{\\partial u}{\\partial y}$ is:",
+    "choices": [
+      "$u(x,y) = f(xy)$",
+      "$u(x,y) = f(x-y)$",
+      "$u(x,y) = f(x) + g(y)$",
+      "$u(x,y) = f(x+y)$"
+    ],
+    "correct": "$u(x,y) = f(x-y)$",
+    "tags": [
+      "differential-equations",
+      "partial"
+    ]
+  },
+  {
+    "question": "The differential equation $\\frac{dy}{dx} + P(x)y = Q(x)y^n$ where $n \\neq 0, 1$ is called:",
+    "choices": [
+      "Exact",
+      "Linear",
+      "Bernoulli",
+      "Homogeneous"
+    ],
+    "correct": "Bernoulli",
+    "tags": [
+      "differential-equations",
+      "bernoulli"
+    ]
+  },
+  {
+    "question": "For the system $\\dot{\\mathbf{x}} = A\\mathbf{x}$ where $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$, the eigenvalues are:",
+    "choices": [
+      "$2, 2$",
+      "$1, 3$",
+      "$1, 3$",
+      "$0, 4$"
+    ],
+    "correct": "$1, 3$",
+    "tags": [
+      "differential-equations",
+      "eigenvalues"
+    ]
+  },
+  {
+    "question": "The Newton-Raphson method for finding a root of $f(x) = 0$ uses the iterative formula:",
+    "choices": [
+      "$x_{n+1} = x_n - f(x_n)$",
+      "$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$",
+      "$x_{n+1} = x_n - \\frac{f(x_n)f(x_{n-1})}{f(x_n)-f(x_{n-1})}$",
+      "$x_{n+1} = \\frac{f(x_n)-x_nf'(x_n)}{f'(x_n)}$"
+    ],
+    "correct": "$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$",
+    "tags": [
+      "numerical-methods",
+      "root-finding"
+    ]
+  },
+  {
+    "question": "Lagrange interpolation polynomial of degree at most $n$ for a function $f(x)$ at points $x_0, x_1, ..., x_n$ will pass through:",
+    "choices": [
+      "At least one of the points $(x_i, f(x_i))$",
+      "Most of the points $(x_i, f(x_i))$",
+      "All of the points $(x_i, f(x_i))$",
+      "None of the points $(x_i, f(x_i))$"
+    ],
+    "correct": "All of the points $(x_i, f(x_i))$",
+    "tags": [
+      "numerical-methods",
+      "interpolation"
+    ]
+  },
+  {
+    "question": "The Trapezoidal rule for numerical integration has an error of order:",
+    "choices": [
+      "$O(h)$",
+      "$O(h^2)$",
+      "$O(h^3)$",
+      "$O(h^4)$"
+    ],
+    "correct": "$O(h^2)$",
+    "tags": [
+      "numerical-methods",
+      "integration"
+    ]
+  },
+  {
+    "question": "The Gauss-Seidel method for solving linear systems converges if the coefficient matrix is:",
+    "choices": [
+      "Symmetric",
+      "Positive definite",
+      "Strictly diagonally dominant",
+      "Triangular"
+    ],
+    "correct": "Strictly diagonally dominant",
+    "tags": [
+      "numerical-methods",
+      "linear-systems"
+    ]
+  },
+  {
+    "question": "The central difference approximation for the first derivative of function $f(x)$ is:",
+    "choices": [
+      "$f'(x) \\approx \\frac{f(x+h)-f(x)}{h}$",
+      "$f'(x) \\approx \\frac{f(x+h)-f(x-h)}{2h}$",
+      "$f'(x) \\approx \\frac{f(x)-f(x-h)}{h}$",
+      "$f'(x) \\approx \\frac{f(x+h)-2f(x)+f(x-h)}{h^2}$"
+    ],
+    "correct": "$f'(x) \\approx \\frac{f(x+h)-f(x-h)}{2h}$",
+    "tags": [
+      "numerical-methods",
+      "differentiation"
+    ]
+  },
+  {
+    "question": "The Runge-Kutta fourth-order method (RK4) for solving first-order ODEs has a local truncation error of order:",
+    "choices": [
+      "$O(h^2)$",
+      "$O(h^3)$",
+      "$O(h^5)$",
+      "$O(h^4)$"
+    ],
+    "correct": "$O(h^5)$",
+    "tags": [
+      "numerical-methods",
+      "ode"
+    ]
+  },
+  {
+    "question": "For the matrix $A = \\begin{pmatrix} 3 & 1 \\\\ 1 & 3 \\end{pmatrix}$, the power method will converge to the eigenvalue:",
+    "choices": [
+      "$2$",
+      "$4$",
+      "$0$",
+      "$3$"
+    ],
+    "correct": "$4$",
+    "tags": [
+      "numerical-methods",
+      "eigenvalues"
+    ]
+  },
+  {
+    "question": "If a numerical method has error $Kh^p$ for step size $h$ and some constant $K$, then reducing the step size to $h/2$ will reduce the error by a factor of:",
+    "choices": [
+      "$2$",
+      "$1/2$",
+      "$1/2^p$",
+      "$2^p$"
+    ],
+    "correct": "$1/2^p$",
+    "tags": [
+      "numerical-methods",
+      "error-analysis"
+    ]
+  },
+  {
+    "question": "The phenomenon in which higher-degree polynomial interpolation can lead to oscillations near the endpoints is known as:",
+    "choices": [
+      "Truncation error",
+      "Runge's phenomenon",
+      "Richardson extrapolation",
+      "Peano's remainder"
+    ],
+    "correct": "Runge's phenomenon",
+    "tags": [
+      "numerical-methods",
+      "interpolation"
+    ]
+  },
+  {
+    "question": "Simpson's 1/3 rule for numerical integration approximates the function using:",
+    "choices": [
+      "Linear polynomials",
+      "Quadratic polynomials",
+      "Cubic polynomials",
+      "Constant functions"
+    ],
+    "correct": "Quadratic polynomials",
+    "tags": [
+      "numerical-methods",
+      "integration"
+    ]
   },
   {
     "question": "The sum of the series $\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$ equals:",
@@ -47,7 +1041,11 @@
       "$\\frac{\\pi^2}{6}$",
       "$\\ln 2$"
     ],
-    "correct": "$\\frac{\\pi^2}{6}$"
+    "correct": "$\\frac{\\pi^2}{6}$",
+    "tags": [
+      "topology",
+      "GATE"
+    ]
   },
   {
     "question": "If $\\vec{a} = (2, 3)$ and $\\vec{b} = (4, -1)$, what is $\\vec{a} \\cdot \\vec{b}$?",
@@ -57,7 +1055,10 @@
       "$-5$",
       "$11$"
     ],
-    "correct": "$5$"
+    "correct": "$5$",
+    "tags": [
+      "linear-algebra"
+    ]
   },
   {
     "question": "What is the solution to the differential equation $\\frac{dy}{dx} = 2xy$ with initial condition $y(0) = 1$?",
@@ -67,7 +1068,10 @@
       "$y = e^{x^2}$",
       "$y = xe^x$"
     ],
-    "correct": "$y = e^{x^2}$"
+    "correct": "$y = e^{x^2}$",
+    "tags": [
+      "differential-equations"
+    ]
   },
   {
     "question": "A fair six-sided die is rolled twice. What is the probability of getting a sum of 7?",
@@ -77,7 +1081,11 @@
       "$\\frac{7}{36}$",
       "$\\frac{1}{12}$"
     ],
-    "correct": "$\\frac{6}{36} = \\frac{1}{6}$"
+    "correct": "$\\frac{6}{36} = \\frac{1}{6}$",
+    "tags": [
+      "probability",
+      "GATE"
+    ]
   },
   {
     "question": "What is the determinant of the matrix $\\begin{pmatrix} 3 & 1 \\\\ 2 & 4 \\end{pmatrix}$?",
@@ -87,17 +1095,23 @@
       "$10$",
       "$12$"
     ],
-    "correct": "$10$"
+    "correct": "$10$",
+    "tags": [
+      "linear-algebra"
+    ]
   },
   {
-    "question": "For which value of $k$ does the system of equations have infinitely many solutions?\n\\begin{align}\n2x + 3y &= 6 \\\\\nkx + 4y &= 8\n\\end{align}",
+    "question": "For which value of $k$ does the system of equations have infinitely many solutions?\n            \\begin{align}\n                2x + 3y &= 6 \\\\\n                kx + 4y &= 8\n            \\end{align}",
     "choices": [
       "$k = 3$",
       "$k = \\frac{8}{3}$",
       "$k = 4$",
       "$k = 2$"
     ],
-    "correct": "$k = \\frac{8}{3}$"
+    "correct": "$k = \\frac{8}{3}$",
+    "tags": [
+      "linear-algebra"
+    ]
   },
   {
     "question": "The general solution to the homogeneous second-order differential equation $y'' - 4y' + 4y = 0$ is:",
@@ -107,7 +1121,10 @@
       "$y = c_1e^{2x} + c_2xe^{2x}$",
       "$y = c_1e^{4x} + c_2e^x$"
     ],
-    "correct": "$y = c_1e^{2x} + c_2xe^{2x}$"
+    "correct": "$y = c_1e^{2x} + c_2xe^{2x}$",
+    "tags": [
+      "differential-equations"
+    ]
   },
   {
     "question": "Which of the following series converges?",
@@ -117,6 +1134,9 @@
       "$\\sum_{n=1}^{\\infty} \\frac{1}{n^{3/2}}$",
       "$\\sum_{n=1}^{\\infty} \\frac{n}{n^2+1}$"
     ],
-    "correct": "$\\sum_{n=1}^{\\infty} \\frac{1}{n^{3/2}}$"
+    "correct": "$\\sum_{n=1}^{\\infty} \\frac{1}{n^{3/2}}$",
+    "tags": [
+      "real-analysis"
+    ]
   }
 ]

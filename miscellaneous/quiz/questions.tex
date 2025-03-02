@@ -6,135 +6,927 @@
 \newenvironment{problem}{\item}{}
 \newcommand{\choice}{\item}
 \newcommand{\correctchoice}{\item \textbf{[Correct] }}
+\newcommand{\tags}[1]{#1} % This simply passes through; conversion script handles the tag extraction
 
 \begin{document}
 
 \section{Mathematics Multiple Choice Questions}
 
-\begin{enumerate}
-\begin{problem}
-Solve the equation: $x^2 - 5x + 6 = 0$
-\begin{enumerate}
-\choice $x = 2, x = 3$
-\correctchoice $x = 2, x = 3$
-\choice $x = -2, x = -3$
-\choice $x = 1, x = 6$
-\end{enumerate}
-\end{problem}
+    \begin{enumerate}
+        \begin{problem}
+        Solve the equation: $x^2 - 5x + 6 = 0$
+            \begin{enumerate}
+                \choice $x = -2, x = 3$
+                \correctchoice $x = 2, x = 3$
+                \choice $x = -2, x = -3$
+                \choice $x = 2, x = -3$
+            \end{enumerate}
+            \tags{real-analysis}
+        \end{problem}
 
-\begin{problem}
-Evaluate the following integral: $\int x^2 \, dx$
-\begin{enumerate}
-\choice $\frac{x^3}{2} + C$
-\correctchoice $\frac{x^3}{3} + C$
-\choice $x^3 + C$
-\choice $2x + C$
-\end{enumerate}
-\end{problem}
+        \begin{problem}
+            Evaluate the following integral: $\int x^2 \, dx$
+            \begin{enumerate}
+                \choice $\frac{x^3}{2} + C$
+                \correctchoice $\frac{x^3}{3} + C$
+                \choice $x^3 + C$
+                \choice $2x + C$
+            \end{enumerate}
+            \tags{real-analysis, GATE}
+        \end{problem}
 
-\begin{problem}
-If $f(x) = 3x^2 + 2x - 5$, what is $f'(x)$?
-\begin{enumerate}
-\correctchoice $f'(x) = 6x + 2$
-\choice $f'(x) = 3x^2 + 2$
-\choice $f'(x) = 6x^2 + 2x$
-\choice $f'(x) = 9x^2 + 2$
-\end{enumerate}
-\end{problem}
+        \begin{problem}
+            If $f(x) = 3x^2 + 2x - 5$, what is $f'(x)$?
+            \begin{enumerate}
+                \correctchoice $f'(x) = 6x + 2$
+                \choice $f'(x) = 3x^2 + 2$
+                \choice $f'(x) = 6x^2 + 2x$
+                \choice $f'(x) = 9x^2 + 2$
+            \end{enumerate}
+            \tags{real-analysis, abstract-algebra}
+        \end{problem}
 
-\begin{problem}
-What is the value of $\lim_{x \to 0} \frac{\sin x}{x}$?
-\begin{enumerate}
-\choice $0$
-\correctchoice $1$
-\choice $\infty$
-\choice $-1$
-\end{enumerate}
-\end{problem}
+        \begin{problem}
+            \tags{GATE}
+            What is the value of $\lim_{x \to 0} \frac{\sin x}{x}$?
+            \begin{enumerate}
+                \choice $0$
+                \correctchoice $1$
+                \choice $\infty$
+                \choice $-1$
+            \end{enumerate}
+        \end{problem}
 
-\begin{problem}
-The sum of the series $\sum_{n=1}^{\infty} \frac{1}{n^2}$ equals:
-\begin{enumerate}
-\choice $1$
-\choice $e$
-\correctchoice $\frac{\pi^2}{6}$
-\choice $\ln 2$
-\end{enumerate}
-\end{problem}
+        \begin{problem}
+            \tags{real-analysis, limits}
+            Evaluate $\lim_{x \to 0} \frac{\tan x}{x}$.
+            \begin{enumerate}
+                \choice $0$
+                \correctchoice $1$
+                \choice $\infty$
+                \choice $-1$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, limits}
+            Find the value of $\lim_{x \to 0} \frac{1-\cos x}{x^2}$.
+            \begin{enumerate}
+                \choice $0$
+                \correctchoice $\frac{1}{2}$
+                \choice $1$
+                \choice Does not exist
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, continuity}
+            For what value of $k$ is the function $f(x) = \begin{cases}
+                x^2\sin\left(\frac{1}{x}\right), & x \neq 0 \\
+                k, & x = 0
+            \end{cases}$ continuous at $x = 0$?
+            \begin{enumerate}
+                \correctchoice $0$
+                \choice $1$
+                \choice $-1$
+                \choice No value of $k$ makes $f(x)$ continuous at $x = 0$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, derivatives}
+            Calculate $\lim_{h \to 0} \frac{(x+h)^n - x^n}{h}$ where $n$ is a positive integer.
+            \begin{enumerate}
+                \choice $x^{n-1}$
+                \correctchoice $nx^{n-1}$
+                \choice $n^2x^{n-1}$
+                \choice $nx^n$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, sequences}
+            Determine whether the sequence $a_n = \frac{n^2+1}{3n^2-1}$ converges. If it does, find its limit.
+            \begin{enumerate}
+                \choice Does not converge
+                \choice Converges to $0$
+                \correctchoice Converges to $\frac{1}{3}$
+                \choice Converges to $1$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, limits}
+            Evaluate $\lim_{x \to \infty} \left(1 + \frac{3}{x}\right)^x$.
+            \begin{enumerate}
+                \choice $1$
+                \choice $3$
+                \correctchoice $e^3$
+                \choice $\infty$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, continuity}
+            Which of the following functions is continuous on $\mathbb{R}$?
+            \begin{enumerate}
+                \choice $f(x) = \frac{1}{x-2}$
+                \choice $f(x) = \lfloor x \rfloor$ (floor function)
+                \correctchoice $f(x) = \sin(x^2)$
+                \choice $f(x) = \frac{|x-1|}{x-1}$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, derivatives}
+            If $f(x) = x\sin(1/x)$ for $x \neq 0$ and $f(0) = 0$, then $f'(0)$ equals:
+            \begin{enumerate}
+                \choice Does not exist
+                \correctchoice $1$
+                \choice $0$
+                \choice $-1$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, limits}
+            Determine $\lim_{x \to 0^+} x\ln x$.
+            \begin{enumerate}
+                \correctchoice $0$
+                \choice $1$
+                \choice $-\infty$
+                \choice Does not exist
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, sequences}
+            The sequence defined by $a_1 = 1$ and $a_{n+1} = \sqrt{2+a_n}$ for $n \geq 1$:
+            \begin{enumerate}
+                \choice Diverges
+                \choice Converges to $1$
+                \correctchoice Converges to $2$
+                \choice Oscillates without converging
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, integrals}
+            Evaluate $\lim_{n \to \infty} \sum_{k=1}^{n} \frac{1}{n}\sin\left(\frac{k\pi}{n}\right)$.
+            \begin{enumerate}
+                \choice $0$
+                \correctchoice $\frac{2}{\pi}$
+                \choice $1$
+                \choice $\pi$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, continuity}
+            For the function $f(x) = \begin{cases}
+                \frac{\sin(ax)}{x}, & x \neq 0 \\
+                a, & x = 0
+            \end{cases}$, what value of $a$ makes $f(x)$ continuous at $x = 0$?
+            \begin{enumerate}
+                \choice $0$
+                \correctchoice $1$
+                \choice $\pi$
+                \choice No value of $a$ makes $f(x)$ continuous at $x = 0$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, series}
+            Determine whether the series $\sum_{n=1}^{\infty} \frac{n}{2^n}$ converges. If it does, find its sum.
+            \begin{enumerate}
+                \choice Diverges
+                \choice Converges to $1$
+                \correctchoice Converges to $2$
+                \choice Converges to $\infty$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, continuity}
+            The function $f(x) = \begin{cases}
+                \frac{x^2-4}{x-2}, & x \neq 2 \\
+                k, & x = 2
+            \end{cases}$ is continuous at $x = 2$ if $k$ equals:
+            \begin{enumerate}
+                \choice $0$
+                \choice $2$
+                \correctchoice $4$
+                \choice $-4$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{real-analysis, differentiation}
+            Given that $f(x) = x^2$ and $g(x) = \sin x$, find the value of $\frac{d}{dx}[f(g(x))]$ at $x = 0$.
+            \begin{enumerate}
+                \choice $0$
+                \correctchoice $2$
+                \choice $1$
+                \choice $-1$
+            \end{enumerate}
+        \end{problem}
 
-\begin{problem}
-If $\vec{a} = (2, 3)$ and $\vec{b} = (4, -1)$, what is $\vec{a} \cdot \vec{b}$?
-\begin{enumerate}
-\choice $14$
-\correctchoice $5$
-\choice $-5$
-\choice $11$
-\end{enumerate}
-\end{problem}
+        \begin{problem}
+            \tags{linear-algebra, eigenvalues}
+            If $A$ is a $3 \times 3$ matrix with eigenvalues $2$, $3$, and $5$, what is the determinant of $A$?
+            \begin{enumerate}
+                \choice $10$
+                \correctchoice $30$
+                \choice $15$
+                \choice $25$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, matrices}
+            If $A$ is a $2 \times 2$ matrix such that $A^2 = 0$ but $A \neq 0$, then the rank of $A$ is:
+            \begin{enumerate}
+                \choice $0$
+                \correctchoice $1$
+                \choice $2$
+                \choice Cannot be determined
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, eigenvalues}
+            If $A$ is a $4 \times 4$ matrix with characteristic polynomial $p(\lambda) = \lambda^4 - 5\lambda^3 + 8\lambda^2 - 6\lambda + 2$, what is the sum of all eigenvalues of $A$?
+            \begin{enumerate}
+                \choice $2$
+                \correctchoice $5$
+                \choice $8$
+                \choice $6$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, vector-spaces}
+            Let $V$ be the vector space of all $2 \times 2$ matrices over $\mathbb{R}$. What is the dimension of the subspace of symmetric matrices?
+            \begin{enumerate}
+                \choice $2$
+                \correctchoice $3$
+                \choice $4$
+                \choice $1$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, linear-transformation}
+            Let $T: \mathbb{R}^3 \to \mathbb{R}^3$ be a linear transformation such that $T(1,0,0) = (1,1,0)$, $T(0,1,0) = (1,0,1)$, and $T(0,0,1) = (0,1,1)$. What is the determinant of the matrix representing $T$?
+            \begin{enumerate}
+                \choice $0$
+                \choice $1$
+                \correctchoice $2$
+                \choice $-1$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, diagonalization}
+            Which of the following matrices is diagonalizable?
+            \begin{enumerate}
+                \choice $\begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$
+                \correctchoice $\begin{pmatrix} 3 & 1 \\ -1 & 1 \end{pmatrix}$
+                \choice $\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$
+                \choice $\begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, null-space}
+            Let $A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \\ 0 & 0 & 0 \end{pmatrix}$. The dimension of the null space of $A$ is:
+            \begin{enumerate}
+                \choice $0$
+                \choice $1$
+                \correctchoice $2$
+                \choice $3$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, inner-product}
+            In $\mathbb{R}^3$ with the standard inner product, what is the distance from the point $(1,2,3)$ to the plane $x + y + z = 0$?
+            \begin{enumerate}
+                \choice $\sqrt{3}$
+                \choice $2$
+                \correctchoice $\frac{6}{\sqrt{3}}$
+                \choice $\frac{6}{3}$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, eigenvalues}
+            If $A$ is an $n \times n$ matrix with eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_n$, then the eigenvalues of $A^2$ are:
+            \begin{enumerate}
+                \choice $2\lambda_1, 2\lambda_2, \ldots, 2\lambda_n$
+                \correctchoice $\lambda_1^2, \lambda_2^2, \ldots, \lambda_n^2$
+                \choice $\lambda_1 + \lambda_1, \lambda_2 + \lambda_2, \ldots, \lambda_n + \lambda_n$
+                \choice $|\lambda_1|, |\lambda_2|, \ldots, |\lambda_n|$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, linear-independence}
+            Which of the following sets of vectors in $\mathbb{R}^3$ is linearly independent?
+            \begin{enumerate}
+                \choice $\{(1,2,3), (2,4,6), (3,6,9)\}$
+                \correctchoice $\{(1,0,1), (0,1,1), (1,1,0)\}$
+                \choice $\{(1,1,1), (2,2,2), (0,1,-1)\}$
+                \choice $\{(1,0,0), (1,1,0), (1,1,1), (0,0,1)\}$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, trace}
+            If $A$ and $B$ are similar matrices, i.e., there exists an invertible matrix $P$ such that $B = P^{-1}AP$, then:
+            \begin{enumerate}
+                \choice $\text{trace}(A) = \text{trace}(B^{-1})$
+                \choice $\text{trace}(A) = -\text{trace}(B)$
+                \correctchoice $\text{trace}(A) = \text{trace}(B)$
+                \choice $\text{trace}(A) = \text{trace}(P)$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, orthogonality}
+            In $\mathbb{R}^3$ with the standard inner product, the set of all vectors orthogonal to both $(1,1,1)$ and $(1,2,3)$ forms:
+            \begin{enumerate}
+                \choice A plane
+                \correctchoice A line
+                \choice A point
+                \choice A circle
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, determinants}
+            If $A$ is a $3 \times 3$ matrix and $\text{det}(A) = 4$, then $\text{det}(2A)$ equals:
+            \begin{enumerate}
+                \choice $8$
+                \choice $16$
+                \correctchoice $32$
+                \choice $64$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, basis}
+            The vectors $(1,1,0)$, $(1,0,1)$, and $(0,1,1)$ in $\mathbb{R}^3$:
+            \begin{enumerate}
+                \choice Form a linearly dependent set
+                \correctchoice Form a basis for $\mathbb{R}^3$
+                \choice Span a plane
+                \choice Are mutually orthogonal
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{linear-algebra, rank-nullity}
+            Let $A$ be a $5 \times 7$ matrix with rank 4. The dimension of the null space of $A$ is:
+            \begin{enumerate}
+                \choice $1$
+                \choice $2$
+                \correctchoice $3$
+                \choice $4$
+            \end{enumerate}
+        \end{problem}
 
-\begin{problem}
-What is the solution to the differential equation $\frac{dy}{dx} = 2xy$ with initial condition $y(0) = 1$?
-\begin{enumerate}
-\choice $y = xe^{x^2}$
-\choice $y = e^{2x}$
-\correctchoice $y = e^{x^2}$
-\choice $y = xe^x$
-\end{enumerate}
-\end{problem}
+        \begin{problem}
+            \tags{abstract-algebra, groups}
+            If $G$ is a group of order $15$, then $G$ is:
+            \begin{enumerate}
+                \choice Not abelian
+                \correctchoice Cyclic
+                \choice Simple
+                \choice Isomorphic to $D_{15}$ (dihedral group)
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{abstract-algebra, rings}
+            In the ring $\mathbb{Z}_6$ of integers modulo $6$, the element $[4]$ is:
+            \begin{enumerate}
+                \choice A unit
+                \choice A zero divisor and a unit
+                \correctchoice A zero divisor
+                \choice Neither a zero divisor nor a unit
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{abstract-algebra, homomorphisms}
+            Let $\phi: \mathbb{Z}_8 \to \mathbb{Z}_4$ be a group homomorphism. What is the order of $\text{ker}(\phi)$?
+            \begin{enumerate}
+                \choice $1$
+                \correctchoice $2$
+                \choice $4$
+                \choice $8$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{abstract-algebra, fields}
+            The number of elements in a finite field must be:
+            \begin{enumerate}
+                \choice Even
+                \choice A prime number
+                \correctchoice A power of a prime number
+                \choice A multiple of $2$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{abstract-algebra, group-actions}
+            If a group $G$ acts on a set $X$ with $|X| = 7$, and all orbits have size $1$ or $3$, then the number of fixed points is:
+            \begin{enumerate}
+                \choice $0$
+                \correctchoice $1$
+                \choice $4$
+                \choice $7$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{abstract-algebra, rings}
+            Which of the following is a field?
+            \begin{enumerate}
+                \choice $\mathbb{Z}_4$
+                \correctchoice $\mathbb{Z}_5$
+                \choice $\mathbb{Z}_6$
+                \choice $\mathbb{Z}_8$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{abstract-algebra, subgroups}
+            Let $G$ be a group of order $20$. What is the possible order of a subgroup of $G$?
+            \begin{enumerate}
+                \choice $3$
+                \choice $6$
+                \choice $15$
+                \correctchoice $10$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{abstract-algebra, group-theory}
+            The center of the dihedral group $D_8$ has order:
+            \begin{enumerate}
+                \choice $1$
+                \correctchoice $2$
+                \choice $4$
+                \choice $8$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{abstract-algebra, isomorphism}
+            Which of the following groups is isomorphic to $\mathbb{Z}_2 \times \mathbb{Z}_2$?
+            \begin{enumerate}
+                \choice $\mathbb{Z}_4$
+                \correctchoice Klein four-group
+                \choice $D_4$ (dihedral group of order $8$)
+                \choice $\mathbb{Z}_2 \times \mathbb{Z}_4$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{abstract-algebra, polynomials}
+            The polynomial $x^2 + 1$ is irreducible over:
+            \begin{enumerate}
+                \choice $\mathbb{C}$
+                \choice $\mathbb{Z}_2$
+                \correctchoice $\mathbb{R}$
+                \choice $\mathbb{Z}_5$
+            \end{enumerate}
+        \end{problem}
 
-\begin{problem}
-A fair six-sided die is rolled twice. What is the probability of getting a sum of 7?
-\begin{enumerate}
-\choice $\frac{1}{6}$
-\correctchoice $\frac{6}{36} = \frac{1}{6}$
-\choice $\frac{7}{36}$
-\choice $\frac{1}{12}$
-\end{enumerate}
-\end{problem}
+        \begin{problem}
+            \tags{metric-space, completeness}
+            Which of the following sets with the standard metric is not complete?
+            \begin{enumerate}
+                \choice $[0,1]$
+                \correctchoice $(0,1)$
+                \choice $\{0, 1\}$
+                \choice $\mathbb{R}$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{metric-space, open-sets}
+            In the metric space $(\mathbb{R}, d)$ where $d(x,y) = |x-y|$, the set $(0, 1) \cup (2, 3)$ is:
+            \begin{enumerate}
+                \choice Closed but not open
+                \correctchoice Open but not closed
+                \choice Both open and closed
+                \choice Neither open nor closed
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{metric-space, compactness}
+            Which of the following subsets of $\mathbb{R}$ with the usual metric is compact?
+            \begin{enumerate}
+                \choice $(0,1)$
+                \choice $[0, \infty)$
+                \correctchoice $[0,1]$
+                \choice $\mathbb{R}$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{metric-space, convergence}
+            In the discrete metric space $(X, d)$ where $d(x,y) = 0$ if $x = y$ and $d(x,y) = 1$ if $x \neq y$, a sequence $(x_n)$ converges if and only if:
+            \begin{enumerate}
+                \choice $(x_n)$ is bounded
+                \choice $(x_n)$ is Cauchy
+                \correctchoice $(x_n)$ is eventually constant
+                \choice $(x_n)$ is monotone
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{metric-space, continuity}
+            Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces. A function $f: X \to Y$ is continuous at a point $a \in X$ if and only if:
+            \begin{enumerate}
+                \choice For all $\epsilon > 0$, there exists $\delta > 0$ such that $d_X(x, a) < \delta$ implies $d_Y(f(x), f(a)) = \epsilon$
+                \correctchoice For all $\epsilon > 0$, there exists $\delta > 0$ such that $d_X(x, a) < \delta$ implies $d_Y(f(x), f(a)) < \epsilon$
+                \choice For all $\delta > 0$, there exists $\epsilon > 0$ such that $d_X(x, a) < \delta$ implies $d_Y(f(x), f(a)) < \epsilon$
+                \choice For all $\delta > 0$, there exists $\epsilon > 0$ such that $d_Y(f(x), f(a)) < \epsilon$ implies $d_X(x, a) < \delta$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{metric-space, connectedness}
+            A subset $S$ of a metric space $(X,d)$ is disconnected if and only if:
+            \begin{enumerate}
+                \choice $S$ is not compact
+                \correctchoice $S$ can be written as the union of two non-empty, disjoint open sets (relative to $S$)
+                \choice $S$ does not contain a convergent sequence
+                \choice $S$ is not complete
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{metric-space, isometry}
+            Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces. A function $f: X \to Y$ is an isometry if:
+            \begin{enumerate}
+                \choice $f$ is continuous and bijective
+                \choice $f$ preserves distances approximately
+                \correctchoice $d_Y(f(x), f(y)) = d_X(x, y)$ for all $x, y \in X$
+                \choice $f$ maps open sets to open sets
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{metric-space, topology}
+            If $(X, d)$ is a metric space and $A \subset X$, then the closure of $A$ is:
+            \begin{enumerate}
+                \choice The set of all limit points of $A$
+                \choice The set $A$ together with its boundary
+                \correctchoice The smallest closed set containing $A$
+                \choice The set of all points at distance $0$ from $A$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{metric-space, completeness}
+            The metric space $(\mathbb{Q}, d)$ where $d(x,y) = |x-y|$ is:
+            \begin{enumerate}
+                \choice Complete
+                \correctchoice Not complete
+                \choice Complete if and only if it's bounded
+                \choice Complete if and only if it's compact
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{metric-space, separability}
+            A metric space $(X, d)$ is separable if and only if:
+            \begin{enumerate}
+                \choice $X$ is complete
+                \choice $X$ is compact
+                \correctchoice $X$ contains a countable dense subset
+                \choice Every sequence in $X$ has a convergent subsequence
+            \end{enumerate}
+        \end{problem}
 
-\begin{problem}
-What is the determinant of the matrix $\begin{pmatrix} 3 & 1 \\ 2 & 4 \end{pmatrix}$?
-\begin{enumerate}
-\choice $5$
-\choice $9$
-\correctchoice $10$
-\choice $12$
-\end{enumerate}
-\end{problem}
+        \begin{problem}
+            \tags{differential-equations, first-order}
+            The general solution of the differential equation $\frac{dy}{dx} = y$ is:
+            \begin{enumerate}
+                \choice $y = x + C$
+                \correctchoice $y = Ce^x$
+                \choice $y = Cx$
+                \choice $y = \ln(x) + C$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{differential-equations, second-order}
+            The general solution of $y'' + 4y = 0$ is:
+            \begin{enumerate}
+                \choice $y = C_1e^{2x} + C_2e^{-2x}$
+                \correctchoice $y = C_1\cos(2x) + C_2\sin(2x)$
+                \choice $y = C_1 + C_2e^{-4x}$
+                \choice $y = C_1x + C_2x^2$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{differential-equations, laplace-transform}
+            The Laplace transform of $f(t) = te^{-2t}$ is:
+            \begin{enumerate}
+                \choice $\frac{1}{(s-2)^2}$
+                \correctchoice $\frac{1}{(s+2)^2}$
+                \choice $\frac{s}{(s+2)^2}$
+                \choice $\frac{1}{(s+2)}$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{differential-equations, homogeneous}
+            A differential equation of the form $\frac{dy}{dx} = F(\frac{y}{x})$ is called:
+            \begin{enumerate}
+                \choice Linear
+                \correctchoice Homogeneous
+                \choice Exact
+                \choice Separable
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{differential-equations, existence-uniqueness}
+            The initial value problem $y' = \sqrt{|y|}$, $y(0) = 0$ has:
+            \begin{enumerate}
+                \choice No solution
+                \choice Exactly one solution
+                \correctchoice More than one solution
+                \choice A unique solution only for $x > 0$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{differential-equations, series-solutions}
+            In the power series solution $y = \sum_{n=0}^{\infty} a_n x^n$ of the differential equation $y'' + xy' + y = 0$ around $x = 0$, if $a_0 = 1$ and $a_1 = 2$, then $a_2$ equals:
+            \begin{enumerate}
+                \choice $-1$
+                \correctchoice $-\frac{1}{2}$
+                \choice $0$
+                \choice $\frac{1}{2}$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{differential-equations, systems}
+            The system of equations $\dot{x} = 3x + 4y$, $\dot{y} = 2x + y$ has:
+            \begin{enumerate}
+                \choice Only one critical point
+                \correctchoice No critical points
+                \choice Infinitely many critical points
+                \choice Exactly two critical points
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{differential-equations, partial}
+            The general solution of the partial differential equation $\frac{\partial u}{\partial x} = \frac{\partial u}{\partial y}$ is:
+            \begin{enumerate}
+                \choice $u(x,y) = f(xy)$
+                \correctchoice $u(x,y) = f(x-y)$
+                \choice $u(x,y) = f(x) + g(y)$
+                \choice $u(x,y) = f(x+y)$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{differential-equations, bernoulli}
+            The differential equation $\frac{dy}{dx} + P(x)y = Q(x)y^n$ where $n \neq 0, 1$ is called:
+            \begin{enumerate}
+                \choice Exact
+                \choice Linear
+                \correctchoice Bernoulli
+                \choice Homogeneous
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{differential-equations, eigenvalues}
+            For the system $\dot{\mathbf{x}} = A\mathbf{x}$ where $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$, the eigenvalues are:
+            \begin{enumerate}
+                \choice $2, 2$
+                \choice $1, 3$
+                \correctchoice $1, 3$
+                \choice $0, 4$
+            \end{enumerate}
+        \end{problem}
 
-\begin{problem}
-For which value of $k$ does the system of equations have infinitely many solutions?
-\begin{align}
-2x + 3y &= 6 \\
-kx + 4y &= 8
-\end{align}
-\begin{enumerate}
-\choice $k = 3$
-\correctchoice $k = \frac{8}{3}$
-\choice $k = 4$
-\choice $k = 2$
-\end{enumerate}
-\end{problem}
+        \begin{problem}
+            \tags{numerical-methods, root-finding}
+            The Newton-Raphson method for finding a root of $f(x) = 0$ uses the iterative formula:
+            \begin{enumerate}
+                \choice $x_{n+1} = x_n - f(x_n)$
+                \correctchoice $x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
+                \choice $x_{n+1} = x_n - \frac{f(x_n)f(x_{n-1})}{f(x_n)-f(x_{n-1})}$
+                \choice $x_{n+1} = \frac{f(x_n)-x_nf'(x_n)}{f'(x_n)}$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{numerical-methods, interpolation}
+            Lagrange interpolation polynomial of degree at most $n$ for a function $f(x)$ at points $x_0, x_1, ..., x_n$ will pass through:
+            \begin{enumerate}
+                \choice At least one of the points $(x_i, f(x_i))$
+                \choice Most of the points $(x_i, f(x_i))$
+                \correctchoice All of the points $(x_i, f(x_i))$
+                \choice None of the points $(x_i, f(x_i))$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{numerical-methods, integration}
+            The Trapezoidal rule for numerical integration has an error of order:
+            \begin{enumerate}
+                \choice $O(h)$
+                \correctchoice $O(h^2)$
+                \choice $O(h^3)$
+                \choice $O(h^4)$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{numerical-methods, linear-systems}
+            The Gauss-Seidel method for solving linear systems converges if the coefficient matrix is:
+            \begin{enumerate}
+                \choice Symmetric
+                \choice Positive definite
+                \correctchoice Strictly diagonally dominant
+                \choice Triangular
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{numerical-methods, differentiation}
+            The central difference approximation for the first derivative of function $f(x)$ is:
+            \begin{enumerate}
+                \choice $f'(x) \approx \frac{f(x+h)-f(x)}{h}$
+                \correctchoice $f'(x) \approx \frac{f(x+h)-f(x-h)}{2h}$
+                \choice $f'(x) \approx \frac{f(x)-f(x-h)}{h}$
+                \choice $f'(x) \approx \frac{f(x+h)-2f(x)+f(x-h)}{h^2}$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{numerical-methods, ode}
+            The Runge-Kutta fourth-order method (RK4) for solving first-order ODEs has a local truncation error of order:
+            \begin{enumerate}
+                \choice $O(h^2)$
+                \choice $O(h^3)$
+                \correctchoice $O(h^5)$
+                \choice $O(h^4)$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{numerical-methods, eigenvalues}
+            For the matrix $A = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$, the power method will converge to the eigenvalue:
+            \begin{enumerate}
+                \choice $2$
+                \correctchoice $4$
+                \choice $0$
+                \choice $3$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{numerical-methods, error-analysis}
+            If a numerical method has error $Kh^p$ for step size $h$ and some constant $K$, then reducing the step size to $h/2$ will reduce the error by a factor of:
+            \begin{enumerate}
+                \choice $2$
+                \choice $1/2$
+                \correctchoice $1/2^p$
+                \choice $2^p$
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{numerical-methods, interpolation}
+            The phenomenon in which higher-degree polynomial interpolation can lead to oscillations near the endpoints is known as:
+            \begin{enumerate}
+                \choice Truncation error
+                \correctchoice Runge's phenomenon
+                \choice Richardson extrapolation
+                \choice Peano's remainder
+            \end{enumerate}
+        \end{problem}
+        
+        \begin{problem}
+            \tags{numerical-methods, integration}
+            Simpson's 1/3 rule for numerical integration approximates the function using:
+            \begin{enumerate}
+                \choice Linear polynomials
+                \correctchoice Quadratic polynomials
+                \choice Cubic polynomials
+                \choice Constant functions
+            \end{enumerate}
+        \end{problem}
 
-\begin{problem}
-The general solution to the homogeneous second-order differential equation $y'' - 4y' + 4y = 0$ is:
-\begin{enumerate}
-\choice $y = c_1e^{2x} + c_2e^{-2x}$
-\choice $y = c_1e^{2x}\sin(x) + c_2e^{2x}\cos(x)$
-\correctchoice $y = c_1e^{2x} + c_2xe^{2x}$
-\choice $y = c_1e^{4x} + c_2e^x$
-\end{enumerate}
-\end{problem}
+        \begin{problem}
+            \tags{topology, GATE}
+            The sum of the series $\sum_{n=1}^{\infty} \frac{1}{n^2}$ equals:
+            \begin{enumerate}
+                \choice $1$
+                \choice $e$
+                \correctchoice $\frac{\pi^2}{6}$
+                \choice $\ln 2$
+            \end{enumerate}
+        \end{problem}
 
-\begin{problem}
-Which of the following series converges?
-\begin{enumerate}
-\choice $\sum_{n=1}^{\infty} \frac{1}{n}$
-\choice $\sum_{n=1}^{\infty} \frac{n}{n+1}$
-\correctchoice $\sum_{n=1}^{\infty} \frac{1}{n^{3/2}}$
-\choice $\sum_{n=1}^{\infty} \frac{n}{n^2+1}$
-\end{enumerate}
-\end{problem}
+        \begin{problem}
+            \tags{linear-algebra}
+            If $\vec{a} = (2, 3)$ and $\vec{b} = (4, -1)$, what is $\vec{a} \cdot \vec{b}$?
+                \begin{enumerate}
+                \choice $14$
+                \correctchoice $5$
+                \choice $-5$
+                \choice $11$
+            \end{enumerate}
+        \end{problem}
 
-\end{enumerate}
+        \begin{problem}
+            \tags{differential-equations}
+            What is the solution to the differential equation $\frac{dy}{dx} = 2xy$ with initial condition $y(0) = 1$?
+            \begin{enumerate}
+                \choice $y = xe^{x^2}$
+                \choice $y = e^{2x}$
+                \correctchoice $y = e^{x^2}$
+                \choice $y = xe^x$
+            \end{enumerate}
+        \end{problem}
+
+        \begin{problem}
+            \tags{probability, GATE}
+            A fair six-sided die is rolled twice. What is the probability of getting a sum of 7?
+            \begin{enumerate}
+                \choice $\frac{1}{6}$
+                \correctchoice $\frac{6}{36} = \frac{1}{6}$
+                \choice $\frac{7}{36}$
+                \choice $\frac{1}{12}$
+            \end{enumerate}
+        \end{problem}
+
+        \begin{problem}
+            \tags{linear-algebra}
+            What is the determinant of the matrix $\begin{pmatrix} 3 & 1 \\ 2 & 4 \end{pmatrix}$?
+            \begin{enumerate}
+                \choice $5$
+                \choice $9$
+                \correctchoice $10$
+                \choice $12$
+            \end{enumerate}
+        \end{problem}
+
+        \begin{problem}
+            \tags{linear-algebra}
+            For which value of $k$ does the system of equations have infinitely many solutions?
+            \begin{align}
+                2x + 3y &= 6 \\
+                kx + 4y &= 8
+            \end{align}
+            \begin{enumerate}
+                \choice $k = 3$
+                \correctchoice $k = \frac{8}{3}$
+                \choice $k = 4$
+                \choice $k = 2$
+            \end{enumerate}
+        \end{problem}
+
+        \begin{problem}
+            \tags{differential-equations}
+            The general solution to the homogeneous second-order differential equation $y'' - 4y' + 4y = 0$ is:
+            \begin{enumerate}
+                \choice $y = c_1e^{2x} + c_2e^{-2x}$
+                \choice $y = c_1e^{2x}\sin(x) + c_2e^{2x}\cos(x)$
+                \correctchoice $y = c_1e^{2x} + c_2xe^{2x}$
+                \choice $y = c_1e^{4x} + c_2e^x$
+            \end{enumerate}
+        \end{problem}
+
+        \begin{problem}
+            \tags{real-analysis}
+            Which of the following series converges?
+            \begin{enumerate}
+                \choice $\sum_{n=1}^{\infty} \frac{1}{n}$
+                \choice $\sum_{n=1}^{\infty} \frac{n}{n+1}$
+                \correctchoice $\sum_{n=1}^{\infty} \frac{1}{n^{3/2}}$
+                \choice $\sum_{n=1}^{\infty} \frac{n}{n^2+1}$
+            \end{enumerate}
+        \end{problem}
+
+    \end{enumerate}
 \end{document}

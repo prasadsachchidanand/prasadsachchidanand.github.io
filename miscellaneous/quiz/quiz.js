@@ -32,19 +32,34 @@ function shuffle(array) {
 }
 
 // Load questions from questions.json
+// Load questions from questions.json
 function loadQuestions() {
-  fetch(QUESTIONS_JSON)
+    fetch(QUESTIONS_JSON)
     .then(response => response.json())
     .then(data => {
-      // Shuffle and select 10 questions
-      quizQuestions = shuffle(data).slice(0, 10);
-      renderQuestion();
-      updateQuestionCounter();
-      startTimer();
-      if (window.MathJax) MathJax.typeset();
+    // Get the selected category from the dropdown
+    const selectedCategory = document.getElementById("category-select").value;
+    let filteredData = data;
+    
+    // If a specific category is chosen, filter questions by checking the "tags" property
+    if (selectedCategory !== "all") {
+        filteredData = data.filter(q => q.tags && q.tags.includes(selectedCategory));
+    }
+    
+    // Check if there are enough questions; if not, warn the user or use all available
+    if (filteredData.length < 10) {
+        alert(`Only ${filteredData.length} questions found for category "${selectedCategory}". The quiz will use all available questions.`);
+    }
+    
+    // Shuffle and select up to 10 questions
+    quizQuestions = shuffle(filteredData).slice(0, 10);
+    renderQuestion();
+    updateQuestionCounter();
+    startTimer();
+    if (window.MathJax) MathJax.typeset();
     })
     .catch(err => console.error("Error loading questions:", err));
-}
+}  
 
 // Render the current question
 function renderQuestion() {
