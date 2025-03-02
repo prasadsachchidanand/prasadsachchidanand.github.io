@@ -211,12 +211,19 @@ function renderResults() {
 }
 
 // Start Quiz when user clicks Start Quiz
-document.getElementById("start-quiz-btn").addEventListener("click", () => {
+// document.getElementById("start-quiz-btn").addEventListener("click", () => {
+//   document.getElementById("setup-screen").classList.add("hidden");
+//   document.getElementById("quiz-screen").classList.remove("hidden");
+//   document.getElementById("finish-btn").classList.remove("hidden");
+//   loadQuestions();
+// });
+
+function startQuiz() {
   document.getElementById("setup-screen").classList.add("hidden");
   document.getElementById("quiz-screen").classList.remove("hidden");
   document.getElementById("finish-btn").classList.remove("hidden");
   loadQuestions();
-});
+}
 
 // Retry Quiz button reloads the page
 document.getElementById("retry-btn").addEventListener("click", () => {

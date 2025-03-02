@@ -14,6 +14,7 @@ const categoryError = document.getElementById('category-error');
 quizTimeInput.addEventListener('input', () => {
     const value = parseInt(quizTimeInput.value);
     if (isNaN(value) || value < 1 || value > 120) {
+        quizTimeError.textContent = "Quiz duration must be between 1 and 120 minutes.";
         quizTimeError.classList.remove('hidden');
         quizTimeInput.classList.add('border-red-500');
     } else {
@@ -25,6 +26,7 @@ quizTimeInput.addEventListener('input', () => {
 // Real-time validation for Name
 nameInput.addEventListener('input', () => {
     if (nameInput.value.trim() === '') {
+        nameError.textContent = "Name is required.";
         nameError.classList.remove('hidden');
         nameInput.classList.add('border-red-500');
     } else {
@@ -37,6 +39,7 @@ nameInput.addEventListener('input', () => {
 emailInput.addEventListener('input', () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailInput.value.trim())) {
+        emailError.textContent = "Please enter a valid email address.";
         emailError.classList.remove('hidden');
         emailInput.classList.add('border-red-500');
     } else {
@@ -48,6 +51,7 @@ emailInput.addEventListener('input', () => {
 // Real-time validation for Category
 categorySelect.addEventListener('change', () => {
     if (categorySelect.value === '') {
+        categoryError.textContent = "Please select a category.";
         categoryError.classList.remove('hidden');
         categorySelect.classList.add('border-red-500');
     } else {
@@ -58,43 +62,61 @@ categorySelect.addEventListener('change', () => {
 
 // Form submission validation
 startQuizBtn.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault(); // Prevent default action
 
     let isValid = true;
 
     // Validate Quiz Duration
     const quizTimeValue = parseInt(quizTimeInput.value);
     if (isNaN(quizTimeValue) || quizTimeValue < 1 || quizTimeValue > 120) {
+        quizTimeError.textContent = "Quiz duration must be between 1 and 120 minutes.";
         quizTimeError.classList.remove('hidden');
         quizTimeInput.classList.add('border-red-500');
         isValid = false;
+    } else {
+        quizTimeError.classList.add('hidden');
+        quizTimeInput.classList.remove('border-red-500');
     }
 
     // Validate Name
     if (nameInput.value.trim() === '') {
+        nameError.textContent = "Name is required.";
         nameError.classList.remove('hidden');
         nameInput.classList.add('border-red-500');
         isValid = false;
+    } else {
+        nameError.classList.add('hidden');
+        nameInput.classList.remove('border-red-500');
     }
 
     // Validate Email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailInput.value.trim())) {
+        emailError.textContent = "Please enter a valid email address.";
         emailError.classList.remove('hidden');
         emailInput.classList.add('border-red-500');
         isValid = false;
+    } else {
+        emailError.classList.add('hidden');
+        emailInput.classList.remove('border-red-500');
     }
 
     // Validate Category
     if (categorySelect.value === '') {
+        categoryError.textContent = "Please select a category.";
         categoryError.classList.remove('hidden');
         categorySelect.classList.add('border-red-500');
         isValid = false;
+    } else {
+        categoryError.classList.add('hidden');
+        categorySelect.classList.remove('border-red-500');
     }
 
-    // If all fields are valid, proceed with form submission
-    // if (isValid) {
-    //     alert('Quiz started successfully!');
-    //     // Add your logic to start the quiz here
-    // }
+    // If all fields are valid, proceed with starting the quiz
+    if (isValid) {
+        // Optionally, you can alert or log a message
+        // alert('Quiz started successfully!');
+        // Now call startQuiz() from quiz.js
+        startQuiz();
+    }
 });

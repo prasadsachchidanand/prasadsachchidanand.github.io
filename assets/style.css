@@ -2600,6 +2600,18 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-blue-600 {
+  --tw-gradient-from: #2563eb var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(37 99 235 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-pink-500 {
+  --tw-gradient-from: #ec4899 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(236 72 153 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .via-green-500 {
   --tw-gradient-to: rgb(34 197 94 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #22c55e var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -2644,6 +2656,18 @@ video {
 
 .to-teal-700 {
   --tw-gradient-to: #0f766e var(--tw-gradient-to-position);
+}
+
+.to-sky-700 {
+  --tw-gradient-to: #0369a1 var(--tw-gradient-to-position);
+}
+
+.to-purple-600 {
+  --tw-gradient-to: #9333ea var(--tw-gradient-to-position);
+}
+
+.to-orange-500 {
+  --tw-gradient-to: #f97316 var(--tw-gradient-to-position);
 }
 
 .decoration-slice {
@@ -3291,6 +3315,10 @@ video {
 
 .opacity-50 {
   opacity: 0.5;
+}
+
+.opacity-80 {
+  opacity: 0.8;
 }
 
 .bg-blend-normal {
