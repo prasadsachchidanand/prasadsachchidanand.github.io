@@ -82,59 +82,58 @@
               <div class="flex-grow lg:px-32 px-6">
                 
                 <!-- Problem -->
-                <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
-                  <!-- Problem Statement -->
+                <div class="problem-container border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50" data-correct="D">
                   <strong>Problem: </strong>
-                    Suppose that the characteristic equation of \( M \in \mathbb{C}^{3\times 3} \) is 
-                    \( \lambda^3 + \alpha \lambda^2 + \beta \lambda - 1 = 0 \), where \( \alpha, \beta \in \mathbb{C} \) with 
-                    \( \alpha + \beta \neq 0 \). Which of the following statements is TRUE?
+                  Suppose that the characteristic equation of \( M \in \mathbb{C}^{3\times 3} \) is 
+                  \( \lambda^3 + \alpha \lambda^2 + \beta \lambda - 1 = 0 \), where \( \alpha, \beta \in \mathbb{C} \) with 
+                  \( \alpha + \beta \neq 0 \). Which of the following statements is TRUE?
                 
-                  <!-- Instruction Message -->
                   <p class="text-blue-600 text-base font-medium my-6">
                     Choose an answer to see the solution.
                   </p>
                 
                   <!-- Answer Options -->
-                  <ol class="math-list-Alpha">
-                    <li class="my-4">
-                      <label class="flex items-center space-x-2">
-                        <input type="radio" name="answer" value="A" class="hidden" />
-                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
-                          \( M(I - \beta M) = M^{-1} (M + \alpha I) \)
-                        </span>
-                      </label>
-                    </li>
-                    <li class="my-4">
-                      <label class="flex items-center space-x-2">
-                        <input type="radio" name="answer" value="B" class="hidden" />
-                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
-                          \( M(I + \beta M) = M^{-1} (M - \alpha I) \)
-                        </span>
-                      </label>
-                    </li>
-                    <li class="my-4">
-                      <label class="flex items-center space-x-2">
-                        <input type="radio" name="answer" value="C" class="hidden" />
-                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
-                          \( M^{-1} (M^{-1} + \beta I) = M - \alpha I \)
-                        </span>
-                      </label>
-                    </li>
-                    <li class="my-4">
-                      <label class="flex items-center space-x-2">
-                        <input type="radio" name="answer" value="D" class="hidden" />
-                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
-                          \( M^{-1} (M^{-1} - \beta I) = M + \alpha I \)
-                        </span>
-                      </label>
-                    </li>
-                  </ol>
+                  <div class="options-container">
+                    <ol class="math-list-Alpha">
+                      <li class="my-4">
+                        <label class="flex items-center space-x-2">
+                          <input type="radio" name="answer" value="A" class="hidden" />
+                          <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                            \( M(I - \beta M) = M^{-1} (M + \alpha I) \)
+                          </span>
+                        </label>
+                      </li>
+                      <li class="my-4">
+                        <label class="flex items-center space-x-2">
+                          <input type="radio" name="answer" value="B" class="hidden" />
+                          <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                            \( M(I + \beta M) = M^{-1} (M - \alpha I) \)
+                          </span>
+                        </label>
+                      </li>
+                      <li class="my-4">
+                        <label class="flex items-center space-x-2">
+                          <input type="radio" name="answer" value="C" class="hidden" />
+                          <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                            \( M^{-1} (M^{-1} + \beta I) = M - \alpha I \)
+                          </span>
+                        </label>
+                      </li>
+                      <li class="my-4">
+                        <label class="flex items-center space-x-2">
+                          <input type="radio" name="answer" value="D" class="hidden" />
+                          <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                            \( M^{-1} (M^{-1} - \beta I) = M + \alpha I \)
+                          </span>
+                        </label>
+                      </li>
+                    </ol>
+                  </div>
                 
                   <!-- Feedback Section -->
                   <div id="feedback" class="hidden text-center text-lg font-semibold p-4 mt-4">
                     <p id="feedback-message"></p>
                   </div>
-                  
                 </div>            
 
                 <!-- Solution -->
@@ -353,80 +352,9 @@
           fontCache: 'global'
         }
       };
-    </script>
-    <script>
-      const tags = ['linear-algebra', 'characteristic-polynomial', 'gate-2022'];
-    </script>
+    </script>      
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Correct Answer (customize this value)
-        const correctAnswer = "D";
-    
-        // Shuffle function
-        function shuffleOptions() {
-          const optionsContainer = document.getElementById("options-container"); // Replace with the ID of your options container
-          const options = Array.from(optionsContainer.children);
-          options.sort(() => Math.random() - 0.5); // Shuffle using random sort
-          options.forEach((option) => optionsContainer.appendChild(option)); // Reorder the DOM elements
-        }
-    
-        // Shuffle the options on page load
-        shuffleOptions();
-    
-        // DOM Elements
-        const feedback = document.getElementById("feedback");
-        const feedbackMessage = document.getElementById("feedback-message");
-        const solution = document.getElementById("solution"); // If a "solution" element exists
-    
-        // Add event listeners to all radio buttons
-        document.querySelectorAll("input[name='answer']").forEach((radio) => {
-          radio.addEventListener("change", function () {
-            // Reset previous styles
-            document.querySelectorAll("label span").forEach((option) => {
-              option.classList.remove(
-                "bg-green-100",
-                "bg-red-100",
-                "border-green-500",
-                "border-red-500"
-              );
-            });
-    
-            // Hide feedback initially
-            feedback.classList.add("hidden");
-    
-            // Highlight the selected answer
-            const selectedOption = this.parentNode.querySelector("span");
-            if (this.value === correctAnswer) {
-              selectedOption.classList.add("bg-green-100", "border-green-500");
-              feedbackMessage.textContent = "Correct! Well done!";
-            } else {
-              selectedOption.classList.add("bg-red-100", "border-red-500");
-              feedbackMessage.textContent = `Incorrect! The correct answer is (${correctAnswer}).`;
-    
-              // Highlight the correct answer
-              const correctOption = document
-                .querySelector(`input[value="${correctAnswer}"]`)
-                .parentNode.querySelector("span");
-              correctOption.classList.add("bg-green-100", "border-green-500");
-            }
-    
-            // Show feedback
-            feedback.classList.remove("hidden");
-    
-            // Show the solution (if applicable)
-            if (solution) {
-              solution.classList.remove("hidden");
-            }
-    
-            // Disable all radio buttons
-            document.querySelectorAll("input[name='answer']").forEach((input) => {
-              input.disabled = true;
-            });
-          });
-        });
-      });
-    </script>       
+    <script src="../answer.js"></script>
 
   </body>
 </html>
