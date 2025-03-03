@@ -111,7 +111,7 @@
                 
                 <!-- Problem -->
                 <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-50">
-                    <strong>Problem: </strong>Find all $2 \times 2$ matrices $A$ that commute with all $2 \times 2$ matrices $B$. That is, if $AB = BA$ for all $B \in M_2(\mathbb{R} )$,  what are the possible matrices that $A$ can be?
+                    <strong>Problem: </strong>Find all $2 \times 2$ matrices $A$ that commute with all $2 \times 2$ matrices $B$. That is, if $AB = BA$ for all $B \in M_2(\mathbb{R} ),$  what are the possible matrices that $A$ can be?
                     <div class="mt-2">
                       <a href="../tags" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
                           linear-algebra
@@ -149,10 +149,69 @@
 
                 <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let 
+                    \[
+                        A = \begin{bmatrix}
+                            a &  b \\
+                            c &  d \\
+                        \end{bmatrix},
+                    \]
+                    be a matrix which commutes with all $2 \times 2$ matrices. Let 
+                    \[
+                        B = 
+                        \begin{bmatrix}
+                            0 & 1 \\
+                            0 & 0 
+                        \end{bmatrix}.
+                    \]
+                    Let us check when $A$ will commute with $B$. We have
+                    \begin{align*}
+                        AB = BA & \implies 
+                        \begin{bmatrix}
+                            0 &  a \\
+                            0 &  c \\
+                        \end{bmatrix} = 
+                        \begin{bmatrix}
+                            c &  d \\
+                            0 &  0 \\
+                        \end{bmatrix} \implies c = 0, \text{ and } a = d.
+                    \end{align*}
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Similarly, let 
+                    \[
+                        C = 
+                        \begin{bmatrix}
+                            0 & 0 \\
+                            1 & 0 
+                        \end{bmatrix}.
+                    \]
+                    Then, $AC = CA$ will imply
+                    \[
+                        b = 0 \text{ and } a = d.
+                    \] 
+                    Thus, the matrices that commute with $B$ and $C$ are 
+                    \[
+                        \left\{ 
+                            \begin{bmatrix}
+                                a &  0 \\
+                                0 &  a \\
+                            \end{bmatrix}: a \in \mathbb{R}
+                         \right\} = 
+                         \left\{ a I_2: a \in \mathbb{R}  \right\} .
+                    \]
+                    Since, $a I_2$ commutes with every $2 \times 2$ matrix, thus the set of all matrices that commute with all $2 \times 2$ matrices are 
+                    \[
+                        \textcolor{blue}{
+                            \boxed{\left\{ \begin{bmatrix}
+                                a &  0 \\
+                                0 &  a \\
+                            \end{bmatrix} : a\in \mathbb{R}  \right\}}
+                        }
+                    \]   
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
