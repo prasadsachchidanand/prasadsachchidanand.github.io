@@ -70,7 +70,7 @@
     </script>
 
 
-    <title>Problem of the Day | 03-03-2025 | Real Analysis - Characterizing 2×2 Matrices That Commute with All 2×2 Matrices | Sachchidanand Prasad</title>
+    <title>Problem of the Day | 03-03-2025 | Real Analysis - The Function f(x) = x³ / (1 + x²) is Uniform Continuous on ℝ | Sachchidanand Prasad</title>
 
 
     <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png" />
@@ -148,41 +148,92 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-roman">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        One can use sequential criteria of continuity to show that the function is continuous. 
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        A better way to show that 
+                        \[
+                            \vert f(x) - f(y) \vert \leq 2 \vert x - y \vert .
+                        \]
+                        Use AM-GM inequality to show te above $2 \vert xy \vert \leq x^2 + y^2$.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Given that the function is 
+                    \[
+                        f(x) = \frac{x^3}{1 + x^2} = x - \frac{x}{1 + x^2}, \quad x \in \mathbb{R} .
+                    \]
+                    We need to show that $f$ is continuous on $\mathbb{R} $. Let $a \in \mathbb{R} $. We claim that $f$ is continuous at $a$. Recall that a function $f$ is continuous at $x$ if any sequence $\left( x_n \right) $ converging to $x$, the sequence $\left( f(x_n) \right) $ will converge to $f(x)$.
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let $\left( a_n \right) $ be a sequence converging to $a$. Since $x \mapsto x^3$ and $x \mapsto 1 + x^2$ are polynomials and hence continuous, so we must have 
+                    \[
+                        \lim_{n \to \infty} a_n^3 = a^3 \quad \text{ and } \quad \lim_{n \to \infty} \left( 1 + a_n^2 \right) = 1 + a^2.
+                    \]
+                    As $1 + a_n^2 > 0$ for any $n \in \mathbb{N} $ and also $1 + a^2 > 0$, the limit 
+                    \[
+                        \lim_{n \to \infty} \frac{a_n^3}{1 + a_n^2} = \frac{a^3}{1 + a^2} = f(a).
+                    \]    
+                    Thus, $f$ is continuous at $a$ and hence $f$ is continuous on $\mathbb{R}$. 
+                    
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+
+                    <div class="remark">
+                      We could have also used that if $f$ and $g$ are continuous function at $x = a$, and $g(x)\neq 0$ for any $x$ in the domain of $g$, then $\frac{f(x)}{g(x)}$ is also continuous at $a$.    
+                    </div>
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let us show the continuity by the $\epsilon $-$\delta $ method. Note that for any $x,y \in \mathbb{R} $, we have 
+                    \begin{align*}
+                        \left\vert f(x) - f(y) \right\vert & = \left\vert \left( x - \frac{x}{1 + x^2} \right)  - \left( y - \frac{y}{1 + y^2} \right)  \right\vert \\
+                        & = \left\vert x - y - \frac{x}{1 + x^2} + \frac{y}{1 + y^2} \right\vert \\
+                        & \leq \vert x - y \vert + \left\vert \frac{x}{1 + x^2} - \frac{y}{1 + y^2} \right\vert.
+                    \end{align*}   
+                    We will now use the inequality $2 \vert xy \vert \leq x^2 + y^2$ (AM-GM inequality) to estimate the last quantity in the above inequality.  
+                    \begin{align*}
+                        \left\vert \frac{x}{1 + x^2} - \frac{y}{1 + y^2} \right\vert & = \left\vert \frac{x + xy^2 - y - x^2 y}{(1 + x^2)(1 + y^2)} \right\vert \\
+                        & = \left\vert \frac{(x-y)( 1 - xy)}{(1 + x^2) (1 + y^2)} \right\vert \\
+                        & \leq \vert x - y \vert  \cdot \left( \frac{1 + \vert xy \vert}{(1 + x^2)(1 + y^2)}  \right) \\
+                        & \leq \vert x - y \vert  \cdot \left( \frac{1 + \frac{x^2 + y^2}{2}}{(1 + x^2)(1 + y^2)}  \right) \\
+                        & = \frac{\vert x - y \vert }{2} \left( \frac{1 + x^2 + 1 + y^2}{(1 + x^2) (1 + y^2)} \right) \\
+                        & \leq \frac{\vert x - y \vert }{2} \left( \frac{1}{1 + x^2} + \frac{1}{1 + y^2} \right) \\
+                        \leq \vert x - y \vert.
+                    \end{align*} 
+                    Note that the last inequality holds because $\frac{1}{1 + x^2} + \frac{1}{1 + y^2} \leq 2$. Thus, we showed that 
+                    \[
+                        \vert f(x) - f(y) \vert \leq 2 \vert x - y \vert .
+                    \]
+                    Thus $f$ is Lipschitz and hence continuous and uniform continuos on $\mathbb{R} $. (We could have also take $\delta  = \frac{\epsilon }{2}$ to show the continuity and uniform continuity). 
+                  </div>
+
                 </div>
 
                 <!-- Previous Button -->
