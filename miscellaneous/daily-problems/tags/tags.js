@@ -194,4 +194,30 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Function to get URL parameters
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    // Check if a tag is passed in the URL
+    const tagFromUrl = getQueryParam('tag');
+    if (tagFromUrl) {
+        // Find the button that matches the tag
+        const buttonToClick = Array.from(buttons).find(button => 
+            button.innerText.trim().toLowerCase().replace(/ /g, '-') === tagFromUrl
+        );
+
+        // Simulate a click to open the corresponding links container
+        if (buttonToClick) {
+            buttonToClick.click();
+
+            // Scroll smoothly to the button after a slight delay
+            setTimeout(() => {
+                buttonToClick.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        }
+    }
+
 });
