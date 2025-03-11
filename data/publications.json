@@ -1,0 +1,81 @@
+[
+    {
+      "title": "Distance from a Finsler submanifold to its cut locus and the existence of a tubular neighborhood",
+      "authors": "A. Bhowmick, Sachchidanand Prasad",
+      "date": "November 2024",
+      "arxiv": "https://arxiv.org/abs/2411.01185",
+      "journal": "",
+      "journal_link": "",
+      "abstract": "In this article we prove that for a closed, not necessarily compact, submanifold $N$ of a possibly non-complete Finsler manifold $(M,F)$, the cut time map is always positive. As a consequence, we prove the existence of a tubular neighborhood of such a submanifold. When $N$ is compact, it then follows that there exists an $\\epsilon>0$ such that the distance between $N$ and its cut locus $\\mathrm{Cu}(N)$ is at least $\\epsilon$. This was originally proved by B. Alves and M. A. Javaloyes (<em>Proc. Amer. Math. Soc.</em> 2019). We have given an alternative, rather geometric proof of the same, which is novel even in the Riemannian setup. We also obtain easier proofs of some results from N. Innami et al. (<em>Trans. Amer. Math. Soc.</em>, 2019), under weaker hypothesis."
+    },
+    
+    {
+      "title": "On the focal locus of submanifolds of a Finsler manifold",
+      "authors": "A. Bhowmick, Sachchidanand Prasad",
+      "date": "September 2024",
+      "arxiv": "https://arxiv.org/abs/2409.02643",
+      "journal": "",
+      "journal_link": "",
+      "abstract": "In this article, we investigate the focal locus of closed (not necessarily compact) submanifolds in a forward complete Finsler manifold. The main goal is to show that the associated normal exponential map is <em>regular</em> in the sense of F.W. Warner (<em>Am. J. of Math.</em>, 87, 1965). This leads to the proof of the fact that the normal exponential is non-injective near tangent focal points. As an application, following R.L. Bishop's work (<em>Proc. Amer. Math. Soc.</em>, 65, 1977), we express the tangent cut locus as a closure of a certain set of points, called separating tangent cut points. This strengthens the results from the present authors' previous work (<em>J. Geom. Anal.</em>, 34, 2024)."
+    },
+
+    {
+      "title": "Six problems in Intuitive Geometry",
+      "authors": "S. Honda, N. Horio, J. Itoh, N. Nomura, Sachchidanand Prasad",
+      "date": "January 2024",
+      "arxiv": "",
+      "journal": "Bulletin Mathematique de la Société des Sciences Mathématiques de Roumanie",
+      "journal_link": "https://ssmr.ro/bulletin/volumes/67-2/node9.html",
+      "abstract": "In this note we present several open, yet easy to state, geometric problems."
+    },
+
+    {
+      "title": "On the cut locus of submanifolds of a Finsler manifold",
+      "authors": "A. Bhowmick, Sachchidanand Prasad",
+      "date": "July 2023",
+      "arxiv": "https://arxiv.org/abs/2307.11045",
+      "journal": "Journal of Geometric Analysis",
+      "journal_link": "https://link.springer.com/article/10.1007/s12220-024-01751-1",
+      "abstract": "In this article, we investigate the cut locus of closed (not necessarily compact) submanifolds in a forward complete Finsler manifold. We explore the deformation and characterization of the cut locus, extending the results of Basu and the second author (<em>Algebraic and Geometric Topology</em>, 2023). Given a submanifold $N$, we consider an $N$-geodesic loop as an $N$-geodesic starting and ending in $N$, possibly at different points. This class of geodesics were studied by Omori (<em>Journal of Differential Geometry</em>, 1968). We obtain a generalization of Klingenberg's lemma for closed geodesics (<em>Annals of Mathematics</em>, 1959) for $N$-geodesic loops in the reversible Finsler setting."
+    },
+
+    {
+      "title": "Independence complexes of wedge of graphs",
+      "authors": "S. Panja, N. Daundkar, Sachchidanand Prasad",
+      "date": "March 2023",
+      "arxiv": "https://arxiv.org/abs/2303.08798",
+      "journal": "",
+      "journal_link": "",
+      "abstract": "In this article, we introduce the notion of a wedge of graphs and provide detailed computations for the independence complex of a wedge of path and cycle graphs. In particular, we show that these complexes are either contractible or wedges of spheres."
+    },
+
+    {
+      "title": "The image of polynomials and Waring type problems on upper triangular matrix algebras",
+      "authors": "S. Panja, Sachchidanand Prasad",
+      "date": "June 2022",
+      "arxiv": "https://arxiv.org/abs/2206.08827",
+      "journal": "Journal of Algebra",
+      "journal_link": "https://www.sciencedirect.com/science/article/abs/pii/S002186932300220X?via%3Dihub",
+      "abstract": "Let $p$ be a polynomial in non-commutative variables $x_1,x_2,\\ldots,x_n$ with constant term zero over an algebraically closed field $K$. The object of study in this paper is the image of this kind of polynomial over the algebra of upper triangular matrices $T_m(K)$. We introduce a family of polynomials called multi-index $p$-inductive polynomials for a given polynomial $p$. Using this family we will show that, if $p$ is a polynomial identity of $T_t(K)$ but not of $T_{t+1}(K)$, then $p \\left(T_m(K)\\right)\\subseteq T_m(K)^{(t-1)}$. Equality is achieved in the case $t=1,~m-1$ and an example has been provided to show that equality does not hold in general. We further prove existence of $d$ such that each element of $T_m(K)^{(t-1)}$ can be written as sum of $d$ many elements of $p\\left( T_m(K) \\right)$. It has also been shown that the image of $T_m(K)^\\times$ under a word map is Zariski dense in $T_m(K)^\\times$."
+    },
+
+    {
+      "title": "Counterexample to a conjecture about dihedral quandle",
+      "authors": "S. Panja, Sachchidanand Prasad",
+      "date": "May 2022",
+      "arxiv": "https://arxiv.org/abs/2205.15024",
+      "journal": "Miskolc Mathematical Notes",
+      "journal_link": "http://mat76.mat.uni-miskolc.hu/mnotes/article/4383",
+      "abstract": "It was conjectured that the augmentation ideal of a dihedral quandle of even order $n>2$ satisfies $\\left|\\Delta^k(\\textup{R}_n)/\\Delta^{k+1}(\\textup{R}_{n})\\right|=n$ for all $k\\ge 2$. In this article we provide a counterexample against this conjecture."
+    },
+
+    {
+      "title": "A connection between cut locus, Thom space and Morse-Bott functions",
+      "authors": "S. Basu, Sachchidanand Prasad",
+      "date": "June 2021",
+      "arxiv": "https://arxiv.org/abs/2011.02972",
+      "journal": "Algebraic & Geometric Topology",
+      "journal_link": "https://msp.org/agt/2023/23-9/p06.xhtml",
+      "abstract": "Associated to every closed, embedded submanifold $N$ in a connected Riemannian manifold $M$, there is the distance function $d_N$ which measures the distance of a point in $M$ from $N$. We analyze the square of this function and show that it is Morse-Bott on the complement of the cut locus $\\mathrm{Cu}(N)$ of $N$, provided $M$ is complete. Moreover, the gradient flow lines provide a deformation retraction of $M-\\mathrm{Cu}(N)$ to $N$. If $M$ is a closed manifold, then we prove that the Thom space of the normal bundle of $N$ is homeomorphic to $M/\\mathrm{N}$. We also discuss several interesting results which are either applications of these or related observations regarding the theory of cut locus. These results include, but are not limited to, a computation of the local homology of singular matrices, a classification of the homotopy type of the cut locus of a homology sphere inside a sphere, a deformation of the indefinite unitary group $U(p,q)$ to $U(p)\\times U(q)$ and a geometric deformation of $GL(n,\\mathbb{R})$ to $O(n,\\mathbb{R})$ which is different from the Gram-Schmidt retraction."
+    }
+  ]

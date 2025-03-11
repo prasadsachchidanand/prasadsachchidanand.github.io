@@ -1,0 +1,57 @@
+[
+    {
+      "title": "Dingxin Scholar Grant",
+      "description": "Jilin University, Govt. of China",
+      "icon": "fa-solid fa-award",
+      "iconColor": "text-yellow-500"
+    },
+    
+    {
+      "title": "High Level Foreign Talent",
+      "description": "Govt. of China",
+      "icon": "fa-solid fa-user-graduate",
+      "iconColor": "text-yellow-500"
+    },
+    
+    {
+      "title": "Funding from the Nagoya University and Sugiyama Jagakuen University",
+      "description": "For collaboration with Prof. Jin-ichi Itoh",
+      "icon": "fa-solid fa-handshake",
+      "iconColor": "text-yellow-500"
+    },
+    
+    {
+      "title": "Infosys Excellence Travel grant",
+      "description": "Infosys Excellence Travel grant from the Director of ICTS-TIFR to travel Greece",
+      "icon": "fa-solid fa-plane",
+      "iconColor": "text-yellow-500"
+    },
+
+    {
+      "title": "Gold Medal",
+      "description": "Institute Gold Medal for the Best Postgraduate with Integrated M.Sc. Degree",
+      "icon": "fa-solid fa-medal",
+      "iconColor": "text-yellow-600"
+    },
+    
+    {
+      "title": "Silver Medal (Branch Topper)",
+      "description": "Medals for the Branch Topper (Mathematics)",
+      "icon": "fa-solid fa-medal",
+      "iconColor": "text-gray-400"
+    },
+
+    {
+      "title": "NBHM M.Sc. Scholarship",
+      "description": "Awarded for NBHM M.Sc. Scholarship",
+      "icon": "fa-solid fa-award",
+      "iconColor": "text-blue-500"
+    },
+
+    {
+      "title": "Mathematics Olympiad",
+      "description": "Secured 1st Position in the Regional Mathematical Olympiad (RMO) from Patna Region",
+      "icon": "fa-solid fa-trophy",
+      "iconColor": "text-gold-500"
+    }
+  ]

@@ -1,0 +1,85 @@
+[
+    {
+      "title": "The 37th Annual Conference of Ramanujan Mathematical Society",
+      "link": "https://www.rms2022.in/",
+      "date": "Dec 06 - 08, 2022",
+      "location": "SSN College of Engineering, Chennai"
+    },
+    
+    {
+      "title": "Operator Theory and Complex Geometry",
+      "link": "https://math.iiserkol.ac.in/OTCG/",
+      "date": "Nov 24 - 26, 2022",
+      "location": "IISER Kolkata"
+    },
+    
+    {
+      "title": "The 39th Annual Workshop in Geometric Topology",
+      "link": "https://faculty.tcu.edu/gfriedman/GTW2022/",
+      "date": "Jun 06 - 08, 2022",
+      "location": "Online"
+    },
+
+    {
+      "title": "The Inter IISER-NISER Mathematics Meet, 2022",
+      "link": "https://math.iiserkol.ac.in/iinmm/",
+      "date": "May 31 - Jun 02, 2022",
+      "location": "IISER Kolkata"
+    },
+
+    {
+      "title": "Young Topologists and Geometers, DMV-ÖMG-Jahrestagung 2021, Sektion Geometrie und Topologie",
+      "link": "https://www.uni-math.gwdg.de/schick/DMV_OeMG_Sektion_Topologie_21.html",
+      "date": "Sep 29 - Oct 01, 2021",
+      "location": "Universität Passau"
+    },
+
+    {
+      "title": "Young Topologists Meeting, 2021",
+      "link": "https://sites.google.com/view/ytm2021",
+      "date": "Jul 05 - 16, 2021",
+      "location": "KTH Royal Institute of Technology and Stockholm University"
+    },
+
+    {
+      "title": "Top Flavours, 2021",
+      "link": "https://sites.google.com/view/topflavours2021/home",
+      "date": "Jun 17 - 18, 2021",
+      "location": "University of Warwick"
+    },
+
+    {
+      "title": "Sheaf Theory, Sheaf Cohomology and Spectral Sequences",
+      "link": "https://www.atmschools.org/school/2019/NCMW/stscss",
+      "date": "Nov 18 - 30, 2019",
+      "location": "University of Delhi"
+    },
+
+    {
+      "title": "Advanced Instructional School on Riemannian Geometry",
+      "link": "https://www.atmschools.org/school/2019/ais/rg",
+      "date": "Jul 08 - 20, 2019",
+      "location": "IISc Bengaluru"
+    },
+
+    {
+      "title": "Advanced Instructional School on Homotopy Theory",
+      "link": "https://www.ncmath.org/archives/atms/2019/ais/ht",
+      "date": "May 13 - 25, 2019",
+      "location": "ISI Kolkata"
+    },
+
+    {
+      "title": "Advanced Instructional School on Contact and Symplectic Topology",
+      "link": "https://www.atmschools.org/school/2018/NCMW/csg",
+      "date": "Dec 03 - 14, 2018",
+      "location": "IISER Bhopal"
+    },
+
+    {
+      "title": "J-holomorphic Curves and G-W Invariants",
+      "link": "https://www.niser.ac.in/niser_jhol",
+      "date": "Jul 10 - 22, 2017",
+      "location": "NISER Bhubaneswar"
+    }
+  ]

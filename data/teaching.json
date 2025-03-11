@@ -1,0 +1,78 @@
+[
+    {
+      "institution": "IISER Kolkata",
+      "courses": [
+        {
+          "title": "Topology",
+          "date": "Jan - Apr 2021",
+          "gradient": "from-blue-50 to-indigo-100"
+        },
+        {
+          "title": "Linear Algebra",
+          "date": "Aug - Dec 2020",
+          "gradient": "from-green-50 to-teal-100"
+        },
+        {
+          "title": "Algebra I",
+          "date": "Aug - Dec 2019",
+          "gradient": "from-purple-50 to-indigo-100"
+        },
+        {
+          "title": "Analysis II",
+          "date": "Jan - Apr 2019",
+          "gradient": "from-blue-50 to-cyan-100"
+        },
+        {
+          "title": "Analysis I",
+          "date": "Aug - Dec 2018",
+          "gradient": "from-blue-50 to-cyan-100"
+        },
+        {
+          "title": "Probability and Statistics",
+          "date": "Jan - Apr 2018",
+          "gradient": "from-orange-50 to-yellow-100"
+        }
+      ]
+    },
+    {
+      "institution": "NIT Rourkela",
+      "courses": [
+        {
+          "title": "Measure Theory",
+          "date": "Jan - Apr 2017",
+          "gradient": "from-teal-50 to-green-100"
+        },
+        {
+          "title": "Real Analysis II",
+          "date": "Jul - Dec 2016",
+          "gradient": "from-blue-50 to-cyan-100"
+        }
+      ]
+    },
+    {
+      "institution": "MTTS",
+      "courses": [
+        {
+          "title": "Mentor at MTTS Level-O",
+          "date": "Jun 2023",
+          "location": "IIT(ISM) Dhanbad",
+          "gradient": "from-purple-50 to-indigo-100"
+        },
+        {
+          "title": "Online Foundation Course in Mathematics",
+          "date": "Oct 2022",
+          "gradient": "from-green-50 to-teal-100"
+        },
+        {
+          "title": "A Conceptual Introduction to Several Variable Calculus",
+          "date": "Feb - Mar 2021",
+          "gradient": "from-blue-50 to-indigo-100"
+        },
+        {
+          "title": "Online Foundation Course in Mathematics",
+          "date": "Oct 2020",
+          "gradient": "from-green-50 to-teal-100"
+        }
+      ]
+    }
+  ]

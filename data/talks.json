@@ -1,0 +1,85 @@
+[
+    {
+      "title": "Independence Complex of Wedge of Graphs",
+      "event": "ICTS In-House, 2023",
+      "date": "Apr 13, 2023",
+      "location": "ICTS Bangalore",
+      "slides": "../assets/attachments/ICTS_IHS-2023.pdf"
+    },
+    
+    {
+      "title": "Cut Locus of Submanifolds: A Geometric Viewpoint",
+      "event": "GANIT: Geometry, Algebra, Numbers & Integers, Topology",
+      "eventLink": "https://math.iitgn.ac.in/seminars-2022/",
+      "date": "Oct 10, 2022",
+      "location": "IIT Gandhinagar",
+      "slides": "../assets/attachments/Cut_Locus_Of_Submanifolds-GeometricViewPoint.pdf"
+    },
+    
+    {
+      "title": "Morse-Bott Flows and Cut Locus of Submanifolds",
+      "event": "The 39th Workshop in Geometric Topology, 2022",
+      "eventLink": "https://faculty.tcu.edu/gfriedman/GTW2022/",
+      "date": "Jun 07, 2022",
+      "location": "Texas Christian University",
+      "slides": "../assets/attachments/workshop_in_GT.pdf",
+      "video": "https://www.youtube.com/watch?v=vG6_pptVKhk"
+    },
+    
+    {
+      "title": "Equivariant Cut Locus Theorem",
+      "event": "Inter IISER-NISER Mathematics Meet (IINMM) 2022",
+      "eventLink": "https://math.iiserkol.ac.in/iinmm/",
+      "date": "Jun 01, 2022",
+      "location": "IISER Kolkata",
+      "slides": "../assets/attachments/IINMM-2022.pdf",
+      "source": "https://github.com/prasadsachchidanand/talks/tree/main/IINMM-2022"
+    },
+    
+    {
+      "title": "Morse-Bott Functions, Cut Locus and Their Relations",
+      "event": "Young Topologists and Geometers, DMV-ÖMG-Jahrestagung 2021, Sektion Geometrie und Topologie",
+      "eventLink": "https://www.uni-math.gwdg.de/schick/DMV_OeMG_Sektion_Topologie_21.html",
+      "date": "Oct 01, 2021",
+      "location": "Universität Passau",
+      "slides": "../assets/attachments/ytg.pdf",
+      "source": "https://github.com/prasadsachchidanand/talks/tree/main/Youngs-Topologists-and-Geometers-Talk"
+    },
+    
+    {
+      "title": "Cut Locus, Morse-Bott Functions and Their Relation",
+      "event": "Inter IISER-NISER Math Meet",
+      "eventLink": "http://www.iisertirupati.ac.in/iinmm/",
+      "date": "Jul 12, 2021",
+      "location": "IISER Tirupati",
+      "slides": "../assets/attachments/Inter_IISER-NISER_Meet.pdf",
+      "source": "https://github.com/prasadsachchidanand/talks/tree/main/Inter-IISER-NISER-Meet"
+    },
+    
+    {
+      "title": "Cut Locus and Morse-Bott Functions",
+      "event": "Top Flavours, 2021 - Contributed Talk",
+      "eventLink": "https://sites.google.com/view/topflavours2021/home",
+      "date": "Jun 18, 2021",
+      "location": "University of Warwick",
+      "slides": "../assets/attachments/Topo_Seminar.pdf",
+      "source": "https://github.com/prasadsachchidanand/talks/tree/main/TopFlavours-Contributed_Talk"
+    },
+    
+    {
+      "title": "Sphere Eversion",
+      "event": "Top Flavours, 2021 - Gong-Show Talk",
+      "eventLink": "https://sites.google.com/view/topflavours2021/home",
+      "date": "Jun 19, 2021",
+      "location": "University of Warwick",
+      "slides": "https://drive.google.com/file/d/1jCy29vrqoCRdoRo4SS8I1hogDmlOz8ds/view?usp=sharing"
+    },
+    
+    {
+      "title": "Introduction and Advanced Stuff in GeoGebra",
+      "event": "Introductory Workshops on GeoGebra",
+      "eventLink": "https://sites.google.com/view/igci2021/workshops",
+      "date": "Mar 03, 2021",
+      "video": "https://youtu.be/MHvDbOBESnM"
+    }
+]
