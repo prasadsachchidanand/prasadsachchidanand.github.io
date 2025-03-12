@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'miscellaneous': document.getElementById('miscellaneous-links'),
         'gate': document.getElementById('gate-links'),
         'csir-net': document.getElementById('csir-net-links'),
-        'mcq': document.getElementById('mcq-links')
+        'mcq': document.getElementById('mcq-links'),
+        'book-solution': document.getElementById('book-solution-links')
     };
 
     // Map subcategories to main categories
@@ -97,6 +98,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // mcq
         'mcq': 'mcq',
+       
+        // book-solution
+        'topology-munkres': 'book-solution',
     };
 
     // Define the active button and container

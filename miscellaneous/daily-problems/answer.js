@@ -1,14 +1,36 @@
 // for solution and hint toggle button
 
-function toggleAnswer(id) {
-  document.getElementById(id).classList.toggle('hidden');
-}
-
 function toggleHint(id) {
-  document.getElementById(id).classList.toggle('hidden');
+  const hintBox = document.getElementById(id);
+  hintBox.classList.toggle('hidden');
+  
+  // Get the button that was clicked (the one that called this function)
+  const button = event.currentTarget;
+  
+  // Change button text based on visibility
+  if (hintBox.classList.contains('hidden')) {
+    button.textContent = 'Show Hint';
+  } else {
+    button.textContent = 'Hide Hint';
+  }
 }
 
 function toggleSolution(id) {
+  const solutionBox = document.getElementById(id);
+  solutionBox.classList.toggle('hidden');
+  
+  // Get the button that was clicked
+  const button = event.currentTarget;
+  
+  // Change button text based on visibility
+  if (solutionBox.classList.contains('hidden')) {
+    button.textContent = 'Show Solution';
+  } else {
+    button.textContent = 'Hide Solution';
+  }
+}
+
+function toggleAnswer(id) {
   document.getElementById(id).classList.toggle('hidden');
 }
 
