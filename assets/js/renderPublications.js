@@ -18,6 +18,7 @@ function renderPublications(containerId, style = 'cv') {
                 <p class="text-gray-800 font-medium"><span class="italic">${pub.title}</span> (${pub.authors})</p>
                 <div class="flex flex-wrap items-center text-gray-600 text-sm mt-1 gap-3">
                   <span>${pub.date}</span>
+                  ${pub.journal ? `<span>${pub.journal}</span>` : ''}
                   ${pub.arxiv ? `<a href="${pub.arxiv}" target="_blank" class="text-indigo-500 hover:text-indigo-700">arXiv link</a>` : ''}
                   ${pub.journal_link ? `<a href="${pub.journal_link}" target="_blank" class="text-indigo-500 hover:text-indigo-700">Journal link</a>` : ''}
                 </div>
@@ -30,6 +31,7 @@ function renderPublications(containerId, style = 'cv') {
           pubItem.innerHTML = `
             <em>${pub.title}</em> (${pub.authors}), ${pub.date} <br>
             <span class="pl-4">
+              ${pub.journal ? `<span>${pub.journal}</span>` : ''}
               ${pub.arxiv ? `<a href="${pub.arxiv}" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv link</a>` : ''}
               ${pub.journal_link ? `<a href="${pub.journal_link}" target="_blank" class="text-blue-500 hover:text-blue-800">Journal link</a>` : ''}
             </span>
@@ -48,7 +50,7 @@ function renderPublications(containerId, style = 'cv') {
         // Reprocess MathJax after inserting the publication
         if (window.MathJax) {
           MathJax.typeset([pubItem]);
-          console.log('Math success')
+          console.log('Math success');
         }
       });
     })
