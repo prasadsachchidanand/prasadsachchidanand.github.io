@@ -39,32 +39,38 @@
 		<style>
 			/* Ensure the accordion content is hidden by default */
 			.accordion-toggle:not(:checked) ~ .accordion-content {
-			display: none;
+				display: none;
 			}
 
 			/* Show accordion content when checked */
-			.accordion-toggle:checked ~ .accordion-content {
-			display: block;
-			max-height: none; /* Remove any height restrictions */
-			overflow: visible; /* Ensure content is not clipped */
+				.accordion-toggle:checked ~ .accordion-content {
+				display: block;
+				max-height: none; /* Remove any height restrictions */
+				overflow: visible; /* Ensure content is not clipped */
 			}
 
 			/* Rotate chevron when accordion is open */
-			.accordion-toggle:checked + .accordion-label .fa-chevron-down {
-			transform: rotate(180deg);
+				.accordion-toggle:checked + .accordion-label .fa-chevron-down {
+				transform: rotate(180deg);
 			}
 
 			/* Ensure the grid container doesn't restrict content */
 			.grid {
-			display: grid;
-			width: 100%;
-			overflow: visible; /* Prevent clipping within the grid */
+				display: grid;
+				width: 100%;
+				overflow: visible; /* Prevent clipping within the grid */
 			}
 
 			/* Ensure each grid item (publication card) is fully visible */
 			.grid > div {
-			min-height: 0; /* Prevent shrinking issues */
-			overflow: visible; /* Ensure no content is clipped */
+				min-height: 0; /* Prevent shrinking issues */
+				overflow: visible; /* Ensure no content is clipped */
+			}
+
+			/* Add smooth scrolling behavior */
+			html {
+				scroll-behavior: smooth;
+				scroll-snap-type: y proximity;
 			}
 		</style>
         
@@ -108,7 +114,7 @@
 
 			<!-- section -->
 			<section class="text-gray-600 body-font">
-				<div class="container px-5 py-24 mx-auto max-w-7xl">
+				<div class="container px-5 py-24 mx-auto max-w-5xl">
 				  	
 					<!-- Header -->
 					<div class="flex flex-col items-center text-center justify-center mb-12">
@@ -131,7 +137,7 @@
 					<div class="space-y-6">
 						
 						<!-- Employment -->
-						<div class="bg-white rounded-lg shadow-md">
+						<div class="bg-indigo-50 rounded-lg shadow-md">
 							<input type="checkbox" id="employment-toggle" class="accordion-toggle hidden">
 							<label for="employment-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
 							  <h3 class="text-xl font-semibold text-gray-900">Employment</h3>
@@ -144,7 +150,7 @@
 						</div>
 
 						<!-- Education -->
-						<div class="bg-white rounded-lg shadow-md">
+						<div class="bg-indigo-50 rounded-lg shadow-md">
 							<input type="checkbox" id="education-toggle" class="accordion-toggle hidden">
 							<label for="education-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
 							  <h3 class="text-xl font-semibold text-gray-900">Education</h3>
@@ -157,7 +163,7 @@
 						</div>
 						
 						<!-- Publications/Preprints -->
-						<div class="bg-white rounded-lg shadow-md">
+						<div class="bg-indigo-50 rounded-lg shadow-md">
 							<!-- Accordion Toggle -->
 							<input type="checkbox" id="publications-toggle" class="accordion-toggle hidden">
 							<label for="publications-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
@@ -172,7 +178,7 @@
 						</div>
 						
 						<!-- Conferences -->
-						<div class="bg-white rounded-lg shadow-md">
+						<div class="bg-indigo-50 rounded-lg shadow-md">
 							<input type="checkbox" id="conferences-toggle" class="accordion-toggle hidden">
 							<label for="conferences-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
 							  <h3 class="text-xl font-semibold text-gray-900">Training Programmes and Conferences Attended</h3>
@@ -185,7 +191,7 @@
 						</div>
 						
 						<!-- Selected Talks -->
-						<div class="bg-white rounded-lg shadow-md">
+						<div class="bg-indigo-50 rounded-lg shadow-md">
 							<input type="checkbox" id="talks-toggle" class="accordion-toggle hidden">
 							<label for="talks-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
 							  <h3 class="text-xl font-semibold text-gray-900">Selected Talks</h3>
@@ -198,7 +204,7 @@
 						</div>
 
 						<!-- Teaching Assistant -->
-						<div class="bg-white rounded-lg shadow-md">
+						<div class="bg-indigo-50 rounded-lg shadow-md">
 							<input type="checkbox" id="teaching-toggle" class="accordion-toggle hidden">
 							<label for="teaching-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
 							  <h3 class="text-xl font-semibold text-gray-900">Teaching Assistant</h3>
@@ -211,7 +217,7 @@
 						</div>
 						
 						<!-- Honours and Awards -->
-						<div class="bg-white rounded-lg shadow-md">
+						<div class="bg-indigo-50 rounded-lg shadow-md">
 							<input type="checkbox" id="awards-toggle" class="accordion-toggle hidden">
 							<label for="awards-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
 							  <h3 class="text-xl font-semibold text-gray-900">Honours and Awards</h3>
@@ -220,6 +226,18 @@
 							<div class="accordion-content p-4">
 							  <!-- Container for dynamically rendered awards data -->
 							  <div id="awards-list" class="space-y-4"></div>
+							</div>
+						</div>
+
+						<!-- Back to Top Button with Tooltip -->
+						<div class="fixed bottom-8 right-8 group">
+							<button id="back-to-top" class="p-3 bg-indigo-500 text-white rounded-full shadow-lg hover:bg-indigo-600 transition-all duration-300 opacity-0 invisible">
+								<i class="fa-solid fa-arrow-up"></i>
+							</button>
+							<!-- Tooltip -->
+							<div class="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-800 text-white text-sm rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+								Back to Top
+								<div class="absolute top-full right-2 w-2 h-2 bg-gray-800 transform rotate-45"></div>
 							</div>
 						</div>
 
@@ -294,6 +312,33 @@
 
 		<script>
 			renderPublications('publications-list-cv', 'cv');
+		</script>
+
+		<!-- Back to top -->
+		<script>
+			// Back to Top Button
+			document.addEventListener("DOMContentLoaded", function () {
+				const backToTopButton = document.getElementById("back-to-top");
+
+				// Show/hide the button based on scroll position
+				window.addEventListener("scroll", function () {
+					if (window.scrollY > 300) {
+					backToTopButton.classList.remove("opacity-0", "invisible");
+					backToTopButton.classList.add("opacity-100", "visible");
+					} else {
+					backToTopButton.classList.remove("opacity-100", "visible");
+					backToTopButton.classList.add("opacity-0", "invisible");
+					}
+				});
+
+				// Smooth scroll to top when the button is clicked
+				backToTopButton.addEventListener("click", function () {
+					window.scrollTo({
+					top: 0,
+					behavior: "smooth",
+					});
+				});
+			});
 		</script>
 
 	</body>

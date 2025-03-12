@@ -158,38 +158,168 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-roman">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        Take $z = r e^{\iota \theta}$ in (1), (4) and (5), and write the given equation in the polar form. Finally solve the equation.
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        In the second part take $w = \frac{z - 1}{z + 1}$, then assume $w = \rho e^{\iota \phi }$ and solve the equation $w^2 = 2\iota$. Finally, obtained value of $w$ will determine the solution. 
+                      </li>
+                      <li class="my-4">
+                        In the third part take $z = x + \iota y$, and equate the real and imaginary parts to solve for $x$ and $y$.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>To solve this we will write $z = r e^{\iota \theta }$ ot $z = x + \iota y$. 
+                    <ol class="math-list">
+                      <li class="my-4">
+                        We want to find $z \in \mathbb{C} $ such that $z^3 = 1$. So, 
+                        \begin{align*}
+                            z^3 = 1 & \implies \left( r e^{\iota \theta } \right) ^3 = 1 = e^{0}\\
+                            & \implies r^3 e^{3\iota \theta } = e^0 \\
+                            & \implies r^3 = 1 \text{ and } 3\theta = 2k\pi , k \in \mathbb{Z} \\
+                            & \implies r = 1 \text{ and } \theta = \frac{2k\pi}{3}, \quad k = 0,1,2.
+                        \end{align*}  
+                        Note that we only took three values of $k$, because for other values, the angles will repeat. Thus, the solution will be 
+                        \begin{align*}
+                            z_1 & = e^0 = 1 \\
+                            z_2 & = e^{\iota \frac{2\pi}{3}  } = -\frac{1}{2} + \iota \frac{\sqrt{3} }{2}, \text{ and } \\
+                            z_3 & = e^{\iota \frac{4\pi}{3}  } = -\frac{1}{2} - \iota \frac{\sqrt{3}}{2}.
+                        \end{align*}
+                        <div class="flex flex-wrap justify-center my-4">
+                          <img
+                            src="../../../assets/img/prob-04-03-25_01.svg"
+                            class="h-auto"
+                            alt="z^3 = 1"
+                          />
+                        </div>
+                      </li>
+                      
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We want to solve $\left( \frac{z - 1}{z + 1} \right)^2 = 2 \iota $. Let $w = \frac{z - 1}{z + 1}$, and write $w = \rho e^{\iota \phi }$. Then we want to solve 
+                        \begin{align*}
+                            w^2 = 2\iota & \implies \rho ^2 e^{2\iota \phi } = 2 e^{\iota \pi /2} \\
+                            & \implies \rho = \sqrt{2} \text{ and } 2\phi = 2k\pi + \frac{\pi}{2}, \quad  k = 0,1 \\
+                            & \implies \rho = \sqrt{2} \text{ and }  \phi = k\pi + \frac{\pi }{4}, \quad  k = 0,1. \\
+                            & \implies w_0 = \sqrt{2} e^{\iota \pi /4} \text{ and } w_1 = \sqrt{2} e^{\iota 5\pi /4} \\
+                            & \implies w_0 = 1 + \iota \text{ and } w_1 = -1 - \iota .  
+                        \end{align*}  
+                        Now let $z = x + \iota y$. Then 
+                        \begin{align*}
+                            \frac{z - 1}{z + 1} = w_0 & \implies \frac{x + \iota y - 1}{ x + \iota y + 1} =  1 + \iota  \\
+                            & \implies x + \iota y - 1 = x + \iota y + 1 + \iota x - y + \iota \\
+                            & \implies 2 - y + \iota (x + 1) = 0 \\
+                            & \implies x = -1 \text{ and } y = 2.
+                        \end{align*} 
+                        Thus, 
+                        \[
+                            z_0 = -1 + 2\iota .
+                        \]
+                        Similarly, 
+                        \begin{align*}
+                            \frac{z - 1}{z + 1} = -1 - \iota & \implies x + \iota y - 1 = -x - \iota y - 1 - \iota x + y - \iota \\
+                            & \implies x - 1 = -x + y - 1 \text{ and } y = -y -x - 1\\
+                            & \implies 2x - y = 0 \text{ and } 2y + x - 1 = 0 \\
+                            & \implies x = -\frac{1}{5} \text{ and } y = -\frac{2}{5}.
+                        \end{align*}
+                        Thus,
+                        \[
+                            z_1 = \frac{-1 - 2 \iota }{5}.
+                        \]
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We want to solve $z^2 = 24 \iota - 7$. Take $z = x + \iota y$. Then 
+                        \begin{align*}
+                            (x + \iota y)^2 = 24 \iota - 7 & \implies x^2 - y^2 + \iota 2xy = 24 \iota  - 7 \\
+                            & \implies \left\{ 
+                                \begin{array}{c}
+                                    x^2 - y^2  =  -7 \\
+                                    2xy = 24 \\
+                                \end{array}
+                             \right. \\
+                            & \implies \left\{ 
+                                \begin{array}{c}
+                                    x^2 - y^2 = -7 \\[1ex]
+                                    y = \dfrac{12}{x}
+                                \end{array}
+                              \right.
+                        \end{align*} 
+                        Then substituting $y = \frac{12}{x}$ in the first equation yields, 
+                        \begin{align*}
+                            x^2 - \left( \frac{12}{x} \right) ^2 + 7 = 0 & \implies x^4 - 144 + 7x^2 = 0 \\
+                            & \implies \left( x^2 - 9 \right) \left( x^2 + 16 \right) = 0 \\
+                            & \implies x = \pm 3 \quad (\text{ since } x \in \mathbb{R} ).
+                        \end{align*} 
+                        Therefore, 
+                        \[
+                            y = \pm 4 \text{ and } z = \pm 3 \pm 4\iota .
+                        \]
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We want to solve $z^3 = \iota - 1$. Take $z = r e^{\iota \theta }$. Note that $\iota - 1 = \sqrt{2} e^{\iota \frac{3\pi}{4}}$. Thus,
+                        \begin{align*}
+                            z^3 = \iota  - 1 & \implies r^3 e^{\iota 3\theta } = \sqrt{2} e^{\iota \frac{3\pi}{4}} \\
+                            & \implies r^3 = \sqrt{2} \text{ and } e^{\iota 3\theta } = e^{\iota 3\pi /4} \\
+                            & \implies r = \sqrt[6]{2} \text{ and } 3\theta = 2k\pi + 3\pi /4, \quad  k = 0,1,2 \\
+                            & \implies r = \sqrt[6]{2} \text{ and } \theta = \frac{2k\pi}{3} + \frac{\pi}{4}, \quad k = 0,1,2.
+                        \end{align*}
+                        Therefore, 
+                        \begin{align*}
+                            z_0 & = \sqrt[6]{2} e^{\iota \frac{\pi}{4}} , \quad z_1 = \sqrt[6]{2} e^{\iota \left(\frac{11\pi}{12}\right)} \text{ and } z_2 = \sqrt[6]{2} e^{\iota \left(\frac{19\pi}{12}\right)}.
+                        \end{align*}
+                      </li>  
+
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                        We want to solve $z^4 = -1$. Take $z = r e^{\iota \theta }$. Then, 
+                        \begin{align*}
+                            z^4 = -1  & \implies r^4 e^{\iota 4 \theta } = e^{\iota \pi} \\
+                            & \implies r^4 = 1 \text{ and } 4\theta = \pi + 2k\pi, \quad k \in \mathbb{Z} \\
+                            & \implies r = 1 \text{ and } \theta = \frac{\pi}{4} + \frac{k\pi}{2}, \quad k = 0, 1, 2, 3.
+                        \end{align*} 
+                        Thus, 
+                        \begin{align*}
+                            z_0 & = e^{\iota \frac{\pi}{4}} = \frac{1 + \iota }{\sqrt{2} } \\
+                            z_1 & = e^{\iota \frac{3\pi}{4}} = \frac{-1 + \iota }{\sqrt{2} } \\
+                            z_2 & = e^{\iota \frac{5\pi}{4}} = \frac{-1 - \iota }{\sqrt{2} } \\
+                            z_3 & = e^{\iota \frac{7\pi}{4}} = \frac{-1 + \iota }{\sqrt{2} }.
+                        \end{align*}
+                        <div class="flex flex-wrap justify-center my-4">
+                          <img
+                            src="../../../assets/img/prob-04-03-25_02.svg"
+                            class="h-auto"
+                            alt="z^4 = -1"
+                          />
+                        </div>
+                      </li>
+                    </ol>
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
