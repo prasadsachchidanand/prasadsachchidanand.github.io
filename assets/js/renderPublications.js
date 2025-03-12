@@ -48,6 +48,7 @@ function renderPublications(containerId, style = 'cv') {
         // Reprocess MathJax after inserting the publication
         if (window.MathJax) {
           MathJax.typeset([pubItem]);
+          console.log('Math success')
         }
       });
     })
