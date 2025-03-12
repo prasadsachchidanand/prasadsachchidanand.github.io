@@ -141,7 +141,13 @@
     
                 <!-- Publications Section -->
                 <h2 class="mt-8 mb-4 text-gray-900 text-xl title-font font-medium" id="publications">Publications and Preprints</h2>
-                <div id="publications-list-research"></div>
+                <div class="filter-buttons mb-6">
+                  <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded-md mr-2" data-filter="all">All</button>
+                  <button class="filter-btn bg-yellow-500 text-white px-4 py-2 rounded-md mr-2" data-filter="preprint">Preprints</button>
+                  <button class="filter-btn bg-green-500 text-white px-4 py-2 rounded-md" data-filter="accepted">Accepted Articles</button>
+                </div>
+                <div id="publications-container"></div>
+
               </div>
             </div>
           </div>
