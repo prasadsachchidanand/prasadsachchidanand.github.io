@@ -148,41 +148,90 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        Apply Weierstrass $M$-test in any bounded domain to show that the sequence is uniformly convergent on any bounded domain.
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        For non-convergence on any set $\mathbb{R}$, note that if the sequence converges uniformly over $\mathbb{R}$ then
+                        \[
+                            \lim_{n \to \infty} \sup_{x \in \mathbb{R}} \left\vert f_n(x) \right\vert = 0.
+                        \]
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Given that the series is
+                    \[
+                        f(x) = \sum_{n=0}^{\infty } \frac{x^n}{n}, \quad x \in \mathbb{R} .
+                    \]
+                    Let
+                    \[
+                        f_n(x) = \frac{x^n}{n!}, \quad  n \in \mathbb{N} .
+                    \]
+                    We wil use Weierstrass $M$ test to determine if the sequence is uniformly convergent onto. 
+                    <div class="theorem" id="thm:WeierstrassMTest">
+                      For a sequence of functions $\left( f_n \right) $ defined on a set $D$ if there exists a sequence of non-negative numbers $\left( M_n \right) $ such that
+                      <ol class="math-list-disc">
+                        <li class="my-2">
+                          $\vert f_n(x) \vert \leq M_n \quad \forall\ n \geq 1 \text{ and } x \in D,$ and
+                        </li>
+                        <li class="my-2">
+                          $\displaystyle \sum_{n=1}^{\infty} M_n$ converges. 
+                        </li>
+                      </ol>
+                      Then the series $\sum_{n}f_n(x) $ converges absolutely and uniformly on $D$.  
+                    </div>
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We claim that the sequence $\left( f_n \right) $ satisfies the Weierstrass condition on every bounded set $D$. Let $\alpha $ be an upper bound of the set $D$. Then 
+                    \begin{align*}
+                        \vert f_n(x) \vert & = \left\vert \frac{x^n}{n!} \right\vert \leq \frac{\alpha ^n}{n!}.
+                    \end{align*}    
+                    Take the sequence 
+                    \[
+                        M_n = \frac{\alpha ^n}{n!}.
+                    \]
+                    Since the sequence $\left( M_n \right) $ is convergent, by Weierstrass $M$-test we conclude that $f$ converges uniformly on any bounded set. 
+                  </div>
+                  
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    We now claim that the given sequence does not converge uniformly on all of $\mathbb{R} $. Note that if the sequence converges uniformly then
+                    \[
+                        \lim_{n \to \infty} \sup_{x \in \mathbb{R}} \left\vert f_n(x) \right\vert = 0.
+                    \]
+                    However, observe that
+                    \[
+                        \sup_{x \in \mathbb{R}} \left\vert f_n(x) \right\vert = \sup_{x \in \mathbb{R}} \left\vert \frac{x^n}{n!} \right\vert = \infty,
+                    \]
+                    since for any fixed $n$, as $x \to \infty$, $\frac{x^n}{n!} \to \infty$. Therefore, the sequence $\left( f_n \right) $ does not converge uniformly on $\mathbb{R} $. Thus, the series $f(x) = \sum_{n=0}^{\infty} \frac{x^n}{n!}$ converges uniformly on any bounded interval but not on the entire real line.
+                  </div>
+
                 </div>
 
                 <!-- Previous Button -->

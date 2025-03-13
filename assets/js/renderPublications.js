@@ -53,7 +53,7 @@ function renderPublications(containerId, style = 'cv', filter = 'all') {
               <p class="text-gray-500 text-sm mt-1">${pub.date}</p>
             </div>
             <div class="publication-details mt-2">
-              <p class="text-gray-700">
+              <p class="text-fuchsia-700">
                 ${pub.journal ? `<span class="font-medium">Journal:</span> ${pub.journal}` : '<span class="font-medium">Status:</span> Preprint'}
               </p>
               <div class="links mt-2">
