@@ -155,38 +155,48 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        Take a Cauchy sequence in $Y$ (note that this will also be Cauchy in $X$). Now use completeness of $X$ and closedness of $Y$ to conclude that $Y$ is complete.
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        You need to prove $\bar{Y} = Y$. Take a sequence $(y_n)$ in Y such that it converges to $x \in \bar{Y}$. Note that any convergent sequence is Cauchy and then use completeness of $Y$ to conclude $x \in Y$.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that a metric space $(X,d)$ is complete if every Cauchy sequence is convergent in $X$. 
+                    <ol class="math-list">
+                      <li class="my-4">
+                          Given that $X$ is complete and $Y$ is closed. We need to prove that $Y$ is complete. Let $\left( y_n \right) $ be a Cauchy sequence in $Y$. Since $Y \subseteq X$ and $\left( y_n \right) $ is Cauchy in $Y$, it must be Cauchy in $X$. As $X$ is complete, $\left( y_n \right) $ will converge in $X$. Thus, $\left( y_n \right) $ is a convergent sequence. Since $Y$ is closed, the limit must be in $Y$ and therefore $\left( y_n \right) $ is convergent in $Y$. Hence, $Y$ is complete.
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                          We will show that $\bar{Y} = Y$. By definition $Y \subseteq \bar{Y} $. For the other side, let $x \in \bar{Y} $. This implies there is a sequence $\left( y_n \right) \subseteq Y$ such that $y_n \rightarrow x$. Since $\left( y_n \right) $ is convergent sequence, and any convergent sequence in a metric space is Cauchy, so $\left( y_n \right) $ must be Cauchy. As $Y$ is complete, $\left( y_n \right) $ must converge in $Y$. In a metric space, the limit of a sequence is unique, so $y_n \rightarrow x$ and hence $x \in Y$. Thus, $\bar{Y} = Y$.
+                      </li>
+                    </ol>
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
