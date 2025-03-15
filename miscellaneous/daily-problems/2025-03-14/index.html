@@ -144,41 +144,81 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        The equation of a sphere with centre $(a,b,c)$ and radius $r$ is given by 
+                        \[
+                            (x-a)^2 + (y-b)^2 + (z - c)^2 = r^2.
+                        \] 
+                        Here the centre lies on the $xy$-plane, $c = 0$.
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        Differentiate the equation of the sphere and find the value of $(x-a)$ and $(y-b)$. 
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that the equation of a sphere with centre $(a,b,c)$ and radius $r$ is given by 
+                    \[
+                        (x-a)^2 + (y-b)^2 + (z - c)^2 = r^2.
+                    \] 
+                    Since the sphere lies in the $xy$-plane, we have $c = 0$. Thus, the equation of the sphere becomes
+                    \[
+                        (x-a)^2 + (y-b)^2 + z^2 = r^2.
+                    \]
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Differentiating both sides with respect to $x$, we get
+                    \begin{align*}
+                        2(x-a) + 2z \frac{\partial z}{\partial x} = 0 & \implies \frac{x - a}{z} = \frac{\partial z}{\partial x}  \\
+                        & \implies x - a = -z \frac{\partial z}{\partial x}. 
+                    \end{align*}
+                    Similarly, differentiating with respect to $y$, we get
+                    \[
+                        2(y-b) + 2z \frac{\partial z}{\partial y} = 0 \implies y-b = -z\frac{\partial z}{\partial y}.
+                    \]
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Substituting the values of $(x-a)$ and $(y-b)$ into the equation of sphere, we get 
+                    \begin{align*}
+                        & \left( -z \frac{\partial z}{\partial x}  \right) ^2 + \left( -z \frac{\partial z}{\partial y}  \right) ^2 + z^2 = r^2 \\
+                        \implies &z^2 \left( \frac{\partial z}{\partial x} + \frac{\partial z}{\partial y} + 1 \right) = r^2.
+                    \end{align*}
+                    Thus, the required differential equation will be 
+                    \[
+                        \textcolor{blue}{
+                            \boxed{
+                                z^2 \left( \frac{\partial z}{\partial x} + \frac{\partial z}{\partial y} + 1 \right) = r^2
+                            }
+                        }
+                    \]
+                  </div>
+
                 </div>
 
                 <!-- Previous Button -->
