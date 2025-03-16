@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'characteristic-polynomial': 'linear-algebra',
         'minimal-polynomial': 'linear-algebra',
         'dimension': 'linear-algebra',
+        'row-reduction': 'linear-algebra',
 
         // real analysis
         'supremum': 'real-analysis',
@@ -102,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
        
         // book-solution
         'topology-munkres': 'book-solution',
+        'linear-algebra-hoffman-kunze': 'book-solution',
     };
 
     // Define the active button and container

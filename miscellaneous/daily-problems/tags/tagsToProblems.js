@@ -55,6 +55,7 @@ const tagsToProblems = {
     'characteristic-polynomial': ['../2024-05-26', '../2024-08-18', '../2024-01-07', '../2025-02-16'],
     'minimal-polynomial': ['../2025-02-09', '../2025-02-16'],
     'dimension': ['../2024-06-02', '../2025-01-05'],
+    'row-reduction': ['../2025-03-16'],
 
     // real analysis
     'real-analysis': realAnalysis,
@@ -135,6 +136,7 @@ const tagsToProblems = {
 
     // Book-Solution
     'topology-munkres': ['../2025-03-06'],
+    'linear-algebra-hoffman-kunze': ['../2025-03-16'],
 };
 
 // Function to sort arrays by date
