@@ -156,41 +156,136 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
-                      <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                      <li class="my-4"> 
+                        Start by writing the <b>augmented matrix</b> for the system. Since all equations are equal to 0, the augmented matrix will only consist of the coefficients of the variables: \[ \begin{bmatrix} \frac{1}{3} & 2 & -6 \\ -4 & 0 & 5 \\ -3 & 6 & -13 \\ -\frac{7}{3} & 2 & -\frac{8}{3} \end{bmatrix} \] 
                       </li>
-                      <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                      <li class="my-4"> 
+                        To simplify calculations, eliminate fractions by multiplying each row by the least common multiple (LCM) of the denominators. For example: - Multiply Row 1 by 3 to eliminate the fraction. - Multiply Row 4 by 3 to eliminate the fractions. 
+                      </li>
+                      <li class="my-4"> 
+                        Perform row operations (swapping rows, multiplying rows by constants, or adding/subtracting rows) to transform the matrix into <b>row-echelon form</b>. Look for a leading 1 in the first column and use it to eliminate the entries below it. Repeat this process for the remaining columns. 
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We want to solve the following system using row-reduction: 
+                    \[
+                        \begin{array}{ccc}
+                            \phantom{-}\frac{1}{3}x_1 + 2x_2 - 6x_3 & = & 0 \\[1ex]
+                            -4x_1 \phantom{+ 2x_2} + 5x_3  & = & 0 \\[1ex]
+                            -3x_1 + 6x_2 - 13x_3  & = & 0 \\[1ex]
+                            -\frac{7}{3}x_1 + 2x_2 - \frac{8}{3}x_3  & = & 0.
+                        \end{array}
+                    \]
+                    Consider the augmented matrix.
+                    \begin{align*}
+                        \begin{pmatrix}
+                            \frac{1}{3} & 2 & -6 & 0 \\
+                            -4 & 0 & 5 & 0 \\
+                            -3 & 6 & -13 & 0 \\
+                            -\frac{7}{3} & 2 & -\frac{8}{3} & 0
+                        \end{pmatrix}
+                        & \xrightarrow{
+                            \begin{matrix}
+                                R_1 \leftrightarrow  3 R_1 \\
+                                R_3 \leftrightarrow  3 R_3 \\
+                            \end{matrix}
+                        }
+                        \begin{pmatrix}
+                            1 & 6 & -18 & 0 \\
+                            -4 & 0 & 5 & 0 \\
+                            -3 & 6 & -13 & 0 \\
+                            -7 & 6 & -8 & 0
+                        \end{pmatrix} \\[1ex]
+                        & \xrightarrow{
+                            \begin{matrix}
+                                R_2 \rightarrow R_2 + 4R_1 \\
+                                R_3 \rightarrow R_3 + 3R_1 \\
+                                R_4 \rightarrow R_4 + 7R_1 
+                            \end{matrix}}
+                            \begin{pmatrix}
+                                1 & 6 & -18 & 0 \\
+                                0 & 24 & -67 & 0 \\
+                                0 & 24 & -67 & 0 \\
+                                0 & 48 & -134 & 0
+                            \end{pmatrix} \\[1ex]
+                        & \xrightarrow{
+                            \begin{matrix}
+                                 R_2 \leftrightarrow \frac{R_2}{24}
+                            \end{matrix}
+                        } 
+                        \begin{pmatrix}
+                            1 & 6 & -18 & 0 \\
+                            0 & 1 & -\frac{67}{24} & 0 \\
+                            0 & 24 & -67 & 0 \\
+                            0 & 48 & -134 & 0
+                        \end{pmatrix} \\[1ex]
+                        & \xrightarrow{
+                            \begin{matrix}
+                                 R_3 \rightarrow  R_4 - 24 R_2 \\
+                                 R_1 \rightarrow R_1 - 6R_2 \\
+                                 R_4 \rightarrow R_4 - 48 R_2
+                            \end{matrix}
+                        }
+                        \begin{pmatrix}
+                            1 & 0 & -\frac{5}{4} & 0 \\
+                            0 & 1 & -\frac{67}{24} & 0 \\
+                            0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0
+                        \end{pmatrix}.
+                    \end{align*}
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Thus, the RREF of the augmented matrix is:
+
+                    \[
+                        \begin{pmatrix}
+                            1 & 0 & -\frac{5}{4} & 0 \\
+                            0 & 1 & -\frac{67}{24} & 0 \\
+                            0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 0
+                        \end{pmatrix}.
+                    \]
+                    Since the third and fourth rows are all zeros, we have two pivot equations:
+                    \begin{align*}
+                        x_1 - \frac{5}{4}x_3 &= 0, \\
+                        x_2 - \frac{67}{24}x_3 &= 0.
+                    \end{align*}
+                    
+                    Solving for leading variables:
+                    \begin{align*}
+                        x_1  = \frac{5}{4}x_3 \quad \text{ and } \quad  x_2 = \frac{67}{24} x_3, \\
+                    \end{align*}
+                    
+                    Letting $x_3 = t$, the solution set is
+                    \begin{align*}
+                       \mathcal{S} = \left\{t \begin{pmatrix}  5 \\ 67 \\ 24 \end{pmatrix}: t \in \mathbb{R} \right\} 
+                    \end{align*}
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
