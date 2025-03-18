@@ -13,6 +13,9 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+console.log(firebase.apps); // Should show your initialized app
+console.log(firebase.auth()); // Should show the auth object
+
 // Data storage
 let students = [];
 let sessions = [];
@@ -95,6 +98,38 @@ function changePassword() {
 
 // Initialize password on app load
 initializePassword();
+
+// Open Forgot Password Modal
+function openForgotPasswordModal() {
+    document.getElementById('forgotPasswordModal').style.display = 'flex';
+}
+
+// Close Forgot Password Modal
+function closeForgotPasswordModal() {
+    document.getElementById('forgotPasswordModal').style.display = 'none';
+    document.getElementById('forgotPasswordEmail').value = '';
+    document.getElementById('forgotPasswordError').textContent = '';
+}
+
+// Send Password Reset Email
+function sendPasswordResetEmail() {
+    const email = document.getElementById('forgotPasswordEmail').value.trim();
+
+    if (!email) {
+        document.getElementById('forgotPasswordError').textContent = 'Please enter your email address.';
+        return;
+    }
+
+    firebase.auth().sendPasswordResetEmail(email)
+        .then(() => {
+            alert('Password reset email sent. Please check your inbox.');
+            closeForgotPasswordModal();
+        })
+        .catch((error) => {
+            console.error('Error sending password reset email:', error);
+            document.getElementById('forgotPasswordError').textContent = error.message;
+        });
+}
 
 // Settings modal functions
 function openSettings() {
