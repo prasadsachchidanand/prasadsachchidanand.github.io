@@ -189,8 +189,8 @@
         const DEFAULT_PASSWORD = "tutor123"; // Default password
         let currentPassword = DEFAULT_PASSWORD;
         let isLoggedIn = false;
-        
-        // Check if user has set a password
+
+        // Initialize password on app load
         function initializePassword() {
             const savedPassword = localStorage.getItem('tutoring_password');
             if (savedPassword) {
@@ -199,11 +199,11 @@
                 localStorage.setItem('tutoring_password', currentPassword);
             }
         }
-        
+
         // Login function
         function login() {
             const enteredPassword = document.getElementById('passwordInput').value;
-            
+
             if (enteredPassword === currentPassword) {
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('appContainer').style.display = 'block';
@@ -215,7 +215,7 @@
                 document.getElementById('loginError').textContent = 'Incorrect password. Please try again.';
             }
         }
-        
+
         // Logout function
         function logout() {
             document.getElementById('loginScreen').style.display = 'block';
@@ -223,39 +223,44 @@
             isLoggedIn = false;
             closeSettings();
         }
-        
+
         // Change password
         function changePassword() {
             const currentPasswordInput = document.getElementById('currentPassword').value;
             const newPasswordInput = document.getElementById('newPassword').value;
             const confirmPasswordInput = document.getElementById('confirmPassword').value;
-            
+
+            // Validate inputs
             if (currentPasswordInput !== currentPassword) {
                 alert('Current password is incorrect');
                 return;
             }
-            
+
             if (newPasswordInput === '') {
                 alert('New password cannot be empty');
                 return;
             }
-            
+
             if (newPasswordInput !== confirmPasswordInput) {
                 alert('New passwords do not match');
                 return;
             }
-            
+
+            // Update the password
             currentPassword = newPasswordInput;
             localStorage.setItem('tutoring_password', currentPassword);
-            
+
             // Clear fields
             document.getElementById('currentPassword').value = '';
             document.getElementById('newPassword').value = '';
             document.getElementById('confirmPassword').value = '';
-            
+
             alert('Password updated successfully');
             closeSettings();
         }
+
+        // Initialize password on app load
+        initializePassword();
         
         // Settings modal functions
         function openSettings() {
