@@ -4,173 +4,248 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tuition Charge Tracker</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/style.css">
 </head>
-<body class="bg-gray-100 p-4">
+<body class="bg-gray-100">
     <!-- Login Screen -->
-    <div id="loginScreen" class="max-w-md mx-auto mt-20 bg-white p-8 rounded-lg shadow-md text-center">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Tuition Charge Tracker</h2>
-        <p class="text-gray-600 mb-6">Please enter your password to access the application</p>
-        <div id="loginError" class="text-red-500 mb-4"></div>
-        <div class="space-y-4">
-            <input type="password" id="passwordInput" placeholder="Enter password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-            <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="login()">Login</button>
+    <div class="flex flex-col h-screen">
+        <!-- navbar -->
+        <div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+          <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+            <div class="p-4 flex flex-row items-center justify-between">
+              <a href="../../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
+              <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+                <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                  <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                  <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+              </button>
+            </div>
+            <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+              <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../"> Home </a>
+  
+              <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../research/"> Research </a>
+  
+              <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../teaching/"> Teaching </a>
+  
+              <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../resume/"> CV </a>
+  
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../articles/">Articles</a>
+  
+              <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../miscellaneous/"> Miscellaneous </a>
+  
+              <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../contact/">Contact</a>
+            </nav>
+          </div>
         </div>
-    </div>
-
-    <!-- App Container -->
-    <div id="appContainer" class="container mx-auto p-4 bg-white rounded-lg shadow-md" style="display: none;">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold text-gray-800">Tuition Charge Tracker</h1>
-            <button id="settingsBtn" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-200" onclick="openSettings()">Settings</button>
-        </div>
-
-        <!-- Settings Modal -->
-        <div id="settingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-            <div class="bg-white p-6 rounded-lg w-full max-w-md">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold text-gray-800">Settings</h2>
-                    <span class="text-gray-600 cursor-pointer text-2xl" onclick="closeSettings()">&times;</span>
-                </div>
+        
+        <!-- section -->
+        <section class="text-gray-600 body-font">
+            <div id="loginScreen" class="max-w-md mx-auto mt-20 bg-white p-8 rounded-lg shadow-md text-center">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Tuition Charge Tracker</h2>
+                <p class="text-gray-600 mb-6">Please enter your password to access the application</p>
+                <div id="loginError" class="text-red-500 mb-4"></div>
                 <div class="space-y-4">
-                    <h3 class="text-lg font-semibold text-gray-700">Change Password</h3>
-                    <input type="password" id="currentPassword" placeholder="Current Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <input type="password" id="newPassword" placeholder="New Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <input type="password" id="confirmPassword" placeholder="Confirm New Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="changePassword()">Update Password</button>
-
-                    <h3 class="text-lg font-semibold text-gray-700">Data Management</h3>
-                    <button class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition duration-200" onclick="exportData()">Export Data</button>
-                    <button class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition duration-200" onclick="document.getElementById('importFile').click()">Import Data</button>
-                    <input type="file" id="importFile" class="hidden" onchange="importData(event)">
-
-                    <button class="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600 transition duration-200" onclick="logout()">Logout</button>
+                    <input type="password" id="passwordInput" placeholder="Enter password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="login()">Login</button>
                 </div>
             </div>
-        </div>
-
-        <!-- Tabs -->
-        <div class="flex space-x-2 border-b mb-4">
-            <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" onclick="showTab('sessions')">Sessions</div>
-            <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" onclick="showTab('summary')">Summary</div>
-            <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" onclick="showTab('students')">Manage Students</div>
-        </div>
-
-        <!-- Sessions Tab -->
-        <div id="sessions" class="tab-content">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">Tutoring Sessions</h2>
-            <div class="bg-gray-50 p-4 rounded-lg mb-6">
-                <h3 class="text-lg font-semibold text-gray-700 mb-4">Add New Session</h3>
-                <div class="space-y-4">
-                    <div>
-                        <label for="sessionStudent" class="block text-sm font-medium text-gray-700">Student</label>
-                        <select id="sessionStudent" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                            <option value="">Select Student</option>
-                        </select>
+        
+            <!-- App Container -->
+            <div id="appContainer" class="container mx-auto py-24 px-4 bg-gray-50 rounded-lg shadow-md" style="display: none;">
+                <div class="flex justify-between items-center mb-6">
+                    <h1 class="text-2xl font-bold text-gray-800">Tuition Charge Tracker</h1>
+                    <button id="settingsBtn" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-200" onclick="openSettings()">Settings</button>
+                </div>
+        
+                <!-- Settings Modal -->
+                <div id="settingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+                    <div class="bg-white p-6 rounded-lg w-full max-w-md">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-bold text-gray-800">Settings</h2>
+                            <span class="text-gray-600 cursor-pointer text-2xl" onclick="closeSettings()">&times;</span>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-semibold text-gray-700">Change Password</h3>
+                            <input type="password" id="currentPassword" placeholder="Current Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <input type="password" id="newPassword" placeholder="New Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <input type="password" id="confirmPassword" placeholder="Confirm New Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="changePassword()">Update Password</button>
+        
+                            <h3 class="text-lg font-semibold text-gray-700">Data Management</h3>
+                            <button class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition duration-200" onclick="exportData()">Export Data</button>
+                            <button class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition duration-200" onclick="document.getElementById('importFile').click()">Import Data</button>
+                            <input type="file" id="importFile" class="hidden" onchange="importData(event)">
+        
+                            <button class="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600 transition duration-200" onclick="logout()">Logout</button>
+                        </div>
                     </div>
-                    <div>
-                        <label for="sessionDate" class="block text-sm font-medium text-gray-700">Date</label>
-                        <input type="date" id="sessionDate" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+        
+                <!-- Tabs -->
+                <div class="flex space-x-2 border-b mb-4">
+                    <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" onclick="showTab('sessions')">Sessions</div>
+                    <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" onclick="showTab('summary')">Summary</div>
+                    <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" onclick="showTab('students')">Manage Students</div>
+                </div>
+        
+                <!-- Sessions Tab -->
+                <div id="sessions" class="tab-content">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Tutoring Sessions</h2>
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-4">Add New Session</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="sessionStudent" class="block text-sm font-medium text-gray-700">Student</label>
+                                <select id="sessionStudent" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                    <option value="">Select Student</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="sessionDate" class="block text-sm font-medium text-gray-700">Date</label>
+                                <input type="date" id="sessionDate" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div>
+                                <label for="sessionDuration" class="block text-sm font-medium text-gray-700">Duration (hours)</label>
+                                <input type="number" id="sessionDuration" min="0.5" step="0.5" value="1" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="sessionCompleted" checked class="mr-2">
+                                <label for="sessionCompleted" class="text-sm text-gray-700">Completed</label>
+                            </div>
+                            <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="addSession()">Add Session</button>
+                        </div>
                     </div>
-                    <div>
-                        <label for="sessionDuration" class="block text-sm font-medium text-gray-700">Duration (hours)</label>
-                        <input type="number" id="sessionDuration" min="0.5" step="0.5" value="1" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+        
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="p-3 text-left text-sm sm:text-base">Student</th>
+                                    <th class="p-3 text-left text-sm sm:text-base">Date</th>
+                                    <th class="p-3 text-left text-sm sm:text-base">Duration (hours)</th>
+                                    <th class="p-3 text-left text-sm sm:text-base">Rate (GBP)</th>
+                                    <th class="p-3 text-left text-sm sm:text-base">Completed</th>
+                                    <th class="p-3 text-left text-sm sm:text-base">Amount (GBP)</th>
+                                    <th class="p-3 text-left text-sm sm:text-base">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sessionsBody">
+                                <!-- Sessions will be added here -->
+                            </tbody>
+                            <tfoot>
+                                <tr class="bg-gray-100">
+                                    <td colspan="5" class="p-3 text-right font-bold text-sm sm:text-base">Total:</td>
+                                    <td id="totalAmount" class="p-3 font-bold text-sm sm:text-base">0.00</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
-                    <div class="flex items-center">
-                        <input type="checkbox" id="sessionCompleted" checked class="mr-2">
-                        <label for="sessionCompleted" class="text-sm text-gray-700">Completed</label>
+                </div>
+        
+                <!-- Summary Tab -->
+                <div id="summary" class="tab-content hidden">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Student Summary</h2>
+                    <div id="summaryCards" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <!-- Summary cards will be added here -->
                     </div>
-                    <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="addSession()">Add Session</button>
+        
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-200">
+                                <th class="p-3 text-left">Student</th>
+                                <th class="p-3 text-left">Hourly Rate (GBP)</th>
+                                <th class="p-3 text-left">Total Hours</th>
+                                <th class="p-3 text-left">Total Earnings (GBP)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="summaryBody">
+                            <!-- Summary rows will be added here -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-gray-100">
+                                <td colspan="2" class="p-3 text-right font-bold">Totals:</td>
+                                <td id="totalHours" class="p-3 font-bold">0</td>
+                                <td id="totalEarnings" class="p-3 font-bold">0.00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+        
+                <!-- Students Tab -->
+                <div id="students" class="tab-content hidden">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Manage Students</h2>
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-4">Add New Student</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="studentName" class="block text-sm font-medium text-gray-700">Student Name</label>
+                                <input type="text" id="studentName" placeholder="Enter student name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div>
+                                <label for="hourlyRate" class="block text-sm font-medium text-gray-700">Hourly Rate (GBP)</label>
+                                <input type="number" id="hourlyRate" min="1" step="0.5" value="25" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="addStudent()">Add Student</button>
+                        </div>
+                    </div>
+        
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-200">
+                                <th class="p-3 text-left">Student Name</th>
+                                <th class="p-3 text-left">Hourly Rate (GBP)</th>
+                                <th class="p-3 text-left">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsBody">
+                            <!-- Students will be added here -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
-            <div class="overflow-x-auto">
-                <table class="w-full border-collapse">
-                    <thead>
-                        <tr class="bg-gray-200">
-                            <th class="p-3 text-left text-sm sm:text-base">Student</th>
-                            <th class="p-3 text-left text-sm sm:text-base">Date</th>
-                            <th class="p-3 text-left text-sm sm:text-base">Duration (hours)</th>
-                            <th class="p-3 text-left text-sm sm:text-base">Rate (GBP)</th>
-                            <th class="p-3 text-left text-sm sm:text-base">Completed</th>
-                            <th class="p-3 text-left text-sm sm:text-base">Amount (GBP)</th>
-                            <th class="p-3 text-left text-sm sm:text-base">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="sessionsBody">
-                        <!-- Sessions will be added here -->
-                    </tbody>
-                    <tfoot>
-                        <tr class="bg-gray-100">
-                            <td colspan="5" class="p-3 text-right font-bold text-sm sm:text-base">Total:</td>
-                            <td id="totalAmount" class="p-3 font-bold text-sm sm:text-base">0.00</td>
-                            <td></td>
-                        </tr>
-                    </tfoot>
-                </table>
+        </section>
+  
+        <!-- footer -->
+        <footer class="foot mt-auto border-t border-gray-200">
+          <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+            <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> Sachchidanand
+            </p>
+            <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+              <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a class="ml-3 text-gray-500 hover:text-gray-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+                <i class="ai ai-researchgate ai-lg"></i>
+              </a>
+              <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+                <i class="ai ai-academia"></i>
+              </a>
+            </span>
+          </div>
+          <hr class="py-1 w-1/4 m-auto">
+            <div class="items-center">
+                <p class="text-center">
+                    <span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+                    <img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
+                    alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
+                    <span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+                </p>
             </div>
-        </div>
-
-        <!-- Summary Tab -->
-        <div id="summary" class="tab-content hidden">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">Student Summary</h2>
-            <div id="summaryCards" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <!-- Summary cards will be added here -->
-            </div>
-
-            <table class="w-full border-collapse">
-                <thead>
-                    <tr class="bg-gray-200">
-                        <th class="p-3 text-left">Student</th>
-                        <th class="p-3 text-left">Hourly Rate (GBP)</th>
-                        <th class="p-3 text-left">Total Hours</th>
-                        <th class="p-3 text-left">Total Earnings (GBP)</th>
-                    </tr>
-                </thead>
-                <tbody id="summaryBody">
-                    <!-- Summary rows will be added here -->
-                </tbody>
-                <tfoot>
-                    <tr class="bg-gray-100">
-                        <td colspan="2" class="p-3 text-right font-bold">Totals:</td>
-                        <td id="totalHours" class="p-3 font-bold">0</td>
-                        <td id="totalEarnings" class="p-3 font-bold">0.00</td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-
-        <!-- Students Tab -->
-        <div id="students" class="tab-content hidden">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">Manage Students</h2>
-            <div class="bg-gray-50 p-4 rounded-lg mb-6">
-                <h3 class="text-lg font-semibold text-gray-700 mb-4">Add New Student</h3>
-                <div class="space-y-4">
-                    <div>
-                        <label for="studentName" class="block text-sm font-medium text-gray-700">Student Name</label>
-                        <input type="text" id="studentName" placeholder="Enter student name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    </div>
-                    <div>
-                        <label for="hourlyRate" class="block text-sm font-medium text-gray-700">Hourly Rate (GBP)</label>
-                        <input type="number" id="hourlyRate" min="1" step="0.5" value="25" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    </div>
-                    <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="addStudent()">Add Student</button>
-                </div>
-            </div>
-
-            <table class="w-full border-collapse">
-                <thead>
-                    <tr class="bg-gray-200">
-                        <th class="p-3 text-left">Student Name</th>
-                        <th class="p-3 text-left">Hourly Rate (GBP)</th>
-                        <th class="p-3 text-left">Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="studentsBody">
-                    <!-- Students will be added here -->
-                </tbody>
-            </table>
-        </div>
+        </footer>
+  
     </div>
 
     <script>
@@ -647,85 +722,85 @@
         
         // Edit session
         function editSession(id) {
-            const session = sessions.find(s => s.id === id);
-            if (!session) return;
-            
-            const student = students.find(s => s.id === session.studentId);
-            if (!student) return;
-            
-            // Create student options for dropdown
-            let studentOptions = '';
-            students.forEach(s => {
-                const selected = s.id === session.studentId ? 'selected' : '';
-                studentOptions += `<option value="${s.id}" ${selected}>${s.name}</option>`;
-            });
-            
-            // Create edit form
-            const form = document.createElement('div');
-            form.innerHTML = `
-                <h3 class="text-lg font-semibold text-gray-700 mb-4">Edit Session</h3>
-                <div class="space-y-4">
-                    <div>
-                        <label for="editStudent" class="block text-sm font-medium text-gray-700">Student</label>
-                        <select id="editStudent" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                            ${studentOptions}
-                        </select>
-                    </div>
-                    <div>
-                        <label for="editDate" class="block text-sm font-medium text-gray-700">Date</label>
-                        <input type="date" id="editDate" value="${session.date}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    </div>
-                    <div>
-                        <label for="editDuration" class="block text-sm font-medium text-gray-700">Duration (hours)</label>
-                        <input type="number" id="editDuration" min="0.5" step="0.5" value="${session.duration}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    </div>
-                    <div class="flex items-center">
-                        <input type="checkbox" id="editCompleted" ${session.completed ? 'checked' : ''} class="mr-2">
-                        <label for="editCompleted" class="text-sm text-gray-700">Completed</label>
-                    </div>
-                    <div class="flex space-x-2">
-                        <button id="saveEdit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200">Save Changes</button>
-                        <button id="cancelEdit" class="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600 transition duration-200">Cancel</button>
-                    </div>
+        const session = sessions.find(s => s.id === id);
+        if (!session) return;
+
+        const student = students.find(s => s.id === session.studentId);
+        if (!student) return;
+
+        // Create student options for dropdown
+        let studentOptions = '';
+        students.forEach(s => {
+            const selected = s.id === session.studentId ? 'selected' : '';
+            studentOptions += `<option value="${s.id}" ${selected}>${s.name}</option>`;
+        });
+
+        // Create edit form
+        const form = document.createElement('div');
+        form.innerHTML = `
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">Edit Session</h3>
+            <div class="space-y-4">
+                <div>
+                    <label for="editStudent" class="block text-sm font-medium text-gray-700">Student</label>
+                    <select id="editStudent" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        ${studentOptions}
+                    </select>
                 </div>
-            `;
-            
-            // Show dialog
-            const sessionsTab = document.getElementById('sessions');
-            const oldForm = document.querySelector('.edit-form');
-            if (oldForm) oldForm.remove();
-            
-            form.className = 'bg-gray-50 p-4 rounded-lg mb-6 edit-form';
-            sessionsTab.insertBefore(form, document.querySelector('#sessions table'));
-            
-            // Add event listeners
-            document.getElementById('saveEdit').addEventListener('click', () => {
-                const studentId = parseInt(document.getElementById('editStudent').value);
-                const date = document.getElementById('editDate').value;
-                const duration = parseFloat(document.getElementById('editDuration').value);
-                const completed = document.getElementById('editCompleted').checked;
-                
-                if (!studentId || !date || isNaN(duration) || duration <= 0) {
-                    alert('Please fill in all fields correctly');
-                    return;
-                }
-                
-                // Update session
-                session.studentId = studentId;
-                session.date = date;
-                session.duration = duration;
-                session.completed = completed;
-                
-                form.remove();
-                renderSessions();
-                renderSummary();
-                saveData();
-            });
-            
-            document.getElementById('cancelEdit').addEventListener('click', () => {
-                form.remove();
-            });
-        }
+                <div>
+                    <label for="editDate" class="block text-sm font-medium text-gray-700">Date</label>
+                    <input type="date" id="editDate" value="${session.date}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+                <div>
+                    <label for="editDuration" class="block text-sm font-medium text-gray-700">Duration (hours)</label>
+                    <input type="number" id="editDuration" min="0.5" step="0.5" value="${session.duration}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="editCompleted" ${session.completed ? 'checked' : ''} class="mr-2">
+                    <label for="editCompleted" class="text-sm text-gray-700">Completed</label>
+                </div>
+                <div class="flex space-x-2">
+                    <button id="saveEdit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200">Save Changes</button>
+                    <button id="cancelEdit" class="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600 transition duration-200">Cancel</button>
+                </div>
+            </div>
+        `;
+
+        // Show dialog
+        const sessionsTab = document.getElementById('sessions');
+        const oldForm = document.querySelector('.edit-form');
+        if (oldForm) oldForm.remove(); // Remove any existing edit form
+
+        form.className = 'bg-gray-50 p-4 rounded-lg mb-6 edit-form';
+        sessionsTab.appendChild(form); // Append the form to the sessions tab
+
+        // Add event listeners
+        document.getElementById('saveEdit').addEventListener('click', () => {
+            const studentId = parseInt(document.getElementById('editStudent').value);
+            const date = document.getElementById('editDate').value;
+            const duration = parseFloat(document.getElementById('editDuration').value);
+            const completed = document.getElementById('editCompleted').checked;
+
+            if (!studentId || !date || isNaN(duration) || duration <= 0) {
+                alert('Please fill in all fields correctly');
+                return;
+            }
+
+            // Update session
+            session.studentId = studentId;
+            session.date = date;
+            session.duration = duration;
+            session.completed = completed;
+
+            form.remove(); // Remove the edit form
+            renderSessions(); // Re-render the sessions table
+            renderSummary(); // Update the summary
+            saveData(); // Save changes to localStorage
+        });
+
+        document.getElementById('cancelEdit').addEventListener('click', () => {
+            form.remove(); // Remove the edit form
+        });
+    }
         
         // Delete session
         function deleteSession(id) {
