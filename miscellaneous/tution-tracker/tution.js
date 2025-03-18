@@ -145,12 +145,30 @@ function changePassword() {
     });
 }
 
-function resetPassword() {
-    const email = document.getElementById('emailInput').value;
+// Open Forgot Password Modal
+function openForgotPasswordModal() {
+    document.getElementById('forgotPasswordModal').style.display = 'flex';
+  }
+  
+  // Close Forgot Password Modal
+  function closeForgotPasswordModal() {
+    document.getElementById('forgotPasswordModal').style.display = 'none';
+  }
+  
+  // Reset Password Function
+  function resetPassword() {
+    const email = document.getElementById('forgotPasswordEmail').value;
+  
+    if (!email) {
+      alert('Please enter your email address.');
+      return;
+    }
   
     auth.sendPasswordResetEmail(email)
       .then(() => {
-        alert('Password reset email sent. Check your inbox.');
+        // Generic message that works for both cases
+        alert('If an account exists with this email, a password reset link has been sent. Check your inbox.');
+        closeForgotPasswordModal();
       })
       .catch((error) => {
         alert(error.message);
