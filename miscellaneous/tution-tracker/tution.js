@@ -85,33 +85,33 @@ function login() {
 // Logout function
 function logout() {
     auth.signOut()
-      .then(() => {
-        document.getElementById('loginScreen').style.display = 'block';
-        document.getElementById('appContainer').style.display = 'none';
-        isLoggedIn = false;
-        closeSettings();
-      })
-      .catch((error) => {
-        console.error("Error logging out: ", error);
-      });
+        .then(() => {
+            document.getElementById('loginScreen').style.display = 'block';
+            document.getElementById('appContainer').style.display = 'none';
+            isLoggedIn = false;
+            closeSettings();
+        })
+        .catch((error) => {
+            console.error("Error logging out: ", error);
+        });
 }
 
 function signUp() {
     const email = document.getElementById('emailInput').value;
     const password = document.getElementById('passwordInput').value;
-  
-    auth.createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Sign-up successful
-        alert('Account created successfully. Please log in.');
-      })
-      .catch((error) => {
-        // Handle errors
-        alert(error.message);
-      });
-  }
 
-  function closeActiveModal() {
+    auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Sign-up successful
+            alert('Account created successfully. Please log in.');
+        })
+        .catch((error) => {
+            // Handle errors
+            alert(error.message);
+        });
+}
+
+function closeActiveModal() {
     const modals = [
         'forgotPasswordModal',
         'signUpModal',
@@ -132,9 +132,17 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-function closeForgotPasswordModal() { closeActiveModal(); }
-function closeSignUpModal() { closeActiveModal(); }
-function closeSettings() { closeActiveModal(); }
+function closeForgotPasswordModal() {
+    closeActiveModal();
+}
+
+function closeSignUpModal() {
+    closeActiveModal();
+}
+
+function closeSettings() {
+    closeActiveModal();
+}
 
 // Change password
 function changePassword() {
@@ -174,32 +182,32 @@ function changePassword() {
 // Open Forgot Password Modal
 function openForgotPasswordModal() {
     document.getElementById('forgotPasswordModal').style.display = 'flex';
-  }
-  
-  // Close Forgot Password Modal
-  function closeForgotPasswordModal() {
+}
+
+// Close Forgot Password Modal
+function closeForgotPasswordModal() {
     document.getElementById('forgotPasswordModal').style.display = 'none';
-  }
-  
-  // Reset Password Function
-  function resetPassword() {
+}
+
+// Reset Password Function
+function resetPassword() {
     const email = document.getElementById('forgotPasswordEmail').value;
-  
+
     if (!email) {
-      alert('Please enter your email address.');
-      return;
+        alert('Please enter your email address.');
+        return;
     }
-  
+
     auth.sendPasswordResetEmail(email)
-      .then(() => {
-        // Generic message that works for both cases
-        alert('If an account exists with this email, a password reset link has been sent. Check your inbox.');
-        closeForgotPasswordModal();
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  }
+        .then(() => {
+            // Generic message that works for both cases
+            alert('If an account exists with this email, a password reset link has been sent. Check your inbox.');
+            closeForgotPasswordModal();
+        })
+        .catch((error) => {
+            alert(error.message);
+        });
+}
 
 // Initialize password on app load
 initializePassword();
@@ -216,12 +224,12 @@ function closeSettings() {
 // Open Sign-Up Modal
 function openSignUpModal() {
     document.getElementById('signUpModal').style.display = 'flex';
-  }
-  
-  // Close Sign-Up Modal
-  function closeSignUpModal() {
+}
+
+// Close Sign-Up Modal
+function closeSignUpModal() {
     document.getElementById('signUpModal').style.display = 'none';
-  }
+}
 
 // Export data
 function exportData() {
@@ -283,62 +291,62 @@ function importData(event) {
 function loadData() {
     const user = auth.currentUser;
     if (!user) return;
-  
+
     db.collection("users").doc(user.uid).get()
-      .then((doc) => {
-        if (doc.exists) {
-          const data = doc.data();
-          students = data.students || [];
-          sessions = data.sessions || [];
-          nextStudentId = data.nextStudentId || 1;
-          nextSessionId = data.nextSessionId || 1;
-  
-          updateStudentDropdown();
-          renderStudents();
-          renderSessions();
-          renderSummary();
-        } else {
-          console.log("No data found in Firestore");
-        }
-      })
-      .catch((error) => console.error("Error loading data: ", error));
-  }
+        .then((doc) => {
+            if (doc.exists) {
+                const data = doc.data();
+                students = data.students || [];
+                sessions = data.sessions || [];
+                nextStudentId = data.nextStudentId || 1;
+                nextSessionId = data.nextSessionId || 1;
 
-  auth.onAuthStateChanged((user) => {
+                updateStudentDropdown();
+                renderStudents();
+                renderSessions();
+                renderSummary();
+            } else {
+                console.log("No data found in Firestore");
+            }
+        })
+        .catch((error) => console.error("Error loading data: ", error));
+}
+
+auth.onAuthStateChanged((user) => {
     if (user) {
-      // User is signed in
-      document.getElementById('loadingScreen').style.display = 'none';
-      document.getElementById('loginScreen').style.display = 'none';
-      document.getElementById('appContainer').style.display = 'block';
-      isLoggedIn = true;
-      loadData();
+        // User is signed in
+        document.getElementById('loadingScreen').style.display = 'none';
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('appContainer').style.display = 'block';
+        isLoggedIn = true;
+        loadData();
     } else {
-      // User is signed out
-      document.getElementById('loadingScreen').style.display = 'none';
-      document.getElementById('loginScreen').style.display = 'block';
-      document.getElementById('appContainer').style.display = 'none';
-      isLoggedIn = false;
+        // User is signed out
+        document.getElementById('loadingScreen').style.display = 'none';
+        document.getElementById('loginScreen').style.display = 'block';
+        document.getElementById('appContainer').style.display = 'none';
+        isLoggedIn = false;
     }
-  });
+});
 
-  window.onload = function () {
+window.onload = function() {
     document.getElementById('loadingScreen').style.display = 'flex';
-  };
+};
 
 // Save data to Firestore
 function saveData() {
     const user = auth.currentUser;
     if (!user) return;
-  
+
     db.collection("users").doc(user.uid).set({
-      students: students,
-      sessions: sessions,
-      nextStudentId: nextStudentId,
-      nextSessionId: nextSessionId
-    })
-      .then(() => console.log("Data saved to Firestore"))
-      .catch((error) => console.error("Error saving data: ", error));
-  }
+            students: students,
+            sessions: sessions,
+            nextStudentId: nextStudentId,
+            nextSessionId: nextSessionId
+        })
+        .then(() => console.log("Data saved to Firestore"))
+        .catch((error) => console.error("Error saving data: ", error));
+}
 
 // Update student dropdown in sessions tab
 function updateStudentDropdown() {
