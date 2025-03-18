@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     
     <title>Sachchidanand Prasad - Tuition Charge Tracker</title>
+    <style>
+        #loadingScreen {
+            display: none; /* Hide by default */
+        }
+    </style>
 
 </head>
 
@@ -53,16 +58,45 @@
         
         <!-- section -->
         <section class="text-gray-600 body-font">
+
+            <!-- Loading Screen -->
+            <div id="loadingScreen" class="fixed inset-0 flex items-center justify-center bg-white">
+                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+            </div>
+
+            <!-- Login Screen -->
             <div id="loginScreen" class="max-w-md mx-auto mt-20 bg-white p-8 rounded-lg shadow-md text-center">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Tuition Charge Tracker</h2>
-                <p class="text-gray-600 mb-6">Please enter your password to access the application</p>
+                <p class="text-gray-600 mb-6">Please enter your email and password to access the application</p>
                 <div id="loginError" class="text-red-500 mb-4"></div>
                 <div class="space-y-4">
-                    <input type="password" id="passwordInput" placeholder="Enter password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="login()">Login</button>
+                  <input type="email" id="emailInput" placeholder="Enter email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                  <input type="password" id="passwordInput" placeholder="Enter password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                  <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="login()">Login</button>
+                  <p class="text-sm text-gray-600">
+                    <a href="#" onclick="openForgotPasswordModal()" class="text-blue-500 hover:underline">Forgot Password?</a>
+                  </p>
+                  <p class="text-sm text-gray-600">
+                    Don't have an account? <a href="#" onclick="openSignUpModal()" class="text-blue-500 hover:underline">Sign Up</a>
+                  </p>
                 </div>
             </div>
-        
+
+            <!-- Sign-Up Modal -->
+            <div id="signUpModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+                <div class="bg-white p-6 rounded-lg w-full max-w-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">Sign Up</h2>
+                    <span class="text-gray-600 cursor-pointer text-2xl" onclick="closeSignUpModal()">&times;</span>
+                </div>
+                <div class="space-y-4">
+                    <input type="email" id="signUpEmail" placeholder="Enter email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <input type="password" id="signUpPassword" placeholder="Enter password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="signUp()">Sign Up</button>
+                </div>
+                </div>
+            </div>
+
             <!-- App Container -->
             <div id="appContainer" class="container mx-auto py-24 px-4 bg-gray-50 rounded-lg shadow-md" style="display: none;">
                 <div class="flex justify-between items-center mb-6">
@@ -270,6 +304,7 @@
 
     <!-- Add Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
     <script src="tution.js"></script>

@@ -11,7 +11,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+const auth = firebase.auth(); // Initialize Firebase Authentication
+const db = firebase.firestore(); // Initialize Firestore
 
 // Data storage
 let students = [];
@@ -62,29 +63,52 @@ function initializePassword() {
 
 // Login function
 function login() {
-    const enteredPassword = document.getElementById('passwordInput').value;
-
-    loadPasswordFromFirestore((savedPassword) => {
-        if (enteredPassword === savedPassword) {
-            document.getElementById('loginScreen').style.display = 'none';
-            document.getElementById('appContainer').style.display = 'block';
-            document.getElementById('passwordInput').value = '';
-            document.getElementById('loginError').textContent = '';
-            isLoggedIn = true;
-            loadData();
-        } else {
-            document.getElementById('loginError').textContent = 'Incorrect password. Please try again.';
-        }
-    });
-}
+    const email = document.getElementById('emailInput').value; // Add email input field
+    const password = document.getElementById('passwordInput').value;
+  
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Login successful
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('appContainer').style.display = 'block';
+        document.getElementById('loginError').textContent = '';
+        isLoggedIn = true;
+        loadData();
+      })
+      .catch((error) => {
+        // Handle errors
+        document.getElementById('loginError').textContent = error.message;
+      });
+  }
 
 // Logout function
 function logout() {
-    document.getElementById('loginScreen').style.display = 'block';
-    document.getElementById('appContainer').style.display = 'none';
-    isLoggedIn = false;
-    closeSettings();
+    auth.signOut()
+      .then(() => {
+        document.getElementById('loginScreen').style.display = 'block';
+        document.getElementById('appContainer').style.display = 'none';
+        isLoggedIn = false;
+        closeSettings();
+      })
+      .catch((error) => {
+        console.error("Error logging out: ", error);
+      });
 }
+
+function signUp() {
+    const email = document.getElementById('emailInput').value;
+    const password = document.getElementById('passwordInput').value;
+  
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Sign-up successful
+        alert('Account created successfully. Please log in.');
+      })
+      .catch((error) => {
+        // Handle errors
+        alert(error.message);
+      });
+  }
 
 // Change password
 function changePassword() {
@@ -122,29 +146,16 @@ function changePassword() {
 }
 
 function resetPassword() {
-    const newPassword = document.getElementById('newPasswordReset').value;
-    const confirmPassword = document.getElementById('confirmPasswordReset').value;
-
-    if (!newPassword || !confirmPassword) {
-        alert('Please fill in both fields.');
-        return;
-    }
-
-    if (newPassword !== confirmPassword) {
-        alert('Passwords do not match.');
-        return;
-    }
-
-    // Update the password in Firestore
-    savePasswordToFirestore(newPassword);
-
-    // Clear fields and close modal
-    document.getElementById('newPasswordReset').value = '';
-    document.getElementById('confirmPasswordReset').value = '';
-    closeForgotPasswordModal();
-
-    alert('Password reset successfully. Please log in with your new password.');
-}
+    const email = document.getElementById('emailInput').value;
+  
+    auth.sendPasswordResetEmail(email)
+      .then(() => {
+        alert('Password reset email sent. Check your inbox.');
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  }
 
 // Initialize password on app load
 initializePassword();
@@ -157,6 +168,16 @@ function openSettings() {
 function closeSettings() {
     document.getElementById('settingsModal').style.display = 'none';
 }
+
+// Open Sign-Up Modal
+function openSignUpModal() {
+    document.getElementById('signUpModal').style.display = 'flex';
+  }
+  
+  // Close Sign-Up Modal
+  function closeSignUpModal() {
+    document.getElementById('signUpModal').style.display = 'none';
+  }
 
 // Export data
 function exportData() {
@@ -216,37 +237,64 @@ function importData(event) {
 
 // Load data from Firestore
 function loadData() {
-    db.collection("data").doc("appData").get()
-        .then((doc) => {
-            if (doc.exists) {
-                const data = doc.data();
-                students = data.students || [];
-                sessions = data.sessions || [];
-                nextStudentId = data.nextStudentId || 1;
-                nextSessionId = data.nextSessionId || 1;
+    const user = auth.currentUser;
+    if (!user) return;
+  
+    db.collection("users").doc(user.uid).get()
+      .then((doc) => {
+        if (doc.exists) {
+          const data = doc.data();
+          students = data.students || [];
+          sessions = data.sessions || [];
+          nextStudentId = data.nextStudentId || 1;
+          nextSessionId = data.nextSessionId || 1;
+  
+          updateStudentDropdown();
+          renderStudents();
+          renderSessions();
+          renderSummary();
+        } else {
+          console.log("No data found in Firestore");
+        }
+      })
+      .catch((error) => console.error("Error loading data: ", error));
+  }
 
-                updateStudentDropdown();
-                renderStudents();
-                renderSessions();
-                renderSummary();
-            } else {
-                console.log("No data found in Firestore");
-            }
-        })
-        .catch((error) => console.error("Error loading data: ", error));
-}
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in
+      document.getElementById('loadingScreen').style.display = 'none';
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('appContainer').style.display = 'block';
+      isLoggedIn = true;
+      loadData();
+    } else {
+      // User is signed out
+      document.getElementById('loadingScreen').style.display = 'none';
+      document.getElementById('loginScreen').style.display = 'block';
+      document.getElementById('appContainer').style.display = 'none';
+      isLoggedIn = false;
+    }
+  });
+
+  window.onload = function () {
+    document.getElementById('loadingScreen').style.display = 'flex';
+  };
 
 // Save data to Firestore
 function saveData() {
-    db.collection("data").doc("appData").set({
-            students: students,
-            sessions: sessions,
-            nextStudentId: nextStudentId,
-            nextSessionId: nextSessionId
-        })
-        .then(() => console.log("Data saved to Firestore"))
-        .catch((error) => console.error("Error saving data: ", error));
-}
+    const user = auth.currentUser;
+    if (!user) return;
+  
+    db.collection("users").doc(user.uid).set({
+      students: students,
+      sessions: sessions,
+      nextStudentId: nextStudentId,
+      nextSessionId: nextSessionId
+    })
+      .then(() => console.log("Data saved to Firestore"))
+      .catch((error) => console.error("Error saving data: ", error));
+  }
 
 // Update student dropdown in sessions tab
 function updateStudentDropdown() {
