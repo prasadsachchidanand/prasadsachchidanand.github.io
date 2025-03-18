@@ -13,9 +13,6 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-console.log(firebase.apps); // Should show your initialized app
-console.log(firebase.auth()); // Should show the auth object
-
 // Data storage
 let students = [];
 let sessions = [];
@@ -29,28 +26,56 @@ let isLoggedIn = false;
 
 // Initialize password on app load
 function initializePassword() {
-    const savedPassword = localStorage.getItem('tutoring_password');
-    if (savedPassword) {
-        currentPassword = savedPassword;
-    } else {
-        localStorage.setItem('tutoring_password', currentPassword);
-    }
+    db.collection('tutoringData').doc('password').get()
+    .then((doc) => {
+        if (doc.exists) {
+            currentPassword = doc.data().password; // Retrieve password from Firestore
+        } 
+        else {
+            // If no password exists, set the default password
+            db.collection('tutoringData').doc('password').set({ password: DEFAULT_PASSWORD })
+                .then(() => {
+                    currentPassword = DEFAULT_PASSWORD;
+                    console.log('Default password saved to Firestore');
+                })
+                .catch((error) => {
+                    console.error('Error saving default password to Firestore: ', error);
+                });
+        }
+    })
+    .catch((error) => {
+        console.error('Error loading password from Firestore: ', error);
+    });
 }
 
 // Login function
 function login() {
     const enteredPassword = document.getElementById('passwordInput').value;
 
-    if (enteredPassword === currentPassword) {
-        document.getElementById('loginScreen').style.display = 'none';
-        document.getElementById('appContainer').style.display = 'block';
-        document.getElementById('passwordInput').value = '';
-        document.getElementById('loginError').textContent = '';
-        isLoggedIn = true;
-        loadData();
-    } else {
-        document.getElementById('loginError').textContent = 'Incorrect password. Please try again.';
-    }
+    // Fetch the password from Firestore
+    db.collection('tutoringData').doc('password').get()
+    .then((doc) => {
+        if (doc.exists) {
+            const savedPassword = doc.data().password;
+
+            if (enteredPassword === savedPassword) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('appContainer').style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('loginError').textContent = '';
+                isLoggedIn = true;
+                loadData();
+            } else {
+                document.getElementById('loginError').textContent = 'Incorrect password. Please try again.';
+            }
+        } else {
+            document.getElementById('loginError').textContent = 'Password not found. Please contact support.';
+        }
+    })
+    .catch((error) => {
+        console.error('Error fetching password from Firestore: ', error);
+        document.getElementById('loginError').textContent = 'An error occurred. Please try again.';
+    });
 }
 
 // Logout function
@@ -83,17 +108,16 @@ function changePassword() {
         return;
     }
 
-    // Update the password
-    currentPassword = newPasswordInput;
-    localStorage.setItem('tutoring_password', currentPassword);
-
-    // Clear fields
-    document.getElementById('currentPassword').value = '';
-    document.getElementById('newPassword').value = '';
-    document.getElementById('confirmPassword').value = '';
-
-    alert('Password updated successfully');
-    closeSettings();
+    // Update the password in Firestore
+    db.collection('tutoringData').doc('password').set({ password: newPasswordInput })
+    .then(() => {
+        currentPassword = newPasswordInput; // Update the current password
+        alert('Password updated successfully');
+        closeSettings();
+    })
+    .catch((error) => {
+        console.error('Error updating password in Firestore: ', error);
+    });
 }
 
 // Initialize password on app load
