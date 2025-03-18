@@ -63,23 +63,24 @@ function initializePassword() {
 
 // Login function
 function login() {
-    const email = document.getElementById('emailInput').value; // Add email input field
+    const email = document.getElementById('emailInput').value;
     const password = document.getElementById('passwordInput').value;
-  
-    auth.signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Login successful
-        document.getElementById('loginScreen').style.display = 'none';
-        document.getElementById('appContainer').style.display = 'block';
-        document.getElementById('loginError').textContent = '';
-        isLoggedIn = true;
-        loadData();
-      })
-      .catch((error) => {
-        // Handle errors
-        document.getElementById('loginError').textContent = error.message;
-      });
-  }
+
+    if (!email || !password) {
+        document.getElementById('loginError').textContent = 'Please enter both email and password.';
+        return;
+    }
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Signed in successfully
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('appContainer').style.display = 'block';
+        })
+        .catch((error) => {
+            document.getElementById('loginError').textContent = error.message;
+        });
+}
 
 // Logout function
 function logout() {
@@ -109,6 +110,31 @@ function signUp() {
         alert(error.message);
       });
   }
+
+  function closeActiveModal() {
+    const modals = [
+        'forgotPasswordModal',
+        'signUpModal',
+        'settingsModal'
+    ];
+    modals.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (modal.style.display === 'flex') {
+            modal.style.display = 'none';
+        }
+    });
+}
+
+// Add Escape key listener
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeActiveModal();
+    }
+});
+
+function closeForgotPasswordModal() { closeActiveModal(); }
+function closeSignUpModal() { closeActiveModal(); }
+function closeSettings() { closeActiveModal(); }
 
 // Change password
 function changePassword() {
