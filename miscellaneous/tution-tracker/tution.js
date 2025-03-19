@@ -21,64 +21,38 @@ let nextStudentId = 1;
 let nextSessionId = 1;
 
 // Password management
-const DEFAULT_PASSWORD = "tutor123"; // Default password
-let currentPassword = DEFAULT_PASSWORD;
 let isLoggedIn = false;
-
-// Save password to Firestore
-function savePasswordToFirestore(newPassword) {
-    db.collection("settings").doc("password").set({
-            password: newPassword
-        })
-        .then(() => console.log("Password saved to Firestore"))
-        .catch((error) => console.error("Error saving password: ", error));
-}
-
-// Load password from Firestore
-function loadPasswordFromFirestore(callback) {
-    db.collection("settings").doc("password").get()
-        .then((doc) => {
-            if (doc.exists) {
-                const savedPassword = doc.data().password;
-                callback(savedPassword);
-            } else {
-                console.log("No password found in Firestore");
-                callback(null);
-            }
-        })
-        .catch((error) => console.error("Error loading password: ", error));
-}
-
-// Initialize password on app load
-function initializePassword() {
-    loadPasswordFromFirestore((savedPassword) => {
-        if (savedPassword) {
-            currentPassword = savedPassword;
-        } else {
-            // Save the default password to Firestore
-            savePasswordToFirestore(currentPassword);
-        }
-    });
-}
 
 // Login function
 function login() {
     const email = document.getElementById('emailInput').value;
     const password = document.getElementById('passwordInput').value;
+    const loginError = document.getElementById('loginError');
 
     if (!email || !password) {
-        document.getElementById('loginError').textContent = 'Please enter both email and password.';
+        loginError.textContent = 'Please enter both email and password.';
         return;
     }
 
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            // Signed in successfully
             document.getElementById('loginScreen').style.display = 'none';
             document.getElementById('appContainer').style.display = 'block';
+            loginError.textContent = ''; // Clear any previous error
         })
         .catch((error) => {
-            document.getElementById('loginError').textContent = error.message;
+            console.error('Login error:', error.code, error.message); // Log for debugging
+            if (error.code === 'auth/invalid-credential') {
+                loginError.textContent = 'Incorrect email or password. Please try again.';
+            } else if (error.code === 'auth/user-not-found') {
+                loginError.textContent = 'No account found with this email.';
+            } else if (error.code === 'auth/wrong-password') {
+                loginError.textContent = 'Incorrect password. Please try again.';
+            } else if (error.code === 'auth/too-many-requests') {
+                loginError.textContent = 'Too many failed attempts. Please try again later.';
+            } else {
+                loginError.textContent = 'An error occurred. Please try again.';
+            }
         });
 }
 
@@ -97,17 +71,31 @@ function logout() {
 }
 
 function signUp() {
-    const email = document.getElementById('emailInput').value;
-    const password = document.getElementById('passwordInput').value;
+    const submitButton = document.querySelector('#signUpForm button');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Signing Up...';
+
+    const email = document.getElementById('signUpEmail').value;
+    const password = document.getElementById('signUpPassword').value;
+    const confirmPassword = document.getElementById('signUpConfirmPassword').value;
+
+    if (email === '' || password === '' || confirmPassword === '') {
+        alert('Please fill in all fields.');
+        submitButton.disabled = false;
+        submitButton.textContent = 'Sign Up';
+        return;
+    }
 
     auth.createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            // Sign-up successful
             alert('Account created successfully. Please log in.');
+            closeSignUpModal();
+            document.getElementById('loginScreen').style.display = 'block';
         })
-        .catch((error) => {
-            // Handle errors
-            alert(error.message);
+        .catch((error) => { /* error handling */ })
+        .finally(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Sign Up';
         });
 }
 
@@ -146,37 +134,75 @@ function closeSettings() {
 
 // Change password
 function changePassword() {
-    const currentPasswordInput = document.getElementById('currentPassword').value;
-    const newPasswordInput = document.getElementById('newPassword').value;
-    const confirmPasswordInput = document.getElementById('confirmPassword').value;
+    // console.log('Starting password change...');
 
-    loadPasswordFromFirestore((savedPassword) => {
-        if (currentPasswordInput !== savedPassword) {
-            alert('Current password is incorrect');
-            return;
-        }
+    const currentPassword = document.getElementById('currentPassword').value;
+    const newPassword = document.getElementById('newPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
 
-        if (newPasswordInput === '') {
-            alert('New password cannot be empty');
-            return;
-        }
+    const user = firebase.auth().currentUser;
+    // console.log('Current user:', user ? user.email : 'No user found');
 
-        if (newPasswordInput !== confirmPasswordInput) {
-            alert('New passwords do not match');
-            return;
-        }
+    if (!user) {
+        alert('No user is signed in.');
+        // console.log('Error: No signed-in user.');
+        return;
+    }
 
-        // Update the password in Firestore
-        savePasswordToFirestore(newPasswordInput);
+    if (!currentPassword) {
+        alert('Please enter your current password.');
+        // console.log('Error: Current password empty.');
+        return;
+    }
 
-        // Clear fields
-        document.getElementById('currentPassword').value = '';
-        document.getElementById('newPassword').value = '';
-        document.getElementById('confirmPassword').value = '';
+    if (!newPassword) {
+        alert('New password cannot be empty.');
+        // console.log('Error: New password empty.');
+        return;
+    }
 
-        alert('Password updated successfully');
-        closeSettings();
-    });
+    if (newPassword !== confirmPassword) {
+        alert('New passwords do not match.');
+        // console.log('Error: Passwords do not match.');
+        return;
+    }
+
+    const credential = firebase.auth.EmailAuthProvider.credential(user.email, currentPassword);
+    // console.log('Attempting re-authentication with:', user.email);
+
+    user.reauthenticateWithCredential(credential)
+        .then(() => {
+            // console.log('Re-authentication successful. Updating password...');
+            return user.updatePassword(newPassword);
+        })
+        .then(() => {
+            console.log('Password updated successfully in Firebase Auth.');
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+            closeSettings();
+            alert('Password updated successfully. Please log in again.');
+            auth.signOut().then(() => {
+                document.getElementById('appContainer').style.display = 'none';
+                document.getElementById('loginScreen').style.display = 'block';
+                document.getElementById('loginError').textContent = 'Password updated! Log in with your new password.';
+            });
+        })
+        .then(() => {
+            // Ensure UI updates after sign-out
+            document.getElementById('appContainer').style.display = 'none';
+            document.getElementById('loginScreen').style.display = 'block';
+        })
+        .catch((error) => {
+            // console.error('Error during password change:', error.code, error.message);
+            if (error.code === 'auth/wrong-password') {
+                alert('Current password is incorrect.');
+            } else if (error.code === 'auth/too-many-requests') {
+                alert('Too many attempts. Please try again later.');
+            } else {
+                alert('Error updating password: ' + error.message);
+            }
+        });
 }
 
 // Open Forgot Password Modal
@@ -209,26 +235,35 @@ function resetPassword() {
         });
 }
 
-// Initialize password on app load
-initializePassword();
-
 // Settings modal functions
 function openSettings() {
     document.getElementById('settingsModal').style.display = 'flex';
 }
 
 function closeSettings() {
-    document.getElementById('settingsModal').style.display = 'none';
+    const modal = document.getElementById('settingsModal');
+    modal.style.display = 'none';
+    document.getElementById('currentPassword').value = '';
+    document.getElementById('newPassword').value = '';
+    document.getElementById('confirmPassword').value = '';
 }
 
 // Open Sign-Up Modal
 function openSignUpModal() {
     document.getElementById('signUpModal').style.display = 'flex';
+    document.getElementById('signUpEmail').focus();
+    document.getElementById('signUpEmail').value = '';
+    document.getElementById('signUpPassword').value = '';
+    document.getElementById('signUpConfirmPassword').value = '';
 }
 
 // Close Sign-Up Modal
 function closeSignUpModal() {
-    document.getElementById('signUpModal').style.display = 'none';
+    const modal = document.getElementById('signUpModal');
+    modal.style.display = 'none';
+    document.getElementById('signUpEmail').value = '';
+    document.getElementById('signUpPassword').value = '';
+    document.getElementById('signUpConfirmPassword').value = '';
 }
 
 // Export data
@@ -306,7 +341,7 @@ function loadData() {
                 renderSessions();
                 renderSummary();
             } else {
-                console.log("No data found in Firestore");
+                // console.log("No data found in Firestore");
             }
         })
         .catch((error) => console.error("Error loading data: ", error));
@@ -315,16 +350,20 @@ function loadData() {
 auth.onAuthStateChanged((user) => {
     if (user) {
         // User is signed in
+        // console.log('User signed in:', user.email);
         document.getElementById('loadingScreen').style.display = 'none';
         document.getElementById('loginScreen').style.display = 'none';
         document.getElementById('appContainer').style.display = 'block';
+        document.getElementById('settingsModal').style.display = 'none'; // Ensure modal is hidden
         isLoggedIn = true;
         loadData();
     } else {
         // User is signed out
+        // console.log('User signed out.');
         document.getElementById('loadingScreen').style.display = 'none';
         document.getElementById('loginScreen').style.display = 'block';
         document.getElementById('appContainer').style.display = 'none';
+        document.getElementById('settingsModal').style.display = 'none'; // Ensure modal is hidden
         isLoggedIn = false;
     }
 });

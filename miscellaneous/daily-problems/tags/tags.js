@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // abstract algebra
         'group-theory': 'abstract-algebra',
+        'sylow-theorem': 'abstract-algebra',
         'cyclic-group': 'abstract-algebra',
         'group-action': 'abstract-algebra',
         'ring-theory': 'abstract-algebra',

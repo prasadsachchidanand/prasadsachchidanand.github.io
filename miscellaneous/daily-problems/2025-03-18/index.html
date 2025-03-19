@@ -144,41 +144,125 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        A function $u$ is harmonic if 
+                        \[
+                            \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0.
+                        \]
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        To find the harmonic conjugate, use either Cauchy-Riemann equations to find $v$ or use <a href="https://en.wikipedia.org/wiki/Milne-Thomson_method_for_finding_a_holomorphic_function" class="text-blue-500 hover:text-blue-800" target="_blank">Milne-Thomson's method</a> to find $f(z)$ which is given by
+                        \[
+                            f(z) = u(z,0) - \iota \int \frac{\partial u}{\partial y} (z,0) \ \mathrm{d} z.
+                        \]
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> To prove that \( u(x, y) \) is harmonic, we need to show that it satisfies Laplace's equation:
+                    \[
+                        \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0.
+                    \]
+                    At first, compute the partial derivatives of \( u(x, y) \) which gives
+                    \[
+                        \frac{\partial u}{\partial x} = 3x^2 - 3y^2, \quad \frac{\partial u}{\partial y} = -6xy - 2.
+                    \]
+                    Now, compute the second partial derivatives, we get
+                    \[
+                        \frac{\partial^2 u}{\partial x^2} = 6x, \quad \frac{\partial^2 u}{\partial y^2} = -6x.
+                    \]
+                    Adding these,
+                    \[
+                        \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 6x - 6x = 0.
+                    \]
+                    Thus, \( u(x, y) \) is harmonic.
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Next, we find an analytic function \( f(z) = u(x, y) + \iota v(x, y) \), where \( z = x + \iota y \), such that \( \text{Re}(f) = u \). Recall that as $f$ is analytic, it must satisfy the Cauchy-Riemann equations, that is,
+                    \[
+                        \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.
+                    \]
+                    Using the Cauchy-Riemann equations:
+                    \[
+                        \frac{\partial v}{\partial y} = 3x^2 - 3y^2, \quad \frac{\partial v}{\partial x} = 6xy + 2.
+                    \]
+                    Therefore, 
+                    \begin{align*}
+                        v(x, y) = \int (3x^2 - 3y^2) \ \mathrm{d} y = 3x^2 y - y^3 + h(x),
+                    \end{align*}
+                    where \( h(x) \) is a function of \( x \) alone.
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Differentiate \( v(x, y) \) with respect to \( x \) and equate to \( \frac{\partial v}{\partial x} \):
+                    \begin{align*}
+                        \frac{\partial v}{\partial x} = 6xy + h'(x) & \implies 6xy + 2 = 6xy + h'(x) \\
+                        & \implies h'(x) = 2 \implies h(x) = 2x + C,
+                    \end{align*}
+                    where \( C \) is a constant. Therefore,
+                    \[
+                        v(x, y) = 3x^2y - y^3 + 2x + C.
+                    \]
+                    So, the analytic function will be
+                    \begin{align*}
+                        f(z) & = u(x, y) + \iota v(x, y) \\
+                             & = (x^3 - 3xy^2 - 2y) + \iota (3x^2y - y^3 + 2x + C).
+                    \end{align*}
+                    
+                    Using the condition \( f(0) = 0 \), we find \( C = 0 \). Therefore:
+                    \[
+                        \textcolor{blue}{
+                            \boxed{
+                                f(z) = (x^3 - 3xy^2 - 2y) + \iota (3x^2y - y^3 + 2x)
+                            }
+                        }
+                    \]
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <h3 class="font-bold text-xl mb-4">Method 2: Milne-Thomson's Method</h3>
+                    We could have used the <a href="https://en.wikipedia.org/wiki/Milne-Thomson_method_for_finding_a_holomorphic_function" class="text-blue-500 hover:text-blue-800" target="_blank">Milne-Thomson's method</a> to construct an analytic function \( f(z) \) from the real part \( u(x,y) \). Using Milne-Thomson's method, we construct the analytic function \( f(z) \) from the real part \( u(x, y) \) as follows:
+                    \begin{align*}
+                        f(z) & = u(z,0) - \iota \int \frac{\partial u}{\partial y} (z,0) \ \mathrm{d} z \\
+                        & = \left( z^3 - 0 - 0 \right) - \iota \int (-0 - 2)\ \mathrm{d} z \\
+                        & = z^3 + 2\iota z + C.
+                    \end{align*}
+                    Using the condition \( f(0) = 0 \), we get \( C = 0 \). Thus, the analytic function is
+                    \[
+                        \textcolor{blue}{
+                            \boxed{
+                                f(z) = z^3 - 2\iota z
+                            }
+                        }
+                    \]
+                  </div>
+
                 </div>
 
                 <!-- Previous Button -->
