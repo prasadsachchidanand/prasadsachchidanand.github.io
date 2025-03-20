@@ -36,16 +36,16 @@ function toggleAnswer(id) {
 
 // For MCQ problems (See for example 2024-01-07)
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("✅ Universal Quiz Script Loaded!");
+  // console.log("✅ Universal Quiz Script Loaded!");
 
   const problemContainer = document.querySelector(".problem-container");
   if (!problemContainer) {
-    console.error("❌ No problem-container found!");
+    // console.error("❌ No problem-container found!");
     return;
   }
 
   const correctAnswer = problemContainer.getAttribute("data-correct");
-  console.log("🟢 Correct Answer:", correctAnswer);
+  // console.log("🟢 Correct Answer:", correctAnswer);
 
   const optionsContainer = document.querySelector(".options-container");
   const solutionContainer = document.getElementById("solution"); // Solution section
