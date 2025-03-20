@@ -151,38 +151,44 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        Use Sylow's first and third theorem to conclude that there is only one subgroup of order $137$.
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        Use Sylow's second theorem to conclude that the subgroup of order $137$ is normal.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $G$ be a group of order $7 \cdot 11 \cdot 137$. By the first Sylow theorem, there exist subgroups of order $7$, $11$ and $137$, say $H_7$, $H_{11} $, and $H_{137} $, respectively. Also, from the Sylow's third theorem, the number of subgroups of order $137$, say $n_{137} $ must satisfy
+                    \begin{align*}
+                        & n_{137} \equiv 1 \ \mathrm{mod}\ 137 \quad \text{ and } \quad n_{137} \mid 77 \\
+                        \implies & n_{137} = 137k + 1 \quad \text{ and } \quad (137k + 1) \mid 77 \\
+                        \implies & k = 0.
+                    \end{align*}
+                    This implies $n_{137} = 1 $. Now using second Sylow's theorem we conclude that there exists $g \in G$ such that $g^{-1} H_{137}  g = H_{137} $, which implies $H_{137}$ is normal and hence $G$ is not simple. Therefore, there does not exist any simple group of order $7 \cdot 11 \cdot 137$. 
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
@@ -210,6 +216,9 @@
                     </ul>
                   </nav>
                 </div>
+
+                <!-- Change the value every time to get a new comment page -->
+                <input type="hidden" id="problemId" value="2025-03-19">
 
                 <!-- Share Button -->
                 <div class="relative flex justify-center">
@@ -259,6 +268,11 @@
                 <div class="mt-16">
                   <h3 class="text-xl font-semibold mb-6">Comments</h3>
                   
+                  <!-- Comments List -->
+                  <div id="commentsList" class="space-y-6">
+                    <!-- Comments will be inserted here dynamically -->
+                  </div>
+
                   <!-- Comment Form -->
                   <div class="bg-gray-50 p-6 rounded-lg shadow-sm mb-8">
                     <div class="mb-4">
@@ -286,16 +300,10 @@
                     
                     <button id="submitComment" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit Comment</button>
                   </div>
-                  
-                  <!-- Comments List -->
-                  <div id="commentsList" class="space-y-6">
-                    <!-- Comments will be inserted here dynamically -->
-                  </div>
+                
                 </div>
                 <!-- End of custom comment system -->
-      
-                <input type="hidden" id="problemId" value="2025-03-19">
-                 
+                     
               </div>
             </div>
           </div>
