@@ -9,6 +9,7 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const auth = firebase.auth();
 
 // Get the problem identifier from the hidden input field
 const problemId = document.getElementById("problemId").value;
@@ -848,6 +849,8 @@ submitCommentButton.addEventListener("click", function() {
 		return;
 	}
 
+	const userId = firebase.auth().currentUser?.uid || "anonymous";
+
 	const newComment = {
 		id: generateId(),
 		name: name,
@@ -855,7 +858,8 @@ submitCommentButton.addEventListener("click", function() {
 		timestamp: Date.now(),
 		edited: false,
 		replyToId: replyToId,
-		replies: [], // Store reply IDs
+		replies: [], 
+		userId: userId, 
 	};
 
 	commentsCollection
@@ -981,69 +985,75 @@ function loadComments() {
 
 // Render a single comment and its replies
 function renderComment(comment, allComments, container, isReply = false) {
-	const commentElement = document.createElement("div");
-	commentElement.classList.add(
-		"bg-white",
-		"p-4",
-		"rounded-lg",
-		"shadow-sm",
-		"border",
-		"border-gray-200",
-		isReply ? "ml-8" : "mb-4"
-	);
-	commentElement.id = `comment-${comment.id}`;
+    const commentElement = document.createElement("div");
+    commentElement.classList.add(
+        "bg-white",
+        "p-4",
+        "rounded-lg",
+        "shadow-sm",
+        "border",
+        "border-gray-200",
+        isReply ? "ml-8" : "mb-4"
+    );
+    commentElement.id = `comment-${comment.id}`;
 
-	const commentHTML = `
-      <div class="flex justify-between items-start mb-2">
-        <div class="flex items-center">
-          <!-- Avatar -->
-          <img src="https://www.gravatar.com/avatar/${comment.id}?d=identicon&s=40" alt="Avatar" class="w-8 h-8 rounded-full mr-2">
-          <div>
-            <h4 class="font-semibold text-gray-900">${comment.name}</h4>
-            <p class="text-xs text-gray-500">
-              ${formatDate(comment.timestamp)}
-              ${comment.edited ? ' (edited)' : ''}
-              ${comment.replyToId ? ' <span class="text-blue-500">(reply)</span>' : ''}
-            </p>
-          </div>
+    // Get the current user's UID
+    const currentUserId = firebase.auth().currentUser?.uid || "anonymous";
+
+    // Only show delete button if the current user is the comment creator
+    const deleteButton = comment.userId === currentUserId ?
+        `<button class="delete-btn text-xs text-red-600 hover:text-red-800" data-id="${comment.id}">Delete</button>` :
+        "";
+
+    const commentHTML = `
+        <div class="flex justify-between items-start mb-2">
+            <div class="flex items-center">
+                <!-- Avatar -->
+                <img src="https://www.gravatar.com/avatar/${comment.id}?d=identicon&s=40" alt="Avatar" class="w-8 h-8 rounded-full mr-2">
+                <div>
+                    <h4 class="font-semibold text-gray-900">${comment.name}</h4>
+                    <p class="text-xs text-gray-500">
+                        ${formatDate(comment.timestamp)}
+                        ${comment.edited ? ' (edited)' : ''}
+                        ${comment.replyToId ? ' <span class="text-blue-500">(reply)</span>' : ''}
+                    </p>
+                </div>
+            </div>
+            <div class="flex space-x-2">
+                <button class="reply-btn text-xs text-green-600 hover:text-green-800" data-id="${comment.id}" data-author="${comment.name}">Reply</button>
+                <button class="edit-btn text-xs text-blue-600 hover:text-blue-800" data-id="${comment.id}">Edit</button>
+                ${deleteButton}
+            </div>
         </div>
-        <div class="flex space-x-2">
-          <button class="reply-btn text-xs text-green-600 hover:text-green-800" data-id="${comment.id}" data-author="${comment.name}">Reply</button>
-          <button class="edit-btn text-xs text-blue-600 hover:text-blue-800" data-id="${comment.id}">Edit</button>
-          <button class="delete-btn text-xs text-red-600 hover:text-red-800" data-id="${comment.id}">Delete</button>
+        <div class="comment-content prose max-w-none">
+            ${renderContent(comment.content)}
         </div>
-      </div>
-      <div class="comment-content prose max-w-none">
-        ${renderContent(comment.content)}
-      </div>
-      ${renderLikeDislikeButtons(comment)}
-      <div class="edit-form hidden mt-3 space-y-3">
-        <div id="edit-toolbar-${comment.id}" class="flex flex-wrap gap-2 mb-2"></div>
-        <textarea class="edit-textarea w-full px-3 py-2 border border-gray-300 rounded-md">${comment.content}</textarea>
-        <div class="flex justify-end space-x-2">
-          <button class="cancel-edit-btn px-3 py-1 bg-gray-200 text-gray-800 rounded-md text-sm">Cancel</button>
-          <button class="save-edit-btn px-3 py-1 bg-blue-600 text-white rounded-md text-sm" data-id="${comment.id}">Save</button>
+        ${renderLikeDislikeButtons(comment)}
+        <div class="edit-form hidden mt-3 space-y-3">
+            <div id="edit-toolbar-${comment.id}" class="flex flex-wrap gap-2 mb-2"></div>
+            <textarea class="edit-textarea w-full px-3 py-2 border border-gray-300 rounded-md">${comment.content}</textarea>
+            <div class="flex justify-end space-x-2">
+                <button class="cancel-edit-btn px-3 py-1 bg-gray-200 text-gray-800 rounded-md text-sm">Cancel</button>
+                <button class="save-edit-btn px-3 py-1 bg-blue-600 text-white rounded-md text-sm" data-id="${comment.id}">Save</button>
+            </div>
         </div>
-      </div>
     `;
 
-	commentElement.innerHTML = commentHTML;
-	container.appendChild(commentElement);
+    commentElement.innerHTML = commentHTML;
+    container.appendChild(commentElement);
 
-	// If this comment has replies, render them
-	if (comment.replies && comment.replies.length > 0) {
-		const repliesContainer = document.createElement("div");
-		repliesContainer.classList.add("replies-container", "mt-2");
+    // Render replies if any
+    if (comment.replies && comment.replies.length > 0) {
+        const repliesContainer = document.createElement("div");
+        repliesContainer.classList.add("replies-container", "mt-2");
 
-		// Find all replies for this comment
-		const replies = allComments.filter(c => c.replyToId === comment.id);
+        const replies = allComments.filter(c => c.replyToId === comment.id);
+        replies.forEach(reply => {
+            renderComment(reply, allComments, repliesContainer, true);
+        });
 
-		replies.forEach(reply => {
-			renderComment(reply, allComments, repliesContainer, true);
-		});
-
-		commentElement.appendChild(repliesContainer);
-	}
+        commentElement.appendChild(repliesContainer);
+    }
 }
 
 function setupLikeDislikeHandlers() {
@@ -1279,12 +1289,34 @@ function setupCommentActions() {
 
 	// Delete button handlers
 	document.querySelectorAll(".delete-btn").forEach((button) => {
-		button.addEventListener("click", function() {
+		button.addEventListener("click", function () {
 			const commentId = this.getAttribute("data-id");
-
-			if (confirm("Are you sure you want to delete this comment? This will also delete all replies.")) {
-				deleteCommentAndReplies(commentId);
-			}
+	
+			// Get the current user's UID
+			const currentUserId = firebase.auth().currentUser?.uid || "anonymous";
+	
+			// Fetch the comment to check the userId
+			commentsCollection
+				.doc(commentId)
+				.get()
+				.then((doc) => {
+					if (doc.exists) {
+						const comment = doc.data();
+	
+						// Check if the current user is the comment creator
+						if (comment.userId === currentUserId) {
+							if (confirm("Are you sure you want to delete this comment?")) {
+								deleteCommentAndReplies(commentId);
+							}
+						} else {
+							alert("You are not authorized to delete this comment.");
+						}
+					}
+				})
+				.catch((error) => {
+					console.error("Error fetching comment:", error);
+					alert("Failed to delete comment. Please try again.");
+				});
 		});
 	});
 
@@ -1324,36 +1356,41 @@ function repositionCommentForm() {
 
 // Function to delete a comment and all its replies recursively
 function deleteCommentAndReplies(commentId) {
-	// First get the comment to check for replies
-	commentsCollection.doc(commentId).get()
-		.then((doc) => {
-			if (doc.exists) {
-				const comment = doc.data();
+    // Get the current user's UID
+    const currentUserId = firebase.auth().currentUser?.uid || "anonymous";
 
-				// If it has replies, delete them first
-				if (comment.replies && comment.replies.length > 0) {
-					// Create a batch delete for all replies
-					const deletePromises = comment.replies.map(replyId => {
-						return deleteCommentAndReplies(replyId);
-					});
+    // Fetch the comment to verify ownership
+    commentsCollection
+        .doc(commentId)
+        .get()
+        .then((doc) => {
+            if (doc.exists) {
+                const comment = doc.data();
 
-					// Wait for all replies to be deleted
-					return Promise.all(deletePromises).then(() => {
-						// Then delete the comment itself
-						return commentsCollection.doc(commentId).delete();
-					});
-				} else {
-					// No replies, just delete the comment
-					return commentsCollection.doc(commentId).delete();
-				}
-			}
-		})
-		.then(() => {
-			// After successful deletion, reload comments
-			loadComments();
-		})
-		.catch((error) => {
-			console.error("Error deleting comment:", error);
-			alert("Failed to delete comment. Please try again.");
-		});
+                // Check if the current user is the comment creator
+                if (comment.userId === currentUserId) {
+                    // Proceed with deletion
+                    if (comment.replies && comment.replies.length > 0) {
+                        const deletePromises = comment.replies.map(replyId => {
+                            return deleteCommentAndReplies(replyId);
+                        });
+
+                        return Promise.all(deletePromises).then(() => {
+                            return commentsCollection.doc(commentId).delete();
+                        });
+                    } else {
+                        return commentsCollection.doc(commentId).delete();
+                    }
+                } else {
+                    throw new Error("Unauthorized: You are not the comment creator.");
+                }
+            }
+        })
+        .then(() => {
+            loadComments();
+        })
+        .catch((error) => {
+            console.error("Error deleting comment:", error);
+            alert("Failed to delete comment. You are not authorized.");
+        });
 }
