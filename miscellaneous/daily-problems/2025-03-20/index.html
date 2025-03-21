@@ -163,38 +163,68 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        Show that for any real number $a $, there exists $\mathbf{x} ,\mathbf{y} \in \mathbb{R} ^n$  such that $d(\mathbf{x} ,\mathbf{y} ) > \alpha $. Note that $d((a,0,0,0,\dots, 0), (0,0,\dots, 0)) = a$.
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        Show that the set $\{ \bar{d} (\mathbf{x} ,\mathbf{y} ): \mathbf{x} ,\mathbf{y} \in \mathbb{R} ^n \} $ is bounded above by $1$ and finally show that $1$ is the least upper bound to conclude that the diameter is $1$.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong><ol class="math-list-alpha">
+                      <li class="my-4">
+                          We claim that the diameter of $\mathbb{R} ^n$ with respect to the Euclidean metric is $+\infty $. For that, we need to show that given any positive real number $\alpha $, there exists $\mathbf{x} ,\mathbf{y} \in \mathbb{R} ^n$  such that $d(\mathbf{x} ,\mathbf{y} ) > \alpha $. Take
+                          \[
+                              \mathbf{x}  = (\alpha + 1 , 0,0,\dots, 0) \text{ and } \mathbf{y} = \mathbf{0} .
+                          \]
+                          Then
+                          \[
+                              d(\mathbf{x} ,\mathbf{y} ) = \left\lVert \mathbf{x} - \mathbf{y} \right\rVert = \alpha + 1 > \alpha .
+                          \]
+                          Thus, $\operatorname{diam}\left( \mathbb{R} ^n, d \right)  = +\infty $. 
+                          <br><br>
+                          <span class="text-cyan-600">This also implies that $\mathbb{R} ^n$ is unbounded with respect to the Euclidean metric.</span>
+                      </li>
+
+                      <hr class="h-px my-4 bg-gray-300 border-0"> 
+                      <li class="my-4">
+                          We claim that the diameter of $\mathbb{R} ^n$ with respect to $\bar{d} $ is $1$. Note that for any $\mathbf{x} ,\mathbf{y} \in \mathbb{R} ^n$,
+                          \[
+                              \bar{d} \left( \mathbf{x} , \mathbf{y} \right) = \frac{d(\mathbf{x},\mathbf{y})}{1 + d(\mathbf{x} ,\mathbf{y} )} \leq 1.
+                          \]
+                          Therefore $1$ is an upper bound of the set $\{ \bar{d} (\mathbf{x} ,\mathbf{y} ): \mathbf{x} ,\mathbf{y} \in \mathbb{R} ^n \} $. We now will show that it is the least upper bound. Suppose that $a \in \mathbb{R} $ be such that $a < 1$ and $\bar{d} (\mathbf{x} ,\mathbf{y} ) \leq a$ for any $\mathbf{x} , \mathbf{y} \in \mathbb{R} ^n$. So for any $\mathbf{x} ,\mathbf{y} \in \mathbb{R} ^n$, we have
+                          \begin{align*}
+                              \frac{d(\mathbf{x} ,\mathbf{y} )}{1 + d(\mathbf{x} ,\mathbf{y} )} \leq a & \implies d(\mathbf{x} ,\mathbf{y} ) \leq a + ad(\mathbf{x} ,\mathbf{y} ) \\
+                              & \implies (1- a) d(\mathbf{x} , \mathbf{y} ) \leq a \\
+                              & \implies d(\mathbf{x} ,\mathbf{y} ) \leq \frac{a}{1 - a} < +\infty .
+                          \end{align*}
+                          This shows that $\left( \mathbb{R} ^n, d \right) $ is bounded, contradicting the first part. Thus, no such $a < 1$ exists and hence $\sup \left\{ \bar{d} (\mathbf{x} ,\mathbf{y} ): \mathbf{x} , \mathbf{y} \in \mathbb{R} ^n \right\} = 1$.
+                          <br><br> <span class="text-cyan-600">This also implies that $\left( \mathbb{R}^n, \bar{d} \right)$ is bounded</span>.
+                      </li>
+                    </ol>
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
