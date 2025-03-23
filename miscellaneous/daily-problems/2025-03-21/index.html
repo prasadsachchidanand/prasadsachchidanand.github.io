@@ -156,38 +156,55 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
-                    <ol class="math-list-disc">
-                      <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
-                      </li>
-                      <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
-                      </li>
-                    </ol>
+                     A set of functions $\{f_1, f_2, \dots, f_k\}$ is linearly independent on an interval $I$ if and only if there exists $a\in I $ such that their Wronskian $W(f_1, \dots, f_k)(a) \neq 0$.
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that a set of functions $\{f_1, f_2, \dots, f_k\}$ is linearly independent on an interval $I$ if and only if there exists $a\in I $ such that their Wronskian $W(f_1, \dots, f_k)(a) \neq 0$. To show that the functions \( e^{2x}, x e^{2x}, x^2 e^{2x} \) are linearly independent, we will show that the Wronskian of these functions are nonzero at some point. The Wronskian of the functions will be 
+                    \begin{align*}
+                        W(f_1, f_2, f_3)(x) & =
+                            \begin{vmatrix}
+                                f_1(x) & f_2(x) &  f_3(x) \\
+                                f_1'(x) & f_2'(x) &  f_3'(x) \\
+                                f_1''(x) & f_2''(x) &  f_3''(x) \\
+                            \end{vmatrix} \\
+                            & = 
+                            \begin{vmatrix} 
+                                e^{2x} & x e^{2x} & x^2 e^{2x} \\ 
+                                2e^{2x} & (2x+1)e^{2x} & (2x^2+2x)e^{2x} \\ 
+                                4e^{2x} & (4x+4)e^{2x} & (4x^2+8x+2)e^{2x} 
+                            \end{vmatrix}.
+                    \end{align*}
+                    Take $x = 0$, then we have 
+                    \begin{align*}
+                        W(f_1, f_2, f_3)(0) & =
+                        \begin{vmatrix} 
+                            1 & 0 & 0\\ 
+                            2 & 1 & 0 \\ 
+                            4 & 4 & 2
+                        \end{vmatrix} = 2.
+                    \end{align*}
+                    Thus, the given functions are linearly independent.
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->

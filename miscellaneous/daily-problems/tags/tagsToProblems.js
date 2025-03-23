@@ -55,7 +55,7 @@ const tagsToProblems = {
     'characteristic-polynomial': ['../2024-05-26', '../2024-08-18', '../2024-01-07', '../2025-02-16'],
     'minimal-polynomial': ['../2025-02-09', '../2025-02-16'],
     'dimension': ['../2024-06-02', '../2025-01-05'],
-    'row-reduction': ['../2025-03-16'],
+    'row-reduction': ['../2025-03-16', '../2025-03-23'],
 
     // real analysis
     'real-analysis': realAnalysis,
@@ -118,7 +118,7 @@ const tagsToProblems = {
     'linear-programming': ['../2024-05-25', '../2024-07-06', '../2024-07-13'],
     'functional-analysis': ['../2024-06-01'],
     'number-theory': ['../2024-06-08', '../2024-01-06'],
-    'calculus': ['../2024-07-20', '../2025-01-11', '../2025-02-01', '../2025-02-08', '../2025-02-15', '../2025-03-01'],
+    'calculus': ['../2024-07-20', '../2025-01-11', '../2025-02-01', '../2025-02-08', '../2025-02-15', '../2025-03-01', '../2025-03-22'],
     
     // GATE
     'gate-2006': ['../2024-05-14'],
@@ -137,7 +137,7 @@ const tagsToProblems = {
 
     // Book-Solution
     'topology-munkres': ['../2025-03-06'],
-    'linear-algebra-hoffman-kunze': ['../2025-03-16'],
+    'linear-algebra-hoffman-kunze': ['../2025-03-16', '../2025-03-23'],
 };
 
 // Function to sort arrays by date
