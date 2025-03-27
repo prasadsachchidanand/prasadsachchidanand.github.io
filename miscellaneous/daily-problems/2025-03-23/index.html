@@ -159,38 +159,99 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        Write the augmented matrix of the system of linear equations and apply the row-reduced echelon form. 
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        After the reduction, you should get \[
+                            \begin{bmatrix}
+                                1 & -2 & 1 & 2 & 1 \\
+                                0 & 1 & -\frac{2}{3} & -\frac{1}{3} & \frac{1}{3} \\
+                                0 & 0 & 0 & 0 & -1  
+                            \end{bmatrix},
+                        \] which shows that the system has no solution. 
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Given that the system of linear equations is 
+                    \begin{equation}\label{eq:23Mar2025-1}
+                        \left.\begin{aligned}
+                            x_1 - 2x_2 + x_3 + 2x_4 & =  1 \\
+                            x_1 + x_2 - x_3 + x_4 & =  2 \\
+                            x_1 + 7x_2 - 5x_3 - x_4 & =  3
+                        \end{aligned}\right\}
+                    \end{equation}
+                    We will show that the above system has no solution. For that, let us consider the augmented matrix of the system \eqref{eq:23Mar2025-1}.
+                    \begin{align*}
+                        \begin{bmatrix}
+                            1 & -2 & 1 & 2 & 1 \\
+                            1 & 1 & -1 & 1 & 2 \\
+                            1 & 7 & -5 & -1 & 3\\
+                        \end{bmatrix}.
+                    \end{align*}
+                    We will now perform row operations to reduce the augmented matrix to row echelon form and analyze the resulting system.
+                    \begin{align*}
+                        \begin{bmatrix}
+                            1 & -2 & 1 & 2 & 1 \\
+                            1 & 1 & -1 & 1 & 2 \\
+                            1 & 7 & -5 & -1 & 3
+                        \end{bmatrix}
+                        & \xrightarrow{
+                            \begin{matrix}
+                                R_2 \rightarrow R_2 - R_1 \\
+                                R_3 \rightarrow R_3 - R_1
+                            \end{matrix}
+                        }
+                        \begin{bmatrix}
+                            1 & -2 & 1 & 2 & 1 \\
+                            0 & 3 & -2 & -1 & 1 \\
+                            0 & 9 & -6 & -3 & 2
+                        \end{bmatrix} \\[2ex]
+                        & \xrightarrow{
+                            \begin{matrix}
+                                R_3 \rightarrow R_3 - 3R_2
+                            \end{matrix}
+                        }
+                        \begin{bmatrix}
+                            1 & -2 & 1 & 2 & 1 \\
+                            0 & 3 & -2 & -1 & 1 \\
+                            0 & 0 & 0 & 0 & -1  \\
+                        \end{bmatrix} \\[2ex]
+                        & \xrightarrow{
+                            \begin{matrix}
+                                R_2 \rightarrow \frac{1}{3}R_2
+                            \end{matrix}
+                        }
+                        \begin{bmatrix}
+                            1 & -2 & 1 & 2 & 1 \\
+                            0 & 1 & -\frac{2}{3} & -\frac{1}{3} & \frac{1}{3} \\
+                            0 & 0 & 0 & 0 & -1  
+                        \end{bmatrix}.
+                    \end{align*}
+                    Since the first nonzero entry in the bottom row of the last matrix is in the rightmost column, the corresponding system of equations has no solution. Therefore, the system \eqref{eq:23Mar2025-1} has no solution.
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->

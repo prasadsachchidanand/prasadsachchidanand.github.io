@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications Admin</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #9333ea;
+      --gray-bg: #f9fafb;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    body {
+      background: linear-gradient(to bottom right, var(--gray-bg), #ffffff);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .tagify__dropdown__item--active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .form-section {
+      transition: all 0.3s ease;
+    }
+
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+
+    body:not(.loaded) {
+      display: none;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      color: var(--primary);
+      padding: 0.5rem 1.5rem;
+      border: 2px solid var(--primary);
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    h1 {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    input, select, textarea {
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      transition: all 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+    }
+
+    /* Ensure the publication list takes full height and scrolls */
+    #publicationList {
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) #e5e7eb;
+    }
+
+    #publicationList::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #publicationList::-webkit-scrollbar-track {
+      background: #e5e7eb;
+      border-radius: 4px;
+    }
+
+    #publicationList::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    /* Form container scrolling on mobile */
+    @media (max-width: 1024px) {
+      #formContainer {
+        max-height: calc(100vh - 200px); /* Adjust based on header height */
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary) #e5e7eb;
+      }
+
+      #formContainer::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      #formContainer::-webkit-scrollbar-track {
+        background: #e5e7eb;
+        border-radius: 4px;
+      }
+
+      #formContainer::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 4px;
+      }
+
+      /* Ensure buttons are visible and sticky on mobile */
+      .form-actions {
+        position: sticky;
+        bottom: 0;
+        background: white;
+        padding: 1rem 0;
+        border-top: 1px solid #e5e7eb;
+      }
+    }
+
+    /* Grouped year fields */
+    .year-group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .year-group .form-section {
+      flex: 1;
+    }
+
+    .publication-item {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .publication-item.sortable-chosen {
+      background-color: #f0f9ff;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .publication-item.sortable-ghost {
+      opacity: 0.5;
+      background: #c7d2fe;
+    }
+
+    .cursor-move {
+      cursor: move;
+    }
+
+    /* Link styling */
+    .publication-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .publication-link {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      line-height: 1.25rem;
+      background-color: #eef2ff;
+      color: #4f46e5;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+    }
+
+    .publication-link:hover {
+      background-color: #e0e7ff;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <div class="container mx-auto px-6 py-10">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-10 border-b border-gray-200 pb-6">
+      <div>
+        <h1 class="text-4xl font-extrabold">Publications Admin</h1>
+        <p class="text-gray-600 mt-1">Manage your research publications with ease</p>
+      </div>
+      <button id="logoutBtn" class="flex items-center text-red-600 hover:text-red-700 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
+        </svg>
+        Logout
+      </button>
+    </div>
+
+    <!-- Status Message -->
+    <div id="statusMessage" class="hidden mb-8 p-4 rounded-lg bg-green-50 text-green-800 border border-green-200"></div>
+
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Publication List -->
+      <div class="lg:col-span-1 card">
+        <div class="p-6 flex flex-col h-full">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800">Your Publications</h2>
+            <button id="addNewBtn" class="btn-primary flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+              </svg>
+              Add New
+            </button>
+          </div>
+          <div id="publicationList" class="space-y-4 flex-1">
+            <!-- Publications will be loaded here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Add/Edit Form -->
+      <div id="formContainer" class="lg:col-span-2">
+        <div class="card smooth-scroll" id="formScrollTarget">
+          <div class="p-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-8" id="formTitle">Add New Publication</h2>
+            
+            <form id="publicationForm" class="space-y-8">
+              <input type="hidden" id="publicationId">
+              
+              <!-- Publication Type & Basic Info -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Left Column -->
+                <div class="space-y-6">
+                  <div class="form-section">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Publication Type*</label>
+                    <select id="pubType" required class="w-full">
+                      <option value="">Select type...</option>
+                      <option value="preprints">Preprint</option>
+                      <option value="accepted">Accepted Publication</option>
+                      <option value="thesis">Thesis</option>
+                      <option value="notes">Note</option>
+                    </select>
+                  </div>
+
+                  <div class="form-section">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Title*</label>
+                    <input type="text" id="pubTitle" required class="w-full">
+                  </div>
+
+                  <div class="form-section">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Authors*</label>
+                    <input type="text" id="pubAuthors" name="authors" class="w-full" value="Sachchidanand Prasad">
+                    <p class="mt-1 text-xs text-gray-500">Add multiple authors separated by commas</p>
+                  </div>
+
+                  <div class="form-section">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Journal/Conference</label>
+                    <input type="text" id="pubJournal" class="w-full">
+                  </div>
+
+                  <div class="form-section">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Volume</label>
+                    <input type="text" id="pubVolume" class="w-full">
+                  </div>
+
+                  <div class="form-section">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Issue Number</label>
+                    <input type="text" id="pubIssue" class="w-full">
+                  </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="space-y-6">
+                  <!-- Grouped Year Fields -->
+                  <div class="form-section">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Publication Years</label>
+                    <div class="year-group">
+                      <div class="form-section">
+                        <label class="block text-xs font-medium text-gray-600 mb-1">Year</label>
+                        <input type="number" id="pubYear" class="w-full">
+                      </div>
+                      <div class="form-section">
+                        <label class="block text-xs font-medium text-gray-600 mb-1">arXiv</label>
+                        <input type="number" id="pubArxivYear" class="w-full">
+                      </div>
+                      <div class="form-section">
+                        <label class="block text-xs font-medium text-gray-600 mb-1">Accepted</label>
+                        <input type="number" id="pubAcceptYear" class="w-full">
+                      </div>
+                      <div class="form-section">
+                        <label class="block text-xs font-medium text-gray-600 mb-1">Published</label>
+                        <input type="number" id="pubPubYear" class="w-full">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-section">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Pages</label>
+                    <input type="text" id="pubPages" class="w-full" placeholder="e.g., 425-428">
+                  </div>
+
+                  <div class="form-section">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">DOI</label>
+                    <input type="text" id="pubDoi" class="w-full" placeholder="e.g., 10.18514/MMN.2024.4383">
+                  </div>
+
+                  <div class="form-section">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Tags</label>
+                    <input type="text" id="pubTags" name="tags" class="w-full">
+                  </div>
+
+                  <div class="form-section">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Image Path</label>
+                    <input type="text" id="pubImage" name="image" class="w-full" placeholder="e.g., ../assets/img/arxiv.svg">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Abstract -->
+              <div class="form-section">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Abstract</label>
+                <textarea id="pubAbstract" rows="4" class="w-full"></textarea>
+              </div>
+
+              <!-- BibTeX -->
+              <div class="form-section">
+                <label class="block text-sm font-medium text-gray-700 mb-2">BibTeX</label>
+                <textarea id="pubBibtex" rows="4" class="w-full font-mono text-sm" placeholder="@article{AuthorYear, ..."></textarea>
+              </div>
+
+              <!-- Links Section -->
+              <div class="form-section pt-6 border-t border-gray-200">
+                <label class="block text-sm font-medium text-gray-700 mb-3">Links</label>
+                <div id="linkFields" class="space-y-4"></div>
+                <button type="button" id="addLinkBtn" class="mt-4 text-sm text-indigo-600 hover:text-indigo-800 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                  </svg>
+                  Add Link
+                </button>
+              </div>
+
+              <!-- Form Actions -->
+              <div class="flex justify-end space-x-4 pt-8 form-actions">
+                <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+                <button type="submit" class="btn-primary flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Save Publication
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="module" src="./admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      new Tagify(document.querySelector('input[name="authors"]'), {
+        originalInputValueFormat: values => values.map(item => item.value).join(', '),
+        dropdown: { enabled: 1, position: 'all' },
+        whitelist: ['Sachchidanand Prasad', 'Aritra Bhowmick', 'Somnath Basu', 'Jin Ichi Itoh']
+      });
+
+      new Tagify(document.querySelector('input[name="tags"]'), {
+        dropdown: { enabled: 1, position: 'all' },
+        whitelist: ['Geometry', 'Topology', 'Algebra', 'Graph Theory']
+      });
+      
+      new Tagify(document.querySelector('input[name="image"]'), {
+        dropdown: { enabled: 1, position: 'all' },
+        whitelist: [
+          '../assets/img/arxiv.svg',
+          '../assets/img/journal-icon.svg',
+          '../assets/img/pdf-icon.svg',
+          '../assets/img/doi-icon.svg'
+        ]
+      });
+
+      document.body.classList.add('loaded');
+    });
+  </script>
+</body>
+</html>

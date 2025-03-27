@@ -13,7 +13,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Articles - Sachchidanand Prasad</title>
+		<title>Publications - Sachchidanand Prasad</title>
 
 		<meta name="description" content="Sachchidanand Prasad's homepage. Postdoctoral Fellow at Jilin University and Göttingen University. Explore research, teaching, CV, articles, daily problems, and more.">
     	<meta name="keywords" content="Sachchidanand Prasad, postdoctoral fellow, Jilin University, Göttingen University, research, teaching, CV, articles, differential geometry, symplectic geometry, daily problems, gate, research papers, cut locus, quandles, independence complex">
@@ -33,15 +33,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
   		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
 		<script>hljs.highlightAll();</script>
-		<style>
-			.bib-content pre {
-				background-color: #f8f8f8;
-				padding: 10px;
-				border-radius: 4px;
-				max-width: 100%;
-				overflow-x: auto;
-			}
-		</style>
+		<link rel="stylesheet" href="article.css">
 
 		<!-- Google ad
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
@@ -83,691 +75,191 @@
 			</div>
 
 			<!-- section -->
-			<section class="text-gray-600 body-font">
-				<div class="container xl:px-36 py-24 mx-auto">
-					<div class="flex flex-col items-center text-center justify-center">
-						<h2 class="text-gray-900 text-3xl title-font font-medium">Publications</h2>
-						<div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-					</div>
-					<p class="leading-relaxed lg:text-lg md:text-base text-justify my-4 mb-4 mx-4">
-						Here, you'll find all our publications, preprints, and notes, regularly updated to keep you informed about our latest work. Explore our diverse collection spanning various fields of study.
-					</p>
+			<section class="text-gray-700 body-font bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="container max-w-6xl px-5 py-24 mx-auto">
+         
+          <!-- Header -->
+          <div class="flex flex-col items-center text-center justify-center mb-16">
+            <h2 class="text-gray-900 text-4xl font-bold mb-2">Publications</h2>
+            <div class="w-24 h-1 bg-indigo-600 rounded mt-2 mb-6"></div>
+            <p class="leading-relaxed text-lg max-w-3xl text-center mb-8">
+              Here, you'll find all our publications, preprints, and notes, regularly updated to keep you informed about our latest work.
+            </p>
+          </div>
 
-					<hr class="h-0.5 my-4 bg-gray-300 border-0">
+          <!-- Search Bar -->
+          <div class="max-w-2xl mx-auto mb-12 px-4">
+            <div class="relative">
+              <input type="text" id="searchInput" placeholder="Search publications by title, author, or keywords..." 
+                     class="w-full px-6 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm">
+              <button id="clearSearch" class="absolute right-3 top-3 text-gray-400 hover:text-gray-600 hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l18 18" />
+                </svg>
+              </button>
+            </div>
+            <div id="searchResultsCount" class="text-sm text-gray-500 mt-2 text-center hidden"></div>
+          </div>
 
-					<div class="text-center">
-						<h1 class="text-2xl font-bold">Preprints</h1>
-					</div>
-								
-					<hr class="h-0.5 my-4 bg-gray-300 border-0">
+          <!-- Tags -->
+          <!-- <div class="max-w-2xl mx-auto mb-8 px-4">
+            <div class="flex flex-wrap justify-center gap-2">
+              <button class="tag-filter px-4 py-2 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800 hover:bg-indigo-200 transition-colors" data-tag="all">
+                All
+              </button>
+              <button class="tag-filter px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors" data-tag="geometry">
+                Geometry
+              </button>
+              <button class="tag-filter px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors" data-tag="topology">
+                Topology
+              </button>
+              <button class="tag-filter px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors" data-tag="algebra">
+                Algebra
+              </button>
+              <button class="tag-filter px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors" data-tag="graph-theory">
+                Graph Theory
+              </button>
+            </div>
+          </div> -->
+          
+          <!-- Preprints Section -->
+          <div class="mb-16" id="preprints-section">
+            <div class="flex items-center mb-8">
+              <div class="h-px flex-grow bg-indigo-200"></div>
+              <h3 class="mx-4 text-2xl font-bold text-indigo-800">Preprints</h3>
+              <div class="h-px flex-grow bg-indigo-200"></div>
+            </div>
+            <div class="publications-list"></div>
 
-					<div class="-my-8">
-						<!-- Distance from a Finsler Submanifold to its Cut Locus and the Existence of a Tubular Neighborhood -->
-						<div class="py-8 flex flex-wrap md:flex-nowrap ml-4">
-							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-								<img src="../assets/img/arxiv.svg" alt="preprint" class="w-36 h-auto ">
-							</div>
-							<div class="md:flex-grow">
-								<p class="mb-4 text-lg">
-									Distance from a Finsler submanifold to its cut locus and the existence of a tubular neighborhood
-								</p>
-								<p class="mb-4">
-									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong> and  Aritra Bhowmick
-								</p>
-								<p class="mb-4">
-									<span class="text-gray-400">Year of arXiv: 2024 </span>
-								</p>
-								<div class="flex space-x-4 items-center my-2">
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">Abstract</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="abstract-content p-4 bg-white rounded w-1/2">
-											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
-												In this article we prove that for a closed, not necessarily compact, submanifold $N$ of a possibly non-complete Finsler manifold $(M,F)$, the cut time map is always positive. As a consequence, we prove the existence of a tubular neighborhood of such a submanifold. When $N$ is compact, it then follows that there exists an $\epsilon>0$ such that the distance between $N$ and its cut locus $\mathrm{Cu}(N)$ is at least $\epsilon$. This was originally proved by B. Alves and M. A. Javaloyes (<em>Proc. Amer. Math. Soc.</em> 2019). We have given an alternative, rather geometric proof of the same, which is novel even in the Riemannian setup. We also obtain easier proofs of some results from N. Innami et al. (<em>Trans. Amer. Math. Soc.</em>, 2019), under weaker hypothesis.
-											</p>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">bib</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="bib-content p-2 bg-white rounded w-1/2">
-											<pre>
-<code class="latex" data-target="independenceComplex"> 
-@article{BhowmickPrasad2024,
-	title={Distance from a Finsler submanifold to its cut locus and the existence of a tubular neighborhood},
-	author={Bhowmick, Aritra and Prasad, Sachchidanand},
-	journal={arXiv preprint arXiv:2411.01185},
-	year={2024}
-}
-</code>
-											</pre>
-											<button class="copy-button bg-green-500 text-white py-2 px-4 mt-4 rounded" data-target="independenceComplex">Copy</button>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>  
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://arxiv.org/abs/2411.01185" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv</a>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://arxiv.org/pdf/2411.01185" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<!-- On the focal locus of submanifolds of a Finsler manifold -->
-						<div class="py-8 flex flex-wrap md:flex-nowrap ml-4">
-							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-								<img src="../assets/img/arxiv.svg" alt="preprint" class="w-36 h-auto ">
-							</div>
-							<div class="md:flex-grow">
-								<p class="mb-4 text-lg">
-									On the focal locus of submanifolds of a Finsler manifold
-								</p>
-								<p class="mb-4">
-									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong> and  Aritra Bhowmick
-								</p>
-								<p class="mb-4">
-									<span class="text-gray-400">Year of arXiv: 2024 </span>
-								</p>
-								<div class="flex space-x-4 items-center my-2">
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">Abstract</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="abstract-content p-4 bg-white rounded w-1/2">
-											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
-												In this article, we investigate the focal locus of closed (not necessarily compact) submanifolds in a forward complete Finsler manifold. The main goal is to show that the associated normal exponential map is <em>regular</em> in the sense of F.W. Warner (<em>Am. J. of Math.</em>, 87, 1965). This leads to the proof of the fact that the normal exponential is non-injective near tangent focal points. As an application, following R.L. Bishop's work (<em>Proc. Amer. Math. Soc.</em>, 65, 1977), we express the tangent cut locus as a closure of a certain set of points, called separating tangent cut points. This strengthens the results from the present authors' previous work (<em>J. Geom. Anal.</em>, 34, 2024).
-											</p>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">bib</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="bib-content p-2 bg-white rounded w-1/2">
-											<pre>
-<code class="latex" data-target="independenceComplex"> 
-@article{BhowmickPrasad2024,
-	title={On the focal locus of submanifolds of a Finsler manifold},
-	author={Bhowmick, Aritra and Prasad, Sachchidanand},
-	journal={arXiv preprint arXiv:2409.02643},
-	year={2024}
-}
-</code>
-											</pre>
-											<button class="copy-button bg-green-500 text-white py-2 px-4 mt-4 rounded" data-target="independenceComplex">Copy</button>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>  
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://arxiv.org/abs/2409.02643" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv</a>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://arxiv.org/pdf/2409.02643" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
-									</div>
-								</div>
-							</div>
-						</div>
+            <div class="pagination-section mt-6 hidden">
+              <div class="flex justify-center gap-1">
+                <button class="pagination-prev h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </button>
+                
+                <div class="pagination-numbers flex items-center gap-1"></div>
+                
+                <button class="pagination-next h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Accepted Publications Section -->
+          <div class="mb-16" id="accepted-section">
+            <div class="flex items-center mb-8">
+              <div class="h-px flex-grow bg-indigo-200"></div>
+              <h3 class="mx-4 text-2xl font-bold text-indigo-800">Accepted Publications</h3>
+              <div class="h-px flex-grow bg-indigo-200"></div>
+            </div>
+            <div class="publications-list"></div>
 
-						<!-- Independence complexes of wedge of graphs -->
-						<div class="py-8 flex flex-wrap md:flex-nowrap ml-4">
-							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-								<img src="../assets/img/arxiv.svg" alt="preprint" class="w-36 h-auto ">
-							</div>
-							<div class="md:flex-grow">
-								<p class="mb-4 text-lg">
-									Independence complexes of wedge of graphs
-								</p>
-								<p class="mb-4">
-									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong>, Saikat Panja and Navnath Daundkar
-								</p>
-								<p class="mb-4">
-									<span class="text-gray-400">Year of arXiv: 2023 </span>
-								</p>
-								<div class="flex space-x-4 items-center my-2">
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">Abstract</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="abstract-content p-4 bg-white rounded w-1/2">
-											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
-												In this article, we introduce the notion of a wedge of graphs and provide detailed computations for the independence complex of a wedge of path and cycle graphs. In particular, we show that these complexes are either contractible or wedges of spheres. 
-											</p>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">bib</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="bib-content p-2 bg-white rounded w-1/2">
-											<pre>
-<code class="latex" data-target="independenceComplex"> 
-@article{DaundkarPanjaPrasad2023,
-	title={Independence complexes of wedge of graphs},
-	author={Daundkar, Navnath and Panja, Saikat and Prasad, Sachchidanand},
-	journal={arXiv preprint arXiv:2303.08798},
-	year={2023}
-}
-</code>
-											</pre>
-											<button class="copy-button bg-green-500 text-white py-2 px-4 mt-4 rounded" data-target="independenceComplex">Copy</button>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>  
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://arxiv.org/abs/2303.08798" target="_blank" class="text-blue-500 hover:text-blue-800">arXiv</a>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://arxiv.org/pdf/2303.08798.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
-									</div>
-								</div>
-							</div>
-						</div>
+            <div class="pagination-section mt-6 hidden">
+              <div class="flex justify-center gap-1">
+                <button class="pagination-prev h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </button>
+                
+                <div class="pagination-numbers flex items-center gap-1"></div>
+                
+                <button class="pagination-next h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PhD Thesis Section -->
+          <div class="mb-16" id="thesis-section">
+            <div class="flex items-center mb-8">
+              <div class="h-px flex-grow bg-indigo-200"></div>
+              <h3 class="mx-4 text-2xl font-bold text-indigo-800">PhD Thesis</h3>
+              <div class="h-px flex-grow bg-indigo-200"></div>
+            </div>
+            <div class="publications-list"></div>
+          </div>
+          
+          <!-- Other Notes Section -->
+          <div class="mb-8" id="notes-section">
+            <div class="flex items-center mb-8">
+              <div class="h-px flex-grow bg-indigo-200"></div>
+              <h3 class="mx-4 text-2xl font-bold text-indigo-800">Some Other Notes</h3>
+              <div class="h-px flex-grow bg-indigo-200"></div>
+            </div>
+            <div class="publications-list"></div>
 
-						<hr class="h-0.5 my-4 bg-gray-300 border-0">
+            <div class="pagination-section mt-6 hidden">
+              <div class="flex justify-center gap-1">
+                <button class="pagination-prev h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </button>
+                
+                <div class="pagination-numbers flex items-center gap-1"></div>
+                
+                <button class="pagination-next h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- Modal for Abstract -->
+        <div id="abstractModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+          <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full max-h-screen overflow-y-auto">
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-gray-900" id="modalTitle">Abstract</h3>
+                <button id="closeAbstractModal" class="text-gray-500 hover:text-gray-700">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+              <div id="modalContent" class="prose max-w-none">
+                <!-- Content will be inserted here -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Modal for BibTeX -->
+        <div id="bibModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+          <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full max-h-screen overflow-y-auto">
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-gray-900">BibTeX Citation</h3>
+                <button id="closeBibModal" class="text-gray-500 hover:text-gray-700">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="bg-gray-100 p-4 rounded-md">
+                <pre id="bibContent" class="whitespace-pre-wrap text-sm font-mono"></pre>
+              </div>
+              <div class="mt-4 flex justify-end">
+                <button id="copyBib" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">Copy to Clipboard</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-						<div class="text-center">
-							<h1 class="text-2xl font-bold">Accepted Publications</h1>
-						</div>
-						
-						<hr class="h-0.5 my-4 bg-gray-300 border-0">
-
-						<!-- Six problems in intuitive geometry -->
-						<div class="py-8 flex flex-wrap md:flex-nowrap ml-4">
-							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-								<img src="../assets/img/BulRom.jpg" alt="preprint" class="w-36 h-auto ">
-							</div>
-							<div class="md:flex-grow">
-								<p class="mb-4 text-lg">
-									Six problems in intuitive geometry
-								</p>
-								<p class="mb-4">
-									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong>, Shion Honda, Naofumi Horio, Jin-ichi Itoh and Nana Nomura
-								</p>
-								<p class="mb-4">
-									<span class="authors">Journal: </span> Bulletin Mathématique de la Société des Sciences Mathématiques de Roumanie. Nouvelle Série 
-								</p>
-								<p class="mb-4">
-									<span class="text-gray-400">Year of arXiv: 2024</span> 
-									<br>
-									<span class="text-gray-400">Year of acceptance: 2024 </span>
-									<br>
-									<span class="text-gray-400">Year of publication: 2024 </span>
-									<br>
-									<span class="text-gray-400">Volume 67 (2024), No. 2, pp. 223-229</span>
-								</p>
-								<div class="flex space-x-4 items-center my-2">
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">Abstract</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="abstract-content p-4 bg-white rounded w-1/2">
-											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
-												In this note we present several open, yet easy to state, geometric problems. 
-											</p>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">bib</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="bib-content p-2 bg-white rounded w-1/2">
-											<pre>
-<code class="latex" data-target="cutLocusInFinsler"> 
-	@article {HoHoNaItNoPr24,
-		AUTHOR = {Honda, Shion and Horio, Naofumi and Itoh, Jin-ichi and Nomura,
-				  Nana and Prasad, Sachchidanand},
-		 TITLE = {Six problems in intuitive geometry},
-	   JOURNAL = {Bull. Math. Soc. Sci. Math. Roumanie (N.S.)},
-	  FJOURNAL = {Bulletin Math\'{e}matique de la Soci\'{e}t\'{e} des Sciences Math\'{e}matiques
-				  de Roumanie. Nouvelle S\'{e}rie},
-		VOLUME = {67(115)},
-		  YEAR = {2024},
-		NUMBER = {2},
-		 PAGES = {223--229},
-		  ISSN = {1220-3874},
-	   MRCLASS = {53A10 (52B10)},
-	} 
-</code>
-											</pre>
-											<button class="copy-button bg-green-500 text-white py-2 px-4 mt-4 rounded" data-target="cutLocusInFinsler">Copy</button>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>  
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://ssmr.ro/bulletin/volumes/67-2/node9.html" target="_blank" class="text-blue-500 hover:text-blue-800">Journal</a>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://ssmr.ro/bulletin/pdf/67-2/articol_7.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- On the cut locus of a FInsler manifold -->
-						<div class="py-8 flex flex-wrap md:flex-nowrap ml-4">
-							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-								<img src="../assets/img/JGA.jpg" alt="preprint" class="w-36 h-auto ">
-							</div>
-							<div class="md:flex-grow">
-								<p class="mb-4 text-lg">
-									On the cut locus of submanifolds of a Finsler manifold
-								</p>
-								<p class="mb-4">
-									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong> and  Aritra Bhowmick
-								</p>
-								<p class="mb-4">
-									<span class="authors">Journal: </span>Journal of Geometric Analysis
-								</p>
-								<p class="mb-4">
-									<span class="text-gray-400">Year of arXiv: 2023</span> 
-									<br>
-									<span class="text-gray-400">Year of acceptance: 2024 </span>
-									<br>
-									<span class="text-gray-400">Year of publication: 2024 </span>
-									<br>
-									<span class="text-gray-400">Volume 34 (2024), No. 308, pp. 1-38</span>
-									<br>
-									<span class="text-gray-400">doi.org/10.1007/s12220-024-01751-1</span>
-								</p>
-								<div class="flex space-x-4 items-center my-2">
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">Abstract</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="abstract-content p-4 bg-white rounded w-1/2">
-											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
-												In this article, we investigate the cut locus of closed (not necessarily compact) submanifolds in a forward complete Finsler manifold. We explore the deformation and characterization of the cut locus, extending the results of Basu and the second author (\emph{Algebraic and Geometric Topology}, 2023). Given a submanifold $N$, we consider an $N$-geodesic loop  as an $N$-geodesic starting and ending in $N$, possibly at different points. This class of geodesics were studied by Omori (\emph{Journal of Differential Geometry}, 1968). We obtain a generalization of Klingenberg's lemma for closed geodesics (\emph{Annals of Mathematics}, 1959) for $N$-geodesic loops in the reversible Finsler setting.
-											</p>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">bib</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="bib-content p-2 bg-white rounded w-1/2">
-											<pre>
-<code class="latex" data-target="cutLocusInFinsler"> 
-	@article {BhowmickPrasadJGA24,
-		AUTHOR = {Bhowmick, Aritra and Prasad, Sachchidanand},
-		TITLE = {On the cut locus of submanifolds of a finsler manifold},
-		JOURNAL = {J. Geom. Anal.},
-		FJOURNAL = {Journal of Geometric Analysi},
-		VOLUME = {38},
-		YEAR = {2024},
-		NUMBER = {308},
-		PAGES = {Paper No. 308, 38},
-		DOI = {10.1007/s12220-024-01751-1},
-		URL = {https://doi.org/10.1007/s12220-024-01751-1},
-	}
-</code>
-											</pre>
-											<button class="copy-button bg-green-500 text-white py-2 px-4 mt-4 rounded" data-target="cutLocusInFinsler">Copy</button>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>  
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://link.springer.com/article/10.1007/s12220-024-01751-1" target="_blank" class="text-blue-500 hover:text-blue-800">Journal</a>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://arxiv.org/pdf/2307.11045.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Counterexample to a conjecture about dihedral quandle -->
-						<div class="py-8 flex flex-wrap md:flex-nowrap ml-4">
-							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-								<img src="../assets/img/mmn.svg" alt="preprint" class="w-36 h-auto ">
-							</div>
-							<div class="md:flex-grow">
-								<p class="mb-4 text-lg">
-									Counterexample to a conjecture about dihedral quandle
-								</p>
-								<p class="mb-4">
-									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong> and Saikat Panja
-								</p>
-								<p class="mb-4">
-									<span class="authors">Journal: </span>Miskolc Mathematical Notes
-								</p>
-								<p class="mb-4">
-									<span class="text-gray-400">Year of arXiv: 2022</span> 
-									<br>
-									<span class="text-gray-400">Year of acceptance: 2023 </span>
-									<br>
-									<span class="text-gray-400">Year of publication: 2024 </span>
-									<br>
-									<span class="text-gray-400">Volume 25 (2024), No. 1, pp. 425-428</span>
-									<br>
-									<span class="text-gray-400">doi.org/10.18514/MMN.2024.4383</span>
-								</p>
-								<div class="flex space-x-4 items-center my-2">
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">Abstract</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="abstract-content p-4 bg-white rounded w-1/2">
-											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
-												It was conjectured that the augmentation ideal of a dihedral quandle of even order $n>2$ satisfies $|\Delta^k(\text{R}_n)/\Delta^{k+1}(\text{R}_{n})|=n$ for all $k\geq 2$. In this article we provide a counterexample against this conjecture. 
-											</p>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">bib</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="bib-content p-2 bg-white rounded w-1/2">
-											<pre>
-<code class="latex" data-target="dihedralQuandle"> 
-	@article {PanjaPrasadMMN24,
-		AUTHOR = {Panja, Saikat and Prasad, Sachchidanand},
-		TITLE = {Counterexample to a conjecture about dihedral quandle },
-		JOURNAL = {Miskolc Math. Notes},
-		FJOURNAL = {Miskolc Mathematical Notes. A Publication of the University of Miskolc},
-		VOLUME = {25},
-		YEAR = {2024},
-		PAGES = {425--428},
-		DOI = {10.18514/MMN.2024.4383},
-		URL = {http://mat76.mat.uni-miskolc.hu/mnotes/article/4383},
-	}
-</code>
-											</pre>
-											<button class="copy-button bg-green-500 text-white py-2 px-4 mt-4 rounded" data-target="dihedralQuandle">Copy</button>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div> 
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="http://mat76.mat.uni-miskolc.hu/mnotes/article/4383" target="_blank" class="text-blue-500 hover:text-blue-800">Journal</a>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://arxiv.org/pdf/2205.15024.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<hr class="h-0.5 my-4 bg-gray-300 border-0">
-						
-						<!-- The image of polynomials and Waring type problems on upper triangular matrix algebras -->
-						<div class="py-8 flex flex-wrap md:flex-nowrap ml-4">
-							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-								<img src="../assets/img/journal-of-algebra.jpeg" alt="preprint" class="w-36 h-auto ">
-							</div>
-							<div class="md:flex-grow">
-								<p class="mb-4 text-lg">
-									The image of polynomials and Waring type problems on upper triangular matrix algebras
-								</p>
-								<p class="mb-4">
-									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong> and Saikat Panja
-								</p>
-								<p class="mb-4">
-									<span class="authors">Journal: </span>Journal of Algebra
-								</p>
-								<p class="mb-4">
-									<span class="text-gray-400">Year of arXiv: 2022</span>
-									<br>
-									<span class="text-gray-400">Year of acceptance: 2023 </span>
-									<br>
-									<span class="text-gray-400">Year of publication: 2023</span>
-									<br>
-									<span class="text-gray-400">Volume 631, 1 October 2023, Pages 148-193</span>
-									<br>
-									<span class="text-gray-400">doi.org/10.1016/j.jalgebra.2023.04.027</span>
-								</p>
-								<div class="flex space-x-4 items-center my-2">
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">Abstract</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="abstract-content p-4 bg-white rounded w-1/2">
-											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
-												Let $p$ be a polynomial in non-commutative variables $x_1,x_2,\ldots,x_n$ with constant term zero over an algebraically closed field $K$. The object of study in this paper is the image of this kind of polynomial over the algebra of upper triangular matrices $T_m(K)$. We introduce a family of polynomials called multi-index $p$-inductive polynomials for a given polynomial $p$. Using this family we will show that, if $p$ is a polynomial identity of $T_t(K)$ but not of $T_{t+1}(K)$, then $p \left(T_m(K)\right)\subseteq T_m(K)^{(t-1)}$. Equality is achieved in the case $t=1,~m-1$ and an example has been provided to show that equality does not hold in general. We further prove existence of $d$ such that each element of $T_m(K)^{(t-1)}$ can be written as sum of $d$ many elements of $p\left( T_m(K) \right)$. It has also been shown that the image of $T_m(K)^\times$ under a word map is Zariski dense in $T_m(K)^\times$. 
-											</p>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">bib</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="bib-content p-2 bg-white rounded w-1/2">
-											<pre>
-<code class="latex" data-target="upperTriangularMatrices"> 
-	@article {PanjaPrasadJoA23,
-		AUTHOR = {Panja, Saikat and Prasad, Sachchidanand},
-		TITLE = {The image of polynomials and {W}aring type problems on upper triangular matrix algebras},
-		JOURNAL = {J. Algebra},
-		FJOURNAL = {Journal of Algebra},
-		VOLUME = {631},
-		YEAR = {2023},
-		PAGES = {148--193},
-		ISSN = {0021-8693},
-		MRCLASS = {16S50 (16R10)},
-		MRNUMBER = {4592319},
-		MRREVIEWER = {Pedro Souza Fagundes},
-		DOI = {10.1016/j.jalgebra.2023.04.027},
-		URL = {https://doi.org/10.1016/j.jalgebra.2023.04.027},
-	}
-</code>
-											</pre>
-											<button class="copy-button bg-green-500 text-white py-2 px-4 mt-4 rounded" data-target="upperTriangularMatrices">Copy</button>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://www.sciencedirect.com/science/article/pii/S002186932300220X" target="_blank" class="text-blue-500 hover:text-blue-800">Journal</a>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://arxiv.org/pdf/2206.08827.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<hr class="w-1/2 h-px mx-auto bg-gray-300 border-0">
-
-						<!-- A connection between cut locus, Thom space and Morse-Bott functions -->
-						<div class="py-8 flex flex-wrap md:flex-nowrap ml-4">
-							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-								<img src="../assets/img/AGT.jpg" alt="preprint" class="w-36 h-auto ">
-							</div>
-							<div class="md:flex-grow">
-								<p class="mb-4 text-lg">
-									A connection between cut locus, Thom space and Morse-Bott functions
-								</p>
-								<p class="mb-4">
-									<span class="authors">Authors: </span><strong>Sachchidanand Prasad</strong> and Somnath Basu
-								</p>
-								<p class="mb-4">
-									<span class="authors">Journal: </span>Algebraic & Geometric Topology
-								</p>
-								<p class="mb-4">
-									<span class="text-gray-400">Year of arXiv: 2020 </span>
-									<br>
-									<span class="text-gray-400">Year of acceptance: 2021 </span>
-									<br>
-									<span class="text-gray-400">Year of publication: 2023 </span>
-									<br>
-									<span class="text-gray-400">Volume 23, 23 November 2023, Pages 4185-4233</span>
-									<br>
-									<span class="text-gray-400">doi.org/10.2140/agt.2023.23.4185</span>
-								</p>
-								<div class="flex space-x-4 items-center my-2">
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">Abstract</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="abstract-content p-4 bg-white rounded w-1/2">
-											<p class="leading-relaxed lg:text-lg md:text-base text-justify">
-												Associated to every closed, embedded submanifold $N$ in a connected Riemannian manifold $M$, there is the distance function $d_N$ which measures the distance of a point in $M$ from $N$. We analyze the square of this function and show that it is Morse-Bott on the complement of the cut locus $\mathrm{Cu}(N)$ of $N$, provided $M$ is complete. Moreover, the gradient flow lines provide a deformation retraction of $M-\mathrm{Cu}(N)$ to $N$. If $M$ is a closed manifold, then we prove that the Thom space of the normal bundle of $N$ is homeomorphic to $M/\mathrm{N}$. We also discuss several interesting results which are either applications of these or related observations regarding the theory of cut locus. These results include, but are not limited to, a computation of the local homology of singular matrices, a classification of the homotopy type of the cut locus of a homology sphere inside a sphere, a deformation of the indefinite unitary group $U(p,q)$ to $U(p)\times U(q)$ and a geometric deformation of $GL(n,\mathbb{R})$ to $O(n,\mathbb{R})$ which is different from the Gram-Schmidt retraction.
-											</p>
-											<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<button class="abstract-button rounded text-blue-500">bib</button>
-									</div>
-									<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-										<div class="bib-content p-2 bg-white rounded w-1/2">
-											<pre>
-<code class="latex" data-target="cutLocusAGT"> 
-	@article {BasuPrasadAGT21,
-		AUTHOR = {Basu, Somnath and Prasad, Sachchidanand},
-		 TITLE = {A connection between cut locus, {T}hom space and
-				  {M}orse--{B}ott functions},
-	   JOURNAL = {Algebr. Geom. Topol.},
-	  FJOURNAL = {Algebraic \& Geometric Topology},
-		VOLUME = {23},
-		  YEAR = {2023},
-		NUMBER = {9},
-		 PAGES = {4185--4233},
-		  ISSN = {1472-2747},
-	   MRCLASS = {53B21 (53C22 55P10 57R19 58C05)},
-	  MRNUMBER = {4670995},
-		   DOI = {10.2140/agt.2023.23.4185},
-		   URL = {https://doi.org/10.2140/agt.2023.23.4185},
-	}
-</code>
-											</pre>
-											<button class="copy-button bg-green-500 text-white py-2 px-4 mt-4 rounded" data-target="cutLocusAGT">Copy</button>
-      										<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-										</div>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://msp.org/agt/2023/23-9/p06.xhtml" target="_blank" class="text-blue-500 hover:text-blue-800">Journal</a>
-									</div>
-									<div class="border rounded-lg border-gray-600 p-1">
-										<a href="https://arxiv.org/pdf/2011.02972.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<hr class="h-0.5 my-4 bg-gray-300 border-0">
-
-						<div class="text-center">
-							<h1 class="text-2xl font-bold">PhD Thesis</h1>
-						</div>
-									
-						<hr class="h-0.5 my-4 bg-gray-300 border-0">
-
-						<!-- PhD Thesis -->
-						<div class="-my-8">
-							<div class="py-8 flex flex-wrap md:flex-nowrap ml-4">
-								<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-									<img src="../assets/img/thesis.png" alt="thesis" class="w-36 h-auto ">
-								</div>
-								<div class="md:flex-grow">
-									<p class="mb-4 text-lg">
-										Cut Locus of Submanifolds: A Geometric and Topological Viewpoint
-									</p>
-									<p class="mb-4">
-										<span class="authors">Supervisor: </span> Somnath Basu
-									</p>
-									<p class="mb-4">
-										<span class="text-gray-400">Date of defense: Dec 28, 2022 </span>
-									</p>
-									<div class="flex space-x-4 items-center my-2">
-										<div class="border rounded-lg border-gray-600 p-1">
-											<button class="abstract-button rounded text-blue-500">bib</button>
-										</div>
-										<div class="abstract-overlay hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-											<div class="bib-content p-2 bg-white rounded w-1/2">
-												<pre>
-<code class="latex" data-target="PhDThesis"> 
-	@article{prasad2023cut,
-	title={Cut Locus of Submanifolds: A Geometric and Topological Viewpoint},
-	author={Prasad, Sachchidanand},
-	journal={arXiv preprint arXiv:2303.14931},
-	year={2023}
-	}
-</code>
-												</pre>
-												<button class="copy-button bg-green-500 text-white py-2 px-4 mt-4 rounded" data-target="PhDThesis">Copy</button>
-												<button class="close-button bg-red-500 text-white py-2 px-4 mt-4 rounded">Close</button>
-											</div>
-										</div>  
-										<div class="border rounded-lg border-gray-600 p-1">
-											<a href="../assets/attachments/Thesis_Sachchidanand_large.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Color PDF</a>
-										</div>
-										<div class="border rounded-lg border-gray-600 p-1">
-											<a href="../assets/attachments/Thesis_Sachchidanand_gray.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">Grayscale PDF</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<hr class="h-0.5 my-4 bg-gray-300 border-0">
-
-						<div class="text-center">
-							<h1 class="text-2xl font-bold capitalize">Some other notes</h1>
-						</div>
-										
-						<hr class="h-0.5 my-4 bg-gray-300 border-0">
-
-						<!-- Inverse function theorem and its application  -->
-						<div class="-my-8">
-							<div class="py-8 flex flex-wrap md:flex-nowrap ml-4">
-								<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-									<img src="../assets/img/IFT.svg" alt="Inverse Function theorem" class="w-36 h-auto ">
-								</div>
-								<div class="md:flex-grow">
-									<p class="mb-4 text-lg">
-										Inverse function theorem and its application
-									</p>
-									<p class="mb-4">
-										<span class="text-gray"></span>
-									</p>
-									<div class="flex space-x-4 items-center my-2">
-
-										<div class="border rounded-lg border-gray-600 p-1">
-											<a href="../assets/attachments/Inverse_Function_Theorem.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
-										</div>
-									</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<hr class="w-1/2 h-px mx-auto bg-gray-300 border-0 my-4">
-
-						<!-- Geodesic Equation with Euler Lagrange Equation  -->
-						<div class="-my-8">
-							<div class="py-8 flex flex-wrap md:flex-nowrap ml-4">
-								<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-									<img src="../assets/img/geodesic-equations.svg" alt="geodesic equations" class="w-36 h-auto ">
-								</div>
-								<div class="md:flex-grow">
-									<p class="mb-4 text-lg">
-										Geodesic Equation with Euler Lagrange Equation
-									</p>
-									<p class="mb-4">
-										<span class="text-gray"></span>
-									</p>
-									<div class="flex space-x-4 items-center my-2">
-
-										<div class="border rounded-lg border-gray-600 p-1">
-											<a href="../assets/attachments/Geodesic_Equation_with_Euler_Lagrange_Equation.pdf" target="_blank" class="text-blue-500 hover:text-blue-800">PDF</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<hr class="h-0.5 my-4 bg-gray-300 border-0">
-					
-			</section>
+      </section>
 
 			<!-- footer -->
 			<footer class="foot mt-auto border-t border-gray-200">
@@ -807,11 +299,12 @@
 					</p>
 				</div>
 			</footer>
-			
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-		<script>
+		
+    <!-- Last updated function -->
+    <script>
 			function myFunction() {
 				var x = document.lastModified;
 				document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
@@ -821,12 +314,8 @@
 		</script>
 
 		<!-- MathJax -->
-		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-		<script id="dsq-count-scr" src="//my-google-site.disqus.com/count.js" async></script>
-		
-		<script>
+    <script>
 		  MathJax = {
 			tex: {
 			  inlineMath: [
@@ -844,68 +333,10 @@
 		  };
 		</script>
 
-		<!-- Script for abstract pop-up -->
-		<script>
-			const abstractButtons = document.querySelectorAll('.abstract-button');
-			const abstractOverlays = document.querySelectorAll('.abstract-overlay');
-			const closeButtons = document.querySelectorAll('.close-button');
-		
-			function toggleAbstract(index) {
-			abstractOverlays[index].classList.toggle('hidden');
-			}
-		
-			abstractButtons.forEach((button, index) => {
-			button.addEventListener('click', () => {
-				toggleAbstract(index);
-			});
-			});
-		
-			closeButtons.forEach((button, index) => {
-			button.addEventListener('click', () => {
-				toggleAbstract(index);
-			});
-			});
-		
-			document.addEventListener('keydown', (event) => {
-			if (event.key === 'Escape') {
-				abstractOverlays.forEach((overlay) => {
-				overlay.classList.add('hidden');
-				});
-			}
-			});
-		
-			// for copy
-			document.addEventListener('DOMContentLoaded', function () {
-			const copyButtons = document.querySelectorAll('.copy-button');
-		
-			copyButtons.forEach(function (button) {
-				button.addEventListener('click', function () {
-				const targetCodeBlock = document.querySelector(`code[data-target="${button.dataset.target}"]`);
-		
-				// Create a temporary textarea to hold the text
-				const textarea = document.createElement('textarea');
-				textarea.value = targetCodeBlock.textContent;
-				document.body.appendChild(textarea);
-		
-				// Select and copy the text
-				textarea.select();
-				document.execCommand('copy');
-		
-				// Remove the temporary textarea
-				document.body.removeChild(textarea);
-		
-				// Change button text to "Copied"
-				button.textContent = 'Copied!';
-		
-				// Change the button text back to "Copy" after 2-3 seconds
-				setTimeout(() => {
-					button.textContent = 'Copy';
-				}, 2000); // 2 seconds
-				});
-			});
-			});
-		</script>
+    <!-- counter -->
+    <script id="dsq-count-scr" src="//my-google-site.disqus.com/count.js" async></script>
+
+    <script type="module" src="publications.js"></script>
   
 	</body>
 </html>
-
