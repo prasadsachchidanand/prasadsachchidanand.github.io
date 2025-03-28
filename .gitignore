@@ -19,7 +19,7 @@ sitemapGen.py
 *.wps
 *.DS_Store
 *.py
-*.txt
+ads.txt
 **/*.typ  # Ignores all .typ files
 
 # Ignore specific files
