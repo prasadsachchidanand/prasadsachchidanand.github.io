@@ -4,13 +4,13 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 
 // Your Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDSSwli-4hCHRg9Q5H2_ob2dCE9SoVKixY",
-  authDomain: "login-for-my-page.firebaseapp.com",
-  projectId: "login-for-my-page",
-  storageBucket: "login-for-my-page.appspot.com",
-  messagingSenderId: "347084125861",
-  appId: "1:347084125861:web:b6e1e22eec72b0f6227f4c",
-  measurementId: "G-W4L5TF3GLR"
+    apiKey: "AIzaSyBLDbjdTBk-2K0jm0yXd5sqLnjJRwoH6OQ",
+    authDomain: "test-2a290.firebaseapp.com",
+    projectId: "test-2a290",
+    storageBucket: "test-2a290.firebasestorage.app",
+    messagingSenderId: "903905216526",
+    appId: "1:903905216526:web:562b30b31933d6870e545f",
+    measurementId: "G-1JFR3ZD0W5"
 };
 
 // Initialize Firebase
