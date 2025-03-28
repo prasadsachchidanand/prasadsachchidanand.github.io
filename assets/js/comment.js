@@ -236,8 +236,8 @@ function renderLikeDislikeButtons(comment) {
     `;
 }
 
-// Enhance the renderContent function to ensure proper Markdown parsing
-function renderContent(text) {
+// old function
+/* function renderContent(text) {
 	// Configure marked options
 	marked.setOptions({
 		breaks: true, // Convert line breaks to <br>
@@ -265,6 +265,60 @@ function renderContent(text) {
 	const renderedContent = marked.parse(text);
 
 	return renderedContent;
+}*/
+
+// Enhance the renderContent function to ensure proper Markdown parsing
+function renderContent(text) {
+    // Configure marked options
+    marked.setOptions({
+        breaks: true,
+        gfm: true,
+        headerIds: true,
+        mangle: false,
+        smartLists: true,
+        renderer: createCustomRenderer(),
+        highlight: function(code, language) {
+            if (language && hljs.getLanguage(language)) {
+                try {
+                    return hljs.highlight(code, { language }).value;
+                } catch (err) {
+                    console.error('Error highlighting code:', err);
+                }
+            }
+            return hljs.highlightAuto(code).value;
+        }
+    });
+
+    // Convert single backslashes to double in matrix environments
+    const processedText = text.replace(
+        /\\begin{(pmatrix|bmatrix|matrix|array)}([\s\S]*?)\\end{\1}/g,
+        function(match, env, content) {
+            // Replace single backslashes with double backslashes in matrix content
+            const fixedContent = content.replace(/([^\\])\\([^\\])/g, '$1\\\\$2');
+            return `\\begin{${env}}${fixedContent}\\end{${env}}`;
+        }
+    );
+
+    // Protect all LaTeX blocks from marked processing
+    const protectedText = processedText.replace(
+        /(\$\$[\s\S]*?\$\$|\\begin\{.*?\}[\s\S]*?\\end\{.*?\}|\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\))/g,
+        function(match) {
+            return `\x1BLATEX\x1B${btoa(unescape(encodeURIComponent(match)))}\x1BLATEX\x1B`;
+        }
+    );
+
+    // Process with marked
+    let renderedContent = marked.parse(protectedText);
+
+    // Restore LaTeX blocks
+    renderedContent = renderedContent.replace(
+        /\x1BLATEX\x1B([^\x1B]+)\x1BLATEX\x1B/g,
+        function(match, p1) {
+            return decodeURIComponent(escape(atob(p1)));
+        }
+    );
+
+    return renderedContent;
 }
 
 // Create a custom renderer for links
