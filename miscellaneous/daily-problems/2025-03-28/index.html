@@ -155,41 +155,92 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        After getting the solution, write, 
+                        \[
+                            x = t, \quad y = -t,, \text{ and } \quad z = 1.
+                        \]  
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        Then substitute the values of $x,y,z$ in the solutions to get the value of $t$.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The given equation is 
+                    \begin{equation}\label{eq:28Mar2025-1}
+                        x\left( y^2 +z\right)p - y\left( x^2 + z \right)q = \left( x^2 - y^2 \right) z .
+                    \end{equation}
+                    The corresponding Lagrange's auxiliary equations are 
+                    \begin{equation}\label{eq:28Mar2025-2}
+                        \frac{\ \mathrm{d} x}{x \left( y^2 + z \right) } = \frac{\ \mathrm{d} y}{-y \left( x^2 + z \right) } = \frac{\ \mathrm{d} z}{z \left( x^2 - y^2 \right) }.
+                    \end{equation}
+                    Choosing $\frac{1}{x}, \frac{1}{y}, \frac{1}{z} $ as multipliers, each fraction of \eqref{eq:28Mar2025-1} equals to 
+                    \begin{align*}
+                        \frac{\frac{1}{x} \ \mathrm{d}x + \frac{1}{y}\ \mathrm{d} y + \frac{1}{z}\ \mathrm{d} z}{y^2 + z - \left( x^2 + z \right) + x^2 - y^2} = \frac{\frac{1}{x}\ \mathrm{d} x + \frac{1}{y}\ \mathrm{d} y + \frac{1}{z}\ \mathrm{d} z}{0},
+                    \end{align*}
+                    which implies 
+                    \begin{align}
+                        \frac{1}{x} \ \mathrm{d} x + \frac{1}{y}\ \mathrm{d} y + \frac{1}{z}\ \mathrm{d} z = 0 & \implies \ln (x) + \ln (y) + \ln (z) = \ln (c_1) \notag\\
+                        & \implies \ln (xyz) = \ln (c_1)\notag \\
+                        & \implies xyz = c_1. \label{eq:28Mar2025-3}
+                    \end{align}
+                    Similarly, choosing $x,y,-1$ as multipliers, each fraction of \eqref{eq:28Mar2025-1} equals to 
+                    \begin{align*}
+                        \frac{x \ \mathrm{d} x + y \ \mathrm{d} y - \ \mathrm{d} z}{x^2 (y^2 + z) - y^2 (x^2 + z) - z(x^2 - y^2)} = \frac{x \ \mathrm{d} x + y \ \mathrm{d} y + \ \mathrm{d} }{0},
+                    \end{align*}
+                    which implies 
+                    \begin{align} \label{eq:28Mar2025-4}
+                        x \ \mathrm{d} x + y \ \mathrm{d} y - \ \mathrm{d} z = 0 & \implies x^2 + y^2 - 2z = c_2.
+                    \end{align}
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now from the given straight line $x+ y= 0, z = 1$, we can write, 
+                    \[
+                        x = t, \quad y = -t,, \text{ and } \quad z = 1.
+                    \]  
+                    Thus, the solutions can be written as 
+                    \begin{gather*}
+                        xyz = c_1  \implies -t^2 = c_1 \\
+                        x^2 + y^2 - 2z = c_2  \implies 2t^2 - 2 = c_2.
+                    \end{gather*}
+                    Solving for $t$, we get 
+                    \begin{align*}
+                        2(-c_1) - 2 = c_2 \implies  2c_1 + c_2 + 2 = 0.
+                    \end{align*}
+                    Finally, substituting $c_1$ and $c_2$ from \eqref{eq:28Mar2025-3} and \eqref{eq:28Mar2025-4}, the integral surface is 
+                    \[
+                        \textcolor{blue}{
+                            \boxed{
+                                2xyz + x^2 + y^2 - 2z + 2 = 0.
+                            }
+                        }
+                    \]
+                  </div>
                 </div>
 
                 <!-- Previous Button -->

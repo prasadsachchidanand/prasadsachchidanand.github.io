@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'miscellaneous': document.getElementById('miscellaneous-links'),
         'gate': document.getElementById('gate-links'),
         'csir-net': document.getElementById('csir-net-links'),
+        'nbhm': document.getElementById('nbhm-links'),
         'mcq': document.getElementById('mcq-links'),
         'book-solution': document.getElementById('book-solution-links')
     };
@@ -98,6 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // csir-net
         'csir-net-feb-2022': 'csir-net',
+
+        // nbhm
+        'nbhm-msc-2019': 'nbhm',
 
         // mcq
         'mcq': 'mcq',
