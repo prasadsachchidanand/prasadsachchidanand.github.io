@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // book-solution
         'topology-munkres': 'book-solution',
         'linear-algebra-hoffman-kunze': 'book-solution',
+        'real-analysis-rudin': 'book-solution',
     };
 
     // Define the active button and container
