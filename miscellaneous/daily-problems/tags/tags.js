@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'partial-derivative': 'real-analysis',
         'inverse-function-theorem': 'real-analysis',
         'sequence-of-functions': 'real-analysis',
+        'multivariable': 'real-analysis',
 
         // complex analysis
         'infinite-series': 'complex-analysis',

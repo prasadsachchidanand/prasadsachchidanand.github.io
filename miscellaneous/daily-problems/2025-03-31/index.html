@@ -151,42 +151,66 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
-                      </li>
-                      <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        For any real numbers $a,b$ we have $\vert \vert a \vert - \vert b \vert  \vert \leq  \vert a - b \vert  $
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>Let $\epsilon > 0$ be given. Since the sequence $\{ s_n \} $ is convergent, let the limit be $s$. So we will find $n_0 \in \mathbb{N} $ such that for $n \geq n_0$, 
+                    \begin{equation}\label{eq:31Mar2025-1}
+                        \left\vert s_n - s \right\vert < \epsilon .
+                    \end{equation}   
+                    Now for $n\geq n_0$ consider, 
+                    \begin{align*}
+                        \left\vert \vert s_n \vert - \vert s \vert  \right\vert & \leq \left\vert s_n - s \right\vert < \epsilon .
+                    \end{align*}
+                    Thus, $\{ \vert s_n \vert  \} $ converges to $s$.
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    The converse need not be true. For example, take $s_n = (-1)^n$, then 
+                    \[
+                        \vert s_n \vert = 1 \rightarrow 1, 
+                    \] 
+                    but $\{ s_n \} $ is not convergent. Thus, the converse need not be true. 
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="proof leading-relaxed lg:text-lg md:text-base text-justify">
+                    Let us prove the inequality that we used here, that is, for any real numbers $a,b$ we have $\vert \vert a \vert - \vert b \vert  \vert \leq  \vert a - b \vert  $. Note that for any real numbers $a,b$, we have 
+                    \begin{align*}
+                        & \vert a \vert - \vert (-b) \vert \leq \vert a + (-b) \vert \quad \text{ and } \quad \vert b \vert - \vert (-a) \vert \leq \vert b + (-a) \vert \\
+                        \implies & \vert a \vert - \vert b \vert \leq \vert a - b \vert \quad \text{ and } \quad \vert b \vert - \vert a \vert \leq \vert a - b \vert \\
+                        \implies & \vert \vert a \vert - \vert b \vert  \vert \leq \vert a - b \vert .
+                    \end{align*}   
+                  </div>
                 </div>
+
+                
 
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

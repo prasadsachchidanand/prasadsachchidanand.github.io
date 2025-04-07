@@ -164,38 +164,217 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        We need to solve the equation 
+                          \[
+                              A \begin{bmatrix}
+                                  x \\ y \\ z
+                              \end{bmatrix} = 
+                              \begin{bmatrix}
+                                  3 \\ 7 \\ 4
+                              \end{bmatrix}.
+                          \]
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        The rotation matrix about the $x$-axis is given by 
+                        \[
+                            R_x(90^{\circ }) = 
+                            \begin{bmatrix}
+                                1 & 0 & 0\\
+                                0 & 0 & -1\\
+                                0 & 1 & 0
+                            \end{bmatrix}
+                        \]
+                        If the matrix of linear transformations $S \text{ and } T$ are $A$ and $B$, respectively, then the matrix of the compostion $S \circ T$ is given by $AB$. 
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The given matrix is 
+                      \[
+                          A = \begin{bmatrix}
+                              1 & -1 &  0 \\
+                              2 & 0 &  4 \\
+                              3 & -2 &  -1 \\
+                          \end{bmatrix}.
+                      \]
+                      <ul class="math-list">
+                        <li class="my-4">
+                          We need to find the coordinates of the point $P$ such that $T(P) = P'$. This means we need to solve the equation 
+                          \[
+                              A \begin{bmatrix}
+                                  x \\ y \\ z
+                              \end{bmatrix} = 
+                              \begin{bmatrix}
+                                  3 \\ 7 \\ 4
+                              \end{bmatrix}.
+                          \]
+                          The augmented matrix is 
+                          \[
+                              \begin{bmatrix}
+                                  1 & -1 & 0 &  3 \\
+                                  2 & 0 & 4 &  7 \\
+                                  3 & -2 & -1 &  4
+                              \end{bmatrix}.
+                          \]
+                          We will now perform row operations to reduce the augmented matrix to row echelon form and find the solution.
+                          \begin{align*}
+                              \begin{bmatrix}
+                                  1 & -1 & 0 &  3 \\
+                                  2 & 0 & 4 &  7 \\
+                                  3 & -2 & -1 &  4
+                              \end{bmatrix} 
+                              & \xrightarrow{
+                                  \begin{matrix}
+                                      R_2 \rightarrow R_2 - 2R_1 \\
+                                      R_3 \rightarrow R_3 - 3R_1
+                                  \end{matrix}
+                              }
+                              \begin{bmatrix}
+                                  1 & -1 & 0 &  3 \\
+                                  0 & 2 & 4 &  1 \\
+                                  0 & 1 & -1 & -5
+                              \end{bmatrix} \\[2ex]
+                              & \xrightarrow{
+                                  \begin{matrix}
+                                      R_2 \rightarrow \frac{1}{2}R_2 
+                                  \end{matrix}
+                              }
+                              \begin{bmatrix}
+                                  1 & -1 & 0 &  3 \\
+                                  0 & 1 & 2 & \frac{1}{2} \\
+                                  0 & 1 & -1 & -5
+                              \end{bmatrix} \\[2ex]
+                              & \xrightarrow{
+                                  \begin{matrix}
+                                      R_1 \rightarrow R_1 + R_2 \\
+                                      R_3 \rightarrow R_3 - R_2
+                                  \end{matrix}
+                              }
+                              \begin{bmatrix}
+                                  1 & 0 & 2 & \frac{7}{2} \\[1ex]
+                                  0 & 1 & 2 & \frac{1}{2} \\[1ex]
+                                  0 & 0 & -3 & -\frac{11}{2}
+                              \end{bmatrix} \\[2ex]
+                              & \xrightarrow{
+                                  \begin{matrix}
+                                      R_3 \rightarrow -\frac{1}{3}R_3
+                                  \end{matrix}
+                              }
+                              \begin{bmatrix}
+                                  1 & 0 & 2 & \frac{7}{2} \\[1ex]
+                                  0 & 1 & 2 & \frac{1}{2} \\[1ex]
+                                  0 & 0 & 1 & \frac{11}{6}
+                              \end{bmatrix} \\[2ex]
+                              & \xrightarrow{
+                                  \begin{matrix}
+                                      R_1 \rightarrow R_1 - 2R_3\\
+                                      R_2 \rightarrow R_2 - 2R_3 
+                                  \end{matrix}
+                              }
+                              \begin{bmatrix}
+                                  1 & 0 & 0 & -\frac{1}{6} \\[1ex]
+                                  0 & 1 & 2 & -\frac{19}{6} \\[1ex]
+                                  0 & 0 & 1 & \frac{11}{6}
+                              \end{bmatrix}.
+                          \end{align*}
+                          Thus, the coordinate of the point $P$ is 
+                          \[
+                              \textcolor{blue}{
+                                  \boxed{
+                                      P = 
+                                      \begin{pmatrix}
+                                          -\frac{1}{6} &
+                                          -\frac{19}{6} &
+                                          \frac{11}{6}
+                                      \end{pmatrix}
+                                  }
+                              }
+                          \]
+                          <div class="remark">
+                            We could have also solved this by using the inverse of the matrix $A$. The inverse of the matrix $A$ is given by 
+                            \[
+                                \begin{bmatrix}
+                                    -\frac{4}{3} & \frac{1}{6} & \frac{2}{3}  \\[1ex]
+                                    -\frac{7}{3} & \frac{1}{6} & \frac{2}{3}  \\[1ex]
+                                    \frac{2}{3} & \frac{1}{6} & -\frac{1}{3}  \\
+                                \end{bmatrix}
+                            \] 
+                            and hence, the coordinate of $P$ will be 
+                            \[
+                                P = A^{-1} 
+                                \begin{bmatrix}
+                                     3 \\
+                                     7 \\
+                                     4 \\
+                                \end{bmatrix}.
+                            \]
+                          </div>
+                        </li>
+
+                        <hr class="h-px my-4 bg-gray-300 border-0"> 
+                        <li class="my-4">
+                          The transformation $T$ followed by the transformation $U$ is equivalent to a rotation through $90^{\circ } $ about the $x$-axis. The rotation matrix about the $x$-axis is given by 
+                          \[
+                              R_x(90^{\circ }) = 
+                              \begin{bmatrix}
+                                  1 & 0 & 0\\
+                                  0 & 0 & -1\\
+                                  0 & 1 & 0
+                              \end{bmatrix}
+                          \]
+                          which is the matrix that represents the transformation $T$ followed by the transformation $U$, that is $T \circ U$ and hence, the corresponding matrix will be $BA$. Thus, we need to find the matrix $B$ such that $BA = R_x (90^{\circ } )$. 
+                          Therefore, 
+                          \begin{align*}
+                              BA = R_x(90^{\circ} ) & \implies B = R_x(90^{\circ } ) A^{-1} \\
+                              & \implies B = 
+                              \begin{bmatrix}
+                                  1 & 0 & 0\\
+                                  0 & 0 & -1\\
+                                  0 & 1 & 0
+                              \end{bmatrix}
+                              \begin{bmatrix}
+                                  -\frac{4}{3} & \frac{1}{6} & \frac{2}{3}  \\[1ex]
+                                  -\frac{7}{3} & \frac{1}{6} & \frac{2}{3}  \\[1ex]
+                                  \frac{2}{3} & \frac{1}{6} & -\frac{1}{3}  \\
+                              \end{bmatrix}
+                              \\[2ex]
+                              & \implies B = 
+                              \begin{bmatrix}
+                                  -\frac{4}{3} & \frac{1}{6} & \frac{2}{3}  \\[1ex]
+                                   -\frac{2}{3} & -\frac{1}{6} & \frac{1}{3}  \\[1ex]
+                                   -\frac{7}{3} & \frac{1}{6} & \frac{2}{3} \\
+                              \end{bmatrix} = \frac{1}{6} 
+                              \begin{bmatrix}
+                                  -8 & 1 &  4 \\
+                                  -4 & -1 &  2 \\
+                                  -14 & 1 &  4 \\
+                              \end{bmatrix}.
+                          \end{align*}
+                        </li>
+                      </ul>
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
