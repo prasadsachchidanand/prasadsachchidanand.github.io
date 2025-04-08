@@ -11,7 +11,7 @@
     </script>
 
     <!-- Primary Meta Tags -->
-    <eta name="description" content="Math Problem (07 Apr 2025): Show that a function f: ℝ² → ℝ² defined by f(x,y) = 1 if xy = 0, and 0 otherwise, has partial derivatives at (0,0) but is not continuous at (0,0)." />
+    <meta name="description" content="Math Problem (07 Apr 2025): Show that a function f: ℝ² → ℝ² defined by f(x,y) = 1 if xy = 0, and 0 otherwise, has partial derivatives at (0,0) but is not continuous at (0,0)." />
     <meta name="keywords" content="Multivariable Calculus, Partial Derivatives, Discontinuity, Real Analysis, ℝ² Functions, Mathematics, Competitive Exams, GATE, CSIR-NET" />
     <meta name="author" content="Sachchidanand Prasad" />
     
@@ -162,41 +162,79 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        Use the definition of partial derivatives at a point. For example, 
+                        \[
+                            \frac{\partial f}{\partial x} (a,b) = \lim_{h \to 0} \frac{f(a+h,b) - f(a,b)}{h}
+                        \]
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        A function $f$ is not continuous at a point $x$ if there exists a sequence $x_n$ converging to $x$ but $f(x_n)$ does not converge to $f(x)$. Consider the sequence $\left( \frac{1}{n}, \frac{1}{n} \right)$.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> The given function is 
+                    \[
+                        f(x,y)= 
+                        \begin{cases}
+                            1, &\text{ if } xy = 0 ;\\
+                            0, &\text{ if } \text{ otherwise}.
+                        \end{cases}
+                    \]
+                    We note that 
+                    \begin{align*}
+                        \frac{\partial f}{\partial x} (0,0) & = \lim_{h \to 0} \frac{f(h,0) - f(0,0)}{h} \\[1ex]
+                        & = \lim_{h \to 0} \frac{1-1}{h} = 0.
+                    \end{align*}
+                    Similarly, 
+                    \begin{align*}
+                        \frac{\partial f}{\partial y} (0,0) & = \lim_{k \to 0} \frac{f(0,k) - f(0,0)}{k} \\[1ex]
+                        & = \lim_{k \to 0} \frac{1-1}{k} = 0.
+                    \end{align*}
+                    Thus, both partial derivatives of $f$ exist at $(0,0)$. 
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will discuss the continuity of $f$ at $(0,0)$. Take a sequence $(x_n, y_n) = \left( \frac{1}{n}, \frac{1}{n} \right) $. Note that 
+                    \[
+                        \lim_{n \to \infty} \left( \frac{1}{n}, \frac{1}{n}  \right) = (0,0).
+                    \]  
+                    Now consider 
+                    \begin{align*}
+                        \lim_{n \to \infty} f(x_n, y_n) & = \lim_{n \to \infty} f\left( \frac{1}{n}, \frac{1}{n} \right) \\
+                        & = \lim_{n \to \infty} 0 = 0.
+                    \end{align*}
+                    But, $f(0,0) = 1$ and hence, the function is not continuous at $(0,0)$.
+                  </div>
+
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="remark">
+                    The existence of partial derivate at a point $\mathbf{p} $ does not necessarily imply the continuity of $f$ at $\mathbf{p} $. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
