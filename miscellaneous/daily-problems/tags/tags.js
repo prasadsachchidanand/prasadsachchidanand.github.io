@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // csir-net
         'csir-net-feb-2022': 'csir-net',
+        'csir-net-dec-2019': 'csir-net',
 
         // nbhm
         'nbhm-msc-2019': 'nbhm',

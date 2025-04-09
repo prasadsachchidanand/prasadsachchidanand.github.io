@@ -156,38 +156,42 @@
                       </a>
                     </div>
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
-                      </li>
-                      <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        Apply the <a href="https://en.wikipedia.org/wiki/Cauchy%27s_integral_theorem" class="text-blue-800 hover:text-blue-800" target="_blank"> Cauchy's Integral Theorem</a> on the given function.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Given that the function is 
+                    \[
+                        f(z) = \frac{z^3}{z^2 + 7z + 12} = \frac{z^3}{(z + 4)(z+3)}.
+                    \]
+                    The function is analytic everywhere except the points $z = -4,-3$ which are not inside the unit circle. Thus, by the <a href="https://en.wikipedia.org/wiki/Cauchy%27s_integral_theorem" class="text-blue-800 hover:text-blue-800" target="_blank"> Cauchy's integral theorem</a>, the given integral will be zero, that is,
+                    \[
+                        \int_{C} f(z) \ \mathrm{d} z = 0.
+                    \]
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->

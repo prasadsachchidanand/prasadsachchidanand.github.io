@@ -197,25 +197,71 @@
                 </div>
 
                 <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="problem-of-the-day">
-                  <a class="text-blue-500 hover:text-blue-800" href="2025-04-08/">Problem of the day (08-04-2025)</a>
+                  <a class="text-blue-500 hover:text-blue-800" href="2025-04-09/">Problem of the day (09-04-2025)</a>
                 </h2>
-              <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md hover:bg-red-200">
-                <strong>Problem: </strong>Let 
-                \[
-                    f(z) = \frac{z^3}{z^2 + 7z + 12}.
-                \]
-                Show that 
-                \[
-                    \int_{C} f(z) \ \mathrm{d} z = 0,
-                \]
-                where $C$ is the unit circle centered at at origin. 
+              <div class="problem-container border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md hover:bg-red-200" data-correct="C">
+                <strong>Problem: </strong>Let $S_5$ be the symmetric group on five symbols. Then which of the following is FALSE?
+
+                <p class="text-blue-600 text-base font-medium my-6">
+                  Choose an answer to see the solution.
+                </p>
+              
+                <!-- Answer Options -->
+                <div class="options-container">
+                  <ol class="math-list-Alpha">
+                    <li class="my-4">
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="answer" value="A" class="hidden" />
+                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                          $S_5\ $ contains a cyclic subgroup of order $\ 6$ 
+                        </span>
+                      </label>
+                    </li>
+                    <li class="my-4">
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="answer" value="B" class="hidden" />
+                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                          $S_5\ $ contains a non-abelian subgroup of order $\ 8$ 
+                        </span>
+                      </label>
+                    </li>
+                    <li class="my-4">
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="answer" value="C" class="hidden" />
+                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                          $S_5\ $ does not contain a subgroup isomorphic to $\ \mathbb{Z} /2\mathbb{Z}  \times \mathbb{Z} /2\mathbb{Z} $
+                        </span>
+                      </label>
+                    </li>
+                    <li class="my-4">
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="answer" value="D" class="hidden" />
+                        <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
+                          $S_5\ $ does not contain a subgroup of order $\ 7$  
+                        </span>
+                      </label>
+                    </li>
+                  </ol>
+                </div>
+
                 <div class="mt-2">
-                  <a href="/miscellaneous/daily-problems/tags/?tag=complex-analysis" target="_blank" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                      complex-analysis
+                  <a href="/miscellaneous/daily-problems/tags/?tag=abstract-algebra" target="_blank" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                      abstract-algebra
                   </a>
-                  <a href="/miscellaneous/daily-problems/tags/?tag=complex-integration" target="_blank" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
-                      complex-integration
+                  <a href="/miscellaneous/daily-problems/tags/?tag=group-theory" target="_blank" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                      group-theory
                   </a>
+                  <a href="/miscellaneous/daily-problems/tags/?tag=csir-net-dec-2019" target="_blank" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                      CSIR-NET-Dec-2019
+                  </a>
+                  <a href="/miscellaneous/daily-problems/tags/?tag=mcq" target="_blank" class="inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100">
+                      MCQ
+                  </a>
+                </div>
+              
+                <!-- Feedback Section -->
+                <div id="feedback" class="hidden text-center text-lg font-semibold p-4 mt-4">
+                  <p id="feedback-message"></p>
                 </div>
               </div>
               
@@ -333,6 +379,8 @@
         }
       };
     </script>
+
+    <script src="answer.js"></script>
 
     <!-- Google ad -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
