@@ -129,7 +129,7 @@
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">08-04-2025</h2>
+            <h2 class="text-gray-900 text-3xl title-font font-medium">09-04-2025</h2>
             <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
@@ -167,7 +167,7 @@
                           <label class="flex items-center space-x-2">
                             <input type="radio" name="answer" value="C" class="hidden" />
                             <span class="flex-grow flex items-center border border-gray-300 p-3 rounded cursor-pointer hover:bg-gray-100 transition">
-                              $S_5\ $ does not contain a subgroup isomorphic to $\ \mathbb{Z} /2\mathbb{Z}  \times \mathbb{Z} /2\mathbb{Z} $
+                              $S_5\ $ contains a subgroup isomorphic to $\ \mathbb{Z} /2\mathbb{Z}  \times \mathbb{Z} /2\mathbb{Z} $
                             </span>
                           </label>
                         </li>
@@ -203,42 +203,61 @@
                     </div>
 
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
-                      </li>
-                      <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        Apply Lagrange's theorem too show that $S_5$ does not a subgroup of order $7$.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We can clearly see that the <b>option (D)</b> is false as the order of $S_5$ is $5! = 120$ and hence from <a href="https://en.wikipedia.org/wiki/Lagrange%27s_theorem_(group_theory)" class="text-blue-500 hover-text-blue-800" target="_blank">Lagrange's theorem</a> order of any subgroup of $S_5$ must divides $120$. Since $7$ does not divide $120$, there can not be any subgroup of order $7$. <br><br> 
+                    Just for the sake of completeness, we will analyze each options.
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
-                </div>
+                  <div class=" leading-relaxed lg:text-lg md:text-base text-justify space-y-4 mt-4">
+                    <div id="optionA" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-red-600">Option A</h2>$S_5$ contains a cyclic subgroup of order $6$. Consider the subgroup generated by $\sigma = (12)(345)$. The order of $\sigma $ is the least common multiple (LCM) of the lengths of cycle (as they are disjoint), which is $6$. Thus the subgroup $\left\langle \sigma \right\rangle $ is a cyclic subgroup of order $6$. Therefore, this statement is true.
+                    </div>
+                    <div id="optionB" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-red-500">Option B</h2>In $S_5$, we can see a copy of $D_4$, the dihedral group (symmetries of square. In some places they use the notation $D_8$). Since $D_4$ is non-abelian and has order $8$, we conclude that $S_5$ contains a non-abelian subgroup of order $8$.  To see this, take any four symbols, say $1,2,3,4$ and label the vertices of the square by $1,2,3$ and $4$. Then 
+                      \[
+                          D_4 = \left\langle (1234), (13) \right\rangle .
+                      \]
+                      More precisely, $\left\langle (1234) \right\rangle = \{ (1), (1234), (13)(24), (1432) \} $ is the rotation subgroup and the reflections are $(13), (24), (12)(34)$ and $(14)(23)$. Therefore, the group $S_5$ has a subgroup of order $8$. This is true in general, that is, $D_n$ is a subgroup of $S_n$ (<a href="https://math.stackexchange.com/questions/2470880/defining-dihedral-groups-sigma-in-s-n-something" class="text-blue-500 hover-text-blue-800" target="_blank">see here</a>).
+                    </div>
+                    <div id="optionC" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-green-500">Option C</h2>The order of $S_5$ is $5! = 120$ and hence from <a href="https://en.wikipedia.org/wiki/Lagrange%27s_theorem_(group_theory)" class="text-blue-500 hover-text-blue-800" target="_blank">Lagrange's theorem</a> order of any subgroup of $S_5$ must divides $120$. Since $7$ does not divide $120$, there can not be any subgroup of order $7$.
+                    </div>
+                    <div id="optionD" class="p-4 bg-white rounded shadow-sm border border-gray-200">
+                      <h2 class="font-semibold text-red-500">Option D</h2>The order of the group  $\mathbb{Z} /2\mathbb{Z} \times \mathbb{Z} /2\mathbb{Z} $ is $4$ and it is not-cyclic. Consider the subgroup of $S_5$ defined as 
+                      \[
+                          H = \{ (1), (12), (34), (12)(34) \}.
+                      \] 
+                      This subgroup is isomorphic to $\mathbb{Z} /2\mathbb{Z} \times \mathbb{Z} /2\mathbb{Z} $. 
+                    </div>
+                  </div>
+                </div> 
 
                 <!-- Previous Button -->
                 <div class="flex justify-center mt-4">

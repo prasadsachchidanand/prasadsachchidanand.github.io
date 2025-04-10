@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // topology
         'metric-space': 'topology',
         'product-topology': 'topology',
+        'hausdorff-space': 'topology',
         'homeomorphism': 'topology',
         'connectedness': 'topology',
         'subspace-topology': 'topology',
