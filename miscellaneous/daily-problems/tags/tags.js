@@ -100,8 +100,9 @@ document.addEventListener('DOMContentLoaded', function() {
         'gate-2024': 'gate',
 
         // csir-net
-        'csir-net-feb-2022': 'csir-net',
+        'csir-net-june-2011': 'csir-net',
         'csir-net-dec-2019': 'csir-net',
+        'csir-net-feb-2022': 'csir-net',
 
         // nbhm
         'nbhm-msc-2019': 'nbhm',
