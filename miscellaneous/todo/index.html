@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CVGSV7Y2CE');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ToDo List - Sachchidanand Prasad</title>
+
+    <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.png"/>
+
+	<!-- <script src="https://cdn.tailwindcss.com"></script> -->
+     <link rel="stylesheet" href="../../assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.0/firebase-app-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.0/firebase-firestore-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.0/firebase-auth-compat.min.js"></script>
+    <!-- MathJax Configuration -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$']],
+            displayMath: [['$$', '$$']]
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        startup: {
+            typeset: true
+        }
+    };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- academic icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    
+    <!-- Google ad -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
+    crossorigin="anonymous"></script>
+    
+    <style>
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        .filter-active {
+            font-weight: bold;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <div class="flex flex-col h-screen">
+
+        <!-- Navbar -->
+        <div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+            <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto   md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                <div class="p-4 flex flex-row items-center justify-between">
+                    <a href="/" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
+                    <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+                    <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                        <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                        <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                    </button>
+                </div>
+                
+                <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/">Home</a>
+            
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../research/">Research</a>
+        
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/teaching/">Teaching</a>
+        
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/resume/">CV</a>
+        
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/publications/">Publications</a>
+        
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/miscellaneous/">Miscellaneous</a>
+                    
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/contact/">Contact</a>	  
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Section -->
+        <section class="text-gray-600 body-font">
+            <div class="container px-5 py-24 mx-auto max-w-4xl">
+                <header class="bg-indigo-700 text-white p-6 rounded-t-lg shadow-lg">
+                    <h1 class="text-3xl font-bold mb-2">MathTracker</h1>
+                    <p class="text-indigo-100">My Personal ToDo List</p>
+                </header>
+        
+                <div class="bg-white p-6 rounded-b-lg shadow-lg mb-6">
+                    <div id="auth-section" class="mb-6">
+                        <div id="login-form">
+                            <h2 class="text-xl font-semibold mb-4">Login or Register</h2>
+                            <div class="flex flex-col md:flex-row gap-4 mb-4">
+                                <input type="email" id="email" placeholder="Email" class="border p-2 rounded flex-grow">
+                                <input type="password" id="password" placeholder="Password" class="border p-2 rounded flex-grow">
+                                <button id="login-btn" class="bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700">Login</button>
+                                <button id="register-btn" class="bg-green-600 text-white p-2 rounded hover:bg-green-700">Register</button>
+                            </div>
+                        </div>
+                        <div id="user-info" class="hidden">
+                            <div class="flex justify-between items-center">
+                                <p>Logged in as: <span id="user-email" class="font-medium"></span></p>
+                                <button id="logout-btn" class="bg-red-600 text-white p-2 rounded hover:bg-red-700">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Wrap task form in a container that can be hidden -->
+                    <div id="task-form-container" class="hidden">
+                        <form id="task-form" class="mb-6">
+                            <div class="flex flex-col mb-4">
+                                <input type="text" id="task-title" placeholder="Task Title" class="border p-2 rounded mb-2" required>
+                                <textarea id="task-description" placeholder="Task Description (supports LaTeX: Use $...$ for inline and $$...$$ for display)" class="border p-2 rounded mb-2 h-24" required></textarea>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
+                                    <div>
+                                        <label class="block text-gray-700 mb-1">Category</label>
+                                        <select id="task-category" class="border p-2 rounded w-full">
+                                            <option value="research">Research Paper</option>
+                                            <option value="teaching">Teaching</option>
+                                            <option value="writing">Academic Writing</option>
+                                            <option value="proof">Proof Work</option>
+                                            <option value="meeting">Meetings</option>
+                                            <option value="class">Class</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 mb-1">Due Date</label>
+                                        <input type="date" id="task-due-date" class="border p-2 rounded w-full">
+                                    </div>
+                                </div>
+                                
+                                <!-- New sections for time and location -->
+                                <div id="time-location-section" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
+                                    <div>
+                                        <label class="block text-gray-700 mb-1">Time (for meetings/classes)</label>
+                                        <input type="time" id="task-time" class="border p-2 rounded w-full">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 mb-1">Location</label>
+                                        <input type="text" id="task-location" placeholder="Room number or online meeting link" class="border p-2 rounded w-full">
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center mb-2">
+                                    <input type="checkbox" id="task-priority" class="mr-2">
+                                    <label for="task-priority">High Priority</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700 w-full">Add Task</button>
+                        </form>
+        
+                        <!-- Wrap filter buttons in a container that can be hidden -->
+                        <div id="filter-container" class="flex flex-wrap gap-4 mb-6">
+                            <button id="filter-all" class="bg-indigo-100 text-indigo-800 p-2 rounded hover:bg-indigo-200 filter-active">All</button>
+                            <button id="filter-research" class="bg-blue-100 text-blue-800 p-2 rounded hover:bg-blue-200">Research</button>
+                            <button id="filter-teaching" class="bg-green-100 text-green-800 p-2 rounded hover:bg-green-200">Teaching</button>
+                            <button id="filter-writing" class="bg-yellow-100 text-yellow-800 p-2 rounded hover:bg-yellow-200">Writing</button>
+                            <button id="filter-proof" class="bg-purple-100 text-purple-800 p-2 rounded hover:bg-purple-200">Proof Work</button>
+                            <button id="filter-meeting" class="bg-red-100 text-red-800 p-2 rounded hover:bg-red-200">Meetings</button>
+                            <button id="filter-class" class="bg-pink-100 text-pink-800 p-2 rounded hover:bg-pink-200">Classes</button>
+                            <button id="filter-other" class="bg-gray-100 text-gray-800 p-2 rounded hover:bg-gray-200">Other</button>
+                        </div>
+                    </div>
+        
+                    <div id="tasks-container">
+                        <h2 class="text-xl font-semibold mb-4">Your Tasks</h2>
+                        <div id="tasks-list" class="space-y-4">
+                            <!-- Tasks will be added here dynamically -->
+                            <div class="text-center text-gray-500">Login to see your tasks</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="foot mt-auto border-t border-gray-200">
+            <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+              <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> Sachchidanand
+              </p>
+              <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
+              </p>
+              <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a class="ml-3 text-gray-500 hover:text-green-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+                  <i class="ai ai-researchgate ai-lg"></i>
+                </a>
+                <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+                  <i class="ai ai-academia"></i>
+                </a>
+              </span>
+            </div>
+            <hr class="py-1 w-1/4 m-auto">
+            <div class="items-center">
+                <p class="text-center">
+                    <span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+                    <img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
+                    alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
+                    <span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script>
+        function myFunction() {
+            var x = document.lastModified;
+            document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+            }
+
+            myFunction()
+    </script>
+
+    <script src="../../assets/js/todo.js"></script>
+</body>
+</html>
