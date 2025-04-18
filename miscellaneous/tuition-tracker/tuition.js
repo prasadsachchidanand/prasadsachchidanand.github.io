@@ -19,6 +19,8 @@ let students = [];
 let sessions = [];
 let nextStudentId = 1;
 let nextSessionId = 1;
+let payments = [];
+let nextPaymentId = 1;
 
 // Password management
 let isLoggedIn = false;
@@ -271,8 +273,10 @@ function exportData() {
     const data = {
         students: students,
         sessions: sessions,
+        payments: payments,
         nextStudentId: nextStudentId,
-        nextSessionId: nextSessionId
+        nextSessionId: nextSessionId,
+        nextPaymentId: nextPaymentId
     };
 
     const dataStr = JSON.stringify(data);
@@ -299,13 +303,16 @@ function importData(event) {
             if (data.students && data.sessions && data.nextStudentId && data.nextSessionId) {
                 students = data.students;
                 sessions = data.sessions;
+                payments = data.payments || [];
                 nextStudentId = data.nextStudentId;
                 nextSessionId = data.nextSessionId;
+                nextPaymentId = data.nextPaymentId || 1;
 
                 saveData();
                 updateStudentDropdown();
                 renderStudents();
                 renderSessions();
+                renderPayments();
                 renderSummary();
 
                 alert('Data imported successfully');
@@ -333,12 +340,15 @@ function loadData() {
                 const data = doc.data();
                 students = data.students || [];
                 sessions = data.sessions || [];
+                payments = data.payments || []; // Add this line
                 nextStudentId = data.nextStudentId || 1;
                 nextSessionId = data.nextSessionId || 1;
+                nextPaymentId = data.nextPaymentId || 1; // Add this line
 
                 updateStudentDropdown();
                 renderStudents();
                 renderSessions();
+                renderPayments(); // Add this line
                 renderSummary();
             } else {
                 // console.log("No data found in Firestore");
@@ -380,23 +390,239 @@ function saveData() {
     db.collection("users").doc(user.uid).set({
             students: students,
             sessions: sessions,
+            payments: payments, // Add this line
             nextStudentId: nextStudentId,
-            nextSessionId: nextSessionId
+            nextSessionId: nextSessionId,
+            nextPaymentId: nextPaymentId // Add this line
         })
         .then(() => console.log("Data saved to Firestore"))
         .catch((error) => console.error("Error saving data: ", error));
 }
 
+// payment function
+function addPayment() {
+    const studentSelect = document.getElementById('paymentStudent');
+    const amountInput = document.getElementById('paymentAmount');
+    const dateInput = document.getElementById('paymentDate');
+    const notesInput = document.getElementById('paymentNotes');
+
+    const studentId = parseInt(studentSelect.value);
+    const amount = parseFloat(amountInput.value);
+    const date = dateInput.value;
+    const notes = notesInput.value.trim();
+
+    if (!studentId) {
+        alert('Please select a student');
+        return;
+    }
+
+    if (isNaN(amount) || amount <= 0) {
+        alert('Please enter a valid amount');
+        return;
+    }
+
+    if (!date) {
+        alert('Please select a date');
+        return;
+    }
+
+    const newPayment = {
+        id: nextPaymentId++,
+        studentId: studentId,
+        amount: amount,
+        date: date,
+        notes: notes
+    };
+
+    payments.push(newPayment);
+
+    // Clear form
+    amountInput.value = '';
+    notesInput.value = '';
+
+    renderPayments();
+    renderSummary();
+    saveData();
+}
+
+// Render payments table
+function renderPayments() {
+    const tbody = document.getElementById('paymentsBody');
+    if (!tbody) return;
+    
+    tbody.innerHTML = '';
+
+    // Sort payments by date (newest first)
+    const sortedPayments = [...payments].sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+    });
+
+    let totalPayments = 0;
+
+    sortedPayments.forEach(payment => {
+        const student = students.find(s => s.id === payment.studentId);
+        if (!student) return;
+
+        const row = document.createElement('tr');
+
+        const studentCell = document.createElement('td');
+        studentCell.textContent = student.name;
+        row.appendChild(studentCell);
+
+        const dateCell = document.createElement('td');
+        dateCell.textContent = formatDate(payment.date);
+        row.appendChild(dateCell);
+
+        const amountCell = document.createElement('td');
+        amountCell.textContent = `£${payment.amount.toFixed(2)}`;
+        row.appendChild(amountCell);
+
+        const notesCell = document.createElement('td');
+        notesCell.textContent = payment.notes;
+        row.appendChild(notesCell);
+
+        totalPayments += payment.amount;
+
+        const actionsCell = document.createElement('td');
+        actionsCell.className = 'flex space-x-2';
+
+        const editBtn = document.createElement('button');
+        editBtn.textContent = 'Edit';
+        editBtn.className = 'bg-blue-500 text-white px-2 py-1 rounded-lg hover:bg-blue-600 transition duration-200';
+        editBtn.onclick = () => editPayment(payment.id);
+        actionsCell.appendChild(editBtn);
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.className = 'bg-red-500 text-white px-2 py-1 rounded-lg hover:bg-red-600 transition duration-200';
+        deleteBtn.onclick = () => deletePayment(payment.id);
+        actionsCell.appendChild(deleteBtn);
+
+        row.appendChild(actionsCell);
+        tbody.appendChild(row);
+    });
+
+    document.getElementById('totalPayments').textContent = `£${totalPayments.toFixed(2)}`;
+}
+
+// Edit payment
+function editPayment(id) {
+    const payment = payments.find(p => p.id === id);
+    if (!payment) return;
+
+    // Create student options for dropdown
+    let studentOptions = '';
+    students.forEach(s => {
+        const selected = s.id === payment.studentId ? 'selected' : '';
+        studentOptions += `<option value="${s.id}" ${selected}>${s.name}</option>`;
+    });
+
+    // Create edit form
+    const form = document.createElement('div');
+    form.innerHTML = `
+      <h3 class="text-lg font-semibold text-gray-700 mb-4">Edit Payment</h3>
+      <div class="space-y-4">
+        <div>
+          <label for="editPaymentStudent" class="block text-sm font-medium text-gray-700">Student</label>
+          <select id="editPaymentStudent" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+            ${studentOptions}
+          </select>
+        </div>
+        <div>
+          <label for="editPaymentDate" class="block text-sm font-medium text-gray-700">Payment Date</label>
+          <input type="date" id="editPaymentDate" value="${payment.date}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+        </div>
+        <div>
+          <label for="editPaymentAmount" class="block text-sm font-medium text-gray-700">Amount (GBP)</label>
+          <input type="number" id="editPaymentAmount" min="0.01" step="0.01" value="${payment.amount}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+        </div>
+        <div>
+          <label for="editPaymentNotes" class="block text-sm font-medium text-gray-700">Notes</label>
+          <input type="text" id="editPaymentNotes" value="${payment.notes}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+        </div>
+        <div class="flex space-x-2">
+          <button id="savePaymentEdit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200">Save Changes</button>
+          <button id="cancelPaymentEdit" class="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600 transition duration-200">Cancel</button>
+        </div>
+      </div>
+    `;
+
+    // Show dialog
+    const paymentsTab = document.getElementById('payments');
+    const oldForm = paymentsTab.querySelector('.edit-form');
+    if (oldForm) oldForm.remove(); // Remove any existing edit form
+
+    form.className = 'bg-gray-50 p-4 rounded-lg mb-6 edit-form';
+    paymentsTab.appendChild(form);
+
+    // Add event listeners
+    document.getElementById('savePaymentEdit').addEventListener('click', () => {
+        const studentId = parseInt(document.getElementById('editPaymentStudent').value);
+        const date = document.getElementById('editPaymentDate').value;
+        const amount = parseFloat(document.getElementById('editPaymentAmount').value);
+        const notes = document.getElementById('editPaymentNotes').value;
+
+        if (!studentId || !date || isNaN(amount) || amount <= 0) {
+            alert('Please fill in all fields correctly');
+            return;
+        }
+
+        // Update payment
+        payment.studentId = studentId;
+        payment.date = date;
+        payment.amount = amount;
+        payment.notes = notes;
+
+        form.remove(); // Remove the edit form
+        renderPayments(); // Re-render the payments table
+        renderSummary(); // Update the summary
+        saveData(); // Save changes to Firestore
+    });
+
+    document.getElementById('cancelPaymentEdit').addEventListener('click', () => {
+        form.remove(); // Remove the edit form
+    });
+}
+
+// Delete payment
+function deletePayment(id) {
+    if (!confirm('Are you sure you want to delete this payment?')) {
+        return;
+    }
+
+    payments = payments.filter(p => p.id !== id);
+
+    renderPayments();
+    renderSummary();
+    saveData();
+}
+
 // Update student dropdown in sessions tab
 function updateStudentDropdown() {
-    const dropdown = document.getElementById('sessionStudent');
-    dropdown.innerHTML = '<option value="">Select Student</option>';
+    const sessionDropdown = document.getElementById('sessionStudent');
+    const paymentDropdown = document.getElementById('paymentStudent');
+    
+    // Clear dropdowns
+    sessionDropdown.innerHTML = '<option value="">Select Student</option>';
+    if (paymentDropdown) {
+        paymentDropdown.innerHTML = '<option value="">Select Student</option>';
+    }
 
+    // Populate dropdowns
     students.forEach(student => {
-        const option = document.createElement('option');
-        option.value = student.id;
-        option.textContent = student.name;
-        dropdown.appendChild(option);
+        // For sessions dropdown
+        const sessionOption = document.createElement('option');
+        sessionOption.value = student.id;
+        sessionOption.textContent = student.name;
+        sessionDropdown.appendChild(sessionOption);
+        
+        // For payments dropdown if it exists
+        if (paymentDropdown) {
+            const paymentOption = document.createElement('option');
+            paymentOption.value = student.id;
+            paymentOption.textContent = student.name;
+            paymentDropdown.appendChild(paymentOption);
+        }
     });
 }
 
@@ -784,16 +1010,23 @@ function renderSummary() {
 
     let totalHours = 0;
     let totalEarnings = 0;
+    let totalPaymentsReceived = 0;
+    let totalOutstanding = 0;
 
     // Create summary by student
     students.forEach(student => {
         const studentSessions = sessions.filter(s => s.studentId === student.id && s.completed);
+        const studentPayments = payments.filter(p => p.studentId === student.id);
 
         const totalStudentHours = studentSessions.reduce((sum, session) => sum + session.duration, 0);
         const totalStudentEarnings = studentSessions.reduce((sum, session) => sum + (student.rate * session.duration), 0);
+        const totalStudentPayments = studentPayments.reduce((sum, payment) => sum + payment.amount, 0);
+        const outstandingBalance = totalStudentEarnings - totalStudentPayments;
 
         totalHours += totalStudentHours;
         totalEarnings += totalStudentEarnings;
+        totalPaymentsReceived += totalStudentPayments;
+        totalOutstanding += outstandingBalance;
 
         // Add to summary table
         const row = document.createElement('tr');
@@ -814,6 +1047,15 @@ function renderSummary() {
         earningsCell.textContent = `£${totalStudentEarnings.toFixed(2)}`;
         row.appendChild(earningsCell);
 
+        const paymentsCell = document.createElement('td');
+        paymentsCell.textContent = `£${totalStudentPayments.toFixed(2)}`;
+        row.appendChild(paymentsCell);
+
+        const outstandingCell = document.createElement('td');
+        outstandingCell.textContent = `£${outstandingBalance.toFixed(2)}`;
+        outstandingCell.className = outstandingBalance > 0 ? 'text-red-600 font-semibold' : 'text-green-600 font-semibold';
+        row.appendChild(outstandingCell);
+
         tbody.appendChild(row);
 
         // Create summary card
@@ -824,6 +1066,10 @@ function renderSummary() {
         <p class="text-sm text-gray-600"><strong>Rate:</strong> £${student.rate.toFixed(2)} per hour</p>
         <p class="text-sm text-gray-600"><strong>Total Hours:</strong> ${totalStudentHours.toFixed(1)}</p>
         <p class="text-sm text-gray-600"><strong>Total Earnings:</strong> £${totalStudentEarnings.toFixed(2)}</p>
+        <p class="text-sm text-gray-600"><strong>Total Paid:</strong> £${totalStudentPayments.toFixed(2)}</p>
+        <p class="text-sm ${outstandingBalance > 0 ? 'text-red-600 font-semibold' : 'text-green-600 font-semibold'}">
+          <strong>Outstanding Balance:</strong> £${outstandingBalance.toFixed(2)}
+        </p>
       `;
         summaryCards.appendChild(card);
     });
@@ -831,6 +1077,15 @@ function renderSummary() {
     // Update totals
     document.getElementById('totalHours').textContent = totalHours.toFixed(1);
     document.getElementById('totalEarnings').textContent = `£${totalEarnings.toFixed(2)}`;
+    
+    // New totals for payments
+    if (document.getElementById('totalPaymentsReceived')) {
+        document.getElementById('totalPaymentsReceived').textContent = `£${totalPaymentsReceived.toFixed(2)}`;
+    }
+    
+    if (document.getElementById('totalOutstanding')) {
+        document.getElementById('totalOutstanding').textContent = `£${totalOutstanding.toFixed(2)}`;
+    }
 }
 
 // Format date for display
@@ -848,6 +1103,12 @@ function setDefaultDate() {
     const dateString = `${year}-${month}-${day}`;
 
     document.getElementById('sessionDate').value = dateString;
+    
+    // Also set the payment date if the element exists
+    const paymentDateInput = document.getElementById('paymentDate');
+    if (paymentDateInput) {
+        paymentDateInput.value = dateString;
+    }
 }
 
 // Initialize
