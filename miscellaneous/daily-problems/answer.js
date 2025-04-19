@@ -34,7 +34,7 @@ function toggleAnswer(id) {
   document.getElementById(id).classList.toggle('hidden');
 }
 
-// For MCQ problems (See for example 2024-01-07)
+// For MCQ problems (See for example 2024-01-07, 2025-04-09)
 document.addEventListener("DOMContentLoaded", () => {
   // console.log("✅ Universal Quiz Script Loaded!");
 

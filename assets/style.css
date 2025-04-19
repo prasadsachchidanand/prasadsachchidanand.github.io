@@ -4154,6 +4154,18 @@ video {
   forced-color-adjust: none;
 }
 
+/* Custom fill-in-the-blank underline */
+
+.fill-in-blank {
+  display: inline-block;
+  border-bottom: 1pt solid black;
+  /* 1pt thickness */
+  width: 3cm;
+  /* Fixed width */
+  height: 1em;
+  /* Aligns with text height */
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
