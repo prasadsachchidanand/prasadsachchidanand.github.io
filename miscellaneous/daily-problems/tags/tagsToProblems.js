@@ -56,6 +56,7 @@ const tagsToProblems = {
     'minimal-polynomial': ['../2025-02-09', '../2025-02-16'],
     'dimension': ['../2024-06-02', '../2025-01-05'],
     'row-reduction': ['../2025-03-16', '../2025-03-23', '../2025-04-06'],
+    'basis': ['../2025-04-20'],
 
     // real analysis
     'real-analysis': realAnalysis,

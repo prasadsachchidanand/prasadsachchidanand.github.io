@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'eigenvalues': 'linear-algebra',
         'eigenvectors': 'linear-algebra',
         'linear-transformation': 'linear-algebra',
+        'basis': 'linear-algebra',
         'inner-product-space': 'linear-algebra',
         'characteristic-polynomial': 'linear-algebra',
         'minimal-polynomial': 'linear-algebra',
