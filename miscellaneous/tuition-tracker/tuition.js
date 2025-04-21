@@ -1056,6 +1056,15 @@ function renderSummary() {
         outstandingCell.className = outstandingBalance > 0 ? 'text-red-600 font-semibold' : 'text-green-600 font-semibold';
         row.appendChild(outstandingCell);
 
+        // Add a print button to the table row
+        const actionCell = document.createElement('td');
+        const printButton = document.createElement('button');
+        printButton.textContent = 'Print';
+        printButton.className = 'bg-blue-500 text-white px-2 py-1 rounded-lg hover:bg-blue-600 transition duration-200';
+        printButton.onclick = () => printStudentDetails(student.id);
+        actionCell.appendChild(printButton);
+        row.appendChild(actionCell);
+
         tbody.appendChild(row);
 
         // Create summary card
@@ -1070,21 +1079,35 @@ function renderSummary() {
         <p class="text-sm ${outstandingBalance > 0 ? 'text-red-600 font-semibold' : 'text-green-600 font-semibold'}">
           <strong>Outstanding Balance:</strong> £${outstandingBalance.toFixed(2)}
         </p>
+        <button class="mt-2 bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition duration-200" 
+          onclick="printStudentDetails(${student.id})">
+          Print Details
+        </button>
       `;
         summaryCards.appendChild(card);
     });
 
-    // Update totals
+    // Update totals in the table header
     document.getElementById('totalHours').textContent = totalHours.toFixed(1);
     document.getElementById('totalEarnings').textContent = `£${totalEarnings.toFixed(2)}`;
     
-    // New totals for payments
+    // Totals for payments
     if (document.getElementById('totalPaymentsReceived')) {
         document.getElementById('totalPaymentsReceived').textContent = `£${totalPaymentsReceived.toFixed(2)}`;
     }
     
     if (document.getElementById('totalOutstanding')) {
         document.getElementById('totalOutstanding').textContent = `£${totalOutstanding.toFixed(2)}`;
+    }
+    
+    // Add header for the new action column
+    const summaryTable = document.querySelector('#summary table thead tr');
+    if (summaryTable && !document.getElementById('actionsHeader')) {
+        const actionsHeader = document.createElement('th');
+        actionsHeader.id = 'actionsHeader';
+        actionsHeader.className = 'p-3 text-left';
+        actionsHeader.textContent = 'Actions';
+        summaryTable.appendChild(actionsHeader);
     }
 }
 
@@ -1116,3 +1139,173 @@ window.onload = function() {
     loadData();
     setDefaultDate();
 };
+
+// Add print functionality to the summary page
+function printStudentDetails(studentId) {
+    const student = students.find(s => s.id === studentId);
+    if (!student) return;
+    
+    // Get all sessions and payments for this student
+    const studentSessions = sessions.filter(s => s.studentId === studentId);
+    const studentPayments = payments.filter(p => p.studentId === studentId);
+    
+    // Calculate totals
+    const totalHours = studentSessions.filter(s => s.completed).reduce((sum, session) => sum + session.duration, 0);
+    const totalEarnings = studentSessions.filter(s => s.completed).reduce((sum, session) => sum + (student.rate * session.duration), 0);
+    const totalPaid = studentPayments.reduce((sum, payment) => sum + payment.amount, 0);
+    const outstandingBalance = totalEarnings - totalPaid;
+    
+    // Create a new window for printing
+    const printWindow = window.open('', '_blank');
+    
+    // Generate HTML content
+    printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Student Details: ${student.name}</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                    max-width: 800px;
+                    margin: 0 auto;
+                    padding: 20px;
+                }
+                h1 {
+                    color: #2c5282;
+                    border-bottom: 1px solid #e2e8f0;
+                    padding-bottom: 10px;
+                }
+                h2 {
+                    color: #2d3748;
+                    margin-top: 20px;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                }
+                th, td {
+                    padding: 8px;
+                    text-align: left;
+                    border-bottom: 1px solid #e2e8f0;
+                }
+                th {
+                    background-color: #f7fafc;
+                }
+                .summary {
+                    margin-top: 30px;
+                    padding: 15px;
+                    background-color: #f7fafc;
+                    border-radius: 5px;
+                }
+                .summary p {
+                    margin: 5px 0;
+                }
+                .outstanding {
+                    font-weight: bold;
+                    color: ${outstandingBalance > 0 ? '#e53e3e' : '#38a169'};
+                }
+                @media print {
+                    body {
+                        padding: 0;
+                    }
+                    button {
+                        display: none;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Student Details: ${student.name}</h1>
+            <p><strong>Hourly Rate:</strong> £${student.rate.toFixed(2)}</p>
+            <div class="summary">
+                <h2>Summary</h2>
+                <p><strong>Total Hours:</strong> ${totalHours.toFixed(1)}</p>
+                <p><strong>Total Charges:</strong> £${totalEarnings.toFixed(2)}</p>
+                <p><strong>Total Paid:</strong> £${totalPaid.toFixed(2)}</p>
+                <p class="outstanding"><strong>Outstanding Balance:</strong> £${outstandingBalance.toFixed(2)}</p>
+            </div>
+            
+            <h2>Sessions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Duration (hours)</th>
+                        <th>Status</th>
+                        <th>Amount (GBP)</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `);
+    
+    // Sort sessions by date (newest first)
+    const sortedSessions = [...studentSessions].sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+    });
+    
+    // Add session rows
+    sortedSessions.forEach(session => {
+        const sessionAmount = session.completed ? (student.rate * session.duration) : 0;
+        printWindow.document.write(`
+            <tr>
+                <td>${formatDate(session.date)}</td>
+                <td>${session.duration}</td>
+                <td>${session.completed ? 'Completed' : 'Not Completed'}</td>
+                <td>£${sessionAmount.toFixed(2)}</td>
+            </tr>
+        `);
+    });
+    
+    printWindow.document.write(`
+                </tbody>
+            </table>
+            
+            <h2>Payments</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount (GBP)</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `);
+    
+    // Sort payments by date (newest first)
+    const sortedPayments = [...studentPayments].sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+    });
+    
+    // Add payment rows
+    sortedPayments.forEach(payment => {
+        printWindow.document.write(`
+            <tr>
+                <td>${formatDate(payment.date)}</td>
+                <td>£${payment.amount.toFixed(2)}</td>
+                <td>${payment.notes}</td>
+            </tr>
+        `);
+    });
+    
+    printWindow.document.write(`
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 30px">
+                <p>Generated on: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}</p>
+                <button onclick="window.print()">Print</button>
+                <button onclick="window.close()">Close</button>
+            </div>
+        </body>
+        </html>
+    `);
+    
+    printWindow.document.close();
+}
