@@ -156,38 +156,38 @@
                     </div>
 
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
-                    <ol class="math-list-disc">
-                      <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
-                      </li>
-                      <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
-                      </li>
-                    </ol>
+                    Note that for any $h \in \mathbb{R}$, 
+                    \[\vert f(x+h) - f(x) \vert \leq \vert x + h - x \vert ^2\].
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> We will show that $f$ is differentiable with $f'(x) = 0$ for $x \in \mathbb{R} $. Let $x \in \mathbb{R} $ and for any $h \in \mathbb{R} $ consider the following 
+                    \begin{align*}
+                        & \vert f(x+h) - f(x) \vert \leq \vert x + h - x \vert ^2 \\
+                        \implies & \frac{\vert f(x + h) - f(x) \vert }{\vert h \vert } \leq \vert h \vert \\
+                        \implies & \lim_{h \to 0} \frac{\vert f(x + h) - f(x) \vert }{\vert h \vert } = 0 .
+                    \end{align*} 
+                    Thus, we have shown that for any $x \in \mathbb{R} $, $\vert f'(x) \vert = 0$ which implies $f'(x) = 0$. Hence $f$ is constant. 
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->

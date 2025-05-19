@@ -169,38 +169,67 @@
                     </div>
 
                     <!-- Hint Button -->
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
                     <!-- Solution Button -->
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
-                <!-- Hint Box (Initially Hidden) -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <!-- Hint Box -->
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
-                    <ol class="math-list-disc">
-                      <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
-                      </li>
-                      <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
-                      </li>
-                    </ol>
+                    The sum of probabilities is $1$, that is, 
+                    \[
+                        \sum_{x \in \{ 1,2,3,4 \} } P(X = x) = 1 
+                    \]
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong> Given that 
+                    \[
+                        P(X = x) = \frac{k}{x}.
+                    \]
+                    <ol class="math-list-alpha">
+                      <li class="my-4">
+                          Since
+                          \begin{align*}
+                          \sum_{x \in \{ 1,2,3,4 \} } P(X = x) = 1 & \implies \sum_{x \in \{ 1,2,3,4 \} } \frac{k}{x} = 1 \\
+                          & \implies k + \frac{k}{2} + \frac{k}{3} + \frac{k}{4} = 1 \\
+                          & \implies k = \frac{12}{25}.
+                          \end{align*}
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                          Since, $k = \frac{12}{25}$, the probability distribution table is given by
+                          \[\def\arraystretch{2}
+                          \begin{array}{|ccccc|}
+                          \hline
+                          X & 1 & 2 & 3 &  4 \\ \hline
+                          P(X = x) & \dfrac{12}{25} & \dfrac{6}{25} & \dfrac{4}{25} & \dfrac{3}{25} \\[1ex]\hline
+                          \end{array}
+                          \]
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+                      <li class="my-4">
+                          From the above table, we can find the following probabilities.
+                          \begin{align*}
+                          P(X > 2) & = \frac{4}{25} + \frac{3}{25} = \frac{7}{25}. \\
+                          P(1 < X < 4) & = \frac{6}{25} + \frac{4}{25} = \frac{10}{25} = \frac{2}{5}. \\
+                          P(X > 4) & = 0.
+                          \end{align*}
+                      </li>
+                    </ol>
                   </div>
                   
                   <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
