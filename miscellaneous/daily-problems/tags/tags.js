@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'analytic-function': 'complex-analysis',
         'singularity': 'complex-analysis',
         'harmonic-conjugate': 'complex-analysis',
+        'mobius-transformation': 'complex-analysis',
 
         // abstract algebra
         'group-theory': 'abstract-algebra',
