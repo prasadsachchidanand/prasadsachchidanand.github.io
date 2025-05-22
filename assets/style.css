@@ -2474,6 +2474,11 @@ video {
   color: rgb(133 77 14 / var(--tw-text-opacity, 1));
 }
 
+.text-lime-500 {
+  --tw-text-opacity: 1;
+  color: rgb(132 204 22 / var(--tw-text-opacity, 1));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -2891,6 +2896,21 @@ video {
 .hover\:text-yellow-600:hover {
   --tw-text-opacity: 1;
   color: rgb(202 138 4 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-lime-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(132 204 22 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-lime-800:hover {
+  --tw-text-opacity: 1;
+  color: rgb(63 98 18 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-lime-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(77 124 15 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
