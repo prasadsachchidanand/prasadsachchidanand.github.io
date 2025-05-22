@@ -176,40 +176,144 @@
                       </a>
                     </div>
 
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
-                    </button> -->
+                    </button>
 
-                    <!-- <button onclick="toggleSolution('solution-box')" 
+                    <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
-                    <ol class="math-list-disc">
+                    Note that $(G,*)$ is a group if the following axioms are satisfied. 
+                    <ol class="math-list-roman">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        $*$ is closed, that is, given any $a, b \in G,\ a * b \in G$;
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        Associativity, that is, given any $a,b,c \in G$, $(a*b)*c = a *(b*c)$;
+                      </li>
+                      <li class="my-4">
+                        Existence of identity, that is, there exists $e\in G$ such that for any $a\ in G$ $e*a = a = a*e$;
+                      </li>
+                      <li class="my-4">
+                        Existence of inverse, that is, given any $a \in G$, there exists $b \in G$ such that $a*b = e = b*a$.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>We recall that $G(,*)$  is a group if it satisfies the following properties:
+                    <ol class="math-list-roman">
+                      <li class="my-4">
+                          $*$ is closed, that is, given any $a, b \in G,\ a * b \in G$;
+                      </li>
+                      <li class="my-4">
+                          Associativity, that is, given any $a,b,c \in G$, $(a*b)*c = a *(b*c)$;
+                      </li>
+                      <li class="my-4">
+                          Existence of identity, that is, there exists $e\in G$ such that for any $a\ in G$ $e*a = a = a*e$;
+                      </li>
+                      <li class="my-4">
+                          Existence of inverse, that is, given any $a \in G$, there exists $b \in G$ such that $a*b = e = b*a$.
+                      </li>
+                    </ol>
+                    For the given problem, we will check if any of the above axioms fail. 
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    <ol class="math-list-alpha">
+                      <li class="my-4">
+                          $(\mathbb{Z} , *)$, where $a * b = a - b$. This is <strong>NOT</strong> a group as it does not satisfy the associativity rule. For example, take $a = 3, b = 2, c = 1$, then
+                          \begin{align*}
+                          (a*b)*c = (3-2) - 1 = 0 \quad \text{ but } a*(b*c) = 3 - (2 - 1) = 2.
+                          \end{align*}
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+
+                      <li class="my-4">
+                          $(\mathbb{Q} , *)$, where $a*b = a + b + ab$. Clearly the $\mathbb{Q} $ is closed under the given operation. We will check the other axioms. 
+                          <ol class="math-list-roman">
+                            <li class="my-4">
+                              <strong>Associativity:</strong> For any $a,b,c \in \mathbb{Q} $, 
+                                \begin{align*}
+                                    (a * b) * c & = (a + b + ab) * c \\
+                                                & = a + b + ab + c + (a + b + ab)c \\
+                                                & = a + b + c + ab + ac + bc + abc \\[2ex]
+                                    a * (b * c) & = a * ( b + c + bc) \\
+                                                & = a+ b + c + bc + a(b + c + bc) \\
+                                                & = a + b + c + bc + ab + ac + abc.
+                                \end{align*}  
+                                Thus, the operation is associative. 
+                            </li>
+                            <li class="my-4">
+                              <strong>Existence of identity:</strong> If $e$ is the identity, then for any $a \in \mathbb{Q} $, 
+                                \begin{align*}
+                                    a * e = a & \implies a + e + ae = a \\
+                                              & \implies e + ae = 0 \\
+                                              & \implies e = 0.
+                                \end{align*}
+                                This shows that $e = 0$ is the identity of the group. 
+                            </li>
+                            <li class="my-4">
+                              <strong>Existence of inverse:</strong> Let $a \in \mathbb{Q} $. Then
+                                \begin{align*}
+                                    a * b = 0 & \implies a + b + ab = 0 \implies b = -\frac{a}{1+a},
+                                \end{align*}   
+                                but the above one is not weill defined for $a = -1$. Also, note that $a = -1$, 
+                                \[
+                                    -1 * b = -1 + b + b (-1) = -1.
+                                \]  
+                            </li>
+                            Thus, $(\mathbb{Q} , *)$ is <strong>NOT</strong> a group. 
+                          </ol>
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+
+                      <li class="my-4">
+                          $G$ is <strong>NOT</strong> a group as inverse of $1$ is $-1$ which does not belong to the set $G$.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+
+                      <li class="my-4">
+                          From part (b), it is clear that $(\mathbb{Q} , *)$ is a group. 
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+
+                      <li class="my-4">
+                        The set $G$ can be written as
+                        \[
+                        G = \left\{ \frac{p}{q} \in \mathbb{Q} : 5 \mid q \text{ and } \gcd (p,q) = 1\right\}.
+                        \]
+                        The operation is given by $a = \dfrac{p_1}{q_1}$ and $b = \dfrac{p_2}{q_2}$, then $a * b = a + b$. This is \textbf{NOT} a
+                        group. For example, take $a = \dfrac{4}{5}$ and $b = \dfrac{6}{5}$. Then
+                        \[
+                        a * b = a + b = \frac{4}{5} + \frac{6}{5} = \frac{10}{5} = \frac{2}{1},
+                        \]
+                        and hence $G$ is not closed under $*$.
+                      </li>
+                      <hr class="h-px my-4 bg-gray-300 border-0">
+
+                      <li class="my-4">
+                          This is <strong>NOT</strong> a group. For example, take $G = \{a,b\}$. Then one of them must be identity, say $a$. Applying the given operation, we have 
+                          \begin{align*}
+                              a * a = a,\  b * b = b,\  a * a = a \text{ and } b * a = b.
+                          \end{align*}  
+                          Since $a \neq b$, so $a * b \neq b * a$ and hence $a$ is not the identity. Hence $G$ is not a group. 
+                      </li>
+                    </ol>
+                  </div>
                 </div>
 
                 <!-- Previous Button -->

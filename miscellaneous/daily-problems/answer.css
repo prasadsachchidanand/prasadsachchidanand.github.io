@@ -124,7 +124,7 @@
     margin-left: 2.5rem;
   }
 
-  .math-list-alpha {
+  /* .math-list-alpha {
     list-style: lower-alpha;
     margin-left: 2.5rem;
   }
@@ -142,6 +142,50 @@
   .math-list-Roman {
     list-style: upper-roman;
     margin-left: 2.5rem;
+  } */
+
+  .math-list-alpha {
+    list-style: none;
+    margin-left: 2.5rem;
+    counter-reset: alpha-counter;
+  }
+
+  .math-list-alpha li::before {
+    counter-increment: alpha-counter;
+    content: "(" counter(alpha-counter, lower-alpha) ") ";
+  }
+
+  .math-list-Alpha {
+    list-style: none;
+    margin-left: 2.5rem;
+    counter-reset: Alpha-counter;
+  }
+
+  .math-list-Alpha li::before {
+    counter-increment: Alpha-counter;
+    content: "(" counter(Alpha-counter, upper-alpha) ") ";
+  }
+
+  .math-list-roman {
+    list-style: none;
+    margin-left: 2.5rem;
+    counter-reset: roman-counter;
+  }
+
+  .math-list-roman li::before {
+    counter-increment: roman-counter;
+    content: "(" counter(roman-counter, lower-roman) ") ";
+  }
+
+  .math-list-Roman {
+    list-style: none;
+    margin-left: 2.5rem;
+    counter-reset: Roman-counter;
+  }
+
+  .math-list-Roman li::before {
+    counter-increment: Roman-counter;
+    content: "(" counter(Roman-counter, upper-roman) ") "; 
   }
   
   
