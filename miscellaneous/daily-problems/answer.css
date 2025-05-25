@@ -239,6 +239,15 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
+  .blank-fill {
+    display: inline-block;
+    width: 5em;
+    height: 1px;
+    border-bottom: 0.1em solid black;
+    margin: 0 0.2em;
+    vertical-align: baseline;
+}
+
 
   /* class for ol and ul leading-relaxed lg:text-lg md:text-base text-justify */
 

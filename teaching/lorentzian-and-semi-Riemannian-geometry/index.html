@@ -13,6 +13,67 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      .gradient-bg {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.card-hover {
+	transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure proper spacing for fixed navbar */
+.navbar-height {
+	height: 72px;
+	/* Approximate navbar height */
+}
+
+.geometric-pattern {
+	background-image:
+		radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+		radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+		radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+}
+
+.topology-dots {
+	background-image:
+		radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+	background-size: 20px 20px;
+}
+
+.animated-gradient {
+	background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.mesh-pattern {
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+	background-size: 30px 30px;
+}
+    </style>
     
 	<title>Lorentzian and Semi-Riemannian Geometry - Sachchidanand Prasad</title>
 
@@ -22,6 +83,9 @@
   <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.png"/>
 
   <link rel="stylesheet" href="../../assets/style.css">
+
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
 
   <!-- Font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -75,38 +139,100 @@
       </div>
       
       <!-- section -->
-      <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-col items-center text-center justify-center">
-            <img class="md:w-f sm:w-f" src="img/lorentzianGeometry.svg" alt="course_picture" >
-          </div>
-
-          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-            <div class="p-4 w-full flex flex-col items-center">
-                <div class="w-full max-w-2xl">
-                
-                    <div class="px-4 text-lg font-normal mt-4">
-                      <a href="course-information.pdf" class="block w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 text-center mb-4" target="_blank">
-                          Course Introduction and Projects
-                      </a>
-                      <a href="lorentizan-geometry.pdf" class="block w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 text-center" target="_blank">
-                          Lectures
-                      </a>
+      <section class="py-24 text-gray-600 body-font">
+        <div class="container mx-auto px-4 sm:px-6">
+            
+          <div class="relative bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 text-white rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden mb-10 geometric-pattern min-h-[280px] sm:min-h-[320px] md:h-[300px]">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+                <div class="relative flex flex-col items-center text-center justify-center h-full px-4 sm:px-6 py-8 sm:py-0">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent leading-tight">
+                        Lorentzian and<br class="hidden sm:block">
+                        <span class="sm:hidden"> </span>semi-Riemannian Geometry
+                    </h1>
+                    <p class="text-lg sm:text-xl lg:text-2xl mb-4 sm:mb-6 opacity-90">Summer Semester 2025</p>
+                    <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base lg:text-lg w-full max-w-2xl">
+                        <div class="flex items-center justify-center bg-white/10 rounded-full px-3 sm:px-4 py-2 min-w-0">
+                            <i class="fas fa-clock mr-2 text-blue-200 flex-shrink-0"></i>
+                            <span class="whitespace-nowrap">Fri • 12:00-14:00</span>
+                        </div>
+                        <div class="flex items-center justify-center bg-white/10 rounded-full px-3 sm:px-4 py-2 min-w-0">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-200 flex-shrink-0"></i>
+                            <span class="text-center sm:whitespace-nowrap">Room SZ, Mathematisches Institut</span>
+                        </div>
                     </div>
-              
                 </div>
-              </div>
           </div>
 
-          <!-- Back to Course Page Button (Bottom) -->
-          <div class="text-center mt-10">
-            <a href="../" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
-              Back to all Courses
-            </a>
-          </div>
-          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
+                 
+                <!-- Lecture Notes Card -->
+                  <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                     <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                           <i class="fas fa-book-open text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Lecture Notes</h3>
+                     </div>
+                     <a href="lorentizan-geometry.pdf" target="_blank" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold inline-block text-center">
+                        View Notes
+                    </a>
+                  </div>
+                
+                  <!-- Homeworks Card -->
+                  <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                     <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                           <i class="fas fa-pen-to-square text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Presentation Schedule</h3>
+                     </div>
+                     <a href="Presentation-Schedule.pdf" target="_blank" class="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition duration-300 font-semibold inline-block text-center">View Projects</a>
+                  </div>
+               </div>
+               
+               <!-- References Card -->
+               <div class="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-200">
+                  <div class="flex items-center mb-4">
+                      <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                          <i class="fas fa-bookmark text-lg text-purple-600"></i>
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900">References & Resources</h3>
+                  </div>
+                  <div class="grid grid-cols-1 gap-4">
+                      <div class="p-4 rounded-lg">
+                          <h4 class="font-semibold text-base text-gray-900 mb-2">Textbooks</h4>
+                          <ul class="space-y-1 text-gray-700">
+                              <li class="flex items-start">
+                                  <span class="w-2 h-2 bg-purple-600 rounded-full mr-2 mt-2"></span>
+                                  <span><em>Global Lorentzian Geometry</em>, John K. Beem, Paul E. Ehrlich, and Kevin L. Easley</span>
+                              </li>
+                              <li class="flex items-start">
+                                  <span class="w-2 h-2 bg-purple-600 rounded-full mr-2 mt-2"></span>
+                                  <span><em>Semi-Riemannian Geometry with Applications to Relativity</em>, Barrett O’Neill</span>
+                              </li>
+                              <li class="flex items-start">
+                                  <span class="w-2 h-2 bg-purple-600 rounded-full mr-2 mt-2"></span>
+                                  <span><em>Techniques of Differential Topology in Relativity</em>, Roger Penrose</span>
+                              </li>
+                              <li class="flex items-start">
+                                  <span class="w-2 h-2 bg-purple-600 rounded-full mr-2 mt-2"></span>
+                                  <a href="https://www.math.uni-potsdam.de/fileadmin/user_upload/Prof-Geometrie/Dokumente/Lehre/Veranstaltungen/WS0405-SS08/LorentzianGeometryEnglish13Jan2020.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-200">Lecture Notes by Prof. Dr. Christian Bär</a>
+                              </li>
+                          </ul>
+                      </div>  
+                  </div>
+              </div>
+               
+               <!-- Back to Course Page Button -->
+               <div class="text-center mt-12">
+                  <a href="../"
+                     class="inline-flex items-center bg-gradient-to-r from-green-500 to-green-600 text-white py-3 px-8 rounded-full hover:from-green-600 hover:to-green-700 transition duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                  <i class="fas fa-arrow-left mr-2"></i>
+                  Back to all Courses
+                  </a>
+               </div>
         </div>
-      </section>
+    </section>
 
       <!-- footer -->
       <footer class="foot mt-auto border-t border-gray-200">
@@ -179,27 +305,5 @@
       };
     </script>
 
-    <!-- Assignments and Lectures -->
-    <script>
-      function toggleVisibility(id) {
-          var element = document.getElementById(id);
-          var sections = document.querySelectorAll('[id^="syllabus"], [id^="quickNotes"], [id^="problemSheets"], [id^="quizProblems"]');
-          
-          // Close all sections except the clicked one
-          sections.forEach(function(section) {
-              if (section.id !== id) {
-                  section.style.maxHeight = null;
-              }
-          });
-  
-          // Toggle the clicked section
-          if (element.style.maxHeight) {
-              element.style.maxHeight = null;
-          } else {
-              element.style.maxHeight = element.scrollHeight + "px";
-          }
-      }
-    </script> 
-       
   </body>
 </html>
