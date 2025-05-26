@@ -158,7 +158,7 @@
                       </a>
                     </div>
 
-                    <!-- <button onclick="toggleHint('hint-box')" 
+                    <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
                     </button>
@@ -166,32 +166,92 @@
                     <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
                 </div>
 
                 <!-- Hint -->
-                <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
-                      </li>
-                      <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        The system will have infinitely many solutions if the rank of the coefficient matrix is same as the rank of the augmented matrix.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- Solution -->
 
-                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+                <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Solution: </strong>  <span class="text-lg text-red-600"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <strong>Solution: </strong>The given system of equation is
+                    \begin{equation}\label{eq:25May2025-1}
+                        \begin{gathered}
+                            x + 5y - z  = 1 \\
+                            4x + 3y - 3z = 7 \\
+                            24 x + y + \lambda z = \mu.
+                        \end{gathered}
+                    \end{equation}
+                    The system \eqref{eq:25May2025-1} has infinitely many solutions, so the rank of the coefficient matrix must be less than $3$ and it should be equal to that of augmented matrix. Let us do the row reduction. The augmented matrix is given by
+                    \begin{align*}
+                        \begin{bmatrix}
+                            1 & 5 & -1 &  1 \\
+                            4 & 3 & -3 &  7 \\
+                            24 & 1 & \lambda & \mu \\
+                        \end{bmatrix} 
+                        & \xrightarrow[R_3 \rightarrow R_3 - 24 R_1]{R_2 \rightarrow R_2 - 4R_1} 
+                        \begin{bmatrix}
+                            1 & 5 & -1 &  1 \\
+                            0 & -17 & 1 &  3 \\
+                            0 & -119 & \lambda +24 & \mu -24 \\
+                        \end{bmatrix} \\[2ex]
+                        & \xrightarrow{R_2 \leftrightarrow - R_2} 
+                        \begin{bmatrix}
+                            1 & 5 & -1 &  1 \\
+                            0 & 17 & -1 &  -3 \\
+                            0 & -119 & \lambda +24 & \mu -24 \\
+                        \end{bmatrix} \\[2ex]
+                        & \xrightarrow{R_3 \rightarrow R_3 - + 7 R_2} 
+                        \begin{bmatrix}
+                            1 & 5 & -1 &  1 \\
+                            0 & 17 & -1 &  -3 \\
+                            0 & 0 & \lambda + 17 & \mu - 27 \\
+                        \end{bmatrix}.
+                    \end{align*}
                   </div>
                   
-                  <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    In order to have infinitely many solutions, we must have 
+                    \[
+                        \lambda + 17 = 0 \text{ and } \mu - 27 = 0 \implies \lambda = -17 \text{ and } \mu =27.
+                    \]
+                    Therefore the solution is
+                    \begin{align*}
+                        z = 3 + 17y \text{ and } x = 1 + z - 5y = 4 + 12y.
+                    \end{align*}
+                    Hence, the set of solution is 
+                    \begin{align*}
+                         \mathcal{S} = 
+                         \left\{\begin{bmatrix}
+                             4 + 12y \\
+                             y \\
+                             3 + 17y \\
+                        \end{bmatrix} : y \in \mathbb{R}  \right\} .
+                    \end{align*}
+                  </div>
+                  
+                  <hr class="h-px my-4 bg-gray-300 border-0">
+                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    Now we will work on the restrictive condition, that is integral solutions with 
+                    \begin{align*}
+                        7 \leq x + y + z \leq 77 & \implies 7 \leq 7 + 30y \leq 77 \\
+                                                 & \implies 0 \leq 30 y \leq 70  \\
+                                                 & \implies 0 \leq y \leq  \frac{7}{3} = 2\frac{1}{3}.
+                    \end{align*}
+                    Therefore, the number of integral solutions with $7 \leq x + y + z \leq 77$ is $3$. 
+                  </div>
                 </div>
 
                 <!-- Previous Button -->
