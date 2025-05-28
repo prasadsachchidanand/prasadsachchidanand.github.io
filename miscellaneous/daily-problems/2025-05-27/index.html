@@ -191,7 +191,7 @@
                   </a>
                 </div>
 
-                <!-- <button onclick="toggleHint('hint-box')" 
+                <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
                     </button>
@@ -199,35 +199,96 @@
                     <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
               </div>
 
               <!-- Hint -->
-              <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+              <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        Note that $\bar{z}^2 = x^2 - y^2 - 2xy \iota$. Expand the function in $x,y$ and write $f(z) = u(x,y) + \iota v(x,y)$. The cauchy-Riemann equations at $z = z_0$ are 
+                        \[u_x(z_0) = v_y(z_0) \text{ and } u_y(z_0) = - v_x(z_0).\] 
+                        Use the definition of partial derivatives to evaluate these limits.
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        To check if the function is differentiable or not, consider the limit $\lim_{z \to 0} \frac{f(z) - f(0)}{z}$ and evaluate the limit in two different directions. 
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
               <!-- Solution -->
 
-              <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+              <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                 <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                  <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve
-                    the problem today. The solution will be provided tomorrow. This will give you the opportunity to
-                    test your understanding of the problem and to improve your skills in solving similar problems in the
-                    future.</span>
+                  <strong>Solution: </strong>The given function is 
+                  \[
+                      f(z) = 
+                      \begin{cases}
+                          \frac{x^2 - y^2 - 2xy \iota }{x + \iota y}, &\text{ if } z \neq 0 ;\\
+                          0, &\text{ if } \text{ otherwise}.
+                      \end{cases}
+                  \]
+                  Note that $\bar{z} ^2 = (x - \iota y)^2 = x^2 - 2xy \iota - y^2$. Thus, 
+                  \begin{align*}
+                      f(z) = \begin{cases}
+                          \frac{\bar{z} ^2}{z}, &\text{ if } z\neq 0 ;\\
+                          0, &\text{ if } \text{ otherwise}.
+                      \end{cases}
+                  \end{align*} 
+                  On of the formulation of the Cauchy-Riemann equations is $\frac{\partial f}{\partial \bar{z} } = 0 $. Note that 
+                  \begin{align*}
+                      \frac{\partial f}{\partial \bar{z} } =  \frac{2 \bar{z} }{z}.
+                  \end{align*}  
+                  Since $\displaystyle \lim_{z \to 0} \frac{\partial f}{\partial \bar{z} } $ does not exist, and hence the function does not satisfy the Cauchy-Riemann equation at $z = 0$. 
                 </div>
 
-                <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                <hr class="h-px my-4 bg-gray-300 border-0">
+                <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  We can also solve this by writing $f = u + \iota v$. 
+                  \begin{align*}
+                      f(z) & = \frac{\bar{z} ^2}{z} \times \frac{\bar{z} }{\bar{z} } = \frac{\bar{z} ^3}{\vert z \vert ^2} \\
+                      & = \frac{(x - \iota y)^3}{x^2 + y^2} \\
+                      & = \frac{x^3 + 3x y^2}{x^2 + y^2} + \iota \left( \frac{y^3 - 3x^2 y}{x^2 + y^2} \right). 
+                  \end{align*}
+                  Thus, 
+                  \[
+                      u(x,y) = \frac{x^3 + 3x y^2}{x^2 + y^2}\quad \text{ and } \quad v(x,y) =  \frac{y^3 - 3x^2 y}{x^2 + y^2}.
+                  \]
+                  Recall that the Cauchy-Riemann equations at $z_0 = (x_0, y_0)$ are 
+                  \[
+                      u_x(z_0) = v_y(z_0) \text{ and } u_y(z_0) = - v_x(z_0).
+                  \]
+                  We need to check the Cauchy-Riemann equations at $z = 0$. Note that 
+                  \begin{align*}
+                      u_x(0,0) & = \lim_{h \to 0} \frac{u((h,0)) - u(0,0)}{h} = \frac{h}{h} = 1\\ 
+                      v_x(0,0) & = \lim_{h \to 0} \frac{v((h,0)) - v(0,0)}{h} = 0\\ 
+                      u_y(0,0) & = \lim_{k \to 0} \frac{u((0,k)) - u(0,0)}{k} = 0 \\ 
+                      v_y(0,0) & = \lim_{k \to 0} \frac{v((0,k)) - v(0,0)}{k} = \frac{h}{h} = 1.
+                  \end{align*} 
+                  Thus, $f$ satisfies the Cauchy-Riemann equations at $z = (0,0)$. 
+                </div>
+
+                <hr class="h-px my-4 bg-gray-300 border-0">
+                <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  We now will check the differentiability of $f$ at $(0,0)$. Recall that $f$ is differentiable at $z = 0$ if the following limit exists
+                  \begin{align*}
+                      \lim_{z \to 0} \frac{f(z) - f(0)}{z} & = \lim_{z \to 0} \frac{\frac{\bar{z} ^2}{z} - 0}{z} \\
+                      & \lim_{z \to 0} \frac{\bar{z} ^2}{z^2}.
+                  \end{align*}
+                  We will evaluate this limit in two different directions. Let $h \in \mathbb{R} $.
+                  \begin{align*}
+                      \lim_{h \to 0} \frac{\left( \overline{h + \iota 0} \right) ^2}{(h + \iota 0)^2} = 0.
+                  \end{align*}
+                  On the other hand, 
+                  \begin{align*}
+                      \lim_{h \to 0}  \frac{\left( \overline{h + \iota h} \right) ^2}{(h + \iota h)^2} & = \lim_{h \to 0} \frac{h^2 (1 - \iota )^3}{h^2 ( 1 + \iota )^2} \\
+                      & = \frac{(1 - \iota )^2}{(1 + \iota )^2} = -1.
+                  \end{align*}
+                  Thus, $f$ is not differentiable at $z = 0$. 
+                </div>
               </div>
 
               <!-- Previous Button -->

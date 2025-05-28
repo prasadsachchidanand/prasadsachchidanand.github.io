@@ -148,7 +148,7 @@ const tagsToProblems = {
     'topology-munkres': ['../2025-03-06', '../2025-03-27'],
     'linear-algebra-hoffman-kunze': ['../2025-03-16', '../2025-03-23', '../2025-04-06'],
     'real-analysis-rudin': ['../2025-03-31', '../2025-04-14', '../2025-04-21', '../2025-05-26'],
-    'abstract-algebra-herstein': ['../2025-05-21'],
+    'abstract-algebra-herstein': ['../2025-05-21', '../2025-05-28'],
 };
 
 // Function to sort arrays by date
