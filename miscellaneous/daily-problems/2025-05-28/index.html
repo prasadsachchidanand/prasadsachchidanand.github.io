@@ -86,9 +86,6 @@
   }
   </script>
 
-
-
-
   <title>Problem of the Day | 28-05-2025 | Abstract Algebra - Herstein Solution - For an Abelian Group (ab)^n = a^n b^n | Sachchidanand Prasad</title>
 
 
@@ -192,7 +189,7 @@
                   </a>
                 </div>
 
-                <!-- <button onclick="toggleHint('hint-box')" 
+                <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
                     </button>
@@ -200,35 +197,61 @@
                     <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
               </div>
 
               <!-- Hint -->
-              <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+              <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        Use induction to show that $(a\cdot b)^n = a^n \cdot b^n$ for any $n \geq 1$. 
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        Show that $a^{-n} = (a^{-1})^n$ and then prove it for negative integers.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
               <!-- Solution -->
 
-              <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+              <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                 <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                  <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve
-                    the problem today. The solution will be provided tomorrow. This will give you the opportunity to
-                    test your understanding of the problem and to improve your skills in solving similar problems in the
-                    future.</span>
+                  <strong>Solution: </strong>Since $G$ is an abelian group, for any $a,b \in G$, we have $a\cdot b = b \cdot a$. We need to prove hat for any $n \in \mathbb{Z} $, $(a\cdot b)^n =  = a^n \cdot b^n$. Let us first prove this for $n \in \mathbb{N} $. We will prove this by the method of induction. Let $P(n)$ be the statement that $(a\cdot b)^n = a^n \cdot b^n$. 
+                  <ol class="math-list">
+                    <li class="my-4">
+                      Since $G$ is abelian, $P(1)$ is true.
+                    </li>
+                    <li class="my-4">
+                      Let $P(k)$ is true.
+                    </li>
+                    <li class="my-4">
+                      We need to prove that $P(k+1)$ is true. Note that
+                      \begin{align*}
+                        (a\cdot b)^{k+1} & = (a\cdot b)^k \cdot (a\cdot b) = (a^k \cdot b^k ) \cdot a \cdot b \\
+                        & = a^k \cdot (b^k \cdot a) \cdot b = a^k \cdot (a \cdot b^k) \cdot b \\
+                        & = a^{k+1} \cdot b^{k+1}.
+                      \end{align*}
+                    </li>           
+                  </ol>
+                  Thus by the method of induction, we conclude that for $n \in \mathbb{N} $, $(a \cdot b)^n = a^n \cdot b^n$.
                 </div>
 
-                <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                <hr class="h-px my-4 bg-gray-300 border-0">
+                <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  For $n\in \mathbb{N} $, we note that 
+                  \begin{gather*}
+                      (a\cdot b)^{-1} = b^{-1} \cdot a^{-1} = a^{-1} \cdot b^{-1} \text{ and } \\
+                      (a^{-1} )^n = a^{-n}.
+                  \end{gather*}
+                  Thus, using the above two, we have
+                  \begin{align*}
+                      (a\cdot b)^{-n} = \left( (a\cdot b)^{-1}  \right) ^n = \left( a^{-1} \cdot b^{-1}  \right) ^n = a^{-n} \cdot b^{-n}.
+                  \end{align*}
+                  Therefore, for $n \in \mathbb{Z} $, we proved that $(a\cdot b)^n = a^n \cdot b^n$.  
+                </div>
               </div>
 
               <!-- Previous Button -->
