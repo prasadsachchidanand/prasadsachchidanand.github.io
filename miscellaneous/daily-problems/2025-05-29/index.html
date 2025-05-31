@@ -190,7 +190,7 @@
                   </a>
                 </div>
 
-                <!-- <button onclick="toggleHint('hint-box')" 
+                <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
                     </button>
@@ -198,35 +198,45 @@
                     <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
               </div>
 
               <!-- Hint -->
-              <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+              <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
-                      </li>
-                      <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        Note that for $x \lt y$, $I_y \subset I_x$.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
               <!-- Solution -->
 
-              <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+              <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                 <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                  <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve
-                    the problem today. The solution will be provided tomorrow. This will give you the opportunity to
-                    test your understanding of the problem and to improve your skills in solving similar problems in the
-                    future.</span>
+                  <strong>Solution: </strong>We need to show that the collection $\mathcal{T} $ is a topology on $\mathbb{R} $. Note that $\emptyset = I_\infty \in \mathcal{T} $ and $\mathbb{R} = I _{-\infty } \in \mathcal{T} $. Now we will show that the collection is closed under arbitrary union and finite intersection. 
                 </div>
 
-                <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                <hr class="h-px my-4 bg-gray-300 border-0">
+                <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  Let $I$ be an index set and for each $i \in I$,  $I_{x_i}\in \mathcal{T} $. We claim that $ \bigcup_{i\in I} U_{x_i} \in \mathcal{T} $. Note that if $I_{-\infty } \in \mathcal{T} $, then the union will be $I_{-\infty }$ and hence we are done. So let us assume that $I_{-\infty } \notin \mathcal{T} $. Then the set $\{ x_i : i \in I \} $ is bounded below and let $x = \inf \{ x_i: I \in I \} $. Then we claim that 
+                  \[
+                      \bigcup_{i \in I} I_{x_i} = I_x. 
+                  \] 
+                  Since $x$ is the infimum, so $x \leq x_i$ for any $i \in I$ and hence $I_{x_i} \subseteq I_x$. Therefore, the union is also a subset of $I_x$. For other inequality, note that for any $y \in I_x$, $x < y$ and hence $y \in \{ x_i : i \in I \} $ and therefore, there exists $j \in I$ such that $x_j < y$. Therefore, $y \in I_{x_j}$ and hence $I_x \subseteq  \cup I_{x_i}$. This proves the equality and hence $\mathcal{T} $ is closed under arbitrary union.
+                </div>
+
+                <hr class="h-px my-4 bg-gray-300 border-0">
+                <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  To show that it is closed under finite intersection, let $I_{x_i} \in \mathcal{T} $ for $i = 1,2, \dots, n$. Then 
+                  \[
+                      \bigcap_{i=1}^{n} I_{x_i} = I_x,
+                  \]   
+                  where $x = \max \{ x_1, \dots, x_n \} $.
+                </div>
               </div>
 
               <!-- Previous Button -->

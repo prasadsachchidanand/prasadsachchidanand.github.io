@@ -2056,6 +2056,10 @@ video {
   fill: currentColor;
 }
 
+.fill-black {
+  fill: #000;
+}
+
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
