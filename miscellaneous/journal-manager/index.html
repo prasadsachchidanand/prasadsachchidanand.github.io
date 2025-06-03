@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CVGSV7Y2CE');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathematics Journal Manager - Sachchidanand Prasad</title>
+
+    <meta name="description"
+        content="Sachchidanand Prasad's homepage. Postdoctoral Fellow at Jilin University and Göttingen University. Explore research, teaching, CV, articles, daily problems, and more.">
+    <meta name="keywords"
+        content="Sachchidanand Prasad, postdoctoral fellow, Jilin University, Göttingen University, research, teaching, CV, articles, differential geometry, symplectic geometry, daily problems, gate, research papers, cut locus, quandles, independence complex">
+
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.png" />
+
+    <link rel="stylesheet" href="/assets/style.css">
+
+    <script type="module" src="journal-manager.js"></script>
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xxC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- academic icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex flex-col h-screen">
+
+        <!-- navbar -->
+        <div
+            class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+            <div x-data="{ open: false }"
+                class="flex flex-col max-w-screen-xl px-4 mx-auto   md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                <div class="p-4 flex flex-row items-center justify-between">
+                    <a href="../"
+                        class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
+                        Sachchidanand Prasad
+                    </a>
+                    <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+                        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                            <path x-show="!open" fill-rule="evenodd"
+                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                                clip-rule="evenodd"></path>
+                            <path x-show="open" fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <nav :class="{'flex': open, 'hidden': !open}"
+                    class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="/">Home</a>
+
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="/research">Research</a>
+
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="/teaching/">Teaching</a>
+
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="/resume/">CV</a>
+
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="/publications">Publications</a>
+
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="/miscellaneous/">Miscellaneous</a>
+
+                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="/contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- section -->
+        <section class="text-gray-600 body-font">
+            
+            <!-- Login Container -->
+            <div id="loginContainer" class="max-w-md mx-auto mt-20 bg-white p-8 rounded-lg shadow-md text-center">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Mathematics Journal Manager</h2>
+                <p class="text-gray-600 mb-6">Sign in to access your journal collection</p>
+                <div id="message" class="text-red-500 mb-4 hidden"></div>
+                <form id="loginForm" class="space-y-4">
+                    <input type="email" id="loginEmail" placeholder="Enter email"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <input type="password" id="loginPassword" placeholder="Enter password"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <button type="submit" id="loginBtn"
+                        class="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600">Log in</button>
+                </form>
+                <a href="/miscellaneous/" class="block w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 text-center my-4">
+                    Go Back
+                </a>
+            </div>
+            
+            <!-- Main Application Container -->
+            <div id="mainApp" class="container mx-auto px-4 py-24 max-w-6xl hidden">
+                <!-- Header with logout -->
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-3xl font-bold text-gray-800">Mathematics Journal Manager</h1>
+                    <button id="logoutBtn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                        Logout
+                    </button>
+                </div>
+            
+                <div id="message" class="mb-4 hidden"></div>
+            
+                <!-- Add/Edit Form -->
+                <div id="addForm" class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-xl font-semibold mb-4">Add New Journal</h2>
+            
+                    <!-- Quick Parse Section -->
+                    <div class="mb-6 p-4 bg-gray-50 rounded-lg">
+                        <h3 class="font-semibold mb-2">Quick Add from MathSciNet Data</h3>
+                        <textarea id="copiedData"
+                            placeholder='Paste copied data here (e.g., "Annals of Mathematics", "6.39", "6 issues/vol./yr.", ...)'
+                            class="w-full p-3 border border-gray-300 rounded-lg mb-3 h-20 resize-none"></textarea>
+                        <button id="parseBtn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Parse
+                            Data</button>
+                    </div>
+            
+                    <form id="journalForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Journal Name *</label>
+                            <input type="text" id="journalName" required
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+            
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">MCQ</label>
+                            <input type="text" id="MCQ"
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+            
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Publication
+                                Frequency</label>
+                            <input type="text" id="frequency"
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+            
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Subjects
+                                (comma-separated)</label>
+                            <input type="text" id="subjects" placeholder="Algebraic geometry, Number theory, ..."
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+            
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">MathSciNet URL *</label>
+                            <input type="url" id="mathSciNetUrl" required
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+            
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Journal Website URL</label>
+                            <input type="url" id="journalUrl"
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+            
+                        <div class="md:col-span-2 flex space-x-4">
+                            <button type="button" id="saveBtn"
+                                class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 font-medium">Add
+                                Journal</button>
+                            <button type="button" id="cancelBtn" onclick="cancelEdit()"
+                                class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 font-medium"
+                                style="display: none;">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            
+                <!-- Journals List -->
+                <div>
+                    <h2 class="text-2xl font-semibold mb-6">Your Journals</h2>
+                    <!-- Search and Controls Bar (add before journalsContainer) -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                        <div class="flex flex-col md:flex-row gap-4 items-center">
+                            <!-- Search -->
+                            <div class="flex-1 relative">
+                                <input type="text" id="searchInput" placeholder="Search journals..."
+                                    class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                <button onclick="clearSearch()" class="absolute right-2 top-2 text-gray-400 hover:text-gray-600">✕</button>
+                            </div>
+                    
+                            <!-- Sort -->
+                            <select id="sortSelect" class="p-2 border border-gray-300 rounded">
+                                <option value="name-asc">Name (A-Z)</option>
+                                <option value="name-desc">Name (Z-A)</option>
+                                <option value="MCQ-desc">MCQ (High-Low)</option>
+                                <option value="MCQ-asc">MCQ (Low-High)</option>
+                                <option value="frequency-asc">Frequency (A-Z)</option>
+                            </select>
+                    
+                            <!-- Page Size -->
+                            <select id="pageSize" class="p-2 border border-gray-300 rounded">
+                                <!-- <option value="4">4 per page</option> -->
+                                <option value="6">6 per page</option>
+                                <option value="12">12 per page</option>
+                                <option value="24">24 per page</option>
+                                <option value="48">48 per page</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="journalsContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Journals will be loaded here -->
+                    </div>
+                    <!-- Pagination Container (add after journalsContainer) -->
+                    <div id="paginationContainer"></div>
+                </div>
+
+                
+            
+                <!-- Editors Modal -->
+                <div id="editorsModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+                    <div class="flex items-center justify-center min-h-screen p-4">
+                        <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-96 overflow-y-auto">
+                            <div class="p-6">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h3 id="modalTitle" class="text-xl font-semibold text-gray-800">Manage Editors
+                                    </h3>
+                                    <button onclick="closeEditorsModal()" class="text-gray-400 hover:text-gray-600">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+            
+                                <div id="editorsContainer" class="mb-4">
+                                    <!-- Editor rows will be added here -->
+                                </div>
+            
+                                <div class="flex justify-between items-center">
+                                    <button onclick="addEditorRow()"
+                                        class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                                        Add Editor
+                                    </button>
+                                    <div class="space-x-3">
+                                        <button onclick="closeEditorsModal()"
+                                            class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
+                                            Cancel
+                                        </button>
+                                        <button onclick="saveEditors()"
+                                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                                            Save Editors
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <footer class="foot mt-auto border-t border-gray-200">
+            <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+                <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©
+                    <script>document.write(new Date().getFullYear())</script> Sachchidanand
+                </p>
+                <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+                    Last updated: <span id="updated"></span>
+                </p>
+                <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                    <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/"
+                        target="_blank">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/"
+                        target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26"
+                        target="_blank">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand"
+                        target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500 hover:text-green-500"
+                        href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+                        <i class="ai ai-researchgate ai-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500 hover:text-gray-900"
+                        href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+                        <i class="ai ai-academia"></i>
+                    </a>
+                </span>
+            </div>
+            <hr class="py-1 w-1/4 m-auto">
+            <div class="items-center">
+                <p class="text-center">
+                    <span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+                    <img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D"
+                        alt="Hit Counter by Digits" border="0" class="w-11 inline" />
+                    <span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/"
+                            class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script>
+        function myFunction() {
+            var x = document.lastModified;
+            document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+        }
+        myFunction()
+    </script>
+
+</body>
+</html>
