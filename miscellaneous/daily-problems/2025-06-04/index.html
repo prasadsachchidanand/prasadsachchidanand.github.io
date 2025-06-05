@@ -195,7 +195,7 @@
                   </a>
                 </div>
 
-                <!-- <button onclick="toggleHint('hint-box')" 
+                <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
                     </button>
@@ -203,35 +203,70 @@
                     <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
               </div>
 
               <!-- Hint -->
-              <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+              <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
-                      </li>
-                      <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        Note that $(T_{a,b} \circ T_{c,d})(r) = T_{ac, ad+b}(r)$.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
               <!-- Solution -->
 
-              <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+              <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                 <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                  <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve
-                    the problem today. The solution will be provided tomorrow. This will give you the opportunity to
-                    test your understanding of the problem and to improve your skills in solving similar problems in the
-                    future.</span>
+                  <strong>Solution: </strong>FFirst of all note that for any $T_{a,b}, T_{c,d} \in G$, we have 
+                  \begin{align*}
+                      (T_{a,b} \circ T_{c,d})(r) & = T_{a,b}(T_{c,d}(r)) \\ 
+                                                 & = T_{a,b}(cr + d)  \\
+                                                 & = a(cr+d) + b = acr + ad + b \\
+                                                 & = T_{ac, ad+b}(r).
+                  \end{align*} 
+                  Now we need to show that $H$ is a group under the above operation. It is clear that if $a,c \in \mathbb{Q} $, then $ac \in \mathbb{Q} $ and hence $T_{a,b}, T_{c,d} \in H $ implies $T_{a,b} \circ T_{c,d} \in H$. 
                 </div>
 
-                <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                <hr class="h-px my-4 bg-gray-300 border-0">
+                <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  Associativity also follows as 
+                  \begin{align*}
+                      (T_{a,b} \circ T_{c,d}) \circ T_{m,n} = T_{ac, ad + b} \circ T_{m,n} = T_{amc, acn + ad + b} \\
+                      T_{a,b} \circ (T_{c,d} \circ T_{m,n}) = T_{a,b} \circ T_{cm, cn + d} = T_{amc, acn+ad+b}.
+                  \end{align*}    
+                </div>
+
+                <hr class="h-px my-4 bg-gray-300 border-0">
+                <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  We claim that $T_{1,0}$ is the identity. Note that for any $T_{a,b}\in H$
+                  \begin{align*}
+                      T_{1,0}\circ T_{a,b} = T_{a,b} \quad \text{ and } T_{a,b} \circ T_{1,0} = T_{a, b}.
+                  \end{align*} 
+                  Finally, for the inverse of $T_{a,b}$ let $T_{x,y}$ be the inverse, then
+                  \begin{align*}
+                      T_{a,b} \circ T_{x,y} = T_{1,0} & \implies T_{ax, ay + b} = T_{1,0} \\
+                          & \implies ax = 1 \text{ and } ay + b = 0 \\
+                          & \implies x = \frac{1}{a} \text{ and } y = -\frac{b}{a}.
+                  \end{align*}  
+                  Since $a \in \mathbb{Q}-\{ 0 \}  $, so is $a^{-1} $. Thus, the inverse of $T_{a,b}$ will be $T_{a^{-1} , -a^{-1}b}$. This is a simple verification as 
+                  \begin{align*}
+                      T_{a,b} \circ T_{\frac{1}{a},-\frac{b}{a}} = T_{1,0}.
+                  \end{align*}   
+                </div>
+
+                <hr class="h-px my-4 bg-gray-300 border-0">
+                <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  Now we claim that $H$ is non-abelian. Note that 
+                  \begin{align*}
+                      T_{c,d} \circ T_{a,b} = T_{ca, cb + d}.
+                  \end{align*}
+                  Thus, $H$ will be abelian if $cb + d = ad + b$, which is not true in general. For example, $a = b = 1$ and $c = 2, d = 3$. Thus, $H$ is nonabelian.     
+                </div>
               </div>
 
               <!-- Previous Button -->
