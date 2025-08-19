@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'linear-algebra-hoffman-kunze': 'book-solution',
         'real-analysis-rudin': 'book-solution',
         'abstract-algebra-herstein': 'book-solution',
+        'complex-analysis-gamelin': 'book-solution',
     };
 
     // Define the active button and container

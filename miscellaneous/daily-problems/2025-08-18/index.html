@@ -187,7 +187,7 @@
                   </a>
                 </div>
 
-                <!-- <button onclick="toggleHint('hint-box')" 
+                <button onclick="toggleHint('hint-box')" 
                       class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                       Show Hint
                     </button>
@@ -195,32 +195,44 @@
                     <button onclick="toggleSolution('solution-box')" 
                       class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                       Show Solution
-                    </button> -->
+                    </button>
               </div>
 
               <!-- Hint -->
-              <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+              <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
                   <div class="leading-relaxed lg:text-lg md:text-base text-justify">
                     <strong>Hints:</strong> 
                     <ol class="math-list-disc">
                       <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
+                        Write few terms of the sequence and then identify $s_{2m}$ and $s_{2m+1}$
                       </li>
                       <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
+                        From the collection of limit points, find the infimum and the supremum.
                       </li>
                     </ol>
                   </div>
-                </div> -->
+                </div>
 
               <!-- Solution -->
 
               <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
                 <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                  <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve
-                    the problem today. The solution will be provided tomorrow. This will give you the opportunity to
-                    test your understanding of the problem and to improve your skills in solving similar problems in the
-                    future.</span>
+                  <strong>Solution: </strong>Let us write a few terms of the sequence.
+                  \begin{align*}
+                  s_1 & = 0 & s_2 & = 0 \\
+                  s_3 & = \frac{1}{2} & s_4 & = \frac{1}{2^2} \\
+                  s_5 & = \frac{1}{2} + \frac{1}{2^2}, & s_6 & = \frac{1}{2^2} + \frac{1}{2^3} \\
+                  s_7 & = \frac{1}{2} +\frac{1}{2^2} + \frac{1}{2^3}, & s_8 & = \frac{1}{2^2} + \frac{1}{2^3} + \frac{1}{2^4} \\
+                  & \vdots & & \vdots \\
+                  s_{2m+1} & = \sum_{i= 1}^m \frac{1}{2^i} & s_{2m} & = s_{2m + 1} - \frac{1}{2} \\
+                  & = \frac{\frac{1}{2} \left( 1 - \frac{1}{2^m} \right) }{1 - \frac{1}{2}} = 1 - \frac{1}{2^m}, & s_{2m} & = \frac{1}{2}
+                  - \frac{1}{2^m}.
+                  \end{align*}
+                  Since $\displaystyle \lim_{m \to \infty} \frac{1}{2^m} = 0$, the sequence $\{ s_n \} $ has two limit points, namely, $\{
+                  1, \frac{1}{2} \} $. Hence, we have
+                  \[
+                    \limsup_{n \to \infty} s_n = 1 \quad \text{ and } \quad \liminf_{n \to \infty} s_n = \frac{1}{2}.
+                  \]
                 </div>
 
                 <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->

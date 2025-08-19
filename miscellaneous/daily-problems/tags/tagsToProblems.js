@@ -149,6 +149,7 @@ const tagsToProblems = {
     'linear-algebra-hoffman-kunze': ['../2025-03-16', '../2025-03-23', '../2025-04-06', '../2025-06-01'],
     'real-analysis-rudin': ['../2025-03-31', '../2025-04-14', '../2025-04-21', '../2025-05-26', '../2025-06-02', '../2025-08-18'],
     'abstract-algebra-herstein': ['../2025-05-21', '../2025-05-28', '../2025-06-04'],
+    'complex-analysis-gamelin': ['../2025-08-19'],
 };
 
 // Function to sort arrays by date
