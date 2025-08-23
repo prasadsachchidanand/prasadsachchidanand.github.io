@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="70.897568mm"
+   height="65.843483mm"
+   viewBox="0 0 70.897561 65.843477"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="prob-19-08-25_01.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showguides="true"
+     inkscape:zoom="1.0817106"
+     inkscape:cx="135.89587"
+     inkscape:cy="161.7808"
+     inkscape:window-width="1512"
+     inkscape:window-height="888"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="17.856837,53.129411"
+       orientation="0,-1"
+       id="guide32"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="33.970534,35.631203"
+       orientation="1,0"
+       id="guide33"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="ArrowWideRounded"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide, rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path3" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.557744,-86.568019)">
+    <path
+       style="fill:#00ffff;fill-rule:evenodd;stroke:#333333;stroke-width:0.4;stroke-dasharray:none;marker-end:url(#ArrowWideRounded);paint-order:stroke fill markers"
+       d="M 57.414583,152.4115 V 86.950862"
+       id="path1" />
+    <path
+       style="fill:#00ffff;fill-rule:evenodd;stroke:#333333;stroke-width:0.4;stroke-dasharray:none;marker-end:url(#ArrowWideRounded);paint-order:stroke fill markers"
+       d="M 39.557744,132.89399 H 110.07247"
+       id="path2" />
+    <circle
+       style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:0.499999;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="path4"
+       cx="73.528282"
+       cy="116.7803"
+       r="16.098465" />
+    <circle
+       id="path33"
+       style="fill:#ff0000;stroke:none;stroke-width:0.264583"
+       cx="73.528282"
+       cy="116.7803"
+       r="0.61977422" />
+  </g>
+</svg>
