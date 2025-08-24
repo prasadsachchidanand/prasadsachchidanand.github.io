@@ -177,25 +177,17 @@
                     $|z - 1 - i| = 1$
                   </li>
                   <li class="my-4">
-                    $1 < |2z - 6| < 2$ </li>
+                    $1 < |2z - 6| < 2$ 
+                  </li>
                   <li class="my-4">
-                    $|z - 1|^2 + |z + 1|^2 < 8$ </li>
+                    $|z - 1|^2 + |z + 1|^2 < 8$ 
+                  </li>
                   <li class="my-4">
                     $|z - 1| + |z + 1| \leq 2$
                   </li>
                   <li class="my-4">
-                    $|z - 1| < |z|$ </li>
-                  <li class="my-4">
-                    $0 < \operatorname{Im} z < \pi$ </li>
-                  <li class="my-4">
-                    $-\pi < \operatorname{Re} z < \pi$ </li>
-                  <li class="my-4">
-                    $|\operatorname{Re} z| < |z|$ </li>
-                  <li class="my-4">
-                    $\operatorname{Re}(iz + 2) > 0$
+                    $|z - 1| < |z|$ 
                   </li>
-                  <li class="my-4">
-                    $|z - i|^2 + |z + i|^2 < 2$ </li>
                 </ol>
                 <div class="mt-2">
                   <a href="/miscellaneous/daily-problems/tags/?tag=real-analysis" target="_blank"
@@ -208,43 +200,116 @@
                   </a>
                 </div>
 
-                <!-- <button onclick="toggleHint('hint-box')" 
-                      class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
-                      Show Hint
-                    </button>
+                <button onclick="toggleHint('hint-box')" 
+                  class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
+                  Show Hint
+                </button>
 
-                    <button onclick="toggleSolution('solution-box')" 
-                      class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
-                      Show Solution
-                    </button> -->
+                <button onclick="toggleSolution('solution-box')" 
+                  class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+                  Show Solution
+                </button>
               </div>
 
               <!-- Hint -->
-              <!-- <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
-                  <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    <strong>Hints:</strong> 
-                    <ol class="math-list-disc">
-                      <li class="my-4">
-                        Every permutation is equal to a product of transpositions. A permutation $\sigma$ is <em>even</em> if it can be written as a product of even number of transposition.
-                      </li>
-                      <li class="my-4">
-                        Express $\sigma$ as a product of \( m \) transpositions. Compute \( \sigma^2 \) by squaring this product and observe that it consists of \( 2m \) transpositions.
-                      </li>
-                    </ol>
-                  </div>
-                </div> -->
+              <div id="hint-box" class="border-l-4 border-yellow-500 mt-4 p-4 bg-yellow-50 hidden">
+                <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  <strong>Hints:</strong> 
+                  <ol class="math-list-disc">
+                    <li class="my-4">
+                      The equation $|z - z_0| = r$ denotes the circle of radius $r$.
+                    </li>
+                    <li class="my-4">
+                      Express $z = x + \iota y$ and simplify the expression to see what geometric shape it represents.
+                    </li>
+                  </ol>
+                </div>
+              </div>
 
               <!-- Solution -->
 
-              <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50">
+              <div id="solution-box" class="border-l-4 border-green-500 mt-4 p-4 text-black-900 bg-green-50 hidden">
                 <div class="leading-relaxed lg:text-lg md:text-base text-justify">
-                  <strong>Solution: </strong> <span class="text-lg text-red-600"> I encourage you to attempt to solve
-                    the problem today. The solution will be provided tomorrow. This will give you the opportunity to
-                    test your understanding of the problem and to improve your skills in solving similar problems in the
-                    future.</span>
+                  <strong>Solution: </strong> We recall that the equation
+                  \[
+                    \vert z - z_0 \vert = r,
+                  \]
+                  denotes the circle with center $z_0$ and radius $r$.
                 </div>
 
-                <!-- <hr class="h-px my-4 bg-gray-300 border-0"> -->
+                <hr class="h-px my-4 bg-gray-300 border-0">
+                <div class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  <ol class="math-list-alpha">
+                    <li class="my-4">
+                      The set is
+                      \begin{align*}
+                      \left\{ z \in \mathbb{C} : \vert z - 1 - \iota \vert = 1 \right\} = \{ z \in \mathbb{C} : \vert z - (1 + \iota ) = 1
+                      \vert \} ,
+                      \end{align*}
+                      which is a circle with center $1 + \iota $ and radius $1$.
+                      <div class="flex flex-wrap justify-center my-4">
+                        <img src="../../../assets/img/prob-19-08-25_01.svg" class="h-auto" alt="$\vert z - (1 + \iota ) \vert = 1$" />
+                      </div>
+                    </li>
+                    
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <li class="my-4">
+                      The set is
+                      \begin{align*}
+                      1 < \vert 2z - 6 \vert < 2 & \implies \frac{1}{2} < \vert z - 3 \vert < 1 \\ & \implies \vert z-3 \vert> \frac{1}{2}
+                        \text{ and } \vert z - 3 \vert < 1. \end{align*}
+                      <div class="flex flex-wrap justify-center my-4">
+                        <img src="../../../assets/img/prob-19-08-25_02.svg" class="h-auto" alt="$1 < \vert 2z - 6 \vert < 2$" />
+                      </div>
+                    </li>
+
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <li class="my-4">
+                      The set is
+                      \begin{align*}
+                      \vert z - 1 \vert ^2 + \vert z + 1 \vert ^2 < 8. \end{align*} Take $z=x + \iota y$. Then \begin{align*} \vert z - 1
+                        \vert ^2 + \vert z + 1 \vert ^2 < 8 & \implies \vert (x-1) +\iota y \vert ^2 + \vert (x + 1) + \iota y \vert ^2 < 8 \\
+                        & \implies (x-1)^2 + y^2 + (x+1)^2 + y^2 < 8 \\ & \implies 2x^2 + 2y^2 + 2 < 8 \\ & \implies x^2 + y^2 < 3.
+                        \end{align*} 
+                        The above represents an open disc centered at $(0,0)$ and of radius $\sqrt{3} $.
+                      <div class="flex flex-wrap justify-center my-4">
+                        <img src="../../../assets/img/prob-19-08-25_03.svg" class="h-auto" alt="$1 < \vert 2z - 6 \vert < 2$" />
+                      </div>
+                    </li>
+
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <li class="my-4">
+                      The set is
+                      \begin{align*}
+                      \vert z - 1 \vert + \vert z + 1 \vert \leq 2.
+                      \end{align*}
+                      Take $z = x + \iota y$, then from the previous part, we have
+                      \begin{align*}
+                      \sqrt{(x-1)^2 + y^2} + \sqrt{(x + 1)^2 + y^2} \leq 2.
+                      \end{align*}
+                      The above is an ellipse with interior whose foci are $(1,0)$ and $(-1,0)$. This one can also be seen geometrically that
+                      the set is the locus of all point whose sum of distance from $1$ and $-1$ is constant $2$, which is an ellipse.
+                      <div class="flex flex-wrap justify-center my-4">
+                        <img src="../../../assets/img/prob-19-08-25_04.svg" class="h-auto" alt="\vert z - 1 \vert + \vert z + 1 \vert \leq 2" />
+                      </div>
+                    </li>
+
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                    <li class="my-4">
+                      The set is
+                      \begin{align*}
+                      \vert z - 1 \vert < \vert z \vert . \end{align*} Take $z=x + \iota y$, then \begin{align*} \vert (x - 1) + \iota y \vert
+                        < \vert x + \iota y \vert & \implies (x-1)^2 + y^2 < x^2 + y^2 \\ & \implies -2x + 1 < 0 \\ & \implies x>
+                        -\frac{1}{2}.
+                        \end{align*}
+                      <div class="flex flex-wrap justify-center my-4">
+                        <img src="../../../assets/img/prob-19-08-25_05.svg" class="h-auto" alt="\vert z - 1 \vert < \vert z \vert" />
+                      </div>
+                    </li>
+
+                    <hr class="h-px my-4 bg-gray-300 border-0">
+                  </ol>
+                </div>
               </div>
 
               <!-- Previous Button -->
