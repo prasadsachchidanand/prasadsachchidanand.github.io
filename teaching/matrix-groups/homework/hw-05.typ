@@ -59,7 +59,7 @@
 #prob[
   We want to define an injective homomorphism $phi_n : M_n (bb(C)) ->M_(2n)(bb(R))$. Given any $A in M_n (bb(C))$, we have a corresponding linear map $L_A: bb(C)^n -> bb(C)^n$. Also, we have a canonical map $f_n: bb(C)^n -> bb(R)^(2n),$ $(a+iota b_1, dots, a_n+ iota b_n) mapsto (a_1, b_1, dots, a_n, b_n)$.  
 
-  Given $A in M_n(bb(C))$, we need to determine $B = phi_n (A) in M_(2n)(bb(R))$, equivalently, we need to find a linear map $L_(phi_n (A)): bb(R)^(2n) -> bb(R)^(2n)$ so that the following diagram commutes.  
+  Given $A in M_n (bb(C))$, we need to determine $B = phi_n (A) in M_(2n)(bb(R))$, equivalently, we need to find a linear map $L_(phi_n (A)): bb(R)^(2n) -> bb(R)^(2n)$ so that the following diagram commutes.  
   #align(center, commutative-diagram(
     node((0, 0), [$bb(C)^n$]),
     node((1, 0), [$bb(C)^n$]),
