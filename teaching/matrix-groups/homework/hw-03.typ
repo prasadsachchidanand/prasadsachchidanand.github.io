@@ -8,13 +8,15 @@
 #set enum(numbering: "1.")
 #show: assignment_class.with(title, author, course_id, instructor, semester, prob_type)
 
+#let bf(x) = $bold(#x)$
+
 
 #prob[
-  Define 
+  Let $M_n (RR)$ denotes the set of all $n times n$ matrices with real entries. Let $bf(x) = (x_1, dots, x_n) in RR^n$. For $A in M_n (RR)$, define 
   $
-    R_A, L_A : RR^n-> RR^n, quad R_A (X) = X dot A, " and " L_A (X)= (A dot X^T)^T,
+    R_A, L_A : RR^n-> RR^n, quad R_A (bf(x)) = bf(x) dot A, " and " L_A (bf(x))= (A dot bf(x)^T)^T,
   $
-  where $X^T$ denotes the transpose of $X$. 
+  where $bf(x)^T$ denotes the transpose of $bf(x)$. 
   
   (i) Show that any linear function from $bb(R)^n -> bb(R)^n$ equals $R_A$ for some $A in M_n (bb(R))$.
 
@@ -27,7 +29,7 @@
 
   (iv) Do you think in the previous part (iii), we can replace $bb(R)$ with $bb(H)$? That is, give any $A in M_n (bb(H))$, if $det A != 0$, then $R_A : bb(H)^n -> bb(H)^n$ is invertible. 
 
-  (v) Find $A in M_2(bb(R))$ such that $R_B : bb(R)^2 -> bb(R)^2$ is a counterclockwise rotation through an angle $theta$. 
+  (v) Find $A in M_2(bb(R))$ such that $R_A : bb(R)^2 -> bb(R)^2$ is a counterclockwise rotation through an angle $theta$. 
 ]
 
 #prob[
