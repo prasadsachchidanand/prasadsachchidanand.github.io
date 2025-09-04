@@ -12,7 +12,7 @@
 #prob[
   Let $M_n (bb(R))$ denote the set of all $n times n$ matrices with entries from $bb(R)$. Define 
   $
-    R_A, L_A : M_n (bb(R))-> M_n (bb(R)), quad R_A (X) = X dot A, " and " L_A (X)= (A dot X^T)^T,
+    R_A, L_A : RR^n-> RR^n, quad R_A (X) = X dot A, " and " L_A (X)= (A dot X^T)^T,
   $
   where $X^T$ denotes the transpose of $X$. 
   
