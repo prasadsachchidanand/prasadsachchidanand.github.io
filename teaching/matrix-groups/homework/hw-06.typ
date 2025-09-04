@@ -5,129 +5,71 @@
 #let course_id = "Matrix Groups"
 #let instructor = "Sachchidanand Prasad"
 #let semester = "Monsoon 2025"
-#let prob_type = "matrices over other fields cont."
+#let prob_type = "topology of matrix groups"
 #set enum(numbering: "1.")
 #show: assignment_class.with(title, author, course_id, instructor, semester, prob_type)
 
-#prob[
-  In this problem set we will describe the isomorphism between the quotient $S U(2)\/{plus.minus I}  tilde.equiv S O (3)$ which was a problem in the previous homework (Homework 5, Problem 2 (iii)). 
-
-  (i) The $n$-sphere is defined as  
-  $
-    S^n = { (x_0,dots,x_(n)) in bb(R)^(n+1) : x_0^2 + x_1^2 + dots + x_n ^2 = 1 }.
-  $
-  Show that 
-  $
-    S^3 = {(w, x, y, z)in bb(R)^4: w^2+x^2+y^2+z^2 = 1 }
-  $ 
-  can be identified with the set of unit quaternions
-  $
-    {q = w + x i + y j + z k in bb(H) w^2 + x^2 + y^2 + z^2 = 1}.
-  $
-  Prove that $S^3$ is a subgroup of the multiplicative group of nonzero quaternions $bb(H)^(times)$.
-
-  (ii) In Homework 5, Problem 2 (ii) we proved that 
-  $
-    S U(2) = {mat(a, b ; -overline(b), overline(a)): abs(a)^2 + abs(b)^2 = 1}.
-  $
-  Show that $S U(2) tilde.equiv S^3$ as a group. 
-
-  (iii) Let $op("Im") bb(H) = \{ x i+y j+z k : x,y,z in bb(R) \}$ be the set of pure quaternions, which we identify with $bb(R)^3$. 
-  
-  For $q in S^3$ and $v in op("Im") bb(H)$, define
-  $ T_q (v) = q v q^(-1). $
-
-    (a) Show that $T_q (v)$ is again a pure quaternion.
-    
-    (b) Prove that $T_q$ is $bb(R)$-linear.
-    
-    (c) Show that $|T_q (v)| = |v|$. Conclude that $T_q$ is an orthogonal linear transformation of $bb(R)^3$, i.e. $T_q in O(3)$.
-
-  (iv) Prove that $det(T_q) = 1$ for all $q in S^3$. Conclude that $T_q in S O(3).$
-
-  (v) Thus we obtain a homomorphism 
-  $
-    Psi: S U(2) tilde.equiv S^3 -> S O(3), q mapsto T_q.
-  $
-  Show that the kernel is ${plus.minus I}$ and hence conclude that $S U(2)\/{plus.minus I} tilde.equiv S O(3)$. 
-]
-
-In this problem set we will describe the isomorphism between the quotient
-$ S U(2) \/ \{plus.minus I\} quad "and" quad S O(3). $
-We will proceed step by step, starting with quaternions and unitary matrices.
+#let ip(x, y) = $lr(angle.l #x, #y angle.r)$
+#let bf(x) = $bold(#x)$
 
 #prob[
-  (a) The $n$-sphere is defined as
-  $ S^n = \{ (x_1, dots, x_(n+1)) in bb(R)^(n+1) : x_1^2 + dots.c + x_(n+1)^2 = 1 \}. $
+  Let $(M,d) "and" (N, rho)$ be two metric space and $f: M -> N$ be a conitnuous function. Prove or disprove the statements. If the statement is true, then prove it and if false, provide a counterexample.
   
-  Show that
-  $ S^3 = \{ (w,x,y,z) in bb(R)^4 : w^2+x^2+y^2+z^2 = 1 \} $
-  can be identified with the set of unit quaternions
-  $ q = w + x i + y j + z k, quad w^2+x^2+y^2+z^2=1. $
   
-  (b) Prove that $S^3$ is a subgroup of the multiplicative group of quaternions $bb(H)^times$.
-]
-
-#prob[
-  In Homework 4 (Problem 3) we proved that
-  $ S U(2) = \{mat(alpha, beta; -overline(beta), overline(alpha)) : alpha,beta in bb(C), |alpha|^2+|beta|^2=1\}. $
+  + If $U$ is an open (closed) set in $M$, then $f(U)$ is open (closed) in $N$.
   
-  (a) Show that if $alpha=a+b i$ and $beta=c+d i$ with $a,b,c,d in bb(R)$, then the above matrix can be associated with the quaternion
-  $ q = a + b i + c j + d k in S^3. $
+  + If $K$ is boundedn in $M$, then $f(K)$ is also bounded in $N$.
   
-  (b) Verify that matrix multiplication in $S U(2)$ corresponds exactly to quaternion multiplication under this identification. Conclude that
-  $ S U(2) tilde.equiv S^3 $
-  as groups.
-]
-
-#prob[
-  Let $op("Im") bb(H) = \{ x i+y j+z k : x,y,z in bb(R) \}$ be the set of pure quaternions, which we identify with $bb(R)^3$.
+  + If $K$ is compact in $M$, then $f(K)$ is also compact in $N$.
   
-  For $q in S^3$ and $v in op("Im") bb(H)$, define
-  $ T_q (v) = q v q^(-1). $
-  
-  (a) Show that $T_q (v)$ is again a pure quaternion.
-  
-  (b) Prove that $T_q$ is $bb(R)$-linear.
-  
-  (c) Show that $|T_q (v)| = |v|$. Conclude that $T_q$ is an orthogonal linear transformation of $bb(R)^3$, i.e. $T_q in O(3)$.
-]
-
-#prob[
-  Prove that $det(T_q) = 1$ for all $q in S^3$. Conclude that
-  $ T_q in S O(3). $
+  + If $K$ is bounded (compact) in $N$, then $f^(-1)(K)$ is bounded (compact) in $M$.
 ]
 
 #prob[
   Let
-  $ q = w + x i + y j + z k in S^3. $
-  By computing $T_q (e_1), T_q (e_2), T_q (e_3)$ (where $e_1=i, e_2=j, e_3=k$), show that the associated $3 times 3$ matrix of $T_q$ is
   $
-    Q(q) = mat(
-      1-2y^2-2z^2, 2x y-2z w, 2x z+2y w;
-      2x y+2z w, 1-2x^2-2z^2, 2y z-2x w;
-      2x z-2y w, 2y z+2x w, 1-2x^2-2y^2
-    ).
+    M_r = {A in M_n (RR): det A = r} "and" T_r = {A in M_n (RR) : tr(A) = r},
   $
-  Thus we obtain a homomorphism
-  $ Psi : S^3 -> S O(3), quad q |-> Q(q). $
+  where $tr A$ denotes the trace of $A$.
+  
+  + Are $M_r$, $T_r$ open? Are they closed?
+  
+  + Are $M_r$, $T_r$ bounded?
+  
+  + Are $M_r$, $T_r$ compact?
 ]
 
 #prob[
-  (a) Show that the kernel of $Psi$ is $\{plus.minus 1\}$.
+  Let $M_n (RR)$ is equipped with the Euclidean metric. Then prove that the following maps are conitnuous.
   
-  (b) Show that $Psi$ is surjective onto $S O(3)$. (Hint: any rotation in $bb(R)^3$ is rotation about some axis by some angle; construct a corresponding quaternion.)
+  + $det : M_n (RR) -> M_n (RR), quad A |-> det A$.
   
-  (c) Conclude that
-  $ S^3 \/ \{plus.minus 1\} tilde.equiv S O(3). $
+  + $tr : M_n (RR) -> M_n (RR), quad A |-> tr A$.
+  + $tau : M_n (RR) -> M_n (RR), quad A |-> A^T$.
+  + $mu : M_n (RR) times M_n (RR) -> M_n (RR), quad (A, B) |-> A dot B$.
+  + $iota : G L_n (RR) -> G L_n (RR), quad A |-> A^(-1)$.
 ]
 
 #prob[
-  Using Problem 2, translate the above result into the language of matrices: prove that
-  $ S U(2) \/ \{plus.minus I\} tilde.equiv S O(3). $
+  We define the *_inner product_* on $FF^n$, where $FF = RR "or" CC$, as follows. Let $bold(z) = (z_1, dots, z_n)$ and $bold(w) = (w_1, dots, w_n)$. Then
+  
+  $
+    ip(z, w) := sum_(j=1)^n z_j macron(w)_j.
+  $
+  
+  The *_norm_* on $FF^n$ is defined as $norm(bf(z)) := sqrt(ip(bf(z), bf(z)))$. We define the following:
+  
+  - Vectors $bf(x) "and" bf(y)$ are called *_orthogonal_* if $ip(bf(x), bf(y)) = 0$.
+  
+  - The vectors $bf(x) "and" bf(y)$ are called *_orthonormal_* if they are orthogonal and $norm(bf(x)) = 1 = norm(bf(y))$.
+  
+  - A basis $cal(B) = {bf(v)_1, dots, bf(v)_n}$ of a vector space $V$ is called an *_orthonormal basis_* if $ip(bf(v)_i, bf(v)_j) = delta_(i j)$, where $delta_(i j) = 0$ if $i!=j$ and $1$ if $i = j$.
+  
+  Now prove the following are equivalent.
+  
+  (i) A matrix $A in O_n (RR)$, that is, $A A^T = I = A^T A$.
+  
+  (ii) $ip(A bf(x), A bf(y)) = ip(bf(x), bf(y))$ for any $bf(x), bf(y) in RR^n$.
+  
+  (ii) The rows of $A$ form an orthonormal basis of $RR^n$.
 ]
-
-#v(1em)
-
-*Final Conclusion.* We have shown that the group $S U(2)$ is isomorphic to $S^3$, and the action of $S^3$ on $bb(R)^3$ by conjugation gives a surjective homomorphism onto $S O(3)$ with kernel $\{plus.minus 1\}$. Therefore,
-$ S U(2) \/ \{plus.minus I\} tilde.equiv S O(3). $
