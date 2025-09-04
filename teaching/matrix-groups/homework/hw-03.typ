@@ -10,7 +10,7 @@
 
 
 #prob[
-  Let $M_n (bb(R))$ denote the set of all $n times n$ matrices with entries from $bb(R)$. Define 
+  Define 
   $
     R_A, L_A : RR^n-> RR^n, quad R_A (X) = X dot A, " and " L_A (X)= (A dot X^T)^T,
   $
