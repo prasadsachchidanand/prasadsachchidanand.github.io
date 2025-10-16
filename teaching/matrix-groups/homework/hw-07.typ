@@ -46,5 +46,15 @@
 ]
 
 #prob[
-  
+  Remember the map $rho_n: M_n(CC) -> M_(2n) (RR)$. Suppose instead of taking $f(a_1 + iota b_1, dots, a_n + iota b_n ) = (a_1, b_1, dots, a_n, b_n)$ if we take $f(a_1 + iota b_1, dots, a_n + iota b_n)= (a_1, a_2, dots, a_n, b_1, dots, b_n)$ then how must $rho_n$ be defined so that the diagram commutes.
+  #align(center, commutative-diagram(
+    node((0, 0), [$bb(C)^n$]),
+    node((1, 0), [$bb(C)^n$]),
+    node((1, 2), [$bb(R)^(2n)$]),
+    node((0, 2), [$bb(R)^(2n)$]),
+    arr((0, 0), (1, 0), [$R_A$], label-pos: right),
+    arr((1, 0), (1, 2), [$f_n$ ]),
+    arr((0, 0), (0, 2), [$f_n$ ]),
+    arr((0, 2), (1, 2), [$R_(rho_n (A))$]),
+  ))   
 ]

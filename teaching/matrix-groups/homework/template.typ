@@ -11,6 +11,7 @@
    body)
 }
 
+// Option 1: Using breakable: true (recommended)
 #let soln(body) = {
   [== Solution ]
   block(fill:rgb(250, 255, 250),
@@ -18,7 +19,38 @@
    inset:8pt,
    radius: 4pt,
    stroke:rgb(31, 199, 31),
+   breakable: true,  // This allows the block to break across pages
    body)
+}
+
+// Option 2: Alternative approach using a styled container instead of block
+#let soln_alt(body) = {
+  [== Solution ]
+  set block(fill: rgb(250, 255, 250), width: 100%, inset: 8pt, radius: 4pt, stroke: rgb(31, 199, 31))
+  rect(
+    fill: rgb(250, 255, 250),
+    width: 100%,
+    inset: 8pt,
+    radius: 4pt,
+    stroke: rgb(31, 199, 31),
+    body
+  )
+}
+
+// Option 3: Using a simple styling approach without blocks
+#let soln_simple(body) = {
+  [== Solution ]
+  set par(first-line-indent: 0pt)
+  pad(8pt, 
+    rect(
+      fill: rgb(250, 255, 250),
+      width: 100%,
+      inset: 8pt,
+      radius: 4pt, 
+      stroke: rgb(31, 199, 31),
+      body
+    )
+  )
 }
 
 #let tips(body) = {
@@ -28,6 +60,7 @@
    inset:8pt,
    radius: 4pt,
    stroke:rgb(100, 10, 100),
+   breakable: true,  // Add this to other functions too
    body)
 }
 
@@ -38,9 +71,9 @@
    inset:8pt,
    radius: 4pt,
    stroke:rgb(70, 130, 180),
+   breakable: true,
    body)
 }
-
 
 #let theory(body) = {
   [== Theory ]
@@ -49,6 +82,7 @@
    inset:8pt,
    radius: 4pt,
    stroke:rgb(5, 156, 10),
+   breakable: true,
    body)
 }
 
@@ -86,3 +120,8 @@
   pagebreak(weak: false)
   body
 }
+
+#let bf(x) = $bold(#x)$
+#let to = $->$
+#let GL(n,R) = $G L_#n (bb(#R))$
+#let ip(x, y) = $lr(angle.l #x, #y angle.r)$
