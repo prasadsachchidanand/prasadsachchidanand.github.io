@@ -1,5 +1,15 @@
 [
   {
+    "title": "On manifolds homeomorphic to spheres",
+    "authors": "S. Basu, Sachchidanand Prasad",
+    "date": "September 2025",
+    "arxiv": "https://arxiv.org/abs/2509.13008",
+    "journal": "",
+    "journal_link": "",
+    "abstract": "We prove a result analogous to Reeb's theorem in the context of Morse-Bott functions: if a closed, smooth manifold $M$ admits a Morse-Bott function having two critical submanifolds $S^k$ and $S^l$ ($k \\neq l$), then $M$ has dimension $k+l+1$ and is homeomorphic to the standard sphere $S^{k+l+1}$ but not necessarily diffeomorphic to it. We also prove similar results for projective spaces over the real numbers, complex numbers and quaternions. "
+  },
+
+  {
     "title": "Hausdorff Stability of the Cut Locus Under $C^2$-Perturbations of the Metric",
     "authors": "A. Bhowmick, J.Itoh, Sachchidanand Prasad",
     "date": "March 2025",
