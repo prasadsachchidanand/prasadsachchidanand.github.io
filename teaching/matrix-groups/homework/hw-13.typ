@@ -6,7 +6,7 @@
 #let course_id = "Matrix Groups"
 #let instructor = "Sachchidanand Prasad"
 #let semester = "Monsoon 2025"
-#let prob_type = "adjoin representation"
+#let prob_type = "adjoint representation and covering map"
 #set enum(numbering: "1.")
 #show: assignment_class.with(title, author, course_id, instructor, semester, prob_type)
 
