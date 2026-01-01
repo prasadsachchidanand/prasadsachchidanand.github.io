@@ -1,5 +1,12 @@
 [
     {
+      "title": "ANRF-ARG Grant 2026-2029 (₹ 62.7 Lakhs)",
+      "description": "Govt. of India",
+      "icon": "fa-solid fa-award",
+      "iconColor": "text-yellow-500"
+    },
+    
+    {
       "title": "Dingxin Scholar Grant",
       "description": "Jilin University, Govt. of China",
       "icon": "fa-solid fa-award",

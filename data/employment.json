@@ -1,6 +1,18 @@
 [
     {
-      "title": "Postdoctoral Fellow",
+      "title": "Assistant Professor",
+      "institutions": [
+        {
+          "name": "Department of Mathematics, IIIT-Delhi",
+          "location": "New Delhi",
+          "link": "https://www.iiitd.ac.in/sachchidanand"
+        }
+      ],
+      "date": "July 21, 2025 - Present"
+    },
+
+    {
+      "title": "Postdoctoral Fellow (Dingxin Scholar)",
       "institutions": [
         {
           "name": "School of Mathematics, Jilin University",
@@ -13,8 +25,9 @@
           "link": "https://www.uni-goettingen.de/en/faculty+of+mathematics+and+computer+science/20491.html"
         }
       ],
-      "date": "Mar 27, 2024 - Present"
+      "date": "Mar 27, 2024 - July 20, 2025"
     },
+
     {
       "title": "Postdoctoral Fellow",
       "institutions": [

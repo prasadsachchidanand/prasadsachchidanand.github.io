@@ -14,8 +14,8 @@
     "authors": "A. Bhowmick, J.Itoh, Sachchidanand Prasad",
     "date": "March 2025",
     "arxiv": "https://arxiv.org/abs/2503.19413",
-    "journal": "",
-    "journal_link": "",
+    "journal": "Journal of Mathematical Analysis and Applications",
+    "journal_link": "https://doi.org/10.1016/j.jmaa.2025.130324",
     "abstract": "In this article, we prove the stability with respect to the Hausdorff metric $d_H$ of the cut locus $\\mathrm{Cu}(p, \\mathfrak{g})$ of a point $p$ in a compact Riemannian manifold $(M, \\mathfrak{g})$ under $C^2$ perturbation of the metric. Specifically, given a sequence of metrics $\\mathfrak{g}_i$ on $M$, converging to $\\mathfrak{g}$ in the $C^2$ topology, and a sequence of points $p_i$ in $M$, converging to $p$, we show that $\\lim_i d_{H}\\left( \\mathrm{Cu}(p_i, \\mathfrak{g}_i), \\mathrm{Cu}(p, \\mathfrak{g}) \\right) = 0$. Along the way, we also prove the continuous dependence of the cut time map on the metric."
   },
   

@@ -2,25 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://prasadsachchidanand.github.io/</loc>
-    <lastmod>2025-04-20</lastmod>
+    <lastmod>2025-12-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/output.html</loc>
-    <lastmod>2025-04-19</lastmod>
+    <lastmod>2025-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/research/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/contact/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-07-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -56,7 +56,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-06-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -98,13 +98,19 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/todo/</loc>
-    <lastmod>2025-04-12</lastmod>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/miscellaneous/journal-manager/</loc>
+    <lastmod>2025-06-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/</loc>
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2025-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1934,7 +1940,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-29/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1958,7 +1964,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-20/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2018,7 +2024,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-27/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2258,7 +2264,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-26/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2270,13 +2276,13 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-06-01/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-06-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-19/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2324,7 +2330,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-21/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2402,7 +2408,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-28/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2726,7 +2732,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-04-19/</loc>
-    <lastmod>2025-04-19</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2768,7 +2774,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-04-21/</loc>
-    <lastmod>2025-04-21</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -3434,7 +3440,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/tags/</loc>
-    <lastmod>2025-04-20</lastmod>
+    <lastmod>2025-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -4514,7 +4520,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-31/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -5006,7 +5012,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-30/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -5162,7 +5168,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-06-03/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -5174,7 +5180,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-24/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -5198,7 +5204,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-23/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -5210,7 +5216,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-06-04/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -5468,7 +5474,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-06-05/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -5480,7 +5486,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-22/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -5498,7 +5504,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-05-25/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -5510,7 +5516,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-06-02/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-06-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -5846,7 +5852,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-04-22/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -6212,7 +6218,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-08-19/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -6398,7 +6404,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-04-23/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -6500,7 +6506,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-08-18/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -6512,7 +6518,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2025-08-20/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-08-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -6692,13 +6698,13 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/useful-links/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-06-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/teaching/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -6741,6 +6747,24 @@
   <url>
     <loc>https://prasadsachchidanand.github.io/teaching/engineering-mathematics-I/</loc>
     <lastmod>2025-03-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/teaching/lorentzian-and-semi-Riemannian-geometry/</loc>
+    <lastmod>2025-05-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/teaching/matrix-groups/</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/teaching/algebraic-topology-I/</loc>
+    <lastmod>2025-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

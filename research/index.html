@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-CVGSV7Y2CE');
-    </script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CVGSV7Y2CE');
+  </script>
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-	<title>Research - Sachchidanand Prasad</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="description" content="Sachchidanand Prasad's homepage. Postdoctoral Fellow at Jilin University and Göttingen University. Explore research, teaching, CV, articles, daily problems, and more.">
-  <meta name="keywords" content="Sachchidanand Prasad, postdoctoral fellow, Jilin University, Göttingen University, research, teaching, CV, articles, differential geometry, symplectic geometry, daily problems, gate, research papers, cut locus, quandles, independence complex">
+  <title>Research - Sachchidanand Prasad</title>
 
-  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png"/>
+  <meta name="description"
+    content="Sachchidanand Prasad's homepage. Assistant Professor. Explore research in differential geometry, cut locus theory, combinatorial topology, and polynomial maps.">
+  <meta name="keywords"
+    content="Sachchidanand Prasad, assistant professor, research, differential geometry, symplectic geometry, cut locus, quandles, independence complex, ANRF grant">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png" />
 
   <link rel="stylesheet" href="../assets/style.css">
 
   <script src="/assets/js/renderPublications.js"></script>
 
   <!-- Font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- academic icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-	
-  <!-- This will not allow user to slect text -->
-  <!-- <style>
-    body {
-      user-select: none; /* supported by Chrome and Opera */
-      -webkit-user-select: none; /* Safari */
-      -khtml-user-select: none; /* Konqueror HTML */
-      -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* Internet Explorer/Edge */
-    }
-  </style> -->
 
   <style>
     @media only screen and (max-width: 600px) {
@@ -48,185 +41,352 @@
         margin-left: 2em;
       }
     }
+
+    .research-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .grant-badge {
+      display: inline-block;
+      background: #4f46e5;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
   </style>
 
-  </head>
-  <body style="background: #edf2f7;">
-    <div class="flex flex-col h-screen">
-      <!-- navbar -->
-      <div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
-        <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-          <div class="p-4 flex flex-row items-center justify-between">
-            <a href="../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
-            <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
-              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-              </svg>
-            </button>
-          </div>
-          <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../"> Home </a>
+</head>
+<body style="background: #edf2f7;">
+  <div class="flex flex-col h-screen">
+    <!-- navbar -->
+    <div
+      class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+      <div x-data="{ open: false }"
+        class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+        <div class="p-4 flex flex-row items-center justify-between">
+          <a href="../"
+            class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand
+            Prasad</a>
+          <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+              <path x-show="!open" fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                clip-rule="evenodd"></path>
+              <path x-show="open" fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+        <nav :class="{'flex': open, 'hidden': !open}"
+          class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../"> Home </a>
 
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../research/"> Research </a>
-            
-            <!-- <div @click.away="open = false" class="relative" x-data="{ open: false }">
-              <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                <span>Research</span>
-                <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-              </button>
-              <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
-                <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
-                  <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Overview</a>
-                  <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Publications</a>
-                  <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #3</a>
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../research/"> Research </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../teaching/">Teaching</a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../resume/"> CV </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../publications/">Publications</a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../miscellaneous/">Miscellaneous</a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../contact/">Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- section -->
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <!-- Research Title -->
+        <div class="flex flex-col items-center text-center justify-center">
+          <h1 class="text-gray-900 text-3xl title-font font-medium">Research</h1>
+          <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4" aria-hidden="true"></div>
+        </div>
+
+        <!-- Research Content -->
+        <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+          <div class="p-4 md:w-full flex">
+            <div class="flex-grow lg:px-32 px-6">
+
+              <!-- Research Overview -->
+              <div class="research-card">
+                <h2 class="text-gray-900 text-2xl title-font font-medium mb-4">Research Overview</h2>
+                <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                  My research spans multiple areas of mathematics, with a primary focus on <em>differential
+                    geometry</em>, <em>differential topology</em>, <em>algebraic topology</em>, and <em>polynomial
+                    maps</em>. I investigate fundamental geometric structures and their topological properties, with
+                  applications ranging from understanding the geometry of Riemannian manifolds to exploring
+                  combinatorial and algebraic aspects of topology.
+                </p>
+              </div>
+
+              <!-- Current Funding -->
+              <div class="research-card">
+                <h2 class="text-gray-900 text-2xl title-font font-medium mb-3">Current Research Funding</h2>
+                <div class="flex items-start mb-3">
+                  <span class="grant-badge mr-3">Active Grant</span>
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-900">ANRF Academic Research Grant (ARG)</h3>
+                    <p class="text-gray-600 mt-1">Anusandhan National Research Foundation</p>
+                  </div>
+                </div>
+                <p class="leading-relaxed text-justify text-gray-700">
+                  This grant supports my research on the geometric and topological properties of cut loci in Riemannian
+                  manifolds, their connections to Morse-Bott theory, and applications to classifying spaces.
+                </p>
+                <!-- <p class="mt-2 text-sm text-gray-500">
+                  For a complete list of awards and recognition, please visit my <a href="../resume/"
+                    class="text-blue-500 hover:text-blue-800 underline">CV page</a>.
+                </p> -->
+              </div>
+
+              <!-- Research Areas -->
+              <div class="research-card">
+                <h2 class="text-gray-900 text-2xl title-font font-medium mb-4">Research Areas</h2>
+
+                <!-- Area 1: Cut Locus Theory -->
+                <div class="mb-6">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                    <i class="fas fa-circle text-indigo-500 text-xs mr-2"></i>
+                    Cut Locus of Submanifolds
+                  </h3>
+
+                  <!-- Image -->
+                  <div class="flex justify-center my-4">
+                    <img class="md:w-96 sm:w-80 small-screen-margin" src="../assets/img/sphere-cut-locus.svg"
+                      alt="Visualization of the sphere cut locus">
+                  </div>
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
+                    For a given Riemannian manifold $M$ and $N \subset M$, the <em class="font-medium">cut locus of
+                      $N$</em>, $\mathrm{Cu}(N)$, is the collection of points $q \in M$ such that there exists a
+                    distance-minimal geodesic $\gamma$ joining $N$ to $q$ such that any extension of $\gamma$ beyond $q$
+                    is no longer a distance-minimal geodesic. Here, by the <em class="font-medium">distance-minimal
+                      geodesic $\gamma$ joining $N$ to $q$</em>, we mean that there exists $p \in N$ such that the
+                    length of $\gamma$ from $p$ to $q$ is the same as the distance from $N$ to $q$.
+                  </p>
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
+                    If $N$ is a smooth submanifold of $M$, then we say it is a <em class="font-medium">non-degenerate
+                      critical submanifold of $f: M \to \mathbb{R}$</em> if $N \subseteq \mathrm{Cr}(f)$ (critical
+                    points of $f$) and for any $p \in N$, the Hessian of $f$ at $p$ is non-degenerate in the direction
+                    normal to $N$ at $p$. The function $f$ is said to be <em class="font-medium">Morse-Bott</em> if the
+                    connected components of $\mathrm{Cr}(f)$ are non-degenerate critical submanifolds.
+                  </p>
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
+                    The <em class="font-medium">Thom space</em> $\mathrm{Th}(E)$ of a real vector bundle $E \to B$ of
+                    rank $k$ is $D(E)/S(E)$, where $D(E)$ is the unit disk bundle and $S(E)$ is the unit sphere bundle.
+                    Here, we have chosen a Euclidean metric on $E$.
+                  </p>
+
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
+                    In one of my <a href="#publications" class="text-blue-500 hover:text-blue-800">papers</a>
+                    (joint with Dr. Somnath Basu), we discussed the cut locus of a closed submanifold and described its
+                    relation with Thom spaces and Morse-Bott functions.
+                  </p>
+                  
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
+                    Also, with <a href="https://aritra.ksom.res.in/" class="text-blue-500 hover:text-blue-800">Dr. Aritra Bhowmick</a>,  we studied the cut locus of a closed submanifold in a Finsler manifold. 
+                  </p>
+
+                  <!-- <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4">
+                    <p class="text-gray-800 font-medium">Current Focus:</p>
+                    <p class="text-gray-700 mt-1">I am currently working on the cut locus of quotient manifolds and its
+                      applications to classifying spaces. This work explores how symmetries and group actions affect the
+                      geometric structure of cut loci.</p>
+                  </div> -->
+                </div>
+
+                <!-- Area 2: Combinatorial Topology -->
+                <div class="mb-6">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                    <i class="fas fa-circle text-indigo-500 text-xs mr-2"></i>
+                    Combinatorial Topology: Independence Complexes
+                  </h3>
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
+                    I have developed a strong interest in combinatorial topology, particularly in studying the <em
+                      class="font-medium">independence complex of graphs</em>. The independence complex of a graph is a
+                    simplicial complex whose faces correspond to independent sets of vertices in the graph. This object
+                    encodes rich topological information about the graph structure.
+                  </p>
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    This area bridges discrete mathematics and algebraic topology, revealing surprising connections
+                    between combinatorial properties of graphs and their associated topological spaces. Understanding
+                    the homotopy type and homology of independence complexes has applications in various areas including
+                    theoretical computer science and statistical mechanics.
+                  </p>
+                </div>
+
+                <!-- Area 3: Polynomial Maps -->
+                <div class="mb-6">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                    <i class="fas fa-circle text-indigo-500 text-xs mr-2"></i>
+                    Lvov-Kaplansky Conjecture
+                  </h3>
+                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
+                    I am investigating the <em class="font-medium">Lvov-Kaplansky conjecture</em>, a fundamental open
+                    problem in algebra. The conjecture states that the image of $n \times n$ matrices over any field $K$
+                    under a multilinear polynomial in non-commutative variables is a vector space. This deceptively
+                    simple statement has profound implications for understanding polynomial identities in matrix
+                    algebras and has connections to invariant theory and representation theory.
+                  </p>
                 </div>
               </div>
-            </div>  -->
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../teaching/">Teaching</a>
 
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../resume/"> CV </a>
+              <!-- Research Opportunities -->
+              <div class="research-card"
+                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+                <h2 class="text-white text-2xl title-font font-medium mb-3">
+                  <i class="fas fa-users mr-2"></i>Research Opportunities
+                </h2>
+                <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3"
+                  style="color: rgba(255,255,255,0.95);">
+                  I welcome motivated students interested in differential geometry, topology, and related areas. If you
+                  are interested in pursuing research in any of the areas mentioned above, please feel free to reach out
+                  through my <a href="../contact/"
+                    class="text-white font-semibold hover:text-gray-200">contact page</a> or <a href="mailto:sachchidanand@iiitd.ac.in" class="text-white font-semibold hover:text-gray-200">email</a> me.
+                </p>
+                <div class="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
+                  <p class="leading-relaxed text-justify font-medium" style="color: white;">
+                    <i class="fas fa-search mr-2"></i><strong>Currently Looking For:</strong> PhD students, postdoctoral
+                    researchers, and potential collaborators interested in geometric topology, Riemannian geometry, and
+                    combinatorial methods.
+                  </p>
+                </div>
+              </div>
 
-		      	<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../publications/">Publications</a>
-
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../miscellaneous/">Miscellaneous</a>
-
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../contact/">Contact</a>
-          </nav>
-        </div>
-      </div>
-      
-      <!-- section -->
-      <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
-          <!-- Research Title -->
-          <div class="flex flex-col items-center text-center justify-center">
-            <h1 class="text-gray-900 text-3xl title-font font-medium">Research</h1>
-            <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4" aria-hidden="true"></div>
-          </div>
-    
-          <!-- Image -->
-          <div class="flex flex-col items-center text-center justify-center">
-            <img class="md:w-96 sm:w-80 small-screen-margin" src="../assets/img/sphere-cut-locus.svg" alt="Visualization of the sphere cut locus">
-          </div>
-    
-          <!-- Research Content -->
-          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-            <div class="p-4 md:w-full flex">
-              <div class="flex-grow lg:px-32 px-6">
-                <!-- Research Description -->
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  My area of interest includes <em>differential geometry</em>, <em>differential topology</em>, <em>algebraic topology</em>, and <em>polynomial maps</em>. More specifically, I am working on the <em class="font-medium">cut locus of a submanifold</em>. Below, I have given a brief overview of the cut locus of a submanifold. Recently, I have also developed an interest in combinatorial topology. I am studying the independence complex of graphs. I am also working on the Lvov-Kaplansky conjecture, which states that the image of $n \times n$ matrices over any field $K$ under a multilinear polynomial in non-commutative variables is a vector space.
-                </p>
-    
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  For a given Riemannian manifold $M$ and $N \subset M$, the <em class="font-medium">cut locus of $N$</em>, $\mathrm{Cu}(N)$, is the collection of points $q \in M$ such that there exists a distance-minimal geodesic $\gamma$ joining $N$ to $q$ such that any extension of $\gamma$ beyond $q$ is no longer a distance-minimal geodesic. Here, by the <em class="font-medium">distance-minimal geodesic $\gamma$ joining $N$ to $q$</em>, we mean that there exists $p \in N$ such that the length of $\gamma$ from $p$ to $q$ is the same as the distance from $N$ to $q$.
-                </p>
-    
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  If $N$ is a smooth submanifold of $M$, then we say it is a <em class="font-medium">non-degenerate critical submanifold of $f: M \to \mathbb{R}$</em> if $N \subseteq \mathrm{Cr}(f)$ (critical points of $f$) and for any $p \in N$, the Hessian of $f$ at $p$ is non-degenerate in the direction normal to $N$ at $p$. The function $f$ is said to be <em class="font-medium">Morse-Bott</em> if the connected components of $\mathrm{Cr}(f)$ are non-degenerate critical submanifolds.
-                </p>
-    
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  The <em class="font-medium">Thom space</em> $\mathrm{Th}(E)$ of a real vector bundle $E \to B$ of rank $k$ is $D(E)/S(E)$, where $D(E)$ is the unit disk bundle and $S(E)$ is the unit sphere bundle. Here, we have chosen a Euclidean metric on $E$.
-                </p>
-    
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  In one of my <a href="#cut-locus-relation" class="text-blue-500 hover:text-blue-800 underline">papers</a> (joint with Dr. Somnath Basu), we discussed the cut locus of a closed submanifold and described its relation with Thom spaces and Morse-Bott functions.
-                </p>
-    
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  Currently, I am working on the cut locus of a quotient manifold and its applications to classifying spaces.
-                </p>
-    
-                <!-- Publications Section -->
-                <h2 class="mt-8 mb-4 text-gray-900 text-xl title-font font-medium" id="publications">Publications and Preprints</h2>
+              <!-- Publications Section -->
+              <div class="research-card">
+                <h2 class="text-gray-900 text-2xl title-font font-medium mb-4" id="publications">Publications and
+                  Preprints</h2>
+                <!-- <p class="text-gray-600 mb-4">
+                  Below is a selection of my research articles. For a complete list with abstracts and links, please
+                  visit my <a href="../publications/" class="text-blue-500 hover:text-blue-800 underline">publications
+                    page</a>.
+                </p> -->
                 <div class="filter-buttons mb-6">
-                  <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded-md mr-2" data-filter="all">All</button>
-                  <button class="filter-btn bg-yellow-500 text-white px-4 py-2 rounded-md mr-2" data-filter="preprint">Preprints</button>
-                  <button class="filter-btn bg-green-500 text-white px-4 py-2 rounded-md" data-filter="accepted">Accepted Articles</button>
+                  <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-600"
+                    data-filter="all">All</button>
+                  <button class="filter-btn bg-yellow-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-yellow-600"
+                    data-filter="preprint">Preprints</button>
+                  <button class="filter-btn bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+                    data-filter="accepted">Accepted Articles</button>
                 </div>
                 <div id="publications-container"></div>
-
               </div>
+
+              <!-- Talks Note -->
+              <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <p class="text-gray-700">
+                  <i class="fas fa-info-circle text-indigo-500 mr-2"></i>
+                  For information about talks, presentations, and other academic activities, please visit my <a
+                    href="../resume/" class="text-blue-500 hover:text-blue-800 font-medium">CV page</a>.
+                </p>
+              </div>
+
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- footer -->
-      <footer class="foot mt-auto border-t border-gray-200">
-        <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
-          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> Sachchidanand
-          </p>
-          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
-          </p>
-          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-gray-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
-              <i class="ai ai-researchgate ai-lg"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
-              <i class="ai ai-academia"></i>
-            </a>
-          </span>
-        </div>
-        <hr class="py-1 w-1/4 m-auto">
-				<div class="items-center">
-					<p class="text-center">
-						<span class="text-gray-500 text-sm mr-1">No of visitors: </span>
-						<img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
-						alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
-						<span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
-					</p>
-				</div>
-      </footer>
+    <!-- footer -->
+    <footer class="foot mt-auto border-t border-gray-200">
+      <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©
+          <script>document.write(new Date().getFullYear())</script> Sachchidanand
+        </p>
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last
+          updated: <span id="updated"></span>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+          <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/"
+            target="_blank">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/"
+            target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand"
+            target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-gray-500"
+            href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+            <i class="ai ai-researchgate ai-lg"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad"
+            target="_blank">
+            <i class="ai ai-academia"></i>
+          </a>
+        </span>
+      </div>
+      <hr class="py-1 w-1/4 m-auto">
+      <div class="items-center">
+        <p class="text-center">
+          <span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+          <img
+            src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D"
+            alt="Hit Counter by Digits" border="0" class="w-11 inline" />
+          <span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/"
+              class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+        </p>
+      </div>
+    </footer>
 
-    </div>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script>
-      function myFunction() {
-        var x = document.lastModified;
-        document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+  </div>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <script>
+    function myFunction() {
+      var x = document.lastModified;
+      document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+    }
+    myFunction()
+  </script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'],
+          ['\\(', '\\)']
+        ],
+        displayMath: [
+          ['$$', '$$'],
+          ['\\[', '\\]']
+        ]
+      },
+      svg: {
+        fontCache: 'global'
       }
-      myFunction()
-    </script>
+    };
+  </script>
 
-    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
-    
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [
-            ['$', '$'],
-            ['\\(', '\\)']
-          ],
-          displayMath: [
-            ['$$', '$$'],
-            ['\\[', '\\]']
-          ]
-        },
-        svg: {
-          fontCache: 'global'
-        }
-      };
-    </script>
-
-    <script>
-      renderPublications('publications-list-research', 'research');
-    </script>
-  </body>
+  <script>
+    renderPublications('publications-list-research', 'research');
+  </script>
+</body>
 </html>
