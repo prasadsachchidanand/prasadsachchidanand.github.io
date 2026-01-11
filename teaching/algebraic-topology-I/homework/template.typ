@@ -1,89 +1,111 @@
 #let problem_counter = counter("problem")
 
+#let problem_counter = counter("problem")
+
 #let prob(body) = {
   problem_counter.step()
-  context [== Problem #problem_counter.display()]
-  block(fill:rgb(250, 255, 250),
-   width: 100%,
-   inset:8pt,
-   radius: 4pt,
-   stroke:rgb(199,31, 31),
-   body)
-}
-
-// Option 1: Using breakable: true (recommended)
-#let soln(body) = {
-  [== Solution ]
-  block(fill:rgb(250, 255, 250),
-   width: 100%,
-   inset:8pt,
-   radius: 4pt,
-   stroke:rgb(31, 199, 31),
-   breakable: true,  // This allows the block to break across pages
-   body)
-}
-
-// Option 2: Alternative approach using a styled container instead of block
-#let soln_alt(body) = {
-  [== Solution ]
-  set block(fill: rgb(250, 255, 250), width: 100%, inset: 8pt, radius: 4pt, stroke: rgb(31, 199, 31))
-  rect(
-    fill: rgb(250, 255, 250),
-    width: 100%,
-    inset: 8pt,
-    radius: 4pt,
-    stroke: rgb(31, 199, 31),
-    body
-  )
-}
-
-// Option 3: Using a simple styling approach without blocks
-#let soln_simple(body) = {
-  [== Solution ]
-  set par(first-line-indent: 0pt)
-  pad(8pt, 
-    rect(
-      fill: rgb(250, 255, 250),
+  let color = rgb(199, 31, 31)
+  
+  block(
+    breakable: true,
+    spacing: 1em,
+  )[
+    #block(
+      fill: color.lighten(90%),
       width: 100%,
       inset: 8pt,
-      radius: 4pt, 
-      stroke: rgb(31, 199, 31),
-      body
-    )
-  )
+      stroke: color,
+      radius: (top: 4pt),
+      sticky: true,
+    )[
+      #context [*Problem #problem_counter.display()*]
+    ]
+    #block(
+      // fill: color.lighten(80%),
+      above: 0pt,
+      inset: 12pt,
+      width: 100%,
+      below: -0.5pt,
+      stroke: (top: none, bottom: none, rest: color),
+      breakable: true,
+    )[
+      #body
+    ]
+    #block(
+      // fill: color.lighten(80%),
+      width: 100%,
+      stroke: (top: none, rest: color),
+      radius: (bottom: 4pt),
+      above: -1pt,
+      height: 4pt,
+      inset: 12pt,
+      breakable: false,
+    )[]
+  ]
+}
+
+#let soln(body) = {
+  let color = rgb(31, 199, 31)
+  
+  block(
+    fill: color.lighten(80%),
+    inset: 12pt,
+    width: 100%,
+    radius: 4pt,
+    spacing: 1em,
+    stroke: color,
+    breakable: true,
+  )[
+    *#underline[Solution] #box[#move(dy: -.1em)[:]]* #body
+  ]
 }
 
 #let tips(body) = {
-  [== Important Tips ]
-  block(fill:rgb(255, 255, 186),
-   width: 100%,
-   inset:8pt,
-   radius: 4pt,
-   stroke:rgb(100, 10, 100),
-   breakable: true,  // Add this to other functions too
-   body)
+  let color = rgb(100, 10, 100)
+  
+  block(
+    fill: color.lighten(80%),
+    inset: 12pt,
+    width: 100%,
+    radius: 4pt,
+    spacing: 1em,
+    stroke: color,
+    breakable: true,
+  )[
+    *#underline[Important Tips] #box[#move(dy: -.1em)[:]]* #body
+  ]
 }
 
 #let conventions(body) = {
-  [== Conventions ]
-  block(fill:rgb(240, 248, 255),
-   width: 100%,
-   inset:8pt,
-   radius: 4pt,
-   stroke:rgb(70, 130, 180),
-   breakable: true,
-   body)
+  let color = rgb(70, 130, 180)
+  
+  block(
+    fill: color.lighten(80%),
+    inset: 12pt,
+    width: 100%,
+    radius: 4pt,
+    spacing: 1em,
+    stroke: color,
+    breakable: true,
+  )[
+    *#underline[Conventions] #box[#move(dy: -.1em)[:]]* #body
+  ]
 }
 
 #let theory(body) = {
-  [== Theory ]
-  block(fill:rgb(247, 255, 251),
-   width: 100%,
-   inset:8pt,
-   radius: 4pt,
-   stroke:rgb(5, 156, 10),
-   breakable: true,
-   body)
+  let color = rgb(5, 156, 10)
+  
+  block(
+    fill: color.lighten(90%),
+    inset: 12pt,
+    width: 100%,
+    radius: 4pt,
+    spacing: 1em,
+    stroke: color,
+    breakable: true,
+  )[
+    *#underline[Theory] #box[#move(dy: -.1em)[:]]* #body
+  ]
 }
 
 // Some math operators
@@ -121,7 +143,10 @@
   body
 }
 
-#let bf(x) = $bold(#x)$
+#let bf(x) = $bold(upright(#x))$
 #let to = $->$
 #let GL(n,R) = $G L_#n (bb(#R))$
 #let ip(x, y) = $lr(angle.l #x, #y angle.r)$
+#let focus(content) = {
+  text(fill: purple, style: "italic")[#content]
+}

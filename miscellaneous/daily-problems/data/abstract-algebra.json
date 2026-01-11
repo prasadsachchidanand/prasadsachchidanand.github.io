@@ -1,0 +1,25 @@
+{
+  "topic": "Abstract Algebra",
+  "problems": [
+    {
+  "date": "2025-12-31",
+  "title": "Problem of the day",
+  "problem": "\\label{prob:04Jun2025}\n    Let $G$ be the set of all mappings\n    \\[\n        T_{a,b}: \\mathbb{R} \\to  \\mathbb{R} , \\quad T_{a,b}(r) = ar + b\n    \\] \n    where $a,b\\in \\mathbb{R} $ and $a \\neq 0$. Let $H \\subseteq G$, defined as \n    \\[\n        H = \\left\\{ T_{a,b} \\in G: a \\in \\mathbb{Q} \\text{ and } b \\in \\mathbb{R}  \\right\\}. \n    \\]   \n    Show that $H$ is a nonabelian group under the composition operation.",
+  "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Hint 1\n                    </li>\n                    <li class=\"my-4\">\n                      Hint 2\n                    </li>\n                    <li class=\"my-4\">\n                      Hint 3\n                    </li>\n                  </ul>",
+  "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First of all note that for any $T_{a,b}, T_{c,d} \\in G$, we have \n    \\begin{align*}\n        (T_{a,b} \\circ T_{c,d})(r) & = T_{a,b}(T_{c,d}(r)) \\\\ \n                                   & = T_{a,b}(cr + d)  \\\\\n                                   & = a(cr+d) + b = acr + ad + b \\\\\n                                   & = T_{ac, ad+b}(r).\n    \\end{align*} \n    Now we need to show that $H$ is a group under the above operation. It is clear that if $a,c \\in \\mathbb{Q} $, then $ac \\in \\mathbb{Q} $ and hence $T_{a,b}, T_{c,d} \\in H $ implies $T_{a,b} \\circ T_{c,d} \\in H$.\n</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Associativity also follows as \n    \\begin{align*}\n        (T_{a,b} \\circ T_{c,d}) \\circ T_{m,n} = T_{ac, ad + b} \\circ T_{m,n} = T_{amc, acn + ad + b} \\\\\n        T_{a,b} \\circ (T_{c,d} \\circ T_{m,n}) = T_{a,b} \\circ T_{cm, cn + d} = T_{amc, acn+ad+b}.\n    \\end{align*}\n</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We claim that $T_{1,0}$ is the identity. Note that for any $T_{a,b}\\in H$\n    \\begin{align*}\n        T_{1,0}\\circ T_{a,b} = T_{a,b} \\quad \\text{ and } T_{a,b} \\circ T_{1,0} = T_{a, b}.\n    \\end{align*} \n    Finally, for the inverse of $T_{a,b}$ let $T_{x,y}$ be the inverse, then\n    \\begin{align*}\n        T_{a,b} \\circ T_{x,y} = T_{1,0} & \\implies T_{ax, ay + b} = T_{1,0} \\\\\n            & \\implies ax = 1 \\text{ and } ay + b = 0 \\\\\n            & \\implies x = \\frac{1}{a} \\text{ and } y = -\\frac{b}{a}.\n    \\end{align*}  \n    Since $a \\in \\mathbb{Q}-\\{ 0 \\}  $, so is $a^{-1} $. Thus, the inverse of $T_{a,b}$ will be $T_{a^{-1} , -a^{-1}b}$. This is a simple verification as \n    \\begin{align*}\n        T_{a,b} \\circ T_{\\frac{1}{a},-\\frac{b}{a}} = T_{1,0}.\n    \\end{align*}\n</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we claim that $H$ is non-abelian. Note that \n    \\begin{align*}\n        T_{c,d} \\circ T_{a,b} = T_{ca, cb + d}.\n    \\end{align*}\n    Thus, $H$ will be abelian if $cb + d = ad + b$, which is not true in general. For example, $a = b = 1$ and $c = 2, d = 3$. Thus, $H$ is nonabelian.\n</div>",
+  "tags": [
+    "algebra"
+  ]
+},
+
+    {
+      "date": "2025-06-04",
+      "title": "Left and Right Cosets Equality | Abstract Algebra",
+      "problem": "Let $G$ be a group and $H$ a subgroup of $G$. Prove that the number of left cosets of $H$ in $G$ equals the number of right cosets of $H$ in $G$.",
+      "hint": "Consider the map $\\phi: G/H \\to H\\backslash G$ defined by $\\phi(gH) = Hg^{-1}$. Show this is a well-defined bijection.",
+      "solution": "Define a map $\\phi: \\{ \\text{left cosets} \\} \\to \\{ \\text{right cosets} \\}$ by $\\phi(gH) = Hg^{-1}$.\n\n1. **Well-defined**: If $g_1H = g_2H$, then $g_1^{-1}g_2 \\in H$, so $Hg_1^{-1} = Hg_2^{-1}$.\n2. **Injective**: If $\\phi(g_1H) = \\phi(g_2H)$, then $Hg_1^{-1} = Hg_2^{-1}$, so $g_1^{-1}g_2 \\in H$, hence $g_1H = g_2H$.\n3. **Surjective**: For any right coset $Hg$, we have $\\phi(g^{-1}H) = H(g^{-1})^{-1} = Hg$.\n\nThus $\\phi$ is a bijection, so the numbers are equal.",
+      "tags": ["group-theory", "cosets", "lagrange-theorem"]
+    }
+
+  ]
+}
