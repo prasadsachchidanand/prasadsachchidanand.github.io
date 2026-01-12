@@ -89,6 +89,66 @@
                     // Restore protected labels
                     cleanedInput = cleanedInput.replace(/\\TEMPLABEL\{/g, '\\label{');
 
+                    const formatReplacements = [
+                        // Bold family
+                        { from: /\\textbf\{([^}]*)\}/g, to: '<strong>$1</strong>' },
+                        { from: /\\bf\s*\{([^}]*)\}/g, to: '<strong>$1</strong>' }, // old style
+                        { from: /\{\\bf\s*([^}]*)\}/g, to: '<strong>$1</strong>' },
+
+                        // Italic family
+                        { from: /\\textit\{([^}]*)\}/g, to: '<em>$1</em>' },
+                        { from: /\\it\s*\{([^}]*)\}/g, to: '<em>$1</em>' },
+                        { from: /\{\\it\s*([^}]*)\}/g, to: '<em>$1</em>' },
+                        { from: /\\emph\{([^}]*)\}/g, to: '<em>$1</em>' },     // most common semantic choice
+
+                        // Underline (less common but still appears)
+                        { from: /\\underline\{([^}]*)\}/g, to: '<u>$1</u>' },
+
+                        // Sans-serif (sometimes used for keywords)
+                        { from: /\\textsf\{([^}]*)\}/g, to: '<span class="font-sans">$1</span>' },
+
+                        // Typewriter / code style
+                        { from: /\\texttt\{([^}]*)\}/g, to: '<code class="font-mono bg-gray-100 px-1 rounded">$1</code>' },
+                    ];
+
+                    // Apply all formatting replacements
+                    for (const { from, to } of formatReplacements) {
+                        cleanedInput = cleanedInput.replace(from, to);
+                    }
+
+                    const hyperlinkReplacements = [
+                        // Most common: \href{url}{text}
+                        {
+                            regex: /\\href\{([^}]+)\}\{([^}]*)\}/g,
+                            replace: (match, url, text) => {
+                                const cleanUrl = url.trim();
+                                const cleanText = text.trim();
+                                // Basic safety: only allow http/https urls
+                                if (!cleanUrl.match(/^https?:\/\//i)) {
+                                    return cleanText; // just show text if unsafe protocol
+                                }
+                                return `<a href="${cleanUrl}" class="text-blue-500 hover:text-blue-800" target="_blank" rel="noopener noreferrer">${cleanText}</a>`;
+                            }
+                        },
+
+                        // Optional: \url{http://example.com} → plain link
+                        {
+                            regex: /\\url\{([^}]+)\}/g,
+                            replace: (match, url) => {
+                                const cleanUrl = url.trim();
+                                if (!cleanUrl.match(/^https?:\/\//i)) {
+                                    return cleanUrl;
+                                }
+                                return `<a href="${cleanUrl}" class="text-blue-500 hover:text-blue-800" target="_blank" rel="noopener noreferrer">${cleanUrl}</a>`;
+                            }
+                        },
+                    ];
+
+                    // Apply hyperlink replacements
+                    for (const { regex, replace } of hyperlinkReplacements) {
+                        cleanedInput = cleanedInput.replace(regex, replace);
+                    }
+
                     // Extract problem
                     const problemMatch = cleanedInput.match(/\\begin\{problem\}(.*?)\\end\{problem\}/s);
                     const problem = problemMatch ? problemMatch[1].trim() : '';

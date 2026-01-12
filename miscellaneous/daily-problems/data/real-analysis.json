@@ -1,0 +1,28 @@
+{
+  "topic": "Real Analysis",
+  "problems": [
+    {
+      "date": "2026-01-05",
+      "title": "f(x) = x^2 is not uniformly continuous on R",
+      "problem": "Prove that. $f(x) = x^2$ is uniformly continuous on $[0,1]$ but not uniformly continuous on $\\mathbb{R} $.",
+      "hint": "",
+      "solution": "",
+      "tags": [
+        "real-analysis",
+        "continuity"
+      ]
+    },
+
+    {
+      "date": "2026-01-12",
+      "title": "f(x) = x^2 is not uniformly continuous on R",
+      "problem": "Prove that. $f(x) = x^2$ is uniformly continuous on $[0,1]$ but not uniformly continuous on $\\mathbb{R} $.",
+      "hint": "",
+      "solution": "",
+      "tags": [
+        "real-analysis",
+        "continuity"
+      ]
+    }
+  ]
+}

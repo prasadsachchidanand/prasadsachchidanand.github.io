@@ -1,0 +1,28 @@
+{
+  "topic": "Differential Equation",
+  "problems": [
+    {
+      "date": "2026-01-02",
+      "title": "Eliminate the constants",
+      "problem": "Eliminate $a, b$ and $c$ from $z = a(x + y) + b(x - y) + abt + c$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Differentiate to eliminate $a,b$ and $c$ and get a PDE.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given equation is \n    \\begin{equation}\\label{eq:02Jan2026-1}\n        z = a(x + y) + b(x - y) + abt + c.\n    \\end{equation}\n    Differentiate \\eqref{eq:02Jan2026-1} partially with respect to $x,y$ and $t$, respectively, to get \n    \\begin{align*}\n        \\frac{\\partial z}{\\partial x} & = a + b \\\\\n        \\frac{\\partial z}{\\partial y} & = a - b \\\\\n        \\frac{\\partial z}{\\partial t} & = ab.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since, \n    \\begin{align*}\n        (a+b)^2 + (a-b)^2 = 4ab \\implies \\left( \\frac{\\partial z}{\\partial x}  \\right) ^2+ \\left( \\frac{\\partial z}{\\partial y}  \\right) ^2 = 4\\left( \\frac{\\partial z}{\\partial t}  \\right).\n    \\end{align*}</div>",
+      "tags": [
+        "differential-equation",
+        "pde"
+      ]
+    },
+
+    {
+      "date": "2026-01-09",
+      "title": "Bernoulli differential equation",
+      "problem": "Solve the differential equation \n    \\[\n        (x^3 y^2 + xy) \\mathrm{d} x = \\mathrm{d} y.\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      This is <a href=\"https://en.wikipedia.org/wiki/Bernoulli_differential_equation\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Bernoulli's equation</a>.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Re-write the given equation as \n    \\begin{equation}\\label{eq:09Jan2026-1}\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = x^3 y^2 + xy \\implies \\frac{1}{y^2} \\frac{\\mathrm{d}y}{\\mathrm{d}x} - x^3 = \\frac{x}{y}.\n    \\end{equation}\n    Put \n    \\[\n        v = \\frac{1}{y} \\implies \\frac{\\mathrm{d}v}{\\mathrm{d}x} = -\\frac{1}{y^2}\\frac{\\mathrm{d}y}{\\mathrm{d}x} . \n    \\]\n    Thus, \\eqref{eq:09Jan2026-1} reduces to\n    \\begin{equation}\\label{eq:09Jan2026-2}\n         -\\frac{\\mathrm{d}v}{\\mathrm{d}x} - x^3 = xv \\implies \\frac{\\mathrm{d}v}{\\mathrm{d}x} + xv = - x^3,\n    \\end{equation}\n    which is a linear ODE and can be solved by multiplying with an integrating factor.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The integrating factor is \n    \\begin{align*}\n        e^{\\int x \\mathrm{d} x} = e^{x^2 / 2}.\n    \\end{align*}\n    Multiplication of the integrating factor to \\eqref{eq:09Jan2026-2} gives\n    \\begin{align*}\n        & \\frac{\\mathrm{d}v}{\\mathrm{d}x} e^{x^2 / 2} + xv e^{x^2 / 2}  = - x^3 e^{x^2 / 2} \\\\\n        \\implies &  \\frac{\\mathrm{d}}{\\mathrm{d}x} \\left( v e^{x^2 / 2} \\right)  = -x^3 e^{x^2 / 2} \\\\\n        \\implies & v e^{x^2 / 2} = -\\int x^3 e^{x^2 / 2} \\\\\n        \\implies & v e^{x^2 / 2} = - 2e^{x^2 / 2} \\left( \\frac{x^2}{2} - 1   \\right) + c \\\\\n        \\implies & \\frac{1}{y} e^{x^2 / 2} = - 2e^{x^2 / 2} \\left( \\frac{x^2}{2} - 1   \\right) + c \\\\ \n        \\implies & \\frac{1}{y} = - 2\\left( \\frac{x^2}{2} - 1   \\right) + c e^{-x^2 / 2}  \\\\ \n        \\implies & \\frac{1}{y} = (2 - x^2) + c e^{-x^2 / 2}  .\n    \\end{align*}</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    }
+  ]
+}
