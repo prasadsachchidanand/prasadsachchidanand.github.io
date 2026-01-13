@@ -102,9 +102,12 @@ function displayProblem(problem, problemDate, topicName) {
     // Remove all siblings
     nextSiblings.forEach(sibling => sibling.remove());
     
-    // Add new problem text
-    const problemText = document.createTextNode(problem.problem);
-    parent.appendChild(problemText);
+    // IMPORTANT: Create a container div to hold the HTML content
+    const problemContainer = document.createElement('div');
+    problemContainer.innerHTML = problem.problem; // Use innerHTML instead of textContent
+    
+    // Append the container after the "Problem: " text
+    parent.appendChild(problemContainer);
     
     // Update tags - Create tags container if it doesn't exist
     let tagsContainer = problemBox.querySelector('.mt-2');
@@ -261,14 +264,23 @@ function updateHintBox(hintBox, hintText) {
 
 // Update solution box
 function updateSolutionBox(solutionBox, solutionText) {
+    // Find the parent container (the one with .leading-relaxed class)
     const content = solutionBox.querySelector('.leading-relaxed');
     if (content) {
-        // Check if solutionText contains HTML structure
-        if (solutionText.includes('<div') || solutionText.includes('<hr')) {
-            content.innerHTML = `<strong>Solution:</strong> ${solutionText}`;
-        } else {
-            content.innerHTML = `<strong>Solution:</strong> ${solutionText}`;
-        }
+        // Clear the entire content div
+        content.innerHTML = '';
+        
+        // Create the "Solution:" label
+        const solutionLabel = document.createElement('strong');
+        solutionLabel.textContent = 'Solution: ';
+        content.appendChild(solutionLabel);
+        
+        // Create a container for the solution content
+        const solutionContainer = document.createElement('div');
+        solutionContainer.innerHTML = solutionText;
+        
+        // Append the solution container after the label
+        content.appendChild(solutionContainer);
     }
 }
 

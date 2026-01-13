@@ -13,7 +13,7 @@ var selectYear = document.getElementById("year");
 var selectMonth = document.getElementById("month");
 
 
-var createYear = generate_year_range(2023, 2025);
+var createYear = generate_year_range(2023, currentYear);
 /** or
  * createYear = generate_year_range( 1970, currentYear );
  */

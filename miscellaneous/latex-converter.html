@@ -8,6 +8,8 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png" />
+    
 </head>
 <body>
     <div id="root"></div>
@@ -77,17 +79,31 @@
 
             const convertLatexToJson = () => {
                 try {
-                    // Remove \label{...} commands ONLY outside of math environments
-                    // First, protect labels inside equation/align environments
-                    let cleanedInput = latexInput.replace(/(\\begin\{(?:equation|align|align\*|gather|gather\*|multline|multline\*)\}.*?\\end\{(?:equation|align|align\*|gather|gather\*|multline|multline\*)\})/gs, (match) => {
-                        return match.replace(/\\label\{/g, '\\TEMPLABEL{');
+                    // STEP 1: Protect inline math ($...$) from HTML processing
+                    const mathPlaceholders = [];
+                    let cleanedInput = latexInput.replace(/\$([^$]+)\$/g, (match, math) => {
+                        const placeholder = `__MATH_${mathPlaceholders.length}__`;
+                        mathPlaceholders.push(math);
+                        return placeholder;
                     });
 
-                    // Remove all other \label commands
-                    cleanedInput = cleanedInput.replace(/\\label\{[^}]*\}/g, '');
+                    // Protect display math (\[...\])
+                    const displayMathPlaceholders = [];
+                    cleanedInput = cleanedInput.replace(/\\\[([^\]]+)\\\]/g, (match, math) => {
+                        const placeholder = `__DISPLAYMATH_${displayMathPlaceholders.length}__`;
+                        displayMathPlaceholders.push(math);
+                        return placeholder;
+                    });
 
-                    // Restore protected labels
-                    cleanedInput = cleanedInput.replace(/\\TEMPLABEL\{/g, '\\label{');
+                    // Protect equation, align, and other math environments
+                    const envMathPlaceholders = [];
+                    cleanedInput = cleanedInput.replace(/(\\begin\{(?:equation|align|align\*|gather|gather\*|multline|multline\*)\}.*?\\end\{(?:equation|align|align\*|gather|gather\*|multline|multline\*)\})/gs, (match) => {
+                        const placeholder = `__ENVMATH_${envMathPlaceholders.length}__`;
+                        envMathPlaceholders.push(match);
+                        return placeholder;
+                    });
+
+                    cleanedInput = cleanedInput.replace(/\\label\{[^}]*\}/g, '');
 
                     const formatReplacements = [
                         // Bold family
@@ -149,9 +165,96 @@
                         cleanedInput = cleanedInput.replace(regex, replace);
                     }
 
-                    // Extract problem
+                    // Extract and process problem
                     const problemMatch = cleanedInput.match(/\\begin\{problem\}(.*?)\\end\{problem\}/s);
-                    const problem = problemMatch ? problemMatch[1].trim() : '';
+                    let problem = '';
+
+                    if (problemMatch) {
+                        let problemContent = problemMatch[1].trim();
+
+                        // Process enumerate with alphabetic (lowercase) - most common
+                        problemContent = problemContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\alph\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
+                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
+                            if (items) {
+                                const listItems = items.map((item) => {
+                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
+                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
+                                }).join('\n');
+                                return `<ol class="math-list-alpha">\n${listItems}\n                </ol>`;
+                            }
+                            return match;
+                        });
+
+                        // Process enumerate with alphabetic (uppercase)
+                        problemContent = problemContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\Alph\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
+                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
+                            if (items) {
+                                const listItems = items.map((item) => {
+                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
+                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
+                                }).join('\n');
+                                return `<ol class="math-list-Alpha">\n${listItems}\n                </ol>`;
+                            }
+                            return match;
+                        });
+
+                        // Process enumerate with roman numerals (lowercase)
+                        problemContent = problemContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\roman\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
+                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
+                            if (items) {
+                                const listItems = items.map((item) => {
+                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
+                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
+                                }).join('\n');
+                                return `<ol class="math-list-roman">\n${listItems}\n                </ol>`;
+                            }
+                            return match;
+                        });
+
+                        // Process enumerate with roman numerals (uppercase)
+                        problemContent = problemContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\Roman\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
+                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
+                            if (items) {
+                                const listItems = items.map((item) => {
+                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
+                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
+                                }).join('\n');
+                                return `<ol class="math-list-Roman">\n${listItems}\n                </ol>`;
+                            }
+                            return match;
+                        });
+
+                        // Process plain enumerate (numeric - no label specified)
+                        problemContent = problemContent.replace(/\\begin\{enumerate\}(.*?)\\end\{enumerate\}/gs, (match, content) => {
+                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
+                            if (items) {
+                                const listItems = items.map((item) => {
+                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
+                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
+                                }).join('\n');
+                                return `<ol class="math-list">\n${listItems}\n                </ol>`;
+                            }
+                            return match;
+                        });
+
+                        // Process itemize blocks (bullet points)
+                        problemContent = problemContent.replace(/\\begin\{itemize\}(.*?)\\end\{itemize\}/gs, (match, content) => {
+                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
+                            if (items) {
+                                const listItems = items.map((item) => {
+                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
+                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
+                                }).join('\n');
+                                return `<ul class="math-list-disc">\n${listItems}\n                </ul>`;
+                            }
+                            return match;
+                        });
+
+                        problem = problemContent;
+                        
+                    } else {
+                        problem = '';
+                    }
 
                     // Extract hint(s)
                     const hintMatch = cleanedInput.match(/\\begin\{hint\}(.*?)\\end\{hint\}/s);
@@ -372,6 +475,37 @@ ${listItems}
                             }
                         }).filter(p => p).join('\n');
                     }
+
+                    // STEP FINAL: Restore protected math expressions
+                    problem = problem.replace(/__MATH_(\d+)__/g, (match, index) => {
+                        return `$${mathPlaceholders[index]}$`;
+                    });
+                    problem = problem.replace(/__DISPLAYMATH_(\d+)__/g, (match, index) => {
+                        return `\\[${displayMathPlaceholders[index]}\\]`;
+                    });
+                    problem = problem.replace(/__ENVMATH_(\d+)__/g, (match, index) => {
+                        return envMathPlaceholders[index];
+                    });
+
+                    hint = hint.replace(/__MATH_(\d+)__/g, (match, index) => {
+                        return `$${mathPlaceholders[index]}$`;
+                    });
+                    hint = hint.replace(/__DISPLAYMATH_(\d+)__/g, (match, index) => {
+                        return `\\[${displayMathPlaceholders[index]}\\]`;
+                    });
+                    hint = hint.replace(/__ENVMATH_(\d+)__/g, (match, index) => {
+                        return envMathPlaceholders[index];
+                    });
+
+                    solution = solution.replace(/__MATH_(\d+)__/g, (match, index) => {
+                        return `$${mathPlaceholders[index]}$`;
+                    });
+                    solution = solution.replace(/__DISPLAYMATH_(\d+)__/g, (match, index) => {
+                        return `\\[${displayMathPlaceholders[index]}\\]`;
+                    });
+                    solution = solution.replace(/__ENVMATH_(\d+)__/g, (match, index) => {
+                        return envMathPlaceholders[index];
+                    });
 
                     // Create JSON object
                     const jsonObj = {
