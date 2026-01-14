@@ -1,6 +1,16 @@
 {
   "topic": "Abstract Algebra",
   "problems": [
-    
+    {
+      "date": "2026-01-14",
+      "title": "The minimal polynomial of $\\sqrt{3} + \\sqrt{5} $ over Q",
+      "problem": "Find the minimal polynomial of $\\sqrt{3} + \\sqrt{5} $ over $\\mathbb{Q} $.",
+      "hint": "",
+      "solution": "",
+      "tags": [
+        "abstract-algebra",
+        "field-theory"
+      ]
+    }
   ]
 }

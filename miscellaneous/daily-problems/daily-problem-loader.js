@@ -40,6 +40,40 @@ function getTopicFromDate(dateString) {
     }
 }
 
+// Find the most recent problem across all topics
+async function findMostRecentProblem() {
+    const allTopics = Object.values(topicMap);
+    let mostRecentProblem = null;
+    let mostRecentDate = null;
+    
+    for (const topic of allTopics) {
+        try {
+            const response = await fetch(`data/${topic}.json`);
+            if (!response.ok) continue;
+            
+            const data = await response.json();
+            
+            // Find the most recent problem in this topic
+            if (data.problems && data.problems.length > 0) {
+                const sortedProblems = [...data.problems].sort((a, b) => 
+                    b.date.localeCompare(a.date)
+                );
+                
+                const latestInTopic = sortedProblems[0];
+                
+                if (!mostRecentDate || latestInTopic.date > mostRecentDate) {
+                    mostRecentDate = latestInTopic.date;
+                    mostRecentProblem = latestInTopic;
+                }
+            }
+        } catch (error) {
+            console.error(`Error loading ${topic}:`, error);
+        }
+    }
+    
+    return mostRecentProblem;
+}
+
 // Load today's problem and display it
 async function loadTodayProblem() {
     try {
@@ -61,12 +95,19 @@ async function loadTodayProblem() {
         const problem = data.problems.find(p => p.date === todayDate);
         
         if (!problem) {
-            displayNoProblems(todayDate);
+            console.log('No problem for today, loading most recent problem...');
+            const mostRecentProblem = await findMostRecentProblem();
+            
+            if (mostRecentProblem) {
+                displayTodayProblem(mostRecentProblem, mostRecentProblem.date, true);
+            } else {
+                displayNoProblems(todayDate);
+            }
             return;
         }
         
         // Display the problem
-        displayTodayProblem(problem, todayDate);
+        displayTodayProblem(problem, todayDate, false);
         
     } catch (error) {
         console.error('Error loading today\'s problem:', error);
@@ -75,13 +116,17 @@ async function loadTodayProblem() {
 }
 
 // Display today's problem on the main page
-function displayTodayProblem(problem, todayDate) {
+function displayTodayProblem(problem, problemDate, isOldProblem = false) {
     // Update the title link
     const titleElement = document.querySelector('#problem-of-the-day a');
     if (titleElement) {
-        const formattedDate = formatDateForDisplay(todayDate);
-        titleElement.textContent = `Problem of the day (${formattedDate})`;
-        titleElement.href = `${todayDate}/`;
+        const formattedDate = formatDateForDisplay(problemDate);
+        if (isOldProblem) {
+            titleElement.textContent = `Latest problem (${formattedDate})`;
+        } else {
+            titleElement.textContent = `Problem of the day (${formattedDate})`;
+        }
+        titleElement.href = `${problemDate}/`;
     }
     
     // Get the problem box
@@ -104,34 +149,22 @@ function displayTodayProblem(problem, todayDate) {
             nextSibling = nextSibling.nextSibling;
         }
         
-        // Remove all siblings except tags div
-        nextSiblings.forEach(sibling => {
-            if (!sibling.classList || !sibling.classList.contains('mt-2')) {
-                sibling.remove();
-            }
-        });
+        // Remove all siblings
+        nextSiblings.forEach(sibling => sibling.remove());
         
-        // Add new problem text
-        const problemText = document.createTextNode(problem.problem);
+        // IMPORTANT: Create a container span to hold the HTML content inline
+        const problemContainer = document.createElement('span');
+        problemContainer.innerHTML = problem.problem; // Use innerHTML to render HTML tags
         
-        // Find or create tags container
-        let tagsContainer = problemBox.querySelector('.mt-2');
-        if (tagsContainer) {
-            // Insert problem text before tags
-            parent.insertBefore(problemText, tagsContainer);
-        } else {
-            // No tags container, just append
-            parent.appendChild(problemText);
-            
-            // Create new tags container
-            tagsContainer = document.createElement('div');
-            tagsContainer.className = 'mt-2';
-            problemBox.appendChild(tagsContainer);
-        }
+        // Append the container after the "Problem: " text (inline)
+        parent.appendChild(problemContainer);
         
-        // Update tags
-        tagsContainer.innerHTML = ''; // Clear existing tags
+        // Create tags container on a new line
+        const tagsContainer = document.createElement('div');
+        tagsContainer.className = 'mt-2';
+        problemBox.appendChild(tagsContainer);
         
+        // Add tags
         if (problem.tags && Array.isArray(problem.tags)) {
             problem.tags.forEach(tag => {
                 // Special handling for certain tags
@@ -162,7 +195,7 @@ function displayTodayProblem(problem, todayDate) {
     }
 }
 
-// Display message when no problem exists for today
+// Display message when no problem exists at all
 function displayNoProblems(todayDate) {
     const titleElement = document.querySelector('#problem-of-the-day a');
     if (titleElement) {
@@ -193,7 +226,7 @@ function displayNoProblems(todayDate) {
             // Add message
             const message = document.createElement('span');
             message.className = 'text-gray-600';
-            message.textContent = ' No problem has been posted for today yet. Check back tomorrow!';
+            message.textContent = ' No problems available yet. Check back soon!';
             parent.appendChild(message);
         }
     }

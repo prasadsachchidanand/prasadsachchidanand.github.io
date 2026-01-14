@@ -15,7 +15,6 @@ const topicMap = {
 // Get problem date from URL path
 function getProblemDateFromURL() {
     const path = window.location.pathname;
-    // Match date pattern in the path (e.g., /2026-01-07/)
     const match = path.match(/\/(\d{4}-\d{2}-\d{2})\//);
     return match ? match[1] : null;
 }
@@ -32,6 +31,13 @@ function getTopicFromDate(dateString) {
     }
 }
 
+// Format topic name for display
+function formatTopicName(topic) {
+    return topic.split('-').map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1)
+    ).join(' ');
+}
+
 // Load problem data and populate HTML
 async function loadProblem() {
     try {
@@ -42,7 +48,6 @@ async function loadProblem() {
             return;
         }
         
-        // Update page title date display in dd-mm-yyyy format
         const [year, month, day] = problemDate.split('-');
         const formattedDate = `${day}-${month}-${year}`;
         document.getElementById('problem-date-title').textContent = formattedDate;
@@ -52,15 +57,12 @@ async function loadProblem() {
         
         console.log(`Loading ${topic} data for ${problemDate} from ${jsonPath}`);
         
-        // Fetch the JSON data
         const response = await fetch(jsonPath);
         if (!response.ok) {
             throw new Error(`Failed to load ${topic} data (${response.status})`);
         }
         
         const data = await response.json();
-        
-        // Find the problem matching this date
         const problem = data.problems.find(p => p.date === problemDate);
         
         if (!problem) {
@@ -68,14 +70,9 @@ async function loadProblem() {
             return;
         }
         
-        // Populate the page
         displayProblem(problem, problemDate, data.topic);
-        
-        // Update metadata with problem info
         updateMetadata(problemDate, problem, data.topic);
-        
-        // Update navigation links
-        updateNavigationLinks(problemDate);
+        updateNavigationLinks(problemDate, topic, data.problems);
         
     } catch (error) {
         console.error('Error loading problem:', error);
@@ -85,11 +82,9 @@ async function loadProblem() {
 
 // Display the problem on the page
 function displayProblem(problem, problemDate, topicName) {
-    // Update problem text
     const problemBox = document.querySelector('.border-red-500');
     const problemStrong = problemBox.querySelector('strong');
     
-    // Clear existing content after "Problem: "
     const parent = problemStrong.parentNode;
     const nextSiblings = [];
     let nextSibling = problemStrong.nextSibling;
@@ -99,17 +94,12 @@ function displayProblem(problem, problemDate, topicName) {
         nextSibling = nextSibling.nextSibling;
     }
     
-    // Remove all siblings
     nextSiblings.forEach(sibling => sibling.remove());
     
-    // IMPORTANT: Create a container div to hold the HTML content
-    const problemContainer = document.createElement('div');
-    problemContainer.innerHTML = problem.problem; // Use innerHTML instead of textContent
-    
-    // Append the container after the "Problem: " text
+    const problemContainer = document.createElement('span');
+    problemContainer.innerHTML = problem.problem;
     parent.appendChild(problemContainer);
     
-    // Update tags - Create tags container if it doesn't exist
     let tagsContainer = problemBox.querySelector('.mt-2');
     if (!tagsContainer) {
         tagsContainer = document.createElement('div');
@@ -117,11 +107,10 @@ function displayProblem(problem, problemDate, topicName) {
         problemBox.appendChild(tagsContainer);
     }
     
-    tagsContainer.innerHTML = ''; // Clear existing tags
+    tagsContainer.innerHTML = '';
     
     if (problem.tags && Array.isArray(problem.tags)) {
         problem.tags.forEach(tag => {
-            // Special handling for Herstein tag
             let tagUrl = tag;
             if (tag.includes('herstein-abstract-algebra')) {
                 tagUrl = 'abstract-algebra-herstein';
@@ -138,38 +127,32 @@ function displayProblem(problem, problemDate, topicName) {
         });
     }
     
-    // Handle hint and solution
     const hasHint = problem.hint && problem.hint.trim() !== '';
     const hasSolution = problem.solution && problem.solution.trim() !== '';
     
-    // Handle hint box (create separate div for hint)
     let hintBox = document.getElementById('hint-box');
     if (hasHint) {
-        // Check if hint box already exists in the right place (between problem and solution)
         const problemBox = document.querySelector('.border-red-500');
         const solutionBox = document.getElementById('solution-box');
         
         if (!hintBox) {
             hintBox = createHintBox(problem.hint);
-            
-            // Insert hint box between problem box and solution box
             if (problemBox && solutionBox && solutionBox.parentNode) {
                 solutionBox.parentNode.insertBefore(hintBox, solutionBox);
             }
         } else {
             updateHintBox(hintBox, problem.hint);
         }
-        hintBox.classList.add('hidden'); // Always hide initially
+        hintBox.classList.add('hidden');
     } else if (hintBox) {
         hintBox.remove();
     }
     
-    // Handle solution box (always hidden initially)
     const solutionBox = document.getElementById('solution-box');
     if (solutionBox) {
         if (hasSolution) {
             updateSolutionBox(solutionBox, problem.solution);
-            solutionBox.classList.add('hidden'); // Always hide initially
+            solutionBox.classList.add('hidden');
         } else {
             const solutionContent = solutionBox.querySelector('.leading-relaxed');
             if (solutionContent) {
@@ -181,16 +164,13 @@ function displayProblem(problem, problemDate, topicName) {
         }
     }
     
-    // Create buttons inside the problem box
     createToggleButtons(problemBox, hasHint, hasSolution);
     
-    // Update problem ID for comments
     const problemIdInput = document.getElementById('problemId');
     if (problemIdInput) {
         problemIdInput.value = problemDate;
     }
     
-    // Trigger MathJax to render the content
     if (window.MathJax && MathJax.typesetPromise) {
         setTimeout(() => {
             MathJax.typesetPromise().catch(err => console.log('MathJax initial render error:', err));
@@ -200,11 +180,9 @@ function displayProblem(problem, problemDate, topicName) {
 
 // Create toggle buttons for hint and solution
 function createToggleButtons(problemBox, hasHint, hasSolution) {
-    // Remove existing buttons if any
     const existingButtons = problemBox.querySelectorAll('button[onclick*="toggle"]');
     existingButtons.forEach(btn => btn.remove());
     
-    // Also remove any existing button containers (look for containers with buttons)
     const allContainers = problemBox.querySelectorAll('.mt-2');
     allContainers.forEach(container => {
         if (container.querySelector('button')) {
@@ -237,11 +215,10 @@ function createToggleButtons(problemBox, hasHint, hasSolution) {
         buttonContainer.appendChild(solutionButton);
     }
     
-    // Append buttons to the problem box (after tags)
     problemBox.appendChild(buttonContainer);
 }
 
-// Create hint box (separate div, not inside problem box)
+// Create hint box
 function createHintBox(hintText) {
     const hintBox = document.createElement('div');
     hintBox.id = 'hint-box';
@@ -264,22 +241,16 @@ function updateHintBox(hintBox, hintText) {
 
 // Update solution box
 function updateSolutionBox(solutionBox, solutionText) {
-    // Find the parent container (the one with .leading-relaxed class)
     const content = solutionBox.querySelector('.leading-relaxed');
     if (content) {
-        // Clear the entire content div
         content.innerHTML = '';
         
-        // Create the "Solution:" label
         const solutionLabel = document.createElement('strong');
         solutionLabel.textContent = 'Solution: ';
         content.appendChild(solutionLabel);
         
-        // Create a container for the solution content
         const solutionContainer = document.createElement('div');
         solutionContainer.innerHTML = solutionText;
-        
-        // Append the solution container after the label
         content.appendChild(solutionContainer);
     }
 }
@@ -293,7 +264,6 @@ function toggleHint() {
         hintBox.classList.toggle('hidden');
         hintButton.textContent = hintBox.classList.contains('hidden') ? 'Show Hint' : 'Hide Hint';
         
-        // Re-render MathJax when showing hint
         if (!hintBox.classList.contains('hidden') && window.MathJax && MathJax.typesetPromise) {
             MathJax.typesetPromise([hintBox]).catch(err => console.log('MathJax hint render error:', err));
         }
@@ -309,7 +279,6 @@ function toggleSolution() {
         solutionBox.classList.toggle('hidden');
         solutionButton.textContent = solutionBox.classList.contains('hidden') ? 'Show Solution' : 'Hide Solution';
         
-        // Re-render MathJax when showing solution
         if (!solutionBox.classList.contains('hidden') && window.MathJax && MathJax.typesetPromise) {
             MathJax.typesetPromise([solutionBox]).catch(err => console.log('MathJax solution render error:', err));
         }
@@ -320,10 +289,13 @@ function toggleSolution() {
 function updateMetadata(problemDate, problem, topicName) {
     const baseURL = window.location.origin + window.location.pathname;
     
-    // Generate title with problem title if available
     let title;
     if (problem.title && problem.title.trim() !== '' && problem.title !== 'Problem of the Day') {
-        title = `Problem of the Day | ${problemDate} | ${problem.title} | Sachchidanand Prasad`;
+        if (topicName.toLowerCase() === 'miscellaneous') {
+            title = `Problem of the Day | ${problemDate} | ${problem.title} | Sachchidanand Prasad`;
+        } else {
+            title = `Problem of the Day | ${problemDate} | ${topicName} - ${problem.title} | Sachchidanand Prasad`;
+        }
     } else {
         title = `Problem of the Day | ${problemDate} | ${topicName} | Sachchidanand Prasad`;
     }
@@ -332,10 +304,8 @@ function updateMetadata(problemDate, problem, topicName) {
         ? problem.problem.substring(0, 150).replace(/[^\w\s]/gi, '') + '...'
         : problem.problem.replace(/[^\w\s]/gi, '');
     
-    // Update page title
     document.title = title;
     
-    // Update meta tags
     const metaDesc = document.querySelector('meta[name="description"]');
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDesc = document.querySelector('meta[property="og:description"]');
@@ -354,12 +324,10 @@ function updateMetadata(problemDate, problem, topicName) {
     if (linkedinTitle) linkedinTitle.content = title;
     if (linkedinDesc) linkedinDesc.content = description;
     
-    // Update share link
     if (document.getElementById('shareLink')) {
         document.getElementById('shareLink').value = baseURL;
     }
     
-    // Update JSON-LD structured data
     try {
         const structuredData = {
             "@context": "https://schema.org",
@@ -396,22 +364,17 @@ function updateMetadata(problemDate, problem, topicName) {
 }
 
 // Update navigation links
-function updateNavigationLinks(problemDate) {
+function updateNavigationLinks(problemDate, currentTopic, currentProblems) {
     try {
-        // Parse the date string (YYYY-MM-DD)
         const [year, month, day] = problemDate.split('-').map(Number);
-        
-        // Create date using UTC to avoid timezone issues
         const currentDate = new Date(Date.UTC(year, month - 1, day));
         
-        // Calculate previous and next dates
         const prevDate = new Date(currentDate);
         prevDate.setUTCDate(prevDate.getUTCDate() - 1);
         
         const nextDate = new Date(currentDate);
         nextDate.setUTCDate(nextDate.getUTCDate() + 1);
         
-        // Format dates as YYYY-MM-DD
         const formatDate = (d) => {
             const y = d.getUTCFullYear();
             const m = String(d.getUTCMonth() + 1).padStart(2, '0');
@@ -419,19 +382,134 @@ function updateNavigationLinks(problemDate) {
             return `${y}-${m}-${day}`;
         };
         
+        // Update regular prev/next links
         const prevLink = document.getElementById('prev-link');
         const nextLink = document.getElementById('next-link');
         
-        if (prevLink) {
-            prevLink.href = `../${formatDate(prevDate)}/`;
-        }
-        if (nextLink) {
-            nextLink.href = `../${formatDate(nextDate)}/`;
-        }
+        if (prevLink) prevLink.href = `../${formatDate(prevDate)}/`;
+        if (nextLink) nextLink.href = `../${formatDate(nextDate)}/`;
+        
+        // Setup topic problems modal
+        setupTopicProblemsModal(currentTopic, currentProblems, problemDate);
+        
+        // Add "Topic" button to navigation
+        addTopicButton(currentTopic);
         
     } catch (error) {
         console.error('Error updating navigation links:', error);
     }
+}
+
+// Add a "Topic" button between "All" and "Next"
+function addTopicButton(topicName) {
+    const navList = document.querySelector('nav ul');
+    if (!navList) return;
+    
+    // Remove existing topic button if any
+    const existingTopicBtn = document.getElementById('topic-button-li');
+    if (existingTopicBtn) {
+        existingTopicBtn.remove();
+    }
+    
+    const formattedTopic = formatTopicName(topicName);
+    const nextButton = document.querySelector('#next-link').parentElement;
+    
+    const topicButtonLi = document.createElement('li');
+    topicButtonLi.id = 'topic-button-li';
+    topicButtonLi.className = 'page-item';
+    topicButtonLi.innerHTML = `
+        <a id="topic-link" href="#"
+           class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg">
+            <span class="hidden sm:inline">${formattedTopic}</span>
+            <span class="sm:inline md:hidden">${getTopicShortName(topicName)}</span>
+        </a>
+    `;
+    
+    navList.insertBefore(topicButtonLi, nextButton);
+}
+
+// Get short name for topic
+function getTopicShortName(topicName) {
+    const shortNames = {
+        'linear-algebra': 'LA',
+        'real-analysis': 'RA',
+        'complex-analysis': 'CA',
+        'abstract-algebra': 'AA',
+        'topology': 'Top',
+        'differential-equations': 'DE',
+        'miscellaneous': 'Misc'
+    };
+    return shortNames[topicName] || topicName;
+}
+
+// Setup topic problems modal functionality
+function setupTopicProblemsModal(topicName, problems, currentDate) {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('topic-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'topic-modal';
+        modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4';
+        modal.innerHTML = `
+            <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
+                    <h3 class="text-xl font-bold text-gray-900" id="modal-topic-title">Problems</h3>
+                    <button id="close-topic-modal" class="text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+                </div>
+                <div id="topic-modal-content" class="p-6"></div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        
+        // Close modal handlers
+        document.getElementById('close-topic-modal').addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    }
+    
+    // Update modal content
+    const formattedTopic = formatTopicName(topicName);
+    document.getElementById('modal-topic-title').textContent = `All ${formattedTopic} Problems`;
+    
+    const content = document.getElementById('topic-modal-content');
+    const sortedProblems = [...problems].sort((a, b) => b.date.localeCompare(a.date)); // Latest first
+    
+    content.innerHTML = sortedProblems.map(problem => {
+        const [year, month, day] = problem.date.split('-');
+        const formattedDate = `${day}-${month}-${year}`;
+        const isCurrent = problem.date === currentDate;
+        
+        return `
+            <a href="../${problem.date}/" 
+               class="block p-4 mb-2 rounded-lg border transition-all ${
+                   isCurrent 
+                   ? 'bg-blue-50 border-blue-500 font-semibold' 
+                   : 'bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
+               }">
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-900">${formattedDate}</span>
+                    ${isCurrent ? '<span class="text-blue-600 text-sm">● Current</span>' : ''}
+                </div>
+            </a>
+        `;
+    }).join('');
+    
+    // Update "Topic" button to open modal
+    setTimeout(() => {
+        const topicButton = document.getElementById('topic-link');
+        if (topicButton) {
+            topicButton.onclick = (e) => {
+                e.preventDefault();
+                modal.classList.remove('hidden');
+            };
+        }
+    }, 100);
 }
 
 // Display error message
@@ -441,7 +519,6 @@ function displayError(message) {
         const problemStrong = problemBox.querySelector('strong');
         
         if (problemStrong) {
-            // Clear existing content after "Problem: "
             const parent = problemStrong.parentNode;
             const nextSiblings = [];
             let nextSibling = problemStrong.nextSibling;
@@ -451,10 +528,8 @@ function displayError(message) {
                 nextSibling = nextSibling.nextSibling;
             }
             
-            // Remove all siblings
             nextSiblings.forEach(sibling => sibling.remove());
             
-            // Add error message
             const errorMsg = document.createElement('span');
             errorMsg.className = 'text-red-600';
             errorMsg.textContent = ` ${message}`;
