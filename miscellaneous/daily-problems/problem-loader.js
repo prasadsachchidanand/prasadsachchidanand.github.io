@@ -31,6 +31,14 @@ function getTopicFromDate(dateString) {
     }
 }
 
+// Check if solution should be visible (next day has started in user's timezone)
+function isSolutionVisible(problemDateString) {
+    const [year, month, day] = problemDateString.split('-').map(Number);
+    const problemDate = new Date(year, month - 1, day, 23, 59, 59);
+    const now = new Date();
+    return now > problemDate;
+}
+
 // Format topic name for display
 function formatTopicName(topic) {
     return topic.split('-').map(word => 
@@ -129,6 +137,7 @@ function displayProblem(problem, problemDate, topicName) {
     
     const hasHint = problem.hint && problem.hint.trim() !== '';
     const hasSolution = problem.solution && problem.solution.trim() !== '';
+    const solutionVisible = isSolutionVisible(problemDate);
     
     let hintBox = document.getElementById('hint-box');
     if (hasHint) {
@@ -150,7 +159,7 @@ function displayProblem(problem, problemDate, topicName) {
     
     const solutionBox = document.getElementById('solution-box');
     if (solutionBox) {
-        if (hasSolution) {
+        if (hasSolution && solutionVisible) {
             updateSolutionBox(solutionBox, problem.solution);
             solutionBox.classList.add('hidden');
         } else {
@@ -164,7 +173,7 @@ function displayProblem(problem, problemDate, topicName) {
         }
     }
     
-    createToggleButtons(problemBox, hasHint, hasSolution);
+    createToggleButtons(problemBox, hasHint, hasSolution && solutionVisible);
     
     const problemIdInput = document.getElementById('problemId');
     if (problemIdInput) {

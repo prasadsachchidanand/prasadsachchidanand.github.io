@@ -2,11 +2,23 @@
   "topic": "Abstract Algebra",
   "problems": [
     {
+      "date": "2026-01-07",
+      "title": "Irreducibility of the polynomial x^3 + 2x + 1 in Z_3[x]",
+      "problem": "Is the polynomial $x^3 + 2x + 1$ irreducible over $\\mathbb{Z} _3$?",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Show that it does not have a root in $\\mathbb{Z} _3$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since the polynomial is of degree $3$, it is enough to show that it does not have a root in $\\mathbb{Z} _3$. Let $p(x) = x^3 + 2x + 1.$ The possible roots are $\\bar{0} , \\bar{1} , \\bar{2} .$ Note that \n      \\begin{align*}\n        p(\\bar{0} ) & = 1 \\equiv 1 \\ (\\mathrm{mod}\\ 3)\\\\\n        p(\\bar{1} ) & = 4 \\equiv 1 \\ (\\mathrm{mod}\\ 3)\\\\\n        p(\\bar{2} ) & = 13 \\equiv 1\\ (\\mathrm{mod}\\ 3).\n      \\end{align*}\n      Thus, the polynomial is irreducible over $\\mathbb{Z} _3$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "field-theory"
+      ]
+    },
+
+    {
       "date": "2026-01-14",
       "title": "The minimal polynomial of $\\sqrt{3} + \\sqrt{5} $ over Q",
       "problem": "Find the minimal polynomial of $\\sqrt{3} + \\sqrt{5} $ over $\\mathbb{Q} $.",
-      "hint": "",
-      "solution": "",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Assume $x = \\sqrt{3} + \\sqrt{5}$, and power $x$ to get rid of $\\sqrt{3} \\text{ and } \\sqrt{5} $. This will give a polynomial satisfying $\\sqrt{3} + \\sqrt{5} .$\n                    </li>\n                    <li class=\"my-4\">\n                      Now show that the polynomial is minimal.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To find the minimal polynomial of $x = \\sqrt{3} + \\sqrt{5} $ over $\\mathbb{Q} $, observe that   \n    \\begin{align*}\n        x = \\sqrt{3} + \\sqrt{5} & \\implies x^2 = 8 + 2 \\sqrt{15} \\\\\n                                & \\implies (x^2 -8)^2 = (2 \\sqrt{15} )^2 \\\\\n                                & \\implies x^4 - 16x^2 + 64 = 60 \\\\\n                                & \\implies x^4 - 16x^2 + 4 = 0.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">It is clear that the polynomial $p(x) = x^4 - 16x^2 + 4$ satisfies $\\sqrt{3}  + \\sqrt{5} $. We only need to check that it is minimal which is equivalent to show that the polynomial is irreducible over $\\mathbb{Q} $. By the <a href=\"https://en.wikipedia.org/wiki/Rational_root_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">rational root theorem</a>, the possible rational roots for the polynomial $p(x)$ are $\\pm 1, \\pm 2$ and $\\pm 4$. But, none of these satisfies $p(x)$ and $p(x)$ does not have a root in $\\mathbb{Q} $.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let us assume that $p(x)$ is reducible over $\\mathbb{Q} $, that is, it can be broken into monic quadratic polynomials in $\\mathbb{Q} $, say \n    \\begin{align*}\n        & (x^2 + a x + b)(x^2 + c x + d) = x^4 - 16x^2 + 4 \\\\\n        \\implies & x^4 + (a + c)x^3 + (ac + b + d)x^2 + (ad + bc) x + bd = x^4 - 16x^2 + 4.\n    \\end{align*} \n    Comparing the coefficients, we get \n    \\begin{align*}\n        c = -a, \\quad b + d - a^2 = - 16, \\quad a(d - b) = 0, \\quad \\text{ and } bd = 4.\n    \\end{align*}\n    Consider $a (d - b) = 0$. Note that if $a = 0$, then we have \n    \\begin{align*}\n        bd = 4 \\text{ and }  b + d = -16.\n    \\end{align*}  \n    Thus, $b$ and $d$ are roots of the quadratic equation $t^2 + 16t + 4 = 0$, which does not have are rational roots (discriminant (which is $240$) is not a square), thus $a = 0$ is not possible. \n    \n    <br> <br> If $b - d = 0$, that is, $ b = d$, then $b^2 = 4$, so $b = \\pm 2$. Also, \n    \\begin{align*}\n        b + d - a^2 = -16 & \\implies 2b - a^2 = -16 \\\\\n                          & \\implies a^2 = 2b + 16 = \\begin{cases}\n                            20, &\\text{ if } b = 2 ;\\\\\n                            12, &\\text{ if } b = -2.\n                          \\end{cases}\n    \\end{align*}    \n    In any case, $a$ can not be a rational number and hence $b= d $ is also not possible. Thus, the polynomial is irreducible and hence minimal.</div>",
       "tags": [
         "abstract-algebra",
         "field-theory"
