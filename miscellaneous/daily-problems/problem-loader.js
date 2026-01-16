@@ -31,6 +31,14 @@ function getTopicFromDate(dateString) {
     }
 }
 
+// Check if problem should be visible (date has arrived in user's timezone)
+function isProblemVisible(problemDateString) {
+    const [year, month, day] = problemDateString.split('-').map(Number);
+    const problemDate = new Date(year, month - 1, day, 0, 0, 0);
+    const now = new Date();
+    return now >= problemDate;
+}
+
 // Check if solution should be visible (next day has started in user's timezone)
 function isSolutionVisible(problemDateString) {
     const [year, month, day] = problemDateString.split('-').map(Number);
@@ -78,13 +86,67 @@ async function loadProblem() {
             return;
         }
         
+        // Check if problem should be visible yet
+        if (!isProblemVisible(problemDate)) {
+            displayUpcomingProblem(problemDate, data.topic);
+            updateMetadata(problemDate, problem, data.topic);
+            updateNavigationLinks(problemDate, topic, data.problems, false); // false = problem not visible yet
+            return;
+        }
+        
         displayProblem(problem, problemDate, data.topic);
         updateMetadata(problemDate, problem, data.topic);
-        updateNavigationLinks(problemDate, topic, data.problems);
+        updateNavigationLinks(problemDate, topic, data.problems, true); // true = problem is visible
         
     } catch (error) {
         console.error('Error loading problem:', error);
         displayError('Failed to load problem data. Please check console for details.');
+    }
+}
+
+// Display message for upcoming problems
+function displayUpcomingProblem(problemDate, topicName) {
+    const problemBox = document.querySelector('.border-red-500');
+    const problemStrong = problemBox.querySelector('strong');
+    
+    // Remove "Problem:" text
+    if (problemStrong) {
+        problemStrong.remove();
+    }
+    
+    const parent = problemBox;
+    // Clear all content in the problem box
+    parent.innerHTML = '';
+    
+    const [year, month, day] = problemDate.split('-');
+    const problemDateObj = new Date(year, month - 1, day);
+    const formattedDate = problemDateObj.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    
+    const upcomingMessage = document.createElement('div');
+    upcomingMessage.className = 'text-lg';
+    upcomingMessage.innerHTML = `
+        <span class="text-blue-600 font-semibold text-xl">📅 Coming Soon!</span>
+        <p class="mt-3 text-gray-700">The problem for <strong>${formattedDate}</strong> will be posted on that day.</p>
+        <p class="mt-2 text-gray-600">Topic: <strong class="text-blue-600">${formatTopicName(topicName)}</strong></p>
+        <p class="mt-3 text-gray-500 italic">Please check back on ${day}-${month}-${year} to see the problem.</p>
+    `;
+    parent.appendChild(upcomingMessage);
+    
+    // Hide solution box for upcoming problems
+    const solutionBox = document.getElementById('solution-box');
+    if (solutionBox) {
+        solutionBox.style.display = 'none';
+    }
+    
+    // Hide hint box for upcoming problems
+    const hintBox = document.getElementById('hint-box');
+    if (hintBox) {
+        hintBox.style.display = 'none';
     }
 }
 
@@ -120,10 +182,10 @@ function displayProblem(problem, problemDate, topicName) {
     if (problem.tags && Array.isArray(problem.tags)) {
         problem.tags.forEach(tag => {
             let tagUrl = tag;
-            if (tag.includes('herstein-abstract-algebra')) {
-                tagUrl = 'abstract-algebra-herstein';
-            } else if (tag.includes('herstein')) {
-                tagUrl = 'herstein';
+            
+            // Extract base tag name for URL (remove content in parentheses and trim)
+            if (tag.includes('(')) {
+                tagUrl = tag.split('(')[0].trim();
             }
             
             const tagLink = document.createElement('a');
@@ -152,6 +214,7 @@ function displayProblem(problem, problemDate, topicName) {
         } else {
             updateHintBox(hintBox, problem.hint);
         }
+        hintBox.style.display = '';
         hintBox.classList.add('hidden');
     } else if (hintBox) {
         hintBox.remove();
@@ -159,6 +222,7 @@ function displayProblem(problem, problemDate, topicName) {
     
     const solutionBox = document.getElementById('solution-box');
     if (solutionBox) {
+        solutionBox.style.display = '';
         if (hasSolution && solutionVisible) {
             updateSolutionBox(solutionBox, problem.solution);
             solutionBox.classList.add('hidden');
@@ -373,7 +437,7 @@ function updateMetadata(problemDate, problem, topicName) {
 }
 
 // Update navigation links
-function updateNavigationLinks(problemDate, currentTopic, currentProblems) {
+function updateNavigationLinks(problemDate, currentTopic, currentProblems, isProblemVisible) {
     try {
         const [year, month, day] = problemDate.split('-').map(Number);
         const currentDate = new Date(Date.UTC(year, month - 1, day));
@@ -396,7 +460,24 @@ function updateNavigationLinks(problemDate, currentTopic, currentProblems) {
         const nextLink = document.getElementById('next-link');
         
         if (prevLink) prevLink.href = `../${formatDate(prevDate)}/`;
-        if (nextLink) nextLink.href = `../${formatDate(nextDate)}/`;
+        
+        if (nextLink) {
+            if (!isProblemVisible) {
+                // Disable next button for upcoming problems
+                nextLink.href = 'javascript:void(0)';
+                nextLink.style.cursor = 'not-allowed';
+                nextLink.style.pointerEvents = 'none';
+                nextLink.classList.remove('text-blue-500', 'hover:text-blue-800');
+                nextLink.classList.add('text-gray-400');
+            } else {
+                // Enable next button for visible problems
+                nextLink.href = `../${formatDate(nextDate)}/`;
+                nextLink.style.cursor = 'pointer';
+                nextLink.style.pointerEvents = 'auto';
+                nextLink.classList.remove('text-gray-400');
+                nextLink.classList.add('text-blue-500', 'hover:text-blue-800');
+            }
+        }
         
         // Setup topic problems modal
         setupTopicProblemsModal(currentTopic, currentProblems, problemDate);

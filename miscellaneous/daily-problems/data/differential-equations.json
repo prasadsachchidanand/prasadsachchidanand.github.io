@@ -23,6 +23,18 @@
         "differential-equation",
         "ode"
       ]
+    },
+
+    {
+      "date": "2026-01-16",
+      "title": "Population Growth with Rate Proportional to Population",
+      "problem": "If the population of a country doubles in 50 years, in how many years will it triple under the assumption that the rate of increase is proportional to the number of inhabitants.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Let $P(t)$ denote the population at time $t$. Then, $\\frac{\\mathrm{d}P}{\\mathrm{d}t} \\propto P$. Translate into a differential equation involving $P(t)$.\n                    </li>\n                    <li class=\"my-4\">\n                      Solve this differential equation to express $P(t)$, then use the given doubling condition to determine the constant and find when $P(t)$ becomes three times its initial value.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $P(t)$ denote the population at time $t$.  \n    Since the rate of increase of the population is proportional to the number of inhabitants, we have\n    \\[\n        \\frac{dP}{dt} = kP,\n    \\]\n    where $k>0$ is a constant of proportionality.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Separating variables and integrating,\n    \\begin{align*}\n        \\frac{1}{P}\\,dP = k\\,dt & \\implies  \\ln P = kt + C \\\\\n        & \\implies P(t) = Ce^{kt}.\n    \\end{align*}\n\n    Let $P(0)=P_0$, so $C=P_0$ and\n    \\[\n        P(t) = P_0 e^{kt}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We are given that the population doubles in 50 years:\n    \\begin{align*}\n        & P(50) = 2P_0 = P_0 e^{50k} \\\\\n        \\implies & e^{50k} = 2 \\implies k = \\frac{\\ln 2}{50}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To find the time $t$ when the population triples, we set\n    \\[\n        P(t) = 3P_0 = P_0 e^{kt}.\n    \\]\n    This gives\n    \\[\n        e^{kt} = 3\n        \\quad \\implies \\quad\n        t = \\frac{\\ln 3}{k}\n        = 50\\frac{\\ln 3}{\\ln 2}.\n    \\]\n\n    Hence, the population will triple in\n    \\[\n        \\boxed{50\\frac{\\ln 3}{\\ln 2} \\approx 79 \\text{ years}.}\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
     }
   ]
 }
