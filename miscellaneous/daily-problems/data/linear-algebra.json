@@ -27,6 +27,20 @@
         "linear-algebra",
         "linear-transformation"
       ]
+    }, 
+
+    {
+      "date": "2026-01-18",
+      "title": "NBHM 2005 - Rank Nullity Theorem",
+      "difficulty": "easy",
+      "problem": "Let $V = \\mathbb{R} ^5$ and $W = \\mathbb{R} ^7$. Let $T: V \\to  W$ be a linear map. If $\\mathcal{N} (T)$ denotes the null space of $T$ and $\\mathcal{R} (T)$ denotes its range, then \n    \\[\n        \\dim \\mathcal{N} (T) + \\dim \\mathcal{R} (T) = ?\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use <a href=\"https://en.wikipedia.org/wiki/Rank%E2%80%93nullity_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">rank-nullity theorem</a>.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $T: \\mathbb{R} ^5 \\to  \\mathbb{R} ^7$, by the  <a href=\"https://en.wikipedia.org/wiki/Rank%E2%80%93nullity_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">rank-nullity theorem</a>, we have \n    \\begin{align*}\n        \\dim \\mathcal{N} (T) + \\dim \\mathcal{R} (T) = \\dim (\\mathbb{R} ^5) = 5. \n    \\end{align*}</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "nbhm-phd-2005"
+      ]
     }
   ]
 }
