@@ -23,6 +23,18 @@
         "miscellaneous",
         "probability-theory"
       ]
+    },
+
+    {
+      "date": "2026-01-17",
+      "title": "NBHM - Find the value of a in x^3 - 5x^2 + ax - 1",
+      "problem": "Find the value of $a \\in \\mathbb{Z} $ such that $2 + \\sqrt{3} $ is a root of the polynomial \n    \\[\n        p(x) = x^3 - 5x^2 + ax - 1.\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      The irrational roots are in conjugate pairs.\n                    </li>\n                    <li class=\"my-4\">\n                      Apply <a href=\"https://en.wikipedia.org/wiki/Rational_root_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">ratioanl root theorem</a>.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By <a href=\"https://en.wikipedia.org/wiki/Rational_root_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">ratioanl root theorem</a>, the only possible rational roots are $\\pm 1$. Also, since the polynomial is with integer coefficients, any irrational root  will be in pair (with its conjugate). Therefore the possible roots are \n    \\[\n        \\{ 2 + \\sqrt{3} , 2 - \\sqrt{3} , 1 \\} \\quad \\text{ or } \\{ 2 + \\sqrt{3} , 2 - \\sqrt{3} , -1 \\}. \n    \\]\n    Recall that the sum of roots of a polynomial \n    \\[\n        a_n x^n + a_{n-1} x^{n-1} + \\dots + a_1 x + a_0,\n    \\]\n    is $-\\frac{a_{n-1} }{a_n}$. So in our case it is $5$. Therefore the roots are  $\\{ 2 + \\sqrt{3} , 2 - \\sqrt{3} , 1 \\}.$ Therefore, \n    \\begin{align*}\n        a & = (2 + \\sqrt{3} ) (2 - \\sqrt{3} ) + (2 + \\sqrt{3} )(1) + (2-\\sqrt{3} )(1) \\\\\n        & = (4 -3) + 2 + \\sqrt{3}  + 2 - \\sqrt{3} \\\\\n        & = 5. \n    \\end{align*}\n    Thus, $a = 5$.</div>",
+      "tags": [
+        "miscellaneous",
+        "NBHM-phd-2005"
+      ]
     }
   ]
 }

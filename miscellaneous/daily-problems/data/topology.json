@@ -2,6 +2,17 @@
     "topic": "Topology",
     "problems": [
         {
+          "date": "2026-01-01",
+          "title": "Any Set is Compact in Co-finite Topology",
+          "problem": "Suppose $X$ is an infinite set equipped with the cofinite topology. Prove that $X$ is compact.",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      The complement of any non-empty open set has only finitely many elements. Now use the definition of compactness to show that the space is compact.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\mathcal{C} \\coloneqq \\{ U_\\alpha  \\}_{\\alpha \\in I} $ be an open cover of $X$. Since for each $\\alpha \\in I$ the set $U_\\alpha $ is open and hence $U_{\\alpha } = \\varnothing  $ or $X \\setminus U_\\alpha $ is a finite set.  Let $x_0 \\in X$ and let $x_0 \\in U_{\\alpha _0}$ for some $\\alpha _0 \\in I$. This implies $X \\setminus U_{\\alpha _0}$ is finite, that is, \n    \\[\n        X \\setminus U_{\\alpha _0} = \\{x_1, x_2, \\dots, x_k\\}. \n    \\] \n    Choose $\\alpha _i \\in I$ such that $x_i \\in U_{\\alpha _i}$. Thus, we have a finite subcover of $\\mathcal{C} $, namely, $\\{ U_{\\alpha _0}, U_{\\alpha _1}, \\dots, U_{\\alpha _k} \\} $. Therefore, $X$ is compact.</div>",
+          "tags": [
+            "topology"
+          ]
+        },
+        
+        {
           "date": "2026-01-08",
           "title": "Some Problem",
           "problem": "On the real line $\\mathbb{R} $, consider the collection of subsets \n    \\[\n        \\mathcal{T} _{\\leftarrow } \\coloneqq \\{ \\varnothing , \\mathbb{R}  \\}  \\cup \\{ (-\\infty ,a): a \\in \\mathbb{R}  \\}  .\n    \\] \n    Show that $\\mathcal{T} _{\\leftarrow }$ is a topology on $\\mathbb{R} $.",
