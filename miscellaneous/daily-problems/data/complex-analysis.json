@@ -4,6 +4,7 @@
     {
       "date": "2026-01-06",
       "title": "NBHM 2005 - \\int_{\\Gamma } \\frac{z \\mathrm{d} z}{(z - 1)^4}",
+      "difficulty": "easy",
       "problem": "Let $\\Gamma $ be the circle in the complex plane with centre at $z = 1$ and of radius unity. Evaluate \n    \\[\n        \\int_{\\Gamma } \\frac{z \\mathrm{d} z}{(z - 1)^4}.\n    \\]",
       "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use <a href=\"https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy's integral formula</a>.\n                    </li>\n                  </ul>",
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will use <a href=\"https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy's integral formula</a> to evaluate the integral over the circle $|z-1| = 1$ \n    \\[\n        \\int_{\\Gamma } \\frac{z \\mathrm{d} z}{(z - 1)^4}.\n    \\]\n    By <a href=\"https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy's integral formula</a>, \n    \\begin{align*}\n        f^{(n)}(a) = \\frac{n!}{2\\pi \\iota } \\int_{\\gamma } \\frac{f(z)}{(z - a)^{n+1}} \\mathrm{d} z,\n    \\end{align*}\n    where $\\gamma $be the circle $\\vert z - z_0 \\vert = r$, oriented counterclockwise and $a$ is any point in the interior of the disc $\\vert z - z_0 \\vert \\leq r.$</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Here $f(z) = z$, the disc is $\\vert z - 1 \\vert \\leq 1$  and the point $a = 1$ which is in the interior of the disc. So, by  <a href=\"https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy's integral formula</a>, a\n    \\begin{align*}\n        \\int_{\\Gamma } \\frac{z \\mathrm{d} z}{(z - 1)^4} & = \\frac{2\\pi \\iota }{3!} \\left[ \\frac{\\mathrm{d}^3}{\\mathrm{d}z^3} (z) \\right]_{z = 1} = 0. \n    \\end{align*}</div>",
@@ -17,6 +18,7 @@
     {
       "date": "2026-01-13",
       "title": "NBHM - 2005 - Pick out the functions from the following list which are analytic in C",
+      "difficulty": "medium",
       "problem": "Pick out the functions from the following list which are analytic in $\\mathbb{C} :$\n    <ol class=\"math-list-roman\">\n                  <li class=\"my-4\">\n                    $f(z) = \\vert z \\vert ^2$\n                  </li>\n                  <li class=\"my-4\">\n                    $f(z) = \\bar{z} $\n                  </li>\n                  <li class=\"my-4\">\n                    $f(z) = \\text{ Re } (z)$.\n                  </li>\n                </ol>",
       "hint": "",
       "solution": "",

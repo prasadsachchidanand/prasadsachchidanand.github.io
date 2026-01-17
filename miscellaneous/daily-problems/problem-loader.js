@@ -54,6 +54,21 @@ function formatTopicName(topic) {
     ).join(' ');
 }
 
+// Get difficulty badge HTML
+function getDifficultyBadge(difficulty) {
+    const difficultyLower = (difficulty || 'medium').toLowerCase();
+    const colorMap = {
+        'easy': 'bg-green-100 text-green-800 border-green-300',
+        'medium': 'bg-yellow-100 text-yellow-800 border-yellow-300',
+        'hard': 'bg-red-100 text-red-800 border-red-300'
+    };
+    
+    const color = colorMap[difficultyLower] || colorMap['medium'];
+    const displayText = difficulty || 'Medium';
+    
+    return `<span class="inline-block ${color} text-sm font-semibold rounded px-3 py-1 border">${displayText}</span>`;
+}
+
 // Load problem data and populate HTML
 async function loadProblem() {
     try {
@@ -94,7 +109,8 @@ async function loadProblem() {
         
         // Date has arrived, but no problem found in data
         if (!problem) {
-            displayError(`No problem found for date ${problemDate} in ${topic}`);
+            displayMissingProblem(problemDate, data.topic);
+            updateNavigationLinks(problemDate, topic, data.problems, true);
             return;
         }
         
@@ -106,6 +122,52 @@ async function loadProblem() {
     } catch (error) {
         console.error('Error loading problem:', error);
         displayError('Failed to load problem data. Please check console for details.');
+    }
+}
+
+// Display message for missing problems (date has passed but problem not added yet)
+function displayMissingProblem(problemDate, topicName) {
+    const problemBox = document.querySelector('.border-red-500');
+    
+    // Remove "Problem:" text
+    const problemStrong = problemBox.querySelector('strong');
+    if (problemStrong) {
+        problemStrong.remove();
+    }
+    
+    const parent = problemBox;
+    // Clear all content in the problem box
+    parent.innerHTML = '';
+    
+    const [year, month, day] = problemDate.split('-');
+    const problemDateObj = new Date(year, month - 1, day);
+    const formattedDate = problemDateObj.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    
+    const missingMessage = document.createElement('div');
+    missingMessage.className = 'text-lg';
+    missingMessage.innerHTML = `
+        <span class="text-orange-600 font-semibold text-xl">⏳ Problem Coming Soon!</span>
+        <p class="mt-3 text-gray-700">The problem for <strong>${formattedDate}</strong> is being prepared and will be posted shortly.</p>
+        <p class="mt-2 text-gray-600">Topic: <strong class="text-blue-600">${formatTopicName(topicName)}</strong></p>
+        <p class="mt-3 text-gray-500 italic">Please check back later. Thank you for your patience! In the meanwhile solve other ${formatTopicName(topicName)} problems.</p>
+    `;
+    parent.appendChild(missingMessage);
+    
+    // Hide solution box for missing problems
+    const solutionBox = document.getElementById('solution-box');
+    if (solutionBox) {
+        solutionBox.style.display = 'none';
+    }
+    
+    // Hide hint box for missing problems
+    const hintBox = document.getElementById('hint-box');
+    if (hintBox) {
+        hintBox.style.display = 'none';
     }
 }
 
@@ -183,6 +245,14 @@ function displayProblem(problem, problemDate, topicName) {
     }
     
     tagsContainer.innerHTML = '';
+    
+    // Add difficulty badge at the beginning of tags container
+    if (problem.difficulty) {
+        const difficultySpan = document.createElement('span');
+        difficultySpan.innerHTML = getDifficultyBadge(problem.difficulty);
+        difficultySpan.className = 'inline-block mr-2';
+        tagsContainer.appendChild(difficultySpan);
+    }
     
     if (problem.tags && Array.isArray(problem.tags)) {
         problem.tags.forEach(tag => {
@@ -500,23 +570,51 @@ function addTopicButton(topicName) {
     const navList = document.querySelector('nav ul');
     if (!navList) return;
     
+    // Style the navigation list for better appearance
+    navList.className = 'flex items-center justify-center gap-3 flex-wrap';
+    
     // Remove existing topic button if any
     const existingTopicBtn = document.getElementById('topic-button-li');
     if (existingTopicBtn) {
         existingTopicBtn.remove();
     }
     
+    // Style all existing navigation buttons
+    const allNavLinks = navList.querySelectorAll('a');
+    allNavLinks.forEach(link => {
+        if (!link.id) return;
+        
+        // Common styles for all nav buttons
+        link.className = 'inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 shadow-sm hover:shadow-md';
+        
+        if (link.id === 'prev-link') {
+            link.className += ' bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700';
+            link.innerHTML = '<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>Previous';
+        } else if (link.id === 'next-link') {
+            if (link.classList.contains('text-gray-400')) {
+                // Disabled state
+                link.className = 'inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-gray-200 text-gray-400 cursor-not-allowed';
+            } else {
+                link.className += ' bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700';
+            }
+            link.innerHTML = 'Next<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+        } else if (link.id === 'all-link') {
+            link.className += ' bg-white text-gray-700 border-2 border-gray-300 hover:border-blue-500 hover:text-blue-600';
+            link.innerHTML = '<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>All Problems';
+        }
+    });
+    
     const formattedTopic = formatTopicName(topicName);
     const nextButton = document.querySelector('#next-link').parentElement;
     
     const topicButtonLi = document.createElement('li');
     topicButtonLi.id = 'topic-button-li';
-    topicButtonLi.className = 'page-item';
     topicButtonLi.innerHTML = `
         <a id="topic-link" href="#"
-           class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-blue-500 hover:text-blue-800 font-medium text-lg">
+           class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 shadow-sm hover:shadow-md bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
             <span class="hidden sm:inline">${formattedTopic}</span>
-            <span class="sm:inline md:hidden">${getTopicShortName(topicName)}</span>
+            <span class="sm:hidden">${getTopicShortName(topicName)}</span>
         </a>
     `;
     
@@ -579,6 +677,7 @@ function setupTopicProblemsModal(topicName, problems, currentDate) {
         const [year, month, day] = problem.date.split('-');
         const formattedDate = `${day}-${month}-${year}`;
         const isCurrent = problem.date === currentDate;
+        const difficultyBadge = problem.difficulty ? getDifficultyBadge(problem.difficulty) : '';
         
         return `
             <a href="../${problem.date}/" 
@@ -588,7 +687,10 @@ function setupTopicProblemsModal(topicName, problems, currentDate) {
                    : 'bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
                }">
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-900">${formattedDate}</span>
+                    <div class="flex items-center gap-3">
+                        <span class="text-gray-900">${formattedDate}</span>
+                        ${difficultyBadge}
+                    </div>
                     ${isCurrent ? '<span class="text-blue-600 text-sm">● Current</span>' : ''}
                 </div>
             </a>
