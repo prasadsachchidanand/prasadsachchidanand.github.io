@@ -81,19 +81,24 @@ async function loadProblem() {
         const data = await response.json();
         const problem = data.problems.find(p => p.date === problemDate);
         
+        // Check if the date hasn't arrived yet
+        if (!isProblemVisible(problemDate)) {
+            // For future dates, show "Coming Soon" even if problem doesn't exist in data yet
+            displayUpcomingProblem(problemDate, data.topic);
+            if (problem) {
+                updateMetadata(problemDate, problem, data.topic);
+            }
+            updateNavigationLinks(problemDate, topic, data.problems, false); // false = problem not visible yet
+            return;
+        }
+        
+        // Date has arrived, but no problem found in data
         if (!problem) {
             displayError(`No problem found for date ${problemDate} in ${topic}`);
             return;
         }
         
-        // Check if problem should be visible yet
-        if (!isProblemVisible(problemDate)) {
-            displayUpcomingProblem(problemDate, data.topic);
-            updateMetadata(problemDate, problem, data.topic);
-            updateNavigationLinks(problemDate, topic, data.problems, false); // false = problem not visible yet
-            return;
-        }
-        
+        // Display the problem normally
         displayProblem(problem, problemDate, data.topic);
         updateMetadata(problemDate, problem, data.topic);
         updateNavigationLinks(problemDate, topic, data.problems, true); // true = problem is visible
