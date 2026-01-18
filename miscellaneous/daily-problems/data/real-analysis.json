@@ -25,6 +25,20 @@
         "real-analysis",
         "continuity"
       ]
+    },
+
+    {
+      "date": "2026-01-19",
+      "title": "NBHM 2005 - Infinite sum of functional value",
+      "difficulty": "easy",
+      "problem": "Let $f: [0,1] \\to  \\mathbb{R} $ be a continuous function. Then find \n    \\[\n        \\lim_{n \\to \\infty} \\frac{1}{n}\\sum_{k=0}^{n} f \\left( \\frac{k}{n}. \\right) \n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Since $f$ is continuous, it is Riemann integrable.\n                    </li>\n                    <li class=\"my-4\">\n                      Use definite integral as a limit of sum.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $f$ is continuous on the closed interval $[0,1]$, it is Riemann integrable on $[0,1]$. We need to find the sum\n  \\[\n    \\frac{1}{n}\\sum_{k=0}^{n} f\\left(\\frac{k}{n}\\right).\n  \\]\n  This sum differs from the standard Riemann sum\n  \\[\n    \\sum_{k=0}^{n-1} f\\left(\\frac{k}{n}\\right)\\frac{1}{n}\n  \\]\n  only by the additional term $\\frac{1}{n}f(1)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Thus we can write\n  \\begin{align*}\n    & \\frac{1}{n}\\sum_{k=0}^{n} f\\left(\\frac{k}{n}\\right)  = \\sum_{k=0}^{n-1} f\\left(\\frac{k}{n}\\right)\\frac{1}{n} + \\frac{1}{n}f(1) \\\\\n    \\implies & \\lim_{n \\to \\infty} \\frac{1}{n}\\sum_{k=0}^{n} f\\left(\\frac{k}{n}\\right)  = \\lim_{n \\to \\infty} \\left[ \\sum_{k=0}^{n-1} f\\left(\\frac{k}{n}\\right)\\frac{1}{n} + \\frac{1}{n}f(1) \\right]  \\\\\n    & \\kern 2.85cm = \\lim_{n \\to \\infty}  \\sum_{k=0}^{n-1} f\\left(\\frac{k}{n}\\right)\\frac{1}{n} + \\lim_{n \\to \\infty} \\frac{1}{n}f(1) \\tag{__MATH_6__} \\\\\n    & \\kern 2.85cm = \\int_0^1 f(x) \\mathrm{d} x + 0.\n  \\end{align*}\n   Note that ($\\star$) is valid because $f$ is Riemann integrable and hence both the limit exists. Therefore,\n  \\[\n    \\lim_{n \\to \\infty} \\frac{1}{n}\\sum_{k=0}^{n} f\\left(\\frac{k}{n}\\right)\n    =\n    \\int_0^1 f(x)\\,dx.\n  \\]</div>",
+      "tags": [
+        "real-analysis",
+        "integral",
+        "nbhm-phd-2005"
+      ]
     }
   ]
 }
