@@ -1,4 +1,4 @@
-// problem-loader.js
+// problem-loader.js - Enhanced with Solved Feature & SEO Optimization
 // Place this file in: /miscellaneous/daily-problems/problem-loader.js
 
 // Map day of week to topic/JSON file
@@ -11,6 +11,154 @@ const topicMap = {
     5: 'differential-equations',  // Friday
     6: 'miscellaneous'            // Saturday
 };
+
+// ==================== SOLVED STATUS MANAGEMENT ====================
+function isProblemSolved(problemDate) {
+    const solvedProblems = JSON.parse(localStorage.getItem('solvedProblems') || '{}');
+    return solvedProblems[problemDate] === true;
+}
+
+function toggleSolvedStatus(problemDate) {
+    const solvedProblems = JSON.parse(localStorage.getItem('solvedProblems') || '{}');
+    solvedProblems[problemDate] = !solvedProblems[problemDate];
+    localStorage.setItem('solvedProblems', JSON.stringify(solvedProblems));
+    
+    // Update solved count display after status change
+    updateTotalSolvedCount();
+    return solvedProblems[problemDate];
+}
+
+function getSolvedCountForTopic(problems) {
+    const solvedProblems = JSON.parse(localStorage.getItem('solvedProblems') || '{}');
+    return problems.filter(p => solvedProblems[p.date] === true).length;
+}
+
+function getTotalSolvedCount() {
+    const solvedProblems = JSON.parse(localStorage.getItem('solvedProblems') || '{}');
+    return Object.values(solvedProblems).filter(status => status === true).length;
+}
+
+function createSolvedButton(problemDate) {
+    const isSolved = isProblemSolved(problemDate);
+    let solvedButton = document.getElementById('solved-button');
+    
+    if (!solvedButton) {
+        solvedButton = document.createElement('button');
+        solvedButton.id = 'solved-button';
+    }
+    
+    if (isSolved) {
+        solvedButton.className = 'ml-2 px-3 py-1 rounded font-semibold transition-all bg-green-600 text-white hover:bg-green-700';
+        solvedButton.innerHTML = '✓ Solved';
+    } else {
+        solvedButton.className = 'ml-2 px-3 py-1 rounded font-semibold transition-all bg-gray-300 text-gray-700 hover:bg-gray-400';
+        solvedButton.innerHTML = 'Mark as Solved';
+    }
+    
+    solvedButton.onclick = function() {
+        const newStatus = toggleSolvedStatus(problemDate);
+        createSolvedButton(problemDate);
+        updatePageTitleSolvedIndicator(newStatus);
+        showSolvedConfirmation(newStatus);
+        
+        // Refresh the topic modal if it's open
+        refreshTopicModalIfOpen();
+    };
+    
+    return solvedButton;
+}
+
+function showSolvedConfirmation(isSolved) {
+    const existing = document.getElementById('solved-confirmation');
+    if (existing) existing.remove();
+    
+    const confirmation = document.createElement('div');
+    confirmation.id = 'solved-confirmation';
+    confirmation.className = 'fixed top-20 right-4 px-4 py-2 rounded-lg shadow-lg z-50 transition-opacity';
+    confirmation.style.backgroundColor = isSolved ? '#10b981' : '#6b7280';
+    confirmation.style.color = 'white';
+    confirmation.innerHTML = isSolved 
+        ? `✓ Problem marked as solved! (Total: ${getTotalSolvedCount()} problems)` 
+        : `Problem marked as unsolved. (Total: ${getTotalSolvedCount()} problems)`;
+    document.body.appendChild(confirmation);
+    
+    setTimeout(() => { 
+        confirmation.style.opacity = '0'; 
+        setTimeout(() => confirmation.remove(), 300); 
+    }, 3000);
+}
+
+function updatePageTitleSolvedIndicator(isSolved) {
+    const titleElement = document.querySelector('h1');
+    if (!titleElement) return;
+    
+    let indicator = titleElement.querySelector('.solved-indicator');
+    if (!indicator) {
+        indicator = document.createElement('span');
+        indicator.className = 'solved-indicator ml-2 text-2xl';
+        titleElement.appendChild(indicator);
+    }
+    
+    indicator.textContent = isSolved ? '✓' : '';
+    indicator.style.color = '#10b981';
+}
+
+function updateTotalSolvedCount() {
+    // Create or update total solved count display
+    let solvedCountDisplay = document.getElementById('total-solved-count');
+    if (!solvedCountDisplay) {
+        // Try to find the h1 to add the count next to it
+        const titleElement = document.querySelector('h1');
+        if (titleElement) {
+            solvedCountDisplay = document.createElement('div');
+            solvedCountDisplay.id = 'total-solved-count';
+            solvedCountDisplay.className = 'text-sm text-gray-600 mt-1 mb-4';
+            titleElement.parentNode.insertBefore(solvedCountDisplay, titleElement.nextSibling);
+        }
+    }
+    
+    if (solvedCountDisplay) {
+        const totalSolved = getTotalSolvedCount();
+        solvedCountDisplay.innerHTML = `
+            <div class="inline-flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-lg border border-blue-200">
+                <span class="font-semibold">${totalSolved}</span>
+                <span class="ml-1">problem${totalSolved === 1 ? '' : 's'} solved</span>
+                <button id="clear-solved-data" class="ml-2 text-xs text-red-500 hover:text-red-700 hover:underline">
+                    (clear)
+                </button>
+            </div>
+        `;
+        
+        // Add clear data functionality
+        document.getElementById('clear-solved-data')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (confirm('Are you sure you want to clear all solved problem data? This cannot be undone.')) {
+                localStorage.removeItem('solvedProblems');
+                updateTotalSolvedCount();
+                location.reload();
+            }
+        });
+    }
+}
+
+function refreshTopicModalIfOpen() {
+    const modal = document.getElementById('topic-modal');
+    if (modal && !modal.classList.contains('hidden')) {
+        // Get current topic and problem date to refresh the modal
+        const problemDate = getProblemDateFromURL();
+        const topic = getTopicFromDate(problemDate);
+        const topicBtn = document.getElementById('topic-link');
+        if (topicBtn && topicBtn.onclick) {
+            // Close and reopen modal to refresh content
+            modal.classList.add('hidden');
+            setTimeout(() => {
+                topicBtn.onclick({preventDefault: () => {}});
+            }, 100);
+        }
+    }
+}
+
+// ==================== ORIGINAL FUNCTIONS (ENHANCED) ====================
 
 // Get problem date from URL path
 function getProblemDateFromURL() {
@@ -104,6 +252,9 @@ async function loadProblem() {
                 updateMetadata(problemDate, problem, data.topic);
             }
             updateNavigationLinks(problemDate, topic, data.problems, false); // false = problem not visible yet
+            
+            // Still show total solved count for upcoming problems
+            updateTotalSolvedCount();
             return;
         }
         
@@ -111,6 +262,9 @@ async function loadProblem() {
         if (!problem) {
             displayMissingProblem(problemDate, data.topic);
             updateNavigationLinks(problemDate, topic, data.problems, true);
+            
+            // Still show total solved count for missing problems
+            updateTotalSolvedCount();
             return;
         }
         
@@ -118,10 +272,17 @@ async function loadProblem() {
         displayProblem(problem, problemDate, data.topic);
         updateMetadata(problemDate, problem, data.topic);
         updateNavigationLinks(problemDate, topic, data.problems, true); // true = problem is visible
+        updatePageTitleSolvedIndicator(isProblemSolved(problemDate));
+        
+        // Show total solved count
+        updateTotalSolvedCount();
         
     } catch (error) {
         console.error('Error loading problem:', error);
         displayError('Failed to load problem data. Please check console for details.');
+        
+        // Still try to show total solved count even on error
+        updateTotalSolvedCount();
     }
 }
 
@@ -278,7 +439,6 @@ function displayProblem(problem, problemDate, topicName) {
     
     let hintBox = document.getElementById('hint-box');
     if (hasHint) {
-        const problemBox = document.querySelector('.border-red-500');
         const solutionBox = document.getElementById('solution-box');
         
         if (!hintBox) {
@@ -312,7 +472,7 @@ function displayProblem(problem, problemDate, topicName) {
         }
     }
     
-    createToggleButtons(problemBox, hasHint, hasSolution && solutionVisible);
+    createToggleButtons(problemBox, hasHint, hasSolution && solutionVisible, problemDate);
     
     const problemIdInput = document.getElementById('problemId');
     if (problemIdInput) {
@@ -326,8 +486,8 @@ function displayProblem(problem, problemDate, topicName) {
     }
 }
 
-// Create toggle buttons for hint and solution
-function createToggleButtons(problemBox, hasHint, hasSolution) {
+// Create toggle buttons for hint, solution, and solved
+function createToggleButtons(problemBox, hasHint, hasSolution, problemDate) {
     const existingButtons = problemBox.querySelectorAll('button[onclick*="toggle"]');
     existingButtons.forEach(btn => btn.remove());
     
@@ -339,17 +499,22 @@ function createToggleButtons(problemBox, hasHint, hasSolution) {
     });
     
     if (!hasHint && !hasSolution) {
+        // Still add solved button even if no hint/solution
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'mt-2 flex flex-wrap items-center gap-2';
+        buttonContainer.appendChild(createSolvedButton(problemDate));
+        problemBox.appendChild(buttonContainer);
         return;
     }
     
     const buttonContainer = document.createElement('div');
-    buttonContainer.className = 'mt-2';
+    buttonContainer.className = 'mt-2 flex flex-wrap items-center gap-2';
     
     if (hasHint) {
         const hintButton = document.createElement('button');
         hintButton.id = 'hint-button';
-        hintButton.onclick = function() { toggleHint(); };
-        hintButton.className = 'bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 mr-2';
+        hintButton.onclick = toggleHint;
+        hintButton.className = 'bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600';
         hintButton.textContent = 'Show Hint';
         buttonContainer.appendChild(hintButton);
     }
@@ -357,12 +522,14 @@ function createToggleButtons(problemBox, hasHint, hasSolution) {
     if (hasSolution) {
         const solutionButton = document.createElement('button');
         solutionButton.id = 'solution-button';
-        solutionButton.onclick = function() { toggleSolution(); };
+        solutionButton.onclick = toggleSolution;
         solutionButton.className = 'bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600';
         solutionButton.textContent = 'Show Solution';
         buttonContainer.appendChild(solutionButton);
     }
     
+    // Add solved button
+    buttonContainer.appendChild(createSolvedButton(problemDate));
     problemBox.appendChild(buttonContainer);
 }
 
@@ -433,7 +600,7 @@ function toggleSolution() {
     }
 }
 
-// Update metadata
+// Update metadata with SEO enhancements
 function updateMetadata(problemDate, problem, topicName) {
     const baseURL = window.location.origin + window.location.pathname;
     
@@ -454,28 +621,43 @@ function updateMetadata(problemDate, problem, topicName) {
     
     document.title = title;
     
-    const metaDesc = document.querySelector('meta[name="description"]');
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
-    const linkedinTitle = document.querySelector('meta[name="linkedin:title"]');
-    const linkedinDesc = document.querySelector('meta[name="linkedin:description"]');
+    // Update all meta tags
+    const metaSelectors = [
+        'meta[name="description"]',
+        'meta[property="og:title"]',
+        'meta[property="og:description"]',
+        'meta[property="og:url"]',
+        'meta[name="twitter:title"]',
+        'meta[name="twitter:description"]',
+        'meta[name="linkedin:title"]',
+        'meta[name="linkedin:description"]'
+    ];
     
-    if (metaDesc) metaDesc.content = description;
-    if (ogTitle) ogTitle.content = title;
-    if (ogDesc) ogDesc.content = description;
-    if (ogUrl) ogUrl.content = baseURL;
-    if (twitterTitle) twitterTitle.content = title;
-    if (twitterDesc) twitterDesc.content = description;
-    if (linkedinTitle) linkedinTitle.content = title;
-    if (linkedinDesc) linkedinDesc.content = description;
+    metaSelectors.forEach((selector, index) => {
+        const el = document.querySelector(selector);
+        if (el) {
+            switch(index) {
+                case 0: // description
+                case 2: // og:description
+                case 5: // twitter:description
+                case 7: // linkedin:description
+                    el.content = description;
+                    break;
+                case 3: // og:url
+                    el.content = baseURL;
+                    break;
+                default: // all title tags
+                    el.content = title;
+            }
+        }
+    });
     
+    // Update share link if exists
     if (document.getElementById('shareLink')) {
         document.getElementById('shareLink').value = baseURL;
     }
     
+    // Add structured data for SEO
     try {
         const structuredData = {
             "@context": "https://schema.org",
@@ -502,10 +684,16 @@ function updateMetadata(problemDate, problem, topicName) {
             }
         };
         
-        const scriptTag = document.getElementById('structured-data');
-        if (scriptTag) {
-            scriptTag.textContent = JSON.stringify(structuredData, null, 2);
+        // Update or create structured data script
+        let scriptTag = document.getElementById('structured-data');
+        if (!scriptTag) {
+            scriptTag = document.createElement('script');
+            scriptTag.id = 'structured-data';
+            scriptTag.type = 'application/ld+json';
+            document.head.appendChild(scriptTag);
         }
+        scriptTag.textContent = JSON.stringify(structuredData, null, 2);
+        
     } catch (error) {
         console.error('Error updating structured data:', error);
     }
@@ -526,8 +714,8 @@ function updateNavigationLinks(problemDate, currentTopic, currentProblems, isPro
         const formatDate = (d) => {
             const y = d.getUTCFullYear();
             const m = String(d.getUTCMonth() + 1).padStart(2, '0');
-            const day = String(d.getUTCDate()).padStart(2, '0');
-            return `${y}-${m}-${day}`;
+            const d_ = String(d.getUTCDate()).padStart(2, '0');
+            return `${y}-${m}-${d_}`;
         };
         
         // Update regular prev/next links
@@ -607,7 +795,7 @@ function getTopicShortName(topicName) {
     return shortNames[topicName] || topicName;
 }
 
-// Setup topic problems modal functionality
+// Setup topic problems modal functionality with solved tracking
 function setupTopicProblemsModal(topicName, problems, currentDate) {
     // Create modal if it doesn't exist
     let modal = document.getElementById('topic-modal');
@@ -618,7 +806,10 @@ function setupTopicProblemsModal(topicName, problems, currentDate) {
         modal.innerHTML = `
             <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
                 <div class="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
-                    <h3 class="text-xl font-bold text-gray-900" id="modal-topic-title">Problems</h3>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900" id="modal-topic-title">Problems</h3>
+                        <p class="text-sm text-gray-600 mt-1" id="modal-solved-count"></p>
+                    </div>
                     <button id="close-topic-modal" class="text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
                 </div>
                 <div id="topic-modal-content" class="p-6"></div>
@@ -638,9 +829,17 @@ function setupTopicProblemsModal(topicName, problems, currentDate) {
         });
     }
     
-    // Update modal content
+    // Update modal content with solved count
     const formattedTopic = formatTopicName(topicName);
     document.getElementById('modal-topic-title').textContent = `All ${formattedTopic} Problems`;
+    
+    const solvedCount = getSolvedCountForTopic(problems);
+    const totalSolved = getTotalSolvedCount();
+    document.getElementById('modal-solved-count').innerHTML = `
+        <span>${solvedCount} of ${problems.length} solved in this topic</span>
+        <span class="ml-2 text-blue-600">•</span>
+        <span class="ml-2 font-semibold">${totalSolved} total solved</span>
+    `;
     
     const content = document.getElementById('topic-modal-content');
     const sortedProblems = [...problems].sort((a, b) => b.date.localeCompare(a.date)); // Latest first
@@ -649,6 +848,7 @@ function setupTopicProblemsModal(topicName, problems, currentDate) {
         const [year, month, day] = problem.date.split('-');
         const formattedDate = `${day}-${month}-${year}`;
         const isCurrent = problem.date === currentDate;
+        const isSolved = isProblemSolved(problem.date);
         const difficultyBadge = problem.difficulty ? getDifficultyBadge(problem.difficulty) : '';
         
         return `
@@ -662,6 +862,7 @@ function setupTopicProblemsModal(topicName, problems, currentDate) {
                     <div class="flex items-center gap-3">
                         <span class="text-gray-900">${formattedDate}</span>
                         ${difficultyBadge}
+                        ${isSolved ? '<span class="text-green-600 font-semibold text-sm">✓ Solved</span>' : ''}
                     </div>
                     ${isCurrent ? '<span class="text-blue-600 text-sm">● Current</span>' : ''}
                 </div>
