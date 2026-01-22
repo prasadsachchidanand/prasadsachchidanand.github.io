@@ -38,6 +38,19 @@
         "differential-equation",
         "ode"
       ]
+    },
+
+    {
+      "date": "2026-01-23",
+      "title": "An exact differential equation (3x^2 + 4xy) \\mathrm{d} x + (2x^2 + 2y) \\mathrm{d} y= 0",
+      "difficulty": "easy",
+      "problem": "Solve the differential equation\n    \\[\n        (3x^2 + 4xy) \\mathrm{d} x + (2x^2 + 2y) \\mathrm{d} y= 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      This is an exact differential equation.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:23Jan2026-1}\n        (3x^2 + 4xy) \\mathrm{d} x + (2x^2 + 2y) \\mathrm{d} y= 0.\n    \\end{equation}\n    We will first check if the equation \\eqref{eq:23Jan2026-1} is exact or not. Let $M = 3x^2 + 4xy$ and $N = 2x^2 + 2y$. Note that \n    \\begin{align*}\n        \\frac{\\partial M}{\\partial y} = 4x \\text{ and } \\frac{\\partial N}{\\partial x} = 4x.\n    \\end{align*}\n    Since $\\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x} $ in the full domain, the equation is exact.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">As the equation is exact, we must find $F$ such that \n    \\begin{align*}\n        & \\frac{\\partial F(x,y)}{\\partial x} = M(x,y) = 3x^2 + 4xy \\text{ and } \\\\\n        & \\frac{\\partial F(x,y)}{\\partial y} = N(x,y) = 2x^2 + 2y.\n    \\end{align*}\n    From the first equation, \n    \\begin{align*}\n        F(x,y) & = \\int M(x,y) \\mathrm{d} x + \\phi(y) \\\\\n               & = \\int (3x^2 + 4xy) \\mathrm{d} x + \\phi (y) \\\\\n               & = x^3 + 2x^2 y + \\phi (y). \n    \\end{align*}\n    Since \n    \\begin{align*}\n         \\frac{\\partial F(x,y)}{\\partial y} = N(x,y) & \\implies 2x^2 + \\frac{\\mathrm{d}\\phi (y)}{\\mathrm{d}y}  = 2x^2 + 2y \\\\\n         & \\implies \\frac{\\mathrm{d}\\phi (y)}{\\mathrm{d}y}  = 2y \\\\\n         & \\implies \\phi (y) = \\int 2y \\mathrm{d} y + c = y^2 + c,\n    \\end{align*}\n    where $c$ is an arbitrary constant. Thus, \n    \\[\n        F(x,y) = x^3 + 2x^2 y + y^2 + c.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
     }
   ]
 }
