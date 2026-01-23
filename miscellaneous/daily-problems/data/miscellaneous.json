@@ -38,6 +38,20 @@
         "miscellaneous",
         "nbhm-phd-2005"
       ]
+    },
+
+    {
+      "date": "2026-01-24",
+      "title": "Calculus - NBHM - 2005 - div(curl(v)) = 0",
+      "difficulty": "easy",
+      "problem": "Let $\\mathbf{v} = (v_1, v_2. v_3)$ be a vector field on $\\mathbb{R} ^3$ where\n    \\[\n        v_1 = \\sqrt{1 + x^2 + y^2} , v_2 = \\sqrt{1+ z^2} \\text{ and } v_3 = \\sqrt{1+ x^2 y^2 z^2}.\n    \\]\n    Evaluate $\\mathrm{div} (\\mathrm{curl}(\\mathbf{v} ) )$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Recall that if the components of a vector field have continuous second-order partial derivatives, then $\\mathrm{div}(\\mathrm{curl}(\\mathbf{v})) = 0$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The curl of a vector field $\\mathbf{v} = (v_1,v_2,v_3)$ is given by\n    \\[\n        \\nabla \\times \\mathbf{v}\n        =\n        \\left(\n        \\frac{\\partial v_3}{\\partial y} - \\frac{\\partial v_2}{\\partial z},\n        \\frac{\\partial v_1}{\\partial z} - \\frac{\\partial v_3}{\\partial x},\n        \\frac{\\partial v_2}{\\partial x} - \\frac{\\partial v_1}{\\partial y}\n        \\right).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Taking the divergence, we obtain\n    \\begin{align*}\n        \\nabla \\cdot (\\nabla \\times \\mathbf{v})\n        &=\n        \\frac{\\partial}{\\partial x}\n        \\left(\n            \\frac{\\partial v_3}{\\partial y} - \\frac{\\partial v_2}{\\partial z}\n        \\right)\n        +\n        \\frac{\\partial}{\\partial y}\n        \\left(\n            \\frac{\\partial v_1}{\\partial z} - \\frac{\\partial v_3}{\\partial x}\n        \\right)\n        +\n        \\frac{\\partial}{\\partial z}\n        \\left(\n            \\frac{\\partial v_2}{\\partial x} - \\frac{\\partial v_1}{\\partial y}\n        \\right) \\\\[0.5em]\n        &=\n        \\frac{\\partial^2 v_3}{\\partial x \\partial y}\n        -\n        \\frac{\\partial^2 v_2}{\\partial x \\partial z}\n        +\n        \\frac{\\partial^2 v_1}{\\partial y \\partial z}\n        -\n        \\frac{\\partial^2 v_3}{\\partial y \\partial x}\n        +\n        \\frac{\\partial^2 v_2}{\\partial z \\partial x}\n        -\n        \\frac{\\partial^2 v_1}{\\partial z \\partial y}.\n    \\end{align*}\n\n    Since the functions $v_1, v_2,$ and $v_3$ have continuous second-order partial derivatives on $\\mathbb{R}^3$, the mixed partial derivatives commute:\n    \\[\n        \\frac{\\partial^2 f}{\\partial x \\partial y}\n        =\n        \\frac{\\partial^2 f}{\\partial y \\partial x}.\n    \\]\n\n    Hence, each pair of terms cancels, and we conclude that\n    \\[\n        \\nabla \\cdot (\\nabla \\times \\mathbf{v}) = 0.\n    \\]\n\n    Therefore,\n    \\[\n        \\boxed{\\mathrm{div}(\\mathrm{curl}(\\mathbf{v})) = 0.}\n    \\]</div>",
+      "tags": [
+        "miscellaneous",
+        "calculus",
+        "nbhm-phd-2005"
+      ]
     }
   ]
 }
