@@ -41,6 +41,21 @@
         "linear-transformation",
         "nbhm-phd-2005"
       ]
+    },
+
+    {
+      "date": "2026-01-25",
+      "title": "NBHM - 2005 - A^{-1} = \\alpha A^2 + \\beta A + \\gamma I",
+      "difficulty":"easy",
+      "problem": "Let $A$ be a $3 \\times 3$ matrix whose eigenvalues are $-1, 1, 2$. Find $\\alpha$, $\\beta$, and $\\gamma$ such that\n    \\[\n        A^{-1} = \\alpha A^2 + \\beta A + \\gamma I.\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Apply <a href=\"https://en.wikipedia.org/wiki/Cayley%E2%80%93Hamilton_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cayley–Hamilton theorem</a>.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The eigenvalues of the $3 \\times 3$ matrix $A $ is given by $-1,1,2$. So the characteristic polynomial of $A$ will be \n    \\[\n        p(x) = (x-1)(x+1)(x-2) = x^3 - 2x^2 -x + 2.\n    \\]\n    So, from <a href=\"https://en.wikipedia.org/wiki/Cayley%E2%80%93Hamilton_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cayley–Hamilton theorem</a>, the matrix $A$ must satisfies its characteristic polynomial, that is, \n    \\begin{equation}\\label{eq:25Jan2026-1}\n        A^3 - 2 A^2 - A + 2I = 0.\n    \\end{equation}\n    Since $0$ is not an eigenvalue of $A$, it is invertible. Multiplying \\eqref{eq:25Jan2026-1} by $A^{-1} $, we get \n    \\begin{align*}\n        A^2 - 2A - I + 2 A^{-1} = 0 & \\implies 2A^{-1} = -A^2 + 2A + I \\\\\n                                    & \\implies A^{-1} = -\\frac{1}{2}A^2 + A + \\frac{1}{2}I.\n    \\end{align*} \n    Therefore, \n    \\[\n        \\alpha = -\\frac{1}{2}, \\beta = 1 \\text{ and } \\gamma = \\frac{1}{2}.\n    \\]</div>",
+      "tags": [
+        "linear-algebra",
+        "characteristic-polynomial",
+        "eigenvalues",
+        "nbhm-phd-2005"
+      ]
     }
   ]
 }
