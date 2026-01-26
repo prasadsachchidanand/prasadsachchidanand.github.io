@@ -1,0 +1,48 @@
+{
+  "courses": [
+    {
+      "code": "MTH 565",
+      "title": "Algebraic Topology I",
+      "abbreviation": "AT",
+      "semester": "Winter 2026",
+      "year": "2026",
+      "location": "IIIT Delhi",
+      "status": "ongoing",
+      "tags": ["topology", "geometry", "graduate"],
+      "url": "algebraic-topology-I/"
+    },
+    {
+      "code": "MTH 565",
+      "title": "Matrix Groups",
+      "abbreviation": "MG",
+      "semester": "Monsoon 2025",
+      "year": "2025",
+      "location": "IIIT Delhi",
+      "status": "completed",
+      "tags": ["algebra", "geometry", "groups", "graduate"],
+      "url": "matrix-groups/"
+    },
+    {
+      "code": "GEOMETRY",
+      "title": "Lorentzian and Semi-Riemannian Geometry",
+      "abbreviation": "LG",
+      "semester": "Summer 2025",
+      "year": "2025",
+      "location": "University of Göttingen",
+      "status": "completed",
+      "tags": ["geometry", "differential", "lorentzian"],
+      "url": "lorentzian-and-semi-Riemannian-geometry/"
+    },
+    {
+      "code": "GEOMETRY",
+      "title": "Introduction to Symplectic Geometry",
+      "abbreviation": "SG",
+      "semester": "Spring 2024",
+      "year": "2024",
+      "location": "Jilin University, China",
+      "status": "completed",
+      "tags": ["geometry", "symplectic", "differential"],
+      "url": "introduction_to_symplectic_geometry/"
+    }
+  ]
+}

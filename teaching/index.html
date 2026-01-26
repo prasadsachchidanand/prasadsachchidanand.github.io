@@ -1,258 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-CVGSV7Y2CE');
-    </script>
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'G-CVGSV7Y2CE');
+	</script>
 
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Teaching - Sachchidanand Prasad</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Teaching - Sachchidanand Prasad</title>
 
-		<meta name="description" content="Sachchidanand Prasad's teaching. Introduction to Symplectic geometry. Explore research, teaching, CV, articles, daily problems, and more.">
-    	<meta name="keywords" content="Sachchidanand Prasad, postdoctoral fellow, Jilin University, Göttingen University, research, teaching, CV, articles, differential geometry, symplectic geometry, daily problems, gate, research papers, cut locus, quandles, independence complex">
-		
-		<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png"/>
+	<meta name="description"
+		content="Sachchidanand Prasad's teaching. Introduction to Symplectic geometry. Explore research, teaching, CV, articles, daily problems, and more.">
+	<meta name="keywords"
+		content="Sachchidanand Prasad, postdoctoral fellow, Jilin University, Göttingen University, research, teaching, CV, articles, differential geometry, symplectic geometry, daily problems, gate, research papers, cut locus, quandles, independence complex">
 
-		<link rel="stylesheet" href="../assets/style.css">
+	<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png" />
+	<link rel="stylesheet" href="../assets/style.css">
 
-		<!-- Font awesome -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-		<!-- academic icons -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-		
-		<!-- Google ad -->
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
+	<!-- academic icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+	<!-- Google ad -->
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
 		crossorigin="anonymous"></script>
-		
-        <style>
-            .panel {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease-out;
-            }
-            .panel-long {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.8s ease-out;
-            }
-        </style>
-	</head>
 
-	<body style="background: #edf2f7;">
-		<div class="flex flex-col h-screen">	
-			
-			<!-- navbar -->
-			<div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
-				<div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto   md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+	<style>
+		.course-card {
+			transition: all 0.3s ease;
+		}
+
+		.course-card:hover {
+			transform: scale(1.05);
+		}
+
+		.filter-btn.active {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+		}
+	</style>
+</head>
+
+<body style="background: #edf2f7;">
+	<div class="flex flex-col h-screen">
+
+		<!-- navbar -->
+		<div
+			class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+			<div x-data="{ open: false }"
+				class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
 				<div class="p-4 flex flex-row items-center justify-between">
-					<a href="../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
+					<a href="../"
+						class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand
+						Prasad</a>
 					<button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
-					<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-						<path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-						<path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-					</svg>
+						<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+							<path x-show="!open" fill-rule="evenodd"
+								d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+								clip-rule="evenodd"></path>
+							<path x-show="open" fill-rule="evenodd"
+								d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+								clip-rule="evenodd"></path>
+						</svg>
 					</button>
 				</div>
-				
-				<nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
-					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../">Home</a>
-			
-					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../research/">Research</a>
 
-          			<a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../teaching/">Teaching</a>
-
-					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../resume/">CV</a>
-
-					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../publications/">Publications</a>
-
-					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../miscellaneous/">Miscellaneous</a>
-					
-					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../contact/">Contact</a>	  
+				<nav :class="{'flex': open, 'hidden': !open}"
+					class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="../">Home</a>
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="../research/">Research</a>
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="../teaching/">Teaching</a>
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="../resume/">CV</a>
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="../publications/">Publications</a>
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="../miscellaneous/">Miscellaneous</a>
+					<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="../contact/">Contact</a>
 				</nav>
-				</div>
 			</div>
-
-			<!-- section -->
-			<section class="text-gray-600 body-font">
-				<div class="container px-5 py-24 mx-auto">
-				  <div class="flex flex-col items-center text-center justify-center">
-					<h2 class="text-gray-900 text-3xl title-font font-medium">Courses</h2>
-					<div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-				  </div>
-				  <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-					<div class="p-4 md:w-full flex">
-					  <div class="flex-grow lg:px-32 px-6">
-						
-						<ol class="pl-8 list-disc text-lg font-normal mt-4">
-							<li class="mb-2">
-								<a href="matrix-groups/" class="text-blue-500 hover:text-blue-800">MTH 565 Matrix Groups</a>
-								<div class="text-gray-500 text-sm mt-1">
-								<i class="fa-solid fa-calendar-check pl-4 text-red-500"></i>
-								Monsoon 2025
-								<i class="fa-solid fa-location-pin pl-4 text-purple-500"></i>
-								<span class="capitalize">IIIT Delhi</span> 
-								</div>
-							</li>
-
-							<li class="mb-2">
-								<a href="lorentzian-and-semi-Riemannian-geometry/" class="text-blue-500 hover:text-blue-800">Lorentzian and Semi-Riemannian Geometry</a>
-								<div class="text-gray-500 text-sm mt-1">
-								<i class="fa-solid fa-calendar-check pl-4 text-red-500"></i>
-								Summer Semester 2025
-								<i class="fa-solid fa-location-pin pl-4 text-purple-500"></i>
-								<span class="capitalize">University of Göttingen (Mathematisches Institut)</span> 
-								</div>
-							</li>
-
-							<!-- <li class="mb-2">
-								<a href="GATE-2025/" class="text-blue-500 hover:text-blue-800">GATE 2025</a>
-								<div class="text-gray-500 text-sm mt-1">
-								<i class="fa-solid fa-calendar-check pl-4 text-red-500"></i>
-								Autumn 2024
-								<i class="fa-solid fa-location-pin pl-4 text-purple-500"></i>
-								<span class="capitalize">shri phanishwar nath renu engineering college, araria</span> 
-								</div>
-							</li>
-
-							<li class="mb-2">
-								<a href="engineering-mathematics-I/" class="text-blue-500 hover:text-blue-800">Engineering Mathematics-I</a>
-								<div class="text-gray-500 text-sm mt-1">
-									<i class="fa-solid fa-calendar-check pl-4 text-red-500"></i>
-									Autumn 2024
-									<i class="fa-solid fa-location-pin pl-4 text-purple-500"></i>
-									<span class="capitalize">shri phanishwar nath renu engineering college, araria</span> 
-								</div>
-							</li>
-
-							<li class="mb-2">
-								<a href="complex_variables/" class="text-blue-500 hover:text-blue-800">Complex Variables</a>
-								<div class="text-gray-500 text-sm mt-1">
-									<i class="fa-solid fa-calendar-check pl-4 text-red-500"></i>
-									Autumn 2024
-									<i class="fa-solid fa-location-pin pl-4 text-purple-500"></i>
-									<span class="capitalize">shri phanishwar nath renu engineering college, araria</span> 
-								</div>
-							</li>
-
-							<li class="mb-2">
-								<a href="numerical_methods/" class="text-blue-500 hover:text-blue-800">Numerical Methods</a>
-								<div class="text-gray-500 text-sm mt-1">
-									<i class="fa-solid fa-calendar-check pl-4 text-red-500"></i>
-									Autumn 2024
-									<i class="fa-solid fa-location-pin pl-4 text-purple-500"></i>
-									<span class="capitalize">shri phanishwar nath renu engineering college, araria</span> 
-								</div>
-							</li> -->
-							
-							<li class="mb-2">
-								<a href="introduction_to_symplectic_geometry/" class="text-blue-500 hover:text-blue-800">Introduction to Symplectic Geometry</a>
-								<div class="text-gray-500 text-sm mt-1">
-									<i class="fa-solid fa-calendar-check pl-4 text-red-500"></i>
-									Spring 2024
-									<i class="fa-solid fa-location-pin pl-4 text-purple-500"></i>
-									School of Mathematics, Jilin University, China
-								</div>
-							</li>
-						</ol>
-					  </div>
-					</div>
-				  </div>
-				</div>
-			</section>
-
-			<!-- footer -->
-			<footer class="foot mt-auto border-t border-gray-200">
-				<div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
-				  <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> Sachchidanand
-				  </p>
-				  <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
-				  </p>
-				  <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-					<a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
-					  <i class="fa-brands fa-facebook-f"></i>
-					</a>
-					<a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
-					  <i class="fa-brands fa-instagram"></i>
-					</a>
-					<a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
-					  <i class="fa-brands fa-twitter"></i>
-					</a>
-					<a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
-					  <i class="fa-brands fa-github"></i>
-					</a>
-					<a class="ml-3 text-gray-500 hover:text-green-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
-					  <i class="ai ai-researchgate ai-lg"></i>
-					</a>
-					<a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
-					  <i class="ai ai-academia"></i>
-					</a>
-				  </span>
-				</div>
-				<hr class="py-1 w-1/4 m-auto">
-				<div class="items-center">
-					<p class="text-center">
-						<span class="text-gray-500 text-sm mr-1">No of visitors: </span>
-						<img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
-						alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
-						<span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
-					</p>
-				</div>
-			  </footer>
 		</div>
 
-		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-		<script>
-			function myFunction() {
-				var x = document.lastModified;
-				document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
-				}
+		<!-- section -->
+		<section class="text-gray-600 body-font">
+			<div class="container px-5 py-24 mx-auto">
+				<!-- Content will be loaded here by JavaScript -->
+				<div id="mainContent">
+					<div class="text-center py-12">
+						<p class="text-gray-500">Loading courses...</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-				myFunction()
-		</script>
+		<!-- footer -->
+		<footer class="foot mt-auto border-t border-gray-200">
+			<div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+				<p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©
+					<script>document.write(new Date().getFullYear())</script> Sachchidanand
+				</p>
+				<p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+					Last updated: <span id="updated"></span>
+				</p>
+				<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+					<a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/"
+						target="_blank">
+						<i class="fa-brands fa-facebook-f"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/"
+						target="_blank">
+						<i class="fa-brands fa-instagram"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26"
+						target="_blank">
+						<i class="fa-brands fa-twitter"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand"
+						target="_blank">
+						<i class="fa-brands fa-github"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-green-500"
+						href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+						<i class="ai ai-researchgate ai-lg"></i>
+					</a>
+					<a class="ml-3 text-gray-500 hover:text-gray-900"
+						href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+						<i class="ai ai-academia"></i>
+					</a>
+				</span>
+			</div>
+			<hr class="py-1 w-1/4 m-auto">
+			<div class="items-center">
+				<p class="text-center">
+					<span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+					<img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D"
+						alt="Hit Counter by Digits" border="0" class="w-11 inline" />
+					<span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/"
+							class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+				</p>
+			</div>
+		</footer>
+	</div>
 
-        <!-- accordion script -->
-		<script>
-			var acc = document.getElementsByClassName("accordion");
-			var i;
-			for (i = 0; i < acc.length; i++) {
-				acc[i].addEventListener("click", function() {
-					var panel = this.nextElementSibling;
-					if (panel.style.maxHeight) {
-					panel.style.maxHeight = null;
-					} else {
-					panel.style.maxHeight = panel.scrollHeight + "px";
-					} 
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+	<script>
+		// Update footer date
+		document.getElementById('updated').textContent = new Date().toISOString().split('T')[0];
+
+		// Load courses data and render the page
+		fetch('courses-data.json')
+			.then(response => response.json())
+			.then(data => {
+				renderTeachingPage(data);
+			})
+			.catch(error => {
+				console.error('Error loading courses data:', error);
+				document.getElementById('mainContent').innerHTML = `
+                    <div class="text-center py-12">
+                        <p class="text-red-500">Error loading courses. Please check console.</p>
+                    </div>
+                `;
+			});
+
+		function renderTeachingPage(data) {
+			const mainContent = document.getElementById('mainContent');
+
+			// Separate ongoing and completed courses
+			const ongoingCourses = data.courses.filter(c => c.status === 'ongoing');
+			const completedCourses = data.courses.filter(c => c.status === 'completed');
+
+			// Get all unique years for filters
+			const years = [...new Set(data.courses.map(c => c.year))].sort().reverse();
+
+			mainContent.innerHTML = `
+                ${renderHeader()}
+                ${renderSearchAndFilters(years)}
+                ${renderCourseGrid(ongoingCourses, completedCourses)}
+                ${renderNoResults()}
+            `;
+
+			initializeFilters(data.courses);
+		}
+
+		function renderHeader() {
+			return `
+                <div class="flex flex-col items-center text-center justify-center">
+                    <h2 class="text-gray-900 text-3xl title-font font-medium">Teaching</h2>
+                    <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                </div>
+            `;
+		}
+
+		function renderSearchAndFilters(years) {
+			// Create year dropdown options
+			const yearOptions = years.map(year => `
+                <option value="${year}">${year}</option>
+            `).join('');
+
+			return `
+                <div class="mb-8 bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex flex-col md:flex-row gap-4 items-center">
+                        <div class="flex-1 relative w-full">
+                            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" id="searchInput"
+                                   placeholder="Search courses..." 
+                                   class="w-full pl-12 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <button id="clearSearch" class="hidden absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="flex gap-2 flex-wrap justify-center">
+                            <button class="filter-btn active px-4 py-2 rounded-lg font-semibold text-sm border border-gray-300 hover:bg-gray-100 transition" data-filter="all">
+                                All
+                            </button>
+                            <button class="filter-btn px-4 py-2 rounded-lg font-semibold text-sm border border-gray-300 hover:bg-gray-100 transition" data-filter="ongoing">
+                                Ongoing
+                            </button>
+                            <button class="filter-btn px-4 py-2 rounded-lg font-semibold text-sm border border-gray-300 hover:bg-gray-100 transition" data-filter="completed">
+                                Completed
+                            </button>
+                            <select id="yearDropdown" class="px-4 py-2 rounded-lg font-semibold text-sm border border-gray-300 hover:bg-gray-100 transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                <option value="">Filter by Year</option>
+                                ${yearOptions}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            `;
+		}
+
+		function renderCourseGrid(ongoingCourses, completedCourses) {
+			const ongoingHTML = ongoingCourses.map(course => renderCourseCard(course, true)).join('');
+			const completedHTML = completedCourses.map(course => renderCourseCard(course, false)).join('');
+
+			return `
+                <div id="courseGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    ${ongoingHTML}
+                    ${completedHTML}
+                </div>
+            `;
+		}
+
+		function renderCourseCard(course, isOngoing) {
+			const headerGradient = isOngoing ? 'from-indigo-400 to-blue-600' : 'from-slate-400 to-slate-600';
+			const badgeColor = isOngoing ? 'bg-green-500' : 'bg-slate-500';
+			const buttonColor = isOngoing ? 'bg-indigo-600 hover:bg-indigo-700' : 'bg-slate-600 hover:bg-slate-700';
+			const statusText = isOngoing ? 'Ongoing' : 'Completed';
+
+			return `
+                <div class="course-card bg-white rounded-xl shadow-lg overflow-hidden" 
+                     data-status="${course.status}" 
+                     data-year="${course.year}" 
+                     data-tags="${course.tags.join(' ')}">
+                    <div class="h-32 bg-gradient-to-br ${headerGradient} relative">
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 ${badgeColor} text-white text-xs font-bold rounded-full">
+                                ${statusText}
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="text-white text-sm font-semibold">${course.semester}</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-start mb-3">
+                            <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                <span class="text-xl font-bold text-gray-700">${course.abbreviation}</span>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500 font-semibold mb-1">${course.code}</div>
+                                <h3 class="text-lg font-bold text-gray-800">${course.title}</h3>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600 mb-4">
+                            <i class="fas fa-location-dot text-purple-500 mr-2"></i>
+                            <span>${course.location}</span>
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            ${course.tags.slice(0, 2).map(tag => `
+                                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded capitalize">${tag}</span>
+                            `).join('')}
+                        </div>
+                        <a href="${course.url}" class="block w-full text-center ${buttonColor} text-white font-semibold py-2 rounded-lg transition">
+                            View Course
+                        </a>
+                    </div>
+                </div>
+            `;
+		}
+
+		function renderNoResults() {
+			return `
+                <div id="noResults" class="hidden text-center py-12">
+                    <i class="fas fa-search text-6xl text-gray-300 mb-4"></i>
+                    <p class="text-gray-500 text-lg">No courses found matching your search.</p>
+                </div>
+            `;
+		}
+
+		function initializeFilters(courses) {
+			const filterBtns = document.querySelectorAll('.filter-btn');
+			const courseCards = document.querySelectorAll('.course-card');
+			const searchInput = document.getElementById('searchInput');
+			const clearSearchBtn = document.getElementById('clearSearch');
+			const courseGrid = document.getElementById('courseGrid');
+			const noResults = document.getElementById('noResults');
+			const yearDropdown = document.getElementById('yearDropdown');
+
+			let currentFilter = 'all';
+
+			// Filter button clicks
+			filterBtns.forEach(btn => {
+				btn.addEventListener('click', () => {
+					filterBtns.forEach(b => b.classList.remove('active'));
+					btn.classList.add('active');
+					currentFilter = btn.dataset.filter;
+					yearDropdown.value = ''; // Reset dropdown
+					applyFilters();
 				});
-			}
-		</script>
+			});
 
-		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-			
-		<script>
-		MathJax = {
-			tex: {
-			inlineMath: [
-				['$', '$'],
-				['\\(', '\\)']
-			],
-			displayMath: [
-				['$$', '$$'],
-				['\\[', '\\]']
-			]
-			},
-			svg: {
-			fontCache: 'global'
+			// Year dropdown change
+			yearDropdown.addEventListener('change', (e) => {
+				if (e.target.value) {
+					filterBtns.forEach(b => b.classList.remove('active'));
+					currentFilter = e.target.value;
+					applyFilters();
+				} else {
+					// Reset to "All" if no year selected
+					filterBtns.forEach(b => b.classList.remove('active'));
+					filterBtns[0].classList.add('active');
+					currentFilter = 'all';
+					applyFilters();
+				}
+			});
+
+			searchInput.addEventListener('input', () => {
+				if (searchInput.value.length > 0) {
+					clearSearchBtn.classList.remove('hidden');
+				} else {
+					clearSearchBtn.classList.add('hidden');
+				}
+				applyFilters();
+			});
+
+			clearSearchBtn.addEventListener('click', () => {
+				searchInput.value = '';
+				clearSearchBtn.classList.add('hidden');
+				searchInput.focus();
+				applyFilters();
+			});
+
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape') {
+					searchInput.value = '';
+					clearSearchBtn.classList.add('hidden');
+					filterBtns.forEach(b => b.classList.remove('active'));
+					filterBtns[0].classList.add('active');
+					currentFilter = 'all';
+					yearDropdown.value = ''; // Reset dropdown
+					applyFilters();
+					searchInput.blur();
+				}
+			});
+
+			function applyFilters() {
+				const searchTerm = searchInput.value.toLowerCase();
+				let visibleCount = 0;
+
+				courseCards.forEach(card => {
+					const status = card.dataset.status;
+					const year = card.dataset.year;
+					const tags = card.dataset.tags;
+					const text = card.textContent.toLowerCase();
+
+					let matchesFilter = currentFilter === 'all' ||
+						status === currentFilter ||
+						year === currentFilter;
+
+					let matchesSearch = searchTerm === '' ||
+						text.includes(searchTerm) ||
+						tags.includes(searchTerm);
+
+					if (matchesFilter && matchesSearch) {
+						card.style.display = 'block';
+						visibleCount++;
+					} else {
+						card.style.display = 'none';
+					}
+				});
+
+				if (visibleCount === 0) {
+					courseGrid.classList.add('hidden');
+					noResults.classList.remove('hidden');
+				} else {
+					courseGrid.classList.remove('hidden');
+					noResults.classList.add('hidden');
+				}
 			}
-		};
-		</script>
-	</body>
+		}
+	</script>
+</body>
 </html>
-
