@@ -1,5 +1,5 @@
 {
-  "courseCode": "MTH565",
+  "courseCode": "MTH566",
   "courseTitle": "Algebraic Topology I",
   "semester": "Winter Semester 2026",
   
@@ -11,23 +11,42 @@
   "location": "B 002 R & D Building",
   
   "grading": {
-    "Assignments": 20,
+    "Assignments": 10,
     "Quizzes": 20,
-    "Presentation": 20,
+    "Presentation": 10,
+    "Mid Sem": 20,
     "End Sem": 40
   },
   
   "references": [
     {
-      "author": "Baker, Andrew",
-      "title": "Matrix Groups: An Introduction to Lie Group Theory",
-      "publisher": "Springer, 2002",
-      "link": "https://link.springer.com/book/10.1007/978-1-4471-0183-3"
+      "author": "Tammo tom Dieck",
+      "title": "Algebraic Topology",
+      "publisher": "EMS",
+      "link": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/diecktop.pdf"
     },
     {
-      "author": "Tapp, Kristopher",
-      "title": "Matrix Groups for Undergraduates",
-      "publisher": "American Mathematical Society, 2016",
+      "author": "Allen Hatcher",
+      "title": "Algebraic Topology",
+      "publisher": "Cambridge University Press",
+      "link": "https://pi.math.cornell.edu/~hatcher/AT/AT.pdf"
+    },
+    {
+      "author": "William S. Massey",
+      "title": "A Basic Course in Algebraic Topology",
+      "publisher": "Springer",
+      "link": null
+    },
+    {
+      "author": "Glen E. Bredon",
+      "title": "Topology and Geometry",
+      "publisher": "Springer",
+      "link": null
+    },
+    {
+      "author": "James R. Munkres",
+      "title": "Topology",
+      "publisher": "Pearson",
       "link": null
     }
   ],
@@ -168,15 +187,9 @@
           "name": "file",
           "type": "button",
           "label": "Download PDF",
-          "buttonColor": "blue"
-        },
-        {
-          "name": "notes",
-          "type": "button",
-          "label": "Notes",
-          "buttonColor": "purple",
+          "buttonColor": "blue",
           "optional": true,
-          "lockedText": "Notes"
+          "lockedText": "Coming Soon"
         }
       ],
       "items": [
@@ -184,15 +197,7 @@
           "number": 1,
           "title": "Review of point set topology",
           "date": "January 20, 2026",
-          "file": "lectures/lec-01.pdf",
-          "notes": null
-        },
-        {
-          "number": 2,
-          "title": "Homotopy and fundamental groups",
-          "date": "January 22, 2026",
-          "file": "lectures/lec-02.pdf",
-          "notes": "lectures/notes-02.pdf"
+          "file": null
         }
       ]
     }

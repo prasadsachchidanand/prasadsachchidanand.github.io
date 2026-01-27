@@ -40,6 +40,18 @@
         "complex-analysis",
         "nbhm-phd-2005"
       ]
+    },
+
+    {
+      "date": "2026-01-27",
+      "title": "Solve \\frac{z - 1}{z - \\iota } = \\frac{z + 2\\iota }{z + 2}",
+      "difficulty": "easy",
+      "problem": "Solve \n    \\[\n        \\frac{z - 1}{z - \\iota } = \\frac{z + 2\\iota }{z + 2}.\n    \\]\n    Also express it in $x + \\iota y$ form.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Easy simplification after cross multiplication.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given that the equation is \n    \\begin{equation}\\label{eq:27Jan2026-1}\n        \\frac{z - 1}{z - \\iota } = \\frac{z + 2\\iota }{z + 2}.\n    \\end{equation}\n    Note that \n    \\begin{align*}\n        \\frac{z - 1}{z - \\iota } = \\frac{z + 2\\iota }{z + 2} & \\implies (z - 1)(z+2) = (z + 2\\iota ) (z - \\iota ) \\\\\n        & \\implies z^2 + z - 2 = z^2 + \\iota z - 2 \\iota ^2 \\\\\n        & \\implies z - 2 = \\iota z + 2 \\\\\n        & \\implies z(1 - \\iota ) = 4 \\\\\n        & \\implies z = \\frac{4}{1 - \\iota }.\n    \\end{align*}\n    Now to simply the above form, observe that \n    \\begin{align*}\n        \\frac{4}{1 - \\iota  } & = \\frac{4}{1 - \\iota } \\times \\frac{1 + \\iota }{1 + \\iota } = 4\\frac{1 + \\iota }{2} = 2 + 2 \\iota .\n    \\end{align*}</div>",
+      "tags": [
+        "complex-analysis"
+      ]
     }
   ]
 }
