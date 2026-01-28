@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-CVGSV7Y2CE');
-    </script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CVGSV7Y2CE');
+  </script>
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-	<title>Daily Problems - Sachchidanand Prasad</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Daily Problems - Sachchidanand Prasad</title>
 
   <!-- Essential Meta Tags -->
   <meta charset="UTF-8">
@@ -22,24 +22,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!-- Primary Meta Tags -->
-  <title>Daily Math Problems | Interactive Calendar for Mathematics Practice</title>
   <meta name="title" content="Daily Math Problems | Interactive Calendar for Mathematics Practice">
-  <meta name="description" content="Practice mathematics daily with our interactive calendar of problems in Linear Algebra, Real Analysis, Complex Analysis and more. New problems added daily.">
-  <meta name="keywords" content="daily math problems, math problem calendar, linear algebra problems, real analysis problems, complex analysis problems, math practice, daily mathematics">
+  <meta name="description"
+    content="Practice mathematics daily with our interactive calendar of problems in Linear Algebra, Real Analysis, Complex Analysis and more. New problems added daily.">
+  <meta name="keywords"
+    content="daily math problems, math problem calendar, linear algebra problems, real analysis problems, complex analysis problems, math practice, daily mathematics">
   <meta name="author" content="Sachchidanand Prasad">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://prasadsachchidanand.github.io/">
   <meta property="og:title" content="Daily Math Problems | Interactive Calendar for Mathematics Practice">
-  <meta property="og:description" content="Practice mathematics daily with our interactive calendar of problems in Linear Algebra, Real Analysis, Complex Analysis and more. New problems added daily.">
+  <meta property="og:description"
+    content="Practice mathematics daily with our interactive calendar of problems in Linear Algebra, Real Analysis, Complex Analysis and more. New problems added daily.">
   <meta property="og:image" content="https://prasadsachchidanand.github.io/images/og-image.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://prasadsachchidanand.github.io/">
   <meta property="twitter:title" content="Daily Math Problems | Interactive Calendar for Mathematics Practice">
-  <meta property="twitter:description" content="Practice mathematics daily with our interactive calendar of problems in Linear Algebra, Real Analysis, Complex Analysis and more. New problems added daily.">
+  <meta property="twitter:description"
+    content="Practice mathematics daily with our interactive calendar of problems in Linear Algebra, Real Analysis, Complex Analysis and more. New problems added daily.">
   <meta property="twitter:image" content="https://prasadsachchidanand.github.io/assets/img/favicon.png">
 
   <!-- Canonical URL -->
@@ -51,281 +54,361 @@
   <meta name="revisit-after" content="1 days">
 
   <link rel="stylesheet" href="calendar.css">
-
   <link rel="stylesheet" href="answer.css">
-
-  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.png"/>
-
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.png" />
   <link rel="stylesheet" href="../../assets/style.css">
 
   <!-- Font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- academic icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-  </head>
-  <body style="background: #edf2f7;">
-    <div class="flex flex-col h-screen">
-      <!-- navbar -->
-      <div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
-        <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-          <div class="p-4 flex flex-row items-center justify-between">
-            <a href="../../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
-            <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
-              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-              </svg>
-            </button>
-          </div>
-          <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../"> Home </a>
-
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../research/"> Research </a>
-
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../teaching/"> Teaching </a>
-
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../resume/"> CV </a>
-
-		      	<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../publications/">Publications</a>
-
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../miscellaneous/"> Miscellaneous </a>
-
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../contact/">Contact</a>
-          </nav>
+</head>
+<body style="background: #edf2f7;">
+  <div class="flex flex-col min-h-screen">
+    <!-- navbar -->
+    <div
+      class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-50 shadow-sm">
+      <div x-data="{ open: false }"
+        class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+        <div class="p-4 flex flex-row items-center justify-between">
+          <a href="../../"
+            class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand
+            Prasad</a>
+          <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+              <path x-show="!open" fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                clip-rule="evenodd"></path>
+              <path x-show="open" fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
         </div>
+        <nav :class="{'flex': open, 'hidden': !open}"
+          class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../"> Home </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../research/"> Research </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../teaching/"> Teaching </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../resume/"> CV </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../publications/">Publications</a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../miscellaneous/"> Miscellaneous </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../contact/">Contact</a>
+        </nav>
       </div>
-      
-      <!-- section -->
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-20">
       <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="text-gray-900 text-3xl title-font font-medium">Daily Problems</h2>
-            <div class="w-36 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+        <div class="container px-5 py-8 mx-auto">
+
+          <!-- Hero Section -->
+          <div class="mb-12 text-center">
+            <h1 class="mb-4 text-4xl sm:text-4xl font-bold text-gray-900">Daily Math Problems</h1>
+            <div class="w-24 h-1 mx-auto bg-indigo-500 rounded mb-6"></div>
           </div>
-          <!-- <div class="flex flex-col items-center text-center justify-center">
-            <img class="md:w-96 sm:w-80 small-screen-margin" src="../assets/img/sphere-cut-locus.svg" alt="sphere cut locus" >
-          </div> -->
-          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-            <div class="p-4 md:w-full flex">
-              <div class="flex-grow lg:px-32 px-6">
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify"> 
-                  Every day, a <a href="#problem-of-the-day" class="text-blue-500 hover:text-blue-800">new problem</a> will be posted on this platform. To access previous problems, you can click on the date that is provided. The topic of the problem will vary depending on the day it is posted.
+
+          <!-- Two Column Layout -->
+          <div class="flex flex-col lg:flex-row gap-8">
+
+            <!-- Left Column - Content -->
+            <div class="lg:w-2/3">
+
+              <!-- Introduction -->
+              <div class="p-6 mb-8 bg-white rounded-lg shadow-md border border-gray-200">
+                <p class="mb-4 leading-relaxed text-base md:text-lg text-justify text-gray-700">
+                  Every day, a <a href="#problem-of-the-day"
+                    class="font-medium text-blue-600 hover:text-blue-800">new problem</a> is posted on this
+                  platform. Click on any date in the calendar to access previous problems and practice different
+                  mathematical concepts.
                 </p>
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  In addition to this, it's important to note that this platform serves as a source for daily problems that cover a wide range of topics. By clicking on the date, you will be able to access previous problems, allowing you to review and practice different concepts. This can be a great resource for those looking to improve their problem-solving skills and knowledge in various areas. Furthermore, it provides an opportunity to learn and grow in a challenging and stimulating way.
+                <p class="leading-relaxed text-base md:text-lg text-justify text-gray-700">
+                  This resource helps improve problem-solving skills across various areas of mathematics, providing a
+                  challenging and stimulating learning experience.
                 </p>
+              </div>
 
-                <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="publications">Problems schedule</h2>
+              <!-- Problem of the Day -->
+              <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="problem-of-the-day">
+                <a class="text-blue-500 hover:text-blue-800" href="#"></a>
+              </h2>
 
-                <p class="mt-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  The schedule for posting problems on this platform follows a specific pattern. Each day of the week is dedicated to a specific topic of mathematics, and problems related to that topic are posted on that day. The topics and corresponding days are listed in the table below. This schedule allows users to focus on a specific topic each day and gain a deeper understanding of the subject. It also allows users to plan their study schedule and know when to expect problems related to a specific topic. These problems are also sorted with areas (<a href="tags/" class="text-blue-500 hover:text-blue-800">see the tags</a>.)
-                </p>
-
-                <div class="relative my-4 mx-4">
-                  <table class="w-full text-md text-left text-gray-500">
-                      <thead class="text-sm font-medium text-gray-700 uppercase bg-gray-200">
-                          <tr class="border-b border-gray-500">
-                              <th scope="col" class="px-6 py-3 border-r border-gray-500">
-                                  Day of the week
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Topic
-                              </th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr class="bg-gray-200 border-b border-gray-300">
-                              <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap border-r border-gray-500">
-                                  Sunday 
-                              </td>
-                              <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap">
-                                  Linear Algebra
-                              </td>
-                          </tr>
-                          <tr class="bg-gray-200 border-b border-gray-300">
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap border-r border-gray-500">
-                                Monday 
-                            </td>
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap">
-                                Real Analysis
-                            </td>
-                        </tr>
-                        <tr class="bg-gray-200 border-b border-gray-300">
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap border-r border-gray-500">
-                                Tuesday
-                            </td>
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap">
-                              Complex Analysis
-                            </td>
-                        </tr>
-                        <tr class="bg-gray-200 border-b border-gray-300">
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap border-r border-gray-500">
-                                Wednesday
-                            </td>
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap">
-                                Abstract Algebra
-                            </td>
-                        </tr>
-                        <tr class="bg-gray-200 border-b border-gray-300">
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap border-r border-gray-500">
-                                Thursday
-                            </td>
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap">
-                                Topology
-                            </td>
-                        </tr>
-                        <tr class="bg-gray-200 border-b border-gray-300">
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap border-r border-gray-500">
-                                Friday 
-                            </td>
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap">
-                                Differential Equations
-                            </td>
-                        </tr>
-                        <tr class="bg-gray-200 border-b border-gray-500">
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap border-r border-gray-500">
-                                Saturday 
-                            </td>
-                            <td scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap">
-                                Arbitrary
-                            </td>
-                        </tr>
-                      </tbody>
-                  </table>
-                </div>
-
-                <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="problem-of-the-day">
-                  <a class="text-blue-500 hover:text-blue-800" href="#"></a>
-                </h2>
-              <div class="border-l-4 border-red-500 mt-2 p-4 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md hover:bg-red-200">
-                <strong>Problem: </strong>
+              <div
+                class="border-l-4 border-red-500 mt-2 p-6 md:p-8 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl shadow-lg mb-12">
+                <strong class="text-xl md:text-xl font-bold text-gray-900">Problem: </strong>
                 <div class="mt-2">
                   <!-- It will automatically load -->
                 </div>
               </div>
-              
 
-                <p class="mt-4 mb-4 leading-relaxed lg:text-lg md:text-base text-justify">
-                  The calendar provided below allows users to easily access the problems posted on specific dates. By clicking on a date on the calendar, users are directed to the page containing the problem or problems related to the topic of that day. We have also highlighted the today's date.
+              <!-- Weekly Schedule -->
+              <div class="mb-8 mt-16">
+                <h2 class="text-gray-900 text-2xl md:text-3xl title-font font-bold mb-3" id="publications">Problems
+                  Schedule</h2>
+                <div class="w-16 h-1 bg-indigo-500 rounded mb-5"></div>
+                <p class="mb-6 leading-relaxed text-base md:text-lg text-justify text-gray-700">
+                  Each day of the week is dedicated to a specific topic of mathematics. Problems are also categorized
+                  with tags for easier navigation.
+                  <a href="tags/" class="ml-1 font-medium text-blue-600 hover:text-blue-800">View all tags</a>
                 </p>
-                <h2 class="mt-4 text-gray-900 text-2xl title-font font-medium" id="monthAndYear"></h2>
-                <div class="button-container-calendar">
-                  <button id="previous" onclick="previous()">&#8249;</button>
-                  <button id="next" onclick="next()">&#8250;</button>
+              </div>
+
+              <!-- Schedule Table -->
+              <div class="mb-12 overflow-x-auto">
+                <div class="inline-block min-w-full align-middle">
+                  <div class="overflow-hidden shadow-lg rounded-lg border border-gray-200">
+                    <table class="min-w-full divide-y divide-gray-300">
+                      <thead class="bg-gray-800">
+                        <tr>
+                          <th scope="col"
+                            class="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-white uppercase tracking-wider">
+                            Day of the Week
+                          </th>
+                          <th scope="col"
+                            class="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-white uppercase tracking-wider">
+                            Topic
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody class="bg-white divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
+                            Sunday
+                          </td>
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
+                            Linear Algebra
+                          </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
+                            Monday
+                          </td>
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
+                            Real Analysis
+                          </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
+                            Tuesday
+                          </td>
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
+                            Complex Analysis
+                          </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
+                            Wednesday
+                          </td>
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
+                            Abstract Algebra
+                          </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
+                            Thursday
+                          </td>
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
+                            Topology
+                          </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
+                            Friday
+                          </td>
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
+                            Differential Equations
+                          </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
+                            Saturday
+                          </td>
+                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
+                            Arbitrary
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                
-                <table class="table-calendar text-lg font-medium" id="calendar" data-lang="en">
-                  <thead id="thead-month"></thead>
-                  <tbody id="calendar-body"></tbody>
-                </table>
-                <div class="footer-container-calendar">
-                  <label for="month">Jump To: </label>
-                  <select id="month" onchange="jump()">
-                    <option value=0>Jan</option>
-                    <option value=1>Feb</option>
-                    <option value=2>Mar</option>
-                    <option value=3>Apr</option>
-                    <option value=4>May</option>
-                    <option value=5>Jun</option>
-                    <option value=6>Jul</option>
-                    <option value=7>Aug</option>
-                    <option value=8>Sep</option>
-                    <option value=9>Oct</option>
-                    <option value=10>Nov</option>
-                    <option value=11>Dec</option>
-                  </select>
-                  <select id="year" onchange="jump()"></select>
+              </div>
+            </div>
+
+            <!-- Right Column - Calendar (Sticky) -->
+            <div class="lg:w-1/3">
+              <div class="lg:sticky lg:top-24">
+
+                <!-- Calendar Card -->
+                <div class="p-6 bg-white rounded-lg shadow-md border border-gray-200">
+                  <h2 class="text-2xl font-bold text-gray-800 mb-4">Problem Archive</h2>
+
+                  <p class="mb-6 text-sm md:text-base text-gray-600">
+                    Click on any date to view the problem from that day. Today's date is highlighted.
+                  </p>
+
+                  <!-- Calendar Controls -->
+                  <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-900" id="monthAndYear"></h2>
+                    <div class="flex gap-2">
+                      <button id="previous" onclick="previous()"
+                        class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors text-xl font-bold">&#8249;</button>
+                      <button id="next" onclick="next()"
+                        class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors text-xl font-bold">&#8250;</button>
+                    </div>
+                  </div>
+
+                  <!-- Calendar Table -->
+                  <div class="overflow-x-auto -mx-2 md:mx-0 mb-6">
+                    <table class="table-calendar text-sm md:text-base font-medium w-full min-w-full" id="calendar"
+                      data-lang="en">
+                      <thead id="thead-month"></thead>
+                      <tbody id="calendar-body"></tbody>
+                    </table>
+                  </div>
+
+                  <!-- Jump Controls -->
+                  <div class="mt-6 pt-6 border-t border-gray-200">
+                    <div class="flex flex-wrap items-center justify-center gap-3">
+                      <label for="month" class="font-semibold text-gray-700 text-sm md:text-base">Jump To:</label>
+                      <select id="month" onchange="jump()"
+                        class="px-3 py-2 border border-gray-300 rounded-lg bg-white text-sm md:text-base focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors">
+                        <option value=0>Jan</option>
+                        <option value=1>Feb</option>
+                        <option value=2>Mar</option>
+                        <option value=3>Apr</option>
+                        <option value=4>May</option>
+                        <option value=5>Jun</option>
+                        <option value=6>Jul</option>
+                        <option value=7>Aug</option>
+                        <option value=8>Sep</option>
+                        <option value=9>Oct</option>
+                        <option value=10>Nov</option>
+                        <option value=11>Dec</option>
+                      </select>
+                      <select id="year" onchange="jump()"
+                        class="px-3 py-2 border border-gray-300 rounded-lg bg-white text-sm md:text-base focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"></select>
+                    </div>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
       </section>
+    </main>
 
-      <!-- footer -->
-      <footer class="foot mt-auto border-t border-gray-200">
-        <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
-          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> Sachchidanand
-          </p>
-          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
-          </p>
-          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-gray-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
-              <i class="ai ai-researchgate ai-lg"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
-              <i class="ai ai-academia"></i>
-            </a>
-          </span>
-        </div>
-        <hr class="py-1 w-1/4 m-auto">
-				<div class="items-center">
-					<p class="text-center">
-						<span class="text-gray-500 text-sm mr-1">No of visitors: </span>
-						<img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
-						alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
-						<span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
-					</p>
-				</div>
-      </footer>
+    <!-- footer -->
+    <footer class="foot mt-auto border-t border-gray-200 bg-white">
+      <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©
+          <script>document.write(new Date().getFullYear())</script> Sachchidanand
+        </p>
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last
+          updated: <span id="updated"></span>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+          <a class="text-gray-500 hover:text-blue-500 transition-colors"
+            href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-red-500 transition-colors"
+            href="https://www.instagram.com/sachchidanand1729/" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-blue-500 transition-colors" href="https://twitter.com/speinstene26"
+            target="_blank">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-purple-700 transition-colors"
+            href="https://github.com/prasadsachchidanand" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-gray-500 transition-colors"
+            href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+            <i class="ai ai-researchgate ai-lg"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-gray-900 transition-colors"
+            href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
+            <i class="ai ai-academia"></i>
+          </a>
+        </span>
+      </div>
+      <hr class="py-1 w-1/4 m-auto">
+      <div class="items-center">
+        <p class="text-center">
+          <span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+          <img
+            src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D"
+            alt="Hit Counter by Digits" border="0" class="w-11 inline" />
+          <span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/"
+              class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+        </p>
+      </div>
+    </footer>
 
-    </div>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script>
-      function myFunction() {
-        var x = document.lastModified;
-        document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+  <script>
+    function myFunction() {
+      document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+    }
+    myFunction()
+  </script>
+
+  <script src="calendar.js" type="text/javascript"></script>
+  <script src="daily-problem-loader.js" type="text/javascript"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script>
+    MathJax = {
+      loader: {
+        load: ['[tex]/mathtools']
+      },
+      tex: {
+        inlineMath: [
+          ['$', '$'],
+          ['\\(', '\\)']
+        ],
+        tags: 'ams',
+        displayMath: [
+          ['$$', '$$'],
+          ['\\[', '\\]']
+        ],
+        packages: { '[+]': ['mathtools'] }
+      },
+      svg: {
+        fontCache: 'global'
       }
-      myFunction()
-    </script>
+    };
+  </script>
 
-    <script src="calendar.js" type="text/javascript"></script>  
-    <script src="daily-problem-loader.js" type="text/javascript"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <script>
-      MathJax = {
-        loader: {
-          load: ['[tex]/mathtools']
-        },
-        tex: {
-          inlineMath: [
-            ['$', '$'],
-            ['\\(', '\\)']
-          ],
-          tags: 'ams',
-          displayMath: [
-            ['$$', '$$'],
-            ['\\[', '\\]']
-          ],
-          packages: {'[+]': ['mathtools']}
-        },
-        svg: {
-          fontCache: 'global'
-        }
-      };
-    </script>
+  <script src="answer.js"></script>
 
-    <script src="answer.js"></script>
-
-    <!-- Google ad -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
-     crossorigin="anonymous"></script>
-  </body>
+  <!-- Google ad -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
+    crossorigin="anonymous"></script>
+</body>
 </html>

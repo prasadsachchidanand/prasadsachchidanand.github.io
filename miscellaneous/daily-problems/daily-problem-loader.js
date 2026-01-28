@@ -40,6 +40,21 @@ function getTopicFromDate(dateString) {
     }
 }
 
+// Get difficulty badge HTML (same as problem-loader.js)
+function getDifficultyBadge(difficulty) {
+    const difficultyLower = (difficulty || 'medium').toLowerCase();
+    const colorMap = {
+        'easy': 'bg-green-100 text-green-800 border-green-300',
+        'medium': 'bg-yellow-100 text-yellow-800 border-yellow-300',
+        'hard': 'bg-red-100 text-red-800 border-red-300'
+    };
+    
+    const color = colorMap[difficultyLower] || colorMap['medium'];
+    const displayText = difficulty || 'Medium';
+    
+    return `<span class="inline-block ${color} text-sm font-semibold rounded px-3 py-1 border">${displayText}</span>`;
+}
+
 // Find the most recent problem across all topics
 async function findMostRecentProblem() {
     const allTopics = Object.values(topicMap);
@@ -164,15 +179,21 @@ function displayTodayProblem(problem, problemDate, isOldProblem = false) {
         tagsContainer.className = 'mt-2';
         problemBox.appendChild(tagsContainer);
         
-        // Add tags
+        // Add difficulty badge FIRST if it exists
+        if (problem.difficulty) {
+            const difficultySpan = document.createElement('span');
+            difficultySpan.innerHTML = getDifficultyBadge(problem.difficulty);
+            difficultySpan.className = 'inline-block mr-2';
+            tagsContainer.appendChild(difficultySpan);
+        }
+        
+        // Then add regular tags
         if (problem.tags && Array.isArray(problem.tags)) {
             problem.tags.forEach(tag => {
-                // Special handling for certain tags
+                // Extract base tag name for URL (remove content in parentheses and trim)
                 let tagUrl = tag;
-                if (tag.includes('herstein-abstract-algebra')) {
-                    tagUrl = 'abstract-algebra-herstein';
-                } else if (tag.includes('herstein')) {
-                    tagUrl = 'herstein';
+                if (tag.includes('(')) {
+                    tagUrl = tag.split('(')[0].trim();
                 }
                 
                 const tagLink = document.createElement('a');
