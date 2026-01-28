@@ -108,7 +108,7 @@ function renderMainContent(data) {
   `;
 }
 
-// Render grading breakdown with single stacked bar
+// Render grading breakdown with responsive design
 function renderGradingBreakdown(grading) {
   const colors = {
     'Assignments': 'green',
@@ -119,27 +119,43 @@ function renderGradingBreakdown(grading) {
     'Projects': 'purple'
   };
   
-  // Create the stacked bar segments with labels inside
+  // Create mobile-friendly individual cards for small screens
+  const mobileCards = Object.entries(grading).map(([name, percentage]) => {
+    const color = colors[name] || 'gray';
+    return `
+      <div class="bg-${color}-500 flex items-center justify-between text-white py-3 px-4 rounded-lg shadow">
+        <span class="font-bold text-sm">${name}</span>
+        <span class="text-xl font-bold">${percentage}%</span>
+      </div>
+    `;
+  }).join('');
+  
+  // Create the stacked bar segments for desktop
   const barSegments = Object.entries(grading).map(([name, percentage]) => {
     const color = colors[name] || 'gray';
     return `
       <div class="bg-${color}-500 flex flex-col items-center justify-center text-white py-4 px-2 border-r border-${color}-600 last:border-r-0"
            style="width: ${percentage}%">
-        <div class="font-bold text-sm sm:text-base whitespace-nowrap">${name}</div>
-        <div class="text-lg sm:text-xl font-bold">${percentage}%</div>
+        <div class="font-bold text-xs lg:text-sm xl:text-base truncate w-full text-center px-1">${name}</div>
+        <div class="text-base lg:text-lg xl:text-xl font-bold">${percentage}%</div>
       </div>
     `;
   }).join('');
   
   return `
-    <div class="bg-white rounded-xl shadow-lg p-6 mb-10 card-hover">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <i class="fas fa-chart-pie text-purple-600 mr-3"></i>
+    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-10 card-hover">
+      <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6 flex items-center">
+        <i class="fas fa-chart-pie text-purple-600 mr-2 sm:mr-3"></i>
         Grading Breakdown
       </h2>
       
-      <!-- Single Stacked Bar -->
-      <div class="flex w-full h-20 sm:h-24 rounded-lg overflow-hidden shadow-lg">
+      <!-- Mobile View: Individual Cards (visible on small screens only) -->
+      <div class="md:hidden grid grid-cols-1 gap-3">
+        ${mobileCards}
+      </div>
+      
+      <!-- Desktop View: Single Stacked Bar (hidden on small screens) -->
+      <div class="hidden md:flex w-full h-24 rounded-lg overflow-hidden shadow-lg">
         ${barSegments}
       </div>
     </div>

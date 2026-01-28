@@ -40,6 +40,18 @@
         "cyclic-group",
         "nbhm-phd-2005"
       ]
+    },
+
+    {
+      "date": "2026-01-28",
+      "title": "Circle is a subgroup of C*",
+      "problem": "Let $G$ be the group of all non-zero complex numbers $x +  \\iota y , x, y \\in \\mathbb{R} $ under multiplication. Let \n    \\[\n        H = \\{x + \\iota y \\in \\mathbb{C} ^* : x^2 + y^2 = 1 \\} .\n    \\] \n    Prove that $H$ is a subgroup of $G$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Show that $H$ is non-empty.\n                    </li>\n                    <li class=\"my-4\">\n                      Note that if $z = x +\\iota y$, then $\\vert z \\vert = \\sqrt{x^2 + y^2} $ and $|z \\cdot w| = \\vert z \\vert \\cdot \\vert w \\vert $.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that $1 + \\iota 0 \\in H$, so $H \\neq \\varnothing . $ Now to prove that it is a subgroup, we will mainly check whether it is closed under multiplication or not and closed under inversion or not.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $z_1 = x_1 + \\iota y_1 \\in H$ and $z_2 = x_2 + \\iota y_2 \\in H$. Then we need to show that $z \\cdot w \\in H$. Observe that \n    \\begin{align*}\n        z_1 \\in H \\implies x_1^2 + y_1^2 = 1 \\implies \\vert z_1 \\vert^2 = 1 \\implies \\vert z_1 \\vert = 1 \\\\\n        z_2 \\in H \\implies x_2^2 + y_2^2 = 1 \\implies \\vert z_2 \\vert^2 = 1 \\implies \\vert z_2 \\vert = 1.\n    \\end{align*}\n    Since $\\vert z_1 \\cdot z_2 \\vert = \\vert z_1 \\vert \\cdot \\vert z_2 \\vert $, so we have \n    \\begin{align*}\n        \\vert z_1 \\cdot z_2 \\vert = 1 \\implies z_1 \\cdot w_1 \\in H. \n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For the inverse, let $z = x + \\iota y \\in H$. We need to show that $\\frac{1}{z} \\in H$, that is, $\\left\\vert \\frac{1}{z} \\right\\vert = 1$. Again, note that for any complex numbers $z,w $ with $w \\neq 0$, we have  \n    \\begin{align*}\n        \\left\\vert \\frac{z}{w} \\right\\vert = \\frac{\\vert z \\vert }{\\vert w \\vert }.\n    \\end{align*}\n    So \n    \\[\n        \\left\\vert \\frac{1}{z} \\right\\vert = \\frac{1}{\\vert z \\vert } = 1 \\implies \\frac{1}{z} \\in H.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We can explicitly find out the inverse also. Note that \n    \\begin{align*}\n        \\frac{1}{x+ \\iota y} & = \\frac{1}{x + \\iota y} \\times \\frac{x - \\iota y}{x - \\iota y} = \\frac{x - \\iota y}{x^2 + y^2} = x - \\iota y.\n    \\end{align*}\n    Since $x^2 + (-y)^2 = x^2 + y^2 = 1$, implies $x - \\iota y \\in H$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory"
+      ]
     }
   ]
 }
