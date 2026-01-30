@@ -39,7 +39,7 @@
         },
 
         {
-          "date": "2026-01-29",
+          "date": "2026-01-22",
           "title": "A basis for R^2",
           "difficulty": "medium",
           "problem": "Let $\\mathcal{B} $ be the collection of all open discs with all possible radii and center at any point. Show that $\\mathcal{B} $ is a basis for the usual topology on $\\mathbb{R} ^2$.",
@@ -51,12 +51,11 @@
         },
 
         {
-          "date": "2026-01-22",
+          "date": "2026-01-29",
           "title": "NBHM PhD 2005 - Distance between x-axis and the graph y = 1/x",
-          "difficulty": "medium",
           "problem": "Consider the disjoint closed sets in $\\mathbb{R} ^2$ given by \n    \\begin{align*}\n        A & = \\{ (x,y) \\in \\mathbb{R} ^2: y = 0 \\} \\text{ and } \\\\\n        B & = \\{ (x,y) \\in \\mathbb{R} ^2: xy = 1 \\}.\n    \\end{align*}  \n    What is the distance $d(A,B)$ between $A$ and $B$?",
           "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      $d(A,B) = \\inf \\{ d(a,b): a \\in A \\text{ and }  B \\in B\\}$.\n                    </li>\n                  </ul>",
-          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given that \n    \\begin{align*}\n        A & = \\{ (x,y) \\in \\mathbb{R} ^2: y = 0 \\} \\text{ and } \\\\\n        B & = \\{ (x,y) \\in \\mathbb{R} ^2: xy = 1 \\}.\n    \\end{align*}   \n    We need to find the distance between $A$ and $B$. Observe that for a fix $ y = \\left( b, \\frac{1}{b} \\right) \\in B$\n    \\begin{align*}\n        d(A,b) & = \\inf \\{ d(x,y): x \\in A\\} \\\\\n               & = d\\left( (b,0), \\left( b, \\frac{1}{b} \\right)  \\right) \\\\\n               & = \\frac{1}{\\vert b \\vert }.\n    \\end{align*}\n    <div class=\"flex flex-wrap justify-center my-4\">\n  <img\n    src=\"../../../assets/img/prob-29-01-26_01.svg\"\n    class=\"h-auto\"\n    alt=\"Distance is minimized if $a = b$\"\n  />\n</div> \n    Thus,\n    \\begin{align*}\n        d(A, B) & = \\inf \\{ d(a,b): a \\in A \\text{ and }  B \\in B\\} \\\\\n                & = \\inf \\left\\{ \\frac{1}{\\vert b \\vert } : b \\in \\mathbb{R} \\setminus \\{ 0 \\}  \\right\\} \\\\\n                & = 0.\n    \\end{align*}</div>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given that \n    \\begin{align*}\n        A & = \\{ (x,y) \\in \\mathbb{R} ^2: y = 0 \\} \\text{ and } \\\\\n        B & = \\{ (x,y) \\in \\mathbb{R} ^2: xy = 1 \\}.\n    \\end{align*}   \n    We need to find the distance between $A$ and $B$. Observe that for a fix $ y = \\left( b, \\frac{1}{b} \\right) \\in B$\n    \\begin{align*}\n        d(A,b) & = \\inf \\{ d(x,y): x \\in A\\} \\\\\n               & = d\\left( (b,0), \\left( b, \\frac{1}{b} \\right)  \\right) \\\\\n               & = \\frac{1}{\\vert b \\vert }.\n    \\end{align*}\n    <div class=\"flex flex-wrap justify-center my-4\">\n  <img\n    src=\"../../../assets/img/prob-29-01-26_01.svg\"\n    class=\"h-auto\"\n    alt=\"Distance is minimized if $a = b$\"\n  />\n</div> \n    Thus,\n    \\begin{align*}\n        d(A, B) & = \\inf \\{ d(x,y): x \\in A \\text{ and }  y \\in B\\} \\\\\n                & = \\inf \\left\\{ \\frac{1}{\\vert b \\vert } : b \\in \\mathbb{R} \\setminus \\{ 0 \\}  \\right\\} \\\\\n                & = 0.\n    \\end{align*}</div>",
           "tags": [
             "topology",
             "metric-space",
