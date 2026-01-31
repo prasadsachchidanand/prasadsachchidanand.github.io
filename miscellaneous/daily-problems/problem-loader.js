@@ -878,7 +878,7 @@ function setupTopicProblemsModal(topicName, problems, currentDate) {
         content.innerHTML += `
             <div class="text-center p-4 text-gray-500 border-t border-gray-200 mt-4">
                 <p class="text-sm">Showing 4 most recent problems of ${problems.length} total</p>
-                <p class="text-xs mt-1">For older problems, visit the topic archive</p>
+                <p class="text-xs mt-1">For older problems, visit the calender by clicking <a class= "text-blue-500 hover:text-blue-800" href="../../daily-problems/#calendar">All </a></p>
             </div>
         `;
     }
