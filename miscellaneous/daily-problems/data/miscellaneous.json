@@ -41,7 +41,7 @@
     },
 
     {
-      "date": "2026-01-31",
+      "date": "2026-01-24",
       "title": "Calculus - NBHM - 2005 - div(curl(v)) = 0",
       "difficulty": "easy",
       "problem": "Let $\\mathbf{v} = (v_1, v_2. v_3)$ be a vector field on $\\mathbb{R} ^3$ where\n    \\[\n        v_1 = \\sqrt{1 + x^2 + y^2} , v_2 = \\sqrt{1+ z^2} \\text{ and } v_3 = \\sqrt{1+ x^2 y^2 z^2}.\n    \\]\n    Evaluate $\\mathrm{div} (\\mathrm{curl}(\\mathbf{v} ) )$.",
@@ -55,7 +55,7 @@
     },
 
     {
-      "date": "2026-01-24",
+      "date": "2026-01-31",
       "title": "NBHM 2005 - Find the area of the triangle",
       "difficulty": "easy",
       "problem": "What is the area of the triangle in the complex plane formed by the points representing $1, \\omega $ and $\\omega ^2$, where $\\omega $ is a complex cube root of unity?",
