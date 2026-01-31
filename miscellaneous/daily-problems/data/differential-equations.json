@@ -51,6 +51,88 @@
         "differential-equation",
         "ode"
       ]
+    },
+
+    {
+      "date": "2026-01-30",
+      "title": "Solve p + 3q = 5z + \\tan (y - 3x)",
+      "difficulty": "medium",
+      "problem": "Solve \n    \\[\n        p + 3q = 5z + \\tan (y - 3x),\n    \\]\n    where $p = \\frac{\\partial z}{\\partial x}$ and $q = \\frac{\\partial z}{\\partial y}. $",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use Lagrange equation, that is, solve \n        \\[\n            \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will use Lagrange equation, that is, solve \n    \\begin{equation}\\label{eq:30Jan2026-1}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n    \\end{equation}\n    Taking the first two factor of \\eqref{eq:30Jan2026-1}, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} & \\implies \\mathrm{d} y - 3 \\mathrm{d} x = 0 \\\\\n        & \\implies y - 3x = c_1,\n    \\end{align*}\n    where $c_1$ is an arbitrary constant.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now look at the \\eqref{eq:30Jan2026-1} again and put $y - 3x = c_1$. Consider the first and the last factors, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} z}{5z + \\tan c_1} & \\implies \\mathrm{d} x - \\frac{\\mathrm{d} z}{5z + \\tan c_1} = 0 \\\\\n        & \\implies x - \\frac{1}{5} \\ln (5z + \\tan c_1) = c_2' \\\\\n        & \\implies 5x - \\ln (5z + \\tan c_1) = 5c_2' = c_2.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Thus, the final solution of \\eqref{eq:30Jan2026-1} will be \n    \\[\n        5x -  \\ln (5z + \\tan (y - 3x)) = \\phi (y - 3x),\n    \\]\n    where $\\phi $ is an arbitrary function.</div>",
+      "tags": [
+        "differential-equations",
+        "pde"
+      ]
+    }
+
+    ,
+
+    {
+      "date": "2026-02-03",
+      "title": "Solve p + 3q = 5z + \\tan (y - 3x)",
+      "difficulty": "medium",
+      "problem": "Solve \n    \\[\n        p + 3q = 5z + \\tan (y - 3x),\n    \\]\n    where $p = \\frac{\\partial z}{\\partial x}$ and $q = \\frac{\\partial z}{\\partial y}. $",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use Lagrange equation, that is, solve \n        \\[\n            \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will use Lagrange equation, that is, solve \n    \\begin{equation}\\label{eq:30Jan2026-1}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n    \\end{equation}\n    Taking the first two factor of \\eqref{eq:30Jan2026-1}, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} & \\implies \\mathrm{d} y - 3 \\mathrm{d} x = 0 \\\\\n        & \\implies y - 3x = c_1,\n    \\end{align*}\n    where $c_1$ is an arbitrary constant.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now look at the \\eqref{eq:30Jan2026-1} again and put $y - 3x = c_1$. Consider the first and the last factors, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} z}{5z + \\tan c_1} & \\implies \\mathrm{d} x - \\frac{\\mathrm{d} z}{5z + \\tan c_1} = 0 \\\\\n        & \\implies x - \\frac{1}{5} \\ln (5z + \\tan c_1) = c_2' \\\\\n        & \\implies 5x - \\ln (5z + \\tan c_1) = 5c_2' = c_2.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Thus, the final solution of \\eqref{eq:30Jan2026-1} will be \n    \\[\n        5x -  \\ln (5z + \\tan (y - 3x)) = \\phi (y - 3x),\n    \\]\n    where $\\phi $ is an arbitrary function.</div>",
+      "tags": [
+        "differential-equations",
+        "pde"
+      ]
+    }
+
+    ,
+
+    {
+      "date": "2026-02-03",
+      "title": "Solve p + 3q = 5z + \\tan (y - 3x)",
+      "difficulty": "medium",
+      "problem": "Solve \n    \\[\n        p + 3q = 5z + \\tan (y - 3x),\n    \\]\n    where $p = \\frac{\\partial z}{\\partial x}$ and $q = \\frac{\\partial z}{\\partial y}. $",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use Lagrange equation, that is, solve \n        \\[\n            \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will use Lagrange equation, that is, solve \n    \\begin{equation}\\label{eq:30Jan2026-1}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n    \\end{equation}\n    Taking the first two factor of \\eqref{eq:30Jan2026-1}, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} & \\implies \\mathrm{d} y - 3 \\mathrm{d} x = 0 \\\\\n        & \\implies y - 3x = c_1,\n    \\end{align*}\n    where $c_1$ is an arbitrary constant.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now look at the \\eqref{eq:30Jan2026-1} again and put $y - 3x = c_1$. Consider the first and the last factors, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} z}{5z + \\tan c_1} & \\implies \\mathrm{d} x - \\frac{\\mathrm{d} z}{5z + \\tan c_1} = 0 \\\\\n        & \\implies x - \\frac{1}{5} \\ln (5z + \\tan c_1) = c_2' \\\\\n        & \\implies 5x - \\ln (5z + \\tan c_1) = 5c_2' = c_2.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Thus, the final solution of \\eqref{eq:30Jan2026-1} will be \n    \\[\n        5x -  \\ln (5z + \\tan (y - 3x)) = \\phi (y - 3x),\n    \\]\n    where $\\phi $ is an arbitrary function.</div>",
+      "tags": [
+        "differential-equations",
+        "pde"
+      ]
+    },
+
+    {
+      "date": "2026-02-04",
+      "title": "Solve p + 3q = 5z + \\tan (y - 3x)",
+      "difficulty": "medium",
+      "problem": "Solve \n    \\[\n        p + 3q = 5z + \\tan (y - 3x),\n    \\]\n    where $p = \\frac{\\partial z}{\\partial x}$ and $q = \\frac{\\partial z}{\\partial y}. $",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use Lagrange equation, that is, solve \n        \\[\n            \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will use Lagrange equation, that is, solve \n    \\begin{equation}\\label{eq:30Jan2026-1}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n    \\end{equation}\n    Taking the first two factor of \\eqref{eq:30Jan2026-1}, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} & \\implies \\mathrm{d} y - 3 \\mathrm{d} x = 0 \\\\\n        & \\implies y - 3x = c_1,\n    \\end{align*}\n    where $c_1$ is an arbitrary constant.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now look at the \\eqref{eq:30Jan2026-1} again and put $y - 3x = c_1$. Consider the first and the last factors, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} z}{5z + \\tan c_1} & \\implies \\mathrm{d} x - \\frac{\\mathrm{d} z}{5z + \\tan c_1} = 0 \\\\\n        & \\implies x - \\frac{1}{5} \\ln (5z + \\tan c_1) = c_2' \\\\\n        & \\implies 5x - \\ln (5z + \\tan c_1) = 5c_2' = c_2.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Thus, the final solution of \\eqref{eq:30Jan2026-1} will be \n    \\[\n        5x -  \\ln (5z + \\tan (y - 3x)) = \\phi (y - 3x),\n    \\]\n    where $\\phi $ is an arbitrary function.</div>",
+      "tags": [
+        "differential-equations",
+        "pde"
+      ]
+    },
+
+    {
+      "date": "2026-02-05",
+      "title": "Solve p + 3q = 5z + \\tan (y - 3x)",
+      "difficulty": "medium",
+      "problem": "Solve \n    \\[\n        p + 3q = 5z + \\tan (y - 3x),\n    \\]\n    where $p = \\frac{\\partial z}{\\partial x}$ and $q = \\frac{\\partial z}{\\partial y}. $",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use Lagrange equation, that is, solve \n        \\[\n            \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will use Lagrange equation, that is, solve \n    \\begin{equation}\\label{eq:30Jan2026-1}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n    \\end{equation}\n    Taking the first two factor of \\eqref{eq:30Jan2026-1}, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} & \\implies \\mathrm{d} y - 3 \\mathrm{d} x = 0 \\\\\n        & \\implies y - 3x = c_1,\n    \\end{align*}\n    where $c_1$ is an arbitrary constant.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now look at the \\eqref{eq:30Jan2026-1} again and put $y - 3x = c_1$. Consider the first and the last factors, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} z}{5z + \\tan c_1} & \\implies \\mathrm{d} x - \\frac{\\mathrm{d} z}{5z + \\tan c_1} = 0 \\\\\n        & \\implies x - \\frac{1}{5} \\ln (5z + \\tan c_1) = c_2' \\\\\n        & \\implies 5x - \\ln (5z + \\tan c_1) = 5c_2' = c_2.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Thus, the final solution of \\eqref{eq:30Jan2026-1} will be \n    \\[\n        5x -  \\ln (5z + \\tan (y - 3x)) = \\phi (y - 3x),\n    \\]\n    where $\\phi $ is an arbitrary function.</div>",
+      "tags": [
+        "differential-equations",
+        "pde"
+      ]
+    },
+
+    {
+      "date": "2026-02-06",
+      "title": "Solve p + 3q = 5z + \\tan (y - 3x)",
+      "difficulty": "medium",
+      "problem": "Solve \n    \\[\n        p + 3q = 5z + \\tan (y - 3x),\n    \\]\n    where $p = \\frac{\\partial z}{\\partial x}$ and $q = \\frac{\\partial z}{\\partial y}. $",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use Lagrange equation, that is, solve \n        \\[\n            \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will use Lagrange equation, that is, solve \n    \\begin{equation}\\label{eq:30Jan2026-1}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} = \\frac{\\mathrm{d} z}{5z + \\tan (y - 3x)}.\n    \\end{equation}\n    Taking the first two factor of \\eqref{eq:30Jan2026-1}, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} y}{3} & \\implies \\mathrm{d} y - 3 \\mathrm{d} x = 0 \\\\\n        & \\implies y - 3x = c_1,\n    \\end{align*}\n    where $c_1$ is an arbitrary constant.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now look at the \\eqref{eq:30Jan2026-1} again and put $y - 3x = c_1$. Consider the first and the last factors, we get \n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{1} = \\frac{\\mathrm{d} z}{5z + \\tan c_1} & \\implies \\mathrm{d} x - \\frac{\\mathrm{d} z}{5z + \\tan c_1} = 0 \\\\\n        & \\implies x - \\frac{1}{5} \\ln (5z + \\tan c_1) = c_2' \\\\\n        & \\implies 5x - \\ln (5z + \\tan c_1) = 5c_2' = c_2.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Thus, the final solution of \\eqref{eq:30Jan2026-1} will be \n    \\[\n        5x -  \\ln (5z + \\tan (y - 3x)) = \\phi (y - 3x),\n    \\]\n    where $\\phi $ is an arbitrary function.</div>",
+      "tags": [
+        "differential-equations",
+        "pde"
+      ]
     }
   ]
 }
