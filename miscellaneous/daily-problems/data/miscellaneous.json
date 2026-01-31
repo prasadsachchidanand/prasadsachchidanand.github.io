@@ -41,7 +41,7 @@
     },
 
     {
-      "date": "2026-01-24",
+      "date": "2026-01-31",
       "title": "Calculus - NBHM - 2005 - div(curl(v)) = 0",
       "difficulty": "easy",
       "problem": "Let $\\mathbf{v} = (v_1, v_2. v_3)$ be a vector field on $\\mathbb{R} ^3$ where\n    \\[\n        v_1 = \\sqrt{1 + x^2 + y^2} , v_2 = \\sqrt{1+ z^2} \\text{ and } v_3 = \\sqrt{1+ x^2 y^2 z^2}.\n    \\]\n    Evaluate $\\mathrm{div} (\\mathrm{curl}(\\mathbf{v} ) )$.",
@@ -50,6 +50,19 @@
       "tags": [
         "miscellaneous",
         "calculus",
+        "nbhm-phd-2005"
+      ]
+    },
+
+    {
+      "date": "2026-01-24",
+      "title": "NBHM 2005 - Find the area of the triangle",
+      "difficulty": "easy",
+      "problem": "What is the area of the triangle in the complex plane formed by the points representing $1, \\omega $ and $\\omega ^2$, where $\\omega $ is a complex cube root of unity?",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Draw picture and note that it is an equilateral triangle.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We need to find the area of the triangle formed by the points representing $1, \\omega $ and $\\omega ^2$. The triangle is equilateral triangle and the side length is \n    \\begin{align*}\n        \\left\\vert 1 - \\omega \\right\\vert^2 = \\left\\vert \\left( \\frac{3}{2} \\right)^2 + \\left( \\frac{-\\sqrt{3} }{2} \\right)^2 \\right\\vert = 3.\n    \\end{align*}\n    <div class=\"flex flex-wrap justify-center my-4\">\n  <img\n    src=\"../../../assets/img/prob-31-01-26_01.svg\"\n    class=\"h-auto\"\n    alt=\"Triangle formed with $1, \\omega $ and $\\omega ^2$\"\n  />\n</div> \n    Thus, the side length is $\\sqrt{3} $. Therefore, the area of the triangle will be \n    \\begin{align*}\n        A & = \\frac{\\sqrt{3} }{4} (\\text{ side } ^2) = \\frac{\\sqrt{3} }{4} (\\sqrt{3} ^2) = \\frac{3\\sqrt{3}}{4}.\n    \\end{align*}</div>",
+      "tags": [
+        "miscellaneous",
         "nbhm-phd-2005"
       ]
     }

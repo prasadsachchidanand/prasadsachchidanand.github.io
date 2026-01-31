@@ -795,7 +795,7 @@ function getTopicShortName(topicName) {
     return shortNames[topicName] || topicName;
 }
 
-// Setup topic problems modal functionality with solved tracking
+// Setup topic problems modal functionality with solved tracking - SHOW ONLY 4 PROBLEMS
 function setupTopicProblemsModal(topicName, problems, currentDate) {
     // Create modal if it doesn't exist
     let modal = document.getElementById('topic-modal');
@@ -844,7 +844,10 @@ function setupTopicProblemsModal(topicName, problems, currentDate) {
     const content = document.getElementById('topic-modal-content');
     const sortedProblems = [...problems].sort((a, b) => b.date.localeCompare(a.date)); // Latest first
     
-    content.innerHTML = sortedProblems.map(problem => {
+    // Only show the first 4 problems (most recent)
+    const recentProblems = sortedProblems.slice(0, 4);
+    
+    content.innerHTML = recentProblems.map(problem => {
         const [year, month, day] = problem.date.split('-');
         const formattedDate = `${day}-${month}-${year}`;
         const isCurrent = problem.date === currentDate;
@@ -869,6 +872,16 @@ function setupTopicProblemsModal(topicName, problems, currentDate) {
             </a>
         `;
     }).join('');
+    
+    // Add a message if there are more problems
+    if (problems.length > 4) {
+        content.innerHTML += `
+            <div class="text-center p-4 text-gray-500 border-t border-gray-200 mt-4">
+                <p class="text-sm">Showing 4 most recent problems of ${problems.length} total</p>
+                <p class="text-xs mt-1">For older problems, visit the topic archive</p>
+            </div>
+        `;
+    }
     
     // Update "Topic" button to open modal
     setTimeout(() => {

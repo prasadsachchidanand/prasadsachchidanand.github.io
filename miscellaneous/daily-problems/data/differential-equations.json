@@ -54,7 +54,7 @@
     },
 
     {
-      "date": "2026-01-30",
+      "date": "2026-01-23",
       "title": "Solve p + 3q = 5z + \\tan (y - 3x)",
       "difficulty": "medium",
       "problem": "Solve \n    \\[\n        p + 3q = 5z + \\tan (y - 3x),\n    \\]\n    where $p = \\frac{\\partial z}{\\partial x}$ and $q = \\frac{\\partial z}{\\partial y}. $",
