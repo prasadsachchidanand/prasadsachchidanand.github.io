@@ -47,6 +47,7 @@
             const [date, setDate] = useState(() => localStorage.getItem('date') || '');
             const [title, setTitle] = useState(() => localStorage.getItem('title') || '');
             const [tags, setTags] = useState(() => localStorage.getItem('tags') || '');
+            const [difficulty, setDifficulty] = useState(() => localStorage.getItem('difficulty') || 'medium');
 
             // Save to localStorage whenever values change
             React.useEffect(() => {
@@ -69,12 +70,17 @@
                 localStorage.setItem('tags', tags);
             }, [tags]);
 
+            React.useEffect(() => {
+                localStorage.setItem('difficulty', difficulty);
+            }, [difficulty]);
+
             const resetForm = () => {
                 setLatexInput('');
                 setJsonOutput('');
                 setDate('');
                 setTitle('');
                 setTags('');
+                setDifficulty('medium');
             };
 
             const convertLatexToJson = () => {
@@ -103,7 +109,11 @@
                         return placeholder;
                     });
 
+                    // Remove \label commands
                     cleanedInput = cleanedInput.replace(/\\label\{[^}]*\}/g, '');
+
+                    // Remove \noindent commands
+                    cleanedInput = cleanedInput.replace(/\\noindent\s*/g, '');
 
                     const formatReplacements = [
                         // Bold family
@@ -535,6 +545,7 @@ ${listItems}
                     const jsonObj = {
                         date: date || new Date().toISOString().split('T')[0],
                         title: title || 'Problem of the Day',
+                        difficulty: difficulty,
                         problem: problem,
                         hint: hint,
                         solution: solution,
@@ -594,7 +605,7 @@ ${listItems}
                                     Reset Form
                                 </button>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 <div>
                                     <label className="block text-sm font-medium text-slate-700 mb-2">
                                         Date
@@ -617,6 +628,20 @@ ${listItems}
                                         placeholder="Problem of the Day"
                                         className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                                        Difficulty
+                                    </label>
+                                    <select
+                                        value={difficulty}
+                                        onChange={(e) => setDifficulty(e.target.value)}
+                                        className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    >
+                                        <option value="easy">Easy</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="difficult">Difficult</option>
+                                    </select>
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -700,7 +725,7 @@ ${listItems}
                         <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
                             <h3 className="font-semibold text-blue-900 mb-2">Expected LaTeX Format:</h3>
                             <pre className="text-sm text-blue-800 overflow-x-auto">
-                                {`\\begin{problem}
+                                {`\\begin{problem}\\label{prob:01Feb2026}
   Your problem text here with $math$ notation
   
   \\begin{fixedfigure}
@@ -716,7 +741,8 @@ ${listItems}
 \\begin{solution}
   Solution paragraphs separated by
   \\vspace{0.3cm}
-  \\hspace{0.3cm}
+  \\noindent (will be ignored)
+  More content...
 \\end{solution}`}
                             </pre>
                         </div>
