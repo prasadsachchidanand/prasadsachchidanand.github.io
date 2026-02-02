@@ -56,10 +56,6 @@
 ]
 
 #prob[
-  Show that every function $f: X to Y$ 
-]
-
-#prob[
   #enum(
     indent: 1em,
     numbering: "i)",
@@ -109,6 +105,6 @@
 ]
 
 #prob[
-  Let $G$ be a group. Show that $G$ gives rise to a cateogory $scr(G)$ with single object, denoted $*$, and such that $"Hom"_(scr(G)) (*, *) = G$.
+  Let $G$ be a group. Show that $G$ gives rise to a cateogory $scr(G)$ with single object, denoted $*$, and $"Hom"_(scr(G)) (*, *) = G$.
 ]
    
