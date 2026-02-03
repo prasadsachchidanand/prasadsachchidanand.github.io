@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // nbhm
         'nbhm-msc-2019': 'nbhm',
         'nbhm-phd-2005': 'nbhm',
+        'nbhm-phd-2006': 'nbhm',
 
         // mcq
         'mcq': 'mcq',

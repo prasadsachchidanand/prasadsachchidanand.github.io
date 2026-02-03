@@ -52,6 +52,20 @@
       "tags": [
         "complex-analysis"
       ]
+    },
+
+    {
+      "date": "2026-02-03",
+      "title": "NBHM - 2006 - Find all possible values of the integral",
+      "difficulty": "medium",
+      "problem": "Let $\\gamma $ be a closed continuously differentiable path in the upper half plane \n    \\[\n        \\mathbb{H} = \\{ z \\in \\mathbb{C} : z = x + \\iota y,\\  x , y \\in \\mathbb{R} \\text{ and } y >0  \\}\n    \\] \n    not passing through the point $\\iota $. Describe the set of all possible values of the integral \n    \\[\n        \\frac{1}{2\\pi \\iota } \\int _{\\gamma } \\frac{2\\iota }{z^2 + 1} \\mathrm{d}z. \n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Note that $\\gamma $ need not be a simple curve. Apply <a href=\"https://en.wikipedia.org/wiki/Residue_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Residue theorem</a>.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We need to find all possible values of the integral \n    \\[\n        I \\coloneqq \\frac{1}{2\\pi \\iota } \\int _{\\gamma } \\frac{2\\iota }{z^2 + 1} \\mathrm{d}z.\n    \\]\n    Since $\\gamma $ need not be simple closed cure, we will have the winding number of $\\gamma $. We recall that by <a href=\"https://en.wikipedia.org/wiki/Residue_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Residue theorem</a>, \n    \\[\n        \\int_\\gamma f(z) \\mathrm{d} z = 2\\pi \\iota \\sum_{k=1}^{n} I(\\gamma , a_k) \\mathrm{Res}(f, a_k), \n    \\]\n    where $f$ is holomorphic function on an open set $U \\setminus \\{ a_1, \\dots, a_k \\} $.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Here the function is $\\frac{2\\iota }{z^2 + 1}$, which has two possible singularities, $\\pm \\iota $. But, $-\\iota $ does not lies in the upper half plane, so it has only one singularity (simple pole). So, we have the following two cases.    \n    <ol class=\"math-list-roman my-4\">\n                    <li class=\"my-4\">\n                      <strong>Case-1:</strong> $\\iota $ lies inside the curve $\\gamma$, then \n        \\[\n            \\mathrm{Res}(f, \\iota ) = \\lim_{z \\to \\iota }(z-\\iota ) \\frac{2\\iota }{z^2 + 1} = 1.\n        \\]\n        Thus,\n        \\begin{align*}\n            I & = \\frac{1}{2\\pi \\iota } \\int _{\\gamma } \\frac{2\\iota }{z^2 + 1} \\mathrm{d}z \\\\\n            & = I(\\gamma , \\iota ). \n        \\end{align*}\n        Since $I(\\gamma ,\\iota ) \\in \\mathbb{Z} $ thus the integral can take any integer value.\n                      <hr class=\"h-px my-4 bg-gray-300 border-0\">\n                    </li>\n                    <li class=\"my-4\">\n                      <strong>Case-2:</strong> $\\iota $ does not lie inside the curve $\\gamma$. In this case, $f$ has no singularity inside $\\gamma $ and hence there is no residue. So, $I = 0$.\n                    </li>\n                  </ol>\n\n    <div class=\"flex flex-wrap justify-center my-4\">\n  <img\n    src=\"../../../assets/img/prob-03-02-26_01.svg\"\n    class=\"h-auto\"\n    alt=\"$\\iota $ lies inside or outside the curve $\\gamma $\"\n  />\n</div></div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "nbhm-phd-2006"
+      ]
     }
   ]
 }
