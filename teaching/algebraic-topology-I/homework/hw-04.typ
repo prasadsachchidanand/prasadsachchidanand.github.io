@@ -30,7 +30,7 @@
         indent: 1em,
         numbering: "a)",
         [
-          the objects of the discrete category, $bf("Disc")$,
+          the objects of the discrete category, $bf("Disc")(X)$,
         ],
         [
           the morphisms,
