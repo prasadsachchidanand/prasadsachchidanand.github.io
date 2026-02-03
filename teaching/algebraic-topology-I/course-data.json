@@ -196,8 +196,43 @@
         {
           "number": 1,
           "title": "Review of point set topology",
-          "date": "January 20, 2026",
-          "file": null
+          "date": "January 05, 2026",
+          "file": "lecture/lec-01.pdf"
+        },
+
+        {
+          "number": 2,
+          "title": "Review of point set topology",
+          "date": "January 07, 2026",
+          "file": "lecture/lec-02.pdf"
+        },
+
+        {
+          "number": 3,
+          "title": "Quotient topology",
+          "date": "January 12, 2026",
+          "file": "lecture/lec-03.pdf"
+        },
+
+        {
+          "number": 4,
+          "title": "Quotient topology",
+          "date": "January 14, 2026",
+          "file": "lecture/lec-04.pdf"
+        },
+
+        {
+          "number": 5,
+          "title": "Category theory",
+          "date": "January 19, 2026",
+          "file": "lecture/lec-05.pdf"
+        },
+
+        {
+          "number": 6,
+          "title": "Category theory",
+          "date": "January 21, 2026",
+          "file": "lecture/lec-06.pdf"
         }
       ]
     }
