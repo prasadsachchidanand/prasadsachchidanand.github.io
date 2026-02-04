@@ -96,11 +96,20 @@
           "file": "homework/hw-01.pdf",
           "solution": null
         },
+        
         {
           "number": 2,
           "description": "Review of point set topology",
           "deadline": "No deadline, Not graded",
           "file": "homework/hw-02.pdf",
+          "solution": null
+        },
+        
+        {
+          "number": 4,
+          "description": "Category theory",
+          "deadline": "No deadline, Not graded",
+          "file": "homework/hw-04.pdf",
           "solution": null
         }
       ]

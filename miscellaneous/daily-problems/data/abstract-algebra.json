@@ -53,6 +53,21 @@
         "abstract-algebra",
         "group-theory"
       ]
+    },
+
+    {
+      "date": "2026-02-04",
+      "title": "NBHM - 2006 - Find all generators of F_7*",
+      "difficulty": "easy",
+      "problem": "Find a generator of $\\mathbb{F} _7^*$, the multiplicative group of nonzero  elements of $\\mathbb{F} _7$.",
+      "hint": "Recall that $\\mathbb{F} _7^* \\cong U(7)$, that is, the set of all positive integers less than $7$ and coprime to $7$.",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Recall that $\\mathbb{F} _7^*$ consists of all positive integers less than $7$ and coprime to $7$. That is, \n    \\[\n        \\mathbb{F} _7^* = \\{ 1,2,3,4,5,6 \\}. \n    \\]\n    So, the generators are $3,5$ as $o(3) = 6 = o(5)$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cyclic-group",
+        "nbhm-phd-2017"
+      ]
     }
   ]
 }
