@@ -12,10 +12,10 @@
   
   "grading": {
     "Assignments": 10,
-    "Quizzes": 20,
+    "Quizzes": 30,
     "Presentation": 10,
     "Mid Sem": 20,
-    "End Sem": 40
+    "End Sem": 30
   },
   
   "references": [
@@ -52,124 +52,6 @@
   ],
   
   "sections": {
-    "homeworks": {
-      "title": "Homework and Assignments",
-      "icon": "fa-pen-to-square",
-      "color": "green",
-      "cardIcon": "fas fa-pen-to-square",
-      "fields": [
-        {
-          "name": "number",
-          "label": "Homework",
-          "prefix": "Homework"
-        },
-        {
-          "name": "description",
-          "type": "text"
-        },
-        {
-          "name": "deadline",
-          "type": "badge",
-          "icon": "fa-calendar-alt",
-          "iconColor": "red"
-        },
-        {
-          "name": "file",
-          "type": "button",
-          "label": "Homework",
-          "buttonColor": "blue"
-        },
-        {
-          "name": "solution",
-          "type": "button",
-          "label": "Solution",
-          "buttonColor": "green",
-          "optional": true,
-          "lockedText": "Solution"
-        }
-      ],
-      "items": [
-        {
-          "number": 1,
-          "description": "Review of point set topology",
-          "deadline": "No deadline, Not graded",
-          "file": "homework/hw-01.pdf",
-          "solution": null
-        },
-        
-        {
-          "number": 2,
-          "description": "Review of point set topology",
-          "deadline": "No deadline, Not graded",
-          "file": "homework/hw-02.pdf",
-          "solution": null
-        },
-        
-        {
-          "number": 4,
-          "description": "Category theory",
-          "deadline": "No deadline, Not graded",
-          "file": "homework/hw-04.pdf",
-          "solution": null
-        }
-      ]
-    },
-    
-    "quizzes": {
-      "title": "Quizzes",
-      "icon": "fa-question-circle",
-      "color": "yellow",
-      "cardIcon": "fas fa-question-circle",
-      "fields": [
-        {
-          "name": "number",
-          "label": "Quiz",
-          "prefix": "Quiz"
-        },
-        {
-          "name": "title",
-          "type": "text"
-        },
-        {
-          "name": "date",
-          "type": "badge",
-          "icon": "fa-calendar-alt",
-          "iconColor": "blue",
-          "prefix": "Date:"
-        },
-        {
-          "name": "file",
-          "type": "button",
-          "label": "Quiz",
-          "buttonColor": "yellow"
-        },
-        {
-          "name": "solution",
-          "type": "button",
-          "label": "Solution",
-          "buttonColor": "green",
-          "optional": true,
-          "lockedText": "Solution"
-        }
-      ],
-      "items": [
-        {
-          "number": 1,
-          "title": "Based on homework 1 and 2",
-          "date": "January 14, 2026",
-          "file": "quiz/quiz-01.pdf",
-          "solution": null
-        },
-
-        {
-          "number": 2,
-          "title": "Based on homework 1 and 2",
-          "date": "January 21, 2026",
-          "file": "quiz/quiz-02.pdf",
-          "solution": null
-        }
-      ]
-    },
 
     "lectures": {
       "title": "Lecture Notes",
@@ -242,6 +124,165 @@
           "title": "Category theory",
           "date": "January 21, 2026",
           "file": "lecture/lec-06.pdf"
+        },
+
+        {
+          "number": 7,
+          "title": "Functors and introduction to path category",
+          "date": "February 02, 2026",
+          "file": "lecture/lec-07.pdf"
+        },
+
+        {
+          "number": 8,
+          "title": "Homotopy and path homotopy",
+          "date": "February 04, 2026",
+          "file": null
+        }
+      ]
+    },
+
+    "homeworks": {
+      "title": "Homework and Assignments",
+      "icon": "fa-pen-to-square",
+      "color": "green",
+      "cardIcon": "fas fa-pen-to-square",
+      "fields": [
+        {
+          "name": "number",
+          "label": "Homework",
+          "prefix": "Homework"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "deadline",
+          "type": "badge",
+          "icon": "fa-calendar-alt",
+          "iconColor": "red"
+        },
+        {
+          "name": "file",
+          "type": "button",
+          "label": "Homework",
+          "optional": true,
+          "buttonColor": "blue",
+          "lockedText": "Homework"
+        },
+        {
+          "name": "solution",
+          "type": "button",
+          "label": "Solution",
+          "buttonColor": "green",
+          "optional": true,
+          "lockedText": "Solution"
+        }
+      ],
+      "items": [
+        {
+          "number": 1,
+          "description": "Review of point set topology",
+          "deadline": "No deadline, Not graded",
+          "file": "homework/hw-01.pdf",
+          "solution": null
+        },
+        
+        {
+          "number": 2,
+          "description": "Review of point set topology",
+          "deadline": "No deadline, Not graded",
+          "file": "homework/hw-02.pdf",
+          "solution": null
+        },
+        
+        {
+          "number": 3,
+          "description": "Quotient topology",
+          "deadline": "No deadline, Not graded",
+          "file": null,
+          "solution": null
+        },
+        
+        {
+          "number": 4,
+          "description": "Category theory",
+          "deadline": "No deadline, Not graded",
+          "file": "homework/hw-04.pdf",
+          "solution": null
+        },
+        
+        {
+          "number": 5,
+          "description": "Homotopy and path homotopy",
+          "deadline": "No deadline, Not graded",
+          "file": null,
+          "solution": null
+        }
+      ]
+    },
+    
+    "quizzes": {
+      "title": "Quizzes",
+      "icon": "fa-question-circle",
+      "color": "yellow",
+      "cardIcon": "fas fa-question-circle",
+      "fields": [
+        {
+          "name": "number",
+          "label": "Quiz",
+          "prefix": "Quiz"
+        },
+        {
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "name": "date",
+          "type": "badge",
+          "icon": "fa-calendar-alt",
+          "iconColor": "blue",
+          "prefix": "Date:"
+        },
+        {
+          "name": "file",
+          "type": "button",
+          "label": "Quiz",
+          "buttonColor": "yellow"
+        },
+        {
+          "name": "solution",
+          "type": "button",
+          "label": "Solution",
+          "buttonColor": "green",
+          "optional": true,
+          "lockedText": "Solution"
+        }
+      ],
+      "items": [
+        {
+          "number": 1,
+          "title": "Based on homework 1 and 2",
+          "date": "January 14, 2026",
+          "file": "quiz/quiz-01.pdf",
+          "solution": null
+        },
+
+        {
+          "number": 2,
+          "title": "Based on homework 1 and 2",
+          "date": "January 21, 2026",
+          "file": "quiz/quiz-02.pdf",
+          "solution": null
+        },
+
+        {
+          "number": 3,
+          "title": "Based on homework 4 and quotient topology",
+          "date": "February 04, 2026",
+          "file": "quiz/quiz-03.pdf",
+          "solution": null
         }
       ]
     }
