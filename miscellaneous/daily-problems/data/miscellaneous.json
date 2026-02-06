@@ -65,6 +65,19 @@
         "miscellaneous",
         "nbhm-phd-2005"
       ]
+    },
+
+    {
+      "date": "2026-02-07",
+      "title": "Differential Geometry - On R x^3 is different chart thn the identity one",
+      "difficulty": "medium",
+      "problem": "Prove that the function \n    \\[\n        \\phi : \\mathbb{R} \\to  \\mathbb{R} ,  \\quad  \\phi (s) = s^3,\n    \\]\n    defines a $C^{\\infty} $ differentiable structure on $\\mathbb{R} $ different from the usual one (that of the atlas $\\{ (\\mathbb{R} , \\mathrm{Id}_{\\mathbb{R} } ) \\} $ ).",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Consider the single chart \\((\\mathbb{R}, \\phi)\\) with \\(\\phi(s) = s^3\\). Show that this chart defines a smooth atlas on \\(\\mathbb{R}\\).\n                    </li>\n                    <li class=\"my-4\">\n                      To prove that this smooth structure is different from the standard one, compare it with the usual chart \\((\\mathbb{R}, \\mathrm{Id}_{\\mathbb{R}})\\). Study the transition map\n    \\[\n        \\mathrm{Id}_{\\mathbb{R}} \\circ \\phi^{-1}(t) = t^{1/3}\n    \\]\n    and check whether it is \\(C^\\infty\\) at \\(t = 0\\).\n                    </li>\n                  </ul>",
+      "solution": "",
+      "tags": [
+        "miscellaneous",
+        "differential-geometry"
+      ]
     }
   ]
 }

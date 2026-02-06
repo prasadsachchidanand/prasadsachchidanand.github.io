@@ -77,6 +77,20 @@
         "differential-equations",
         "pde"
       ]
+    },
+
+    {
+      "date": "2026-02-06",
+      "title": "Solving ODE with Laplace transofrmation",
+      "difficulty": "medium",
+      "problem": "Use Laplace transformation to solve the following initial value problem\n    \\begin{align*}\n        x'' + 4x = \\sin 3t \\quad x(0) = 0 \\text{ and } x'(0) = 0.\n    \\end{align*}",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      For any function $f$,  \n        \\[\n            \\mathcal{L} \\left( f^{(n)}(t) \\right) = s^n \\mathcal{L} (f(t)) - \\sum_{i=1}^{n} s^{n-i} f^{(i-1)}(0)\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\mathcal{L} (f)$ denotes the Laplace transformation of $f$. Recall that \n    \\begin{align*}\n        \\mathcal{L} \\left( f^{(n)}(t) \\right) & = s^n \\mathcal{L} (f(t)) - \\sum_{i=1}^{n} s^{n-i} f^{(i-1)}(0).  \n    \\end{align*}\n    Let $\\mathcal{L} (x(t)) = X(s)$. Apply the Laplace transformation on the given differential equation, we get\n    \\begin{align*}\n         & \\mathcal{L} (x'' + 4x) = \\mathcal{L} (\\sin 3t) \\\\\n        \\implies &  s^2 \\mathcal{L} (x(t)) - s x'(0) - s^2 x(0) + 4 \\mathcal{L} (x(t)) = \\frac{3}{s^2 + 3^2} \\\\\n        \\implies & s^2 \\times X(s) + 4 \\mathcal{L} (x(t)) = \\frac{3}{s^2 + 9} \\\\\n        \\implies & (s^2 + 4) X(s) = \\frac{3}{s^2 + 9} \\\\\n        \\implies & X(s) = \\frac{3}{(s^2 + 9)(s^2 + 4)}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Use partial fraction, we get \n    \\[\n         \\frac{3}{(s^2 + 9)(s^2 + 4)} = \\frac{3}{10}\\left( \\frac{2}{s^2 + 4} \\right) - \\frac{1}{5}\\left( \\frac{3}{x^2 + 9} \\right).\n    \\]\n    Finding the inverse Laplace transformation gives, \n    \\begin{align*}\n        & \\mathcal{L} ^{-1} (X(s)) = \\mathcal{L} ^{-1} \\left( \\frac{3}{10}\\left( \\frac{2}{s^2 + 4} \\right) - \\frac{1}{5}\\left( \\frac{3}{x^2 + 9} \\right) \\right) \\\\\n        \\implies & x(t) = \\mathcal{L} ^{-1} \\left( \\frac{3}{10}\\left( \\frac{2}{s^2 + 4}  \\right) \\right) - \\mathcal{L} ^{-1} \\left( \\frac{1}{5} \\left( \\frac{3}{x^2 + 9} \\right)  \\right) \\\\\n        \\implies & x(t) = \\frac{3}{10} \\mathcal{L} ^{-1} \\left( \\frac{2}{s^2 + 4} \\right) - \\frac{1}{5} \\mathcal{L} ^{-1} \\left( \\frac{3}{x^2 + 9} \\right) \\\\\n        \\implies & x(t) = \\frac{3}{10} \\sin 2t - \\frac{1}{5} \\sin 3t.\n    \\end{align*}\n    Thus, \n    \\[\n        x(t) = \\frac{3}{10} \\sin 2t - \\frac{1}{5} \\sin 3t.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "laplace-transformation"
+      ]
     }
   ]
 }
