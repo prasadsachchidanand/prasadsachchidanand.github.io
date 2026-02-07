@@ -70,6 +70,18 @@
         "linear-transformation",
         "nbhm-phd-2005"
       ]
+    },
+
+    {
+      "date": "2026-02-08",
+      "title": "Union of linearly independent set ",
+      "difficulty": "easy",
+      "problem": "Let $A_1 \\subseteq A_2 \\subseteq \\dots \\subseteq A_r$ be linearly independent set of vectors, and that $A_1 \\subseteq A_2 \\subseteq \\dots \\subseteq A_r$. Show that the union $A = A_1  \\cup  A_2  \\cup  \\dots  \\cup  A_r$ is also linearly independent.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      If $A \\subseteq B$, then $A  \\cup B = B$.\n                    </li>\n                  </ul>",
+      "solution": "",
+      "tags": [
+        "linear-algebra"
+      ]
     }
   ]
 }

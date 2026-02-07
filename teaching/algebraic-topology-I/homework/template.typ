@@ -150,3 +150,5 @@
 #let focus(content) = {
   text(fill: purple, style: "italic")[#content]
 }
+#let iff = $<=>$ 
+#let cup = $union$
