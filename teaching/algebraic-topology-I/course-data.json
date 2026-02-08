@@ -215,9 +215,17 @@
         
         {
           "number": 5,
-          "description": "Homotopy and path homotopy",
+          "description": "path and path homotopy",
           "deadline": "No deadline, Not graded",
-          "file": null,
+          "file": "homework/hw-05.pdf",
+          "solution": null
+        },
+        
+        {
+          "number": 6,
+          "description": "homotopy equivalence",
+          "deadline": "No deadline, Not graded",
+          "file": "homework/hw-06.pdf",
           "solution": null
         }
       ]
