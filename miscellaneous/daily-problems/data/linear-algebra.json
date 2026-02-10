@@ -74,11 +74,11 @@
 
     {
       "date": "2026-02-08",
-      "title": "Union of linearly independent set ",
+      "title": "Linear Independence of a Nested set",
       "difficulty": "easy",
       "problem": "Let $A_1 \\subseteq A_2 \\subseteq \\dots \\subseteq A_r$ be linearly independent set of vectors, and that $A_1 \\subseteq A_2 \\subseteq \\dots \\subseteq A_r$. Show that the union $A = A_1  \\cup  A_2  \\cup  \\dots  \\cup  A_r$ is also linearly independent.",
       "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      If $A \\subseteq B$, then $A  \\cup B = B$.\n                    </li>\n                  </ul>",
-      "solution": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let\n    \\[\n        A_1 \\subseteq A_2 \\subseteq \\cdots \\subseteq A_r\n    \\]\n    be a sequence of linearly independent sets of vectors, and define\n    \\[\n        A = A_1 \\cup A_2 \\cup \\cdots \\cup A_r.\n    \\]\n    Since the sets are nested, we have\n    \\[\n        A_1 \\subseteq A_2 \\subseteq \\cdots \\subseteq A_r = A.\n    \\]\n    Thus, the union \\(A\\) is simply equal to \\(A_r\\). Because \\(A_r\\) is given to be linearly independent, it follows immediately that \\(A\\) is also linearly independent.</div>",
       "tags": [
         "linear-algebra"
       ]

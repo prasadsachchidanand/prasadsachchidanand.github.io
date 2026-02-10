@@ -65,6 +65,19 @@
         "real-analysis",
         "sequence-of-functions"
       ]
+    },
+
+    {
+      "date": "2026-02-09",
+      "title": "Uniform Convergence of Functions from Uniform Convergence of Derivatives",
+      "difficulty": "difficult",
+      "problem": "Let \\( (f_n) \\) be a sequence of differentiable functions on \\([a,b]\\) such that\n    <ol class=\"math-list-roman\">\n                  <li class=\"my-4\">\n                    \\( f_n(a) = 0 \\) for all \\( n \\),\n                  </li>\n                  <li class=\"my-4\">\n                    \\( (f_n') \\) converges uniformly on \\([a,b]\\).\n                  </li>\n                </ol>\n    Show that \\( (f_n) \\) converges uniformly on \\([a,b]\\), and that\n    \\[\n        \\lim_{n\\to\\infty} f_n'(x) = \\left(\\lim_{n\\to\\infty} f_n(x)\\right)'.\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use the <a href=\"https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Fundamental Theorem of Calculus</a> to express\n        \\[\n            f_n(x)-f_m(x) = \\int_a^x \\bigl(f_n'(t)-f_m'(t)\\bigr)\\,dt.\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since \\( (f_n') \\) converges uniformly on \\([a,b]\\), it is a Cauchy sequence in the uniform norm.   Thus, for every \\( \\varepsilon > 0 \\), there exists \\( N \\) such that for all \\( m,n \\ge N \\),\n    \\[\n        |f_n'(x) - f_m'(x)| < \\frac{\\varepsilon}{b-a}\n        \\quad \\text{for all } x \\in [a,b].\n    \\]\n    Fix \\( x \\in [a,b] \\). By the <a href=\"https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Fundamental Theorem of Calculus</a>,\n    \\[\n        f_n(x) - f_m(x) = \\int_a^x \\big( f_n'(t) - f_m'(t) \\big)\\, dt.\n    \\]\n    Taking absolute values,\n    \\begin{align*}\n        |f_n(x) - f_m(x)| & \\le \\int_a^x |f_n'(t) - f_m'(t)|\\, dt \\\\\n        & \\le (b-a)\\sup_{t\\in[a,b]} |f_n'(t)-f_m'(t)|.\n    \\end{align*}\n    Hence, for all \\( m,n \\ge N \\),\n    \\[\n        |f_n(x) - f_m(x)| < \\varepsilon.\n    \\]\n    Since this bound is independent of \\( x \\), the sequence \\( (f_n) \\) is uniformly Cauchy on \\([a,b]\\), and therefore converges uniformly to some function \\( f \\).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now define\n    \\[\n        g(x) = \\lim_{n\\to\\infty} f_n'(x),\n    \\]\n    which exists and is continuous since uniform limits of continuous functions are continuous. Using again the <a href=\"https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Fundamental Theorem of Calculus</a> and passing to the limit,\n    \\begin{align*}\n        f(x) = \\lim_{n\\to\\infty} f_n(x) & = \\lim_{n\\to\\infty} \\int_a^x f_n'(t)\\,dt \\\\\n        & = \\int_a^x g(t)\\,dt.\n    \\end{align*}\n    Thus \\( f \\) is differentiable and\n    \\[\n        f'(x) = g(x) = \\lim_{n\\to\\infty} f_n'(x).\n    \\]</div>",
+      "tags": [
+        "real-analysis",
+        "sequence-of-functions"
+      ]
     }
   ]
 }
