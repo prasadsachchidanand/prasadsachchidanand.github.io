@@ -227,6 +227,14 @@
           "deadline": "No deadline, Not graded",
           "file": "homework/hw-06.pdf",
           "solution": null
+        },
+        
+        {
+          "number": 7,
+          "description": "homotopy",
+          "deadline": "No deadline, Not graded",
+          "file": "homework/hw-07.pdf",
+          "solution": null
         }
       ]
     },
