@@ -104,7 +104,7 @@
     stroke: color,
     breakable: true,
   )[
-    *#underline[Theory] #box[#move(dy: -.1em)[:]]* #body
+    *Theory #box[#move(dy: -.1em)[:]]* #body
   ]
 }
 
