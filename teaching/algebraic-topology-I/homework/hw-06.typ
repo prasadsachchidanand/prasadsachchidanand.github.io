@@ -49,7 +49,7 @@
 ]
 
 #prob[
-  Show that $RR \\ {0}$ is contractible.  
+  Show that $RR \\ {0}$ is not contractible.  
 ]
 
 #prob[
