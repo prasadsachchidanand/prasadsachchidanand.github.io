@@ -68,6 +68,19 @@
         "cyclic-group",
         "nbhm-phd-2017"
       ]
+    },
+
+    {
+      "date": "2026-02-11",
+      "title": "Prove or Disprove that every associative binary operation on a set with at least two elements is commutative",
+      "difficulty": "easy",
+      "problem": "Prove or disprove that every associative binary operation on a set with at least two elements is commutative.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Consider a binary operation $x * y = x$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The statement is <strong>FALSE</strong>. Let $G$ be a any set with at least two elements. Define a binary operation \n    \\[\n        x * y : = x, \\quad  \\text{ for any } x,y \\in G.\n    \\]\n    It is easy to see that $*$ is associative, \n    \\begin{align*}\n        (x*y)*z & = x * z = x \\text{ and }  x *(y*z) = x * y = x.\n    \\end{align*}\n    However, for any $x\\neq y$, \n    \\[\n        x * y = x \\neq y = y * x.\n    \\] \n    Thus, the operation $*$ is not commutative.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory"
+      ]
     }
   ]
 }

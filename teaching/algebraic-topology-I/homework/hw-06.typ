@@ -57,17 +57,7 @@
 ]
 
 #prob[
-  Give an example of a space which is:
-  #enum(
-    indent: 1em,
-    numbering: "i)",
-    [
-      contractible but not path connected,
-    ],
-    [
-      path connected but not contractible.
-    ]
-  )
+  Give an example of a space which is path connected but not contractible.
 ]
 
 #prob[

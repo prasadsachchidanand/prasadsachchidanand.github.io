@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'connectedness': 'topology',
         'subspace-topology': 'topology',
         'completeness': 'topology',
+        'homotopy-theory': 'topology',
 
         // differential equations
         'ode': 'differential-equation',

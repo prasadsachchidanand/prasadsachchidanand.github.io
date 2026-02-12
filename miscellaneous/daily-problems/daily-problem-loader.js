@@ -55,6 +55,66 @@ function getDifficultyBadge(difficulty) {
     return `<span class="inline-block ${color} text-sm font-semibold rounded px-3 py-1 border">${displayText}</span>`;
 }
 
+// Show loading spinner
+function showLoadingSpinner() {
+    const problemBox = document.querySelector('.border-red-500');
+    if (!problemBox) return;
+    
+    const problemStrong = problemBox.querySelector('strong');
+    if (!problemStrong) return;
+    
+    // Clear existing content after "Problem: "
+    const parent = problemStrong.parentNode;
+    let nextSibling = problemStrong.nextSibling;
+    
+    while (nextSibling) {
+        const toRemove = nextSibling;
+        nextSibling = nextSibling.nextSibling;
+        toRemove.remove();
+    }
+    
+    // Create spinner container
+    const spinnerContainer = document.createElement('div');
+    spinnerContainer.className = 'flex items-center justify-center py-8';
+    spinnerContainer.id = 'problem-loading-spinner';
+    
+    // Create spinner
+    const spinner = document.createElement('div');
+    spinner.className = 'spinner';
+    spinner.style.cssText = `
+        border: 4px solid #f3f4f6;
+        border-top: 4px solid #ef4444;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+    `;
+    
+    spinnerContainer.appendChild(spinner);
+    problemBox.appendChild(spinnerContainer);
+    
+    // Add keyframe animation if not already present
+    if (!document.getElementById('spinner-style')) {
+        const style = document.createElement('style');
+        style.id = 'spinner-style';
+        style.textContent = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Hide loading spinner
+function hideLoadingSpinner() {
+    const spinner = document.getElementById('problem-loading-spinner');
+    if (spinner) {
+        spinner.remove();
+    }
+}
+
 // Find the most recent problem across all topics
 async function findMostRecentProblem() {
     const allTopics = Object.values(topicMap);
@@ -92,6 +152,9 @@ async function findMostRecentProblem() {
 // Load today's problem and display it
 async function loadTodayProblem() {
     try {
+        // Show loading spinner immediately
+        showLoadingSpinner();
+        
         const todayDate = getTodayDate();
         const topic = getTopicFromDate(todayDate);
         const jsonPath = `data/${topic}.json`;
@@ -113,6 +176,9 @@ async function loadTodayProblem() {
             console.log('No problem for today, loading most recent problem...');
             const mostRecentProblem = await findMostRecentProblem();
             
+            // Hide spinner before displaying content
+            hideLoadingSpinner();
+            
             if (mostRecentProblem) {
                 displayTodayProblem(mostRecentProblem, mostRecentProblem.date, true);
             } else {
@@ -121,11 +187,15 @@ async function loadTodayProblem() {
             return;
         }
         
+        // Hide spinner before displaying content
+        hideLoadingSpinner();
+        
         // Display the problem
         displayTodayProblem(problem, todayDate, false);
         
     } catch (error) {
         console.error('Error loading today\'s problem:', error);
+        hideLoadingSpinner();
         displayError('Failed to load today\'s problem. Please check console for details.');
     }
 }

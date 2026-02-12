@@ -66,6 +66,18 @@
         "complex-integration",
         "nbhm-phd-2006"
       ]
+    },
+
+    {
+      "date": "2026-02-10",
+      "title": "Cube root of z = -1 + \\iota",
+      "difficulty": "easy",
+      "problem": "Let $z = -1 + \\iota $. Find the three cube roots of $z$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Note that \n        \\[\n            z = -1 + \\iota = \\sqrt{2} \\left(\\cos \\left( \\frac{3\\pi }{4} \\right) + \\iota \\cos \\left( \\frac{3\\pi }{4} \\right) \\right).\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given that $z = -1 + \\iota$, we need to find the cube roots of $z$. First of all we write $z$ in terms of polar coordinates, that is, \n    \\[\n        z = \\sqrt{2} \\left(\\cos \\left( \\frac{3\\pi }{4} \\right) + \\iota \\cos \\left( \\frac{3\\pi }{4} \\right) \\right) = \\sqrt{2} e^{3\\pi /4} .\n    \\] \n    The solution will be in the form of $z = r e^{\\iota \\theta }$, and we need to find $r$ and $\\theta $.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We have \n    \\begin{align*}\n        r^3 e^{3\\iota \\theta } = \\sqrt{2} e^{3\\pi /4} & \\implies r = \\sqrt[6]{2}, \\text{ and } \\\\\n        & \\quad \\quad \\quad 3\\theta =  \\frac{3\\pi}{4} + 2k \\pi , k = 0,1,2 \\\\\n        & \\implies \\theta = \\frac{\\frac{3\\pi}{4} + 2k\\pi }{3}, k= 0,1,2.\n    \\end{align*}\n    Thus, the cube roots are \n    \\[\n        z_1 = \\sqrt[6]{2} e^{\\pi /4}, \\quad z_2 = \\sqrt[6]{2} e^{11\\pi /12}, \\text{ and } z_3 = \\sqrt[6]{2} e^{19\\pi /12}.\n    \\]</div>",
+      "tags": [
+        "complex-analysis"
+      ]
     }
   ]
 }
