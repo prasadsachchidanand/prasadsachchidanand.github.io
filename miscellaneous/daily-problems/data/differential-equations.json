@@ -81,7 +81,7 @@
 
     {
       "date": "2026-02-06",
-      "title": "Solving ODE with Laplace transofrmation",
+      "title": "Solving ODE with Laplace transformation",
       "difficulty": "medium",
       "problem": "Use Laplace transformation to solve the following initial value problem\n    \\begin{align*}\n        x'' + 4x = \\sin 3t \\quad x(0) = 0 \\text{ and } x'(0) = 0.\n    \\end{align*}",
       "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      For any function $f$,  \n        \\[\n            \\mathcal{L} \\left( f^{(n)}(t) \\right) = s^n \\mathcal{L} (f(t)) - \\sum_{i=1}^{n} s^{n-i} f^{(i-1)}(0)\n        \\]\n                    </li>\n                  </ul>",
@@ -90,6 +90,19 @@
         "differential-equation",
         "ode",
         "laplace-transformation"
+      ]
+    },
+
+    {
+      "date": "2026-02-13",
+      "title": "Solve the PDE (y^2 + z^2 - x^2)p - 2xy pq = -2xz",
+      "difficulty": "medium",
+      "problem": "Solve the following partial differential equation:\n    \\[\n        (y^2 + z^2 - x^2)p - 2xy pq = -2xz,\n    \\]\n    where $p = \\frac{\\partial z}{\\partial x} $ and $q = \\frac{\\partial z}{\\partial y} $.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Write the equation in Lagrange's form $Pp + Qq = R$ and set up the auxiliary system\n        \\[\n            \\frac{dx}{P} = \\frac{dy}{Q} = \\frac{dz}{R}.\n        \\]\n                    </li>\n                    <li class=\"my-4\">\n                      First compare $\\dfrac{dy}{Q}$ and $\\dfrac{dz}{R}$ to obtain one integral, then use it to simplify the remaining ratio.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given equation is\n    \\begin{equation}\\label{eq:13Feb2026-1}\n        (y^2 + z^2 - x^2)p - 2xy pq = -2xz.\n    \\end{equation}\n    The auxiliary equations are\n    \\begin{equation}\\label{eq:13Feb2026-2}\n        \\frac{dx}{y^2 + z^2 - x^2} = \\frac{dy}{-2xy} = \\frac{dz}{-2xz}.\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Considering the last two fractions of \\eqref{eq:13Feb2026-2}, we get\n    \\begin{align*}\n        \\frac{dy}{-2xy} = \\frac{dz}{-2xz} & \\implies \\frac{dy}{y} = \\frac{dz}{z} \\\\\n        & \\implies \\ln y = \\ln z + \\ln C_1 \\\\\n        & \\implies \\frac{y}{z} = C_1.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Using $\\dfrac{y}{z} = C_1$, write $y = k z$. Then, \n    \\[\n        y^2 + z^2 = (k^2 + 1)z^2.\n    \\]\n    Substituting this into \\eqref{eq:13Feb2026-2} and considering the first two ratios, we get\n    \\begin{align*}\n        \\frac{dx}{(k^2 + 1)z^2 - x^2} = \\frac{dz}{-2xz}\n    \\end{align*}\n    This reduces to an exact differential and yields\n    \\[\n        \\frac{x^2 + y^2 + z^2}{z} = C_2.\n    \\]\n    The complete solution is therefore\n    \\[\n     F\\!\\left(\\frac{y}{z}, \\frac{x^2 + y^2 + z^2}{z}\\right)=0,\n    \\]\n    or equivalently,\n    \\[\n        \\boxed{ \\frac{x^2 + y^2 + z^2}{z} = \\phi\\!\\left(\\frac{y}{z}\\right),}\n    \\]\n    where $\\phi$ is an arbitrary function.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><span class = \"text-red-600 font-bold\">Second method: </span>After getting the first condition $\\dfrac{y}{z} = C_1$, we could have also solved by choosing multipliers $x,y,z$ of \\eqref{eq:13Feb2026-2}. This reduces to \n    \\begin{align*}\n        \\frac{x dx + y dy + z dz}{xy^2 + xz^2 - x^3 - 2xy^2 - 2xz^2} = \\frac{x dx + y dy + z dz}{-x(x^2 + y^2 + z^2)} .\n    \\end{align*} \n    Combining the third fraction of \\eqref{eq:13Feb2026-2} with the above, we get\n    \\begin{align*}\n        \\frac{x dx + y dy + z dz}{-x(x^2 + y^2 + z^2)} = \\frac{dz}{-2xz} & \\implies \\frac{2x dx + 2y dy + 2z dz}{-(x^2 + y^2 + z^2)} - \\frac{dz}{z} = 0 \\\\\n        & \\implies \\ln (x^2 + y^2 + z^2) - \\ln z = \\ln C_2 \\\\\n        & \\implies \\left( \\frac{x^2 + y^2 + z^2}{z} \\right) = C_2.\n    \\end{align*}\n    Thus, the solution is \n    \\[\n        F\\!\\left(\\frac{y}{z}, \\frac{x^2 + y^2 + z^2}{z}\\right)=0.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "pde"
       ]
     }
   ]
