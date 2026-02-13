@@ -78,6 +78,19 @@
         "miscellaneous",
         "differential-geometry"
       ]
+    },
+
+    {
+      "date": "2026-02-14",
+      "title": "Number Theory - 7^2n - 1 is divisible by 48",
+      "difficulty": "medium",
+      "problem": "Prove that for every integer $n \\geq 1$, the number $7^{2n} - 1$ is divisible by $48$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      A number is divisible by $48$ if and only if it is divisible by $16$ and $3$.\n                    </li>\n                    <li class=\"my-4\">\n                      Show that $7^2 \\equiv 1 \\pmod{16}$ and that $7 \\equiv 1 \\pmod{3}$.\n                    </li>\n                  </ul>",
+      "solution": "",
+      "tags": [
+        "miscellaneous",
+        "number-theory"
+      ]
     }
   ]
 }
