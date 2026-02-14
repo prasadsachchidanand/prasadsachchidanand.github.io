@@ -80,13 +80,13 @@
       ]
     },
 
-    {
+   {
       "date": "2026-02-14",
       "title": "Number Theory - 7^2n - 1 is divisible by 48",
       "difficulty": "medium",
       "problem": "Prove that for every integer $n \\geq 1$, the number $7^{2n} - 1$ is divisible by $48$.",
       "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      A number is divisible by $48$ if and only if it is divisible by $16$ and $3$.\n                    </li>\n                    <li class=\"my-4\">\n                      Show that $7^2 \\equiv 1 \\pmod{16}$ and that $7 \\equiv 1 \\pmod{3}$.\n                    </li>\n                  </ul>",
-      "solution": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We need to show that for any natural number $n$, the number $7^{2n} - 1 $ is divisible by $48$. A number is divisible by $48$ if and only if it is divisible by $16$ and $3$ (as they are coprime). Note that \n    \\begin{align*}\n        7^2 = 49 \\equiv 1 \\ (\\mathrm{mod}\\ 16) & \\implies 7^{2n} \\equiv 1 \\ (\\mathrm{mod}\\ 16)\\\\\n        & \\implies \\forall\\ n \\in \\mathbb{N}, 7^{2n} - 1 \\text{ is divisible by } 16.  \\\\\n        7^2 = 49 \\equiv 1 \\ (\\mathrm{mod}\\ 3) & \\implies 7^{2n} \\equiv 1 \\ (\\mathrm{mod}\\ 3) \\\\\n        & \\implies forall\\ n \\in \\mathbb{N}, 7^{2n} - 1 \\text{ is divisible by } 3.\n    \\end{align*}\n    Thus, the number $7^{2n} -1$ is divisible by $48$.</div>",
       "tags": [
         "miscellaneous",
         "number-theory"

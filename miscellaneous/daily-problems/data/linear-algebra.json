@@ -82,6 +82,19 @@
       "tags": [
         "linear-algebra"
       ]
+    },
+
+    {
+      "date": "2026-02-15",
+      "title": "vectors $(1,1,0)$, $(1,2,3)$ and $(2, -1,5)$ form a basis for  R^3",
+      "difficulty": "easy",
+      "problem": "Prove that the vectors $(1,1,0)$, $(1,2,3)$ and $(2, -1,5)$ form a basis for $\\mathbb{R} ^3$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Consider the determinant of the matrix whose rows are the given vectors.\n                    </li>\n                    <li class=\"my-4\">\n                      Maximal independent set is a basis.\n                    </li>\n                  </ul>",
+      "solution": "",
+      "tags": [
+        "linear-algebra",
+        "basis"
+      ]
     }
   ]
 }
