@@ -78,6 +78,20 @@
         "real-analysis",
         "sequence-of-functions"
       ]
+    },
+
+    {
+      "date": "2026-02-16",
+      "title": "\\limsup_{n \\to  \\infty } (a_n + b_n) \\leq \\limsup_{n \\to  \\infty } a_n + \\limsup_{n \\to  \\infty } b_n",
+      "difficulty": "medium",
+      "problem": "For any two real sequences $\\{ a_n \\} $ and $\\{ b_n \\} $, prove that \n    \\[\n        \\limsup_{n \\to  \\infty } (a_n + b_n) \\leq \\limsup_{n \\to  \\infty } a_n + \\limsup_{n \\to  \\infty } b_n.\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Recall that \n        \\[\n            \\limsup_{n\\to\\infty} a_n = \\lim_{n\\to\\infty} \\sup_{k \\ge n} a_k.\n        \\]\n        Rewrite the three limsups in the statement using this definition.\n                    </li>\n                    <li class=\"my-4\">\n                      Fix $n$. For every $k \\ge n$,\n        \\[\n            a_k \\le \\sup_{j \\ge n} a_j \\quad\\text{and}\\quad b_k \\le \\sup_{j \\ge n} b_j.\n        \\]\n        Add these inequalities and then take the supremum over $k \\ge n$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Recall that\n\t\\[\n\t\t\\limsup_{n\\to\\infty} a_n\n\t\t=\n\t\t\\lim_{n\\to\\infty} \\sup_{k \\ge n} a_k.\n\t\\]\n\tDefine\n\t\\[\n\t\tA_n = \\sup_{k \\ge n} a_k,\n\t\t\\qquad\n\t\tB_n = \\sup_{k \\ge n} b_k.\n\t\\]\n\tThen\n\t\\[\n\t\t\\limsup_{n \\to  \\infty } a_n = \\lim_{n\\to\\infty} A_n,\n\t\t\\qquad\n\t\t\\limsup_{n \\to  \\infty } b_n = \\lim_{n\\to\\infty} B_n.\n\t\\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For fixed $n$ and every $k \\ge n$,\n\t\\[\n\t\ta_k \\le A_n,\n\t\t\\qquad\n\t\tb_k \\le B_n.\n\t\\]\n\tHence\n\t\\[\n\t\ta_k + b_k \\le A_n + B_n.\n\t\\]\n\tTaking the supremum over $k \\ge n$ gives\n\t\\[\n\t\t\\sup_{k \\ge n}(a_k + b_k)\n\t\t\\le\n\t\tA_n + B_n.\n\t\\]\n\tFinally, taking limits as $n \\to \\infty$,\n\t\\begin{align*}\n        \\limsup_{n\\to\\infty}(a_n + b_n) & = \\lim_{n\\to\\infty} \\sup_{k \\ge n}(a_k + b_k) \\\\\n\t\t& \\le \\lim_{n\\to\\infty} (A_n + B_n) \\\\\n\t\t& = \\limsup_{n\\to\\infty} a_n + \\limsup_{n\\to\\infty} b_n.\n    \\end{align*}</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "real-analysis-rudin (3.5)"
+      ]
     }
   ]
 }

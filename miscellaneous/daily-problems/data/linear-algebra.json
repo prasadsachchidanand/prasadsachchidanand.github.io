@@ -90,7 +90,7 @@
       "difficulty": "easy",
       "problem": "Prove that the vectors $(1,1,0)$, $(1,2,3)$ and $(2, -1,5)$ form a basis for $\\mathbb{R} ^3$.",
       "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Consider the determinant of the matrix whose rows are the given vectors.\n                    </li>\n                    <li class=\"my-4\">\n                      Maximal independent set is a basis.\n                    </li>\n                  </ul>",
-      "solution": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We need to prove that the vectors  $\\mathbf{v} _1 = (1,1,0)$, $\\mathbf{v} _2 = (1,2,3)$ and $\\mathbf{v} _3 = (2, -1,5)$ form a basis for $\\mathbb{R} ^3$.  Consider the matrix whose rows are $\\mathbf{v} _1, \\mathbf{v} _2$ and $\\mathbf{v} _3$, that is, \n    \\[\n        A = \n        \\begin{bmatrix}\n            1 & 1 &  0 \\\\\n            1 & 2 &  3 \\\\\n            2 & -1 &  5 \\\\\n        \\end{bmatrix}.\n    \\]  \n    The determinant of $A$ is $18$ which is nonzero and hence the given vectors are linearly independent. Since the dimension of $\\mathbb{R} ^3$ is $3$, so the set $\\{ \\mathbf{v} _1, \\mathbf{v} _2, \\mathbf{v} _3 \\} $ forms a basis for $\\mathbb{R} ^3$.</div>",
       "tags": [
         "linear-algebra",
         "basis"
