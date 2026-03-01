@@ -1,3 +1,41 @@
+// Set of all dates that have problems, populated asynchronously
+var availableProblemDates = new Set();
+var problemDatesLoaded = false;
+
+// Topic map (must match daily-problem-loader.js)
+const calendarTopicMap = {
+    0: 'linear-algebra',
+    1: 'real-analysis',
+    2: 'complex-analysis',
+    3: 'abstract-algebra',
+    4: 'topology',
+    5: 'differential-equations',
+    6: 'miscellaneous'
+};
+
+// Load all problem dates from all JSON files upfront
+async function loadAllProblemDates() {
+    const allTopics = Object.values(calendarTopicMap);
+    // Use a Set to avoid duplicates
+    for (const topic of allTopics) {
+        try {
+            const response = await fetch(`data/${topic}.json`);
+            if (!response.ok) continue;
+            const data = await response.json();
+            if (data.problems && Array.isArray(data.problems)) {
+                data.problems.forEach(p => {
+                    if (p.date) availableProblemDates.add(p.date);
+                });
+            }
+        } catch (e) {
+            // silently skip missing files
+        }
+    }
+    problemDatesLoaded = true;
+    // Re-run links() so calendar cells update with correct colors
+    links();
+}
+
 function generate_year_range(start, end) {
   var years = "";
   for (var year = start; year <= end; year++) {
@@ -40,6 +78,9 @@ showCalendar(currentMonth, currentYear);
 
 // Initial button state update
 updateNavigationButtons();
+
+// Kick off async load of all problem dates
+loadAllProblemDates();
 
 
 
@@ -182,19 +223,32 @@ function daysInMonth(iMonth, iYear) {
 function links() {
   document.querySelectorAll('td.date-picker > span').forEach(element => {
       let parent = element.parentElement;
-      let year = parent.getAttribute('data-year');
+      let year = parseInt(parent.getAttribute('data-year'));
       let month = parent.getAttribute('data-month').padStart(2, '0');
       let day = element.textContent.padStart(2, '0');
-      let date = new Date(year, month - 1, day);
+      let date = new Date(year, parseInt(month) - 1, parseInt(day));
 
       if (date > today) {
           element.style.color = "#737272";
           element.style.cursor = "not-allowed";
       } else {
+          // Build the ISO date string for lookup
+          const dateString = `${year}-${month}-${day}`;
+
+          // For dates from 2026 onwards, check if a problem exists
+          const isMissingProblem = year >= 2026 && problemDatesLoaded && !availableProblemDates.has(dateString);
+
           let link = document.createElement('a');
           link.href = `../daily-problems/${year}-${month}-${day}`;
           link.target = "_blank";
           link.textContent = element.textContent;
+
+          if (isMissingProblem) {
+              // Gray color to indicate no problem available for this date
+              link.style.color = "#9ca3af";
+              link.title = "No problem available for this date";
+          }
+
           element.innerHTML = "";
           element.appendChild(link);
       }
