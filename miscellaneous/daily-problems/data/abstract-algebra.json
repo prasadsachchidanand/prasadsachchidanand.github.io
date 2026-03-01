@@ -81,6 +81,32 @@
         "abstract-algebra",
         "group-theory"
       ]
+    },
+
+    {
+      "date": "2026-02-18",
+      "title": "Factor f(x) = x^6 + 2x^4 + 3x^3 + 1",
+      "difficulty": "medium",
+      "problem": "Let $f(x) = x^6 + 2x^4 + 3x^3 + 1$. Find some prime $p$ such that $x-2$ is a factor of $f(x)$ in $\\mathbb{Z} _p[x]$. Then factor $f(x)$ into irreducibles in $\\mathbb{Z} _p[x]$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use the Factor Theorem: $x-2$ divides $f(x)$ in $\\mathbb{Z}_p[x]$ if and only if $f(2)\\equiv 0 \\pmod p$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $x-2$ divides $f(x) = x^6 + 2x^4 + 3x^3 + 1$, so $2$ must be a root of the polynomial $p(x)$. Thus, \n    \\[\n        2^6 + 2^5 + 3 \\cdot 2^3 + 1 \\equiv 0 \\ (\\mathrm{mod}\\ p) \\implies 121 \\equiv 0 \\ (\\mathrm{mod}\\ p).\n    \\]   \n    Since $121 = 11^2$, so $121 \\equiv 0 \\ (\\mathrm{mod}\\ p)$ if and only if $p = 11$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now perform polynomial division of $f(x)$ by $x-2$ in $\\mathbb{Z}_{11}[x]$ (using synthetic division with root $2$):\n\n    Coefficients of $f(x)$: $[1, 0, 2, 3, 0, 0, 1]$\n\n    \\[\n        \\begin{array}{r|rrrrrrr}\n            2 & 1 & 0 & 2 & 3 & 0 & 0 & 1 \\\\\n            &   & 2 & 4 & 1 & 8 & 5 &   \\\\\n            \\hline\n            & 1 & 2 & 6 & 4 & 8 & 5 & 0 \\\\\n        \\end{array}\n    \\]\n\n    (all arithmetic modulo $11$; note $12 \\equiv 1$, $16 \\equiv 5$, $10 \\equiv -1 \\equiv 10$)\n\n    Thus\n    \\[\n        f(x) \\equiv (x - 2)(x^5 + 2x^4 + 6x^3 + 4x^2 + 8x + 5) \\pmod{11}.\n    \\]\n\n    The quintic $q(x) = x^5 + 2x^4 + 6x^3 + 4x^2 + 8x + 5$ has no roots in $\\mathbb{Z}_{11}$ (verified by testing $x = 0,1,\\dots,10$). It factors as a quadratic times a cubic over $\\mathbb{Z}_{11}$:\n\n    \\[\n        q(x) \\equiv (x^2 + 3x - 1)(x^3 - x^2 - x - 5) \\pmod{11}.\n    \\]\n\n    Therefore the complete factorization is\n    \\[\n        f(x) \\equiv (x - 2)(x^2 + 3x - 1)(x^3 - x^2 - x - 5) \\pmod{11}.\n    \\]</div>",
+      "tags": [
+        "abstract-algebra",
+        "field-theory"
+      ]
+    },
+
+    {
+      "date": "2026-02-25",
+      "title": "Factor $x^7 - x$ as a product of irreducibles in Z_7[x]",
+      "difficulty": "medium",
+      "problem": "Factor $x^7 - x$ as a product of irreducibles in $\\mathbb{Z} _7[x]$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Apply <a href=\"https://en.wikipedia.org/wiki/Fermat%27s_little_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Fermat's little theorem</a>.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By <a href=\"https://en.wikipedia.org/wiki/Fermat%27s_little_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Fermat's little theorem</a>, for any $x \\in \\mathbb{Z} $\n    \\[\n        x^7 \\equiv x \\ (\\mathrm{mod}\\ 7).\n    \\] \n    Therefore, each element of $\\mathbb{Z} _7$ is a root of the polynomial $f(x) = x^7 - x$. Therefore, $g(x) = x(x-1)(x-2)(x-3)(x-4)(x-5)(x-6)$ divides $f(x)$. Since the degree of $g$ is $7$ and it is monic, we conclude that \n    \\[\n        x^7 - x = x(x-1)(x-2)(x-3)(x-4)(x-5)(x-6) \\text{ in } \\mathbb{Z} _7[x].\n    \\]</div>",
+      "tags": [
+        "abstract-algebra",
+        "field-theory"
+      ]
     }
   ]
 }

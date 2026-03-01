@@ -78,6 +78,30 @@
       "tags": [
         "complex-analysis"
       ]
+    },
+
+    {
+      "date": "2026-02-17",
+      "title": "Find all $z \\in \\mathbb{C} $ such that $z^2 = -11 + 60 \\iota $",
+      "difficulty": "medium",
+      "problem": "Find all $z \\in \\mathbb{C} $ such that $z^2 = -11 + 60 \\iota $.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Let $z = a + b\\iota$ with $a,b \\in \\mathbb{R}$. Expand $(a+b\\iota)^2$ and equate real and imaginary parts with $-11 + 60\\iota$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $z = a + b\\iota$ with $a,b \\in \\mathbb{R}$. Then\n\t\\[\n\t\tz^2 = (a+b\\iota)^2 = a^2 - b^2 + 2ab\\iota.\n\t\\]\n\tWe want\n\t\\[\n\t\ta^2 - b^2 + 2ab\\iota = -11 + 60\\iota.\n\t\\]\n\tEquating real and imaginary parts gives the system\n\t\\begin{align*}\n        & a^2 - b^2 = -11, \\quad  \\text{ and } \\quad 2ab = 60 \\\\\n        \\implies & a^2 - b^2 = -11, \\quad \\text{ and } \\quad b = \\frac{30}{a} .\n    \\end{align*}\n    Substituting $b = \\frac{30}{a}$, we get \n    \\begin{align*}\n        a^2 - \\frac{900}{a^2} = - 11 & \\implies a^4 + 11a^2 - 900 = 0 \\\\\n        & \\implies a^2 = \\frac{-11 \\pm \\sqrt{121 + 3600} }{2} \\\\\n        & \\implies a^2 = \\frac{-11 \\pm \\sqrt{61} }{2} \\\\\n        & \\implies a^2 = \\frac{-11 - 61}{2} , a^2 = \\frac{-11 + 61}{2}.\n    \\end{align*} \n    Since $a \\in \\mathbb{R} $ and hence $a^2 \\geq 0$. Thus, $a^2 = \\frac{-11 - 61}{2} $ is not possible. Thus, \n    \\[\n        a^2 = 25 \\implies  a = \\pm 5 \\implies b = \\mp 6.\n    \\]   \n    Thus, \n    \\[\n        z = a + \\iota b = \\pm (5 + 6\\iota ).\n    \\]</div>",
+      "tags": [
+        "complex-analysis"
+      ]
+    },
+
+    {
+      "date": "2026-02-24",
+      "title": "The function is harmonic or not",
+      "difficulty": "medium",
+      "problem": "Determine, if the function $\\Phi $ is harmonic on the domain $\\Omega $. \n    \\[\n        \\Phi (x,y) = \\frac{x}{x^2 + y^2} + x^2 - y^2 + x - y, \\quad  \\Omega = \\mathbb{C} \\setminus \\{ 0 \\}. \n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      A function $f(z,y)$ is harmonic on a domain $\\Omega $ iff \n        \\[\n            \\frac{\\partial^2 f}{\\partial x^2} + \\frac{\\partial^2 f}{\\partial y^2} = 0\n        \\]\n        on $\\Omega .$\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">It is clear that $\\Phi $ is $C^2$ on $\\mathbb{R} ^2 \\setminus \\{ (0,0) \\} $ which is the domain of definition. Also, \n    \\begin{align*}\n        \\frac{\\partial \\Phi }{\\partial x}(x,y) & = \\frac{x^2 + y^2 - 2x^2}{(x^2 + y^2)^2} + 2x + 1 \\\\\n        & = \\frac{y^2 - x^2}{(x^2 + y^2)^2} + 2x + 1. \\\\\n        \\frac{\\partial^2 \\Phi }{\\partial x^2}(x,y) & = \\frac{-2x (x^2 + y^2)^2 - (y^2 - x^2)2(x^2 + y^2) 2x}{(x^2 + y^2)^4} + 2 \\\\\n        & = \\frac{-2x(x^2 + y^2) - 4x(y^2 - x^2)}{(x^2 + y^2)^3} + 2.\n    \\end{align*}\n    Similarly, \n    \\begin{align*}\n        \\frac{\\partial \\Phi }{\\partial y}(x,y) & =  \\frac{-2xy}{(x^2 + y^2)^2} -2y - 1, \\\\\n        \\frac{\\partial^2 \\Phi }{\\partial y^2} (x,y) & = \\frac{-2x(x^2 + y^2)^2 + 2xy\\cdot 2(x^2 + y^2) \\cdot 2y}{(x^2 + y^2)^4} - 2 \\\\\n        & = \\frac{-2x(x^2 + y^2) + 8xy^2 }{(x^2 + y^2)^3} - 2\n    \\end{align*}\n\n    From this it follows that\n    \\begin{align*}\n        \\frac{\\partial^2 \\Phi }{\\partial x^2} + \\frac{\\partial^2 \\Phi }{\\partial y^2} & =  \\frac{-4x(x^2 + y^2) - 4xy^2 + 4x^3 + 8xy^2}{(x^2 + y^2)^3} \\\\\n        & = \\frac{-4x^3 - 4xy^2 - 4xy^2 + 4x^3 + 8xy^2}{(x^2 + y^2)^3} = 0.\n    \\end{align*}\n    Thus, $\\Phi $ is harmonic on $\\mathbb{C} \\setminus \\{ 0 \\} $.</div>",
+      "tags": [
+        "complex-analysis"
+      ]
     }
   ]
 }

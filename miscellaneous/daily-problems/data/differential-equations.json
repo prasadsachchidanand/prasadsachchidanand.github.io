@@ -104,6 +104,32 @@
         "differential-equation",
         "pde"
       ]
+    },
+
+    {
+      "date": "2026-02-20",
+      "title": "Solve y'' - 4y' + 4y = e^{2x}\\sin x.",
+      "difficulty": "medium",
+      "problem": "Solve the differential equation\n    \\[\n        y'' - 4y' + 4y = e^{2x}\\sin x.\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      The characteristic equation has a repeated root $r=2$, so the homogeneous solution is $(c_1 + c_2 x)e^{2x}$. Because $e^{2x}$ appears in both the homogeneous solution and the right-hand side, multiply the usual undetermined-coefficients guess by $x^2$.\n                    </li>\n                    <li class=\"my-4\">\n                      After substituting $y_p = x^2 e^{2x}(A \\cos x + B \\sin x)$ into the equation, collect coefficients of $e^{2x}\\cos x$ and $e^{2x}\\sin x$ separately and solve the resulting $2\\times 2$ system for $A$ and $B$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The associated homogeneous equation is\n    \\[\n    y'' - 4y' + 4y = 0.\n    \\]\n    Its characteristic equation is\n    \\[\n    r^2 - 4r + 4 = (r-2)^2 = 0 \\quad \\Rightarrow \\quad r = 2 \\quad \\text{(multiplicity 2)}.\n    \\]\n    Thus the general solution of the homogeneous equation is\n    \\[\n    y_h(x) = (c_1 + c_2 x) e^{2x}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For a particular solution, since the nonhomogeneous term is $e^{2x} \\sin x$ and $e^{2x}$ and $x e^{2x}$ are already in $y_h$, we try\n    \\[\n    y_p(x) = x^2 e^{2x} (A \\cos x + B \\sin x).\n    \\]\n\n    Differentiate twice (using product rule repeatedly) and substitute into the original equation. After simplification and collecting like terms, the coefficients of $e^{2x} \\cos x$ and $e^{2x} \\sin x$ give the system\n    \\[\n    \\begin{cases}\n    -4A - 2B = 0, \\\\\n    2A - 4B = 1.\n    \\end{cases}\n    \\]\n\n    Solving yields $A = -\\frac{1}{10}$ and $B = -\\frac{2}{5}$. Therefore\n    \\[\n    y_p(x) = x^2 e^{2x} \\left( -\\frac{1}{10} \\cos x - \\frac{2}{5} \\sin x \\right) = -\\frac{x^2 e^{2x}}{10} (\\cos x + 4 \\sin x).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The general solution is\n    \\[\n    y(x) = y_h(x) + y_p(x) = (c_1 + c_2 x) e^{2x} - \\frac{x^2 e^{2x}}{10} (\\cos x + 4 \\sin x).\n    \\]\n\n    Equivalently (by absorbing the constant term into $c_1$),\n    \\[\n    \\boxed{y(x) = \\bigl( c_1 + c_2 x - \\sin x \\bigr) e^{2x}.}\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2026-02-27",
+      "title": "Solve (x^2 - y^2 - z^2)p + 2xy q = 2xz,",
+      "difficulty": "medium",
+      "problem": "Solve \n    \\[\n        (x^2 - y^2 - z^2)p + 2xy q = 2xz,\n    \\]\n    where $p = \\frac{\\partial z}{\\partial x} $ and $q = \\frac{\\partial z}{\\partial y} $.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use the last two proportions of the auxiliary equations to get the ratio involving $y$ and $z$ directly (leads to $y/z = c_1$).\n                    </li>\n                    <li class=\"my-4\">\n                      Multiply the auxiliary equations by $x$, $y$, $z$ respectively and add to obtain a combination that gives $d(x^2 + y^2 + z^2)/ (x^2 + y^2 + z^2) = $ something involving $dz/z$; integrate to find the second relation.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given PDE is\n\\[\n(x^2 - y^2 - z^2)p + 2xy\\, q = 2xz.\n\\]\n\nLagrange's auxiliary equations are\n\\[\n\\frac{dx}{x^2 - y^2 - z^2} = \\frac{dy}{2xy} = \\frac{dz}{2xz}. \\tag{1}\n\\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Taking the last two fractions:\n\\[\n\\frac{dy}{2xy} = \\frac{dz}{2xz} \\quad \\Rightarrow \\quad \\frac{dy}{y} = \\frac{dz}{z}.\n\\]\n\nIntegrating,\n\\[\n\\ln|y| = \\ln|z| + \\ln|c_1| \\quad \\Rightarrow \\quad \\frac{y}{z} = c_1. \\tag{2}\n\\]\n\nNow multiply the fractions of (1) by $x$, $y$, $z$ respectively and add:\n\\[\nx\\,dx + y\\,dy + z\\,dz = \\frac{x(x^2 - y^2 - z^2) + y(2xy) + z(2xz)}{-x(x^2 + y^2 + z^2)} \\, dx\n\\]\n\n\\[\n\\frac{x\\,dx + y\\,dy + z\\,dz}{-x(x^2 + y^2 + z^2)} = \\frac{dz}{-2xz}.\n\\]\n\nThis simplifies to\n\\[\n\\frac{d(x^2 + y^2 + z^2)}{x^2 + y^2 + z^2} = -\\frac{dz}{z}.\n\\]\n\nIntegrating both sides:\n\\[\n\\ln|x^2 + y^2 + z^2| = -\\ln|z| + \\ln|c_2| \\quad \\Rightarrow \\quad \\frac{x^2 + y^2 + z^2}{z} = c_2. \\tag{3}\n\\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">From (2) and (3), the general solution is an arbitrary relation between the two independent integrals:\n\\[\n\\phi\\left( \\frac{y}{z},\\ \\frac{x^2 + y^2 + z^2}{z} \\right) = 0,\n\\]\nwhere $\\phi$ is an arbitrary function.</div>",
+      "tags": [
+        "differential-equation",
+        "pde"
+      ]
     }
   ]
 }

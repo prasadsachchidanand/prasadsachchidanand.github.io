@@ -87,6 +87,31 @@
             "topology",
             "homotopy-theory"
           ]
+        },
+
+        {
+          "date": "2026-02-19",
+          "title": "Union of connected set is connected",
+          "difficulty": "medium",
+          "problem": "Let $X$ be a topological space and let $\\{A_i\\}_{i \\in I}$ be any family of connected subsets of $X$ such that\n    \\[\n        \\bigcap_{i \\in I} A_i \\neq \\emptyset.\n    \\]\n    Prove that the union $\\bigcup_{i \\in I} A_i$ is connected.",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Suppose $\\bigcup_{i \\in I} A_i = U \\cup V$ where $U$ and $V$ are disjoint, nonempty, relatively open sets in the subspace topology.\n                    </li>\n                    <li class=\"my-4\">\n                      Pick any point $x \\in \\bigcap_{i \\in I} A_i$. Without loss of generality, assume $x \\in U$.\n                    </li>\n                    <li class=\"my-4\">\n                      Show that every $A_i$ must lie entirely in $U$ (using the connectedness of each $A_i$).\n                    </li>\n                    <li class=\"my-4\">\n                      Conclude that $V = \\emptyset$, yielding a contradiction.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Assume, for the sake of contradiction, that $\\bigcup_{i \\in I} A_i$ is disconnected. Then there exist nonempty sets $U$ and $V$, open in the subspace topology on $\\bigcup A_i$, such that\n    \\[\n        \\bigcup_{i \\in I} A_i = (U \\cap \\cup A_i) \\cup (V \\cap \\cup A_i), \\quad\n        (U \\cap \\cup A_i) \\cap (V \\cap \\cup A_i) = \\emptyset,\n    \\]\n    and both $U \\cap \\bigcup A_i$ and $V \\cap \\bigcup A_i$ are nonempty.\n\n    Let $x \\in \\bigcap_{i \\in I} A_i$ (nonempty by hypothesis). Then $x \\in \\bigcup A_i$, so $x$ belongs to exactly one of the two pieces; say $x \\in U \\cap \\bigcup A_i$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now fix an arbitrary $j \\in I$. Consider $A_j$. We know $x \\in A_j$ and $A_j$ is connected. The sets $A_j \\cap U$ and $A_j \\cap V$ are relatively open in $A_j$, disjoint, and their union is $A_j$. By connectedness of $A_j$, one of them must be empty. Since $x \\in A_j \\cap U$, it follows that $A_j \\cap V = \\emptyset$, so $A_j \\subseteq U$.\n\n    As this holds for every $j$, we obtain\n    \\[\n    \\bigcup_{i \\in I} A_i \\subseteq U \\implies V \\cap \\bigcup A_i = \\emptyset,\n    \\]\n    contradicting the assumption that $V \\cap \\bigcup A_i \\neq \\emptyset$. Therefore $\\bigcup_{i \\in I} A_i$ is connected.</div>",
+          "tags": [
+            "topology",
+            "connectedness"
+          ]
+        },
+
+        {
+          "date": "2026-02-26",
+          "title": "f is a closed map",
+          "difficulty": "easy",
+          "problem": "Let $X$ be a compact topological space and let $f \\colon X \\to Y$ be a continuous map, where $Y$ is a Hausdorff space. Prove that $f$ is a closed map (i.e., the image of every closed set in $X$ is closed in $Y$).",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      A continuous function maps a compact set to a compact set.\n                    </li>\n                    <li class=\"my-4\">\n                      Inside a Hausdorff space any compact set is closed.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $C \\subseteq X$ be closed. Since $X$ is compact, $C$ is compact. We will show that $f(C)$ is closed in $Y$. Since $f$ is continuous and $C$ is compact, implies $f(C)$ is also compact. Since $Y$ is Hausdorff, $f(C)$ is closed in $Y$. This proves that $f$ is a closed map.</div>",
+          "tags": [
+            "topology"
+          ]
         }
     ]
 }
