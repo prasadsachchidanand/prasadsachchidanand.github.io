@@ -91,6 +91,32 @@
         "miscellaneous",
         "number-theory"
       ]
+    },
+
+    {
+      "date": "2026-02-21",
+      "title": "Number Theory - sqrt{p} is irrational number",
+      "difficulty": "medium",
+      "problem": "Let $p$ be a prime number. Show that $\\sqrt{p} $ is an irrational number.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Write $\\sqrt{p} = \\frac{m}{n}$ by assuming it is a rational number. Also, assume that $\\gcd (m,n) = 1$.  This implies $p$ divides $m^2$ and hence $m$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We need to show that for a prime number $p$, the number $\\sqrt{p} $ is an irrational number. To the contrary, assume that $\\sqrt{p} $ is a rational number. Write,\n    \\[\n        \\sqrt{p} = \\frac{m}{n}, \\quad m,n \\in \\mathbb{Z} \\text{ and } n\\neq 0.\n    \\] \n    Further assume that $\\gcd (m,n) = 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Observe that \n    \\begin{align*}\n        \\sqrt{p} = \\frac{m}{n} & \\implies p = \\frac{m^2}{n^2} \\\\ \n                               & \\implies pn^2 = m^2 \\\\\n                               & \\implies p \\mid m^2 \\implies p \\mid m \\\\\n                               & \\implies m = kp, \\quad \\text{ for some } k \\in \\mathbb{Z}. \\\\\n                               & \\implies p = \\frac{k^2 p^2}{n^2} \\implies pk^2 = n^2 \\\\\n                               & \\implies p \\mid n^2 \\implies p \\mid n.\n    \\end{align*}\n    This is a contradiction as $\\gcd (m,n) = 1$. Thus, $\\sqrt{p} $ is an irrational number.</div>",
+      "tags": [
+        "miscellaneous",
+        "number-theory"
+      ]
+    },
+
+    {
+      "date": "2026-02-28",
+      "title": "Combinatorics - In how many ways can 10 identical balls be distributed into 4 distinct boxes such that each box contains at least one ball",
+      "difficulty": "medium",
+      "problem": "In how many ways can 10 identical balls be distributed into 4 distinct boxes such that each box contains at least one ball?",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Apply the <a href=\"https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">stars and bars formula</a>.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let the number of balls in each box be $x_1, x_2, x_3, x_4$. Then we must solve\n    \\[\n        x_1 + x_2 + x_3 + x_4 = 10\n    \\]\n    with the condition\n    \\[\n        x_i \\ge 1 \\quad \\text{for } i = 1,2,3,4.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since each variable must be at least 1, set\n    \\[\n        x_i = y_i + 1.\n    \\]\n    Substituting into the equation gives\n    \\[\n        (y_1 + 1) + (y_2 + 1) + (y_3 + 1) + (y_4 + 1) = 10.\n    \\]\n    Simplifying,\n    \\[\n        y_1 + y_2 + y_3 + y_4 + 4 = 10 \\implies y_1 + y_2 + y_3 + y_4 = 6,\n    \\]\n    where $y_i \\ge 0.$</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Apply the Stars and Bars formula</strong>\n\n    The number of nonnegative integer solutions of\n    \\[\n        y_1 + y_2 + y_3 + y_4 = 6\n    \\]\n    is given by\n    \\[\n        \\binom{n + k - 1}{k - 1},\n    \\]\n    where \\( n = 6 \\) and \\( k = 4 \\). Thus,\n    \\[\n        \\binom{6 + 4 - 1}{4 - 1}\n        =\n        \\binom{9}{3}\n        =\n        84.\n    \\]\n    Therefore, the number of ways to distribute the balls is \\( 84 \\).</div>",
+      "tags": [
+        "miscellaneous",
+        "combinatorics"
+      ]
     }
   ]
 }
