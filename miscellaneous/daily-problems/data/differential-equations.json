@@ -130,6 +130,19 @@
         "differential-equation",
         "pde"
       ]
+    },
+
+    {
+      "date": "2026-03-06",
+      "title": "The functions $e^x, x e^x, x^2 e^x$ are linearly independent",
+      "difficulty": "medium",
+      "problem": "Prove that the functions $e^x, x e^x, x^2 e^x$ are linearly independent. Hence form the differential equation whose roots are $e^x, x e^x, \\text{ and } x^2 e^x$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      The functions will be linearly independent if the Wronskian is zero for some point in the domain which is $\\mathbb{R} $.\n                    </li>\n                    <li class=\"my-4\">\n                      For constructing the differential equation, note that\n        \\[\n            y(x) = \\sum_{i=1}^{3} c_i y_i (x)\n        \\]\n        will be a solution of the differential equation. Differentiate and eliminate the constants to get the differential equation.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let \n    \\[\n        y_1(x) = e^x, \\quad y_2(x) = x e^x, \\quad y_3(x) = x^2 e^x .\n    \\]\n    Recall that the functions will linearly independent if the Wronskian is zero for some point $x \\in \\mathbb{R} $, which is the domain of the functions here. The Wronskian will be \n    \\begin{align*}\n        W(y_1, y_2, y_3) & = \n        \\begin{vmatrix}\n            y_1 & y_2 &  y_3 \\\\[1ex]\n            y_1' & y_2' &  y_3' \\\\[1ex]\n            y_1'' & y_2'' &  y_3'' \\\\\n        \\end{vmatrix} \\\\[2ex]\n        & = \\begin{vmatrix}\n            e^x & x e^x &  x^2 e^x \\\\[1ex]\n            e^x & x e^x + e^x &  x^2 e^x + 2x e^x \\\\[1ex]\n            e^x & x e^x + 2 e^x &  x^2 e^x + 4x e^x + 2e^x \\\\\n        \\end{vmatrix} \\\\[2ex]\n        & = 2e^{3x}.  \n    \\end{align*}\n    Note that $W(y_1, y_2, y_3) \\neq 0$ for any $x \\in \\mathbb{R} $, but in particular, it is non zero for $x = 0$. So, the functions are linearly independent.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we need to construct an ODE whose solutions are $y_1, y_2, y_3$. This implies the general solution will be \n    \\[\n        y(x) = \\sum_{i=1}^{3} c_i y_i (x),\n    \\] \n    where $c_1, c_2, c_3$ are constants. Now to get the differential equation, we need to eliminate the constants. \n    \\begin{align*}\n        y'(x) & = \\sum_{i=1}^{3} c_i y_i'(x) = c_1 e^x + c_2 (x + 1)e^x + c_3 (x^2 + 2x)e^x \\\\\n        & = c_1 e^x + c_2 x e^x + c_3 x^2 e^x + c_2 e^x + 2c_3 x e^x \\\\\n        & = y(x) + c_2 e^x + c_3 2x e^x .\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now differentiating again, we get\n    \\begin{align*}\n        y''(x) & = y'(x) + c_2 e^x + 2c_3x e^x + 2c_3 e^x \\\\\n               & = y'(x) + y'(x) - y(x) + 2c_3 e^x \\\\\n               & = 2 y'(x) - y(x) + 2c_3 e^x.\n    \\end{align*}\n    Differentiating again, we get \n    \\begin{align*}\n        y'''(x) & = 2y''(x) - y'(x) + 2c_3 e^x \\\\\n                & = 2 y''(x) - y'(x) + y''(x) - 2 y'(x) + y(x) \\\\\n                & = 3 y''(x) - 3 y'(x) + y(x).\n    \\end{align*}\n    Thus, the differential equation will be \n    \\[\n        y''' - 3y'' + 3 y' - y = 0.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
     }
   ]
 }

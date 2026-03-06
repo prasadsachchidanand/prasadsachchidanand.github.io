@@ -112,6 +112,19 @@
           "tags": [
             "topology"
           ]
+        },
+
+        {
+          "date": "2026-03-05",
+          "title": "A is closed if and only if boundary of A subset of A",
+          "difficulty": "easy",
+          "problem": "Prove that a set $A$ is closed in $X$ if and only if $\\partial A \\subset A$, where $\\partial A$ is the topological boundary of $A$.",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      For any set $A$, the boundary is $\\partial A = \\mathrm{Cl}(A) - \\mathrm{int}(A) $.\n                    </li>\n                    <li class=\"my-4\">\n                      A set $A$ is closed if and only if $\\mathrm{Cl} (A) = A$.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Recall that for the set $A$, \n    \\[\n        \\partial A = \\mathrm{Cl}(A) - \\mathrm{int}(A), \n    \\]  \n    where $\\mathrm{Cl}(A) $ is the closure of $A$ and $\\mathrm{int}(A) $ is the interior of $A$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $A$ be a closed set in $X$. Thus,\n    \\begin{align*}\n        \\mathrm{Cl}(A) = A & \\implies \\mathrm{Cl}(A) - \\mathrm{int}(A)  = A - \\mathrm{int}(A) \\\\\n        & \\implies \\partial A = A - \\mathrm{int}(A) \\subset A.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">On the other hand, let $\\partial A \\subset \\mathrm{Cl}(A) - \\mathrm{int}(A) $. We will prove that $A$ is closed in $X$, that is, $\\mathrm{Cl}(A) = A $. We already have $A \\subseteq \\mathrm{Cl} (A)$. For $\\mathrm{Cl}(A) \\subseteq A $, let $x \\in \\mathrm{Cl} (A)$. Note that we have $\\mathrm{int}(A) \\subset A$. If $x \\in \\mathrm{int}(A) $, then we are done. So, let $x \\in \\mathrm{Cl} (A) - \\mathrm{int}(A)$. Since,   \n    \\begin{align*}\n        x \\in \\mathrm{Cl} (A) - \\mathrm{int}(A) = \\partial A \\subset A \\implies \\mathrm{Cl} (A) \\subseteq A.\n    \\end{align*}   \n    Thus, $A = \\mathrm{Cl} (A)$.</div>",
+          "tags": [
+            "topology",
+            "metric-space"
+          ]
         }
     ]
 }
