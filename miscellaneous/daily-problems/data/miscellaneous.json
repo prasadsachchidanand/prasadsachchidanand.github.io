@@ -117,6 +117,19 @@
         "miscellaneous",
         "combinatorics"
       ]
+    },
+
+    {
+      "date": "2026-03-07",
+      "title": "Probability - Given the probability density function, find the value of a",
+      "difficulty": "medium",
+      "problem": "Let $X$ be a continuous random variable with probability density function (PDF) \n    \\[\n        f(x) = \n        \\begin{cases}\n            ax, &\\text{ if } 0 \\leq x \\leq 1 ;\\\\\n            a, &\\text{ if } 1 \\leq x \\leq 2; \\\\\n            -ax + 3a, & \\text{ if } 2 \\leq x\\leq 3; \\\\\n            0, & \\text{ otherwise }.\n        \\end{cases}\n    \\]\n    <ol class=\"math-list-roman\">\n                  <li class=\"my-4\">\n                    Determine the constant $a$.\n                  </li>\n                  <li class=\"my-4\">\n                    Compute $P(X \\leq 1.5)$.\n                  </li>\n                </ol>",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Note that $f(x)$ is the PDF, so $\\int_{-\\infty }^{\\infty } f(x) \\mathrm{d} x = 1$. Use this to determine $a$.\n                    </li>\n                  </ul>",
+      "solution": "<ol class=\"math-list-roman my-4\">\n                    <li class=\"my-4\">\n                      To determine the constant $a$, we need to use that $f$ is the PDF of the random variable $X$, that is, $\\int_{-\\infty }^{\\infty } f(x) \\mathrm{d} x = 1$. So, \n        \\begin{align*}\n            & \\int_{-\\infty}^{\\infty} f(x) \\,\\mathrm{d}x = 1\\\\\n            \\implies & \\left( \\int_{-\\infty }^0 + \\int_{0}^1 + \\int_{1}^2 + \\int_2^3 + \\int_3^{\\infty } \\right) f(x) \\mathrm{d} x = 1 \\\\\n            \\implies &  \\int_{-\\infty }^0 0\\ \\mathrm{d} x + \\int_0^1 ax\\ \\mathrm{d} x + \\int_1^2 a \\ \\mathrm{d} x \\\\\n            & \\qquad + \\int_2^3 (-ax + 3a) \\mathrm{d} x + \\int_3^{\\infty } 0 \\ \\mathrm{d} x = 1 \\\\\n            \\implies & \\left. \\frac{ax^2}{2} \\right| _0^1 +  ax \\Big| _1^2 + \\left[ -\\frac{ax^2}{2} + 3ax \\right]_2^3 = 1 \\\\\n            \\implies & \\frac{a}{2} + a + a \\left[ \\left( -\\frac{9}{2}+9  \\right) -(-2 + 6)  \\right] = 1 \\\\\n            \\implies & \\frac{a}{2} + a + \\frac{a}{2} = 1 \\\\\n            \\implies & a = \\frac{1}{2}.\n        \\end{align*}\n                      <hr class=\"h-px my-4 bg-gray-300 border-0\">\n                    </li>\n                    <li class=\"my-4\">\n                      Now we need to determine the probability $P(X \\leq 1.5)$, that is,\n        \\begin{align*}\n            P(X \\leq 1.5) & = \\int_{-\\infty }^{1.5} f(x)\\ \\mathrm{d}x \\\\\n                          & = \\int_0^1 f(x)\\ \\mathrm{d} x + \\int_1^{1.5} f(x) \\ \\mathrm{d} x \\\\\n                          & = \\int_0^1 \\frac{x}{2}\\ \\mathrm{d} x + \\int_1^{1.5} \\frac{1}{2}\\ \\mathrm{d} x \\\\\n                          & = \\left[ \\frac{x^2}{4} \\right] _0^1 + \\left[ \\frac{x}{2} \\right] _1^{1.5} \\\\\n                          & = \\frac{1}{4} + \\frac{.5}{2} = \\frac{1}{2}. \n        \\end{align*} \n        Thus, \n        \\[\n            P(X \\leq 1.5) = \\frac{1}{2}.\n        \\]\n                    </li>\n                  </ol>",
+      "tags": [
+        "miscellaneous",
+        "statistics"
+      ]
     }
   ]
 }
