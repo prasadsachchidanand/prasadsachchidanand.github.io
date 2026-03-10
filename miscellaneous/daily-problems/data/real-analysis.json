@@ -120,6 +120,20 @@
         "seqeunces",
         "real-analysis-rudin (3.7)"
       ]
+    },
+
+    {
+      "date": "2026-03-09",
+      "title": "Rudin 3.8 - If $\\sum_{n} a_n $ converges, and if $\\{ b_n \\} $  is monotonic and bounded, prove that $\\sum_{n} a_n b_n$ converges",
+      "difficulty": "medium",
+      "problem": "If $\\sum_{n} a_n $ converges, and if $\\{ b_n \\} $  is monotonic and bounded, prove that $\\sum_{n} a_n b_n$ converges.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Let $A_n = \\sum_{k=1}^{n} a_k$. Since $\\sum a_n$ converges, the sequence $\\{A_n\\}$ is bounded.\n                    </li>\n                    <li class=\"my-4\">\n                      Show that $\\sum_{k=1}^{n} a_k b_k = A_n b_n + \\sum_{k=2}^{n} A_{k-1} (b_{k-1} - b_{k} )$ and use the fact that $\\{b_n\\}$ is monotone and bounded.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let\n    \\[\n        A_n = \\sum_{k=1}^{n} a_k .\n    \\]\n    Since $\\sum a_n$ converges, the sequence $\\{A_n\\}$ of partial sums is bounded. Hence there exists $M > 0$ such that\n    \\[\n        |A_n| \\le M \\quad \\text{for all } n.\n    \\]\n    Note that $A_k - A_{k-1} = a_k $. Consider the partial sums\n    \\begin{align*}\n        S_n = \\sum_{k=1}^{n} a_k b_k & = \\sum_{k=1}^{n} (A_k - A_{k-1} ) b_k \\\\\n                               & = \\sum_{k=1}^{n} A_k b_k - \\sum_{k=2}^{n} A_{k-1} b_k \\\\\n                               & = \\sum_{k=2}^{n+1} A_{k-1} b_{k-1} - \\sum_{k=2}^{n} A_{k-1} b_k \\\\\n                               & = A_n b_n + \\sum_{k=2}^{n} A_{k-1} (b_{k-1} - b_{k} ). \n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $A_n$ is the partial sum sequence of a convergent sequence, so $\\{ A_n \\} $ is convergent. Also, $\\{ b_n \\} $ is monotonic and bounded  sequence and hence convergent. So the product sequence $\\{ A_n b_n \\} $ will also converges. The other series \n    \\begin{align*}\n        \\left\\vert \\sum_{k=2}^{n} A_{k-1} (b_{k-1} - b_k) \\right\\vert & \\leq \\sum_{k=2}^{n} \\vert A_{k-1} \\vert \\cdot \\vert b_{k-1} - b_k \\vert  \\\\\n        & \\leq \\sum_{k=2}^{n} M \\vert b_{k-1} - b_k \\vert .\n    \\end{align*}\n    Also, since $\\{b_n\\}$ is monotone and bounded, the series\n    \\[\n        \\sum_{n=1}^{\\infty} |b_n - b_{n+1}|\n    \\]\n    converges (it telescopes). Therefore, the partial sum sequence $\\{ S_n \\} $ converges, and therefore\n    \\[\n        \\sum_{n=1}^{\\infty} a_n b_n\n    \\]\n    converges.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "real-analysis-rudin (3.8)"
+      ]
     }
   ]
 }

@@ -114,6 +114,18 @@
       "tags": [
         "complex-analysis"
       ]
+    },
+
+    {
+      "date": "2026-03-10",
+      "title": "Solve  z^n - z^{n-1} + z^{n-2} + \\dots - z + 1 = 0",
+      "difficulty": "medium",
+      "problem": "Solve the equation \n    \\[\n        z^n - z^{n-1} + z^{n-2} + \\dots - z + 1 = 0,\n    \\]\n    where $n$ is a positive even integer.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For any $a,b \\in \\mathbb{C}, a\\neq b $, we have \n    \\[\n        a^n - b^n = (a-b)\\left( a^{n-1} + b a^{n-2} + b^2 a^{n-3} + ... + b^{n-2}a + b^{n-1}  \\right) .\n    \\] \n    Thus, for even $n$, we have \n    \\begin{align*}\n        z^{n+1} - (-1)^{n+1} & = (z + 1) (z^n - z^{n-1} + z^{n-2} + \\dots - z + 1).\n    \\end{align*}\n    So, solving \n    \\[\n        z^n - z^{n-1} + z^{n-2} + \\dots - z + 1 = 0,\n    \\] \n    is equivalent to solve \n    \\[\n        z^{n+1} + 1 = 0 \\text{ with } z \\neq -1.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So we need to find $(n+1)^{\\text{th} }$ roots of $-1$ with $z \\neq -1$. If $z = r e^{\\iota \\theta },$ then \n    \\begin{align*}\n        z^{n+1} = -1 & \\implies r^{n+1} e^{(n+1)\\iota \\theta } = e^{\\iota \\pi } \\\\ \n        & \\implies r = 1, \\text{ and } (n + 1) \\theta = (2k \\pi + \\pi ),\n    \\end{align*}  \n    where $k = 0,1,2\\dots, n.$ \n    Thus, \n    \\[\n        \\theta = \\frac{(2k+1)\\pi }{n+1}, \\quad k = 0,1,2,\\dots, n. \n    \\] \n    Also, we need to discard $z = -1$ which is possible only if $2k + 1 = n+1$, that is, $k = \\frac{n}{2}$. Therefore, the solutions will be \n    \\[\n        z_k = \\cos\\left( \\frac{(2k+1)\\pi }{n+1} \\right)  + \\iota \\sin \\left( \\frac{(2k+1)\\pi }{n+1} \\right) ,\n    \\]   \n    where $k= 0,1,2,\\dots,n$ but $k\\neq \\frac{n}{2}$.</div>",
+      "tags": [
+        "complex-analysis"
+      ]
     }
   ]
 }
