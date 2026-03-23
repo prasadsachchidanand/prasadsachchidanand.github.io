@@ -134,6 +134,32 @@
         "linear-algebra",
         "linear-algebra-hoffman-kunze (2.1.1)"
       ]
+    },
+
+    {
+      "date": "2026-03-15",
+      "title": "Hoffman and Kunze - Associativity with four elements of addition in a vector space",
+      "difficulty": "easy",
+      "problem": "If $V$ is a vector space over the field $\\mathbb{F} $, verify that \n    \\[\n        (\\alpha _1 + \\alpha _2) + (\\alpha _3 + \\alpha _4) = [\\alpha _1 + (\\alpha _2 + \\alpha _3)] + \\alpha _4,\n    \\]\n    for all $\\alpha _1, \\alpha _2, \\alpha _3, \\alpha _4 \\in \\mathbb{F} $.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use $\\mathbb{F} $ is a field and addition is associative in a field.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\alpha _1, \\alpha _2, \\alpha _3, \\alpha _4 \\in \\mathbb{F} $. Since $\\mathbb{F} $ is a field and addition is associative in a field, we have \n    \\begin{align*}\n        (\\alpha _1 + \\alpha _2) + (\\alpha _3 + \\alpha _4) & = [(\\alpha _1 + \\alpha _2) + \\alpha _3] + \\alpha _4 \\\\\n        & = [\\alpha _1 + (\\alpha _2 + \\alpha _3)] + \\alpha _4.\n    \\end{align*}</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-algebra-hoffman-kunze (2.1.2)"
+      ]
+    },
+
+    {
+      "date": "2026-03-22",
+      "title": "Hoffman and Kunze - Linear combinations of vectors in C^3",
+      "difficulty": "medium",
+      "problem": "If $\\mathbb{C} $ is the field of complex numbers, which vectors in $\\mathbb{C}^3$ are linear combinations of $(1, 0, -1) , (0, \\iota , 1)$, and $(1, 1, \\iota )$?",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Start by writing an arbitrary vector in $\\mathbb{C}^3$ as a linear combination of the given vectors and then solve for the coefficients and see if you can solve the system of equations for any vector in $\\mathbb{C}^3$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We need to find all vectors $\\mathbf{v} = (x,y,z) \\in \\mathbb{C}^3$ such that \n    \\begin{align*}\n        \\mathbf{v} & = a(1,0,-1) + b(0, i, 1) + c(1,1,i) \\\\\n                     & = (a + c, i b + c, -a + b + i c),\n    \\end{align*}\n    for some $a,b,c \\in \\mathbb{C}$. This is equivalent to solving the following system of equations:\n    \\begin{align*}\n        x &= a + c, \\\\\n        y &= i b + c, \\\\\n        z &= -a + b + i c.\n    \\end{align*}\n    From the first equation, $a = x - c$. From the second equation, $i b = y - c$, so $b = -i(y - c)$ since $1/i = -i$. Substituting these into the third equation gives\n    \\begin{align*}\n        z & = -(x - c) + [-i(y - c)] + i c \\\\\n          & = -x + c - i y + i c + i c \\\\\n          & = -x - i y + c(1 + 2i).\n    \\end{align*}\n    Thus,\n    \\[\n        c = \\frac{z + x + i y}{1 + 2i}.\n    \\]\n    Since $1+2i \\neq 0$ in $\\mathbb{C}$, for any $(x,y,z) \\in \\mathbb{C}^3$ we can find $c$, and then $a = x - c$ and $b = -i(y - c)$. Therefore, every vector in $\\mathbb{C}^3$ is a linear combination of the given vectors.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-algebra-hoffman-kunze (2.1.3)"
+      ]
     }
   ]
 }

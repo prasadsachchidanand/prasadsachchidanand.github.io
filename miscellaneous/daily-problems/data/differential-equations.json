@@ -143,6 +143,33 @@
         "differential-equation",
         "ode"
       ]
+    },
+
+    {
+      "date": "2026-03-13",
+      "title": "Solve y(x + 4) (y + z) dx - x(y + 3z) dy + 2xy dz = 0.",
+      "difficulty": "hard",
+      "problem": "Solve\n    \\[\n        y(x + 4) (y + z) \\mathrm{d} x - x(y + 3z) \\mathrm{d} y + 2xy \\mathrm{d} z = 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Divide the equation by $xy(y+z)$ to get a more manageable form.\n                    </li>\n                    <li class=\"my-4\">\n                      After simplification, the equation should reduce to a form where you can integrate both sides directly to find the solution.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:13Mar2026-1}\n        y(x + 4) (y + z) \\mathrm{d} x - x(y + 3z) \\mathrm{d} y + 2xy \\mathrm{d} z = 0.\n    \\end{equation} \n    Dividing by $xy(y+z)$ gives, \n    \\begin{align*}\n        & \\frac{x + 4}{x}\\mathrm{d} x + \\frac{2y \\mathrm{d} z - y(y + 3z) \\mathrm{d} y}{y(y+z)} = 0 \\\\\n        \\implies & \\frac{x + 4}{x}\\mathrm{d} x + \\frac{(2y \\mathrm{d} z + 2y \\mathrm{d} y) - 3(y+z) \\mathrm{d} y}{y(y+z)} = 0 \\\\\n        \\implies & \\left( 1 + \\frac{4}{x} \\right) \\mathrm{d} x + 2\\left( \\frac{\\mathrm{d} z + \\mathrm{d} y}{y+z} \\right) - 3 \\frac{\\mathrm{d} y}{y} = 0 \\\\\n        \\implies & \\left( 1 + \\frac{4}{x} \\right) \\mathrm{d} x + 2 \\mathrm{d} \\ln (y + z) - 3 \\mathrm{d} \\ln y = 0 \\\\\n        \\implies & \\left( 1 + \\frac{4}{x} \\right) \\mathrm{d} x + \\mathrm{d} \\ln \\left( \\frac{(y + z)^2}{y^3} \\right) = 0 \\\\\n        \\implies & \\int \\left( 1 + \\frac{4}{x} \\right) \\mathrm{d} x + \\int \\mathrm{d} \\ln \\left( \\frac{(y + z)^2}{y^3} \\right) = \\ln c \\\\\n        \\implies & x + 4 \\ln x + \\ln \\left( \\frac{(y + z)^2}{y^3} \\right) = \\ln c \\\\\n        \\implies & -x = \\ln \\left( \\frac{x^4 (y+z)^2}{cy^3} \\right)  \\\\\n        \\implies & \\frac{x^4 (y+z)^2}{cy^3} = e^{-x}  \\implies e^x x^4 (y+z)^2 = c y^3.\n    \\end{align*}\n    Therefore, the solution of \\eqref{eq:13Mar2026-1} is\n    \\[\n        \\boxed{e^x x^4 (y+z)^2 = c y^3,}\n    \\]\n    where $c$ is an arbitrary constant.</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2026-03-20",
+      "title": "Solve z = px + qy + p^2 + q^2,",
+      "difficulty": "medium",
+      "problem": "Find a complete integral of \n     \\[\n        z = px + qy + p^2 + q^2,\n     \\]\n    where $p = \\frac{\\partial z}{\\partial x}$ and $q = \\frac{\\partial z}{\\partial y}$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use Charpit's method to find the complete integral.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given PDE is\n    \\begin{equation}\\label{eq:20Mar2026-1}\n        z = px + qy + p^2 + q^2,\n    \\end{equation}\n    where $p = \\frac{\\partial z}{\\partial x}$ and $q = \\frac{\\partial z}{\\partial y}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will use Charpit's method to find the complete integral. Let\n    \\[\n        f(x,y,z,p,q) = z - px - qy - p^2 - q^2\n    \\]\n    Then, the Charpit's equations are\n    \\begin{equation}\\label{eq:20Mar2026-2}\n        \\frac{\\mathrm{d} p}{f_x + p f_z} = \\frac{\\mathrm{d} q}{f_y + q f_z} = \\frac{\\mathrm{d} z}{-p f_p - q f_q} = \\frac{\\mathrm{d} x}{-f_p} = \\frac{\\mathrm{d} y}{-f_q}.\n    \\end{equation}\n    From \\eqref{eq:20Mar2026-2}, we get\n    \\begin{align*}\n        f_x + p f_z & = -p + p = 0, \\\\\n        f_y + q f_z & = -q + q = 0, \\\\\n        -p f_p - q f_q & = px + 2p + qy + 2q, \\\\\n        -f_p & = x + 2p, \\\\\n        -f_q & = y + 2q.\n    \\end{align*}\n    Thus, the equation \\eqref{eq:20Mar2026-2} reduce to\n    \\begin{equation}\\label{eq:20Mar2026-3}\n        \\frac{\\mathrm{d} p}{0} = \\frac{\\mathrm{d} q}{0} = \\frac{\\mathrm{d} z}{p(x + 2p) + q(y + 2q)} = \\frac{\\mathrm{d} x}{x + 2p} = \\frac{\\mathrm{d} y}{y + 2q}.\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Taking the first and second fraction of \\eqref{eq:20Mar2026-3}, we get $p = c_1$ and $q = c_2$, where $c_1, c_2$ are arbitrary constants. Substituting these into the remaining fractions of \\eqref{eq:20Mar2026-1}, the required complete integral will be\n    \\[\n        z = c_1 x + c_2 y + c_1^2 + c_2^2,\n    \\]\n    where $c_1, c_2$ are arbitrary constants.</div>",
+      "tags": [
+        "differential-equation",
+        "pde",
+        "charpit-method"
+      ]
     }
   ]
 }

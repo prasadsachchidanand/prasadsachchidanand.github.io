@@ -130,6 +130,32 @@
         "miscellaneous",
         "statistics"
       ]
+    },
+
+    {
+      "date": "2026-03-14",
+      "title": "Number Theory - Every natural number with at least one odd prime divisor can be written as sum of consecuitive numbers",
+      "difficulty": "medium",
+      "problem": "Show that any positive integer which has at least one odd prime factor can be written as a sum of two or more consecutive positive integers.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Write $n$ as a product of its odd prime factor and the remaining part. Then write $n$ as a sum of $2k+1$ terms, where $2k+1$ is the odd factor. Finally, subtract $k, k-1, \\dots, 1$ from the first $k$ terms and add $1, 2, \\dots, k$ to the last $k$ terms.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $n$ be a positive integer which has at least one odd prime factor. We will show that $n$ can be written as a sum of two or more consecutive positive integers.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $n$ has an odd prime factor, let $2k+1$ be an odd factor of $n$. Then we can write $n$ as \n    \\[\n        n = (2k+1) \\cdot m, \\quad \\text{ for some } m \\in \\mathbb{N}.\n    \\]\n    This is equivalent to \n    \\[\n        n = \\underbrace{m + m + \\dots + m}_{2k+1 \\text{ times}}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we will subtract $k, k-1, \\dots, 1$ from the first $k$ terms and add $1, 2, \\dots, k$ to the last $k$ terms. This gives us\n    \\begin{align*}\n        n & = (m - k) + (m - (k - 1)) + \\dots + (m-2) + (m - 1) + m  \\\\\n            & \\quad + (m + 1) + (m + 2) \\dots + (m + (k - 1)) + (m + k) \\\\\n          & = (m - k) + (m - k + 1) + \\dots + (m + k - 1) + (m + k).\n    \\end{align*}\n    Thus, $n$ can be written as a sum of $2k+1$ consecutive positive integers.</div>",
+      "tags": [
+        "miscellaneous",
+        "number-theory"
+      ]
+    },
+
+    {
+      "date": "2026-03-21",
+      "title": "Number Theory - Square of any even integer is of the form $4k$ but not of the form $4k + 2",
+      "difficulty": "medium",
+      "problem": "Show that square of any even integer is of the form $4k$ but not of the form $4k + 2$ for any integer $k$. Also, show that square of any odd integer is of the form $4k + 1$ for some integer $k$ but not of the form $4k + 3$ for any integer $k$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Write an even integer as $2k$ and an odd integer as $2k + 1$ for some integer $k$. Then compute the square of both and simplify.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">At first we will show that the square of any even integer is of the form $4k$ but not of the form $4k + 2$ for any integer $k$. Let $n$ be an even integer. Then we can write $n$ as\n    \\[\n        n = 2k, \\quad \\text{ for some } k \\in \\mathbb{Z}.\n    \\] Then we have \n    \\[\n        n^2 = (2k)^2 = 4k^2.\n    \\]\n    Thus, the square of any even integer is of the form $4k$ for some integer $k$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we will show that the square of any even integer is not of the form $4k + 2$ for any integer $k$. Assume that there exists an integer whose square is of the form $4k + 2$ for some integer $k$. Since $4k + 2$ is even, so the number must be even. Let us write that number as $2m$ for some integer $m$. Then we have \n    \\[\n        4k + 2 = (2m)^2 = 4m^2 \\implies 2 = 4m^2 - 4k = 4(m^2 - k).\n    \\]\n    This implies that $2$ is divisible by $4$, which is a contradiction. Hence, the square of any even integer is not of the form $4k + 2$ for any integer $k$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we will show that the square of any odd integer is of the form $4k + 1$ for some integer $k$. Let $n$ be an odd integer. Then we can write $n$ as\n    \\[\n        n = 2k + 1, \\quad \\text{ for some } k \\in \\mathbb{Z}.\n    \\] Then we have \n    \\[\n        n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 4(k^2 + k) + 1.\n    \\]\n    Thus, the square of any odd integer is of the form $4k + 1$ for some integer $k$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Finally, we will show that the square of any odd integer is not of the form $4k + 3$ for any integer $k$. Assume that there exists an integer whose square is of the form $4k + 3$ for some integer $k$. Since $4k + 3$ is odd, so the number must be odd. Let us write that number as $2m + 1$ for some integer $m$. Then we have \n    \\begin{align*}\n        4k + 3 & = (2m + 1)^2 = 4m^2 + 4m + 1 = 4(m^2 + m) + 1 \\\\\n        \\implies & 2 = 4(m^2 + m) - 4k = 4(m^2 + m - k).\n    \\end{align*}\n    This implies that $2$ is divisible by $4$, which is a contradiction. Hence, the square of any odd integer is not of the form $4k + 3$ for any integer $k$.</div>",
+      "tags": [
+        "miscellaneous",
+        "number-theory"
+      ]
     }
   ]
 }

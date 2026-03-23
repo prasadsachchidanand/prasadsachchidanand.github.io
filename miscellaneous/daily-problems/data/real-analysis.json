@@ -134,6 +134,34 @@
         "sequences",
         "real-analysis-rudin (3.8)"
       ]
+    },
+
+    {
+      "date": "2026-03-16",
+      "title": "Rudin - Rate of convergence (Problem 3.9)",
+      "difficulty": "medium",
+      "problem": "Find the radius of convergence of each of the following power series. \n    <ol class=\"math-list-alpha\">\n                  <li class=\"my-4\">\n                    $\\sum_{n=0}^{\\infty} n^3 z^n$\n                  </li>\n                  <li class=\"my-4\">\n                    $\\sum_{n=0}^{\\infty} \\frac{2^n}{n!} z^n$\n                  </li>\n                  <li class=\"my-4\">\n                    $\\sum_{n=1}^{\\infty} \\frac{2^n}{n^2} z^n$\n                  </li>\n                  <li class=\"my-4\">\n                    $\\sum_{n=0}^{\\infty} \\frac{n^3}{3^n} z^n$.\n                  </li>\n                </ol>",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use the <a href=\"https://en.wikipedia.org/wiki/Root_test\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">root test</a> and the <a href=\"https://en.wikipedia.org/wiki/Ratio_test\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">ratio test</a> to find the radius of convergence.\n                    </li>\n                    <li class=\"my-4\">\n                      Use the fact that for any $a > 0$, $\\lim_{n\\to\\infty} \\sqrt[n]{a} = 1$ and $\\lim_{n\\to\\infty} \\frac{a^{n+1}}{a^n} = a$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will find the radius of convergence of each power series using the <a href=\"https://en.wikipedia.org/wiki/Root_test\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">root test</a>, that is, the radius of convergence is given by\n    \\[\n        R = \\frac{1}{\\limsup_{n\\to\\infty} \\sqrt[n]{|a_n|}},\n    \\]\n    where $a_n$ is the coefficient of $z^n$ in the power series. We will use the following fact: for any $a > 0$, $\\lim_{n\\to\\infty} \\sqrt[n]{a} = 1$. Also, by <a href=\"https://en.wikipedia.org/wiki/Ratio_test\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">ratio test</a>, for any $a > 0$, $\\lim_{n\\to\\infty} \\frac{a^{n+1}}{a^n} = a$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<ol class=\"math-list-alpha my-4\">\n                    <li class=\"my-4\">\n                      For the first one, we have \n        \\begin{align*}\n            \\frac{1}{R} & = \\limsup_{n\\to\\infty} \\sqrt[n]{|n^3|} \\\\\n                        & = \\limsup_{n \\to \\infty} n^{3 / n} \\\\\n                        & = \\limsup_{n \\to \\infty} \\left( n^{1 / n} \\right)^3 = 1. \n        \\end{align*}\n        Thus, the radius of convergence is $R = 1$.\n                      <hr class=\"h-px my-4 bg-gray-300 border-0\">\n                    </li>\n                    <li class=\"my-4\">\n                      For the second one, we will use the ratio test. Note that \n        \\begin{align*}\n            \\frac{1}{R} & = \\lim_{n \\to \\infty} \\left\\vert \\frac{a_{n+1}}{a_n} \\right\\vert \\\\ \n                        & = \\lim_{n \\to \\infty} \\frac{2^{n+1}}{(n+1)!} \\cdot \\frac{n!}{2^n} \\\\\n                        & = \\lim_{n \\to \\infty} \\frac{2}{n+1} = 0.\n        \\end{align*}\n        Thus, the radius of convergence is $R = \\infty$.\n                      <hr class=\"h-px my-4 bg-gray-300 border-0\">\n                    </li>\n                    <li class=\"my-4\">\n                      For the third one, we will use the root test. Even ratio test will also work here. We have \n        \\begin{align*}\n            \\frac{1}{R} & = \\limsup_{n\\to\\infty} \\sqrt[n]{\\left|\\frac{2^n}{n^2}\\right|} \\\\\n                        & = \\limsup_{n\\to\\infty} \\left( \\frac{2^n}{n^2} \\right)^{1/n} \\\\\n                        & = \\limsup_{n\\to\\infty} \\frac{2}{n^{2/n}} = 2.\n        \\end{align*}\n        Thus, the radius of convergence is $R = \\frac{1}{2}$.\n                      <hr class=\"h-px my-4 bg-gray-300 border-0\">\n                    </li>\n                    <li class=\"my-4\">\n                      For the fourth one, we will use the root test. We have \n        \\begin{align*}\n            \\frac{1}{R} & = \\limsup_{n\\to\\infty} \\sqrt[n]{\\left|\\frac{n^3}{3^n}\\right|} \\\\\n                        & = \\limsup_{n\\to\\infty} \\left( \\frac{n^3}{3^n} \\right)^{1/n} \\\\\n                        & = \\limsup_{n\\to\\infty} \\frac{n^{3/n}}{3} = \\frac{1}{3}.\n        \\end{align*}\n        Thus, the radius of convergence is $R = 3$.\n                    </li>\n                  </ol>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "real-analysis-rudin (3.9)"
+      ]
+    },
+
+    {
+      "date": "2026-03-23",
+      "title": "Rudin - Radius of convergence of power series with integer coefficients (Problem 3.10)",
+      "difficulty": "medium",
+      "problem": "Suppose that the coefficients of the power series $\\sum_{n} a_n z^n$ are integers, infinitely many of which are distinct from zero. Prove that the radius of convergence of the power series is at most $1$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Note that for infinitely many $n$, $\\sqrt[n]{|a_n |}\\geqslant \\sqrt[n]{1}\\geqslant 1$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $R$ be the radius of convergence of the power series $\\sum_{n} a_n z^n$. Since infinitely many coefficients $a_n$ are distinct from zero, there exists a subsequence $\\{ a_{n_k} \\} $ such that $a_{n_k} \\neq 0$ for all $k$. Note that for any $a > 0$, $\\lim_{n\\to\\infty} \\sqrt[n]{a} = 1$. Thus, we have \n    \\begin{align*}\n        \\frac{1}{R} & = \\limsup_{n\\to\\infty} \\sqrt[n]{|a_n|} \\\\\n                    & \\geq \\limsup_{k\\to\\infty} \\sqrt[n_k]{|a_{n_k}|} = 1.\n    \\end{align*}\n    Hence, the radius of convergence is at most $1$, that is, $R \\leq 1$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "real-analysis-rudin (3.10)"
+      ]
     }
   ]
 }

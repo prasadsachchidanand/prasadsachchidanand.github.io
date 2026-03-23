@@ -125,6 +125,32 @@
             "topology",
             "metric-space"
           ]
+        },
+
+        {
+          "date": "2026-03-12",
+          "title": "Closed balls are closed sets",
+          "difficulty": "medium",
+          "problem": "In a metric space, show that a closed ball is closed.",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Show that the complement is open. For that draw picture and use triangle inequality.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $(X,d)$ be a metric space. Let $x_0 \\in X$ and \n    \\[\n        B = B[x_0; r] := \\left\\{ x \\in X : d(x, x_0) < r \\right\\} \n    \\] \n    be the closed ball of radius $r$ centred at $x_0$. We need to show that $B$ is closed. We will show that the complement is open. Let $y \\in X - B$. Let $r_0 = d(x_0,y) - r$ which implies $d(x_0,y) > r$. We claim that $B(y, r_0) \\subseteq X\\setminus B$. For that, let $z \\in B(y, r_0)$ which implies $d(z,y) < r_0$. \n    <div class=\"flex flex-wrap justify-center my-4\">\n  <img\n    src=\"../../../assets/img/prob-12-03-26_01.svg\"\n    class=\"h-auto\"\n    alt=\"Closed balls are closed\"\n  />\n</div> \n    Consider, \n    \\begin{align*}\n        d(x_0,y) \\leq d(x_0,z) + d(z,y) & \\implies d(x_0,z) \\geq d(x_0,y) - d(z,y) \\\\\n        & \\implies d(z_0,z) > r_0 + r - r_0 =  r.\n    \\end{align*}   \n    Thus, $B(y,r_0) \\subseteq X\\setminus B$ and hence $B$ is a closed set.</div>",
+          "tags": [
+            "topology",
+            "metric-space"
+          ]
+        },
+
+        {
+          "date": "2026-03-19",
+          "title": "Intersection of two open balls contains an open ball",
+          "difficulty": "medium",
+          "problem": "Let $\\mathbf{x} ,\\mathbf{y} \\in \\mathbb{R} ^n$, and $r = \\lVert \\mathbf{x} -\\mathbf{y}  \\rVert $. Show that\n    \\[\n        B\\left( \\frac{\\mathbf{x} + \\mathbf{y} }{2}, \\frac{r}{2} \\right) \\subset B(\\mathbf{x} ,r)  \\cap B(\\mathbf{y} ,r),\n    \\]\n    where $B(\\mathbf{x} ,r) = \\{\\mathbf{z} \\in \\mathbb{R} ^n: \\lVert \\mathbf{x} -\\mathbf{z}  \\rVert < r \\}$.",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Note that $\\lVert \\mathbf{x} -\\mathbf{y}  \\rVert = r$ implies $\\left\\lVert \\frac{\\mathbf{x} + \\mathbf{y}}{2} - \\mathbf{x} \\right\\rVert = \\left\\lVert \\frac{\\mathbf{x} + \\mathbf{y}}{2} - \\mathbf{y} \\right\\rVert = \\frac{r}{2}$.\n                    </li>\n                    <li class=\"my-4\">\n                      Use the triangle inequality to show that if $\\mathbf{z} \\in B\\left( \\frac{\\mathbf{x} + \\mathbf{y} }{2}, \\frac{r}{2} \\right)$, then $\\mathbf{z} \\in B(\\mathbf{x}, r)$ and $\\mathbf{z} \\in B(\\mathbf{y}, r)$.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\mathbf{z} \\in B\\left( \\frac{\\mathbf{x} + \\mathbf{y} }{2}, \\frac{r}{2} \\right)$. Then, \n    \\[\n        \\left\\lVert \\mathbf{z} - \\frac{\\mathbf{x} + \\mathbf{y}}{2} \\right\\rVert < \\frac{r}{2}.\n    \\]\n    We need to show that $\\mathbf{z} \\in B(\\mathbf{x}, r) \\cap B(\\mathbf{y}, r)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First, we show $\\mathbf{z} \\in B(\\mathbf{x}, r)$. By the triangle inequality,\n    \\[\n        \\lVert \\mathbf{z} - \\mathbf{x} \\rVert \\leq \\left\\lVert \\mathbf{z} - \\frac{\\mathbf{x} + \\mathbf{y}}{2} \\right\\rVert + \\left\\lVert \\frac{\\mathbf{x} + \\mathbf{y}}{2} - \\mathbf{x} \\right\\rVert.\n    \\]\n    Since $\\left\\lVert \\frac{\\mathbf{x} + \\mathbf{y}}{2} - \\mathbf{x} \\right\\rVert = \\frac{1}{2}\\lVert \\mathbf{y} - \\mathbf{x} \\rVert = \\frac{r}{2}$, we have\n    \\[\n        \\lVert \\mathbf{z} - \\mathbf{x} \\rVert < \\frac{r}{2} + \\frac{r}{2} = r.\n    \\]\n    Thus, $\\mathbf{z} \\in B(\\mathbf{x}, r)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Similarly, we can show that $\\mathbf{z} \\in B(\\mathbf{y}, r)$. Therefore,\n    \\[\n        \\mathbf{z} \\in B(\\mathbf{x}, r) \\cap B(\\mathbf{y}, r)\n    \\]\n    and hence \n    \\[\n        B\\left( \\frac{\\mathbf{x} + \\mathbf{y} }{2}, \\frac{r}{2} \\right) \\subset B(\\mathbf{x} ,r)  \\cap B(\\mathbf{y} ,r).\n    \\]</div>",
+          "tags": [
+            "topology",
+            "metric-space"
+          ]
         }
     ]
 }
