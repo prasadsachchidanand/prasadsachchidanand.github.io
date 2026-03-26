@@ -170,6 +170,19 @@
         "pde",
         "charpit-method"
       ]
+    },
+
+    {
+      "date": "2026-03-27",
+      "title": "Solve the initial value problem \\frac{dy}{dx} = \\frac{y^2 - x^2}{2xy}, y(1) = 2.",
+      "difficulty": "medium",
+      "problem": "Consider the initial value problem\n    \\[\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{y^2 - x^2}{2xy}, \\quad y(1) = 2.\n    \\]\n    Find the explicit solution $y = y(x)$ and determine the largest interval containing $x = 1$ on which the solution exists.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Try the substitution $v = \\frac{y}{x}$, that is, $y = vx$. This transforms the equation into a separable ODE in terms of $v$ and $x$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given initial value problem is \n    \\[\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{y^2 - x^2}{2xy}, \\quad y(1) = 2.\n    \\]\n    We will use the substitution $v = \\frac{y}{x}$, that is, $y = vx$. Then,\n    \\[\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = v + x \\frac{\\mathrm{d}v}{\\mathrm{d}x}.\n    \\]\n    Substituting into the original equation gives\n    \\[\n        v + x \\frac{\\mathrm{d}v}{\\mathrm{d}x} = \\frac{v^2 x^2 - x^2}{2 v x^2} = \\frac{v^2 - 1}{2v}.\n    \\]\n    Rearranging, we get\n    \\begin{align*}\n        x \\frac{\\mathrm{d}v}{\\mathrm{d}x} & = \\frac{v^2 - 1}{2v} - v \\\\\n        & = \\frac{v^2 - 1 - 2v^2}{2v} \\\\\n        & = \\frac{-v   ^2 - 1}{2v} \\\\\n        & = -\\frac{v^2 + 1}{2v}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The above differential equation is a separable ODE. Separating variables gives\n    \\[\n        \\frac{2v}{v^2 + 1} \\mathrm{d}v = -\\frac{\\mathrm{d}x}{x}.\n    \\]\n    Integrating both sides, we get\n    \\[\n        \\ln(v^2 + 1) = -\\ln \\vert x \\vert + \\ln c,\n    \\]\n    where $c$ is an arbitrary constant. This can be rewritten as\n    \\[\n        v^2 + 1 = \\frac{c}{\\vert x \\vert}.\n    \\]\n    Since we are looking for the solution around $x = 1$, we can take $x > 0$ and write\n    \\[\n        v^2 + 1 = \\frac{c}{x}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Substituting back $v = \\frac{y}{x}$, we obtain\n    \\[\n        \\left(\\frac{y}{x}\\right)^2 + 1 = \\frac{c}{x},\n    \\]\n    which simplifies to\n    \\[\n        y^2 + x^2 = cx.\n    \\]\n    Using the initial condition $y(1) = 2$, we find $c = 5$. Therefore, the explicit solution is\n    \\[\n        y^2 + x^2 = 5x.\n    \\]\n    Solving for $y$, we get\n    \\[\n        y = \\pm \\sqrt{5x - x^2}.\n    \\]\n    Since $y(1) = 2 > 0$, we take the positive square root:\n    \\[\n        y = \\sqrt{5x - x^2}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The solution exists as long as the expression under the square root is non-negative, that is,\n    \\[\n        5x - x^2 \\geq 0 \\quad \\Rightarrow \\ x(5 - x) \\geq 0.\n    \\]\n    This inequality holds for $0 \\leq x \\leq 5$. Since we   are looking for the largest interval containing $x = 1$, the solution exists on the interval\n    \\[\n        \\boxed{(0, 5)}.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
     }
   ]
 }
