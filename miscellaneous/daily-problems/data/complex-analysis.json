@@ -126,6 +126,32 @@
       "tags": [
         "complex-analysis"
       ]
+    },
+
+    {
+      "date": "2026-03-17",
+      "title": "Find an upper bound of the integral \\oint_{C} e^z/(z + 1) d z",
+      "difficulty": "easy",
+      "problem": "Find an upper bound for the absolute value of the integral \n    \\[\n        \\oint_{C} \\frac{e^z}{z + 1} \\mathrm{d} z,\n    \\]\n    where $C$ is the circle with centre at $z = 0$ and radius $4$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use <a href=\"https://en.wikipedia.org/wiki/ML_inequality\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">ML inequality</a>.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will use <a href=\"https://en.wikipedia.org/wiki/ML_inequality\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">ML inequality</a> to find an upper bound for the absolute value of the integral \n    \\[\n        \\oint_{C} \\frac{e^z}{z + 1} \\mathrm{d} z,\n    \\]\n    where $C$ is the circle with centre at $z = 0$ and radius $4$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that for $z$ on the circle $C$, we have $\\vert z + 1 \\vert \\geq \\vert z \\vert - 1 = 4 - 1 = 3$ and $\\vert e^z \\vert = e^{\\text{Re} (z)}$. For points on the circle $\\vert z \\vert = 4$, the maximum value of $\\text{Re} (z)$ is $4$. Thus, \n    \\[\n        \\left| \\frac{e^z}{z + 1} \\right| = \\frac{\\vert e^z \\vert }{\\vert z + 1 \\vert } \\leq \\frac{e^4}{3}.\n    \\]\n    Also, the length of the curve $C$ is $2\\pi r = 8\\pi $. Thus, by  <a href=\"https://en.wikipedia.org/wiki/ML_inequality\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">ML inequality</a>, we have \n    \\[\n        \\left| \\oint_{C} \\frac{e^z}{z + 1} \\mathrm{d} z\\right|  \\leq 8\\pi  \\cdot  \\frac{e^4}{3} = \\frac{8\\pi e^4}{3}.\n    \\]</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration"
+      ]
+    },
+
+    {
+      "date": "2026-03-24",
+      "title": "Evaluate the integral \\oint_{C} 1/z^2 d z",
+      "difficulty": "easy",
+      "problem": "Evaluate the integral \n    \\[\n        \\oint_{C} \\frac{\\mathrm{d} z}{z^2},\n    \\]\n    where $C$ is the ellipse $(x - 2)^2 + \\frac{1}{4} (y-5)^2 = 1$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Apply <a href=\"https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy's integral theorem</a> as the function $\\frac{1}{z^2}$ is holomorphic on and inside the curve $C$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We need to evaluate the integral \n    \\[\n        \\oint_{C} \\frac{\\mathrm{d} z}{z^2},\n    \\]\n    where $C$ is the ellipse $(x - 2)^2 + \\frac{1}{4} (y-5)^2 = 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that the ellipse does not enclose the singularity at $z = 0$. Thus, the function $\\frac{1}{z^2}$ is holomorphic on and inside the curve $C$. So, by <a href=\"https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy's integral theorem</a>, we have \n    \\[\n        \\oint_{C} \\frac{\\mathrm{d} z}{z^2} = 0.\n    \\]</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration"
+      ]
     }
   ]
 }
