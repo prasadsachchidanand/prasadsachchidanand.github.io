@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
 import { 
   getFirestore, collection, doc, setDoc, getDocs, deleteDoc 
 } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js";
@@ -15,7 +15,8 @@ const firebaseConfig = {
   appId: "1:449539950324:web:74e4f3584e68502a2d00a1"
 };
 
-const app = initializeApp(firebaseConfig);
+// FIX #3: Prevent Firebase re-initialization error on hot reload
+const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
@@ -60,8 +61,13 @@ async function loadPublications() {
     const querySnapshot = await getDocs(collection(db, "publications"));
     publicationsData = {};
     
-    querySnapshot.forEach((doc) => {
-      publicationsData[doc.id] = doc.data().items;
+    querySnapshot.forEach((docSnap) => {
+      // FIX #4: Inject the Firestore doc ID into each item if not already stored
+      const items = (docSnap.data().items || []).map(item => ({
+        ...item,
+        id: item.id || docSnap.id
+      }));
+      publicationsData[docSnap.id] = items;
     });
     
     renderPublicationList();
@@ -81,17 +87,35 @@ async function savePublication(pubData) {
     if (!publicationsData[pubType]) {
       publicationsData[pubType] = [];
     }
-    
+
+    // FIX #1 (MAIN BUG): Find and remove from OLD type if the type changed
+    let oldType = null;
+    for (const [type, pubs] of Object.entries(publicationsData)) {
+      if (type !== pubType && Array.isArray(pubs) && pubs.some(p => p.id === pubId)) {
+        oldType = type;
+        publicationsData[type] = pubs.filter(p => p.id !== pubId);
+        break;
+      }
+    }
+
+    // Save to new type array
     const existingIndex = publicationsData[pubType].findIndex(p => p.id === pubId);
     if (existingIndex >= 0) {
       publicationsData[pubType][existingIndex] = pubData;
     } else {
       publicationsData[pubType].push(pubData);
     }
-    
-    await setDoc(doc(db, "publications", pubType), {
-      items: publicationsData[pubType]
-    });
+
+    // Save both the new type and the old type (if it changed) in parallel
+    const saves = [
+      setDoc(doc(db, "publications", pubType), { items: publicationsData[pubType] })
+    ];
+    if (oldType) {
+      saves.push(
+        setDoc(doc(db, "publications", oldType), { items: publicationsData[oldType] })
+      );
+    }
+    await Promise.all(saves);
     
     showStatus("Publication saved successfully!", "green");
     return true;
@@ -150,7 +174,7 @@ function renderPublicationList() {
     pubListContainer.className = 'publication-list space-y-2';
     pubListContainer.id = `pub-list-${type}`;
     
-    pubs.forEach((pub, index) => {
+    pubs.forEach((pub) => {
       // Parse authors and image if they're in JSON format
       let authors = pub.authors;
       let image = pub.image;
@@ -175,7 +199,6 @@ function renderPublicationList() {
       pubElement.className = 'publication-item bg-white p-4 rounded-lg border border-gray-200 cursor-move';
       pubElement.dataset.id = pub.id;
       
-      // Create a span for the title to preserve MathJax delimiters
       const titleSpan = document.createElement('span');
       titleSpan.innerHTML = pub.title || '';
       
@@ -196,7 +219,6 @@ function renderPublicationList() {
         </div>
       `;
       
-      // Append the title span separately to preserve MathJax delimiters
       pubElement.querySelector('h3').appendChild(titleSpan);
       pubListContainer.appendChild(pubElement);
     });
@@ -223,7 +245,6 @@ function renderPublicationList() {
     btn.addEventListener('click', handleDelete);
   });
   
-  // Trigger MathJax typesetting after rendering
   if (window.MathJax) {
     MathJax.typesetPromise().catch(err => console.log('MathJax typeset error:', err));
   }
@@ -234,12 +255,10 @@ async function updatePublicationOrder(pubType) {
     const pubList = document.getElementById(`pub-list-${pubType}`);
     const newOrder = Array.from(pubList.children).map(el => el.dataset.id);
     
-    // Reorder the publications array
     publicationsData[pubType].sort((a, b) => {
       return newOrder.indexOf(a.id) - newOrder.indexOf(b.id);
     });
     
-    // Save to Firestore
     await setDoc(doc(db, "publications", pubType), {
       items: publicationsData[pubType]
     });
@@ -248,18 +267,17 @@ async function updatePublicationOrder(pubType) {
   } catch (error) {
     console.error("Error updating order:", error);
     showStatus("Error updating order: " + error.message, "red");
-    // Re-render to reset if there was an error
     renderPublicationList();
   }
 }
 
 // Form Handling
 function showForm() {   
-    formContainer.classList.remove('hidden');
-    document.getElementById('formScrollTarget').scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+  formContainer.classList.remove('hidden');
+  document.getElementById('formScrollTarget').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
 }
 
 function hideForm() {
@@ -267,10 +285,10 @@ function hideForm() {
   publicationForm.reset();
   linkFields.innerHTML = '';
   document.getElementById('publicationId').value = '';
+  formTitle.textContent = 'Add New Publication';
 }
 
 function addLinkField(name = '', url = '') {
-  const linkId = Date.now();
   const linkField = document.createElement('div');
   linkField.className = 'flex space-x-2 items-center';
   linkField.innerHTML = `
@@ -307,7 +325,7 @@ function handleSubmit(e) {
     issue: document.getElementById('pubIssue').value,
     pages: document.getElementById('pubPages').value,
     doi: document.getElementById('pubDoi').value,
-    tags: document.getElementById('pubTags').value.split(',').map(tag => tag.trim()),
+    tags: document.getElementById('pubTags').value.split(',').map(tag => tag.trim()).filter(Boolean),
     abstract: document.getElementById('pubAbstract').value,
     links: {},
     image: document.getElementById('pubImage').value || '../assets/img/default.svg',
@@ -358,16 +376,13 @@ function handleEdit(e) {
     }
   }
 
-  // Fill form
-  document.getElementById('pubType').value = pubType;
-  document.getElementById('pubTitle').value = publication.title;
-  document.getElementById('pubAuthors').value = authors || '';
-  document.getElementById('pubJournal').value = publication.journal || '';
-  document.getElementById('pubTags').value = publication.tags?.join(', ') || '';
-  document.getElementById('pubAbstract').value = publication.abstract || '';
+  // FIX #2: Populate ALL fields including the plain `year` field that was missing
   document.getElementById('publicationId').value = publication.id;
-  document.getElementById('pubImage').value = image || '';
-  document.getElementById('pubBibtex').value = publication.bibtex || '';
+  document.getElementById('pubType').value = pubType;
+  document.getElementById('pubTitle').value = publication.title || '';
+  document.getElementById('pubAuthors').value = authors || '';
+  document.getElementById('pubYear').value = publication.year || '';        // <-- was missing
+  document.getElementById('pubJournal').value = publication.journal || '';
   document.getElementById('pubArxivYear').value = publication.arxivYear || '';
   document.getElementById('pubAcceptYear').value = publication.acceptYear || '';
   document.getElementById('pubPubYear').value = publication.pubYear || '';
@@ -375,6 +390,12 @@ function handleEdit(e) {
   document.getElementById('pubIssue').value = publication.issue || '';
   document.getElementById('pubPages').value = publication.pages || '';
   document.getElementById('pubDoi').value = publication.doi || '';
+  document.getElementById('pubTags').value = Array.isArray(publication.tags)
+    ? publication.tags.join(', ')
+    : (publication.tags || '');
+  document.getElementById('pubAbstract').value = publication.abstract || '';
+  document.getElementById('pubImage').value = image || '';
+  document.getElementById('pubBibtex').value = publication.bibtex || '';
   
   // Clear and rebuild link fields
   linkFields.innerHTML = '';
@@ -412,16 +433,15 @@ function showStatus(message, color = "blue") {
 
 // Event Listeners
 addNewBtn.addEventListener('click', () => {
+  publicationForm.reset();
+  linkFields.innerHTML = '';
+  document.getElementById('publicationId').value = '';
   formTitle.textContent = 'Add New Publication';
   showForm();
 });
 
 cancelBtn.addEventListener('click', hideForm);
-
-addLinkBtn.addEventListener('click', () => {
-  addLinkField();
-});
-
+addLinkBtn.addEventListener('click', () => addLinkField());
 publicationForm.addEventListener('submit', handleSubmit);
 
 logoutBtn.addEventListener('click', () => {
