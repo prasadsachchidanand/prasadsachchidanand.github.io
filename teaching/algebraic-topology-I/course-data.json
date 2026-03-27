@@ -243,6 +243,34 @@
           "deadline": "No deadline, Not graded",
           "file": "homework/hw-08.pdf",
           "solution": null
+        },
+        
+        {
+          "number": 9,
+          "description": "covering space",
+          "deadline": "No deadline, Not graded",
+          "file": "homework/hw-09.pdf",
+          "solution": null
+        },
+        
+        {
+          "number": 10,
+          "description": "covering space and lifting criterion",
+          "deadline": "No deadline, Not graded",
+          "file": "homework/hw-10.pdf",
+          "solution": null
+        },
+
+        {
+          "number": 1,
+          "type": "assignment",
+          "prefix": "Assignment",
+          "buttonLabel": "Assignment",
+          "description": "Until the fundamental group of the circle",
+          "deadline": "April 30, 2026",
+          "marks": "10 marks",
+          "file": "assignment/assignment.pdf",
+          "solution": null
         }
       ]
     },

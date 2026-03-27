@@ -262,7 +262,7 @@ function renderItem(item, fields) {
     
     if (field.type === 'heading' || (field.prefix && field.name === 'number')) {
       // Main heading
-      const prefix = field.prefix || '';
+      const prefix = item.prefix || field.prefix || '';
       const displayValue = field.name === 'number' ? `${prefix} ${value}` : value;
       const titlePart = item.title ? `: ${item.title}` : '';
       headerHTML = `<h4 class="font-semibold text-lg text-gray-800">${displayValue}${titlePart}</h4>`;
@@ -288,7 +288,7 @@ function renderItem(item, fields) {
         buttonsHTML += `
           <a href="${value}" target="_blank"
             class="bg-${field.buttonColor}-600 text-white px-4 py-2 rounded-lg hover:bg-${field.buttonColor}-700 transition duration-300 text-sm">
-            <i class="fas fa-download mr-1"></i> ${field.label}
+            <i class="fas fa-download mr-1"></i> ${item.buttonLabel || field.label}
           </a>
         `;
       } else if (field.optional) {
