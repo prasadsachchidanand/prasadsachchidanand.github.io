@@ -160,7 +160,7 @@
 
     {
       "date": "2026-03-28",
-      "title": "Probability - ",
+      "title": "Probability - Probability of drawing two balls of the same color",
       "difficulty": "easy",
       "problem": "A box contains 5 red balls and 7 green balls. Two balls are drawn at random without replacement. What is the probability that both balls are of the same color?",
       "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use the formula for combinations: $\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$. Count the favorable outcomes (both balls same color) and divide by total outcomes.\n                    </li>\n                  </ul>",
