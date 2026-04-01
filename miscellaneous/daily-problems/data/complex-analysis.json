@@ -152,6 +152,20 @@
         "complex-analysis",
         "complex-integration"
       ]
+    },
+
+    {
+      "date": "2026-03-31",
+      "title": "NBHM 2007 - \\int_C \\frac{2z^2 - z - 2}{z - 2}",
+      "difficulty": "easy",
+      "problem": "Let $C$ be the circle defined by $\\vert z \\vert = 3$ in the complex plane, described in the anticlockwise  direction. Evaluate \n    \\[\n        \\int_C \\frac{2z^2 - z - 2}{z - 2}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use <a href=\"https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy's integral formula</a>.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We need to evaluate the integral\n    \\[\n        \\int_C \\frac{2z^2 - z - 2}{z -  2} \\mathrm{d} z,\n    \\]\n    where $C$ is the circle defined by $\\vert z \\vert = 3$ in the complex plane, described in the anticlockwise  direction.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that the function $z-2$ has a singularity at $z = 2$, which lies inside the curve $C$. Thus, we can apply the <a href=\"https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy's integral formula</a> to evaluate the integral. Let $g(z) = 2z^2 - z - 2$. Then  \n    \\begin{align*}\n        \\int_C f(z) \\mathrm{d} z & = \\int_C \\frac{g(z)}{z - 2} \\mathrm{d} z \\\\\n        & = 2\\pi \\iota g(2) \\\\\n        & = 2\\pi \\iota (2\\cdot 2^2 - 2 - 2) \\\\\n        & = 8\\pi \\iota .\n    \\end{align*}</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "nbhm-phd-2007"
+      ]
     }
   ]
 }
