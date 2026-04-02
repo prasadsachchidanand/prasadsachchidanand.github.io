@@ -163,6 +163,20 @@
           "tags": [
             "topology"
           ]
+        },
+
+        {
+          "date": "2026-04-02",
+          "title": "NBHM PhD 2005 - Topology of invertible matrices",
+          "difficulty": "medium",
+          "problem": "Identify the space of all $n \\times n$ matrices (with real entries) with $\\mathbb{R} ^n$. Let $A$ be the set of all invertible matrices. Which of the topological among the following does $A$ satisfy? \n    <ol class=\"math-list-alpha\">\n                  <li class=\"my-4\">\n                    Open\n                  </li>\n                  <li class=\"my-4\">\n                    Closed\n                  </li>\n                  <li class=\"my-4\">\n                    Connected\n                  </li>\n                  <li class=\"my-4\">\n                    Nowhere dense.\n                  </li>\n                </ol>",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Look at the map $\\det : M(n,\\mathbb{R} ) \\to \\mathbb{R} $.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will denote \n    \\begin{align*}\n        M(n,\\mathbb{R} ) & = \\text{ Set of all }  n \\times n \\text{ matrices with real entries} \\\\ \n        GL(n,\\mathbb{R} ) & = \\text{ Set of all } n \\times n \\text{ invertible matrices with real entries}.\n    \\end{align*}\n    We will show that $GL(n,\\mathbb{R} )$ is open, not closed, connected and not nowhere dense.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First, we show that $GL(n,\\mathbb{R} )$ is open. Note that a matrix $A$ is invertible if and only if $\\det(A) \\neq 0$. The determinant function $$\\det: M(n,\\mathbb{R} ) \\to  \\mathbb{R}, \\quad A \\mapsto \\det(A) $$ is continuous. Since $GL(n,\\mathbb{R} ) = \\det^{-1} (\\mathbb{R} \\setminus \\{ 0 \\})$, and $\\mathbb{R} \\setminus \\{ 0 \\}$ is open in $\\mathbb{R} $, it follows that $GL(n,\\mathbb{R} )$ is open in $M(n,\\mathbb{R} )$.\n\n    \\vspace{0.3cm}\n    \\noindent Next, we show that $GL(n,\\mathbb{R} )$ is not closed. Consider the sequence of matrices\n    \\[\n        A_k = \\mathrm{diag} \\left( \\frac{1}{k}, \\frac{1}{k}, \\ldots, \\frac{1}{k} \\right) \\in GL(n,\\mathbb{R} ). \n    \\]\n    The sequence $\\{A_k\\}$ converges to the zero matrix $O$, which is not invertible. Thus, $GL(n,\\mathbb{R} )$ does not contain all its limit points and hence is not closed.\n\n    \\vspace{0.3cm}\n    \\noindent Now we show that $GL(n,\\mathbb{R} )$ is not connected. Consider the map\n    \\[\n        f: GL(n,\\mathbb{R} ) \\to  \\mathbb{R} \\setminus \\{ 0 \\}, \\quad A \\mapsto \\det(A).\n    \\]\n    The map $f$ is continuous and surjective. Since $\\mathbb{R} \\setminus \\{ 0 \\}$ is disconnected (it has two components: the positive reals and the negative reals), the preimage of each component under $f$ is a nonempty open subset of $GL(n,\\mathbb{R} )$. \n    \\[\n        GL^+(n,\\mathbb{R} ) = f^{-1} ((0, \\infty)) \\quad \\text{and} \\quad GL^-(n,\\mathbb{R} ) = f^{-1} ((-\\infty, 0)).\n    \\]\n    Both $GL^+(n,\\mathbb{R} )$ and $GL^-(n,\\mathbb{R} )$ are nonempty, open, and disjoint subsets of $GL(n,\\mathbb{R} )$ whose union is $GL(n,\\mathbb{R} )$. Thus, $GL(n,\\mathbb{R} )$ is not connected.\n\n    \\vspace{0.3cm}\n    \\noindent Finally, we show that $GL(n,\\mathbb{R} )$ is not nowhere dense in $M(n,\\mathbb{R} )$. Recall that a nowhere dense set is a set whose closure has empty interior. Since $GL(n,\\mathbb{R} )$ is open, so for every $A \\in GL(n, \\mathbb{R} )$ there exists an open ball around $A$ contained in $GL(n, \\mathbb{R} )$. This implies that $A \\in \\mathrm{int}(\\mathrm{Cl}(GL(n, \\mathbb{R} )))$. Thus, $\\mathrm{int}(\\mathrm{Cl}(GL(n, \\mathbb{R} )))$ is not empty and hence $GL(n,\\mathbb{R} )$ is not nowhere dense in $M(n,\\mathbb{R} )$.</div>",
+          "tags": [
+            "topology",
+            "connectedness",
+            "nbhm-phd-2005"
+          ]
         }
     ]
 }
