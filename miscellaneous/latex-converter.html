@@ -85,9 +85,18 @@
 
             const convertLatexToJson = () => {
                 try {
+                    // Protect $$...$$ FIRST (before $...$ protection)
+                    const displayDollarPlaceholders = [];
+                    let cleanedInput = latexInput.replace(/\$\$([\s\S]+?)\$\$/g, (match, math) => {
+                        const placeholder = `__DISPLAYDOLLAR_${displayDollarPlaceholders.length}__`;
+                        displayDollarPlaceholders.push(math);
+                        return placeholder;
+                    });
+
+
                     // STEP 1: Protect inline math ($...$) from HTML processing
                     const mathPlaceholders = [];
-                    let cleanedInput = latexInput.replace(/\$([^$]+)\$/g, (match, math) => {
+                    cleanedInput = cleanedInput.replace(/\$([^$]+)\$/g, (match, math) => {
                         const placeholder = `__MATH_${mathPlaceholders.length}__`;
                         mathPlaceholders.push(math);
                         return placeholder;
@@ -540,6 +549,10 @@ ${listItems}
                     solution = solution.replace(/__ENVMATH_(\d+)__/g, (match, index) => {
                         return envMathPlaceholders[index];
                     });
+
+                    problem = problem.replace(/__DISPLAYDOLLAR_(\d+)__/g, (_, i) => `$$${displayDollarPlaceholders[i]}$$`);
+                    hint = hint.replace(/__DISPLAYDOLLAR_(\d+)__/g, (_, i) => `$$${displayDollarPlaceholders[i]}$$`);
+                    solution = solution.replace(/__DISPLAYDOLLAR_(\d+)__/g, (_, i) => `$$${displayDollarPlaceholders[i]}$$`);
 
                     // Create JSON object
                     const jsonObj = {

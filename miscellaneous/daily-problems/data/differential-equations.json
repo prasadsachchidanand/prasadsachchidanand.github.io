@@ -183,6 +183,19 @@
         "differential-equation",
         "ode"
       ]
+    },
+
+    {
+      "date": "2026-04-03",
+      "title": "Differential Equation - Solve xzp + yzq = xy",
+      "difficulty": "medium",
+      "problem": "Find the general integral of \n    \\[\n        xzp + yzq = xy,\n    \\]\n    where $p = \\frac{\\partial z}{\\partial x}$ and $q = \\frac{\\partial z}{\\partial y}$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Write the equation in Lagrange's form $Pp + Qq = R$ and choose appropriate multipliers to get the integrals.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is \n    \\begin{equation}\\label{eq:03Apr2026-1}\n        xzp + yzq = xy,\n    \\end{equation}\n    where $p = \\frac{\\partial z}{\\partial x}$ and $q = \\frac{\\partial z}{\\partial y}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The Lagrange's auxiliary equations are\n    \\begin{equation}\\label{eq:03Apr2026-2}\n        \\frac{dx}{xz} = \\frac{dy}{yz} = \\frac{dz}{-xy}.\n    \\end{equation}\n    From the first two fractions of \\eqref{eq:03Apr2026-2}, we get\n    \\[\n        \\frac{dx}{xz} = \\frac{dy}{yz} \\quad \\Rightarrow \\quad \\frac{dx}{x} = \\frac{dy}{y}.\n    \\]\n    Integrating, we get\n    \\[\n        \\ln|x| = \\ln|y| + \\ln|c_1| \\quad \\Rightarrow \\quad \\frac{x}{y} = c_1. \\]\n    Thus, the first integral is\n    \\begin{equation}\\label{eq:03Apr2026-3}\n        \\frac{x}{y} = c_1\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now to get the second integral, we can use the multipliers $(y, x, -2z)$. This gives\n    \\begin{align*}\n        & \\frac{y dx + x dy - 2z dz}{-2xyz} = \\frac{dz}{-xy} \\\\\n        \\implies & \\frac{d(xy) - d(z^2)}{-2xyz} = \\frac{dz}{-xy} \\\\\n        \\implies & \\frac{d(xy) - d(z^2)}{2z} = dz \\\\\n        \\implies & d(xy) = d(z^2) \\\\\n        \\implies & xy = z^2 + c_2.\n    \\end{align*}\n    Thus, the second integral is\n    \\begin{equation}\\label{eq:03Apr2026-4}\n        xy = z^2 + c_2.\n    \\end{equation}\n    From \\eqref{eq:03Apr2026-3} and \\eqref{eq:03Apr2026-4}, the general integral is\n    \\[\n    F\\!\\left( \\frac{x}{y}, xy - z^2 \\right) = 0,\n    \\]\n    or equivalently,\n    \\[\n        \\boxed{xy - z^2 = \\phi\\!\\left( \\frac{x}{y} \\right),}\n    \\]\n    where $\\phi$ is an arbitrary function.</div>",
+      "tags": [
+        "differential-equation",
+        "pde"
+      ]
     }
   ]
 }
