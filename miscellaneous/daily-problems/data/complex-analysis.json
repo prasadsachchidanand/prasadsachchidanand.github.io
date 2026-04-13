@@ -166,6 +166,19 @@
         "complex-integration",
         "nbhm-phd-2007"
       ]
+    },
+
+    {
+      "date": "2026-04-07",
+      "title": "Taylor series of f(z) = 1/(1-z) about z = 2 i",
+      "difficulty": "medium",
+      "problem": "Expand \n    \\[\n        f(z) = \\frac{1}{1 - z}\n    \\]\n    in a Taylor series about $z = 2\\iota $. Also, find the radius of convergence of the series.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Note that \n        \\[\n            \\frac{1}{1-z} = \\frac{1}{1 - 2\\iota - (z - 2\\iota )} \\\\\n            = \\frac{1}{(1 - 2\\iota )\\left( 1 - \\dfrac{z - 2\\iota }{1 - 2\\iota } \\right) }\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We know that the geometric series expansion of $\\frac{1}{1-z}$ about $z = 0$ is\n    \\[\n        \\frac{1}{1- z } = \\sum_{n=0}^{\\infty} z^n, \\quad \\text{ for } \\vert z \\vert < 1.\n    \\]\n    We will use the above expansion to find the Taylor series expansion of $f(z) = \\frac{1}{1-z}$ about $z = 2\\iota $.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that \n    \\begin{align*}\n        f(z) & = \\frac{1}{1-z} = \\frac{1}{1 - 2\\iota - (z - 2\\iota )} \\\\\n        & = \\frac{1}{(1 - 2\\iota )\\left( 1 - \\dfrac{z - 2\\iota }{1 - 2\\iota } \\right) } \\\\\n        & = \\frac{1}{1 - 2\\iota } \\cdot \\frac{1}{1 - \\dfrac{z - 2\\iota }{1 - 2\\iota }}.\n    \\end{align*}\n    We now use the geometric series expansion of $\\frac{1}{1-z}$ to expand $\\frac{1}{1 - \\dfrac{z - 2\\iota }{1 - 2\\iota }}$. \n    \\begin{align*}\n        \\frac{1}{1 - z} & = \\frac{1}{1 - 2\\iota } \\sum_{n=0}^{\\infty} \\left( \\frac{z - 2\\iota }{1 - 2\\iota } \\right)^n \\\\\n        & = \\sum_{n=0}^{\\infty} \\frac{(z - 2\\iota )^n}{(1 - 2\\iota )^{n+1}}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The radius of convergence of the above series is the distance of the point $z = 2\\iota $ from the nearest singularity of $f(z)$. The only singularity of $f(z)$ is at $z = 1$. Thus, the radius of convergence is $\\vert 2\\iota - 1 \\vert = \\sqrt{5}$.</div>",
+      "tags": [
+        "complex-analysis",
+        "infinite-series"
+      ]
     }
   ]
 }

@@ -177,6 +177,19 @@
             "connectedness",
             "nbhm-phd-2005"
           ]
+        },
+
+        {
+          "date": "2026-04-09",
+          "title": "Closure of A = {x in X : d(x,A) = 0}",
+          "difficulty": "medium",
+          "problem": "Let $(X,d)$ be a metric space and let $A$ be a subset of $X$. Show that the closure of $A$ is given by\n    \\[\n        \\mathrm{Cl}(A) = \\{ x \\in X : d(x,A) = 0 \\},\n    \\]\n    where $d(x,A) = \\inf \\{ d(x,a) : a \\in A \\}$.",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Show that if $x \\in \\mathrm{Cl}(A)$, then $d(x,A) = 0$ by using the definition of closure and the triangle inequality.\n                    </li>\n                    <li class=\"my-4\">\n                      Conversely, show that if $d(x,A) = 0$, then $x \\in \\mathrm{Cl}(A)$ by constructing a sequence in $A$ that converges to $x$.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $(X,d)$ be a metric space and let $A$ be a subset of $X$. We will show that the closure of $A$ is given by\n    \\[\n        \\mathrm{Cl}(A) = \\{ x \\in X : d(x,A) = 0 \\},\n    \\]\n    where $d(x,A) = \\inf \\{ d(x,a) : a \\in A \\}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First, we show that if $x \\in \\mathrm{Cl}(A)$, then $d(x,A) = 0$. Since $x$ is in the closure of $A$, for every $\\varepsilon > 0$, there exists an element $a_\\varepsilon \\in A$ such that $d(x, a_\\varepsilon) < \\varepsilon$. Thus, \n    \\[\n        d(x,A) = \\inf_{a \\in A} d(x,a) \\leq d(x, a_\\varepsilon) < \\varepsilon.\n    \\]\n    Since this holds for every $\\varepsilon > 0$, we have $d(x,A) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we show that if $d(x,A) = 0$, then $x \\in \\mathrm{Cl}(A)$. Since $d(x,A) = 0$, for every $\\varepsilon > 0$, there exists an element $a_\\varepsilon \\in A$ such that $d(x, a_\\varepsilon) < \\varepsilon$. Consider the sequence $\\{a_n\\}$ defined by choosing $a_n$ such that $d(x, a_n) < \\frac{1}{n}$ for each positive integer $n$. Then $\\lim_{n\\to\\infty} a_n = x$, which implies that every open neighborhood of $x$ contains points of $A$. Hence, $x$ is in the closure of $A$, so $x \\in \\mathrm{Cl}(A)$.\n\n    Therefore, we have shown that $\\mathrm{Cl}(A) = \\{ x \\in X : d(x,A) = 0 \\}$.</div>",
+          "tags": [
+            "topology",
+            "metric-space"
+          ]
         }
     ]
 }

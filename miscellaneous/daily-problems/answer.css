@@ -193,6 +193,11 @@
     list-style: disc;
     margin-left: 2.5rem;
   }
+  
+  .math-list-square {
+    list-style: square;
+    margin-left: 2.5rem;
+  }
 
   .equation {
     color: #3b82f6;

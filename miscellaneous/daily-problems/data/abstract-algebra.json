@@ -176,6 +176,20 @@
         "ring-theory",
         "nbhm-phd-2005"
       ]
+    },
+
+    {
+      "date": "2026-04-08",
+      "title": "Herstein - Intersection of two subgroups",
+      "difficulty": "easy",
+      "problem": "If $A, B$ are subgroups of $G$, show that $A \\cap B$ is a subgroup of $G$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      We need to show that for any $x, y \\in A \\cap B$, $x \\cdot y^{-1} \\in A \\cap B$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $A$ and $B$ be subgroups of $G$. We will show that $A \\cap B$ is a subgroup of $G$. Note that $e \\in A$ and $e \\in B$, so $e \\in A \\cap B$, which implies that $A \\cap B$ is non-empty.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $x,y \\in A \\cap B$. Since $A$ is a subgroup, we have $x^{-1} \\in A$ and since $B$ is a subgroup, we have $x^{-1} \\in B$. Thus, $x^{-1} \\in A \\cap B$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Also, since $A$ is a subgroup, we have $x\\cdot y \\in A$ and since $B$ is a subgroup, we have $x\\cdot y \\in B$. Thus, $x\\cdot y \\in A \\cap B$. Therefore, by the subgroup test, we conclude that $A \\cap B$ is a subgroup of $G$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abstract-algebra-herstein (2.3.1)"
+      ]
     }
   ]
 }

@@ -196,6 +196,19 @@
         "differential-equation",
         "pde"
       ]
+    },
+
+    {
+      "date": "2026-04-10",
+      "title": "Solve dy/dx = -2 - 5y - 2y^2",
+      "difficulty": "medium",
+      "problem": "Solve the differential equation \n    \\[\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = -2 - 5y - 2y^2.\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use the partial fraction decomposition to integrate the right-hand side after separating variables.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We are given the differential equation\n    \\begin{equation}\\label{eq:10Apr2026-1}\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = -2 - 5y - 2y^2.\n    \\end{equation}\n    This is a separable differential equation. We can rewrite it as\n    \\[\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = -(2 + 5y + 2y^2).\n    \\]\n    Factoring the right-hand side, we get\n    \\[\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = -(2 + 5y + 2y^2) = -(2y + 1)(y + 2).\n    \\]\n    Separating variables, we have\n    \\[\n        \\frac{\\mathrm{d}y}{(2y + 1)(y + 2)} = -\\mathrm{d}x.\n    \\]\n    Using partial fractions, we can decompose the left-hand side as\n    \\[\n        \\frac{1}{(2y + 1)(y + 2)} = \\frac{A}{2y + 1} + \\frac{B}{y + 2}.\n    \\]\n    Solving for $A$ and $B$, we find $A = \\frac{2}{3}$ and $B = -\\frac{1}{3}$. Thus,\n    \\[\n        \\frac{\\mathrm{d}y}{(2y + 1)(y + 2)} = \\frac{1}{3}\\left(\\frac{2}{2y + 1} - \\frac{1}{y + 2}\\right)\\mathrm{d}y.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Integrating both sides, we get\n    \\[\n        \\frac{1}{3}\\left(\\frac{2\\ln|2y + 1|}{2} - \\ln|y + 2|\\right) = -x + C_1,\n    \\]\n    where $C_1$ is an arbitrary constant. Simplifying, we obtain\n    \\[\n        \\ln\\left|\\frac{2y + 1}{y + 2}\\right| = -3x + C_2 \\implies \\frac{2y + 1}{y + 2} = Ce^{-3x},\n    \\]\n    where $C = \\pm e^{C_2}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We can solve for $y$ to get the explicit solution:\n    \\begin{align*}\n        & 2y + 1 = Ce^{-3x}(y + 2) \\\\\n        \\implies & y(2 - Ce^{-3x})  = 2Ce^{-3x} - 1 \\\\\n        \\implies & y(x)  = \\frac{2Ce^{-3x} - 1}{2 - Ce^{-3x}}.\n    \\end{align*}  \n    where $C$ is an arbitrary constant.</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
     }
   ]
 }
