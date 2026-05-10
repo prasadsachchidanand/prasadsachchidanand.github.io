@@ -180,7 +180,7 @@
 
     {
       "date": "2026-04-06",
-      "title": "Rudin - Problem 3.12 - ",
+      "title": "Rudin - Problem 3.12 -  Divergence and convergence of series",
       "difficulty": "difficult",
       "problem": "Suppose $a_n > 0$ and $\\sum_{n} a_n$ converges. Put \n    \\[\n        r_n = \\sum_{m=n}^{\\infty} a_m.\n    \\]  \n    <ol class=\"math-list-alpha\">\n                  <li class=\"my-4\">\n                    Prove that \n        \\[\n            \\frac{a_m}{r_m} + \\dots + \\frac{a_n}{r_n} > 1 - \\frac{r_{n+1}}{r_m}\n        \\]\n        if $m < n$, and deduce that $\\sum_{n} \\frac{a_n}{r_n}$ diverges.\n                  </li>\n                  <li class=\"my-4\">\n                    Prove that \n        \\[\n            \\frac{a_n}{\\sqrt{r_n} } < 2 \\left( \\sqrt{r_{n}} - \\sqrt{r_{n+1} } \\right) \n        \\]  \n        and deduce that $\\sum_{n} \\frac{a_n}{\\sqrt{r_n} }$ converges.\n                  </li>\n                </ol>",
       "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      For (a), note that $a_n = r_n - r_{n+1}$. Since $r_k$ is strictly decreasing, compare $1/r_k$ to $1/r_m$ for the indices in the sum.\n                    </li>\n                    <li class=\"my-4\">\n                      For (b), use the difference of squares identity to rewrite $a_n = (\\sqrt{r_n} - \\sqrt{r_{n+1}})(\\sqrt{r_n} + \\sqrt{r_{n+1}})$ and bound the second factor.\n                    </li>\n                  </ul>",
@@ -203,6 +203,45 @@
         "real-analysis",
         "sequences",
         "Real-Analysis-Rudin-3.13"
+      ]
+    },
+
+    {
+      "date": "2026-04-20",
+      "title": "Uniform convergence of series of continuous functions",
+      "difficulty": "easy",
+      "problem": "Let $\\{ f_n \\} $ be a sequence of continuous functions such that $\\sum_{n} f_n$ converges uniformly to a function $f$ on a set $A$. Prove that $f$ is continuous on $A$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Show that the sequence of partial sums $F_N(x) = \\sum_{n=1}^N f_n(x)$ converges uniformly to $f$ on $A$. Since each $F_N$ is continuous, use the fact that a uniform limit of continuous functions is continuous.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Consider the partial sums \n    \\[\n        F_N(x) = \\sum_{n=1}^{N} f_n(x).\n    \\]\n    Given that the sequence $\\{ F_n \\} $ converges uniformly to $f$ on $A$. It is enough to prove that the sequence of continuous functions $\\{ F_{n}  \\} $ which converges to $F$ uniformly, then $F$ is continuous.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\varepsilon > 0$ be given. Since $F_n \\to F$ uniformly, there exists $N$ such that for all $n \\geq  N$, we have\n    \\[\n        |F_n(x) - F(x)| < \\frac{\\varepsilon}{3} \\quad \\text{for all } x \\in A.\n    \\]\n    Since $F_N$ is continuous, there exists $\\delta > 0$ such that\n    \\[\n        |F_N(x) - F_N(y)| < \\frac{\\varepsilon}{3} \\quad \\text{whenever } |x - y| < \\delta.\n    \\]\n    Now, for any $x, y \\in A$ with $|x - y| < \\delta$, we have\n    \\begin{align*}\n        |F(x) - F(y)| & \\leq |F(x) - F_N(x)| + |F_N(x) - F_N(y)| + |F_N(y) - F(y)| \\\\\n        & < \\frac{\\varepsilon}{3} + \\frac{\\varepsilon}{3} + \\frac{\\varepsilon}{3} = \\varepsilon.\n    \\end{align*}\n    This shows that $F$ is continuous on $A$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequence-of-functions"
+      ]
+    },
+
+    {
+      "date": "2026-04-27",
+      "title": "Integrability of a function f(x,y) = xy/(x^2 + y^2)^2 defined on the unit square",
+      "difficulty": "medium",
+      "problem": "Let $f(x,y)$ be a function defined on $[0,1]^2$ as follows: \n    \\[\n        f(x,y) = \n        \\begin{cases}\n            \\frac{xy}{(x^2 + y^2)^{2}}, &\\text{ if } (x,y) \\neq (0,0);\\\\\n            0, &\\text{ if } (x,y) = (0,0).\n        \\end{cases}\n    \\] \n    Determine if $f$ is integrable.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use polar coordinates to evaluate the integral of $f$ over the unit disc in the first quadrant.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $D$ be the unit disc in $\\mathbb{R} ^2$ and $I = [0,1]$ . We will switch to the polar coordinates to evaluate the integral of $f$ over $D$. Note that in polar coordinates, we have $x = r \\cos \\theta$ and $y = r \\sin \\theta$. We will be integrating over the region $0 \\leq r \\leq 1$ and $0 \\leq \\theta \\leq \\pi/2$, that is, in the first quadrant $Q_1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $D  \\cap Q_1 \\subseteq I^2$, we have \n    \\begin{align*}\n        \\int_I^2 f(x,y) \\mathrm{d} A & \\geq \\geq \\int_{D \\cap Q_1} f(x,y) \\mathrm{d} A \\\\\n        & = \\int_{0}^{\\pi/2} \\int_{0}^{1} \\frac{r^2 \\cos \\theta \\sin \\theta}{r^4} r \\mathrm{d} r \\mathrm{d} \\theta \\\\\n        & = \\left(\\int_{0}^{\\pi/2} \\cos \\theta \\sin \\theta \\mathrm{d} \\theta\\right) \\left(\\int_{0}^{1} \\frac{1}{r} \\mathrm{d} r\\right) \\\\\n        & = \\left( \\int_0^1 u \\mathrm{d} u  \\right)  \\left( \\int_0^1 \\frac{1}{r}\\mathrm{d} r  \\right) \\quad u = \\sin \\theta \\\\\n        & = \\frac{1}{2} \\left( \\int_0^1 \\frac{1}{r}\\mathrm{d} r  \\right) \\rightarrow \\infty.\n    \\end{align*} \n    Thus, the integral of $f$ over $I^2$ diverges, and hence $f$ is not integrable over $I^2$.</div>",
+      "tags": [
+        "real-analysis",
+        "integral"
+      ]
+    },
+
+    {
+      "date": "2026-05-04",
+      "title": "For a differentiable function, find \\lim_{x \\to a} \\frac{a^n f(x) - x^n f(a)}{x - a}",
+      "difficulty": "medium",
+      "problem": "Assume that $f$ is differentiable at $a$. Evaluate \n    \\[\n        \\lim_{x \\to a} \\frac{a^n f(x) - x^n f(a)}{x - a}, \\quad n \\in \\mathbb{N} .\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Rewrite the expression \n        \\[\n             \\frac{a^n f(x) - x^n f(a)}{x - a} = \\frac{a^n f(x) - a^n f(a) + a^n f(a) - x^n f(a)}{x - a}\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $f$ is differentiable at $a$, we have\n    \\begin{equation}\\label{eq:04May2026-1}\n        \\lim_{x \\to a} \\frac{f(x) - f(a)}{x - a } = f'(a).\n    \\end{equation}\n    Rearranging the expression we want to evaluate, we get\n    \\begin{align*}\n        \\frac{a^n f(x) - x^n f(a)}{x - a} & = \\frac{a^n f(x) - a^n f(a) + a^n f(a) - x^n f(a)}{x - a} \\\\\n        & = a^n \\cdot \\frac{f(x) - f(a)}{x - a} - f(a) \\cdot \\frac{x^n - a^n}{x - a}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now, we will evaluate the limit of each term separately. For the first term, using equation \\eqref{eq:04May2026-1}, we have\n    \\[\n        \\lim_{x \\to a} a^n \\cdot \\frac{f(x) - f(a)}{x - a} = a^n f'(a).\n    \\]\n    For the second term, we have\n    \\begin{align*}\n        \\lim_{x \\to a} f(a) \\cdot \\frac{x^n - a^n}{x - a} & = f(a) \\lim_{x \\to a} \\frac{x^n - a^n}{x - a} \\\\\n        & = f(a) \\lim_{x \\to a} \\frac{(x - a)(x^{n-1} + x^{n-2}a + \\dots + a^{n-1})}{x - a} \\\\\n        & = f(a) \\lim_{x \\to a} (x^{n-1} + x^{n-2}a + \\dots + a^{n-1}) \\\\\n        & = f(a) \\cdot n a^{n-1}.\n    \\end{align*}\n    \n    Combining these results, we get\n    \\[\n        \\lim_{x \\to a} \\frac{a^n f(x) - x^n f(a)}{x - a} = a^n f'(a) + nf(a) a^{n-1}.\n    \\]</div>",
+      "tags": [
+        "real-analysis",
+        "derivatives"
       ]
     }
   ]

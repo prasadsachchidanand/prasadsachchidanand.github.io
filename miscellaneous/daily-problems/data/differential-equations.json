@@ -209,6 +209,58 @@
         "differential-equation",
         "ode"
       ]
+    },
+
+    {
+      "date": "2026-04-17",
+      "title": "Find the general and singular solutions of y = px + a/p",
+      "difficulty": "medium",
+      "problem": "Find the general and singular solutions of $y = px + \\frac{a}{p}$, where $ p = \\frac{\\mathrm{d}y}{\\mathrm{d}x} $.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      The given differential equation is a <a href=\"https://en.wikipedia.org/wiki/Clairaut%27s_equation\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Clairaut's equation</a>.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:17Apr2026-1}\n        y = px + \\frac{a}{p},\n    \\end{equation}\n    which is a <a href=\"https://en.wikipedia.org/wiki/Clairaut%27s_equation\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Clairaut's equation</a>. To find the <strong>general solution</strong>, we replace $p$ by an arbitrary constant $c$, giving\n    \\begin{equation}\\label{eq:17Apr2026-2}\n        y = cx + \\frac{a}{c}, \\qquad \\text{or equivalently,} \\qquad c^2 x - yc + a = 0.\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To find the <strong>singular solution</strong>, we use the $c$-discriminant method. Treating \\eqref{eq:17Apr2026-2} as a quadratic in $c$ with coefficients $A = x$, $B = -y$, $C = a$, the envelope condition $B^2 - 4AC = 0$ gives\n    \\begin{align*}\n        (-y)^2 - 4(x)(a) = 0 \\qquad \\Longrightarrow \\qquad y^2 = 4ax.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To verify, differentiating $y^2 = 4ax$ gives $2y\\,\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 4a$, so $p = \\frac{2a}{y}$. Substituting into \\eqref{eq:17Apr2026-1},\n    \\begin{align*}\n        px + \\frac{a}{p} & = \\frac{2a}{y}\\cdot x + \\frac{a}{\\dfrac{2a}{y}} \\\\\n        & = \\frac{2ax}{y} + \\frac{y}{2} \\\\\n        & = \\frac{4ax + y^2}{2y}\\\\\n        & = \\frac{y^2 + y^2}{2y} = y,\n    \\end{align*}\n    where we used $y^2 = 4ax$ in the last step. Hence $y^2 = 4ax$ satisfies \\eqref{eq:17Apr2026-1} and is the required singular solution.</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2026-04-24",
+      "title": "Find the general and singular solutions of 4p^2 = 9x",
+      "difficulty": "medium",
+      "problem": "Find the general solution and singular solution of the differential equation\n    \\[\n        4p^2 = 9x, \\quad p = \\frac{\\mathrm{d}y}{\\mathrm{d}x} .\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      The solution can be obtained by integrating the equation after solving for $p$.\n                    </li>\n                    <li class=\"my-4\">\n                      The singular solution can be obtained by treating the equation as a Clairaut's equation in $\\frac{1}{p}$ and using the $c$-discriminant method to find the envelope condition.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:24Apr2026-1}\n        4p^2 = 9x, \\quad p = \\frac{\\mathrm{d}y}{\\mathrm{d}x}.\n    \\end{equation}\n    Solving for $p$, we get\n    \\[\n        p = \\pm \\frac{3}{2} \\sqrt{x}.\n    \\]\n    Integrating both cases, we get the general solution:\n    \\[\n        y = \\pm x^{3/2} + c,\n    \\]\n    where $c$ is an arbitrary constant. This gives\n    \\begin{align*}\n        (y + c)^2 = x^3 \\implies c^2 + 2yc + (y^2 - x^3) = 0,\n    \\end{align*}\n    which is a quadratic in $c$. The discriminant of this quadratic must be zero ($c$-discriminant relation). This gives\n    \\begin{align*}\n        4y^2 - 4(y^2 - x^3) = 0 \\implies x^3 = 0 \\implies x = 0.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Re-writing the original equation as $4 = 9x(\\frac{1}{p})^2$. Treating this as a Clairaut's equation in $\\frac{1}{p}$, the singular solution is given by $x = 0$. Substituting back into the original equation, we get $\\frac{1}{p} = 0$. Substitution of $x = 0$ and $\\frac{1}{p}= 0$ in the above equation gives \n    \\[\n        4 = 0, \\quad  \\text{which is a contradiction.}\n    \\]\n    Thus, there is no singular solution for the given differential equation.</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2026-05-01",
+      "title": "Form differential equation by eliminating constants A and p from z = A e^{pt} sin (px)",
+      "difficulty": "easy",
+      "problem": "Form differential equation by eliminating constants $A$ and $p$ from \n    \\[\n        z = A e^{pt} \\sin (px).\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Differentiate the given equation with respect to $t$ and $x$ to get two equations involving $A$ and $p$.\n                    </li>\n                    <li class=\"my-4\">\n                      Differentiate again to get two more equations. Then, eliminate $A$ and $p$ from these equations to get the required differential equation.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given equation is\n    \\begin{equation}\\label{eq:01May2026-1}\n        z = A e^{pt} \\sin (px).\n    \\end{equation}\n    Differentiating \\eqref{eq:01May2026-1} with respect to $t$ and $x$, we get \n    \\begin{align*}\n        \\frac{\\partial z}{\\partial x} & = A e^{pt} p \\cos (px), \\\\\n        \\frac{\\partial z}{\\partial t} & = A e^{pt} p \\sin (px).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Again differentiating $\\frac{\\partial z}{\\partial x}$ with respect to $x$, and $\\frac{\\partial z}{\\partial t}$ with respect to $t$, we get\n    \\begin{align*}\n        \\frac{\\partial^2 z}{\\partial x^2} & = -A e^{pt} p^2 \\sin (px), \\\\\n        \\frac{\\partial^2 z}{\\partial t^2} & = A e^{pt} p^2 \\sin (px).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Adding the above two equations, we get\n    \\[\n        \\frac{\\partial^2 z}{\\partial t^2} + \\frac{\\partial^2 z}{\\partial x^2} = 0.\n    \\]\n    Thus, the required differential equation is\n    \\[\n        \\boxed{\\frac{\\partial^2 z}{\\partial t^2} + \\frac{\\partial^2 z}{\\partial x^2} = 0.}\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "pde"
+      ]
+    },
+
+    {
+      "date": "2026-05-08",
+      "title": "Form a partial differential equation by eliminating the arbitrary function f from the equation x + y + z = f(x^2 + y^2 + z^2)",
+      "difficulty": "medium",
+      "problem": "Form a partial differential equation by eliminating the arbitrary function $f$ from the equation \n    \\[\n        x + y + z = f(x^2 + y^2 + z^2).\n    \\]",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Differentiate the given equation partially with respect to $x$ and $y$ to get two equations involving $f'(x^2 + y^2 + z^2)$.\n                    </li>\n                    <li class=\"my-4\">\n                      Eliminate $f'(x^2 + y^2 + z^2)$ from these two equations to get the required partial differential equation.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given equation is\n    \\[\n        x + y + z = f(x^2 + y^2 + z^2).\n    \\]\n    Let $u = x + y + z$ and $v = x^2 + y^2 + z^2$, so that $u = f(v)$.\n    Differentiating partially with respect to $x$ and $y$, and writing $p = \\frac{\\partial z}{\\partial x}$, $q = \\frac{\\partial z}{\\partial y}$, we get\n    \\begin{align*}\n        1 + p &= f'(v) \\cdot (2x + 2z p), \\text{ and } \\\\[2mm]\n        1 + q &= f'(v) \\cdot (2y + 2z q).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Eliminating $f'(v)$ from these two equations by division,\n    \\begin{align*}\n        \\frac{1 + p}{1 + q} = \\frac{2x + 2z p}{2y + 2z q} = \\frac{x + z p}{y + z q}.\n    \\end{align*}\n    Cross-multiplying,\n    \\begin{align*}\n        & (1 + p)(y + z q) = (1 + q)(x + z p)\\\\[2mm]\n        \\implies & y + z q + p y + p z q = x + z p + q x + q z p \\\\[2mm]\n       \\implies & y - x = z p - p y + q x - z q\\\\[2mm]\n       \\implies & y - x = p(z - y) + q(x - z)\\\\[2mm]\n       \\implies & y - x = -(y - z)p - (z - x)q.\n    \\end{align*}\n    Multiplying both sides by $-1$, we obtain the required partial differential equation\n    \\[\n        (y - z)p + (z - x)q = x - y.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "pde"
+      ]
     }
   ]
 }

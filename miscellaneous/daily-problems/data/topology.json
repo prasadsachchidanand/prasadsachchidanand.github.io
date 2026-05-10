@@ -190,6 +190,58 @@
             "topology",
             "metric-space"
           ]
+        },
+
+        {
+          "date": "2026-04-16",
+          "title": "A is dense in X if and only if every non-empty open set in X contains a point of A.",
+          "difficulty": "medium",
+          "problem": "Let $(X, d)$ be a metric space. A subset $A \\subseteq X$ is called <em>dense</em> in $X$ if $\\mathrm{Cl}(A) = X$. Show that $A$ is dense in $X$ if and only if every non-empty open set in $X$ contains a point of $A$.",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Recall that $\\mathrm{Cl}(A) = \\{ x \\in X : d(x, A) = 0 \\}$, and equivalently, $x \\in \\mathrm{Cl}(A)$ if and only if every open ball $B(x, r)$ intersects $A$.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Recall that $\\mathrm{Cl}(A) = \\{ x \\in X : d(x, A) = 0 \\}$, and equivalently, $x \\in \\mathrm{Cl}(A)$ if and only if every open ball $B(x, r)$ intersects $A$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$(\\Rightarrow)$ Suppose $A$ is dense, so $\\mathrm{Cl}(A) = X$. Let $U \\subseteq X$ be a non-empty open set and pick any $x \\in U$. Since $U$ is open, there exists $r > 0$ such that $B(x, r) \\subseteq U$. Since $x \\in X = \\mathrm{Cl}(A)$, every open ball around $x$ meets $A$, so in particular $B(x,r) \\cap A \\neq \\varnothing$. Hence $U \\cap A \\neq \\varnothing$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$(\\Leftarrow)$ Suppose every non-empty open set meets $A$. Let $x \\in X$ and $r > 0$. The ball $B(x,r)$ is a non-empty open set, so by assumption $B(x,r) \\cap A \\neq \\varnothing$. Since $r > 0$ was arbitrary, $x \\in \\mathrm{Cl}(A)$. As $x \\in X$ was arbitrary, $\\mathrm{Cl}(A) = X$, so $A$ is dense.</div>",
+          "tags": [
+            "topology",
+            "metric-space"
+          ]
+        },
+
+        {
+          "date": "2026-04-23",
+          "title": "Diameter of A equals diameter of closure of A",
+          "difficulty": "medium",
+          "problem": "Let $(X, d)$ be a metric space. The <em>diameter</em> of a non-empty subset $A \\subseteq X$ is defined as\n    \\[\n        \\mathrm{diam}(A) \\coloneqq \\sup \\{ d(a, b) : a, b \\in A \\}.\n    \\]\n    Prove that $\\mathrm{diam}(A) = \\mathrm{diam}(\\mathrm{Cl}(A))$.",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Since $A \\subseteq \\mathrm{Cl}(A)$, we have $\\mathrm{diam}(A) \\leq \\mathrm{diam}(\\mathrm{Cl}(A))$.\n                    </li>\n                    <li class=\"my-4\">\n                      To show the reverse inequality, use the definition of closure to find points in $A$ that are close to any given points in $\\mathrm{Cl}(A)$, and then apply the triangle inequality to relate the distances.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $A \\subseteq \\mathrm{Cl}(A)$, we immediately have $\\mathrm{diam}(A) \\leq \\mathrm{diam}(\\mathrm{Cl}(A))$. It remains to show the reverse inequality.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $x, y \\in \\mathrm{Cl}(A)$ and $\\varepsilon > 0$. Since $x, y \\in \\mathrm{Cl}(A)$, there exist $a, b \\in A$ such that $d(x, a) < \\varepsilon/2$ and $d(y, b) < \\varepsilon/2$. By the triangle inequality,\n\t\\begin{align*}\n\t\td(x, y) & \\leq d(x, a) + d(a, b) + d(b, y)                                                                     \\\\\n\t\t        & < \\frac{\\varepsilon}{2} + \\mathrm{diam}(A) + \\frac{\\varepsilon}{2} = \\mathrm{diam}(A) + \\varepsilon. \n\t\\end{align*}\n\tSince $\\varepsilon > 0$ was arbitrary, $d(x,y) \\leq \\mathrm{diam}(A)$. Taking the supremum over all $x, y \\in \\mathrm{Cl}(A)$ gives $\\mathrm{diam}(\\mathrm{Cl}(A)) \\leq \\mathrm{diam}(A)$. Therefore \n    \\[\n        \\mathrm{diam}(A) = \\mathrm{diam}(\\mathrm{Cl}(A)).\n    \\]</div>",
+          "tags": [
+            "topology",
+            "metric-space"
+          ]
+        },
+
+        {
+          "date": "2026-04-30",
+          "title": "Intersection of nested closed sets with diameter tending to zero",
+          "difficulty": "medium",
+          "problem": "Let $(X, d)$ be a complete metric space and let $\\{ F_n \\}_{n=1}^{\\infty}$ be a nested sequence of non-empty closed subsets of $X$,\n    \\[\n        F_1 \\supseteq F_2 \\supseteq F_3 \\supseteq \\cdots,\n    \\]\n    with $\\mathrm{diam}(F_n) \\to 0$ as $n \\to \\infty$. Prove that $\\bigcap_{n=1}^{\\infty} F_n$ consists of exactly one point.",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      For each $n$, pick $x_n \\in F_n$. Show that $\\{ x_n \\}$ is a Cauchy sequence using the fact that $\\mathrm{diam}(F_n) \\to 0$.\n                    </li>\n                    <li class=\"my-4\">\n                      Since $X$ is complete, $\\{ x_n \\}$ converges to some point $x \\in X$. Show that $x$ belongs to every $F_n$ using the fact that each $F_n$ is closed.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Existence.</strong> For each $n$, pick $x_n \\in F_n$. We claim $\\{ x_n \\}$ is a Cauchy sequence. Let $\\varepsilon > 0$. Since $\\mathrm{diam}(F_n) \\to 0$, there exists $N$ such that $\\mathrm{diam}(F_N) < \\varepsilon$. For all $m, n \\geq N$, both $x_m$ and $x_n$ lie in $F_N$ (by the nesting), so\n\t\\[\n\t\td(x_m, x_n) \\leq \\mathrm{diam}(F_N) < \\varepsilon.\n\t\\]\n\tSince $X$ is complete, $x_n \\to x$ for some $x \\in X$. For each fixed $k$, the tail $\\{ x_n \\}_{n \\geq k}$ lies entirely in $F_k$, and $F_k$ is closed, so $x \\in F_k$. Hence $x \\in \\bigcap_{n=1}^{\\infty} F_n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Uniqueness.</strong> Suppose $x, y \\in \\bigcap_{n=1}^{\\infty} F_n$. Then for every $n$,\n\t\\[\n\t\td(x, y) \\leq \\mathrm{diam}(F_n).\n\t\\]\n\tLetting $n \\to \\infty$ gives $d(x,y) = 0$, so $x = y$. Therefore $\\bigcap_{n=1}^{\\infty} F_n = \\{ x \\}$.</div>",
+          "tags": [
+            "topology",
+            "metric-space"
+          ]
+        },
+
+        {
+          "date": "2026-05-07",
+          "title": "f:X --> Y is a homeomorphism if X is compact and f is a continuous bijection",
+          "difficulty": "medium",
+          "problem": "Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces and let $f: X \\to Y$ be a continuous bijection. Suppose $X$ is compact. Prove that $f^{-1}: Y \\to X$ is also continuous, so that $f$ is a homeomorphism.",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Show that $f$ is a closed map by showing that the image of every closed set in $X$ is closed in $Y$.\n                    </li>\n                    <li class=\"my-4\">\n                      Use the fact that a continuous image of a compact set is compact, and that\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We show $f^{-1}$ is continuous by showing that $f$ maps closed sets to closed sets, i.e., $f$ is a closed map. Let $C \\subseteq X$ be closed. Since $X$ is compact, $C$ is compact. The continuous image $f(C)$ is compact in $Y$. Since every compact subset of a metric space is closed, $f(C)$ is closed in $Y$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now let $V \\subseteq X$ be open. Then $C \\coloneqq X \\setminus V$ is closed, so $f(C)$ is closed in $Y$. Since $f$ is a bijection,\n\t\\begin{align*}\n\t\tf(V) = f(X \\setminus C) = Y \\setminus f(C), \n\t\\end{align*}\n\twhich is open in $Y$. Therefore $(f^{-1})^{-1}(V) = f(V)$ is open for every open $V \\subseteq X$, which proves $f^{-1}$ is continuous. Hence $f$ is a homeomorphism.</div>",
+          "tags": [
+            "topology",
+            "metric-space"
+          ]
         }
     ]
 }

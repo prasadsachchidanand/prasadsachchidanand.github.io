@@ -179,6 +179,57 @@
         "complex-analysis",
         "infinite-series"
       ]
+    },
+
+    {
+      "date": "2026-04-14",
+      "title": "Find a sequence of complex numbers (not purely real) such that $\\sin z_n$ is real for all $n$ and $z_n \\to \\infty$",
+      "difficulty": "medium",
+      "problem": "Find a sequence of complex numbers (not purely real) $\\{z_n\\}_{n=1}^{\\infty}$ such that $\\sin z_n \\in \\mathbb{R}$ for all $n$, and $z_n \\to \\infty$ as $n \\to \\infty$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Recall that for $z = x + iy$, we have\n        $\\sin(x + iy) = \\sin x \\cosh y + i \\cos x \\sinh y$.\n                    </li>\n                    <li class=\"my-4\">\n                      For $\\sin z$ to be real, the imaginary part $\\cos x \\sinh y$ must vanish.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $z_n = x_n + iy_n$.  Recall that \n    \\[\n        \\sin z_n = \\sin(x_n + iy_n) = \\sin x_n \\cosh y_n + i \\cos x_n \\sinh y_n.\n    \\]\n    The imaginary part of $\\sin z_n$ is given by $\\cos x_n \\sinh y_n$. To ensure $\\sin z_n$ is real for all $n$, either $\\cos x_n = 0$ or $\\sinh y_n = 0$ for all $n$. If $\\sinh y_n = 0$, then $y_n = 0$ for all $n$ which just gives the sequence of purely real numbers. Thus, we must have $\\cos x_n = 0$ for all $n$. This happens when $x_n = \\frac{\\pi}{2} + k\\pi$ for $k \\in \\mathbb{Z} $.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Define the sequence as:\n    \\[\n        z_n = \\frac{\\pi}{2} + ni, \\quad n = 1, 2, 3, \\dots.\n    \\]\n    \n    Note that $z_n \\rightarrow \\infty$ as $n \\rightarrow \\infty$. Now, we verify that $\\sin z_n$ is real:\n    \\begin{align*}\n        \\sin\\left(\\frac{\\pi}{2} + ni\\right) & = \\sin\\left(\\frac{\\pi}{2}\\right)\\cosh(n) + i\\cos\\left(\\frac{\\pi}{2}\\right)\\sinh(n) \\\\\n        & = 1 \\cdot \\cosh(n) + i \\cdot 0 = \\cosh(n) \n    \\end{align*}\n    Since $\\cosh(n) \\in \\mathbb{R}$ for all $n$, the condition holds.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Next, we check the limit as $n \\to \\infty$:\n    \\[ |z_n| = \\sqrt{\\left(\\frac{\\pi}{2}\\right)^2 + n^2} \\]\n    As $n \\to \\infty$, $|z_n| \\to \\infty$, thus $z_n \\to \\infty$ in the complex plane.</div>",
+      "tags": [
+        "complex-analysis"
+      ]
+    },
+
+    {
+      "date": "2026-04-21",
+      "title": "If $f$ and $\\bar{f} $ both are analytic in a region $\\Omega $, then show that $f$ is a constant function",
+      "difficulty": "medium",
+      "problem": "If $f$ and $\\bar{f} $ both are analytic in a region $\\Omega $, then show that $f$ is a constant function.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use the <a href=\"https://en.wikipedia.org/wiki/Cauchy%E2%80%93Riemann_equations\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy-Riemann equations</a> for both $f$ and $\\bar{f}$ to derive conditions on the real and imaginary parts of $f$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(z) = u(x,y) + iv(x,y)$, where $u$ and $v$ are real-valued functions of two real variables. Since $f$ is analytic, it satisfies the <a href=\"https://en.wikipedia.org/wiki/Cauchy%E2%80%93Riemann_equations\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy-Riemann equations</a>:\n    \\[\n        u_x = v_y \\quad \\text{and} \\quad u_y = -v_x.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Similarly, since $\\bar{f}(z) = u(x,y) - iv(x,y)$ is also analytic, it must also satisfy the <a href=\"https://en.wikipedia.org/wiki/Cauchy%E2%80%93Riemann_equations\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy-Riemann equations</a>:\n    \\[\n        u_x = -v_y \\quad \\text{and} \\quad u_y = v_x.\n    \\]\n    \n    Comparing the two sets of equations, we get:\n    \\[\n        v_y = -v_y \\quad \\text{and} \\quad v_x = -v_x.\n    \\]\n    This implies that $v_y = 0$ and $v_x = 0$, which means that $v$ is a constant function.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now, since $u_x = v_y = 0$ and $u_y = -v_x = 0$, it follows that $u$ is also a constant function. Therefore, both $u$ and $v$ are constants, which means that $f(z) = u + iv$ is a constant function.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function"
+      ]
+    },
+
+    {
+      "date": "2026-04-28",
+      "title": "A a holomorphic function from $D$ into itself has at most one fixed  point unless it is the identity map",
+      "difficulty": "medium",
+      "problem": "Let $D = \\{ z \\in \\mathbb{C} : |z| < 1 \\} $. Prove that a holomorphic function from $D$ into itself has at most one fixed  point unless it is the identity map.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Apply the <a href=\"https://en.wikipedia.org/wiki/Schwarz%27s_lemma\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Schwarz's lemma</a> to the function $g(z) = \\phi _a^{-1} \\circ f \\circ \\phi_a (z)$, where $\\phi_a (z) = \\frac{z + a}{1 + \\bar{a} z}$ is a Möbius transformation that maps the unit disk to itself and sends $a$ to $0$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given a holomorphic function $f: D \\to D$, we want to show that it has at most one fixed point unless it is the identity map. Assume that $f$ is not the identity function and $f$ has two distinct fixed points, say $a$ and $b$, where $a \\neq b$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will use the <a href=\"https://en.wikipedia.org/wiki/Schwarz%27s_lemma\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Schwarz's lemma</a> to derive a contradiction. Consider the function\n    \\[\n        \\phi_a (z) = \\frac{z + a}{1 + \\bar{a}z}, \\quad  z \\in D.\n    \\]\n    Consider the function \n    \\[\n        g(z) = \\phi _a^{-1} \\circ f \\circ \\phi_a (z).\n    \\]\n    Note that $g$ is a holomorphic function from $D$ to $\\mathbb{C} $  and $g(0) = 0$. By <a href=\"https://en.wikipedia.org/wiki/Schwarz%27s_lemma\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Schwarz's lemma</a>, we have $\\vert g(z) \\vert \\leq \\vert z \\vert $ for all $z \\in D$. Also, since $b$ is a fixed point of $f$, we have \n    \\begin{align*}\n        g(\\phi _a^{-1} (b)) & = \\phi_a^{-1} \\circ f \\circ \\phi_a (\\phi_a^{-1} (b)) \\\\\n        & = \\phi_a^{-1} \\circ f (b) \\\\\n        & = \\phi_a^{-1} (b).\n    \\end{align*}\n    Thus, $\\phi_a^{-1} (b)$ is a fixed point of $g$. Since $g$ is not the identity map, by <a href=\"https://en.wikipedia.org/wiki/Schwarz%27s_lemma\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Schwarz's lemma</a>, we must have $\\vert g(z) \\vert < \\vert z \\vert $ for all $z \\in D \\setminus \\{ 0 \\}$. This contradicts the fact that $\\phi_a^{-1} (b)$ is a fixed point of $g$. Hence, our assumption that $f$ has two distinct fixed points is false. Therefore, a holomorphic function from $D$ into itself has at most one fixed point unless it is the identity map.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function"
+      ]
+    },
+
+    {
+      "date": "2026-05-05",
+      "title": "power series expansion of the function f(z) = \\frac{z}{z + \\iota }",
+      "difficulty": "medium",
+      "problem": "Find the power series expansion at the point $z_0 \\in \\mathbb{C} $ for the function\n    \\[\n        f(z) = \\frac{z}{z + \\iota }.\n    \\] \n    Also find the radius of convergence of the series.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Note that \n        \\[\n            f(z) = \\frac{z}{z + \\iota } = 1 - \\frac{\\iota }{z + \\iota } = 1 - \\frac{\\iota }{(z - z_0) + (z_0 + \\iota )}.\n        \\]\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To find the power series expansion of $f(z) = \\frac{z}{z + \\iota }$ at the point $z_0$, we can rewrite $f(z)$ in a form that allows us to use the geometric series expansion. First of all observe that $z_0 \\neq -\\iota $, otherwise $f(z)$ would be undefined. We can rewrite $f(z)$ as\n    \\[\n        f(z) = \\frac{z}{z + \\iota } = 1 - \\frac{\\iota }{z + \\iota } = 1 - \\frac{\\iota }{(z - z_0) + (z_0 + \\iota )}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let us write $w = z - z_0$. Then we have \n    \\begin{align*}\n        f(z) & = 1 - \\frac{\\iota }{w + (z_0 + \\iota )} \\\\\n        & = 1 - \\iota \\sum_{n=0}^{\\infty} (-1)^n \\frac{w^n}{(z_0 + \\iota )^{n+1}} \\\\\n        & = 1 + \\iota \\sum_{n=0}^{\\infty} \\frac{(-1)^{n+1} }{(z_0 + \\iota )^{n+1}} (z - z_0)^n.\n    \\end{align*} \n    Thus, the power series expansion of $f(z)$ at the point $z_0$ is given by\n    \\[\n        f(z) = 1 + \\iota \\sum_{n=0}^{\\infty} \\frac{(-1)^{n+1} }{(z_0 + \\iota )^{n+1}} (z - z_0)^n.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The radius of convergence of the series is the distance from $z_0$ to the nearest singularity of $f(z)$. The only singularity of $f(z)$ is at $z = -\\iota $. Thus, the radius of convergence is \\[\\vert z_0 + \\iota \\vert .\\]</div>",
+      "tags": [
+        "complex-analysis",
+        "infinite-series"
+      ]
     }
   ]
 }
