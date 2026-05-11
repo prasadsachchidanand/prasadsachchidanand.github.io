@@ -12,6 +12,52 @@ const topicMap = {
     6: 'miscellaneous'            // Saturday
 };
 
+// =====================================================================
+// CUTOFF DATE
+// Dates UP TO AND INCLUDING this date have a real folder (yyyy-mm-dd/).
+// Dates AFTER this date use the canonical page (/problem/?date=yyyy-mm-dd).
+// Set this to the last date you manually created a folder for.
+// =====================================================================
+const LAST_FOLDER_DATE = '2025-12-31';
+
+// ==================== URL / DATE HELPERS ====================
+
+// Get problem date — works for both:
+//   /miscellaneous/daily-problems/2025-03-10/   (old folder style)
+//   /miscellaneous/daily-problems/problem/?date=2026-05-06  (new canonical style)
+function getProblemDateFromURL() {
+    // 1. Try query string first (?date=YYYY-MM-DD)
+    const params = new URLSearchParams(window.location.search);
+    const qDate = params.get('date');
+    if (qDate && /^\d{4}-\d{2}-\d{2}$/.test(qDate)) {
+        // If someone types ?date=2023-05-10 on the canonical page,
+        // that date has a real folder — redirect there immediately.
+        if (qDate <= LAST_FOLDER_DATE && window.location.pathname.includes('/problem/')) {
+            window.location.replace(`/miscellaneous/daily-problems/${qDate}/`);
+            return null; // halt further execution while redirect fires
+        }
+        return qDate;
+    }
+    // 2. Fall back to path segment (/YYYY-MM-DD/)
+    const path = window.location.pathname;
+    const match = path.match(/\/(\d{4}-\d{2}-\d{2})\/?/);
+    return match ? match[1] : null;
+}
+
+// Build the correct URL for a given date string
+function buildDateURL(dateString) {
+    if (dateString <= LAST_FOLDER_DATE) {
+        return `/miscellaneous/daily-problems/${dateString}/`;
+    } else {
+        return `/miscellaneous/daily-problems/problem/?date=${dateString}`;
+    }
+}
+
+// Data JSON files are always one level up from the current page
+function getDataBasePath() {
+    return '../data/';
+}
+
 // ==================== SOLVED STATUS MANAGEMENT ====================
 function isProblemSolved(problemDate) {
     const solvedProblems = JSON.parse(localStorage.getItem('solvedProblems') || '{}');
@@ -22,8 +68,6 @@ function toggleSolvedStatus(problemDate) {
     const solvedProblems = JSON.parse(localStorage.getItem('solvedProblems') || '{}');
     solvedProblems[problemDate] = !solvedProblems[problemDate];
     localStorage.setItem('solvedProblems', JSON.stringify(solvedProblems));
-    
-    // Update solved count display after status change
     updateTotalSolvedCount();
     return solvedProblems[problemDate];
 }
@@ -102,10 +146,8 @@ function updatePageTitleSolvedIndicator(isSolved) {
 }
 
 function updateTotalSolvedCount() {
-    // Create or update total solved count display
     let solvedCountDisplay = document.getElementById('total-solved-count');
     if (!solvedCountDisplay) {
-        // Try to find the h1 to add the count next to it
         const titleElement = document.querySelector('h1');
         if (titleElement) {
             solvedCountDisplay = document.createElement('div');
@@ -127,7 +169,6 @@ function updateTotalSolvedCount() {
             </div>
         `;
         
-        // Add clear data functionality
         document.getElementById('clear-solved-data')?.addEventListener('click', (e) => {
             e.preventDefault();
             if (confirm('Are you sure you want to clear all solved problem data? This cannot be undone.')) {
@@ -143,19 +184,16 @@ function styleNavigationLinks() {
     const nav = document.querySelector('nav[aria-label="Page navigation example"]');
     if (!nav) return;
 
-    // Style the ul as a pill group
     const ul = nav.querySelector('ul');
     if (ul) {
         ul.className = 'flex list-none items-center gap-1 bg-white border border-gray-200 rounded-full px-2 py-1 shadow-sm';
     }
 
-    // Style each link
     const links = nav.querySelectorAll('.page-link');
     links.forEach(link => {
         link.className = 'page-link relative block py-1.5 px-4 rounded-full text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-200';
     });
 
-    // Add subtle separators between items
     const items = nav.querySelectorAll('.page-item');
     items.forEach((item, i) => {
         if (i < items.length - 1) {
@@ -167,12 +205,8 @@ function styleNavigationLinks() {
 function refreshTopicModalIfOpen() {
     const modal = document.getElementById('topic-modal');
     if (modal && !modal.classList.contains('hidden')) {
-        // Get current topic and problem date to refresh the modal
-        const problemDate = getProblemDateFromURL();
-        const topic = getTopicFromDate(problemDate);
         const topicBtn = document.getElementById('topic-link');
         if (topicBtn && topicBtn.onclick) {
-            // Close and reopen modal to refresh content
             modal.classList.add('hidden');
             setTimeout(() => {
                 topicBtn.onclick({preventDefault: () => {}});
@@ -181,16 +215,8 @@ function refreshTopicModalIfOpen() {
     }
 }
 
-// ==================== ORIGINAL FUNCTIONS (ENHANCED) ====================
+// ==================== CORE FUNCTIONS ====================
 
-// Get problem date from URL path
-function getProblemDateFromURL() {
-    const path = window.location.pathname;
-    const match = path.match(/\/(\d{4}-\d{2}-\d{2})\//);
-    return match ? match[1] : null;
-}
-
-// Determine which JSON file to load based on date
 function getTopicFromDate(dateString) {
     try {
         const date = new Date(dateString + 'T00:00:00');
@@ -202,7 +228,6 @@ function getTopicFromDate(dateString) {
     }
 }
 
-// Check if problem should be visible (date has arrived in user's timezone)
 function isProblemVisible(problemDateString) {
     const [year, month, day] = problemDateString.split('-').map(Number);
     const problemDate = new Date(year, month - 1, day, 0, 0, 0);
@@ -210,7 +235,6 @@ function isProblemVisible(problemDateString) {
     return now >= problemDate;
 }
 
-// Check if solution should be visible (next day has started in user's timezone)
 function isSolutionVisible(problemDateString) {
     const [year, month, day] = problemDateString.split('-').map(Number);
     const problemDate = new Date(year, month - 1, day, 23, 59, 59);
@@ -218,14 +242,12 @@ function isSolutionVisible(problemDateString) {
     return now > problemDate;
 }
 
-// Format topic name for display
 function formatTopicName(topic) {
     return topic.split('-').map(word => 
         word.charAt(0).toUpperCase() + word.slice(1)
     ).join(' ');
 }
 
-// Render the Style A academic title header
 function renderTitleHeader(problemDate, topicName) {
     const titleEl = document.getElementById('problem-date-title');
     if (!titleEl) return;
@@ -237,11 +259,10 @@ function renderTitleHeader(problemDate, topicName) {
         day: 'numeric',
         month: 'long',
         year: 'numeric'
-    }); // e.g. "16 March 2026"
+    });
 
     const topic = topicName ? formatTopicName(topicName) : null;
 
-    // Replace the h1's inner content entirely
     const h1 = titleEl.closest('h1') || titleEl.parentElement;
     if (!h1) {
         titleEl.textContent = formattedDate;
@@ -249,7 +270,6 @@ function renderTitleHeader(problemDate, topicName) {
     }
 
     h1.classList.add('mb-4');
-
     h1.innerHTML = `
         <span class="block text-xs font-semibold tracking-widest uppercase text-blue-500 mb-1">
             ${topic ? `${topic} &middot; ` : ''}Problem of the Day
@@ -261,7 +281,6 @@ function renderTitleHeader(problemDate, topicName) {
     `;
 }
 
-// Get difficulty badge HTML
 function getDifficultyBadge(difficulty) {
     const difficultyLower = (difficulty || 'medium').toLowerCase();
     const colorMap = {
@@ -269,20 +288,18 @@ function getDifficultyBadge(difficulty) {
         'medium': 'bg-yellow-100 text-yellow-800 border-yellow-300',
         'hard': 'bg-red-100 text-red-800 border-red-300'
     };
-    
     const color = colorMap[difficultyLower] || colorMap['medium'];
-    const displayText = difficulty || 'Medium';
-    
-    return `<span class="inline-block ${color} text-sm font-semibold rounded px-3 py-1 border">${displayText}</span>`;
+    return `<span class="inline-block ${color} text-sm font-semibold rounded px-3 py-1 border">${difficulty || 'Medium'}</span>`;
 }
 
 async function loadAllProblemDates() {
     const allDates = {};
     const topics = Object.values(topicMap);
+    const base = getDataBasePath();
     
     for (const topic of topics) {
         try {
-            const response = await fetch(`../data/${topic}.json`);
+            const response = await fetch(`${base}${topic}.json`);
             if (!response.ok) continue;
             const data = await response.json();
             if (data.problems) {
@@ -297,22 +314,36 @@ async function loadAllProblemDates() {
     return allDates;
 }
 
-// Load problem data and populate HTML
+// ==================== MAIN LOADER ====================
+
 async function loadProblem() {
     try {
         const problemDate = getProblemDateFromURL();
         
         if (!problemDate) {
-            displayError('Unable to determine problem date from URL');
+            // null means either:
+            //   a) a pre-cutoff date was found and a folder redirect was already fired, OR
+            //   b) no date at all — redirect to today.
+            // Only redirect to today if we are NOT already in the middle of a folder redirect.
+            // We detect case (a) by checking if the URL still contains /problem/ with no ?date=.
+            const params = new URLSearchParams(window.location.search);
+            if (!params.get('date') && window.location.pathname.includes('/problem/')) {
+                // Genuine missing date — redirect to today
+                const today = new Date();
+                const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+                window.location.replace(`?date=${todayStr}`);
+            }
+            // In all null cases, stop further execution here
             return;
         }
         
-        // ADD this instead (topic known only after JSON loads, so call again below):
         renderTitleHeader(problemDate, null);
         
         const topic = getTopicFromDate(problemDate);
         renderTitleHeader(problemDate, topic);
-        const jsonPath = `../data/${topic}.json`;
+
+        const base = getDataBasePath();
+        const jsonPath = `${base}${topic}.json`;
         
         console.log(`Loading ${topic} data for ${problemDate} from ${jsonPath}`);
         
@@ -324,41 +355,28 @@ async function loadProblem() {
         const data = await response.json();
         const problem = data.problems.find(p => p.date === problemDate);
         
-        // Check if the date hasn't arrived yet
         if (!isProblemVisible(problemDate)) {
-            // For future dates, show "Coming Soon" even if problem doesn't exist in data yet
             displayUpcomingProblem(problemDate, data.topic);
-            if (problem) {
-                updateMetadata(problemDate, problem, data.topic);
-            }
-            updateNavigationLinks(problemDate, topic, data.problems, false); // false = problem not visible yet
-            
-            // Still show total solved count for upcoming problems
+            if (problem) updateMetadata(problemDate, problem, data.topic);
+            updateNavigationLinks(problemDate, topic, data.problems, false);
             updateTotalSolvedCount();
             return;
         }
         
-        // Date has arrived, but no problem found in data
         if (!problem) {
             displayMissingProblem(problemDate, data.topic);
             updateNavigationLinks(problemDate, topic, data.problems, true);
-            
-            // Still show total solved count for missing problems
             updateTotalSolvedCount();
             return;
         }
         
-        // Display the problem normally
         displayProblem(problem, problemDate, data.topic, data.problems);
         updateMetadata(problemDate, problem, data.topic);
-        updateNavigationLinks(problemDate, topic, data.problems, true); // true = problem is visible
+        updateNavigationLinks(problemDate, topic, data.problems, true);
         updatePageTitleSolvedIndicator(isProblemSolved(problemDate));
-        
-        // Show total solved count
         updateTotalSolvedCount();
         styleShareButton();
 
-        // Mini calendar
         loadAllProblemDates().then(allDates => {
             createMiniCalendar(problemDate, allDates);
         });
@@ -366,33 +384,21 @@ async function loadProblem() {
     } catch (error) {
         console.error('Error loading problem:', error);
         displayError('Failed to load problem data. Please check console for details.');
-        
-        // Still try to show total solved count even on error
         updateTotalSolvedCount();
     }
 }
 
-// Display message for missing problems (date has passed but problem not added yet)
+// ==================== DISPLAY FUNCTIONS ====================
+
 function displayMissingProblem(problemDate, topicName) {
     const problemBox = document.querySelector('.border-red-500');
-    
-    // Remove "Problem:" text
     const problemStrong = problemBox.querySelector('strong');
-    if (problemStrong) {
-        problemStrong.remove();
-    }
-    
-    const parent = problemBox;
-    // Clear all content in the problem box
-    parent.innerHTML = '';
+    if (problemStrong) problemStrong.remove();
+    problemBox.innerHTML = '';
     
     const [year, month, day] = problemDate.split('-');
-    const problemDateObj = new Date(year, month - 1, day);
-    const formattedDate = problemDateObj.toLocaleDateString('en-US', { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+    const formattedDate = new Date(year, month - 1, day).toLocaleDateString('en-US', { 
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
     });
     
     const missingMessage = document.createElement('div');
@@ -403,42 +409,23 @@ function displayMissingProblem(problemDate, topicName) {
         <p class="mt-2 text-gray-600">Topic: <strong class="text-blue-600">${formatTopicName(topicName)}</strong></p>
         <p class="mt-3 text-gray-500 italic">Please check back later. Thank you for your patience! In the meanwhile solve other ${formatTopicName(topicName)} problems.</p>
     `;
-    parent.appendChild(missingMessage);
+    problemBox.appendChild(missingMessage);
     
-    // Hide solution box for missing problems
     const solutionBox = document.getElementById('solution-box');
-    if (solutionBox) {
-        solutionBox.style.display = 'none';
-    }
-    
-    // Hide hint box for missing problems
+    if (solutionBox) solutionBox.style.display = 'none';
     const hintBox = document.getElementById('hint-box');
-    if (hintBox) {
-        hintBox.style.display = 'none';
-    }
+    if (hintBox) hintBox.style.display = 'none';
 }
 
-// Display message for upcoming problems
 function displayUpcomingProblem(problemDate, topicName) {
     const problemBox = document.querySelector('.border-red-500');
     const problemStrong = problemBox.querySelector('strong');
-    
-    // Remove "Problem:" text
-    if (problemStrong) {
-        problemStrong.remove();
-    }
-    
-    const parent = problemBox;
-    // Clear all content in the problem box
-    parent.innerHTML = '';
+    if (problemStrong) problemStrong.remove();
+    problemBox.innerHTML = '';
     
     const [year, month, day] = problemDate.split('-');
-    const problemDateObj = new Date(year, month - 1, day);
-    const formattedDate = problemDateObj.toLocaleDateString('en-US', { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+    const formattedDate = new Date(year, month - 1, day).toLocaleDateString('en-US', { 
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
     });
     
     const upcomingMessage = document.createElement('div');
@@ -449,22 +436,14 @@ function displayUpcomingProblem(problemDate, topicName) {
         <p class="mt-2 text-gray-600">Topic: <strong class="text-blue-600">${formatTopicName(topicName)}</strong></p>
         <p class="mt-3 text-gray-500 italic">Please check back on ${day}-${month}-${year} to see the problem.</p>
     `;
-    parent.appendChild(upcomingMessage);
+    problemBox.appendChild(upcomingMessage);
     
-    // Hide solution box for upcoming problems
     const solutionBox = document.getElementById('solution-box');
-    if (solutionBox) {
-        solutionBox.style.display = 'none';
-    }
-    
-    // Hide hint box for upcoming problems
+    if (solutionBox) solutionBox.style.display = 'none';
     const hintBox = document.getElementById('hint-box');
-    if (hintBox) {
-        hintBox.style.display = 'none';
-    }
+    if (hintBox) hintBox.style.display = 'none';
 }
 
-// Display the problem on the page
 function displayProblem(problem, problemDate, topicName, currentProblems) {
     const problemBox = document.querySelector('.border-red-500');
     const problemStrong = problemBox.querySelector('strong');
@@ -472,12 +451,10 @@ function displayProblem(problem, problemDate, topicName, currentProblems) {
     const parent = problemStrong.parentNode;
     const nextSiblings = [];
     let nextSibling = problemStrong.nextSibling;
-    
     while (nextSibling) {
         nextSiblings.push(nextSibling);
         nextSibling = nextSibling.nextSibling;
     }
-    
     nextSiblings.forEach(sibling => sibling.remove());
     
     const problemContainer = document.createElement('span');
@@ -490,10 +467,8 @@ function displayProblem(problem, problemDate, topicName, currentProblems) {
         tagsContainer.className = 'mt-2';
         problemBox.appendChild(tagsContainer);
     }
-    
     tagsContainer.innerHTML = '';
     
-    // Add difficulty badge at the beginning of tags container
     if (problem.difficulty) {
         const difficultySpan = document.createElement('span');
         difficultySpan.innerHTML = getDifficultyBadge(problem.difficulty);
@@ -503,13 +478,7 @@ function displayProblem(problem, problemDate, topicName, currentProblems) {
     
     if (problem.tags && Array.isArray(problem.tags)) {
         problem.tags.forEach(tag => {
-            let tagUrl = tag;
-            
-            // Extract base tag name for URL (remove content in parentheses and trim)
-            if (tag.includes('(')) {
-                tagUrl = tag.split('(')[0].trim();
-            }
-            
+            let tagUrl = tag.includes('(') ? tag.split('(')[0].trim() : tag;
             const tagLink = document.createElement('a');
             tagLink.href = `/miscellaneous/daily-problems/tags/?tag=${encodeURIComponent(tagUrl)}`;
             tagLink.target = '_blank';
@@ -526,7 +495,6 @@ function displayProblem(problem, problemDate, topicName, currentProblems) {
     let hintBox = document.getElementById('hint-box');
     if (hasHint) {
         const solutionBox = document.getElementById('solution-box');
-        
         if (!hintBox) {
             hintBox = createHintBox(problem.hint);
             if (problemBox && solutionBox && solutionBox.parentNode) {
@@ -552,7 +520,7 @@ function displayProblem(problem, problemDate, topicName, currentProblems) {
             if (solutionContent) {
                 solutionContent.innerHTML = `
                     <strong>Solution: </strong>
-                    <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
+                    <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow.</span>
                 `;
             }
         }
@@ -564,6 +532,9 @@ function displayProblem(problem, problemDate, topicName, currentProblems) {
     const problemIdInput = document.getElementById('problemId');
     if (problemIdInput) {
         problemIdInput.value = problemDate;
+        // Notify comment.js that the problem ID is now available.
+        // comment.js listens for this event to initialize the Firebase collection.
+        document.dispatchEvent(new CustomEvent('problemIdReady', { detail: { problemId: problemDate } }));
     }
     
     if (window.MathJax && MathJax.typesetPromise) {
@@ -573,26 +544,14 @@ function displayProblem(problem, problemDate, topicName, currentProblems) {
     }
 }
 
-// Create toggle buttons for hint, solution, and solved
 function createToggleButtons(problemBox, hasHint, hasSolution, problemDate) {
     const existingButtons = problemBox.querySelectorAll('button[onclick*="toggle"]');
     existingButtons.forEach(btn => btn.remove());
     
     const allContainers = problemBox.querySelectorAll('.mt-2');
     allContainers.forEach(container => {
-        if (container.querySelector('button')) {
-            container.remove();
-        }
+        if (container.querySelector('button')) container.remove();
     });
-    
-    if (!hasHint && !hasSolution) {
-        // Still add solved button even if no hint/solution
-        const buttonContainer = document.createElement('div');
-        buttonContainer.className = 'mt-2 flex flex-wrap items-center gap-2';
-        buttonContainer.appendChild(createSolvedButton(problemDate));
-        problemBox.appendChild(buttonContainer);
-        return;
-    }
     
     const buttonContainer = document.createElement('div');
     buttonContainer.className = 'mt-2 flex flex-wrap items-center gap-2';
@@ -615,12 +574,10 @@ function createToggleButtons(problemBox, hasHint, hasSolution, problemDate) {
         buttonContainer.appendChild(solutionButton);
     }
     
-    // Add solved button
     buttonContainer.appendChild(createSolvedButton(problemDate));
     problemBox.appendChild(buttonContainer);
 }
 
-// Create hint box
 function createHintBox(hintText) {
     const hintBox = document.createElement('div');
     hintBox.id = 'hint-box';
@@ -633,71 +590,56 @@ function createHintBox(hintText) {
     return hintBox;
 }
 
-// Update existing hint box
 function updateHintBox(hintBox, hintText) {
     const content = hintBox.querySelector('.leading-relaxed');
-    if (content) {
-        content.innerHTML = `<strong>Hint:</strong> ${hintText}`;
-    }
+    if (content) content.innerHTML = `<strong>Hint:</strong> ${hintText}`;
 }
 
-// Update solution box
 function updateSolutionBox(solutionBox, solutionText) {
     const content = solutionBox.querySelector('.leading-relaxed');
     if (content) {
         content.innerHTML = '';
-        
         const solutionLabel = document.createElement('strong');
         solutionLabel.textContent = 'Solution: ';
         content.appendChild(solutionLabel);
-        
         const solutionContainer = document.createElement('div');
         solutionContainer.innerHTML = solutionText;
         content.appendChild(solutionContainer);
     }
 }
 
-// Toggle hint visibility
 function toggleHint() {
     const hintBox = document.getElementById('hint-box');
     const hintButton = document.getElementById('hint-button');
-    
     if (hintBox && hintButton) {
         hintBox.classList.toggle('hidden');
         hintButton.textContent = hintBox.classList.contains('hidden') ? 'Show Hint' : 'Hide Hint';
-        
         if (!hintBox.classList.contains('hidden') && window.MathJax && MathJax.typesetPromise) {
             MathJax.typesetPromise([hintBox]).catch(err => console.log('MathJax hint render error:', err));
         }
     }
 }
 
-// Toggle solution visibility
 function toggleSolution() {
     const solutionBox = document.getElementById('solution-box');
     const solutionButton = document.getElementById('solution-button');
-    
     if (solutionBox && solutionButton) {
         solutionBox.classList.toggle('hidden');
         solutionButton.textContent = solutionBox.classList.contains('hidden') ? 'Show Solution' : 'Hide Solution';
-        
         if (!solutionBox.classList.contains('hidden') && window.MathJax && MathJax.typesetPromise) {
             MathJax.typesetPromise([solutionBox]).catch(err => console.log('MathJax solution render error:', err));
         }
     }
 }
 
-// Update metadata with SEO enhancements
 function updateMetadata(problemDate, problem, topicName) {
-    const baseURL = window.location.origin + window.location.pathname;
+    const baseURL = window.location.origin + buildDateURL(problemDate);
     
     let title;
     if (problem.title && problem.title.trim() !== '' && problem.title !== 'Problem of the Day') {
-        if (topicName.toLowerCase() === 'miscellaneous') {
-            title = `Problem of the Day | ${problemDate} | ${problem.title} | Sachchidanand Prasad`;
-        } else {
-            title = `Problem of the Day | ${problemDate} | ${topicName} - ${problem.title} | Sachchidanand Prasad`;
-        }
+        title = topicName.toLowerCase() === 'miscellaneous'
+            ? `Problem of the Day | ${problemDate} | ${problem.title} | Sachchidanand Prasad`
+            : `Problem of the Day | ${problemDate} | ${topicName} - ${problem.title} | Sachchidanand Prasad`;
     } else {
         title = `Problem of the Day | ${problemDate} | ${topicName} | Sachchidanand Prasad`;
     }
@@ -708,70 +650,43 @@ function updateMetadata(problemDate, problem, topicName) {
     
     document.title = title;
     
-    // Update all meta tags
     const metaSelectors = [
-        'meta[name="description"]',
-        'meta[property="og:title"]',
-        'meta[property="og:description"]',
-        'meta[property="og:url"]',
-        'meta[name="twitter:title"]',
-        'meta[name="twitter:description"]',
-        'meta[name="linkedin:title"]',
-        'meta[name="linkedin:description"]'
+        'meta[name="description"]', 'meta[property="og:title"]',
+        'meta[property="og:description"]', 'meta[property="og:url"]',
+        'meta[name="twitter:title"]', 'meta[name="twitter:description"]',
+        'meta[name="linkedin:title"]', 'meta[name="linkedin:description"]'
     ];
     
     metaSelectors.forEach((selector, index) => {
         const el = document.querySelector(selector);
         if (el) {
             switch(index) {
-                case 0: // description
-                case 2: // og:description
-                case 5: // twitter:description
-                case 7: // linkedin:description
-                    el.content = description;
-                    break;
-                case 3: // og:url
-                    el.content = baseURL;
-                    break;
-                default: // all title tags
-                    el.content = title;
+                case 0: case 2: case 5: case 7: el.content = description; break;
+                case 3: el.content = baseURL; break;
+                default: el.content = title;
             }
         }
     });
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.href = baseURL;
     
-    // Update share link if exists
     if (document.getElementById('shareLink')) {
         document.getElementById('shareLink').value = baseURL;
     }
     
-    // Add structured data for SEO
     try {
         const structuredData = {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": title,
-            "datePublished": problemDate,
-            "author": {
-                "@type": "Person",
-                "name": "Sachchidanand Prasad"
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "Sachchidanand Prasad",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://prasadsachchidanand.github.io/assets/img/favicon.png"
-                }
+            "@context": "https://schema.org", "@type": "Article",
+            "headline": title, "datePublished": problemDate,
+            "author": { "@type": "Person", "name": "Sachchidanand Prasad" },
+            "publisher": { "@type": "Organization", "name": "Sachchidanand Prasad",
+                "logo": { "@type": "ImageObject", "url": "https://prasadsachchidanand.github.io/assets/img/favicon.png" }
             },
             "description": description,
             "image": "https://prasadsachchidanand.github.io/miscellaneous/daily-problems/img/daily-problem.png",
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": baseURL
-            }
+            "mainEntityOfPage": { "@type": "WebPage", "@id": baseURL }
         };
-        
-        // Update or create structured data script
         let scriptTag = document.getElementById('structured-data');
         if (!scriptTag) {
             scriptTag = document.createElement('script');
@@ -780,13 +695,11 @@ function updateMetadata(problemDate, problem, topicName) {
             document.head.appendChild(scriptTag);
         }
         scriptTag.textContent = JSON.stringify(structuredData, null, 2);
-        
     } catch (error) {
         console.error('Error updating structured data:', error);
     }
 }
 
-// Update navigation links
 function updateNavigationLinks(problemDate, currentTopic, currentProblems, isProblemVisible) {
     try {
         const [year, month, day] = problemDate.split('-').map(Number);
@@ -801,27 +714,24 @@ function updateNavigationLinks(problemDate, currentTopic, currentProblems, isPro
         const formatDate = (d) => {
             const y = d.getUTCFullYear();
             const m = String(d.getUTCMonth() + 1).padStart(2, '0');
-            const d_ = String(d.getUTCDate()).padStart(2, '0');
-            return `${y}-${m}-${d_}`;
+            const dd = String(d.getUTCDate()).padStart(2, '0');
+            return `${y}-${m}-${dd}`;
         };
         
-        // Update regular prev/next links
         const prevLink = document.getElementById('prev-link');
         const nextLink = document.getElementById('next-link');
         
-        if (prevLink) prevLink.href = `../${formatDate(prevDate)}/`;
+        if (prevLink) prevLink.href = buildDateURL(formatDate(prevDate));
         
         if (nextLink) {
             if (!isProblemVisible) {
-                // Disable next button for upcoming problems
                 nextLink.href = 'javascript:void(0)';
                 nextLink.style.cursor = 'not-allowed';
                 nextLink.style.pointerEvents = 'none';
                 nextLink.classList.remove('text-blue-500', 'hover:text-blue-800');
                 nextLink.classList.add('text-gray-400');
             } else {
-                // Enable next button for visible problems
-                nextLink.href = `../${formatDate(nextDate)}/`;
+                nextLink.href = buildDateURL(formatDate(nextDate));
                 nextLink.style.cursor = 'pointer';
                 nextLink.style.pointerEvents = 'auto';
                 nextLink.classList.remove('text-gray-400');
@@ -829,12 +739,8 @@ function updateNavigationLinks(problemDate, currentTopic, currentProblems, isPro
             }
         }
         
-        // Setup topic problems modal
         setupTopicProblemsModal(currentTopic, currentProblems, problemDate);
-        
-        // Add "Topic" button to navigation
         addTopicButton(currentTopic);
-
         styleNavigationLinks();
         
     } catch (error) {
@@ -842,16 +748,12 @@ function updateNavigationLinks(problemDate, currentTopic, currentProblems, isPro
     }
 }
 
-// Add a "Topic" button between "All" and "Next"
 function addTopicButton(topicName) {
     const navList = document.querySelector('nav ul');
     if (!navList) return;
     
-    // Remove existing topic button if any
     const existingTopicBtn = document.getElementById('topic-button-li');
-    if (existingTopicBtn) {
-        existingTopicBtn.remove();
-    }
+    if (existingTopicBtn) existingTopicBtn.remove();
     
     const formattedTopic = formatTopicName(topicName);
     const nextButton = document.querySelector('#next-link').parentElement;
@@ -866,27 +768,19 @@ function addTopicButton(topicName) {
             <span class="sm:inline md:hidden">${getTopicShortName(topicName)}</span>
         </a>
     `;
-    
     navList.insertBefore(topicButtonLi, nextButton);
 }
 
-// Get short name for topic
 function getTopicShortName(topicName) {
     const shortNames = {
-        'linear-algebra': 'LA',
-        'real-analysis': 'RA',
-        'complex-analysis': 'CA',
-        'abstract-algebra': 'AA',
-        'topology': 'Top',
-        'differential-equations': 'DE',
+        'linear-algebra': 'LA', 'real-analysis': 'RA', 'complex-analysis': 'CA',
+        'abstract-algebra': 'AA', 'topology': 'Top', 'differential-equations': 'DE',
         'miscellaneous': 'Misc'
     };
     return shortNames[topicName] || topicName;
 }
 
-// Setup topic problems modal functionality with solved tracking - SHOW ONLY 4 PROBLEMS
 function setupTopicProblemsModal(topicName, problems, currentDate) {
-    // Create modal if it doesn't exist
     let modal = document.getElementById('topic-modal');
     if (!modal) {
         modal = document.createElement('div');
@@ -905,55 +799,31 @@ function setupTopicProblemsModal(topicName, problems, currentDate) {
             </div>
         `;
         document.body.appendChild(modal);
-        
-        // Close modal handlers
-        document.getElementById('close-topic-modal').addEventListener('click', () => {
-            modal.classList.add('hidden');
-        });
-        
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-            }
-        });
+        document.getElementById('close-topic-modal').addEventListener('click', () => modal.classList.add('hidden'));
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
     }
     
-    // Update modal content with solved count
-    const formattedTopic = formatTopicName(topicName);
-    document.getElementById('modal-topic-title').textContent = `All ${formattedTopic} Problems`;
-    
-    const solvedCount = getSolvedCountForTopic(problems);
-    const totalSolved = getTotalSolvedCount();
+    document.getElementById('modal-topic-title').textContent = `All ${formatTopicName(topicName)} Problems`;
     document.getElementById('modal-solved-count').innerHTML = `
-        <span>${solvedCount} of ${problems.length} solved in this topic</span>
+        <span>${getSolvedCountForTopic(problems)} of ${problems.length} solved in this topic</span>
         <span class="ml-2 text-blue-600">•</span>
-        <span class="ml-2 font-semibold">${totalSolved} total solved</span>
+        <span class="ml-2 font-semibold">${getTotalSolvedCount()} total solved</span>
     `;
     
     const content = document.getElementById('topic-modal-content');
-    const sortedProblems = [...problems].sort((a, b) => b.date.localeCompare(a.date)); // Latest first
-    
-    // Only show the first 4 problems (most recent)
-    const recentProblems = sortedProblems.slice(0, 4);
+    const recentProblems = [...problems].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4);
     
     content.innerHTML = recentProblems.map(problem => {
         const [year, month, day] = problem.date.split('-');
-        const formattedDate = `${day}-${month}-${year}`;
         const isCurrent = problem.date === currentDate;
         const isSolved = isProblemSolved(problem.date);
-        const difficultyBadge = problem.difficulty ? getDifficultyBadge(problem.difficulty) : '';
-        
         return `
-            <a href="../${problem.date}/" 
-               class="block p-4 mb-2 rounded-lg border transition-all ${
-                   isCurrent 
-                   ? 'bg-blue-50 border-blue-500 font-semibold' 
-                   : 'bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
-               }">
+            <a href="${buildDateURL(problem.date)}" 
+               class="block p-4 mb-2 rounded-lg border transition-all ${isCurrent ? 'bg-blue-50 border-blue-500 font-semibold' : 'bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300'}">
                 <div class="flex justify-between items-center">
                     <div class="flex items-center gap-3">
-                        <span class="text-gray-900">${formattedDate}</span>
-                        ${difficultyBadge}
+                        <span class="text-gray-900">${day}-${month}-${year}</span>
+                        ${problem.difficulty ? getDifficultyBadge(problem.difficulty) : ''}
                         ${isSolved ? '<span class="text-green-600 font-semibold text-sm">✓ Solved</span>' : ''}
                     </div>
                     ${isCurrent ? '<span class="text-blue-600 text-sm">● Current</span>' : ''}
@@ -962,63 +832,47 @@ function setupTopicProblemsModal(topicName, problems, currentDate) {
         `;
     }).join('');
     
-    // Add a message if there are more problems
     if (problems.length > 4) {
         content.innerHTML += `
             <div class="text-center p-4 text-gray-500 border-t border-gray-200 mt-4">
                 <p class="text-sm">Showing 4 most recent problems of ${problems.length} total</p>
-                <p class="text-xs mt-1">For older problems, visit the calender by clicking <a class= "text-blue-500 hover:text-blue-800" href="../../daily-problems/#calendar">All </a></p>
+                <p class="text-xs mt-1">For older problems, visit the calendar by clicking <a class="text-blue-500 hover:text-blue-800" href="/miscellaneous/daily-problems/#calendar">All</a></p>
             </div>
         `;
     }
     
-    // Update "Topic" button to open modal
     setTimeout(() => {
         const topicButton = document.getElementById('topic-link');
         if (topicButton) {
-            topicButton.onclick = (e) => {
-                e.preventDefault();
-                modal.classList.remove('hidden');
-            };
+            topicButton.onclick = (e) => { e.preventDefault(); modal.classList.remove('hidden'); };
         }
     }, 100);
 }
 
-// Display error message
 function displayError(message) {
     const problemBox = document.querySelector('.border-red-500');
-    if (problemBox) {
-        const problemStrong = problemBox.querySelector('strong');
-        
-        if (problemStrong) {
-            const parent = problemStrong.parentNode;
-            const nextSiblings = [];
-            let nextSibling = problemStrong.nextSibling;
-            
-            while (nextSibling) {
-                nextSiblings.push(nextSibling);
-                nextSibling = nextSibling.nextSibling;
-            }
-            
-            nextSiblings.forEach(sibling => sibling.remove());
-            
-            const errorMsg = document.createElement('span');
-            errorMsg.className = 'text-red-600';
-            errorMsg.textContent = ` ${message}`;
-            parent.appendChild(errorMsg);
-        }
+    if (!problemBox) return;
+    const problemStrong = problemBox.querySelector('strong');
+    if (!problemStrong) return;
+    const parent = problemStrong.parentNode;
+    let nextSibling = problemStrong.nextSibling;
+    while (nextSibling) {
+        const toRemove = nextSibling;
+        nextSibling = nextSibling.nextSibling;
+        toRemove.remove();
     }
+    const errorMsg = document.createElement('span');
+    errorMsg.className = 'text-red-600';
+    errorMsg.textContent = ` ${message}`;
+    parent.appendChild(errorMsg);
 }
 
-// Share button 
 function styleShareButton() {
     const shareButton = document.getElementById('shareButton');
     if (!shareButton) return;
-
     shareButton.className = 'flex items-center border border-indigo-300 text-indigo-500 hover:bg-indigo-50 hover:border-indigo-500 font-medium mt-4 py-1.5 px-4 rounded-full text-sm transition-all duration-200';
 }
 
-// Display more similar problems based on shared tags
 function displaySimilarProblems(currentProblem, allProblems, currentDate, topicName) {
     const existing = document.getElementById('similar-problems');
     if (existing) existing.remove();
@@ -1027,33 +881,20 @@ function displaySimilarProblems(currentProblem, allProblems, currentDate, topicN
     if (currentTags.length === 0) return;
 
     const similar = allProblems
-        .filter(p => {
-            if (p.date === currentDate) return false;
-            if (!isProblemVisible(p.date)) return false;
-            const pTags = p.tags || [];
-            return pTags.some(tag => currentTags.includes(tag));
-        })
-        .map(p => {
-            const matchCount = (p.tags || []).filter(tag => currentTags.includes(tag)).length;
-            return { ...p, matchCount };
-        })
+        .filter(p => p.date !== currentDate && isProblemVisible(p.date) && (p.tags || []).some(tag => currentTags.includes(tag)))
+        .map(p => ({ ...p, matchCount: (p.tags || []).filter(tag => currentTags.includes(tag)).length }))
         .sort((a, b) => b.matchCount - a.matchCount)
         .reduce((acc, curr) => {
-            // Group by matchCount
             const last = acc[acc.length - 1];
-            if (last && last[0].matchCount === curr.matchCount) {
-                last.push(curr);
-            } else {
-                acc.push([curr]);
-            }
+            if (last && last[0].matchCount === curr.matchCount) last.push(curr);
+            else acc.push([curr]);
             return acc;
         }, [])
-        .flatMap(group => group.sort(() => Math.random() - 0.5)) // shuffle within same-score groups
+        .flatMap(group => group.sort(() => Math.random() - 0.5))
         .slice(0, 3);
 
     if (similar.length === 0) return;
 
-    // Strip HTML tags for plain text preview
     function stripHtml(html) {
         const tmp = document.createElement('div');
         tmp.innerHTML = html;
@@ -1063,7 +904,6 @@ function displaySimilarProblems(currentProblem, allProblems, currentDate, topicN
     const section = document.createElement('div');
     section.id = 'similar-problems';
     section.className = 'mt-10';
-
     section.innerHTML = `
         <div class="flex items-center gap-3 mb-5">
             <h3 class="text-base font-semibold text-gray-700 uppercase tracking-widest">Similar Problems</h3>
@@ -1072,42 +912,24 @@ function displaySimilarProblems(currentProblem, allProblems, currentDate, topicN
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             ${similar.map(p => {
                 const [y, m, d] = p.date.split('-');
-                const formattedDate = new Date(Number(y), Number(m) - 1, Number(d))
-                    .toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+                const formattedDate = new Date(Number(y), Number(m)-1, Number(d)).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
                 const isSolved = isProblemSolved(p.date);
                 const sharedTags = (p.tags || []).filter(tag => currentTags.includes(tag));
-                const difficultyColors = {
-                    'easy': 'bg-green-100 text-green-800',
-                    'medium': 'bg-yellow-100 text-yellow-800',
-                    'hard': 'bg-red-100 text-red-800'
-                };
+                const difficultyColors = { 'easy': 'bg-green-100 text-green-800', 'medium': 'bg-yellow-100 text-yellow-800', 'hard': 'bg-red-100 text-red-800' };
                 const diffClass = difficultyColors[(p.difficulty || 'medium').toLowerCase()] || difficultyColors['medium'];
-
-                // Plain text preview — strip HTML/LaTeX for the snippet
                 const plainText = stripHtml(p.problem);
                 const preview = plainText.length > 120 ? plainText.substring(0, 120) + '...' : plainText;
-
                 return `
-                    <a href="../${p.date}/"
+                    <a href="${buildDateURL(p.date)}"
                        class="flex flex-col justify-between p-4 bg-white border border-gray-200 rounded-xl hover:border-indigo-400 hover:shadow-md transition-all duration-200 group" target="_blank">
-                        
-                        <!-- Header: date + solved -->
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-xs font-medium text-gray-500">${formattedDate}</span>
                             ${isSolved ? '<span class="text-green-600 text-xs font-semibold">✓ Solved</span>' : ''}
                         </div>
-
-                        <!-- Problem preview -->
-                        <p class="text-sm text-gray-700 leading-relaxed flex-1 mb-3">
-                            ${preview}
-                        </p>
-
-                        <!-- Footer: difficulty + shared tags -->
+                        <p class="text-sm text-gray-700 leading-relaxed flex-1 mb-3">${preview}</p>
                         <div class="flex flex-wrap items-center gap-1 mt-auto">
                             ${p.difficulty ? `<span class="text-sm font-semibold px-2 py-0.5 rounded ${diffClass}">${p.difficulty}</span>` : ''}
-                            ${sharedTags.map(tag => `
-                                <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-0.5 rounded-full">${tag}</span>
-                            `).join('')}
+                            ${sharedTags.map(tag => `<span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-0.5 rounded-full">${tag}</span>`).join('')}
                         </div>
                     </a>
                 `;
@@ -1116,10 +938,10 @@ function displaySimilarProblems(currentProblem, allProblems, currentDate, topicN
     `;
 
     const shareDiv = document.querySelector('.relative.flex.justify-center');
-    if (shareDiv) {
-        shareDiv.parentNode.insertBefore(section, shareDiv);
-    }
+    if (shareDiv) shareDiv.parentNode.insertBefore(section, shareDiv);
 }
+
+// ==================== MINI CALENDAR (original style) ====================
 
 function createMiniCalendar(currentProblemDate, allDates) {
     const existing = document.getElementById('mini-calendar');
@@ -1127,10 +949,9 @@ function createMiniCalendar(currentProblemDate, allDates) {
 
     const solvedProblems = JSON.parse(localStorage.getItem('solvedProblems') || '{}');
 
-    let viewYear, viewMonth;
     const [cy, cm] = currentProblemDate.split('-').map(Number);
-    viewYear = cy;
-    viewMonth = cm - 1;
+    let viewYear = cy;
+    let viewMonth = cm - 1;
 
     const today = new Date();
     const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
@@ -1153,13 +974,8 @@ function createMiniCalendar(currentProblemDate, allDates) {
 
     const calStyle = document.createElement('style');
     calStyle.textContent = `
-        @media (max-width: 1500px) {
-            #mini-calendar { display: none; }
-        }
-        #mini-calendar .cal-day.has-problem:hover {
-            background: #eef2ff;
-            border-radius: 50%;
-        }
+        @media (max-width: 1500px) { #mini-calendar { display: none; } }
+        #mini-calendar .cal-day.has-problem:hover { background: #eef2ff; border-radius: 50%; }
     `;
     document.head.appendChild(calStyle);
 
@@ -1180,7 +996,6 @@ function createMiniCalendar(currentProblemDate, allDates) {
             <span style="display:flex;align-items:center;gap:3px;font-size:10px;color:#6b7280;"><span style="font-size:10px;color:#3b82f6;font-weight:600;">1</span> Available</span>
         </div>
     `;
-
     document.body.appendChild(cal);
 
     const dayNames = ['Su','Mo','Tu','We','Th','Fr','Sa'];
@@ -1198,7 +1013,6 @@ function createMiniCalendar(currentProblemDate, allDates) {
         if (viewMonth < 0) { viewMonth = 11; viewYear--; }
         renderDays();
     };
-
     document.getElementById('cal-next').onclick = () => {
         if (viewYear === today.getFullYear() && viewMonth === today.getMonth()) return;
         viewMonth++;
@@ -1207,53 +1021,39 @@ function createMiniCalendar(currentProblemDate, allDates) {
     };
 
     function renderDays() {
-        const monthNames = ['January','February','March','April','May','June',
-                           'July','August','September','October','November','December'];
-
+        const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
         document.getElementById('cal-month-label').textContent = `${monthNames[viewMonth]} ${viewYear}`;
 
         const isMinMonth = viewYear === 2026 && viewMonth === 0;
         const isMaxMonth = viewYear === today.getFullYear() && viewMonth === today.getMonth();
-
-        const prevBtn = document.getElementById('cal-prev');
-        const nextBtn = document.getElementById('cal-next');
-        prevBtn.style.color = isMinMonth ? '#d1d5db' : '#374151';
-        prevBtn.style.cursor = isMinMonth ? 'not-allowed' : 'pointer';
-        nextBtn.style.color = isMaxMonth ? '#d1d5db' : '#374151';
-        nextBtn.style.cursor = isMaxMonth ? 'not-allowed' : 'pointer';
+        document.getElementById('cal-prev').style.color = isMinMonth ? '#d1d5db' : '#374151';
+        document.getElementById('cal-prev').style.cursor = isMinMonth ? 'not-allowed' : 'pointer';
+        document.getElementById('cal-next').style.color = isMaxMonth ? '#d1d5db' : '#374151';
+        document.getElementById('cal-next').style.cursor = isMaxMonth ? 'not-allowed' : 'pointer';
 
         const firstDay = new Date(viewYear, viewMonth, 1).getDay();
         const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
-
         const daysEl = document.getElementById('cal-days');
         daysEl.innerHTML = '';
 
-        for (let i = 0; i < firstDay; i++) {
-            daysEl.appendChild(document.createElement('div'));
-        }
+        for (let i = 0; i < firstDay; i++) daysEl.appendChild(document.createElement('div'));
 
         for (let d = 1; d <= daysInMonth; d++) {
             const dateStr = `${viewYear}-${String(viewMonth + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
             const hasProblem = !!allDates[dateStr];
-            const isToday = dateStr === todayStr;
+            const isToday   = dateStr === todayStr;
             const isCurrent = dateStr === currentProblemDate;
-            const isSolved = solvedProblems[dateStr] === true;
-            const isFuture = dateStr > todayStr;
+            const isSolved  = solvedProblems[dateStr] === true;
+            const isFuture  = dateStr > todayStr;
 
             const cell = document.createElement('div');
             cell.style.cssText = 'text-align:center;padding:3px 0;border-radius:50%;';
-
-            if (isToday) {
-                cell.style.background = '#d1fae5';
-            } else if (isCurrent) {
-                cell.style.background = '#eef2ff';
-            }
+            if (isToday)        cell.style.background = '#d1fae5';
+            else if (isCurrent) cell.style.background = '#eef2ff';
 
             const numEl = document.createElement('span');
             numEl.style.cssText = `font-size:12px;font-weight:${(isToday || isCurrent) ? '600' : 'normal'};color:${
-                isToday ? '#065f46' :
-                isCurrent ? '#4338ca' :
-                (hasProblem && !isFuture) ? '#3b82f6' : '#9ca3af'
+                isToday ? '#065f46' : isCurrent ? '#4338ca' : (hasProblem && !isFuture) ? '#3b82f6' : '#9ca3af'
             };display:block;`;
             numEl.textContent = d;
             cell.appendChild(numEl);
@@ -1265,11 +1065,10 @@ function createMiniCalendar(currentProblemDate, allDates) {
             if (hasProblem && !isFuture) {
                 cell.style.cursor = 'pointer';
                 cell.classList.add('cal-day', 'has-problem');
-                cell.onclick = () => { window.location.href = `../../daily-problems/${dateStr}/`; };
+                cell.onclick = () => { window.location.href = buildDateURL(dateStr); };
             } else {
                 cell.classList.add('cal-day');
             }
-
             daysEl.appendChild(cell);
         }
     }

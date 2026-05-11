@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        (function () {
+            // Dates UP TO AND INCLUDING this date have a real folder.
+            // Must match LAST_FOLDER_DATE in problem-loader.js.
+            var LAST_FOLDER_DATE = '2025-12-31';
+
+            var path = window.location.pathname;
+
+            // Match /miscellaneous/daily-problems/YYYY-MM-DD/ (with or without trailing slash)
+            var dateMatch = path.match(/\/miscellaneous\/daily-problems\/(\d{4}-\d{2}-\d{2})\/?$/);
+
+            if (dateMatch) {
+                var date = dateMatch[1];
+
+                if (date <= LAST_FOLDER_DATE) {
+                    // Old date — real folder should exist on GitHub Pages but doesn't
+                    // here (local dev or genuinely missing). Show a plain 404.
+                    document.title = '404 – Page Not Found';
+                    document.getElementById('message').style.display = 'block';
+                } else {
+                    // New date — no folder exists by design, redirect to canonical page.
+                    window.location.replace(
+                        '/miscellaneous/daily-problems/problem/?date=' + date
+                    );
+                }
+            } else {
+                // Not a date URL — generic 404.
+                document.title = '404 – Page Not Found';
+                document.getElementById('message').style.display = 'block';
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div id="message" style="display:none; font-family: sans-serif; text-align: center; padding: 80px 20px;">
+        <h1 style="font-size: 4rem; color: #ef4444; margin: 0;">404</h1>
+        <p style="font-size: 1.2rem; color: #6b7280; margin-top: 12px;">Page not found.</p>
+        <a href="/" style="color: #3b82f6; text-decoration: underline; margin-top: 16px; display: inline-block;">
+            Go back home
+        </a>
+    </div>
+</body>
+</html>

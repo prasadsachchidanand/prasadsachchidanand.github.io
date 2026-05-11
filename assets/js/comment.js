@@ -11,11 +11,22 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const auth = firebase.auth();
 
+let commentsCollection = null;
+ 
+document.addEventListener('problemIdReady', function (e) {
+    const problemId = e.detail.problemId;
+    commentsCollection = db.collection(`problems/${problemId}/comments`);
+ 
+    // Now that the collection is ready, load existing comments.
+    loadComments();
+});
+
+
 // Get the problem identifier from the hidden input field
-const problemId = document.getElementById("problemId").value;
+// const problemId = document.getElementById("problemId").value;
 
 // Reference to the problem-specific comments collection
-const commentsCollection = db.collection(`problems/${problemId}/comments`);
+// const commentsCollection = db.collection(`problems/${problemId}/comments`);
 
 // DOM Elements
 const commentNameInput = document.getElementById("commentName");
@@ -488,7 +499,7 @@ function enhanceFormattingToolbar() {
 // Call this function on page load
 document.addEventListener("DOMContentLoaded", function() {
 	configureMarked();
-	loadComments();
+	// loadComments();
 	addCustomStyles();
 	enhanceFormattingToolbar();
 
@@ -529,6 +540,7 @@ let activeUsers = [];
 
 // Function to update the active users list
 function updateActiveUsersList() {
+	if (!commentsCollection) return;
 	// Get unique users from the comments
 	commentsCollection.get().then((snapshot) => {
 		const userSet = new Set();
@@ -776,7 +788,7 @@ commentContentInput.addEventListener("keydown", function(e) {
 document.addEventListener("DOMContentLoaded", function() {
 	// Call the original init functions
 	configureMarked();
-	loadComments();
+	// loadComments();
 	addCustomStyles();
 	enhanceFormattingToolbar();
 	updateActiveUsersList();
@@ -822,9 +834,11 @@ function addLikeDislikeStyles() {
 // Update active users list when comments are loaded
 const originalLoadComments = loadComments;
 window.loadComments = function() {
-	originalLoadComments();
-	updateActiveUsersList();
+    if (!commentsCollection) return;   // ← ADD THIS LINE
+    originalLoadComments();
+    updateActiveUsersList();
 };
+
 
 // Generate unique ID for comments
 function generateId() {
@@ -1002,6 +1016,9 @@ function startReply(commentId, authorName) {
 
 // Load comments from Firestore
 function loadComments() {
+
+	if (!commentsCollection) return;
+
 	commentsCollection
 		.orderBy("timestamp", "desc")
 		.get()

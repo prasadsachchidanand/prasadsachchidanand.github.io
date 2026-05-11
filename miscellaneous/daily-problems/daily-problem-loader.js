@@ -13,12 +13,31 @@ const topicMap = {
     6: 'miscellaneous'            // Saturday
 };
 
+// =====================================================================
+// CUTOFF DATE — must match LAST_FOLDER_DATE in problem-loader.js
+// Dates UP TO AND INCLUDING this date have a real folder (yyyy-mm-dd/).
+// Dates AFTER this date use the canonical page (/problem/?date=...).
+// =====================================================================
+const DAILY_LAST_FOLDER_DATE = '2025-12-31';
+
+// Build the correct URL for a given YYYY-MM-DD date string.
+// Called from this page context, so paths are relative to /daily-problems/.
+function buildDailyDateURL(dateString) {
+    if (dateString <= DAILY_LAST_FOLDER_DATE) {
+        return `${dateString}/`;                      // old: real folder (relative)
+    } else {
+        return `problem/?date=${dateString}`;         // new: canonical page (relative)
+    }
+}
+
+// =====================================================================
+
 // Get today's date in YYYY-MM-DD format
 function getTodayDate() {
     const today = new Date();
-    const year = today.getFullYear();
+    const year  = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
+    const day   = String(today.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
 }
 
@@ -40,69 +59,53 @@ function getTopicFromDate(dateString) {
     }
 }
 
-// Get difficulty badge HTML (same as problem-loader.js)
+// Get difficulty badge HTML
 function getDifficultyBadge(difficulty) {
     const difficultyLower = (difficulty || 'medium').toLowerCase();
     const colorMap = {
-        'easy': 'bg-green-100 text-green-800 border-green-300',
+        'easy':   'bg-green-100 text-green-800 border-green-300',
         'medium': 'bg-yellow-100 text-yellow-800 border-yellow-300',
-        'hard': 'bg-red-100 text-red-800 border-red-300'
+        'hard':   'bg-red-100 text-red-800 border-red-300'
     };
-    
     const color = colorMap[difficultyLower] || colorMap['medium'];
-    const displayText = difficulty || 'Medium';
-    
-    return `<span class="inline-block ${color} text-sm font-semibold rounded px-3 py-1 border">${displayText}</span>`;
+    return `<span class="inline-block ${color} text-sm font-semibold rounded px-3 py-1 border">${difficulty || 'Medium'}</span>`;
 }
 
 // Show loading spinner
 function showLoadingSpinner() {
     const problemBox = document.querySelector('.border-red-500');
     if (!problemBox) return;
-    
+
     const problemStrong = problemBox.querySelector('strong');
     if (!problemStrong) return;
-    
-    // Clear existing content after "Problem: "
+
     const parent = problemStrong.parentNode;
     let nextSibling = problemStrong.nextSibling;
-    
     while (nextSibling) {
         const toRemove = nextSibling;
         nextSibling = nextSibling.nextSibling;
         toRemove.remove();
     }
-    
-    // Create spinner container
+
     const spinnerContainer = document.createElement('div');
     spinnerContainer.className = 'flex items-center justify-center py-8';
     spinnerContainer.id = 'problem-loading-spinner';
-    
-    // Create spinner
+
     const spinner = document.createElement('div');
-    spinner.className = 'spinner';
     spinner.style.cssText = `
         border: 4px solid #f3f4f6;
         border-top: 4px solid #ef4444;
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 40px; height: 40px;
         animation: spin 1s linear infinite;
     `;
-    
     spinnerContainer.appendChild(spinner);
     problemBox.appendChild(spinnerContainer);
-    
-    // Add keyframe animation if not already present
+
     if (!document.getElementById('spinner-style')) {
         const style = document.createElement('style');
         style.id = 'spinner-style';
-        style.textContent = `
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-        `;
+        style.textContent = `@keyframes spin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }`;
         document.head.appendChild(style);
     }
 }
@@ -110,91 +113,71 @@ function showLoadingSpinner() {
 // Hide loading spinner
 function hideLoadingSpinner() {
     const spinner = document.getElementById('problem-loading-spinner');
-    if (spinner) {
-        spinner.remove();
-    }
+    if (spinner) spinner.remove();
 }
 
 // Find the most recent problem across all topics
 async function findMostRecentProblem() {
     const allTopics = Object.values(topicMap);
     let mostRecentProblem = null;
-    let mostRecentDate = null;
-    
+    let mostRecentDate    = null;
+
     for (const topic of allTopics) {
         try {
             const response = await fetch(`data/${topic}.json`);
             if (!response.ok) continue;
-            
+
             const data = await response.json();
-            
-            // Find the most recent problem in this topic
             if (data.problems && data.problems.length > 0) {
-                const sortedProblems = [...data.problems].sort((a, b) => 
-                    b.date.localeCompare(a.date)
-                );
-                
-                const latestInTopic = sortedProblems[0];
-                
-                if (!mostRecentDate || latestInTopic.date > mostRecentDate) {
-                    mostRecentDate = latestInTopic.date;
-                    mostRecentProblem = latestInTopic;
+                const sorted = [...data.problems].sort((a, b) => b.date.localeCompare(a.date));
+                const latest = sorted[0];
+                if (!mostRecentDate || latest.date > mostRecentDate) {
+                    mostRecentDate    = latest.date;
+                    mostRecentProblem = latest;
                 }
             }
         } catch (error) {
             console.error(`Error loading ${topic}:`, error);
         }
     }
-    
+
     return mostRecentProblem;
 }
 
 // Load today's problem and display it
 async function loadTodayProblem() {
     try {
-        // Show loading spinner immediately
         showLoadingSpinner();
-        
+
         const todayDate = getTodayDate();
-        const topic = getTopicFromDate(todayDate);
-        const jsonPath = `data/${topic}.json`;
-        
+        const topic     = getTopicFromDate(todayDate);
+        const jsonPath  = `data/${topic}.json`;
+
         console.log(`Loading today's problem: ${todayDate} (${topic})`);
-        
-        // Fetch the JSON data
+
         const response = await fetch(jsonPath);
-        if (!response.ok) {
-            throw new Error(`Failed to load ${topic} data (${response.status})`);
-        }
-        
-        const data = await response.json();
-        
-        // Find the problem matching today's date
+        if (!response.ok) throw new Error(`Failed to load ${topic} data (${response.status})`);
+
+        const data    = await response.json();
         const problem = data.problems.find(p => p.date === todayDate);
-        
+
         if (!problem) {
             console.log('No problem for today, loading most recent problem...');
-            const mostRecentProblem = await findMostRecentProblem();
-            
-            // Hide spinner before displaying content
+            const mostRecent = await findMostRecentProblem();
             hideLoadingSpinner();
-            
-            if (mostRecentProblem) {
-                displayTodayProblem(mostRecentProblem, mostRecentProblem.date, true);
+            if (mostRecent) {
+                displayTodayProblem(mostRecent, mostRecent.date, true);
             } else {
                 displayNoProblems(todayDate);
             }
             return;
         }
-        
-        // Hide spinner before displaying content
+
         hideLoadingSpinner();
-        
-        // Display the problem
         displayTodayProblem(problem, todayDate, false);
-        
+
     } catch (error) {
-        console.error('Error loading today\'s problem:', error);
+        console.error("Error loading today's problem:", error);
         hideLoadingSpinner();
         displayError('Failed to load today\'s problem. Please check console for details.');
     }
@@ -202,84 +185,64 @@ async function loadTodayProblem() {
 
 // Display today's problem on the main page
 function displayTodayProblem(problem, problemDate, isOldProblem = false) {
-    // Update the title link
+    // ── Update the title link ──────────────────────────────────────────
     const titleElement = document.querySelector('#problem-of-the-day a');
     if (titleElement) {
         const formattedDate = formatDateForDisplay(problemDate);
-        if (isOldProblem) {
-            titleElement.textContent = `Latest problem (${formattedDate})`;
-        } else {
-            titleElement.textContent = `Problem of the day (${formattedDate})`;
-        }
-        titleElement.href = `${problemDate}/`;
+        titleElement.textContent = isOldProblem
+            ? `Latest problem (${formattedDate})`
+            : `Problem of the day (${formattedDate})`;
+
+        // Use cutoff-aware URL — old dates get folder path, new dates get canonical page
+        titleElement.href = buildDailyDateURL(problemDate);
     }
-    
-    // Get the problem box
+
+    // ── Update problem content ─────────────────────────────────────────
     const problemBox = document.querySelector('.border-red-500');
-    if (!problemBox) {
-        console.error('Problem box not found');
-        return;
-    }
-    
-    // Update problem content
+    if (!problemBox) { console.error('Problem box not found'); return; }
+
     const problemStrong = problemBox.querySelector('strong');
     if (problemStrong) {
-        // Clear existing content after "Problem: "
         const parent = problemStrong.parentNode;
         const nextSiblings = [];
         let nextSibling = problemStrong.nextSibling;
-        
         while (nextSibling) {
             nextSiblings.push(nextSibling);
             nextSibling = nextSibling.nextSibling;
         }
-        
-        // Remove all siblings
-        nextSiblings.forEach(sibling => sibling.remove());
-        
-        // IMPORTANT: Create a container span to hold the HTML content inline
+        nextSiblings.forEach(s => s.remove());
+
         const problemContainer = document.createElement('span');
-        problemContainer.innerHTML = problem.problem; // Use innerHTML to render HTML tags
-        
-        // Append the container after the "Problem: " text (inline)
+        problemContainer.innerHTML = problem.problem;
         parent.appendChild(problemContainer);
-        
-        // Create tags container on a new line
+
         const tagsContainer = document.createElement('div');
         tagsContainer.className = 'mt-2';
         problemBox.appendChild(tagsContainer);
-        
-        // Add difficulty badge FIRST if it exists
+
         if (problem.difficulty) {
             const difficultySpan = document.createElement('span');
             difficultySpan.innerHTML = getDifficultyBadge(problem.difficulty);
             difficultySpan.className = 'inline-block mr-2';
             tagsContainer.appendChild(difficultySpan);
         }
-        
-        // Then add regular tags
+
         if (problem.tags && Array.isArray(problem.tags)) {
             problem.tags.forEach(tag => {
-                // Extract base tag name for URL (remove content in parentheses and trim)
-                let tagUrl = tag;
-                if (tag.includes('(')) {
-                    tagUrl = tag.split('(')[0].trim();
-                }
-                
+                let tagUrl = tag.includes('(') ? tag.split('(')[0].trim() : tag;
                 const tagLink = document.createElement('a');
-                tagLink.href = `/miscellaneous/daily-problems/tags/?tag=${encodeURIComponent(tagUrl)}`;
-                tagLink.target = '_blank';
+                tagLink.href      = `/miscellaneous/daily-problems/tags/?tag=${encodeURIComponent(tagUrl)}`;
+                tagLink.target    = '_blank';
                 tagLink.className = 'inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 my-1 hover:bg-blue-100 mr-2';
                 tagLink.textContent = tag;
                 tagsContainer.appendChild(tagLink);
             });
         }
     }
-    
-    // Trigger MathJax to render the new content
+
     if (window.MathJax && MathJax.typesetPromise) {
         setTimeout(() => {
-            MathJax.typesetPromise([problemBox]).catch(err => 
+            MathJax.typesetPromise([problemBox]).catch(err =>
                 console.log('MathJax render error:', err)
             );
         }, 100);
@@ -290,65 +253,48 @@ function displayTodayProblem(problem, problemDate, isOldProblem = false) {
 function displayNoProblems(todayDate) {
     const titleElement = document.querySelector('#problem-of-the-day a');
     if (titleElement) {
-        const formattedDate = formatDateForDisplay(todayDate);
-        titleElement.textContent = `Problem of the day (${formattedDate})`;
-        titleElement.href = '#';
+        titleElement.textContent  = `Problem of the day (${formatDateForDisplay(todayDate)})`;
+        titleElement.href         = '#';
         titleElement.style.pointerEvents = 'none';
-        titleElement.style.color = '#6b7280'; // gray color
+        titleElement.style.color  = '#6b7280';
     }
-    
+
     const problemBox = document.querySelector('.border-red-500');
-    if (problemBox) {
-        const problemStrong = problemBox.querySelector('strong');
-        
-        if (problemStrong) {
-            // Clear existing content
-            const parent = problemStrong.parentNode;
-            const nextSiblings = [];
-            let nextSibling = problemStrong.nextSibling;
-            
-            while (nextSibling) {
-                nextSiblings.push(nextSibling);
-                nextSibling = nextSibling.nextSibling;
-            }
-            
-            nextSiblings.forEach(sibling => sibling.remove());
-            
-            // Add message
-            const message = document.createElement('span');
-            message.className = 'text-gray-600';
-            message.textContent = ' No problems available yet. Check back soon!';
-            parent.appendChild(message);
-        }
+    if (!problemBox) return;
+    const problemStrong = problemBox.querySelector('strong');
+    if (!problemStrong) return;
+
+    const parent = problemStrong.parentNode;
+    let nextSibling = problemStrong.nextSibling;
+    while (nextSibling) {
+        const toRemove = nextSibling;
+        nextSibling = nextSibling.nextSibling;
+        toRemove.remove();
     }
+    const message = document.createElement('span');
+    message.className   = 'text-gray-600';
+    message.textContent = ' No problems available yet. Check back soon!';
+    parent.appendChild(message);
 }
 
 // Display error message
 function displayError(message) {
     const problemBox = document.querySelector('.border-red-500');
-    if (problemBox) {
-        const problemStrong = problemBox.querySelector('strong');
-        
-        if (problemStrong) {
-            // Clear existing content
-            const parent = problemStrong.parentNode;
-            const nextSiblings = [];
-            let nextSibling = problemStrong.nextSibling;
-            
-            while (nextSibling) {
-                nextSiblings.push(nextSibling);
-                nextSibling = nextSibling.nextSibling;
-            }
-            
-            nextSiblings.forEach(sibling => sibling.remove());
-            
-            // Add error message
-            const errorMsg = document.createElement('span');
-            errorMsg.className = 'text-red-600';
-            errorMsg.textContent = ` ${message}`;
-            parent.appendChild(errorMsg);
-        }
+    if (!problemBox) return;
+    const problemStrong = problemBox.querySelector('strong');
+    if (!problemStrong) return;
+
+    const parent = problemStrong.parentNode;
+    let nextSibling = problemStrong.nextSibling;
+    while (nextSibling) {
+        const toRemove = nextSibling;
+        nextSibling = nextSibling.nextSibling;
+        toRemove.remove();
     }
+    const errorMsg = document.createElement('span');
+    errorMsg.className   = 'text-red-600';
+    errorMsg.textContent = ` ${message}`;
+    parent.appendChild(errorMsg);
 }
 
 // Initialize when DOM is loaded
