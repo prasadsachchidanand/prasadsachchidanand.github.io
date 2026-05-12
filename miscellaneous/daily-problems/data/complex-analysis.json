@@ -230,6 +230,19 @@
         "complex-analysis",
         "infinite-series"
       ]
+    },
+
+    {
+      "date": "2026-05-12",
+      "title": "If f is a differentiable real valued function from a complex region,  then f is a constant function",
+      "difficulty": "medium",
+      "problem": "If $f$ is a differentiable function from a region $\\Omega \\subset \\mathbb{C} $ into $\\mathbb{R} $, then show that $f$ is a constant function.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use the <a href=\"https://en.wikipedia.org/wiki/Cauchy%E2%80%93Riemann_equations\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy-Riemann equations</a> to show that the real part of $f$ must be constant, which implies that $f$ itself is constant since it takes values in $\\mathbb{R} $.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(z) = u(x,y) + iv(x,y)$, where $u$ and $v$ are real-valued functions of two real variables. Since $f$ is a differentiable function from $\\Omega $ into $\\mathbb{R} $, we have $v(x,y) = 0$ for all $(x,y) \\in \\Omega $. Thus, $f(z) = u(x,y)$ is a real-valued function.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $f$ is differentiable, it satisfies the <a href=\"https://en.wikipedia.org/wiki/Cauchy%E2%80%93Riemann_equations\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy-Riemann equations</a>:\n    \\[\n        u_x = v_y \\quad \\text{and} \\quad u_y = -v_x.\n    \\]\n    Since $v(x,y) = 0$, we have $v_x = 0$ and $v_y = 0$. Thus, the above equations reduce to \n    \\[\n        u_x = 0 \\quad \\text{and} \\quad u_y = 0.\n    \\]\n    This implies that $u$ is a constant function. Therefore, $f(z) = u(x,y)$ is a constant function.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function"
+      ]
     }
   ]
 }

@@ -520,7 +520,7 @@ function displayProblem(problem, problemDate, topicName, currentProblems) {
             if (solutionContent) {
                 solutionContent.innerHTML = `
                     <strong>Solution: </strong>
-                    <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. The solution will be provided tomorrow.</span>
+                    <span class="text-lg text-red-600">I encourage you to attempt to solve the problem today. You may use the comment box to write your solution. <br> The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>
                 `;
             }
         }
