@@ -246,6 +246,20 @@
         "group-theory",
         "abstract-algebra-herstein (2.3.5)"
       ]
+    },
+
+    {
+      "date": "2026-06-13",
+      "title": "Herstein - 2.3 - Center of a group is the set of elements whose centralizer is the whole group",
+      "difficulty": "easy",
+      "problem": "Show that $a \\in Z(G)$ if and only if $C(a) = G$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Note that $C(a) = \\{ g \\in G : ga = ag \\}.$\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We need to show that $a \\in Z(G)$ if and only if $C(a) = G$. Recall that $Z(G) = \\{ z \\in G : zg = gz \\text{ for all } g \\in G \\}$ and $C(a) = \\{ g \\in G : ga = ag \\}.$</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First, let $a \\in Z(G)$. Then, for any $g \\in G$, we have $ag = ga$. This means $g \\in C(a)$ for all $g \\in G$. Therefore, $C(a) = G$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Conversely, let $C(a) = G$. Then, for any $g \\in G$, we have $g \\in C(a)$, which means $ga = ag$. Since this holds for all $g \\in G$, we conclude that $a \\in Z(G)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Thus, $a \\in Z(G)$ if and only if $C(a) = G$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abstract-algebra-herstein (2.3.6)"
+      ]
     }
   ]
 }
