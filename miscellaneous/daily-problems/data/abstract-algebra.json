@@ -249,7 +249,7 @@
     },
 
     {
-      "date": "2026-06-13",
+      "date": "2026-05-13",
       "title": "Herstein - 2.3 - Center of a group is the set of elements whose centralizer is the whole group",
       "difficulty": "easy",
       "problem": "Show that $a \\in Z(G)$ if and only if $C(a) = G$.",
