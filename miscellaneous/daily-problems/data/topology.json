@@ -242,6 +242,19 @@
             "topology",
             "metric-space"
           ]
+        },
+
+        {
+          "date": "2026-05-14",
+          "title": "Any finite T_1 space is discrete",
+          "difficulty": "medium",
+          "problem": "Show that any finite $T_1$ space is discrete.",
+          "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Recall that a topological space $X$ is called a $T_1$ space if for every pair of distinct points $x, y \\in X$, there exist open sets $U$ and $V$ such that $x \\in U$, $y \\notin U$, $y \\in V$, and $x \\notin V$.\n                    </li>\n                    <li class=\"my-4\">\n                      Show that $\\{ x \\} $ equals the intersection of all open sets containing $x$, and use the fact that there are only finitely many points to conclude that $\\{ x \\}$ is open for each $x \\in X$.\n                    </li>\n                  </ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Recall that a topological space $X$ is called a $T_1$ space if for every pair of distinct points $x, y \\in X$, there exist open sets $U$ and $V$ such that $x \\in U$, $y \\notin U$, $y \\in V$, and $x \\notin V$. We will show that any finite $T_1$ space is discrete, i.e., every subset of $X$ is open.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $X$ be a finite $T_1$ space. We will show that every singleton set $\\{x\\}$ is open for each $x \\in X$. Let $x \\in X$. For each $y \\in X$ with $y \\neq x$, since $X$ is a $T_1$ space, there exists an open set $U_y$ such that $x \\in U_y$ and $y \\notin U_y$. Consider the intersection\n    \\[\n        U = \\bigcap_{\\substack{y \\in X \\\\ y \\neq x}} U_y.\n    \\]\n    Then $U$ is open (as a finite intersection of open sets), $x \\in U$, and $y \\notin U$ for all $y \\neq x$. Thus $\\{x\\} = U$ is open. Since this holds for every $x \\in X$, the space $X$ is discrete.</div>",
+          "tags": [
+            "topology",
+            "separation"
+          ]
         }
     ]
 }

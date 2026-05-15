@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'homeomorphism': 'topology',
         'connectedness': 'topology',
         'subspace-topology': 'topology',
+        'separation': 'topology',
         'completeness': 'topology',
         'homotopy-theory': 'topology',
 
