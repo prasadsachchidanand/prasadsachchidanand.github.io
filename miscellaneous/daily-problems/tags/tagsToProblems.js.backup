@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-05-14T06:03:06.344Z
+// Generated on: 2026-05-14T06:13:12.154Z
 // LAST_FOLDER_DATE: 2025-12-31
 // Run "node generate-tags.js" to regenerate
 
@@ -88,6 +88,7 @@ const tagsToProblems = {
     'real-analysis-rudin': ['../2025-03-31', '../2025-04-14', '../2025-04-21', '../2025-05-26', '../2025-06-02', '../2025-08-18', '../2025-08-19', '../problem/?date=2026-02-16', '../problem/?date=2026-02-23', '../problem/?date=2026-03-02', '../problem/?date=2026-03-09', '../problem/?date=2026-03-16', '../problem/?date=2026-03-23'],
     'ring-theory': ['../2024-05-29', '../2024-06-26', '../2024-07-03', '../2024-07-17', '../2024-08-14', '../2025-03-12', '../problem/?date=2026-03-04', '../problem/?date=2026-04-01'],
     'row-reduction': ['../2025-03-16', '../2025-03-23', '../2025-04-06', '../2025-05-25', '../problem/?date=2026-01-04'],
+    'separation': ['../problem/?date=2026-05-14'],
     'seqeunces': ['../problem/?date=2026-02-23', '../problem/?date=2026-03-02'],
     'sequence-of-functions': ['../2024-07-15', '../2024-08-12', '../2025-03-10', '../2025-04-14', '../problem/?date=2026-02-02', '../problem/?date=2026-02-09', '../problem/?date=2026-04-20'],
     'sequences': ['../2024-05-13', '../2024-07-29', '../2024-08-05', '../2025-01-06', '../2025-01-27', '../2025-03-17', '../2025-03-31', '../2025-05-26', '../2025-06-02', '../problem/?date=2026-02-16', '../problem/?date=2026-03-09', '../problem/?date=2026-03-16', '../problem/?date=2026-03-23', '../problem/?date=2026-03-30', '../problem/?date=2026-04-06', '../problem/?date=2026-04-13'],
