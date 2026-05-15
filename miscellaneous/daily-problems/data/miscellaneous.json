@@ -248,6 +248,19 @@
         "miscellaneous",
         "number-theory"
       ]
+    },
+
+    {
+      "date": "2026-05-16",
+      "title": "Calculus - \\iint_R ( x + y) dy dx",
+      "difficulty": "medium",
+      "problem": "Evaluate \n    \\[\n        \\iint _R (x + y) \\mathrm{d} y \\mathrm{d} x,\n    \\]\n    where $R$ is the region bounded by $x = 0, x = 2, y = x,$ and $y = x + 2$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      First, sketch the region $R$ to understand the limits of integration. Then set up the double integral as an iterated integral and evaluate it step by step.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The region $R$ is bounded by the lines $x = 0$, $x = 2$, $y = x$, and $y = x + 2$. We can express the double integral as an iterated integral:\n    \\[\n        \\iint _R (x + y) \\mathrm{d} y \\mathrm{d} x = \\int_0^2 \\int_x^{x+2} (x + y) \\mathrm{d} y \\mathrm{d} x.\n    \\]\n    We will first evaluate the inner integral with respect to $y$. \n\n    <div class=\"flex flex-wrap justify-center my-4\">\n  <img\n    src=\"../../../assets/img/prob-16-05-26_01.svg\"\n    class=\"h-auto\"\n    alt=\"The region $R$ bounded by the lines $x = 0$, $x = 2$, $y = x$, and $y = x + 2$.\"\n  />\n</div> \n\n    \\begin{align*}\n        \\int_x^{x+2} (x + y) \\mathrm{d} y & = \\int_x^{x+2} x \\mathrm{d} y + \\int_x^{x+2} y \\mathrm{d} y \\\\\n        & = x(y) \\Big|_x^{x+2} + \\frac{y^2}{2} \\Big|_x^{x+2} \\\\\n        & = x(x + 2 - x) + \\frac{(x + 2)^2 - x^2}{2} \\\\\n        & = 2x + \\frac{(x^2 + 4x + 4) - x^2}{2} \\\\\n        & = 2x + 2x + 2 = 4x + 2.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we will evaluate the outer integral with respect to $x$:\n    \\begin{align*}\n        \\int_0^2 (4x + 2) \\mathrm{d} x & = 4\\int_0^2 x \\mathrm{d} x + 2\\int_0^2 1 \\mathrm{d} x \\\\\n        & = 4\\left[ \\frac{x^2}{2} \\right]_0^2 + 2[x]_0^2 = 4(2) + 4 = 12.\n    \\end{align*}\n    Thus, the value of the double integral is $\\boxed{12}$.</div>",
+      "tags": [
+        "miscellaneous",
+        "calculus"
+      ]
     }
   ]
 }
