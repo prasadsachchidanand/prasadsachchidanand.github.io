@@ -257,6 +257,19 @@
         "continuity",
         "derivatives"
       ]
+    },
+
+    {
+      "date": "2026-05-25",
+      "title": "Convergence of a sequence defined by a recursive relation",
+      "difficulty": "medium",
+      "problem": "Let $(x_n)$ be a sequence of real numbers such that $x_1 > 0$ and \n    \\[\n        x_{n+ 1} = \\frac{1 + x_n}{2 + x_n}, \\quad  n \\in \\mathbb{N}.\n    \\] \n    Prove that the sequence $(x_n)$ converges and find its limit.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      \n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $(x_n)$ be a sequence defined by $x_1 > 0$ and $x_{n+1} = \\frac{1 + x_n}{2 + x_n}$ for all $n \\in \\mathbb{N}$. We will show that the sequence $(x_n)$ converges and find its limit.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First, we will show that the sequence is bounded. Note that for any $n$, we have\n    \\[\n        x_{n+1} = \\frac{1 + x_n}{2 + x_n} < 1,\n    \\]\n    since $x_n > 0$. Thus, the sequence is bounded above by $1$. Next, we will show that the sequence is bounded below by $0$. Since $x_1 > 0$, we have\n    \\[\n        x_2 = \\frac{1 + x_1}{2 + x_1} > 0.\n    \\]\n    By induction, assume that $x_n > 0$ for some $n$. Then,\n    \\[\n        x_{n+1} = \\frac{1 + x_n}{2 + x_n} > 0.\n    \\]\n    Thus, by induction, we have $x_n > 0$ for all $n$. Therefore, the sequence $(x_n)$ is bounded below by $0$ and above by $1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Next, we will show that the sequence is monotone. Note that\n    \\[\n        x_{n+1} - x_n = \\frac{1 + x_n}{2 + x_n} - x_n = \\frac{1 + x_n - x_n(2 + x_n)}{2 + x_n} = \\frac{1 - x_n^2}{2 + x_n}.\n    \\]\n    Since $x_n > 0$, we have $x_n^2 > 0$, which implies that $1 - x_n^2 < 1$. Thus, we have\n    \\[\n        x_{n+1} - x_n < 0,\n    \\]\n    which means that the sequence $(x_n)$ is decreasing.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since the sequence $(x_n)$ is bounded and monotone, it converges. Let $L$ be the limit of the sequence. Then, taking the limit on both sides of the recursive relation, we get\n    \\[\n        L = \\frac{1 + L}{2 + L}.\n    \\] Rearranging this equation, we get\n    \\[\n        L(2 + L) = 1 + L \\implies 2L + L^2 = 1 + L \\implies L^2 + L - 1 = 0.\n    \\]\n    Solving this quadratic equation, we get\n    \\[\n        L = \\frac{-1 \\pm \\sqrt{1 + 4}}{2} = \\frac{-1 \\pm \\sqrt{5}}{2}.\n    \\] Since $L$ must be positive (as the sequence is bounded below by $0$), we take the positive root, which gives us\n    \\[\n        L = \\frac{-1 + \\sqrt{5}}{2}.\n    \\] Therefore, the sequence $(x_n)$ converges to $\\frac{-1 + \\sqrt{5}}{2}$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences"
+      ]
     }
   ]
 }

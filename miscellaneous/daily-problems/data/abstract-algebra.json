@@ -260,6 +260,33 @@
         "group-theory",
         "abstract-algebra-herstein (2.3.6)"
       ]
+    },
+
+    {
+      "date": "2026-05-20",
+      "title": "Number of non-isomorphic abelian groups of order 8",
+      "difficulty": "medium",
+      "problem": "Find the number of non-isomorphic abelian groups of order $8$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Use the fundamental theorem of finitely generated abelian groups.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The order of the group is $8 = 2^3$. The number of non-isomorphic abelian groups of order $p^n$ (where $p$ is a prime and $n$ is a positive integer) is equal to the number of partitions of $n$. The partitions of $3$ are as follows:\n    <ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      $3$\n                    </li>\n                    <li class=\"my-4\">\n                      $2 + 1$\n                    </li>\n                    <li class=\"my-4\">\n                      $1 + 1 + 1$\n                    </li>\n                  </ul>\n    Thus, there are three non-isomorphic abelian groups of order $8$, which are $\\mathbb{Z} _8$, $\\mathbb{Z} _4 \\times \\mathbb{Z} _2$ and $\\mathbb{Z} _2 \\times \\mathbb{Z} _2 \\times \\mathbb{Z} _2$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory"
+      ]
+    },
+
+    {
+      "date": "2026-05-27",
+      "title": "Herstein - 2.3 - Centralizer of elements in S_3",
+      "difficulty": "medium",
+      "problem": "In $S_3$, find $C(a)$ for each $a \\in S_3$.",
+      "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Note that $C(a) = \\{ g \\in S_3 : ga = ag \\}.$ Look at geometrically what the elements of $S_3$ represent and try to find the elements that commute with each element of $S_3$.\n                    </li>\n                  </ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The elements of $S_3$ are $(1), (1\\ 2), (1\\ 3), (2\\ 3), (1\\ 2\\ 3)$ and $(1\\ 3\\ 2)$. We will find $C(a)$ for each $a \\in S_3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $a = (1)$, we have $C((1)) = S_3$ since the identity element commutes with all elements of the group.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $a = (1\\ 2)$, we have\n    \\begin{align*}\n        C((1\\ 2)) & = \\{ g \\in S_3 : g(1\\ 2) = (1\\ 2)g \\} \\\\\n                   & = \\{ (1), (1\\ 2) \\}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $a = (1\\ 3)$, we have\n    \\begin{align*}\n        C((1\\ 3)) & = \\{ g \\in S_3 : g(1\\ 3) = (1\\ 3)g \\} \\\\\n                   & = \\{ (1), (1\\ 3) \\}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $a = (2\\ 3)$, we have\n    \\begin{align*}\n        C((2\\ 3)) & = \\{ g \\in S_3 : g(2\\ 3) = (2\\ 3)g \\} \\\\\n                   & = \\{ (1), (2\\ 3) \\}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $a = (1\\ 2\\ 3)$, we have\n    \\begin{align*}\n        C((1\\ 2\\ 3)) & = \\{ g \\in S_3 : g(1\\ 2\\ 3) = (1\\ 2\\ 3)g \\} \\\\\n                      & = \\{ (1), (1\\ 2\\ 3), (1\\ 3\\ 2) \\}.\n    \\end{align*}'=</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $a = (1\\ 3\\ 2)$, we have\n    \\begin{align*}\n        C((1\\ 3\\ 2)) & = \\{ g \\in S_3 : g(1\\ 3\\ 2) = (1\\ 3\\ 2)g \\} \\\\\n                      & = \\{ (1), (1\\ 2\\ 3), (1\\ 3\\ 2) \\}.\n    \\end{align*}</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abstract-algebra-herstein (2.3.7)"
+      ]
     }
   ]
 }
