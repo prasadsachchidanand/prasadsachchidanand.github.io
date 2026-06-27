@@ -269,6 +269,60 @@
         "complex-analysis",
         "complex-integration"
       ]
+    },
+
+    {
+      "date": "2026-06-02",
+      "title": "Computing integral \\oint_{C} \\frac{z+2}{z^2+2z+2}",
+      "difficulty": "easy",
+      "problem": "Evaluate the integral\n    \\[\n        \\oint_{C} \\frac{z+2}{z^2+2z+2} \\, \\mathrm{d}z,\n    \\]\n    where $C$ is the circle $|z - i| = 2$ oriented counterclockwise.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Factor the denominator $z^2 + 2z + 2 = (z - z_1)(z - z_2)$ and locate the roots. Check which roots lie inside $C$.</li>\n<li class=\"my-4\">At the pole inside $C$, compute the residue directly and apply the residue theorem.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We factor the denominator:\n    \\[\n        z^2 + 2z + 2 = (z-(-1+i))(z-(-1-i)).\n    \\]\n    The poles are $z_1 = -1+i$ and $z_2 = -1-i$. We check which lies inside $C : |z-i|=2$:\n    \\begin{align*}\n        |z_1 - i| &= |{-1+i-i}| = |-1| = 1 < 2, \\\\\n        |z_2 - i| &= |{-1-i-i}| = |{-1-2i}| = \\sqrt{1+4} = \\sqrt{5} > 2.\n    \\end{align*}\n    So only $z_1 = -1+i$ lies inside $C$. Since $z_1$ is a simple pole, the residue there is\n    \\begin{align*}\n        \\operatorname{Res}(f,\\, z_1) & = \\lim_{z \\to z_1}(z - z_1)\\frac{z+2}{(z-z_1)(z-z_2)} \\\\\n        & = \\frac{z_1 + 2}{z_1 - z_2} \\\\\n        & = \\frac{(-1+i)+2}{(-1+i)-(-1-i)} \\\\\n        & = \\frac{1+i}{2i}.\n    \\end{align*}\n    \n    By the residue theorem,\n    \\begin{align*}\n        \\oint_{C} \\frac{z+2}{z^2+2z+2}\\,\\mathrm{d}z & = 2\\pi i \\cdot \\frac{1+i}{2 \\iota } = \\pi (1 + i).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Remark:</strong> One can directly compute the integral using <a href=\"https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Cauchy's integral formula</a> as well. Try to do it using that approach for practice.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration"
+      ]
+    },
+
+    {
+      "date": "2026-06-09",
+      "title": "An entire function which satisfies |f(z)| <= 3|z|^2 + 2 is a polynomial of degree at most 2 ",
+      "difficulty": "medium",
+      "problem": "Let $f$ be an entire function satisfying $|f(z)| \\leq 3|z|^2 + 2$ for all $z \\in \\mathbb{C}$. Show that $f$ must be a polynomial of degree at most $2$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use Cauchy's estimate: if $f$ is holomorphic on $|z| \\leq R$, then\n    \\[\n        |f^{(n)}(0)| \\leq \\frac{n!\\, M_R}{R^n},\n    \\]\n    where $M_R = \\max_{|z|=R} |f(z)|$.</li>\n<li class=\"my-4\">Apply this estimate for $n \\geq 3$ and let $R \\to \\infty$ to conclude that all higher derivatives vanish at the origin.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $f$ is entire, it has a Taylor series about the origin:\n    \\[\n        f(z) = \\sum_{n=0}^{\\infty} a_n z^n, \\quad a_n = \\frac{f^{(n)}(0)}{n!}.\n    \\]\n    By Cauchy's estimate on the circle $|z| = R$:\n    \\[\n        |a_n| = \\frac{|f^{(n)}(0)|}{n!} \\leq \\frac{M_R}{R^n},\n    \\]\n    where $M_R = \\max_{|z|=R}|f(z)|$. From the given bound,\n    \\[\n        M_R \\leq 3R^2 + 2.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $n \\geq 3$, we obtain\n    \\[\n        |a_n| \\leq \\frac{3R^2 + 2}{R^n} = \\frac{3}{R^{n-2}} + \\frac{2}{R^n}.\n    \\]\n    Letting $R \\to \\infty$, the right-hand side tends to $0$ (since $n - 2 \\geq 1 > 0$). Therefore $a_n = 0$ for all $n \\geq 3$, and we conclude\n    \\[\n        f(z) = a_0 + a_1 z + a_2 z^2,\n    \\]\n    which is a polynomial of degree at most $2$. \\hfill$\\blacksquare$</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-functions",
+        "residue-theorem"
+      ]
+    },
+
+    {
+      "date": "2026-06-16",
+      "title": "Number of zeros of the polynomial z^7 - 5z^4 + z^2 - 2 inside the unit disk |z| = 1",
+      "difficulty": "medium",
+      "problem": "Find the number of zeros of the polynomial\n    \\[\n        p(z) = z^7 - 5z^4 + z^2 - 2\n    \\]\n    inside the unit disk $|z| < 1$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Apply <a href=\"https://en.wikipedia.org/wiki/Rouch%C3%A9%27s_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Rouché's theorem</a>: if $|f(z)| > |g(z)|$ on a closed contour $C$, then $f$ and $f + g$ have the same number of zeros inside $C$.</li>\n<li class=\"my-4\">On $|z| = 1$, identify the dominant term among those in $p(z)$ and split $p(z)$ accordingly as $f(z) + g(z)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We apply <a href=\"https://en.wikipedia.org/wiki/Rouch%C3%A9%27s_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Rouché's theorem</a> on $C : |z| = 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Write $p(z) = f(z) + g(z)$ where $f(z) = -5z^4$ and $g(z) = z^7 + z^2 - 2$. On $|z| = 1$:\n    \\[\n        |f(z)| = 5|z|^4 = 5,\n    \\]\n    \\begin{align*}\n        |g(z)| & = |z^7 + z^2 - 2| \\\\\n               & \\leq |z|^7 + |z|^2 + 2 \\\\\n               & = 1 + 1 + 2 = 4.\n    \\end{align*}\n    Since $|f(z)| = 5 > 4 \\geq |g(z)|$ on $|z| = 1$, <a href=\"https://en.wikipedia.org/wiki/Rouch%C3%A9%27s_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Rouché's theorem</a> tells us that $p(z) = f(z) + g(z)$ has the same number of zeros inside $|z| < 1$ as $f(z) = -5z^4$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The function $f(z) = -5z^4$ has a zero of order $4$ at $z = 0$, so it has exactly $4$ zeros (counted with multiplicity) inside $|z| < 1$.  Therefore, $p(z)$ has exactly $\\boxed{4}$ zeros inside the unit disk.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-functions"
+      ]
+    },
+
+    {
+      "date": "2026-06-23",
+      "title": "Evaluate \\int_{0}^{2\\pi} \\frac{\\mathrm{d}\\theta}{2 + \\cos\\theta}",
+      "difficulty": "medium",
+      "problem": "Evaluate the real integral\n    \\[\n        I = \\int_{0}^{2\\pi} \\frac{\\mathrm{d}\\theta}{2 + \\cos\\theta}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the substitution $z = e^{i\\theta}$, so that $\\cos\\theta = \\dfrac{z + z^{-1}}{2}$ and $\\mathrm{d}\\theta = \\dfrac{\\mathrm{d}z}{iz}$, converting the integral into a contour integral over $|z| = 1$.</li>\n<li class=\"my-4\">After simplification, apply the residue theorem. Only the pole(s) inside $|z| = 1$ contribute.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We substitute $z = e^{i\\theta}$, $\\cos\\theta = \\dfrac{z+z^{-1}}{2}$, and $\\mathrm{d}\\theta = \\dfrac{\\mathrm{d}z}{iz}$ to get\n    \\begin{align*}\n        I &= \\oint_{|z|=1} \\frac{1}{2 + \\dfrac{z+z^{-1}}{2}} \\cdot \\frac{\\mathrm{d}z}{iz} \\__DISPLAYMATH_1__\n    So __MATH_9__ and __MATH_10__. Only __MATH_11__ lies inside __MATH_12__.\n\n    \\vspace{0.3cm}\n    \\noindent The residue at the simple pole __MATH_13__ is\n    __DISPLAYMATH_2__\n    By the residue theorem,\n    \\begin{align*}\n        I &= \\frac{2}{i} \\cdot 2\\pi i \\cdot \\frac{1}{2\\sqrt{3}} = \\frac{2 \\cdot 2\\pi i}{i \\cdot 2\\sqrt{3}} = \\frac{4\\pi}{2\\sqrt{3}} = \\frac{2\\pi}{\\sqrt{3}} = \\frac{2\\pi\\sqrt{3}}{3}.\n    \\end{align*}</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "residue-theorem"
+      ]
     }
   ]
 }

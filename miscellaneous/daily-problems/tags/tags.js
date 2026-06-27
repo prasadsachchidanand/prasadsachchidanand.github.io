@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // real analysis
         'supremum': 'real-analysis',
+        'real-numbers': 'real-analysis',
         'sequences': 'real-analysis',
         'continuity': 'real-analysis',
         'derivatives': 'real-analysis',
@@ -78,9 +79,11 @@ document.addEventListener('DOMContentLoaded', function () {
         'singularity': 'complex-analysis',
         'harmonic-conjugate': 'complex-analysis',
         'mobius-transformation': 'complex-analysis',
+        'residue-theorem': 'complex-analysis',
 
         // abstract algebra
         'group-theory': 'abstract-algebra',
+        'subgroups': 'abstract-algebra',
         'sylow-theorem': 'abstract-algebra',
         'cyclic-group': 'abstract-algebra',
         'group-action': 'abstract-algebra',
@@ -150,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'topology-munkres': 'book-solution',
         'linear-algebra-hoffman-kunze': 'book-solution',
         'real-analysis-rudin': 'book-solution',
+        'real-analysis-bartle-sherbert': 'book-solution',
         'abstract-algebra-herstein': 'book-solution',
         'complex-analysis-gamelin': 'book-solution',
     };

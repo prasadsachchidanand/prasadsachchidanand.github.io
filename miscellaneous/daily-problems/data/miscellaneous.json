@@ -261,6 +261,32 @@
         "miscellaneous",
         "calculus"
       ]
+    },
+
+    {
+      "date": "2026-05-23",
+      "title": "Number Theory - Find the least positive integer $x$ such that $3x \\equiv 7 \\pmod {10}$",
+      "difficulty": "easy",
+      "problem": "Find the least positive integer $x$ such that $3x \\equiv 7 \\pmod {10}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the Extended Euclidean Algorithm to find the inverse of $3$ modulo $10$. Then multiply both sides of the congruence by this inverse to solve for $x$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We are asked to find the least positive integer $x$ such that \n    \\[\n        3x \\equiv 7 \\pmod {10}.\n    \\]\n    This implies that there exists an integer $k$ such that \n    \\[\n        3x - 7 = 10k \\implies 3x - 10k = 7. \n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By using the Extended Euclidean Algorithm, we can find integers $x$ and $k$ such that $3x + 10k = 7$. We start by applying the Euclidean Algorithm to find $\\gcd(3, 10)$:\n    \\begin{align*}\n        10 & = 3 \\cdot 3 + 1, \\\\\n        3 & = 1 \\cdot 3 + 0.\n    \\end{align*}\n    Thus, $\\gcd(3, 10) = 1$. Now we will use the Extended Euclidean Algorithm to express $1$ as a linear combination of $3$ and $10$:\n    \\begin{align*}\n        1 & = 10 - 3 \\cdot 3.\n    \\end{align*}\n    Multiplying both sides by $7$, we get:\n    \\begin{align*}\n        7 & = 7 \\cdot 10 - 7 \\cdot 3 \\cdot 3 \\\\\n        & = 7 \\cdot 10 -    21 \\cdot 3.\n    \\end{align*}\n    Thus, one solution to the equation $3x + 10k = 7$ is $x = -21$ and $k = 7$. However, we need the least positive integer solution for $x$. We can add multiples of $10$ to $x$ to find the least positive solution:\n    \\[\n        x = -21 + 10m, \\quad m \\in \\mathbb{Z}.\n    \\]\n    We want $x$ to be positive, so we need to find the smallest integer $m$ such that $-21 + 10m > 0$:\n    \\begin{align*}\n        -21 + 10m & > 0 \\implies m > 2.\n    \\end{align*}\n    The smallest integer $m$ satisfying this inequality is $m = 3$. Therefore, the least positive integer solution for $x$ is:\n    \\[\n        x = -21 + 10 \\cdot 3 = -21 + 30 = 9.\n    \\]\n    Thus, the least positive integer $x$ such that $3x \\equiv 7 \\pmod {10}$ is $9$.</div>",
+      "tags": [
+        "miscellaneous",
+        "number-theory"
+      ]
+    },
+
+    {
+      "date": "2026-05-30",
+      "title": "Probability - Find the least positive integer $x$ such that $3x \\equiv 7 \\pmod {10}$",
+      "difficulty": "easy",
+      "problem": "A person throws two fair dice. He wins $15$ rupees for throwing a doublet (same numbers on the two dice), wins $12$ rupees when the throw results in the sum of $9$, and loses $6$ rupees for any other outcome on the throw. Then, find the expected value of his winnings.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">To find the expected value of the person's winnings, calculate the probabilities of each outcome and their corresponding winnings.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To find the expected value of the person's winnings, we need to calculate the probabilities of each outcome and their corresponding winnings.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The total number of outcomes when throwing two dice is $6 \\times 6 = 36$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The number of outcomes that result in a doublet (same numbers on both dice) is $6$ (i.e., (1,1), (2,2), (3,3), (4,4), (5,5), (6,6)). Thus, the probability of throwing a doublet is:\n    \\[\n        P_d = \\frac{6}{36} = \\frac{1}{6}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The number of outcomes that result in a sum of $9$ are: (3,6), (4,5), (5,4), and (6,3). Thus, there are $4$ outcomes that sum to $9$, and the probability is:\n    \\[\n        P_9 = \\frac{4}{36} = \\frac{1}{9}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The remaining outcomes are those that do not result in a doublet or a sum of $9$. The number of such outcomes is:\n    \\[\n        36 - 6 - 4 = 26.\n    \\]\n    Thus, the probability of losing $\\$6$ is:\n    \\[\n        P_{\\text{other}} = \\frac{26}{36} = \\frac{13}{18}.\n    \\]\n\n Now we can calculate the expected value of his winnings:\n    \\begin{align*}\n        E(\\text{winnings}) & = P_d \\cdot 15 + P_9 \\cdot 12 + P_{\\text{other}} \\cdot (-6) \\\\\n        & = \\frac{1}{6} \\cdot 15 + \\frac{1}{9} \\cdot 12 + \\frac{13}{18} \\cdot (-6) \\\\\n        & = \\frac{5}{2} + \\frac{4}{3} - \\frac{13}{3} \\\\\n        & = -\\frac{1}{2}\n    \\end{align*}\n    Thus, the expected value of his winnings is $\\boxed{-0.5}$, which means that on average, he loses $0.50$ rupees per throw.</div>",
+      "tags": [
+        "miscellaneous",
+        "probability-theory"
+      ]
     }
   ]
 }

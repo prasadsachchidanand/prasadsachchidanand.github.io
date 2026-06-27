@@ -255,6 +255,85 @@
             "topology",
             "separation"
           ]
+        },
+
+        {
+          "date": "2026-05-21",
+          "title": "Problem of the Day",
+          "difficulty": "medium",
+          "problem": "Let $(X, d_1)$ and $(Y, d_2)$ be metric spaces and $A \\subset X, B \\subset Y$. Show that $A \\times B$ is dense in $X \\times Y$ if and only if $A$ is dense in $X$ and $B$ is dense in $Y$.",
+          "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that the metric on $X \\times Y$ is given by $d((x_1, y_1), (x_2, y_2)) = d_1(x_1, x_2) + d_2(y_1, y_2)$.</li></ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will show that $A \\times B$ is dense in $X \\times Y$ if and only if $A$ is dense in $X$ and $B$ is dense in $Y$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$(\\Rightarrow)$ Suppose $A \\times B$ is dense in $X \\times Y$. Let $x \\in X$ and $\\varepsilon > 0$. Consider the open ball $B((x,y), \\varepsilon)$ in $X \\times Y$, where $y$ is any point in $Y$. Since $A \\times B$ is dense, there exists $(a,b) \\in A \\times B$ such that $(a,b) \\in B((x,y), \\varepsilon)$. This implies that $d_1(a,x) < \\varepsilon$, so $a \\in A$ is close to $x$. Since this holds for every $\\varepsilon > 0$, we have $x \\in \\mathrm{Cl}(A)$, so $A$ is dense in $X$. Similarly, we can show that $B$ is dense in $Y$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$(\\Leftarrow)$ Suppose $A$ is dense in $X$ and $B$ is dense in $Y$. Let $(x,y) \\in X \\times Y$ and $\\varepsilon > 0$. Since $A$ is dense in $X$, there exists an element $a \\in A$ such that $d_1(a,x) < \\varepsilon/2$. Since $B$ is dense in $Y$, there exists an element $b \\in B$ such that $d_2(b,y) < \\varepsilon/2$. Consider the point $(a,b) \\in A \\times B$. We have\n    \\[\n        d((a,b), (x,y)) = d_1(a,x) + d_2(b,y) < \\frac{\\varepsilon}{2} + \\frac{\\varepsilon}{2} = \\varepsilon.\n    \\]\n    Thus, $(a,b) \\in B((x,y),\\varepsilon)$, which shows that every open ball around $(x,y)$ contains a point of $A\\times B$. Hence, $(x,y) \\in \\mathrm{Cl}(A \\times B)$, so $A \\times B$ is dense in $X \\times Y$.</div>",
+          "tags": [
+            "topology",
+            "metric-space"
+          ]
+        },
+
+        {
+          "date": "2026-05-28",
+          "title": "Problem of the Day",
+          "difficulty": "medium",
+          "problem": "Let $X$ be a topological space, $B \\subset A \\subset X$. Equip $A$ with the subspace topology, and write $\\mathrm{cl}_X(B) $ or $\\mathrm{cl}_A(B) $ for the closure of $B$ as a subset of $X$ or $A$, respectively. Determine, with proof, the general relationship between $\\mathrm{cl}_X(B) $ and $\\mathrm{cl}_A(B) $.",
+          "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Show that $\\mathrm{cl}_A(B) = \\mathrm{cl}_X(B) \\cap A$.</li></ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will show that $\\mathrm{cl}_A(B) = \\mathrm{cl}_X(B) \\cap A$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First, we show that $\\mathrm{cl}_A(B) \\subseteq \\mathrm{cl}_X(B) \\cap A$. Let $x \\in \\mathrm{cl}_A(B)$. So $x \\in A$. We need to show that $x \\in \\mathrm{cl}_X(B)$. Let $U \\subset X$ be any open neighborhood of $x$ in $X$. Then $U \\cap A$ is an open neighborhood of $x$ in $A$. Since $x \\in \\mathrm{cl}_A(B)$, we have $(U \\cap A) \\cap B \\neq \\varnothing$. Thus, $U \\cap B \\neq \\varnothing$, which shows that $x \\in \\mathrm{cl}_X(B)$. Therefore, $\\mathrm{cl}_A(B) \\subseteq \\mathrm{cl}_X(B) \\cap A$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we show that $\\mathrm{cl}_X(B) \\cap A \\subseteq \\mathrm{cl}_A(B)$. Let $x \\in \\mathrm{cl}_X(B) \\cap A$. We need to show that $x \\in \\mathrm{cl} _A(B)$. Let $U_A$ be an open neighborhood of $x$ in $A$. Then there exists an open set $U \\subset X$ such that $U_A = U \\cap A$. Since $x \\in \\mathrm{cl}_X(B)$, we have $U \\cap B \\neq \\varnothing$. Since $B \\subset A$, so $A  \\cap B = B$. Thus, $(U \\cap A) \\cap B = U \\cap (A \\cap B) = U \\cap B \\neq \\varnothing$, which shows that $x \\in \\mathrm{cl}_A(B)$. Therefore, $\\mathrm{cl}_X(B) \\cap A \\subseteq \\mathrm{cl}_A(B)$.  \n\n    <div class=\"flex flex-wrap justify-center my-4\"><img src=\"../../../assets/img/prob-28-05-26_01.svg\" class=\"h-auto\" alt=\"$\\mathrm{cl}_A(B) = \\mathrm{cl}_X(B) \\cap A$ \" /></div> \n\n    Therefore, we have shown that $\\mathrm{cl}_A(B) = \\mathrm{cl}_X(B) \\cap A$.</div>",
+          "tags": [
+            "topology",
+            "subspace-topology"
+          ]
+        },
+
+        {
+          "date": "2026-06-04",
+          "title": "If $(X,d)$ is a discrete metric space, then it is complete. ",
+          "difficulty": "easy",
+          "problem": "Show that if $(X,d)$ is a discrete metric space, then it is complete.",
+          "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Cauchy sequences in a discrete metric space are eventually constant.</li></ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To show that a discrete metric space $(X,d)$ is complete, we need to show that every Cauchy sequence in $X$ converges to a point in $X$. Let $(x_n)$ be a Cauchy sequence in $X$. By the definition of a Cauchy sequence, for every $\\varepsilon > 0$, there exists an integer $N$ such that for all $m,n \\geq N$, we have $d(x_m, x_n) < \\varepsilon$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In a discrete metric space, the only way for $d(x_m, x_n) < 1$ is if $x_m = x_n$. Therefore, for $\\varepsilon = 1$, there exists an integer $N$ such that for all $m,n \\geq N$, we have $x_m = x_n$. This means that the sequence $(x_n)$ is eventually constant, and hence converges to that constant value in $X$. Therefore, $(X,d)$ is complete.</div>",
+          "tags": [
+            "topology",
+            "metric-sapce"
+          ]
+        },
+
+        {
+          "date": "2026-06-11",
+          "title": "The set {(x,y): y > 0} is not complete in Euclidean metric.",
+          "difficulty": "easy",
+          "problem": "Show that the set\n    \\[\n        A = \\left\\{ (x,y) \\in \\mathbb{R} ^2: y > 0 \\right\\}\n    \\] \n    is not complete with respect to the Euclidean metric.",
+          "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Consider the sequence $(x_n, y_n) = \\left( 1, \\frac{1}{n} \\right)$.</li></ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Consider the sequence \n    \\[\n        (x_n, y_n) = \\left( 1, \\frac{1}{n} \\right). \n    \\]\n    THe above sequence lies in $A$ as $\\frac{1}{n} > 0$ for all $n \\in \\mathbb{N}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will show that this sequence is Cauchy but does not converge in $A$. Let $\\varepsilon > 0$ be given. Then there exists an integer $N$ such that $\\frac{1}{N} < \\varepsilon$. For all $m,n \\geq N$ (by the Archimedean property), we have\n    \\[\n        d((x_m, y_m), (x_n, y_n)) = \\sqrt{(1-1)^2 + \\left(\\frac{1}{m} - \\frac{1}{n}\\right)^2} = \\left|\\frac{1}{m} - \\frac{1}{n}\\right| < \\varepsilon.\n    \\]\n    Therefore, the sequence is Cauchy.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Suppose the sequence converges to a point $(x,y) \\in A$. Then $y > 0$. Since $\\lim_{n \\to \\infty} y_n = 0$, we have $y = 0$, which contradicts the assumption that $y > 0$. Hence, the sequence does not converge in $A$. Therefore, $A$ is not complete with respect to the Euclidean metric.</div>",
+          "tags": [
+            "topology",
+            "metric-sapce"
+          ]
+        },
+
+        {
+          "date": "2026-06-18",
+          "title": "The set A = {x \\in X: |f(x)| < r} is open",
+          "difficulty": "easy",
+          "problem": "Suppose that $(X,d)$ is a metric space and $f: X \\to  \\mathbb{R} $ is a continuous function. Let $r > 0$ be any real number. Show that the set\n    \\[\n        A = \\{ x \\in X : \\vert f(x) \\vert < r \\}\n    \\] \n    is open in $X$.",
+          "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that $A = f^{-1} (-r,r)$.</li></ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $(X,d)$ be a metric space and $f: X \\to  \\mathbb{R} $ be a continuous function. Let $r > 0$ be any real number. We will show that the set\n    \\[\n        A = \\{ x \\in X : \\vert f(x) \\vert < r \\}\n    \\] \n    is open in $X$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that \n    \\begin{align*}\n        A & = \\{ x \\in X : \\vert f(x) \\vert < r \\} \\\\\n          & = \\{ x \\in X : -r < f(x) < r \\} \\\\\n          & = f^{-1}((-r,r)).\n    \\end{align*}\n    Since $f$ is continuous and $(-r,r)$ is open in $\\mathbb{R} $, so $A$ is open in $X$.</div>",
+          "tags": [
+            "topology",
+            "metric-sapce"
+          ]
+        },
+
+        {
+          "date": "2026-06-25",
+          "title": "Problem of the Day",
+          "difficulty": "easy",
+          "problem": "Let $X$ be a Hausdorff space. Show that any connected subset $A \\subset X$ contains one or infinitely many elements.",
+          "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Assume finitely many and construct a separation using the Hausdorff property.</li></ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $A \\subset X$ be connected and contains more than one element. We will show that $A$ contains infinitely many elements. Suppose, for the sake of contradiction, that $A$ is finite. Then we can write $A = \\{ a_1, a_2, \\ldots, a_n \\}$ for some $n \\geq 2$. For any $i=2,3, \\dots, n$, we can find disjoint open sets $U_i$ and $V_i$ in $X$ such that $a_1 \\in U_i$ and $a_i \\in V_i$. Then the sets\n    \\[\n        U = \\bigcap_{i=2}^{n} U_i \\quad \\text{and} \\quad V = \\bigcup_{i=2}^{n} V_i \n    \\]\n    are open in $X$. Moreover, $U$ and $V$ are disjoint, and $A \\subset U \\cup V$. Since $a_1 \\in U$ and $a_i \\in V$ for all $i=2,3,\\ldots,n$, we have $A \\cap U \\neq \\emptyset$ and $A \\cap V \\neq \\emptyset$. This contradicts the connectedness of $A$. Therefore, $A$ cannot be finite, and must contain infinitely many elements.</div>",
+          "tags": [
+            "topology",
+            "hausdorff-space",
+            "connectedness"
+          ]
         }
     ]
 }

@@ -188,7 +188,8 @@
       "tags": [
         "abstract-algebra",
         "group-theory",
-        "abstract-algebra-herstein (2.3.1)"
+        "abstract-algebra-herstein (2.3.1)",
+        "subgroups"
       ]
     },
 
@@ -202,7 +203,8 @@
       "tags": [
         "abstract-algebra",
         "group-theory",
-        "abstract-algebra-herstein (2.3.2)"
+        "abstract-algebra-herstein (2.3.2)",
+        "subgroups"
       ]
     },
 
@@ -216,7 +218,8 @@
       "tags": [
         "abstract-algebra",
         "group-theory",
-        "abstract-algebra-herstein (2.3.3)"
+        "abstract-algebra-herstein (2.3.3)",
+        "subgroups"
       ]
     },
 
@@ -230,7 +233,8 @@
       "tags": [
         "abstract-algebra",
         "group-theory",
-        "abstract-algebra-herstein (2.3.4)"
+        "abstract-algebra-herstein (2.3.4)",
+        "subgroups"
       ]
     },
 
@@ -244,7 +248,8 @@
       "tags": [
         "abstract-algebra",
         "group-theory",
-        "abstract-algebra-herstein (2.3.5)"
+        "abstract-algebra-herstein (2.3.5)",
+        "subgroups"
       ]
     },
 
@@ -258,7 +263,8 @@
       "tags": [
         "abstract-algebra",
         "group-theory",
-        "abstract-algebra-herstein (2.3.6)"
+        "abstract-algebra-herstein (2.3.6)",
+        "subgroups"
       ]
     },
 
@@ -285,7 +291,68 @@
       "tags": [
         "abstract-algebra",
         "group-theory",
-        "abstract-algebra-herstein (2.3.7)"
+        "abstract-algebra-herstein (2.3.7)",
+        "subgroups"
+      ]
+    },
+
+    {
+      "date": "2026-06-03",
+      "title": "Herstein - 2.3 - Subgroup of elements of order 2 in an abelian group",
+      "difficulty": "easy",
+      "problem": "If $G$ is an abelian group and $H = \\{ a \\in G \\mid a^2 = e \\} $, show that $H$ is a subgroup of $G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that for an abelian group $(ab)^2 = a^2 b^2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $G$ be an abelian group and $H = \\{ a \\in G \\mid a^2 = e \\} $. We will show that $H$ is a subgroup of $G$. Note that $e ^2 = e \\implies e \\in H$, so $H$ is non-empty. Let $x,y \\in H$. Then, we have\n    \\[\n        x^2 = e \\text{ and } y^2 = e.\n    \\]\n    We will show that $x\\cdot y^{-1} \\in H$. Since $G$ is abelian, we have\n    \\begin{align*}\n        (x\\cdot y^{-1})^2 & = x\\cdot y^{-1} \\cdot x\\cdot y^{-1} \\\\\n        & = x\\cdot x\\cdot y^{-1}\\cdot y^{-1} \\\\\n        & = x^2\\cdot (y^{-1})^2 = e\\cdot e = e.\n    \\end{align*}\n    Thus, $x\\cdot y^{-1} \\in H$. Therefore, by the subgroup test, we conclude that $H$ is a subgroup of $G$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abstract-algebra-herstein (2.3.8)",
+        "subgroups"
+      ]
+    },
+
+    {
+      "date": "2026-06-10",
+      "title": "Herstein - 2.3 - Is the set of elements of order 2 a subgroup in a non-abelian group?",
+      "difficulty": "easy",
+      "problem": "<a class = \"text-blue-500 hover:text-blue-700\" href=\"/miscellaneous/daily-problems/problem/?date=2026-06-03\">Previously</a> we showed that if $G$ is an abelian group and $H = \\{ a \\in G \\mid a^2 = e \\} $, then $H$ is a subgroup of $G$. Is the same true if $G$ is not abelian?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Consider the symmetric group $S_3$ and the set $H = \\{ a \\in S_3 \\mid a^2 = e \\} $. Check if $H$ is closed under the product in $S_3$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The answer is no. Let $G = S_3$ and $H = \\{ a \\in G \\mid a^2 = e \\} $. Then, we have\n    \\[\n        H = \\{ (1), (1\\ 2), (1\\ 3), (2\\ 3) \\}.\n    \\]\n    Note that $(1\\ 2)(1\\ 3) = (1\\ 2\\ 3) \\notin H$. Thus, $H$ is not closed under the product in $G$. Therefore, $H$ is not a subgroup of $G$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abstract-algebra-herstein (2.3.9)",
+        "subgroups"
+      ]
+    },
+
+    {
+      "date": "2026-06-17",
+      "title": "Herstein - 2.3 - Subgroup of elements of the form a^n in an abelian group",
+      "difficulty": "easy",
+      "problem": "If $G$ is an abelian group and $n > 1$ an integer, let $A_n = \\{ a^n: a \\in G \\} $. Prove that $A_n$ is a subgroup of $G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that for an abelian group $(ab)^n = a^n b^n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given that $G$ is an abelian group and \n    \\[\n        A_n = \\{ a^n : a \\in G \\}, \\quad  n \\in \\mathbb{N} \\text{ and }  n > 1. \n    \\]\n    We want to prove that $A_n$ is a subgroup of $G$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that $e^n = e$, so $e \\in A_n$. Let $a^n \\text{ and } b^n \\in A_n$. Them, we have\n    \\begin{align*}\n        \\left( a^n \\right) \\cdot \\left( b^n \\right) ^{-1} & = a^n \\cdot (b^{-1})^n \\\\\n        & = a^n \\cdot (b^{-1})^n \\\\\n        & = (a \\cdot b^{-1})^n \\in A_n,\n    \\end{align*}\n    where the last step is valid because $G$ is abelian. Thus, by the subgroup test, we conclude that $A_n$ is a subgroup of $G$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abstract-algebra-herstein (2.3.10)",
+        "subgroups"
+      ]
+    },
+
+    {
+      "date": "2026-06-24",
+      "title": "Problem of the Day",
+      "difficulty": "easy",
+      "problem": "If $G$ is an abelian group and \n    \\[\n        H = \\left\\{ a \\in G: a^{n(a)} = e, \\text{ for some } n(a) > 1 \\text{ depending on } a \\right\\}, \n    \\] \n    prove that $H$ is a subgroup of $G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that for an abelian group $(ab)^n = a^n b^n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that $e \\in H$ since $e^{n(e)} = e$ for any $n(e) = 1$. Let $x,y \\in H$. Then, we have \n    \\[\n        x^{n(x)} = e \\text{ and }  y^{n(y)} = e.\n    \\]\n    As $G$ is abelian, for any $n \\in \\mathbb{Z} $ we have $(x\\cdot y)^n = x^n \\cdot y^n$. Now consider\n    \\begin{align*}\n        (x \\cdot y^{-1})^{n(x) n(y)} & = x^{n(x) n(y)} \\cdot (y^{-1})^{n(x) n(y)} \\\\\n        & = (x^{n(x)})^{n(y)} \\cdot ((y^{-1})^{n(y)})^{n(x)} \\\\\n        & = e^{n(y)} \\cdot e^{n(x)} = e.\n    \\end{align*}</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abstract-algebra-herstein (2.3.11)",
+        "subgroups"
       ]
     }
   ]

@@ -1,787 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaTeX to JSON Converter</title>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CVGSV7Y2CE');
+    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LaTeX to JSON Converter - Sachchidanand Prasad</title>
+    <meta name="description"
+        content="Convert LaTeX problem, hint, and solution environments into structured JSON format. Supports math notation, lists, figures, and formatting commands.">
+    <meta name="keywords"
+        content="LaTeX to JSON, LaTeX converter, math problem converter, Sachchidanand Prasad, LaTeX tools, JSON export, problem of the day">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png" />
+    <link rel="stylesheet" href="../assets/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Academic icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <!-- Google Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
+        crossorigin="anonymous"></script>
+    <!-- Tailwind (used for converter UI) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png" />
+    <style>
+        .panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
 
+        .panel-long {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease-out;
+        }
+
+        .font-mono {
+            font-family: monospace;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    </style>
 </head>
-<body>
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useState } = React;
-
-        // Lucide icons as SVG components
-        const Copy = () => (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-        );
-
-        const Download = () => (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-        );
-
-        const Upload = () => (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="17 8 12 3 7 8"></polyline>
-                <line x1="12" y1="3" x2="12" y2="15"></line>
-            </svg>
-        );
-
-        const LatexToJsonConverter = () => {
-            // Load from localStorage or use empty strings
-            const [latexInput, setLatexInput] = useState(() => localStorage.getItem('latexInput') || '');
-            const [jsonOutput, setJsonOutput] = useState(() => localStorage.getItem('jsonOutput') || '');
-            const [date, setDate] = useState(() => localStorage.getItem('date') || '');
-            const [title, setTitle] = useState(() => localStorage.getItem('title') || '');
-            const [tags, setTags] = useState(() => localStorage.getItem('tags') || '');
-            const [difficulty, setDifficulty] = useState(() => localStorage.getItem('difficulty') || 'medium');
-
-            // Save to localStorage whenever values change
-            React.useEffect(() => {
-                localStorage.setItem('latexInput', latexInput);
-            }, [latexInput]);
-
-            React.useEffect(() => {
-                localStorage.setItem('jsonOutput', jsonOutput);
-            }, [jsonOutput]);
-
-            React.useEffect(() => {
-                localStorage.setItem('date', date);
-            }, [date]);
-
-            React.useEffect(() => {
-                localStorage.setItem('title', title);
-            }, [title]);
-
-            React.useEffect(() => {
-                localStorage.setItem('tags', tags);
-            }, [tags]);
-
-            React.useEffect(() => {
-                localStorage.setItem('difficulty', difficulty);
-            }, [difficulty]);
-
-            const resetForm = () => {
-                setLatexInput('');
-                setJsonOutput('');
-                setDate('');
-                setTitle('');
-                setTags('');
-                setDifficulty('medium');
-            };
-
-            const convertLatexToJson = () => {
-                try {
-                    // Protect $$...$$ FIRST (before $...$ protection)
-                    const displayDollarPlaceholders = [];
-                    let cleanedInput = latexInput.replace(/\$\$([\s\S]+?)\$\$/g, (match, math) => {
-                        const placeholder = `__DISPLAYDOLLAR_${displayDollarPlaceholders.length}__`;
-                        displayDollarPlaceholders.push(math);
-                        return placeholder;
-                    });
-
-
-                    // STEP 1: Protect inline math ($...$) from HTML processing
-                    const mathPlaceholders = [];
-                    cleanedInput = cleanedInput.replace(/\$([^$]+)\$/g, (match, math) => {
-                        const placeholder = `__MATH_${mathPlaceholders.length}__`;
-                        mathPlaceholders.push(math);
-                        return placeholder;
-                    });
-
-                    // Protect display math (\[...\])
-                    const displayMathPlaceholders = [];
-                    cleanedInput = cleanedInput.replace(/\\\[([^\]]+)\\\]/g, (match, math) => {
-                        const placeholder = `__DISPLAYMATH_${displayMathPlaceholders.length}__`;
-                        displayMathPlaceholders.push(math);
-                        return placeholder;
-                    });
-
-                    // Protect equation, align, and other math environments
-                    const envMathPlaceholders = [];
-                    cleanedInput = cleanedInput.replace(/(\\begin\{(?:equation|align|align\*|gather|gather\*|multline|multline\*)\}.*?\\end\{(?:equation|align|align\*|gather|gather\*|multline|multline\*)\})/gs, (match) => {
-                        const placeholder = `__ENVMATH_${envMathPlaceholders.length}__`;
-                        envMathPlaceholders.push(match);
-                        return placeholder;
-                    });
-
-                    // Remove \label commands
-                    cleanedInput = cleanedInput.replace(/\\label\{[^}]*\}/g, '');
-
-                    // Remove \noindent commands
-                    cleanedInput = cleanedInput.replace(/\\noindent\s*/g, '');
-
-                    const formatReplacements = [
-                        // Bold family
-                        { from: /\\textbf\{([^}]*)\}/g, to: '<strong>$1</strong>' },
-                        { from: /\\bf\s*\{([^}]*)\}/g, to: '<strong>$1</strong>' }, // old style
-                        { from: /\{\\bf\s*([^}]*)\}/g, to: '<strong>$1</strong>' },
-
-                        // Italic family
-                        { from: /\\textit\{([^}]*)\}/g, to: '<em>$1</em>' },
-                        { from: /\\it\s*\{([^}]*)\}/g, to: '<em>$1</em>' },
-                        { from: /\{\\it\s*([^}]*)\}/g, to: '<em>$1</em>' },
-                        { from: /\\emph\{([^}]*)\}/g, to: '<em>$1</em>' },     // most common semantic choice
-
-                        // Underline (less common but still appears)
-                        { from: /\\underline\{([^}]*)\}/g, to: '<u>$1</u>' },
-
-                        // Sans-serif (sometimes used for keywords)
-                        { from: /\\textsf\{([^}]*)\}/g, to: '<span class="font-sans">$1</span>' },
-
-                        // Typewriter / code style
-                        { from: /\\texttt\{([^}]*)\}/g, to: '<code class="font-mono bg-gray-100 px-1 rounded">$1</code>' },
-                    ];
-
-                    // Apply all formatting replacements
-                    for (const { from, to } of formatReplacements) {
-                        cleanedInput = cleanedInput.replace(from, to);
-                    }
-
-                    const hyperlinkReplacements = [
-                        // Most common: \href{url}{text}
-                        {
-                            regex: /\\href\{([^}]+)\}\{([^}]*)\}/g,
-                            replace: (match, url, text) => {
-                                const cleanUrl = url.trim();
-                                const cleanText = text.trim();
-                                // Basic safety: only allow http/https urls
-                                if (!cleanUrl.match(/^https?:\/\//i)) {
-                                    return cleanText; // just show text if unsafe protocol
-                                }
-                                return `<a href="${cleanUrl}" class="text-blue-500 hover:text-blue-800" target="_blank" rel="noopener noreferrer">${cleanText}</a>`;
-                            }
-                        },
-
-                        // Optional: \url{http://example.com} → plain link
-                        {
-                            regex: /\\url\{([^}]+)\}/g,
-                            replace: (match, url) => {
-                                const cleanUrl = url.trim();
-                                if (!cleanUrl.match(/^https?:\/\//i)) {
-                                    return cleanUrl;
-                                }
-                                return `<a href="${cleanUrl}" class="text-blue-500 hover:text-blue-800" target="_blank" rel="noopener noreferrer">${cleanUrl}</a>`;
-                            }
-                        },
-                    ];
-
-                    // Apply hyperlink replacements
-                    for (const { regex, replace } of hyperlinkReplacements) {
-                        cleanedInput = cleanedInput.replace(regex, replace);
-                    }
-
-                    // Process fixedfigure environment with \includegraphics and \caption
-                    cleanedInput = cleanedInput.replace(/\\begin\{fixedfigure\}(.*?)\\end\{fixedfigure\}/gs, (match, figureContent) => {
-                        // Extract image path and caption
-                        const imageMatch = figureContent.match(/\\includegraphics\[[^\]]*\]\{([^}]+)\}/);
-                        const captionMatch = figureContent.match(/\\caption\{([^}]*)\}/);
-
-                        const imagePath = imageMatch ? imageMatch[1] : '';
-                        const captionText = captionMatch ? captionMatch[1] : '';
-
-                        // Clean up the image path - remove .pdf extension and change to .svg
-                        let cleanImagePath = imagePath.replace('.pdf', '.svg');
-                        // Remove "figures/" prefix if present
-                        cleanImagePath = cleanImagePath.replace(/^figures\//, '');
-
-                        // Build the HTML structure
-                        return `<div class="flex flex-wrap justify-center my-4">
-  <img
-    src="../../../assets/img/${cleanImagePath}"
-    class="h-auto"
-    alt="${captionText}"
-  />
-</div>`;
-                    });
-
-                    // Extract and process problem
-                    const problemMatch = cleanedInput.match(/\\begin\{problem\}(.*?)\\end\{problem\}/s);
-                    let problem = '';
-
-                    if (problemMatch) {
-                        let problemContent = problemMatch[1].trim();
-
-                        // Process enumerate with alphabetic (lowercase) - most common
-                        problemContent = problemContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\alph\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
-                                }).join('\n');
-                                return `<ol class="math-list-alpha">\n${listItems}\n                </ol>`;
-                            }
-                            return match;
-                        });
-
-                        // Process enumerate with alphabetic (uppercase)
-                        problemContent = problemContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\Alph\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
-                                }).join('\n');
-                                return `<ol class="math-list-Alpha">\n${listItems}\n                </ol>`;
-                            }
-                            return match;
-                        });
-
-                        // Process enumerate with roman numerals (lowercase)
-                        problemContent = problemContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\roman\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
-                                }).join('\n');
-                                return `<ol class="math-list-roman">\n${listItems}\n                </ol>`;
-                            }
-                            return match;
-                        });
-
-                        // Process enumerate with roman numerals (uppercase)
-                        problemContent = problemContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\Roman\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
-                                }).join('\n');
-                                return `<ol class="math-list-Roman">\n${listItems}\n                </ol>`;
-                            }
-                            return match;
-                        });
-
-                        // Process plain enumerate (numeric - no label specified)
-                        problemContent = problemContent.replace(/\\begin\{enumerate\}(.*?)\\end\{enumerate\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
-                                }).join('\n');
-                                return `<ol class="math-list">\n${listItems}\n                </ol>`;
-                            }
-                            return match;
-                        });
-
-                        // Process itemize blocks (bullet points)
-                        problemContent = problemContent.replace(/\\begin\{itemize\}(.*?)\\end\{itemize\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                  <li class="my-4">\n                    ${cleanItem}\n                  </li>`;
-                                }).join('\n');
-                                return `<ul class="math-list-disc">\n${listItems}\n                </ul>`;
-                            }
-                            return match;
-                        });
-
-                        problem = problemContent;
-
-                    } else {
-                        problem = '';
-                    }
-
-                    // Extract hint(s)
-                    const hintMatch = cleanedInput.match(/\\begin\{hint\}(.*?)\\end\{hint\}/s);
-                    let hint = '';
-                    if (hintMatch) {
-                        const hintContent = hintMatch[1].trim();
-
-                        // Check if hint contains itemize (bullets)
-                        if (hintContent.includes('\\begin{itemize}')) {
-                            const items = hintContent.match(/\\item\s+(.*?)(?=\\item|\\end\{itemize\})/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                    <li class="my-4">\n                      ${cleanItem}\n                    </li>`;
-                                }).join('\n');
-
-                                hint = `<ul class="math-list-disc">
-${listItems}
-                  </ul>`;
-                            }
-                        }
-                        // Check if hint contains enumerate with roman numerals (lowercase)
-                        else if (hintContent.includes('\\begin{enumerate}[label = (\\roman*)]')) {
-                            const items = hintContent.match(/\\item\s+(.*?)(?=\\item|\\end\{enumerate\})/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                    <li class="my-4">\n                      ${cleanItem}\n                    </li>`;
-                                }).join('\n');
-
-                                hint = `<ol class="math-list-roman my-4">
-${listItems}
-                  </ol>`;
-                            }
-                        }
-                        // Check if hint contains enumerate with roman numerals (uppercase)
-                        else if (hintContent.includes('\\begin{enumerate}[label = (\\Roman*)]')) {
-                            const items = hintContent.match(/\\item\s+(.*?)(?=\\item|\\end\{enumerate\})/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                    <li class="my-4">\n                      ${cleanItem}\n                    </li>`;
-                                }).join('\n');
-
-                                hint = `<ol class="math-list-Roman my-4">
-${listItems}
-                  </ol>`;
-                            }
-                        }
-                        // Check if hint contains enumerate with alphabetic (lowercase)
-                        else if (hintContent.includes('\\begin{enumerate}[label = (\\alph*)]')) {
-                            const items = hintContent.match(/\\item\s+(.*?)(?=\\item|\\end\{enumerate\})/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                    <li class="my-4">\n                      ${cleanItem}\n                    </li>`;
-                                }).join('\n');
-
-                                hint = `<ol class="math-list-alpha my-4">
-${listItems}
-                  </ol>`;
-                            }
-                        }
-                        // Check if hint contains enumerate with alphabetic (uppercase)
-                        else if (hintContent.includes('\\begin{enumerate}[label = (\\Alph*)]')) {
-                            const items = hintContent.match(/\\item\s+(.*?)(?=\\item|\\end\{enumerate\})/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                    <li class="my-4">\n                      ${cleanItem}\n                    </li>`;
-                                }).join('\n');
-
-                                hint = `<ol class="math-list-Alpha my-4">
-${listItems}
-                  </ol>`;
-                            }
-                        }
-                        // Check if hint contains regular enumerate (numeric)
-                        else if (hintContent.includes('\\begin{enumerate}')) {
-                            const items = hintContent.match(/\\item\s+(.*?)(?=\\item|\\end\{enumerate\})/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    const cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    return `                    <li class="my-4">\n                      ${cleanItem}\n                    </li>`;
-                                }).join('\n');
-
-                                hint = `<ol class="math-list my-4">
-${listItems}
-                  </ol>`;
-                            }
-                        } else {
-                            hint = hintContent;
-                        }
-                    }
-
-                    // Extract solution
-                    const solutionMatch = cleanedInput.match(/\\begin\{solution\}(.*?)\\end\{solution\}/s);
-                    let solution = '';
-                    if (solutionMatch) {
-                        let solutionContent = solutionMatch[1].trim();
-
-                        // Process enumerate blocks in solution
-                        solutionContent = solutionContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\roman\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    let cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    // Check if item contains %--- marker
-                                    const hasHr = cleanItem.includes('%---') || cleanItem.includes('% ---');
-                                    // Remove the marker from the content
-                                    cleanItem = cleanItem.replace(/%\s*---\s*/g, '').trim();
-                                    const hr = hasHr ? '\n                      <hr class="h-px my-4 bg-gray-300 border-0">' : '';
-                                    return `                    <li class="my-4">\n                      ${cleanItem}${hr}\n                    </li>`;
-                                }).join('\n');
-                                return `<ol class="math-list-roman my-4">\n${listItems}\n                  </ol>`;
-                            }
-                            return match;
-                        });
-
-                        solutionContent = solutionContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\Roman\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    let cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    const hasHr = cleanItem.includes('%---') || cleanItem.includes('% ---');
-                                    cleanItem = cleanItem.replace(/%\s*---\s*/g, '').trim();
-                                    const hr = hasHr ? '\n                      <hr class="h-px my-4 bg-gray-300 border-0">' : '';
-                                    return `                    <li class="my-4">\n                      ${cleanItem}${hr}\n                    </li>`;
-                                }).join('\n');
-                                return `<ol class="math-list-Roman my-4">\n${listItems}\n                  </ol>`;
-                            }
-                            return match;
-                        });
-
-                        solutionContent = solutionContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\alph\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    let cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    const hasHr = cleanItem.includes('%---') || cleanItem.includes('% ---');
-                                    cleanItem = cleanItem.replace(/%\s*---\s*/g, '').trim();
-                                    const hr = hasHr ? '\n                      <hr class="h-px my-4 bg-gray-300 border-0">' : '';
-                                    return `                    <li class="my-4">\n                      ${cleanItem}${hr}\n                    </li>`;
-                                }).join('\n');
-                                return `<ol class="math-list-alpha my-4">\n${listItems}\n                  </ol>`;
-                            }
-                            return match;
-                        });
-
-                        solutionContent = solutionContent.replace(/\\begin\{enumerate\}\[label\s*=\s*\(\\Alph\*\)\](.*?)\\end\{enumerate\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    let cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    const hasHr = cleanItem.includes('%---') || cleanItem.includes('% ---');
-                                    cleanItem = cleanItem.replace(/%\s*---\s*/g, '').trim();
-                                    const hr = hasHr ? '\n                      <hr class="h-px my-4 bg-gray-300 border-0">' : '';
-                                    return `                    <li class="my-4">\n                      ${cleanItem}${hr}\n                    </li>`;
-                                }).join('\n');
-                                return `<ol class="math-list-Alpha my-4">\n${listItems}\n                  </ol>`;
-                            }
-                            return match;
-                        });
-
-                        solutionContent = solutionContent.replace(/\\begin\{enumerate\}(.*?)\\end\{enumerate\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    let cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    const hasHr = cleanItem.includes('%---') || cleanItem.includes('% ---');
-                                    cleanItem = cleanItem.replace(/%\s*---\s*/g, '').trim();
-                                    const hr = hasHr ? '\n                      <hr class="h-px my-4 bg-gray-300 border-0">' : '';
-                                    return `                    <li class="my-4">\n                      ${cleanItem}${hr}\n                    </li>`;
-                                }).join('\n');
-                                return `<ol class="math-list my-4">\n${listItems}\n                  </ol>`;
-                            }
-                            return match;
-                        });
-
-                        // Process itemize blocks in solution
-                        solutionContent = solutionContent.replace(/\\begin\{itemize\}(.*?)\\end\{itemize\}/gs, (match, content) => {
-                            const items = content.match(/\\item\s+(.*?)(?=\\item|$)/gs);
-                            if (items) {
-                                const listItems = items.map((item) => {
-                                    let cleanItem = item.replace(/\\item\s+/, '').trim();
-                                    const hasHr = cleanItem.includes('%---') || cleanItem.includes('% ---');
-                                    cleanItem = cleanItem.replace(/%\s*---\s*/g, '').trim();
-                                    const hr = hasHr ? '\n                      <hr class="h-px my-4 bg-gray-300 border-0">' : '';
-                                    return `                    <li class="my-4">\n                      ${cleanItem}${hr}\n                    </li>`;
-                                }).join('\n');
-                                return `<ul class="math-list-disc">\n${listItems}\n                  </ul>`;
-                            }
-                            return match;
-                        });
-
-                        // Split by \vspace patterns (with or without \hspace following)
-                        const paragraphs = solutionContent.split(/\\vspace\{[^}]+\}(?:\s*\\hspace\{[^}]+\})?/);
-
-                        solution = paragraphs.map((para, idx) => {
-                            const trimmed = para.trim();
-                            if (!trimmed) return '';
-
-                            const content = trimmed;
-                            // Don't wrap in div if content already starts with a list
-                            if (content.trim().startsWith('<ol') || content.trim().startsWith('<ul')) {
-                                if (idx === paragraphs.length - 1) {
-                                    return content;
-                                } else {
-                                    return content + '\n\n<hr class="h-px my-4 bg-gray-300 border-0">';
-                                }
-                            } else {
-                                const divContent = `<div class="leading-relaxed lg:text-lg md:text-base text-justify">${content}</div>`;
-                                if (idx === paragraphs.length - 1) {
-                                    return divContent;
-                                } else {
-                                    return divContent + '\n\n<hr class="h-px my-4 bg-gray-300 border-0">';
-                                }
-                            }
-                        }).filter(p => p).join('\n');
-                    }
-
-                    // STEP FINAL: Restore protected math expressions
-                    problem = problem.replace(/__MATH_(\d+)__/g, (match, index) => {
-                        return `$${mathPlaceholders[index]}$`;
-                    });
-                    problem = problem.replace(/__DISPLAYMATH_(\d+)__/g, (match, index) => {
-                        return `\\[${displayMathPlaceholders[index]}\\]`;
-                    });
-                    problem = problem.replace(/__ENVMATH_(\d+)__/g, (match, index) => {
-                        return envMathPlaceholders[index];
-                    });
-
-                    hint = hint.replace(/__MATH_(\d+)__/g, (match, index) => {
-                        return `$${mathPlaceholders[index]}$`;
-                    });
-                    hint = hint.replace(/__DISPLAYMATH_(\d+)__/g, (match, index) => {
-                        return `\\[${displayMathPlaceholders[index]}\\]`;
-                    });
-                    hint = hint.replace(/__ENVMATH_(\d+)__/g, (match, index) => {
-                        return envMathPlaceholders[index];
-                    });
-
-                    solution = solution.replace(/__MATH_(\d+)__/g, (match, index) => {
-                        return `$${mathPlaceholders[index]}$`;
-                    });
-                    solution = solution.replace(/__DISPLAYMATH_(\d+)__/g, (match, index) => {
-                        return `\\[${displayMathPlaceholders[index]}\\]`;
-                    });
-                    solution = solution.replace(/__ENVMATH_(\d+)__/g, (match, index) => {
-                        return envMathPlaceholders[index];
-                    });
-
-                    problem = problem.replace(/__DISPLAYDOLLAR_(\d+)__/g, (_, i) => `$$${displayDollarPlaceholders[i]}$$`);
-                    hint = hint.replace(/__DISPLAYDOLLAR_(\d+)__/g, (_, i) => `$$${displayDollarPlaceholders[i]}$$`);
-                    solution = solution.replace(/__DISPLAYDOLLAR_(\d+)__/g, (_, i) => `$$${displayDollarPlaceholders[i]}$$`);
-
-                    // Create JSON object
-                    const jsonObj = {
-                        date: date || new Date().toISOString().split('T')[0],
-                        title: title || 'Problem of the Day',
-                        difficulty: difficulty,
-                        problem: problem,
-                        hint: hint,
-                        solution: solution,
-                        tags: tags ? tags.split(',').map(t => t.trim()) : []
-                    };
-
-                    setJsonOutput(JSON.stringify(jsonObj, null, 2));
-                } catch (error) {
-                    setJsonOutput(`Error: ${error.message}`);
-                }
-            };
-            const [copied, setCopied] = useState(false);
-            
-            const copyToClipboard = () => {
-                navigator.clipboard.writeText(jsonOutput);
-                setCopied(true);
-                setTimeout(() => setCopied(false), 2000);
-            };
-
-            const downloadJson = () => {
-                const blob = new Blob([jsonOutput], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `problem-${date || 'export'}.json`;
-                a.click();
-                URL.revokeObjectURL(url);
-            };
-
-            const handleFileUpload = (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        setLatexInput(event.target.result);
-                    };
-                    reader.readAsText(file);
-                }
-            };
-
-            return (
-                <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-8">
-                            <h1 className="text-4xl font-bold text-slate-800 mb-2">
-                                LaTeX to JSON Converter
-                            </h1>
-                            <p className="text-slate-500 text-base mb-4">
-                                Convert problem, hint, and solution from LaTeX to JSON format
-                            </p>
-                            <div className="flex items-center justify-center gap-1 text-base">
-                                <a href="/" className="text-blue-500 hover:text-blue-700 transition-colors px-2 py-1 rounded hover:bg-blue-50">
-                                    Homepage
-                                </a>
-                                <span className="text-slate-300">·</span>
-                                <a href="/miscellaneous" className="text-blue-500 hover:text-blue-700 transition-colors px-2 py-1 rounded hover:bg-blue-50">
-                                    Miscellaneous
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-                            <div className="flex items-center justify-between mb-4">
-                                <h2 className="text-xl font-semibold text-slate-800">Metadata</h2>
-                                <button
-                                    onClick={resetForm}
-                                    className="px-3 py-1.5 bg-red-100 hover:bg-red-200 text-red-700 rounded-md text-sm transition-colors"
-                                >
-                                    Reset Form
-                                </button>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                                        Date
-                                    </label>
-                                    <input
-                                        type="date"
-                                        value={date}
-                                        onChange={(e) => setDate(e.target.value)}
-                                        className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                                        Title
-                                    </label>
-                                    <input
-                                        type="text"
-                                        value={title}
-                                        onChange={(e) => setTitle(e.target.value)}
-                                        placeholder="Problem of the Day"
-                                        className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                                        Difficulty
-                                    </label>
-                                    <select
-                                        value={difficulty}
-                                        onChange={(e) => setDifficulty(e.target.value)}
-                                        className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    >
-                                        <option value="easy">Easy</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="difficult">Difficult</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                                        Tags (comma-separated)
-                                    </label>
-                                    <input
-                                        type="text"
-                                        value={tags}
-                                        onChange={(e) => setTags(e.target.value)}
-                                        placeholder="algebra, group-theory"
-                                        className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                            <div className="bg-white rounded-lg shadow-lg p-6">
-                                <div className="flex items-center justify-between mb-4">
-                                    <h2 className="text-xl font-semibold text-slate-800">
-                                        LaTeX Input
-                                    </h2>
-                                    <label className="cursor-pointer flex items-center gap-2 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-md text-sm text-slate-700 transition-colors">
-                                        <Upload />
-                                        Upload .tex
-                                        <input
-                                            type="file"
-                                            accept=".tex,.txt"
-                                            onChange={handleFileUpload}
-                                            className="hidden"
-                                        />
-                                    </label>
-                                </div>
-                                <textarea
-                                    value={latexInput}
-                                    onChange={(e) => setLatexInput(e.target.value)}
-                                    placeholder="Paste your LaTeX code here..."
-                                    className="w-full h-96 px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
-                                />
-                                <button
-                                    onClick={convertLatexToJson}
-                                    className="w-full mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors"
-                                >
-                                    Convert to JSON
-                                </button>
-                            </div>
-
-                            <div className="bg-white rounded-lg shadow-lg p-6">
-                                <div className="flex items-center justify-between mb-4">
-                                    <h2 className="text-xl font-semibold text-slate-800">
-                                        JSON Output
-                                    </h2>
-                                    <div className="flex gap-2">
-                                        <button
-                                            onClick={copyToClipboard}
-                                            disabled={!jsonOutput}
-                                            className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm transition-colors
-                                                ${copied
-                                                    ? 'bg-green-100 text-green-700'
-                                                    : 'bg-slate-100 hover:bg-slate-200 disabled:bg-slate-50 disabled:text-slate-400 text-slate-700'
-                                                }`}
-                                        >
-                                            <Copy />
-                                            {copied ? 'Copied!' : 'Copy'}
-                                        </button>
-                                        <button
-                                            onClick={downloadJson}
-                                            disabled={!jsonOutput}
-                                            className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 disabled:bg-slate-50 disabled:text-slate-400 rounded-md text-sm text-slate-700 transition-colors"
-                                        >
-                                            <Download />
-                                            Download
-                                        </button>
-                                    </div>
-                                </div>
-                                <textarea
-                                    value={jsonOutput}
-                                    readOnly
-                                    placeholder="JSON output will appear here..."
-                                    className="w-full h-96 px-3 py-2 border border-slate-300 rounded-md bg-slate-50 font-mono text-sm"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-                            <h3 className="font-semibold text-blue-900 mb-2">Expected LaTeX Format:</h3>
-                            <pre className="text-sm text-blue-800 overflow-x-auto">
-                                {`\\begin{problem}\\label{prob:01Feb2026}
-  Your problem text here with $math$ notation
-  
-  \\begin{fixedfigure}
-    \\includegraphics[width = .5\\textwidth]{figures/prob-21-01-26_01.pdf}
-    \\caption{Take $\\varepsilon = \\min \\{ r,s \\} $ }
-  \\end{fixedfigure}
-\\end{problem}
-
-\\begin{hint}
-  Your hint (can use \\begin{enumerate}\\item...\\end{enumerate})
-\\end{hint}
-
-\\begin{solution}
-  Solution paragraphs separated by
-  \\vspace{0.3cm}
-  \\noindent (will be ignored)
-  More content...
-\\end{solution}`}
-                            </pre>
-                        </div>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6">
+
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-slate-800 mb-2">LaTeX to JSON Converter</h1>
+            <p class="text-slate-500 text-base mb-4">Convert problem, hint, and solution from LaTeX to JSON format</p>
+            <div class="flex items-center justify-center gap-1 text-base">
+                <a href="/" class="text-blue-500 hover:text-blue-700 px-2 py-1 rounded hover:bg-blue-50">Homepage</a>
+                <span class="text-slate-300">·</span>
+                <a href="/miscellaneous"
+                    class="text-blue-500 hover:text-blue-700 px-2 py-1 rounded hover:bg-blue-50">Miscellaneous</a>
+            </div>
+        </div>
+
+        <!-- Metadata -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-semibold text-slate-800">Metadata</h2>
+                <button id="resetBtn"
+                    class="px-3 py-1.5 bg-red-100 hover:bg-red-200 text-red-700 rounded-md text-sm transition-colors">Reset
+                    Form</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Date</label>
+                    <input id="dateInput" type="date"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Title</label>
+                    <input id="titleInput" type="text" placeholder="Problem of the Day"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Difficulty</label>
+                    <select id="difficultyInput"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="difficult">Difficult</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Tags (comma-separated)</label>
+                    <input id="tagsInput" type="text" placeholder="algebra, group-theory"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Main panels -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Input -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800">LaTeX Input</h2>
+                    <label
+                        class="cursor-pointer flex items-center gap-2 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-md text-sm text-slate-700 transition-colors">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        Upload .tex
+                        <input id="fileUpload" type="file" accept=".tex,.txt" class="hidden" />
+                    </label>
+                </div>
+                <textarea id="latexInput" placeholder="Paste your LaTeX code here..."
+                    class="w-full h-96 px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"></textarea>
+                <button id="convertBtn"
+                    class="w-full mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors">Convert
+                    to JSON</button>
+            </div>
+
+            <!-- Output -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800">JSON Output</h2>
+                    <div class="flex gap-2">
+                        <button id="copyBtn"
+                            class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-md text-sm text-slate-700 transition-colors">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            Copy
+                        </button>
+                        <button id="downloadBtn"
+                            class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-md text-sm text-slate-700 transition-colors">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download
+                        </button>
                     </div>
                 </div>
-            );
-        };
+                <textarea id="jsonOutput" readonly placeholder="JSON output will appear here..."
+                    class="w-full h-96 px-3 py-2 border border-slate-300 rounded-md bg-slate-50 font-mono text-sm"></textarea>
+            </div>
+        </div>
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<LatexToJsonConverter />);
+        <!-- Format reference -->
+        <div class="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <h3 class="font-semibold text-blue-900 mb-2">Expected LaTeX Format:</h3>
+            <pre class="text-sm text-blue-800 overflow-x-auto">\begin{problem}\label{prob:01Feb2026}
+                Your problem text here with $math$ notation
+                \end{problem}
+
+                \begin{hint}
+                Your hint (can use \begin{enumerate}\item...\end{enumerate})
+                \end{hint}
+
+                \begin{solution}
+                Solution paragraphs separated by \vspace{0.3cm}
+                \noindent (will be ignored)
+                More content...
+                \end{solution}</pre>
+        </div>
+    </div>
+
+    <script>
+        // ── Safe localStorage ──────────────────────────────────────────────────────
+        const safeGet = (k, fb = '') => { try { return localStorage.getItem(k) || fb; } catch { return fb; } };
+        const safeSet = (k, v) => { try { localStorage.setItem(k, v); } catch { } };
+
+        // ── Restore persisted values ───────────────────────────────────────────────
+        const $ = id => document.getElementById(id);
+        $('latexInput').value = safeGet('latexInput');
+        $('jsonOutput').value = safeGet('jsonOutput');
+        $('dateInput').value = safeGet('date');
+        $('titleInput').value = safeGet('title');
+        $('tagsInput').value = safeGet('tags');
+        $('difficultyInput').value = safeGet('difficulty', 'medium');
+
+        // ── Persist on change ──────────────────────────────────────────────────────
+        $('latexInput').addEventListener('input', e => safeSet('latexInput', e.target.value));
+        $('dateInput').addEventListener('change', e => safeSet('date', e.target.value));
+        $('titleInput').addEventListener('input', e => safeSet('title', e.target.value));
+        $('tagsInput').addEventListener('input', e => safeSet('tags', e.target.value));
+        $('difficultyInput').addEventListener('change', e => safeSet('difficulty', e.target.value));
+
+        // ── Reset ──────────────────────────────────────────────────────────────────
+        $('resetBtn').addEventListener('click', () => {
+            ['latexInput', 'jsonOutput', 'dateInput', 'titleInput', 'tagsInput'].forEach(id => $(id).value = '');
+            $('difficultyInput').value = 'medium';
+            ['latexInput', 'jsonOutput', 'date', 'title', 'tags', 'difficulty'].forEach(k => safeSet(k, ''));
+        });
+
+        // ── File upload ────────────────────────────────────────────────────────────
+        $('fileUpload').addEventListener('change', e => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = ev => { $('latexInput').value = ev.target.result; safeSet('latexInput', ev.target.result); };
+            reader.readAsText(file);
+        });
+
+        // ── Copy ───────────────────────────────────────────────────────────────────
+        $('copyBtn').addEventListener('click', () => {
+            const out = $('jsonOutput').value;
+            if (!out) return;
+            navigator.clipboard.writeText(out).then(() => {
+                const btn = $('copyBtn');
+                const orig = btn.innerHTML;
+                btn.textContent = 'Copied!';
+                btn.classList.add('bg-green-100', 'text-green-700');
+                setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('bg-green-100', 'text-green-700'); }, 2000);
+            });
+        });
+
+        // ── Download ───────────────────────────────────────────────────────────────
+        $('downloadBtn').addEventListener('click', () => {
+            const out = $('jsonOutput').value;
+            if (!out) return;
+            const blob = new Blob([out], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `problem-${$('dateInput').value || 'export'}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // ── Core conversion ────────────────────────────────────────────────────────
+        $('convertBtn').addEventListener('click', () => {
+            try {
+                const result = convertLatexToJson(
+                    $('latexInput').value,
+                    $('dateInput').value,
+                    $('titleInput').value,
+                    $('difficultyInput').value,
+                    $('tagsInput').value
+                );
+                $('jsonOutput').value = result;
+                safeSet('jsonOutput', result);
+            } catch (err) {
+                $('jsonOutput').value = 'Error: ' + err.message;
+            }
+        });
+
+        function convertLatexToJson(latexInput, date, title, difficulty, tags) {
+            // ── Protect math before any HTML replacements ──────────────────────────
+            const displayDollarPlaceholders = [];
+            let s = latexInput.replace(/\$\$([\s\S]+?)\$\$/g, (_, m) => {
+                displayDollarPlaceholders.push(m);
+                return `__DISPLAYDOLLAR_${displayDollarPlaceholders.length - 1}__`;
+            });
+
+            const mathPlaceholders = [];
+            s = s.replace(/\$([^$]+)\$/g, (_, m) => {
+                mathPlaceholders.push(m);
+                return `__MATH_${mathPlaceholders.length - 1}__`;
+            });
+
+            const displayMathPlaceholders = [];
+            s = s.replace(/\\\[([\s\S]+?)\\\]/g, (_, m) => {
+                displayMathPlaceholders.push(m);
+                return `__DISPLAYMATH_${displayMathPlaceholders.length - 1}__`;
+            });
+
+            const envMathPlaceholders = [];
+            s = s.replace(/(\\begin\{(?:equation\*?|align\*?|gather\*?|multline\*?)\}[\s\S]*?\\end\{(?:equation\*?|align\*?|gather\*?|multline\*?)\})/g, (m) => {
+                envMathPlaceholders.push(m);
+                return `__ENVMATH_${envMathPlaceholders.length - 1}__`;
+            });
+
+            // ── Clean up ───────────────────────────────────────────────────────────
+            s = s.replace(/\\label\{[^}]*\}/g, '');
+            s = s.replace(/\\noindent\s*/g, '');
+
+            // ── Formatting ─────────────────────────────────────────────────────────
+            const fmts = [
+                [/\\textbf\{([^}]*)\}/g, '<strong>$1</strong>'],
+                [/\\bf\s*\{([^}]*)\}/g, '<strong>$1</strong>'],
+                [/\{\\bf\s*([^}]*)\}/g, '<strong>$1</strong>'],
+                [/\\textit\{([^}]*)\}/g, '<em>$1</em>'],
+                [/\\it\s*\{([^}]*)\}/g, '<em>$1</em>'],
+                [/\{\\it\s*([^}]*)\}/g, '<em>$1</em>'],
+                [/\\emph\{([^}]*)\}/g, '<em>$1</em>'],
+                [/\\underline\{([^}]*)\}/g, '<u>$1</u>'],
+                [/\\textsf\{([^}]*)\}/g, '<span class="font-sans">$1</span>'],
+                [/\\texttt\{([^}]*)\}/g, '<code class="font-mono bg-gray-100 px-1 rounded">$1</code>'],
+            ];
+            for (const [re, rep] of fmts) s = s.replace(re, rep);
+
+            // ── Hyperlinks ─────────────────────────────────────────────────────────
+            s = s.replace(/\\href\{([^}]+)\}\{([^}]*)\}/g, (_, url, text) => {
+                url = url.trim();
+                if (!/^https?:\/\//i.test(url)) return text.trim();
+                return `<a href="${url}" class="text-blue-500 hover:text-blue-800" target="_blank" rel="noopener noreferrer">${text.trim()}</a>`;
+            });
+            s = s.replace(/\\url\{([^}]+)\}/g, (_, url) => {
+                url = url.trim();
+                if (!/^https?:\/\//i.test(url)) return url;
+                return `<a href="${url}" class="text-blue-500 hover:text-blue-800" target="_blank" rel="noopener noreferrer">${url}</a>`;
+            });
+
+            // ── fixedfigure ────────────────────────────────────────────────────────
+            s = s.replace(/\\begin\{fixedfigure\}([\s\S]*?)\\end\{fixedfigure\}/g, (_, body) => {
+                const imgM = body.match(/\\includegraphics\[[^\]]*\]\{([^}]+)\}/);
+                const capM = body.match(/\\caption\{([^}]*)\}/);
+                let src = imgM ? imgM[1].replace('.pdf', '.svg').replace(/^figures\//, '') : '';
+                const alt = capM ? capM[1] : '';
+                return `<div class="flex flex-wrap justify-center my-4"><img src="../../../assets/img/${src}" class="h-auto" alt="${alt}" /></div>`;
+            });
+
+            // ── List helpers ───────────────────────────────────────────────────────
+            function processLists(text) {
+                const listTypes = [
+                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\alph\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-alpha'],
+                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\Alph\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-Alpha'],
+                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\roman\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-roman'],
+                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\Roman\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-Roman'],
+                    [/\\begin\{enumerate\}([\s\S]*?)\\end\{enumerate\}/g, 'math-list'],
+                ];
+                for (const [re, cls] of listTypes) {
+                    text = text.replace(re, (_, body) => buildList('ol', cls, body, false));
+                }
+                text = text.replace(/\\begin\{itemize\}([\s\S]*?)\\end\{itemize\}/g, (_, body) =>
+                    buildList('ul', 'math-list-disc', body, false)
+                );
+                return text;
+            }
+
+            function processListsWithHr(text) {
+                const listTypes = [
+                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\alph\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-alpha'],
+                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\Alph\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-Alpha'],
+                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\roman\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-roman'],
+                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\Roman\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-Roman'],
+                    [/\\begin\{enumerate\}([\s\S]*?)\\end\{enumerate\}/g, 'math-list'],
+                ];
+                for (const [re, cls] of listTypes) {
+                    text = text.replace(re, (_, body) => buildList('ol', cls, body, true));
+                }
+                text = text.replace(/\\begin\{itemize\}([\s\S]*?)\\end\{itemize\}/g, (_, body) =>
+                    buildList('ul', 'math-list-disc', body, true)
+                );
+                return text;
+            }
+
+            function buildList(tag, cls, body, withHr) {
+                const items = [...body.matchAll(/\\item\s+([\s\S]*?)(?=\\item|$)/g)];
+                const liArr = items.map(m => {
+                    let content = m[1].trim();
+                    let hr = '';
+                    if (withHr && (content.includes('%---') || content.includes('% ---'))) {
+                        content = content.replace(/%\s*---\s*/g, '').trim();
+                        hr = '\n<hr class="h-px my-4 bg-gray-300 border-0">';
+                    }
+                    return `<li class="my-4">${content}${hr}</li>`;
+                });
+                return `<${tag} class="${cls} my-4">${liArr.join('\n')}</${tag}>`;
+            }
+
+            // ── Restore math helper ────────────────────────────────────────────────
+            function restoreMath(text) {
+                return text
+                    .replace(/__MATH_(\d+)__/g, (_, i) => `$${mathPlaceholders[i]}$`)
+                    .replace(/__DISPLAYMATH_(\d+)__/g, (_, i) => `\\[${displayMathPlaceholders[i]}\\]`)
+                    .replace(/__ENVMATH_(\d+)__/g, (_, i) => envMathPlaceholders[i])
+                    .replace(/__DISPLAYDOLLAR_(\d+)__/g, (_, i) => `$$${displayDollarPlaceholders[i]}$$`);
+            }
+
+            // ── Extract problem ────────────────────────────────────────────────────
+            let problem = '';
+            const probM = s.match(/\\begin\{problem\}([\s\S]*?)\\end\{problem\}/);
+            if (probM) problem = restoreMath(processLists(probM[1].trim()));
+
+            // ── Extract hint ───────────────────────────────────────────────────────
+            let hint = '';
+            const hintM = s.match(/\\begin\{hint\}([\s\S]*?)\\end\{hint\}/);
+            if (hintM) hint = restoreMath(processLists(hintM[1].trim()));
+
+            // ── Extract solution ───────────────────────────────────────────────────
+            let solution = '';
+            const solM = s.match(/\\begin\{solution\}([\s\S]*?)\\end\{solution\}/);
+            if (solM) {
+                let solContent = processListsWithHr(solM[1].trim());
+                const paragraphs = solContent.split(/\\vspace\{[^}]+\}(?:\s*\\hspace\{[^}]+\})?/);
+                solution = paragraphs.map((para, idx) => {
+                    const trimmed = para.trim();
+                    if (!trimmed) return '';
+                    const isLast = idx === paragraphs.length - 1;
+                    const hr = isLast ? '' : '\n\n<hr class="h-px my-4 bg-gray-300 border-0">';
+                    if (trimmed.startsWith('<ol') || trimmed.startsWith('<ul')) return trimmed + hr;
+                    return `<div class="leading-relaxed lg:text-lg md:text-base text-justify">${trimmed}</div>${hr}`;
+                }).filter(Boolean).join('\n');
+                solution = restoreMath(solution);
+            }
+
+            // ── Build final JSON ───────────────────────────────────────────────────
+            const obj = {
+                date: date || new Date().toISOString().split('T')[0],
+                title: title || 'Problem of the Day',
+                difficulty: difficulty,
+                problem,
+                hint,
+                solution,
+                tags: tags ? tags.split(',').map(t => t.trim()).filter(Boolean) : []
+            };
+            return JSON.stringify(obj, null, 2);
+        }
     </script>
 </body>
 </html>
