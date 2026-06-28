@@ -48,6 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const subcategoryToCategoryMap = {
         // linear algebra
+        'subspaces': 'linear-algebra',
+        'linear-independence': 'linear-algebra',
         'eigenvalues': 'linear-algebra',
         'eigenvectors': 'linear-algebra',
         'linear-transformation': 'linear-algebra',
