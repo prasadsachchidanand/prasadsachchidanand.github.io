@@ -300,6 +300,71 @@
         "differential-equation",
         "ode"
       ]
+    },
+
+    {
+      "date": "2026-06-05",
+      "title": "Solve the differential equation 2yz dx + zx dy - xy(1 + z) dz = 0",
+      "difficulty": "easy",
+      "problem": "Solve the differential equation\n    \\[\n        2yz \\mathrm{d} x + zx \\mathrm{d} y - xy(1 + z) \\mathrm{d} z = 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Divide the entire equation by $xyz$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:05June2026-1}\n        2yz \\mathrm{d} x + zx \\mathrm{d} y - xy(1 + z) \\mathrm{d} z = 0.\n    \\end{equation}\n    Dividing both sides by $xyz$, we get\n    \\[\n        \\frac{2}{x} \\mathrm{d} x + \\frac{1}{y} \\mathrm{d} y - \\frac{1 + z}{z} \\mathrm{d} z = 0.\n    \\]\n    This can be rewritten as\n    \\[\n        2\\frac{\\mathrm{d} x}{x} + \\frac{\\mathrm{d} y}{y} - \\left(1 + \\frac{1}{z}\\right) \\mathrm{d} z = 0.\n    \\]\n    Integrating both sides, we get\n    \\[\n        2\\ln|x| + \\ln|y| - z - \\ln|z| = C,\n    \\]\n    where $C$ is an arbitrary constant. This can be rewritten as\n    \\[\n        2\\ln|x| + \\ln|y| - z - \\ln|z| = C.\n    \\]\n    Exponentiating both sides, we get\n    \\[\n        x^2 y e^{-z} z^{-1} = e^C.\n    \\]\n    Letting $k = e^C$, we have the general solution\n    \\[\n        x^2 y e^{-z} z^{-1} = k,\n    \\]\n    or equivalently,\n    \\[\n        x^2 y = k z e^{z}.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2026-06-12",
+      "title": "Solve the differential equation (a - z)(y dx + x dy) + xy dz = 0",
+      "difficulty": "medium",
+      "problem": "Solve the differential equation\n    \\[\n        (a - z)(y \\mathrm{d} x + x \\mathrm{d} y) + xy \\mathrm{d} z = 0,\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Dividing both sides by $xy(a - z)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:12June2026-1}\n        (a - z)(y \\mathrm{d} x + x \\mathrm{d} y) + xy \\mathrm{d} z = 0.\n    \\end{equation}\n    Dividing both sides by $xy(a - z)$, we get\n    \\[\n        \\frac{\\mathrm{d} x}{x} + \\frac{\\mathrm{d} y}{y} + \\frac{\\mathrm{d} z}{a - z} = 0.\n    \\]\n    Integrating both sides, we get\n    \\[\n        \\ln|x| + \\ln|y| - \\ln|a - z| = C,\n    \\]\n    where $C$ is an arbitrary constant. This can be rewritten as\n    \\[\n        \\ln|xy| - \\ln|a - z| = C \\implies ln\\left|\\frac{xy}{a - z}\\right| = C.\n    \\]\n    Exponentiating both sides, we get\n    \\[\n        \\frac{xy}{a - z} = k,\n    \\]\n    where $k = e^C$ is an arbitrary constant. Thus, the general solution of \\eqref{eq:12June2026-1} is\n    \\[\n        xy = k(a-z).\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2026-06-19",
+      "title": "Solve the differential equation (y + z - 2x)/(y - x)(z - x) dx + (z + x - 2y)/(z - y)(x - y) dy + (x + y - 2z)/(x - z)(y - z) dz = 0",
+      "difficulty": "medium",
+      "problem": "Solve the following differential equation\n    \\[\n        \\frac{y+z-2 x}{(y-x)(z-x)} \\mathrm{d} x+\\frac{z+x-2 y}{(z-y)(x-y)} \\mathrm{d} y+\\frac{x+y-2 z}{(x-z)(y-z)} \\mathrm{d} z =0\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Rewrite the equation in the form\n        \\[\n            \\frac{\\mathrm{d} x}{(y-x)(z-x)}+\\frac{\\mathrm{d} y}{(z-y)(x-y)}+\\frac{\\mathrm{d} z}{(x-z)(y-z)} = 0.\n        \\]</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:19June2026-1}\n        \\frac{y+z-2 x}{(y-x)(z-x)} \\mathrm{d} x+\\frac{z+x-2 y}{(z-y)(x-y)} \\mathrm{d} y+\\frac{x+y-2 z}{(x-z)(y-z)} \\mathrm{d} z =0\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We can rewrite \\eqref{eq:19June2026-1} as\n    \\begin{align*}\n        & \\frac{y+z-2 x}{(y-x)(z-x)} \\mathrm{d} x+\\frac{z+x-2 y}{(z-y)(x-y)} \\mathrm{d} y+\\frac{x+y-2 z}{(x-z)(y-z)} \\mathrm{d} z =0 \\\\\n        \\implies & \\frac{\\mathrm{d} x}{(y-x)(z-x)}+\\frac{\\mathrm{d} y}{(z-y)(x-y)}+\\frac{\\mathrm{d} z}{(x-z)(y-z)} = 0 \\\\ \n        \\implies & \\left( \\frac{1}{z - x}  + \\frac{1}{y - z}\\right) \\mathrm{d} x + \\left( \\frac{1}{x - y} + \\frac{1}{z - x}\\right) \\mathrm{d} y  \\\\\n        & \\qquad + \\left( \\frac{1}{y - z} + \\frac{1}{x - y}\\right) \\mathrm{d} z = 0 \\\\\n        \\implies & - \\frac{\\mathrm{d} x - \\mathrm{d} y}{x - y} - \\frac{\\mathrm{d} y - \\mathrm{d} z}{y - z} - \\frac{\\mathrm{d} z - \\mathrm{d} x}{z - x} = 0 \\\\\n        \\implies & - \\ln (x - y) - \\ln (y - z) - \\ln (z - x) = C \\\\\n        \\implies & \\ln |(x - y)(y - z)(z - x)| = C \\\\\n        \\implies & (x - y)(y - z)(z - x) = k,\n    \\end{align*}\n    where $C$ is an arbitrary constant and $k = e^C$. Thus, the general solution of \\eqref{eq:19June2026-1} is\n    \\[\n        (x - y)(y - z)(z - x) = k.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2026-06-26",
+      "title": "Determine whether x = 0 is an ordinary point or a regular singular point of the differential equation 2x^2 y'' + 7x (x + 1) y' - 3y = 0",
+      "difficulty": "easy",
+      "problem": "Determine whether $x = 0$ is an ordinary point or a regular singular point of the differential equation\n    \\[\n        2x^2 \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} + 7x (x + 1) \\frac{\\mathrm{d}y}{\\mathrm{d}x} - 3y = 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A singular point $x = x_0$ of a differential equation of the form\n        \\[\n            y'' + P(x)y' + Q(x)y = 0\n        \\]\n        is called a <em>regular singular point</em> if the limits\n        \\[\n            \\lim_{x \\to x_0} (x - x_0) P(x) \\quad \\text{and} \\quad \\lim_{x \\to x_0} (x - x_0)^2 Q(x)\n        \\]\n        exist and are finite. Otherwise, it is called an <em>irregular singular point</em>.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:26June2026-1}\n        2x^2 \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} + 7x (x + 1) \\frac{\\mathrm{d}y}{\\mathrm{d}x} - 3y = 0.\n    \\end{equation}\n    Dividing both sides by $2x^2$, we get\n    \\[\n        \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} + \\frac{7(x + 1)}{2x} \\frac{\\mathrm{d}y}{\\mathrm{d}x} - \\frac{3}{2x^2} y = 0.\n    \\]\n    Comparing with the standard form\n    \\[\n        y'' + P(x)y' + Q(x)y = 0,\n    \\]\n    we have\n    \\[\n        P(x) = \\frac{7(x + 1)}{2x}, \\quad Q(x) = -\\frac{3}{2x^2}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now, we check the limits:\n    \\[\n        \\lim_{x \\to 0} xP(x) = \\lim_{x \\to 0} x\\cdot\\frac{7(x + 1)}{2x} = \\lim_{x \\to 0} \\frac{7(x + 1)}{2} = \\frac{7}{2},\n    \\]\n    and\n    \\[\n        \\lim_{x \\to 0} x^2 Q(x) = \\lim_{x \\to 0} x^2\\cdot\\left(-\\frac{3}{2x^2}\\right) = -\\frac{3}{2}.\n    \\]\n\n    Since both limits exist and are finite, $x = 0$ is a regular singular point of the differential equation.</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2026-07-03",
+      "title": "Solve the differential equation p tan x + q tan y = tan z",
+      "difficulty": "medium",
+      "problem": "Solve the differential equation\n    \\[\n        p \\tan x + q \\tan y = \\tan z,\n    \\]\n    where \n    \\[\n        p = \\frac{\\partial z}{\\partial x} , \\quad q = \\frac{\\partial z}{\\partial y}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the method of Lagrange's auxiliary equations to solve the given partial differential equation.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">THe given differential equation is\n    \\begin{equation}\\label{eq:03July2026-1}\n        p \\tan x + q \\tan y = \\tan z,\n    \\end{equation}\n    where\n    \\[\n        p = \\frac{\\partial z}{\\partial x} , \\quad q = \\frac{\\partial z}{\\partial y}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The corresponding Lagrange's auxiliary equations are\n    \\begin{equation}\\label{eq:03July2026-2}\n        \\frac{\\mathrm{d} x}{\\tan x} = \\frac{\\mathrm{d} y}{\\tan y} = \\frac{\\mathrm{d} z}{\\tan z}.\n    \\end{equation}\n    Taking the first two fractions, we get\n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{\\tan x} = \\frac{\\mathrm{d} y}{\\tan y} & \\implies \\int \\frac{\\mathrm{d} x}{\\tan x} = \\int \\frac{\\mathrm{d} y}{   \\tan y} \\\\\n        & \\implies \\ln|\\sin x| = \\ln|\\sin y| + c_1' \\\\\n        & \\implies \\frac{\\sin x}{\\sin y} = c_1,\n    \\end{align*}\n    where $c_1$ is an arbitrary constant. Thus, the first integral is\n    \\begin{equation}\\label{eq:03July2026-3}\n        \\frac{\\sin x}{\\sin y} = c_1.\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now, taking the first and third fractions of \\eqref{eq:03July2026-2}, we get\n    \\begin{align*}\n        \\frac{\\mathrm{d} x}{\\tan x} = \\frac{\\mathrm{d} z}{\\tan z} & \\implies \\int \\frac{\\mathrm{d} x}{\\tan x} = \\int \\frac{\\mathrm{d} z}{\\tan z} \\\\\n        & \\implies \\ln|\\sin x| = \\ln|\\sin z| + c_2' \\\\\n        & \\implies \\frac{\\sin x}{\\sin z} = c_2,\n    \\end{align*}\n    where $c_2$ is an arbitrary constant. Thus, the second integral is\n    \\begin{equation}\\label{eq:03July2026-4}\n        \\frac{\\sin x}{\\sin z} = c_2.\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">From \\eqref{eq:03July2026-3} and \\eqref{eq:03July2026-4}, we get\n    \\[\n        \\frac{\\sin x}{\\sin y} = c_1 \\quad \\text{ and } \\quad \\frac{\\sin x}{\\sin z} = c_2.\n    \\]\n    The general solution of \\eqref{eq:03July2026-1} is given by\n    \\[\n        \\frac{\\sin x}{\\sin y} = \\phi \\left( \\frac{\\sin y}{\\sin z} \\right) \n    \\]\n    where $\\phi$ is an arbitrary function.</div>",
+      "tags": [
+        "differential-equation",
+        "pde"
+      ]
     }
   ]
 }

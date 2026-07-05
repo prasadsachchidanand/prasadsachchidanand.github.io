@@ -329,7 +329,7 @@
 
     {
       "date": "2026-06-22",
-      "title": "Problem of the Day",
+      "title": "Bartle and Sherbert 2.3.4: Lower and Upper Bounds of the set $S_1 = { x \\in \\mathbb{R} : x \\geq 0 }$",
       "difficulty": "medium",
       "problem": "Let $S_4 = \\left\\{ 1 - \\frac{(-1)^n}{n}: n \\in \\mathbb{N}  \\right\\} .$ Find $\\inf S_4$ and $\\sup S_4$.",
       "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Look at the odd and even terms of the sequence $x_n = 1 - \\frac{(-1)^n}{n}$ separately. Note that the odd terms are greater than $1$ and the even terms are less than $1$. Use this to find the infimum and supremum of $S_4$.</li></ul>",
@@ -338,6 +338,20 @@
         "real-analysis",
         "real-numbers",
         "real-analysis-bartle-sherbert (2.3.4)"
+      ]
+    },
+
+    {
+      "date": "2026-06-29",
+      "title": "Bartle and Sherbert 2.3.5: Lower and Upper Bounds of the set $S_5 = { x \\in \\mathbb{R} : x^2 - 2x - 5 < 0 }$",
+      "difficulty": "medium",
+      "problem": "Find the infimum and supremum, if they exist, of each of the following sets.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$A\\coloneqq \\{ x \\in \\mathbb{R} : 2x + 5 > 0 \\} $,</li>\n<li class=\"my-4\">$B \\coloneqq \\{ x \\in \\mathbb{R} : x + 2 \\geq x^2 \\} $,</li>\n<li class=\"my-4\">$C \\coloneqq \\{ x \\in \\mathbb{R} : x < \\frac{1}{x} \\} $,</li>\n<li class=\"my-4\">$D \\coloneqq \\{ x \\in \\mathbb{R} : x^2 - 2x - 5 < 0 \\} $.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Solve the inequalities to find the sets $A, B, C$ and $D$. Then use the definitions of infimum and supremum to find them for each set.</li></ul>",
+      "solution": "<ol class=\"math-list-roman my-4\"><li class=\"my-4\">The set $A = \\{ x \\in \\mathbb{R} : 2x + 5 > 0 \\}$. We can write \n        \\begin{align*}\n            x \\in A & \\implies 2x + 5 > 0 \\\\\n            & \\implies 2x > -5 \\\\\n            & \\implies x > -\\frac{5}{2}.\n        \\end{align*}\n        Thus, $A = \\left( -\\frac{5}{2}, \\infty \\right)$. The infimum of $A$ is $\\inf A = -\\frac{5}{2}$ and the supremum does not exist since the set is unbounded above.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The set $B = \\{ x \\in \\mathbb{R} : x + 2 \\geq x^2 \\}$. We have \n        \\begin{align*}\n            x \\in B & \\implies x + 2 \\geq x^2 \\\\\n            & \\implies 0 \\geq x^2 - x - 2 \\\\\n            & \\implies 0 \\geq (x - 2)(x + 1) \\\\\n            & \\implies (x - 2)(x + 1) \\leq 0.\n        \\end{align*}\n        Thus, $B = [-1, 2]$. The infimum of $B$ is $\\inf B = -1$ and the supremum is $\\sup B = 2$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The set $C = \\{ x \\in \\mathbb{R} : x < \\frac{1}{x} \\}$. So, we have \n        \\begin{align*}\n            x \\in C & \\implies x < \\frac{1}{x} \\\\\n            & \\implies  x - \\frac{1}{x} < 0 \\\\\n            & \\implies  \\frac{x^2 - 1}{x} < 0 \\\\\n            & \\implies  \\frac{(x - 1)(x + 1)}{x} < 0.\n        \\end{align*}\n        Thus, the solution to this inequality is $x \\in (-1, 0) \\cup (0, 1)$. Therefore, $C = (-1, 0) \\cup (0, 1)$. The infimum of $C$ is $\\inf C = -1$ and the supremum is $\\sup C = 1$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The set $D = \\{ x \\in \\mathbb{R} : x^2 - 2x - 5 < 0 \\}$. So,\n        \\begin{align*}\n            x \\in D & \\implies x^2 - 2x - 5 < 0 \\\\\n            & \\implies (x - (1 + \\sqrt{6}))(x - (1 - \\sqrt{6})) < 0.\n        \\end{align*}\n        Thus, the solution to this inequality is $x \\in (1 - \\sqrt{6}, 1 + \\sqrt{6})$. Therefore, $D = (1 - \\sqrt{6}, 1 + \\sqrt{6})$. The infimum of $D$ is $\\inf D = 1 - \\sqrt{6}$ and the supremum is $\\sup D = 1 + \\sqrt{6}$.</li></ol>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.3.5)"
       ]
     }
   ]

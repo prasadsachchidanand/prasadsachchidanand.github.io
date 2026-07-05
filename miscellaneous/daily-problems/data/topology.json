@@ -334,6 +334,19 @@
             "hausdorff-space",
             "connectedness"
           ]
+        },
+
+        {
+          "date": "2026-07-02",
+          "title": "Any compact subset of a Hausdorff space is closed",
+          "difficulty": "medium",
+          "problem": "Let $X$ be a Hausdorff space. Show that any compact subset $A \\subset X$ is closed.",
+          "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For any $x \\in X \\setminus A$, use the Hausdorff property to find disjoint open sets separating $x$ and each point of $A$. Then use compactness to extract a finite subcover and construct an open set containing $x$ that is disjoint from $A$.</li></ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $X$ be a Hausdorff space and $A \\subset X$ be a compact subset. We need to show that $A$ is closed in $X$. We will show that $X \\setminus A$ is open.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $x \\in X \\setminus A$. Since $X$ is Hausdorff, for each $a \\in A$, there exist disjoint open sets $U_a$ and $V_a$ such that $a \\in U_a$ and $x \\in V_a$. The collection $\\{U_a : a \\in A\\}$ is an open cover of $A$. Since $A$ is compact, there exist finitely many points $a_1, a_2, \\ldots, a_n \\in A$ such that\n    \\[\n        A \\subset \\bigcup_{i=1}^n U_{a_i}.\n    \\]\n    Let\n    \\[\n        V = \\bigcap_{i=1}^n V_{a_i}.\n    \\]\n    Then $V$ is an open set containing $x$ and disjoint from $\\bigcup_{i=1}^n U_{a_i}$, hence disjoint from $A$. Therefore, $x$ is not in the closure of $A$, which means that the complement of $A$ is open. Hence, $A$ is closed.</div>",
+          "tags": [
+            "topology",
+            "hausdorff-space"
+          ]
         }
     ]
 }

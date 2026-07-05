@@ -323,6 +323,18 @@
         "complex-integration",
         "residue-theorem"
       ]
+    },
+
+    {
+      "date": "2026-06-30",
+      "title": "Write the Cartesian form of $z = \\frac{1}{1 + \\cos t + i \\sin t}$",
+      "difficulty": "easy",
+      "problem": "Write in Cartesian forms the complex number \n    \\[\n        z = \\frac{1}{1 + \\cos t + i \\sin t}, \n    \\]\n    where $t$ is real and not an odd multiple of $\\pi $.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Multiply the numerator and denominator by the complex conjugate of the denominator to simplify the expression.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that \n    \\begin{align*}\n        z & = \\frac{1}{1 + \\cos t + i \\sin t} \\cdot \\frac{1 + \\cos t - i \\sin t}{1 + \\cos t - i \\sin t} \\\\[2mm]\n        & = \\frac{1 + \\cos t - i \\sin t}{(1 + \\cos t)^2 + \\sin^2 t} \\\\[1mm]\n        & = \\frac{1 + \\cos t - i \\sin t}{1 + 2\\cos t + \\cos^2 t + \\sin^2 t} \\\\[1mm]\n        & = \\frac{1 + \\cos t - i \\sin t}{2 + 2\\cos t} \\\\[1mm]\n        & = \\frac{1 + \\cos t - i \\sin t}{2(1 + \\cos t)} \\\\[1mm]\n        & = \\frac{1}{2} \\cdot \\frac{1 + \\cos t - i \\sin t}{1 + \\cos t} \\\\[1mm]\n        & = \\frac{1}{2} \\left( 1 - i \\frac{\\sin t}{1 + \\cos t} \\right).\n    \\end{align*}\n    Thus, the cartesian form of __MATH_2__ is\n    \\[\n        z = \\frac{1}{2} - i \\frac{\\sin t}{2(1 + \\cos t)}.\n    \\]</div>",
+      "tags": [
+        "complex-analysis"
+      ]
     }
   ]
 }

@@ -126,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'calculus': 'miscellaneous',
         'differential-geometry': 'miscellaneous',
         'combinatorics': 'miscellaneous',
+        'set-theory': 'miscellaneous',
 
         // gate
         'gate-2006': 'gate',
