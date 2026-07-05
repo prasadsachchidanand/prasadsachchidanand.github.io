@@ -352,6 +352,20 @@
         "linear-independence",
         "linear-algebra-hoffman-kunze (2.3.1)"
       ]
+    },
+
+    {
+      "date": "2026-07-05",
+      "title": "Hoffman and Kunze - Determine if the given vectors are linearly independent in $\\mathbb{R} ^4$",
+      "difficulty": "easy",
+      "problem": "Are the vectors \n    \\begin{align*}\n        \\alpha _1 & = (1, 1, 2, 4), \\qquad \\alpha _2 = (2, -1, -5, 2), \\\\\n        \\alpha _3 & = (1, -1, -4, 0), \\qquad \\alpha _4 = (2, 1, 1, 6)\n    \\end{align*}\n    linearly independent in $\\mathbb{R} ^4$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Check if the matrix whose rows are the $\\alpha _i$'s is invertible (Hoffman and Kunze Corollary 3, page 46).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To determine if the vectors $\\alpha_1, \\alpha_2, \\alpha_3, \\alpha_4$ are linearly independent in $\\mathbb{R}^4$, we need to check if the only solution to the equation\n    \\[\n        c_1 \\alpha_1 + c_2 \\alpha_2 + c_3 \\alpha_3 + c_4 \\alpha_4 = 0\n    \\]\n    is $c_1 = c_2 = c_3 = c_4 = 0$. Also, it suffices to determine if the matrix whose rows are the $\\alpha _i$'s are invertible (Hoffman and Kunze Corollary 3, page 46). The matrix whose rows are the $\\alpha _i$'s is given by\n    \\[\n        \\begin{bmatrix}\n            1 & 1 & 2 & 4 \\\\\n            2 & -1 & -5 & 2 \\\\\n            1 & -1 & -4 & 0 \\\\\n            2 & 1 & 1 & 6\n        \\end{bmatrix}.\n    \\]\n    In order to determine if the matrix is invertible, we can do row reduction.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We can perform the following row operations:\n    \\begin{align*}\n        \\begin{bmatrix}\n            1 & 1 & 2 & 4 \\\\\n            2 & -1 & -5 & 2 \\\\\n            1 & -1 & -4 & 0 \\\\\n            2 & 1 & 1 & 6\n        \\end{bmatrix} & \\xrightarrow[R_4 = R_4 - 2R_1]{R_2 = R_2 - 2R_1, R_3 = R_3 - R_1}\n        \\begin{bmatrix}\n            1 & 1 & 2 & 4 \\\\\n            0 & -3 & -9 & -6 \\\\\n            0 & -2 & -6 & -4 \\\\\n            0 & -1 & -3 & -2\n        \\end{bmatrix} \\\\\n        & \\xrightarrow[ R_4 = -R_4]{R_2 = -\\frac{1}{3}R_2, R_3 = -\\frac{1}{2}R_3}\n        \\begin{bmatrix}\n            1 & 1 & 2 & 4 \\\\\n            0 & 1 & 3 & 2 \\\\\n            0 & 1 & 3 & 2 \\\\\n            0 & 1 & 3 & 2\n        \\end{bmatrix} \\\\\n        & \\xrightarrow{R_3 = R_3 - R_2, R_4 = R_4 - R_2}\n        \\begin{bmatrix}\n            1 & 1 & 2 & 4 \\\\\n            0 & 1 & 3 & 2 \\\\\n            0 & 0 & 0 & 0 \\\\\n            0 & 0 & 0 & 0\n        \\end{bmatrix} \\\\\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since the row-reduced echelon form of the matrix has two non-zero rows, and hence the matrix is not invertible. Therefore, the vectors $\\alpha_1, \\alpha_2, \\alpha_3, \\alpha_4$ are linearly dependent in $\\mathbb{R}^4$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-independence",
+        "linear-algebra-hoffman-kunze (2.3.2)"
+      ]
     }
   ]
 }
