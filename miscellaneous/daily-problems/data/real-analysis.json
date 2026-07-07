@@ -353,6 +353,20 @@
         "real-numbers",
         "real-analysis-bartle-sherbert (2.3.5)"
       ]
+    },
+
+    {
+      "date": "2026-07-06",
+      "title": "Bartle and Sherbert 2.3.6: inf S = - sup (-S)",
+      "difficulty": "medium",
+      "problem": "Let $S$ be a nonempty subset of $\\mathbb{R} $ that is bounded below. Prove that \n    \\[\n        \\inf S = -\\sup \\{ -s: s \\in S \\} .\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Let $T = \\{ -s: s \\in S \\}$. Show that $T$ is bounded above and hence has a supremum. Then use the definition of infimum and supremum to show that $\\inf S = -\\sup T$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First of all we will show that the set \n    \\[\n        T \\coloneqq \\{ -s: s \\in S \\} \n    \\] \n    is bounded above. Since $S$ is bounded below, there exists a real number $\\alpha$ such that $\\alpha \\leq s$ for all $s \\in S$. Then, for any $t \\in T$, we have $t = -s$ for some $s \\in S$. Thus, we have\n    \\[\n        t = -s \\leq -\\alpha.\n    \\]\n    Therefore, $T$ is bounded above by $-\\alpha$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $T$ is bounded above, it has a supremum. Let $\\beta = \\sup T$. We claim that $\\inf S = -\\beta$. To see this, first note that for any $s \\in S$, we have $-s \\in T$. Thus, we have\n    \\[\n        -s \\leq \\beta \\implies s \\geq -\\beta.\n    \\]\n    Therefore, $-\\beta$ is a lower bound of $S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Next, let $\\gamma$ be any lower bound of $S$. Then, we have $\\gamma \\leq s$ for all $s \\in S$. Thus, for any $t \\in T$, we have $t = -s$ for some $s \\in S$. Therefore, we have\n    \\[\n        -t = s \\geq \\gamma \\implies t \\leq -\\gamma.\n    \\]\n    Thus, $-\\gamma$ is an upper bound of $T$. Since $\\beta = \\sup T$, we have $\\beta \\leq -\\gamma$. Therefore, we have\n    \\[\n        -\\beta \\geq \\gamma.\n    \\]\n    Since $\\gamma$ is an arbitrary lower bound of $S$, we have shown that $-\\beta$ is the greatest lower bound of $S$. Therefore, we have\n    \\[\n        \\inf S = -\\beta = -\\sup T = -\\sup \\{-s: s \\in S \\}.\n    \\]</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.3.6)"
+      ]
     }
   ]
 }

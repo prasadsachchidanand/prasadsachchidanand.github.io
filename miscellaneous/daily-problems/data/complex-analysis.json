@@ -335,6 +335,18 @@
       "tags": [
         "complex-analysis"
       ]
+    },
+
+    {
+      "date": "2026-07-07",
+      "title": "Find the equation of the locus of the point $P$ representing $z \\in \\mathbb{C} $ such that $\\vert z - 1\\vert = 4$",
+      "difficulty": "easy",
+      "problem": "Let $z = x + \\iota y$ and $\\vert z - 1\\vert = 4$. Find the equation of the locus of the point $P$ representing $z \\in \\mathbb{C} $.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Substitute $z = x + \\iota y$ into the equation $\\vert z - 1\\vert = 4$ and simplify to find the relationship between $x$ and $y$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We have $\\vert z - 1 \\vert = 4$, which can be rewritten as\n    \\begin{align*}\n        \\vert x + \\iota y - 1 \\vert = 4 & \\implies \\left\\vert (x - 1) + \\iota y \\right\\vert = 4 \\\\\n        & \\implies \\sqrt{(x - 1)^2 + y^2} = 4 \\\\\n        & \\implies (x - 1)^2 + y^2 = 16.\n    \\end{align*} \n    Thus, the equation of the locus of the point $P$ representing $z \\in \\mathbb{C} $ is\n    \\[\n        (x - 1)^2 + y^2 = 16,\n    \\]\n    which is the equation of a circle with center at $(1, 0)$ and radius $4$.</div>",
+      "tags": [
+        "complex-analysis"
+      ]
     }
   ]
 }

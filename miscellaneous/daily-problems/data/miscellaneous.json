@@ -291,15 +291,15 @@
 
     {
       "date": "2026-06-06",
-      "title": "Set Theory - Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets",
+      "title": "Set Theory - Express sets in terms of $A, B$, and $C$ using set operations",
       "difficulty": "easy",
-      "problem": "Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets.",
-      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The deMorgan's law for arbitrary unions is given by\n        \\[\n             \\left( \\bigcup_{i \\in I} A_i \\right)^c = \\bigcap_{i \\in I} A_i^c\n        \\]\n        and for the intersections is given by\n        \\[\n            \\left( \\bigcap_{i \\in I} A_i \\right)^c = \\bigcup_{i \\in I} A_i^c,\n        \\]\n        where $\\{ A_i \\}_{i \\in I}$ is a family of sets indexed by $I$.</li></ul>",
-      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>DeMorgan's law for arbitrary unions:</strong> Let $\\{ A_i \\}_{i \\in I}$ be a family of sets indexed by $I$. Then,\n    \\[\n        \\left( \\bigcup_{i \\in I} A_i \\right)^c = \\bigcap_{i \\in I} A_i^c.\n    \\]\n    <strong>Proof:</strong> Let $x \\in \\left( \\bigcup_{i \\in I} A_i \\right)^c$. Then $x \\notin \\bigcup_{i \\in I} A_i$, which means that $x \\notin A_i$ for all $i \\in I$. Therefore, $x \\in A_i^c$ for all $i \\in I$, which implies that $x \\in \\bigcap_{i \\in I} A_i^c$. Conversely, let $x \\in \\bigcap_{i \\in I} A_i^c$. Then $x \\in A_i^c$ for all $i \\in I$, which means that $x \\notin A_i$ for all $i \\in I$. Therefore, $x \\notin \\bigcup_{i \\in I} A_i$, which implies that $x \\in \\left( \\bigcup_{i \\in I} A_i \\right)^c$. Hence, we have shown that \n    \\[\n        \\left( \\bigcup_{i \\in I} A_i \\right)^c = \\bigcap_{i \\in I} A_i^c.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>DeMorgan's law for arbitrary intersections:</strong> Let $\\{ A_i \\}_{i \\in I}$ be a family of sets indexed by $I$. Then,\n    \\[\n        \\left( \\bigcap_{i \\in I} A_i \\right)^c = \\bigcup_{i \\in I} A_i^c.\n    \\]\n    <strong>Proof:</strong> Let $x \\in \\left( \\bigcap_{i \\in I} A_i \\right)^c$. Then $x \\notin \\bigcap_{i \\in I} A_i$, which means that there exists some $i \\in I$ such that $x \\notin A_i$. Therefore, $x \\in A_i^c$ for some $i \\in I$, which implies that $x \\in \\bigcup_{i \\in I} A_i^c$. Conversely, let $x \\in \\bigcup_{i \\in I} A_i^c$. Then there exists some $i \\in I$ such that $x \\in A_i^c$, which means that $x \\notin A_i$. Therefore, $x \\notin \\bigcap_{i \\in I} A_i$, which implies that $x \\in \\left( \\bigcap_{i \\in I} A_i \\right)^c$. Hence, we have shown that\n    \\[\n        \\left( \\bigcap_{i \\in I} A_i \\right)^c = \\bigcup_{i \\in I} A_i^c.\n    \\]</div>",
+      "problem": "Given sets $A, B$, and $C$, express each of the following sets in terms of $A, B$, and $C$, using the symbol $ \\cup ,  \\cap ,$ and $-$. \n    \\begin{align*}\n        D & = \\{ x : x \\in A \\text{ and } (x \\in B \\text{ or } x \\in C ) \\}, \\\\\n        E & = \\{ x : (x \\in A \\text{ and } x \\in B) \\text{ or } x \\in C \\}, \\\\\n        F & = \\{ x : x\\in A \\text{ and } (x \\in B \\implies x \\in C) \\}.\n    \\end{align*}",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Follow the definitions of set operations and logical implications to express each set in terms of $A, B$, and $C$ using the symbols $\\cup, \\cap,$ and $-$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that \n    \\begin{align*}\n        x \\in D & \\iff x \\in A \\text{ and } (x \\in B \\text{ or } x \\in C ) \\\\\n        & \\iff x \\in A \\text{ and } (x \\in B \\cup C) \\\\\n        & \\iff x \\in A \\cap (B \\cup C).\n    \\end{align*}\n    Hence, we have shown that\n    \\[\n        D = A \\cap (B \\cup C).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Similarly, we have\n    \\begin{align*}\n        x \\in E & \\iff (x \\in A \\text{ and } x \\in B) \\text{ or } x \\in C \\\\\n        & \\iff x \\in (A \\cap B) \\cup C.\n    \\end{align*}\n    Hence, we have shown that\n    \\[\n        E = (A \\cap B) \\cup C.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Finally, we have\n    \\begin{align*}\n        x \\in F & \\iff x \\in A \\text{ and } (x \\in B \\implies x \\in C) \\\\\n        & \\iff x \\in A \\text{ and } (x \\notin B \\text{ or } x \\in C) \\\\\n        & \\iff x \\in A \\text{ and } (x \\in B^c \\cup C) \\\\\n        & \\iff x \\in A \\cap (x \\notin B  \\cap C^c) \\\\\n        & \\iff x \\in A  \\cap (x \\in B - C)^c \\\\\n        & \\iff x \\in A - (B - C).\n    \\end{align*}\n    Hence, we have shown that\n    \\[\n        F = A \\cap (B^c \\cup C).\n    \\]</div>",
       "tags": [
         "miscellaneous",
         "set-theory",
-        "topology-munkres (1.9)"
+        "topology-munkres (1.7)"
       ]
     },
 
@@ -317,7 +317,19 @@
       ]
     },
 
-    
+    {
+      "date": "2026-06-20",
+      "title": "Set Theory - Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets",
+      "difficulty": "easy",
+      "problem": "Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The deMorgan's law for arbitrary unions is given by\n        \\[\n             \\left( \\bigcup_{i \\in I} A_i \\right)^c = \\bigcap_{i \\in I} A_i^c\n        \\]\n        and for the intersections is given by\n        \\[\n            \\left( \\bigcap_{i \\in I} A_i \\right)^c = \\bigcup_{i \\in I} A_i^c,\n        \\]\n        where $\\{ A_i \\}_{i \\in I}$ is a family of sets indexed by $I$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>DeMorgan's law for arbitrary unions:</strong> Let $\\{ A_i \\}_{i \\in I}$ be a family of sets indexed by $I$. Then,\n    \\[\n        \\left( \\bigcup_{i \\in I} A_i \\right)^c = \\bigcap_{i \\in I} A_i^c.\n    \\]\n    <strong>Proof:</strong> Let $x \\in \\left( \\bigcup_{i \\in I} A_i \\right)^c$. Then $x \\notin \\bigcup_{i \\in I} A_i$, which means that $x \\notin A_i$ for all $i \\in I$. Therefore, $x \\in A_i^c$ for all $i \\in I$, which implies that $x \\in \\bigcap_{i \\in I} A_i^c$. Conversely, let $x \\in \\bigcap_{i \\in I} A_i^c$. Then $x \\in A_i^c$ for all $i \\in I$, which means that $x \\notin A_i$ for all $i \\in I$. Therefore, $x \\notin \\bigcup_{i \\in I} A_i$, which implies that $x \\in \\left( \\bigcup_{i \\in I} A_i \\right)^c$. Hence, we have shown that \n    \\[\n        \\left( \\bigcup_{i \\in I} A_i \\right)^c = \\bigcap_{i \\in I} A_i^c.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>DeMorgan's law for arbitrary intersections:</strong> Let $\\{ A_i \\}_{i \\in I}$ be a family of sets indexed by $I$. Then,\n    \\[\n        \\left( \\bigcap_{i \\in I} A_i \\right)^c = \\bigcup_{i \\in I} A_i^c.\n    \\]\n    <strong>Proof:</strong> Let $x \\in \\left( \\bigcap_{i \\in I} A_i \\right)^c$. Then $x \\notin \\bigcap_{i \\in I} A_i$, which means that there exists some $i \\in I$ such that $x \\notin A_i$. Therefore, $x \\in A_i^c$ for some $i \\in I$, which implies that $x \\in \\bigcup_{i \\in I} A_i^c$. Conversely, let $x \\in \\bigcup_{i \\in I} A_i^c$. Then there exists some $i \\in I$ such that $x \\in A_i^c$, which means that $x \\notin A_i$. Therefore, $x \\notin \\bigcap_{i \\in I} A_i$, which implies that $x \\in \\left( \\bigcap_{i \\in I} A_i \\right)^c$. Hence, we have shown that\n    \\[\n        \\left( \\bigcap_{i \\in I} A_i \\right)^c = \\bigcup_{i \\in I} A_i^c.\n    \\]</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "topology-munkres (1.9)"
+      ]
+    },
 
     {
       "date": "2026-07-04",
