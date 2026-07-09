@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // topology
         'metric-space': 'topology',
+        'open-set': 'topology',
         'product-topology': 'topology',
         'hausdorff-space': 'topology',
         'homeomorphism': 'topology',

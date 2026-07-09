@@ -347,6 +347,20 @@
             "topology",
             "hausdorff-space"
           ]
+        },
+
+        {
+          "date": "2026-07-09",
+          "title": "",
+          "difficulty": "medium",
+          "problem": "Let $X$ be a topological space. Let $A$ be a subset of $X$ . Suppose that for each $x \\in A$ there is an open set $U$ containing $x$ such that $U \\subseteq A.$ Show that $A$ is open in $X$. (Recall that a set $U$ is open in $X$ if and only if $U$ belongs to the topology of $X$.)",
+          "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">From the given hypothesis $\\forall\\ x\\in A$ find an open set $U_x$ such that $U_x \\subseteq A$.</li>\n<li class=\"my-4\">Finally use that arbitrary union of open sets is open to conclude that $A$ is open.</li></ul>",
+          "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\mathcal{T} $ be the corresponding topology on $X$. Let $x \\in A$. So, for this $x$, we can find $U_x \\in \\mathcal{T} $ such that $U_x \\subseteq A$. We claim that \n    \\[\n        A = \\bigcup_{x\\in A} U_x . \n    \\]     \n    Since for any $x \\in A$, $U_x \\subseteq A$ so the union wil also be a subset of $A$. For the other side, if $y \\in A$m, then $y \\in U_y \\subseteq \\cup_{x\\in A} U_x$. Thus, $A \\subseteq \\cup_{x\\in A} U_x$ and hence $A = \\cup_{x\\in A} U_x$. Since $U_x \\in \\mathcal{T} $ and hence $\\cup_{x\\in A} U_x \\in \\mathcal{T} $. Therefore, $A$ is open in $X$.</div>",
+          "tags": [
+            "topology",
+            "open-set",
+            "topology-munkres (2.13.1)"
+          ]
         }
     ]
 }

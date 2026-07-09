@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CVGSV7Y2CE');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title id="page-title">Book Solutions - Sachchidanand Prasad</title>
+
+    <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.png" />
+    <link href="../../assets/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="../daily-problems/answer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Type system: a serif for book/section titles (evokes the printed texts
+         themselves), a humanist sans for reading, and a monospace for every
+         "coordinate" — chapter.section.problem numbers behave like addresses,
+         so they get their own consistent, tabular typeface throughout. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap"
+        rel="stylesheet">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
+        crossorigin="anonymous"></script>
+
+    <!-- MathJax: matches the exact config used on the daily-problem pages. -->
+    <script>
+        MathJax = {
+            loader: {
+                load: ['[tex]/mathtools']
+            },
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ],
+                tags: 'ams',
+                displayMath: [
+                    ['$$', '$$'],
+                    ['\\[', '\\]']
+                ],
+                packages: { '[+]': ['mathtools'] }
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* ---------------------------------------------------------------
+           Design tokens — "The Working Notebook"
+           A quiet, paper-and-ink identity for a page of worked textbook
+           problems: cool paper (not the usual AI cream), chalkboard-blue
+           chrome, a rust accent used sparingly, and exercise numbers that
+           read like coordinates (§2.3.14) because that's exactly what they
+           are in these books.
+        ----------------------------------------------------------------*/
+        :root {
+            --paper: #F3F4F0;
+            --paper-deep: #EAECE6;
+            --rule: #DBDED5;
+            --ink: #171B1E;
+            --ink-soft: #4B5652;
+            --chalk: #2C5A73;
+            --chalk-dark: #1E4054;
+            --rust: #A84B27;
+            --card: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--paper);
+            color: var(--ink);
+            font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            /* Subtle radial depth instead of a literal grid — reads as
+               quality paper stock rather than graph paper, and won't
+               compete with content or look "AI-generated-template" at
+               a glance. */
+            background-image:
+                radial-gradient(ellipse 900px 500px at 15% -10%, rgba(44, 90, 115, 0.07), transparent 60%),
+                radial-gradient(ellipse 900px 600px at 100% 0%, rgba(168, 75, 39, 0.05), transparent 55%);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .font-display {
+            font-family: 'Spectral', ui-serif, Georgia, serif;
+        }
+
+        .font-mono,
+        .coord,
+        .mono-label {
+            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+        }
+
+        ::selection {
+            background: var(--chalk);
+            color: #fff;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--chalk);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* ---------- top navigation ---------- */
+        .site-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .site-brand {
+            font-family: 'Spectral', serif;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .nav-link {
+            color: var(--ink-soft);
+            transition: color .15s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            color: var(--chalk-dark);
+        }
+
+        .nav-link.is-active {
+            color: var(--ink);
+            background: var(--paper-deep);
+        }
+
+        /* ---------- shared "coordinate" tag: the signature element ----------
+           Every chapter/section/problem number in the site is rendered as
+           this small crosshair-marked mono tag, so a "2.3.14" always reads
+           as an address, never as a stray number. */
+        .coord {
+            display: inline-flex;
+            align-items: center;
+            gap: .3em;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            line-height: 1;
+            padding: .3em .55em;
+            border-radius: 5px;
+            border: 1px solid currentColor;
+            white-space: nowrap;
+        }
+
+        .coord::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 1px;
+            background: currentColor;
+            transform: rotate(45deg);
+            flex: none;
+        }
+
+        /* ---------- generic surfaces ---------- */
+        .surface-card {
+            background: var(--card);
+            border: 1px solid var(--rule);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+        }
+
+        .surface-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px -12px rgba(32, 38, 43, 0.22);
+            border-color: #cfd3c9;
+        }
+
+        .btn {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-radius: 8px;
+            padding: .5rem 1rem;
+            transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-hint {
+            background: #FBF3E6;
+            color: #8A5A16;
+            border-color: #EFD9AE;
+        }
+
+        .btn-hint:hover {
+            background: #F6E8CC;
+        }
+
+        .btn-solution {
+            background: #EAF3EE;
+            color: var(--chalk-dark);
+            border-color: #C6DFD0;
+        }
+
+        .btn-solution:hover {
+            background: #DCEDE2;
+        }
+
+        .reveal-box {
+            border-left: 3px solid var(--chalk);
+            background: #F4F8F6;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .reveal-box.is-hint {
+            border-left-color: #C08A2E;
+            background: #FBF6EC;
+        }
+
+        .difficulty-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* ---------- accordion chrome shared by the book view ---------- */
+        .chapter-card {
+            background: var(--card);
+            border: 1px solid var(--rule);
+        }
+
+        .chapter-card summary,
+        .chapter-toggle,
+        .section-toggle {
+            cursor: pointer;
+        }
+
+        .problem-row {
+            transition: background-color .15s ease, border-color .15s ease, padding-left .15s ease;
+        }
+
+        .problem-row:hover {
+            padding-left: 0.35rem;
+        }
+
+        /* Defensive backup: Tailwind's CSS reset forces every <svg> to
+           display:block, which can break inline math (MathJax's SVG output
+           wraps each formula in an <svg>) onto its own line. The main site's
+           stylesheet already handles this for daily-problem pages; this is
+           just a local backup in case this page's DOM structure differs. */
+        mjx-container:not([display="true"]) {
+            display: inline-block;
+        }
+
+        mjx-container[display="true"] {
+            display: block;
+            margin: 1em 0;
+        }
+    </style>
+
+    <!-- Generated by generate-books-data.js — run that script after adding new book-tagged problems -->
+    <script src="booksData.js"></script>
+</head>
+
+<body>
+    <div class="flex flex-col min-h-screen">
+
+        <!-- navbar (same as rest of site, restyled) -->
+        <div class="fixed inset-x-0 left-0 right-0 w-full site-nav z-10">
+            <div x-data="{ open: false }"
+                class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                <div class="p-4 flex flex-row items-center justify-between">
+                    <a href="../../"
+                        class="site-brand text-lg text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">Sachchidanand
+                        Prasad</a>
+                    <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+                        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6" style="color: var(--ink-soft);">
+                            <path x-show="!open" fill-rule="evenodd"
+                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                                clip-rule="evenodd"></path>
+                            <path x-show="open" fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav :class="{'flex': open, 'hidden': !open}"
+                    class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+                    <a class="nav-link px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:outline-none focus:shadow-outline"
+                        href="../../">Home</a>
+                    <a class="nav-link px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline"
+                        href="../../research/">Research</a>
+                    <a class="nav-link px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline"
+                        href="../../teaching/">Teaching</a>
+                    <a class="nav-link px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline"
+                        href="../../resume/">CV</a>
+                    <a class="nav-link px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline"
+                        href="../../publications/">Publications</a>
+                    <a class="nav-link is-active px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline"
+                        href="../">Miscellaneous</a>
+                    <a class="nav-link px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline"
+                        href="../../contact/">Contact</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- app root: books.js renders everything below into here -->
+        <section class="text-gray-600 body-font flex-grow" style="margin-top: 96px;">
+            <div class="container px-5 py-10 mx-auto max-w-5xl">
+                <div id="app"></div>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <footer class="mt-auto" style="border-top: 1px solid var(--rule);">
+            <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+                <p class="text-sm sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4" style="color: var(--ink-soft);">©
+                    <script>document.write(new Date().getFullYear())</script> Sachchidanand
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="books.js"></script>
+</body>
+</html>
