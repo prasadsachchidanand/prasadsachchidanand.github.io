@@ -172,13 +172,27 @@
             Object.values(book.chapters).forEach(ch => { problemCount += chapterProblemsFlat(ch).length; });
             const a = accentClasses(book.color);
 
+            // The accent color always renders as the base layer of the cover
+            // box. If a cover image is available it sits on top, filling the
+            // box — if it fails to load for any reason, onerror just hides
+            // the <img>, so the colored placeholder shows through underneath
+            // with zero extra fallback logic needed.
+            const coverBox = `
+                <div class="flex-shrink-0 w-14 h-20 rounded-md overflow-hidden border border-gray-200 relative ${a.bar}">
+                    ${book.cover ? `<img src="${book.cover}" alt="${book.title} cover" loading="lazy"
+                          class="absolute inset-0 w-full h-full object-cover"
+                          onerror="this.style.display='none';">` : ''}
+                </div>`;
+
             return `
                 <a href="#/${encodeURIComponent(key)}"
-                   class="group block rounded-2xl border border-gray-200 bg-white p-5 transition-all duration-200 hover:border-gray-300 hover:shadow-md">
-                    <div class="h-1 w-10 rounded-full ${a.bar} mb-4"></div>
-                    <h3 class="text-lg font-semibold text-gray-900 leading-snug group-hover:text-gray-700">${book.title}</h3>
-                    <p class="text-sm text-gray-500 mt-1">${book.author}</p>
-                    <p class="text-xs text-gray-400 mt-4">${chapterCount} chapter${chapterCount === 1 ? '' : 's'} &middot; ${problemCount} problem${problemCount === 1 ? '' : 's'}</p>
+                   class="group flex gap-4 rounded-2xl border border-gray-200 bg-white p-4 transition-all duration-200 hover:border-gray-300 hover:shadow-md">
+                    ${coverBox}
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-lg font-semibold text-gray-900 leading-snug group-hover:text-gray-700">${book.title}</h3>
+                        <p class="text-sm text-gray-500 mt-1">${book.author}</p>
+                        <p class="text-xs text-gray-400 mt-3">${chapterCount} chapter${chapterCount === 1 ? '' : 's'} &middot; ${problemCount} problem${problemCount === 1 ? '' : 's'}</p>
+                    </div>
                 </a>`;
         }).join('');
 
@@ -213,9 +227,9 @@
             const showTitle = cleanTitle && !isRedundantTitle(cleanTitle, p.problem);
             return `
                 <a href="#/${encodeURIComponent(bookKey)}/${encodeURIComponent(p.number)}"
-                   class="block rounded-xl border border-transparent px-4 py-3 -mx-1 transition-all ${a.hoverBg} hover:border-gray-200">
+                   class="block px-4 py-4 -mx-1 border-b border-gray-100 last:border-b-0 even:bg-gray-50/60 transition-colors hover:bg-gray-100">
                     <div class="flex items-center gap-2 mb-1.5">
-                        <span class="text-sm font-semibold ${a.text}">${p.number}</span>
+                        <span class="coord ${a.text}">${p.number}</span>
                         ${difficultyBadge(p.difficulty)}
                     </div>
                     ${showTitle ? `<p class="text-xs uppercase tracking-wide text-gray-400 font-medium mb-1.5">${cleanTitle}</p>` : ''}
@@ -228,7 +242,7 @@
             const problems = [...secNode.problems].sort((x, y) => compareDotted(x.number, y.number));
             return `
                 <div class="ml-2 border-l-2 border-gray-100 pl-4 mt-2">
-                    <button type="button" class="section-toggle w-full flex items-center justify-between py-2 text-left"
+                    <button type="button" class="section-toggle w-full flex items-center justify-between py-2 border-b border-gray-100 text-left"
                             data-chapter="${chKey}" data-section="${secKey}">
                         <span class="text-sm font-semibold text-gray-600">Section ${chKey}.${secKey}</span>
                         <span class="flex items-center gap-2 text-xs text-gray-400">
@@ -236,7 +250,7 @@
                             <svg class="chevron w-3.5 h-3.5 transition-transform ${isOpen ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </span>
                     </button>
-                    <div class="section-panel ${isOpen ? '' : 'hidden'} space-y-1 pb-2" data-panel-chapter="${chKey}" data-panel-section="${secKey}">
+                    <div class="section-panel ${isOpen ? '' : 'hidden'} pb-2" data-panel-chapter="${chKey}" data-panel-section="${secKey}">
                         ${problems.map(problemRow).join('')}
                     </div>
                 </div>`;
@@ -252,7 +266,7 @@
             return `
                 <div class="border border-gray-200 rounded-2xl mb-3 overflow-hidden bg-white">
                     <button type="button"
-                            class="chapter-toggle w-full flex items-center justify-between px-5 py-4 hover:bg-gray-50 text-left"
+                            class="chapter-toggle w-full flex items-center justify-between px-5 py-4 border-b border-gray-100 hover:bg-gray-50 text-left"
                             data-chapter="${chKey}">
                         <span class="font-semibold text-gray-900">Chapter ${chKey}</span>
                         <span class="flex items-center gap-3 text-sm text-gray-400">
@@ -261,7 +275,7 @@
                         </span>
                     </button>
                     <div class="chapter-panel ${isOpen ? '' : 'hidden'} px-5 pb-4" data-panel="${chKey}">
-                        ${directProblems.length ? `<div class="space-y-1">${directProblems.map(problemRow).join('')}</div>` : ''}
+                        ${directProblems.length ? `<div>${directProblems.map(problemRow).join('')}</div>` : ''}
                         ${sectionKeys.map(secKey => sectionBlock(chKey, secKey, chNode.sections[secKey])).join('')}
                     </div>
                 </div>`;
@@ -393,7 +407,8 @@
         content.innerHTML = `
             <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
                 <div class="flex items-center gap-2">
-                    <span class="text-sm font-semibold ${a.text}">Problem ${entry.number}</span>
+                    <span class="text-sm text-gray-500">Problem</span>
+                    <span class="coord ${a.text}">${entry.number}</span>
                     ${difficultyBadge(problem.difficulty)}
                 </div>
                 <a href="${buildDateURL(entry.date)}" target="_blank"
