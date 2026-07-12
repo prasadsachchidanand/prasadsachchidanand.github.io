@@ -17,6 +17,14 @@
  *   book (lowercase, without the " (x.y.z)" suffix) — this is what lets the
  *   script merge historical naming drift into one canonical book.
  *
+ * COVER IMAGES (optional):
+ *   Drop an image file named exactly "<book-key>.jpg" (or .png/.webp/.jpeg)
+ *   into miscellaneous/books/covers/ and re-run this script — it's picked
+ *   up automatically, no config needed. A book with no matching file just
+ *   keeps the plain spine-card look. Only use cover images you have the
+ *   rights to use (e.g. photos of your own copy) — book cover art is
+ *   normally copyrighted.
+ *
  * TAGGING CONVENTION GOING FORWARD (please use this for all new problems):
  *   "<book-key> (<chapter>.<section>.<problem>)"
  *   e.g. "abstract-algebra-herstein (2.3.14)"
@@ -30,6 +38,20 @@ const DATA_DIR = path.join(__dirname, 'data');
 // books/ now lives as a sibling of daily-problems/ (i.e. miscellaneous/books/),
 // not inside it — so we go up one level from this script's location.
 const OUT_FILE = path.join(__dirname, '..', 'books', 'booksData.js');
+// Drop a cover image named exactly "<book-key>.jpg" (or .png/.webp/.jpeg) in
+// miscellaneous/books/covers/ and it's picked up automatically — no config
+// needed. A book with no matching file just keeps the plain spine-card look.
+const COVERS_DIR = path.join(__dirname, '..', 'books', 'covers');
+const COVER_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp'];
+
+function findCoverImage(bookKey) {
+  for (const ext of COVER_EXTENSIONS) {
+    if (fs.existsSync(path.join(COVERS_DIR, `${bookKey}${ext}`))) {
+      return `covers/${bookKey}${ext}`; // relative path, as used from books/index.html
+    }
+  }
+  return null;
+}
 
 // ---- 1. Canonical book registry -------------------------------------------
 const BOOK_REGISTRY = [
@@ -90,7 +112,13 @@ BOOK_REGISTRY.forEach(book => {
 });
 const bookMeta = {};
 BOOK_REGISTRY.forEach(book => {
-  bookMeta[book.key] = { title: book.title, author: book.author, shortName: book.shortName, color: book.color };
+  bookMeta[book.key] = {
+    title: book.title,
+    author: book.author,
+    shortName: book.shortName,
+    color: book.color,
+    cover: findCoverImage(book.key),
+  };
 });
 
 // ---- 2. Tag parsers ---------------------------------------------------------
@@ -233,7 +261,7 @@ Object.entries(books).forEach(([key, b]) => {
     problemCount += ch.problems.length;
     Object.values(ch.sections).forEach(sec => { problemCount += sec.problems.length; });
   });
-  console.log(`   - ${key}: ${chapterCount} chapters, ${problemCount} problems`);
+  console.log(`   - ${key}: ${chapterCount} chapters, ${problemCount} problems${b.cover ? ` (cover: ${b.cover})` : ' (no cover image found)'}`);
 });
 
 if (unmatched.size > 0) {

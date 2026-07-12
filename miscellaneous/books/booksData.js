@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-10T01:13:01.673Z
+// Generated on: 2026-07-12T10:43:51.740Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -8,7 +8,41 @@ const booksData = {
     "author": "I. N. Herstein",
     "shortName": "Herstein",
     "color": "rose",
+    "cover": "covers/abstract-algebra-herstein.jpg",
     "chapters": {
+      "1": {
+        "problems": [],
+        "sections": {
+          "1": {
+            "problems": [
+              {
+                "number": "1.1.1",
+                "date": "2026-07-11",
+                "topic": "miscellaneous",
+                "title": "Herstein - 1.1.1 - Show that a set with a binary operation satisfying certain properties can have at most one element",
+                "difficulty": "easy",
+                "problem": "Let $S$ be a set having an operation $*$ which assigns an element $a*b$ of $S$ for any $a,b\\in S$. Let us assume that the following two rules hold:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">If $a,b$ are any objects in $S$, then $a * b = a$.</li>\n<li class=\"my-4\">If $a,b$ are any objects in $S$, then $a * b = b * a$.</li></ol>   \n    Show that $S$ can have at most one object."
+              },
+              {
+                "number": "1.1.2",
+                "date": "2025-05-17",
+                "topic": "miscellaneous",
+                "title": "Herstein: 1.1.2 - Set Theory - Verify the properties of the operation * defined on S",
+                "difficulty": "easy",
+                "problem": "Let $S$ be the set of all integers $0, \\pm 1, \\pm 2, \\dots.$ For $a,b \\in S$ define $*$ by $a * b = a - b$. Verify the following:\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$a * b \\neq b * a$ unless $a = b$.</li>\n<li class=\"my-4\">$(a * b) * c \\neq a * (b * c)$ in general. Under what conditions on $a,b, c$ is $(a * b) * c = a * (b * c)$?</li>\n<li class=\"my-4\">The integer $0$ has the property that $a * 0 = a$ for every $a \\in S$.</li>\n<li class=\"my-4\">For $a \\in S$, $a * a = 0$.</li></ol>"
+              },
+              {
+                "number": "1.1.3",
+                "date": "2025-05-24",
+                "topic": "miscellaneous",
+                "title": "Herstein: 1.1.3 - Set Theory - Verify the properties of the operation * defined on S",
+                "difficulty": "easy",
+                "problem": "Let $S$ consists of two objects $\\square$ and $\\triangle$. We define the operation $*$ on $S$ by subjecting $\\square$ and $\\triangle$ the following conditions: \n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\square * \\triangle = \\triangle = \\triangle * \\square$.</li>\n<li class=\"my-4\">$\\square * \\square = \\square$.</li>\n<li class=\"my-4\">$\\triangle * \\triangle = \\square$.</li></ol>\n    Verify by explicit calculation that if $a,b,c$ are any elements of $S$ (i.e., $a,b,\\text{ and } c$ can be any of $\\square$ or $\\triangle$), then \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$a * b \\in S$.</li>\n<li class=\"my-4\">$(a * b) * c = a * (b * c)$.</li>\n<li class=\"my-4\">$a * b = b * a$.</li>\n<li class=\"my-4\">There is a particular element $a \\in S$ such that $a * b = b * a = b$ for all $b \\in S$.</li>\n<li class=\"my-4\">Given $b \\in S$, then $b * b = a$, where $a$ is the particular element in part (iv).</li></ol>"
+              }
+            ]
+          }
+        }
+      },
       "2": {
         "problems": [],
         "sections": {
@@ -158,6 +192,7 @@ const booksData = {
     "author": "Hoffman & Kunze",
     "shortName": "Hoffman",
     "color": "emerald",
+    "cover": "covers/linear-algebra-hoffman-kunze.jpg",
     "chapters": {
       "2": {
         "problems": [],
@@ -315,6 +350,14 @@ const booksData = {
                 "title": "Hoffman and Kunze - Determine if the given vectors are linearly independent in $\\mathbb{R} ^4$",
                 "difficulty": "easy",
                 "problem": "Are the vectors \n    \\begin{align*}\n        \\alpha _1 & = (1, 1, 2, 4), \\qquad \\alpha _2 = (2, -1, -5, 2), \\\\\n        \\alpha _3 & = (1, -1, -4, 0), \\qquad \\alpha _4 = (2, 1, 1, 6)\n    \\end{align*}\n    linearly independent in $\\mathbb{R} ^4$?"
+              },
+              {
+                "number": "2.3.3",
+                "date": "2026-07-12",
+                "topic": "linear-algebra",
+                "title": "Problem of the Day",
+                "difficulty": "medium",
+                "problem": "Find a basis for the subspace of $\\mathbb{R}^4$ spanned by the four vectors of exercise 2."
               }
             ]
           }
@@ -327,43 +370,56 @@ const booksData = {
     "author": "James Munkres",
     "shortName": "Munkres",
     "color": "violet",
+    "cover": "covers/topology-munkres.jpg",
     "chapters": {
       "1": {
-        "problems": [
-          {
-            "number": "1.7",
-            "date": "2026-06-06",
-            "topic": "miscellaneous",
-            "title": "Set Theory - Express sets in terms of $A, B$, and $C$ using set operations",
-            "difficulty": "easy",
-            "problem": "Given sets $A, B$, and $C$, express each of the following sets in terms of $A, B$, and $C$, using the symbol $ \\cup ,  \\cap ,$ and $-$. \n    \\begin{align*}\n        D & = \\{ x : x \\in A \\text{ and } (x \\in B \\text{ or } x \\in C ) \\}, \\\\\n        E & = \\{ x : (x \\in A \\text{ and } x \\in B) \\text{ or } x \\in C \\}, \\\\\n        F & = \\{ x : x\\in A \\text{ and } (x \\in B \\implies x \\in C) \\}.\n    \\end{align*}"
-          },
-          {
-            "number": "1.8",
-            "date": "2026-06-13",
-            "topic": "miscellaneous",
-            "title": "Set Theory - Show that the power set of a set with two elements has four elements",
-            "difficulty": "easy",
-            "problem": "If a set $A$ has two elements, show that $\\mathcal{P} (A)$ has four elements. How many elements does $\\mathcal{P} (A)$ have if $A$ has one element? Three elements? No elements? Why is $\\mathcal{P} (A)$ called the power set of $A$?"
-          },
-          {
-            "number": "1.9",
-            "date": "2026-06-20",
-            "topic": "miscellaneous",
-            "title": "Set Theory - Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets",
-            "difficulty": "easy",
-            "problem": "Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets."
-          },
-          {
-            "number": "1.10",
-            "date": "2026-07-04",
-            "topic": "miscellaneous",
-            "title": "Set Theory - Determine whether certain subsets of $\\mathbb{R} \\times \\mathbb{R}$ are equal to the cartesian product of two subsets of $\\mathbb{R}$",
-            "difficulty": "medium",
-            "problem": "Let $\\mathbb{R}$ denote the set of real numbers. For each of the following subsets of $\\mathbb{R} \\times \\mathbb{R} $ determine whether it is equal to the cartesian product of two subsets of $\\mathbb{R} $.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$A = \\{ (x,y): x \\in \\mathbb{Z}  \\} $.</li>\n<li class=\"my-4\">$B = \\{ (x,y): 0 < y \\leq 1 \\} $.</li>\n<li class=\"my-4\">$C = \\{ (x,y): y > x \\} .$</li>\n<li class=\"my-4\">$D = \\{ (x,y): x \\notin \\mathbb{Z} \\text{ and } y \\in \\mathbb{Z}  \\}. $</li>\n<li class=\"my-4\">$E = \\{ (x,y) : x^2 + y^2 < 1 \\} .$</li></ol>"
+        "problems": [],
+        "sections": {
+          "2": {
+            "problems": [
+              {
+                "number": "1.2.4",
+                "date": "2026-06-27",
+                "topic": "miscellaneous",
+                "title": "Set Theory - Write the negation of statements involving sets",
+                "difficulty": "easy",
+                "problem": "Let $A$ and $B$ be sets of real numbers. Write the negation of eacj of the following statements: \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">For every $a \\in A$, it is true that $a^2 \\in B$.</li>\n<li class=\"my-4\">For at least one $a \\in A$, it is true that $a^2 \\in B$.</li>\n<li class=\"my-4\">For every $a \\in A$, it is true that $a^2 \\notin B$.</li>\n<li class=\"my-4\">For at least one $a \\in A$, it is true that $a^2 \\in B$.</li></ol>"
+              },
+              {
+                "number": "1.2.7",
+                "date": "2026-06-06",
+                "topic": "miscellaneous",
+                "title": "Set Theory - Express sets in terms of $A, B$, and $C$ using set operations",
+                "difficulty": "easy",
+                "problem": "Given sets $A, B$, and $C$, express each of the following sets in terms of $A, B$, and $C$, using the symbol $ \\cup ,  \\cap ,$ and $-$. \n    \\begin{align*}\n        D & = \\{ x : x \\in A \\text{ and } (x \\in B \\text{ or } x \\in C ) \\}, \\\\\n        E & = \\{ x : (x \\in A \\text{ and } x \\in B) \\text{ or } x \\in C \\}, \\\\\n        F & = \\{ x : x\\in A \\text{ and } (x \\in B \\implies x \\in C) \\}.\n    \\end{align*}"
+              },
+              {
+                "number": "1.2.8",
+                "date": "2026-06-13",
+                "topic": "miscellaneous",
+                "title": "Set Theory - Show that the power set of a set with two elements has four elements",
+                "difficulty": "easy",
+                "problem": "If a set $A$ has two elements, show that $\\mathcal{P} (A)$ has four elements. How many elements does $\\mathcal{P} (A)$ have if $A$ has one element? Three elements? No elements? Why is $\\mathcal{P} (A)$ called the power set of $A$?"
+              },
+              {
+                "number": "1.2.9",
+                "date": "2026-06-20",
+                "topic": "miscellaneous",
+                "title": "Set Theory - Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets",
+                "difficulty": "easy",
+                "problem": "Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets."
+              },
+              {
+                "number": "1.2.10",
+                "date": "2026-07-04",
+                "topic": "miscellaneous",
+                "title": "Set Theory - Determine whether certain subsets of $\\mathbb{R} \\times \\mathbb{R}$ are equal to the cartesian product of two subsets of $\\mathbb{R}$",
+                "difficulty": "medium",
+                "problem": "Let $\\mathbb{R}$ denote the set of real numbers. For each of the following subsets of $\\mathbb{R} \\times \\mathbb{R} $ determine whether it is equal to the cartesian product of two subsets of $\\mathbb{R} $.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$A = \\{ (x,y): x \\in \\mathbb{Z}  \\} $.</li>\n<li class=\"my-4\">$B = \\{ (x,y): 0 < y \\leq 1 \\} $.</li>\n<li class=\"my-4\">$C = \\{ (x,y): y > x \\} .$</li>\n<li class=\"my-4\">$D = \\{ (x,y): x \\notin \\mathbb{Z} \\text{ and } y \\in \\mathbb{Z}  \\}. $</li>\n<li class=\"my-4\">$E = \\{ (x,y) : x^2 + y^2 < 1 \\} .$</li></ol>"
+              }
+            ]
           }
-        ],
-        "sections": {}
+        }
       },
       "2": {
         "problems": [],
@@ -389,6 +445,7 @@ const booksData = {
     "author": "Walter Rudin",
     "shortName": "Rudin",
     "color": "sky",
+    "cover": "covers/real-analysis-rudin.jpg",
     "chapters": {
       "3": {
         "problems": [
@@ -474,6 +531,7 @@ const booksData = {
     "author": "Bartle & Sherbert",
     "shortName": "Bartle",
     "color": "amber",
+    "cover": "covers/real-analysis-bartle-sherbert.jpg",
     "chapters": {
       "2": {
         "problems": [],

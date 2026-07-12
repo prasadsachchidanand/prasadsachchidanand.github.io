@@ -58,6 +58,15 @@ function getDataBasePath() {
     return '../data/';
 }
 
+// Pages under /problem/ are the canonical (2026+), query-string driven pages.
+// Old dated folders (YYYY-MM-DD/) share this same script but get a simpler
+// experience: no mini-calendar and no "jump to topic" button/modal, since both
+// of those surface recent (current-era) dates that have no contextual link to
+// whatever old problem is being viewed on a legacy page.
+function isCanonicalPage() {
+    return window.location.pathname.includes('/problem/');
+}
+
 // ==================== SOLVED STATUS MANAGEMENT ====================
 function isProblemSolved(problemDate) {
     const solvedProblems = JSON.parse(localStorage.getItem('solvedProblems') || '{}');
@@ -377,9 +386,11 @@ async function loadProblem() {
         updateTotalSolvedCount();
         styleShareButton();
 
-        loadAllProblemDates().then(allDates => {
-            createMiniCalendar(problemDate, allDates);
-        });
+        if (isCanonicalPage()) {
+            loadAllProblemDates().then(allDates => {
+                createMiniCalendar(problemDate, allDates);
+            });
+        }
         
     } catch (error) {
         console.error('Error loading problem:', error);
@@ -739,8 +750,10 @@ function updateNavigationLinks(problemDate, currentTopic, currentProblems, isPro
             }
         }
         
-        setupTopicProblemsModal(currentTopic, currentProblems, problemDate);
-        addTopicButton(currentTopic);
+        if (isCanonicalPage()) {
+            setupTopicProblemsModal(currentTopic, currentProblems, problemDate);
+            addTopicButton(currentTopic);
+        }
         styleNavigationLinks();
         
     } catch (error) {
