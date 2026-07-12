@@ -69,6 +69,34 @@
     },
 
     {
+      "date": "2025-05-31",
+      "title": "Set Theory - Describe the following sets verbally",
+      "difficulty": "easy",
+      "problem": "Describe the following sets verbally. \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">{Mercury, Venus, Earth, $\\dots$, Pluto}.</li>\n<li class=\"my-4\">{Alabama, Alaska, $\\dots$, Wyoming}</li></ol>",
+      "hint": "",
+      "solution": "<ol class=\"math-list-roman my-4\"><li class=\"my-4\">The set is the set of all planets in the solar system (note that now Pluto is not included).</li>\n<li class=\"my-4\">The set is the set of all states in the United States.</li></ol>",
+      "tags": [
+         "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.1)"
+      ]
+    },
+
+    {
+      "date": "2025-06-07",
+      "title": "Problem of the Day",
+      "difficulty": "easy",
+      "problem": "Describe the following sets verbally.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$S = \\{ 2,4,6,8, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 2,4,8,16, 32, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 1,4,9,16,25, 36, \\dots \\}. $</li></ol>",
+      "hint": "",
+      "solution": "<ol class=\"math-list-roman my-4\"><li class=\"my-4\">The set $S$ is the set of all even natural numbers.</li>\n<li class=\"my-4\">The set $S$ is the set of all positive integer powers of $2$.</li>\n<li class=\"my-4\">The set $S$ is the square of natural numbers.</li></ol>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.2)"
+      ]
+    },
+
+    {
       "date": "2026-01-03",
       "title": "Number Theory - n^7 - n is divisible by 42",
       "difficulty": "medium",

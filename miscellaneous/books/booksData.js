@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-12T10:43:51.740Z
+// Generated on: 2026-07-12T11:49:35.105Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -38,6 +38,26 @@ const booksData = {
                 "title": "Herstein: 1.1.3 - Set Theory - Verify the properties of the operation * defined on S",
                 "difficulty": "easy",
                 "problem": "Let $S$ consists of two objects $\\square$ and $\\triangle$. We define the operation $*$ on $S$ by subjecting $\\square$ and $\\triangle$ the following conditions: \n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\square * \\triangle = \\triangle = \\triangle * \\square$.</li>\n<li class=\"my-4\">$\\square * \\square = \\square$.</li>\n<li class=\"my-4\">$\\triangle * \\triangle = \\square$.</li></ol>\n    Verify by explicit calculation that if $a,b,c$ are any elements of $S$ (i.e., $a,b,\\text{ and } c$ can be any of $\\square$ or $\\triangle$), then \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$a * b \\in S$.</li>\n<li class=\"my-4\">$(a * b) * c = a * (b * c)$.</li>\n<li class=\"my-4\">$a * b = b * a$.</li>\n<li class=\"my-4\">There is a particular element $a \\in S$ such that $a * b = b * a = b$ for all $b \\in S$.</li>\n<li class=\"my-4\">Given $b \\in S$, then $b * b = a$, where $a$ is the particular element in part (iv).</li></ol>"
+              }
+            ]
+          },
+          "2": {
+            "problems": [
+              {
+                "number": "1.2.1",
+                "date": "2025-05-31",
+                "topic": "miscellaneous",
+                "title": "Set Theory - Describe the following sets verbally",
+                "difficulty": "easy",
+                "problem": "Describe the following sets verbally. \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">{Mercury, Venus, Earth, $\\dots$, Pluto}.</li>\n<li class=\"my-4\">{Alabama, Alaska, $\\dots$, Wyoming}</li></ol>"
+              },
+              {
+                "number": "1.2.2",
+                "date": "2025-06-07",
+                "topic": "miscellaneous",
+                "title": "Problem of the Day",
+                "difficulty": "easy",
+                "problem": "Describe the following sets verbally.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$S = \\{ 2,4,6,8, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 2,4,8,16, 32, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 1,4,9,16,25, 36, \\dots \\}. $</li></ol>"
               }
             ]
           }
@@ -357,7 +377,7 @@ const booksData = {
                 "topic": "linear-algebra",
                 "title": "Problem of the Day",
                 "difficulty": "medium",
-                "problem": "Find a basis for the subspace of $\\mathbb{R}^4$ spanned by the four vectors of exercise 2."
+                "problem": "Find a basis for the subspace of $\\mathbb{R}^4$ spanned by the four vectors of exercise 2 (<a href=\"/miscellaneous/daily-problems/problem/?date=2026-07-05\" class = \"text-blue-500 hover:text-blue-700\">previous problem</a>)."
               }
             ]
           }
