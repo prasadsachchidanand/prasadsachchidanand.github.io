@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem Status Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+    <div class="max-w-2xl mx-auto px-6 py-10">
+
+        <h1 class="text-2xl font-semibold mb-1">Problem Status Tracker</h1>
+        <p class="text-sm text-gray-500 mb-6">Checks each date against the JSON data files. Green = problem added. Red =
+            not added yet. Topic is read from the JSON when solved, otherwise inferred from the day of week (matching
+            your weekly rotation).</p>
+
+        <div id="summary" class="flex gap-4 mb-6 text-sm"></div>
+
+        <div class="flex flex-wrap gap-3 mb-4">
+            <select id="filter" class="border border-gray-300 rounded px-3 py-1.5 text-sm">
+                <option value="all">Show all</option>
+                <option value="unsolved">Unsolved only</option>
+                <option value="solved">Solved only</option>
+            </select>
+            <select id="month-filter" class="border border-gray-300 rounded px-3 py-1.5 text-sm">
+                <option value="all">All months</option>
+            </select>
+            <select id="topic-filter" class="border border-gray-300 rounded px-3 py-1.5 text-sm">
+                <option value="all">All topics</option>
+            </select>
+        </div>
+
+        <table class="w-full text-sm border-collapse">
+            <thead>
+                <tr class="border-b border-gray-300 text-left text-gray-500">
+                    <th class="py-2 pr-4">Date</th>
+                    <th class="py-2 pr-4">Topic</th>
+                    <th class="py-2">Status</th>
+                </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+        </table>
+
+    </div>
+
+    <script>
+        // ============ CONFIG ============
+        const DATA_PATH = '../data/'; // path to the folder holding the 7 topic JSON files, relative to this page
+        const TOPIC_FILES = [
+            'linear-algebra', 'real-analysis', 'complex-analysis',
+            'abstract-algebra', 'topology', 'differential-equations', 'miscellaneous'
+        ];
+
+        // The exact list of dates you provided — only these are tracked.
+        const TRACKED_DATES = [
+            "2023-05-26", "2023-10-06", "2023-10-07", "2023-10-08", "2023-10-09", "2023-10-10", "2023-10-11", "2023-10-13",
+            "2023-10-14", "2023-10-15", "2023-10-16", "2023-10-17", "2023-10-18", "2023-10-20", "2023-10-21", "2023-12-08",
+            "2023-12-09", "2023-12-10", "2023-12-11", "2023-12-12", "2023-12-13", "2023-12-15", "2023-12-16", "2023-12-17",
+            "2023-12-18", "2023-12-19", "2023-12-20", "2023-12-22", "2023-12-23", "2023-12-24", "2023-12-25", "2023-12-26",
+            "2023-12-27", "2023-12-29", "2023-12-30", "2023-12-31", "2024-01-08", "2024-01-09", "2024-01-10", "2024-01-11",
+            "2024-01-12", "2024-01-13", "2024-01-14", "2024-01-15", "2024-01-16", "2024-01-17", "2024-01-18", "2024-01-19",
+            "2024-01-20", "2024-01-21", "2024-01-22", "2024-01-23", "2024-01-24", "2024-01-25", "2024-01-26", "2024-01-27",
+            "2024-01-28", "2024-01-29", "2024-01-30", "2024-01-31", "2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04",
+            "2024-02-05", "2024-02-06", "2024-02-07", "2024-02-08", "2024-02-09", "2024-02-10", "2024-02-11", "2024-02-12",
+            "2024-02-13", "2024-02-14", "2024-02-15", "2024-02-16", "2024-02-17", "2024-02-18", "2024-02-19", "2024-02-20",
+            "2024-02-21", "2024-02-22", "2024-02-23", "2024-02-24", "2024-02-25", "2024-02-26", "2024-02-27", "2024-02-28",
+            "2024-02-29", "2024-03-01", "2024-03-02", "2024-03-03", "2024-03-04", "2024-03-05", "2024-03-06", "2024-03-07",
+            "2024-03-08", "2024-03-09", "2024-03-10", "2024-03-11", "2024-03-12", "2024-03-13", "2024-03-14", "2024-03-15",
+            "2024-03-16", "2024-03-17", "2024-03-18", "2024-03-19", "2024-03-20", "2024-03-21", "2024-03-22", "2024-03-23",
+            "2024-03-24", "2024-03-25", "2024-03-26", "2024-03-27", "2024-03-28", "2024-03-29", "2024-03-30", "2024-03-31",
+            "2024-04-02", "2024-04-03", "2024-04-04", "2024-04-05", "2024-04-06", "2024-04-07", "2024-04-08", "2024-04-09",
+            "2024-04-10", "2024-04-11", "2024-04-12", "2024-04-13", "2024-04-14", "2024-04-15", "2024-04-16", "2024-04-17",
+            "2024-04-19", "2024-04-20", "2024-04-21", "2024-04-22", "2024-04-23", "2024-04-26", "2024-04-27", "2024-04-28",
+            "2024-04-30", "2024-09-02", "2024-09-03", "2024-09-04", "2024-09-05", "2024-09-06", "2024-09-07", "2024-09-08",
+            "2024-09-09", "2024-09-10", "2024-09-11", "2024-09-12", "2024-09-13", "2024-09-14", "2024-09-15", "2024-09-16",
+            "2024-09-17", "2024-09-18", "2024-09-19", "2024-09-20", "2024-09-21", "2024-09-22", "2024-09-23", "2024-09-24",
+            "2024-09-25", "2024-09-26", "2024-09-27", "2024-09-28", "2024-09-29", "2024-09-30", "2024-10-01", "2024-10-02",
+            "2024-10-03", "2024-10-04", "2024-10-05", "2024-10-06", "2024-10-07", "2024-10-08", "2024-10-09", "2024-10-10",
+            "2024-10-11", "2024-10-12", "2024-10-13", "2024-10-14", "2024-10-15", "2024-10-16", "2024-10-17", "2024-10-18",
+            "2024-10-19", "2024-10-20", "2024-10-21", "2024-10-22", "2024-10-23", "2024-10-24", "2024-10-25", "2024-10-26",
+            "2024-10-27", "2024-10-28", "2024-10-29", "2024-10-30", "2024-10-31", "2024-11-01", "2024-11-02", "2024-11-03",
+            "2024-11-04", "2024-11-05", "2024-11-06", "2024-11-07", "2024-11-08", "2024-11-09", "2024-11-10", "2024-11-11",
+            "2024-11-12", "2024-11-13", "2024-11-14", "2024-11-15", "2024-11-16", "2024-11-17", "2024-11-18", "2024-11-19",
+            "2024-11-20", "2024-11-21", "2024-11-22", "2024-11-23", "2024-11-24", "2024-11-25", "2024-11-26", "2024-11-27",
+            "2024-11-28", "2024-11-29", "2024-11-30", "2024-12-01", "2024-12-02", "2024-12-03", "2024-12-04", "2024-12-05",
+            "2024-12-06", "2024-12-07", "2024-12-08", "2024-12-09", "2024-12-10", "2024-12-11", "2024-12-12", "2024-12-13",
+            "2024-12-14", "2024-12-15", "2024-12-16", "2024-12-17", "2024-12-18", "2024-12-19", "2024-12-20", "2024-12-21",
+            "2024-12-22", "2024-12-23", "2024-12-24", "2024-12-25", "2024-12-26", "2024-12-27", "2024-12-28", "2024-12-29",
+            "2024-12-30", "2024-12-31", "2025-04-24", "2025-04-25", "2025-04-27", "2025-04-28", "2025-04-29", "2025-04-30",
+            "2025-05-01", "2025-05-02", "2025-05-04", "2025-05-05", "2025-05-06", "2025-05-07", "2025-05-08", "2025-05-09",
+            "2025-05-11", "2025-05-12", "2025-05-13", "2025-05-14", "2025-05-15", "2025-05-16", "2025-05-18", "2025-06-06",
+            "2025-06-08", "2025-06-09", "2025-06-10", "2025-06-11", "2025-06-12", "2025-06-13", "2025-06-15", "2025-06-16",
+            "2025-06-17", "2025-06-18", "2025-06-19", "2025-06-20", "2025-06-22", "2025-06-23", "2025-06-24", "2025-06-25",
+            "2025-06-26", "2025-06-27", "2025-06-29", "2025-06-30", "2025-07-01", "2025-07-02", "2025-07-03", "2025-07-04",
+            "2025-07-06", "2025-07-07", "2025-07-08", "2025-07-09", "2025-07-10", "2025-07-11", "2025-07-13", "2025-07-14",
+            "2025-07-15", "2025-07-16", "2025-07-17", "2025-07-18", "2025-07-20", "2025-07-21", "2025-07-22", "2025-07-23",
+            "2025-07-24", "2025-07-25", "2025-07-27", "2025-07-28", "2025-07-29", "2025-07-30", "2025-07-31", "2025-08-01",
+            "2025-08-03", "2025-08-04", "2025-08-05", "2025-08-06", "2025-08-07", "2025-08-08", "2025-08-10", "2025-08-11",
+            "2025-08-12", "2025-08-13", "2025-08-14", "2025-08-15", "2025-08-17", "2025-08-21", "2025-08-22", "2025-08-24",
+            "2025-08-25", "2025-08-26", "2025-08-27", "2025-08-28", "2025-08-29", "2025-08-31", "2025-09-01", "2025-09-02",
+            "2025-09-03", "2025-09-04", "2025-09-05", "2025-09-07", "2025-09-08", "2025-09-09", "2025-09-10", "2025-09-11",
+            "2025-09-12", "2025-09-14", "2025-09-15", "2025-09-16", "2025-09-17", "2025-09-18", "2025-09-19", "2025-09-21",
+            "2025-09-22", "2025-09-23", "2025-09-24", "2025-09-25", "2025-09-26", "2025-09-28", "2025-09-29", "2025-09-30",
+            "2025-10-01", "2025-10-02", "2025-10-03", "2025-10-05", "2025-10-06", "2025-10-07", "2025-10-08", "2025-10-09",
+            "2025-10-10", "2025-10-12", "2025-10-13", "2025-10-14", "2025-10-15", "2025-10-16", "2025-10-17", "2025-10-19",
+            "2025-10-20", "2025-10-21", "2025-10-22", "2025-10-23", "2025-10-24", "2025-10-26", "2025-10-27", "2025-10-28",
+            "2025-10-29", "2025-10-30", "2025-10-31", "2025-11-02", "2025-11-03", "2025-11-04", "2025-11-05", "2025-11-06",
+            "2025-11-07", "2025-11-09", "2025-11-10", "2025-11-11", "2025-11-12", "2025-11-13", "2025-11-14", "2025-11-16",
+            "2025-11-17", "2025-11-18", "2025-11-19", "2025-11-20", "2025-11-21", "2025-11-23", "2025-11-24", "2025-11-25",
+            "2025-11-26", "2025-11-27", "2025-11-28", "2025-11-30", "2025-12-01", "2025-12-02", "2025-12-03", "2025-12-04",
+            "2025-12-05", "2025-12-07", "2025-12-08", "2025-12-09", "2025-12-10", "2025-12-11", "2025-12-12", "2025-12-14",
+            "2025-12-15", "2025-12-16", "2025-12-17", "2025-12-18", "2025-12-19", "2025-12-21", "2025-12-22", "2025-12-23",
+            "2025-12-24", "2025-12-25", "2025-12-26", "2025-12-28", "2025-12-29", "2025-12-30", "2025-12-31"
+        ];
+
+        // Day-of-week -> topic, matching problem-loader.js's topicMap (0 = Sunday)
+        const WEEKDAY_TOPIC = {
+            0: 'linear-algebra', 1: 'real-analysis', 2: 'complex-analysis',
+            3: 'abstract-algebra', 4: 'topology', 5: 'differential-equations', 6: 'miscellaneous'
+        };
+        const TOPIC_LABELS = {
+            'linear-algebra': 'Linear Algebra', 'real-analysis': 'Real Analysis', 'complex-analysis': 'Complex Analysis',
+            'abstract-algebra': 'Abstract Algebra', 'topology': 'Topology', 'differential-equations': 'Differential Equations',
+            'miscellaneous': 'Miscellaneous'
+        };
+
+        function expectedTopicFor(dateStr) {
+            const [y, m, d] = dateStr.split('-').map(Number);
+            const dayOfWeek = new Date(y, m - 1, d).getDay();
+            return WEEKDAY_TOPIC[dayOfWeek];
+        }
+
+        let solvedSet = new Set();       // dates found in any JSON
+        let actualTopicByDate = {};      // date -> topic file it was actually found in (when solved)
+        let filterMode = 'all';
+        let monthFilter = 'all';
+        let topicFilter = 'all';
+
+        async function loadData() {
+            const results = await Promise.all(TOPIC_FILES.map(async topic => {
+                try {
+                    const res = await fetch(`${DATA_PATH}${topic}.json`, { cache: 'no-store' });
+                    if (!res.ok) return [];
+                    const json = await res.json();
+                    return (json.problems || []).map(p => ({ date: p.date, topic }));
+                } catch (e) {
+                    console.error(`Failed to load ${topic}.json`, e);
+                    return [];
+                }
+            }));
+            results.flat().forEach(({ date, topic }) => {
+                solvedSet.add(date);
+                actualTopicByDate[date] = topic;
+            });
+            populateFilters();
+            render();
+        }
+
+        function topicFor(dateStr) {
+            return actualTopicByDate[dateStr] || expectedTopicFor(dateStr);
+        }
+
+        function populateFilters() {
+            const months = [...new Set(TRACKED_DATES.map(d => d.slice(0, 7)))].sort();
+            const monthSelect = document.getElementById('month-filter');
+            months.forEach(m => {
+                const opt = document.createElement('option');
+                opt.value = m;
+                opt.textContent = m;
+                monthSelect.appendChild(opt);
+            });
+
+            const topicSelect = document.getElementById('topic-filter');
+            TOPIC_FILES.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t;
+                opt.textContent = TOPIC_LABELS[t];
+                topicSelect.appendChild(opt);
+            });
+        }
+
+        function render() {
+            const solvedCount = TRACKED_DATES.filter(d => solvedSet.has(d)).length;
+            const unsolvedCount = TRACKED_DATES.length - solvedCount;
+
+            document.getElementById('summary').innerHTML = `
+    <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span> ${solvedCount} solved</span>
+    <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span> ${unsolvedCount} unsolved</span>
+  `;
+
+            let rows = TRACKED_DATES;
+            if (filterMode === 'solved') rows = rows.filter(d => solvedSet.has(d));
+            if (filterMode === 'unsolved') rows = rows.filter(d => !solvedSet.has(d));
+            if (monthFilter !== 'all') rows = rows.filter(d => d.slice(0, 7) === monthFilter);
+            if (topicFilter !== 'all') rows = rows.filter(d => topicFor(d) === topicFilter);
+
+            document.getElementById('rows').innerHTML = rows.map(d => {
+                const isSolved = solvedSet.has(d);
+                const topic = topicFor(d);
+                return `<tr class="border-b border-gray-100">
+      <td class="py-1.5 pr-4 font-mono">${d}</td>
+      <td class="py-1.5 pr-4 text-gray-600">${TOPIC_LABELS[topic] || topic}</td>
+      <td class="py-1.5">
+        <span class="inline-block px-2 py-0.5 rounded text-xs font-medium ${isSolved ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}">
+          ${isSolved ? 'Solved' : 'Unsolved'}
+        </span>
+      </td>
+    </tr>`;
+            }).join('');
+        }
+
+        document.getElementById('filter').addEventListener('change', (e) => {
+            filterMode = e.target.value;
+            render();
+        });
+        document.getElementById('month-filter').addEventListener('change', (e) => {
+            monthFilter = e.target.value;
+            render();
+        });
+        document.getElementById('topic-filter').addEventListener('change', (e) => {
+            topicFilter = e.target.value;
+            render();
+        });
+
+        loadData();
+    </script>
+</body>
+</html>

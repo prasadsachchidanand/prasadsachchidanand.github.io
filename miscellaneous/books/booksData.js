@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-12T11:49:35.105Z
+// Generated on: 2026-07-13T14:24:12.275Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -605,6 +605,14 @@ const booksData = {
                 "title": "Bartle and Sherbert 2.3.6: inf S = - sup (-S)",
                 "difficulty": "medium",
                 "problem": "Let $S$ be a nonempty subset of $\\mathbb{R} $ that is bounded below. Prove that \n    \\[\n        \\inf S = -\\sup \\{ -s: s \\in S \\} .\n    \\]"
+              },
+              {
+                "number": "2.3.7",
+                "date": "2026-07-13",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.3.7: If a set contains one of its upper bounds, show that this upper bound is the supremum of the set",
+                "difficulty": "easy",
+                "problem": "If a set $S \\subseteq \\mathbb{R} $ contains one of its upper bounds, show that this upper bound is the supremum of $S$."
               }
             ]
           }
