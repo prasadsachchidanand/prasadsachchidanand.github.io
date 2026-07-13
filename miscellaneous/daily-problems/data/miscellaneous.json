@@ -70,7 +70,7 @@
 
     {
       "date": "2025-05-31",
-      "title": "Set Theory - Describe the following sets verbally",
+      "title": "Set Theory - Herstein 1.2.1 - Describe the following sets verbally",
       "difficulty": "easy",
       "problem": "Describe the following sets verbally. \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">{Mercury, Venus, Earth, $\\dots$, Pluto}.</li>\n<li class=\"my-4\">{Alabama, Alaska, $\\dots$, Wyoming}</li></ol>",
       "hint": "",
@@ -84,7 +84,7 @@
 
     {
       "date": "2025-06-07",
-      "title": "Problem of the Day",
+      "title": "Set Theory - Herstein 1.2.2 - Describe the following sets verbally",
       "difficulty": "easy",
       "problem": "Describe the following sets verbally.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$S = \\{ 2,4,6,8, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 2,4,8,16, 32, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 1,4,9,16,25, 36, \\dots \\}. $</li></ol>",
       "hint": "",
