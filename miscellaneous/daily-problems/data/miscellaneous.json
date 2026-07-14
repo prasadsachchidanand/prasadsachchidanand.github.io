@@ -70,7 +70,7 @@
 
     {
       "date": "2025-05-31",
-      "title": "Set Theory - Herstein 1.2.1 - Describe the following sets verbally",
+      "title": "Herstein 1.2.1 - Set Theory - Describe the following sets verbally",
       "difficulty": "easy",
       "problem": "Describe the following sets verbally. \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">{Mercury, Venus, Earth, $\\dots$, Pluto}.</li>\n<li class=\"my-4\">{Alabama, Alaska, $\\dots$, Wyoming}</li></ol>",
       "hint": "",
@@ -84,7 +84,7 @@
 
     {
       "date": "2025-06-07",
-      "title": "Set Theory - Herstein 1.2.2 - Describe the following sets verbally",
+      "title": "Herstein 1.2.2 - Set Theory - Describe the following sets verbally",
       "difficulty": "easy",
       "problem": "Describe the following sets verbally.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$S = \\{ 2,4,6,8, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 2,4,8,16, 32, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 1,4,9,16,25, 36, \\dots \\}. $</li></ol>",
       "hint": "",
@@ -93,6 +93,32 @@
         "miscellaneous",
         "set-theory",
         "abstract-algebra-herstein (1.2.2)"
+      ]
+    },
+
+    {
+      "date": "2025-06-14",
+      "title": "Problem of the Day",
+      "difficulty": "easy",
+      "problem": "Prove that $n(n^2 + 5)$ is even for any $n\\in \\mathbb{N} $.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that if $n$ is even then $n(n^2 + 5)$ is also even. Let $n$ is odd and write $n = 2k+1$ for some $k\\in \\mathbb{N} $. Then\n    \\begin{align*}\n        n^2 + 5 & = (2k+1)^2 + 5 \\\\\n                & = 4k^2 + 4k + 1 + 5 \\\\\n                & = 2(k^2 + 2k + 3),\n    \\end{align*}  \n    is even and hence $n(n^2 + 5)$ is also even.</div>",
+      "tags": [
+        "miscellaneous",
+        "number-theory"
+      ]
+    },
+
+    {
+      "date": "2025-06-21",
+      "title": "Calculus - Increasing and decreasing function on some intervals",
+      "difficulty": "medium",
+      "problem": "Let the function $ f(x) = \\frac{x}{3} + \\frac{3}{x} + 3, x \\neq 0 $ be strictly increasing in $(-\\infty, \\alpha_1) \\cup (\\alpha_2, \\infty)$ and strictly decreasing in $(\\alpha_3, \\alpha_4) \\cup (\\alpha_4, \\alpha_5)$. Then $ \\sum\\limits_{i=1}^{5} \\alpha_i^2 $ is equal to \\rule{1.9cm}{1pt}.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given function is \n    \\[\n        f(x) = \\frac{x}{3} + \\frac{3}{x} + 3, \\ x \\neq 0.\n    \\]\n    Observe that \n    \\begin{align*}\n        f'(x) = \\frac{1}{3} - \\frac{3}{x^2 }.\n    \\end{align*}\n    Therefore, $f$ is strictly increasing if \n    \\begin{align*}\n        f'(x) > 0 & \\implies \\frac{1}{3} - \\frac{3}{x^2} >0 \\\\\n        & \\implies \\frac{x^2 - 9}{3x^2} > 0 \\\\\n        & \\implies x^2 - 9 > 0 \\\\\n        & \\implies (x-3)(x+3) > 0\\\\\n        & \\implies x \\in (-\\infty ,-3)  \\cup (3, \\infty ).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">It is strictly decreasing if\n    \\begin{align*}\n        f'(x) < 0 & \\implies (x-3)(x+3) < 0\\\\\n        & \\implies x\\in (-3,3) \\setminus \\{ 0 \\} \\\\\n        & \\implies x \\in (-3, 0)  \\cup (0,3).\n    \\end{align*}\n    Therefore, $\\alpha _1 = -3, \\alpha _2 = 3, \\alpha _3 = -3, \\alpha _4 = 0$ and $\\alpha _5 = 3$. Thus, \n    \\begin{align*}\n        \\sum_{i=1}^{5} \\alpha _i^2 = 4 \\times 3^2 = 36.\n    \\end{align*}</div>",
+      "tags": [
+        "miscellaneous",
+        "calculus"
       ]
     },
 

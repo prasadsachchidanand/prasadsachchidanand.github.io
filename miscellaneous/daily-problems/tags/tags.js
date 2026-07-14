@@ -160,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'real-analysis-bartle-sherbert': 'book-solution',
         'abstract-algebra-herstein': 'book-solution',
         'complex-analysis-gamelin': 'book-solution',
+        'complex-variables-brown-and-churchill': 'book-solution',
     };
 
     let activeButton = null;

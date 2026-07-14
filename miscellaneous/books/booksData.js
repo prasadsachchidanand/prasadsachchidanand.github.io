@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-13T14:24:12.275Z
+// Generated on: 2026-07-14T05:44:37.456Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -47,7 +47,7 @@ const booksData = {
                 "number": "1.2.1",
                 "date": "2025-05-31",
                 "topic": "miscellaneous",
-                "title": "Set Theory - Describe the following sets verbally",
+                "title": "Herstein 1.2.1 - Set Theory - Describe the following sets verbally",
                 "difficulty": "easy",
                 "problem": "Describe the following sets verbally. \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">{Mercury, Venus, Earth, $\\dots$, Pluto}.</li>\n<li class=\"my-4\">{Alabama, Alaska, $\\dots$, Wyoming}</li></ol>"
               },
@@ -55,7 +55,7 @@ const booksData = {
                 "number": "1.2.2",
                 "date": "2025-06-07",
                 "topic": "miscellaneous",
-                "title": "Problem of the Day",
+                "title": "Herstein 1.2.2 - Set Theory - Describe the following sets verbally",
                 "difficulty": "easy",
                 "problem": "Describe the following sets verbally.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$S = \\{ 2,4,6,8, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 2,4,8,16, 32, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 1,4,9,16,25, 36, \\dots \\}. $</li></ol>"
               }
@@ -204,6 +204,32 @@ const booksData = {
           }
         ],
         "sections": {}
+      }
+    }
+  },
+  "complex-variables-brown-and-churchill": {
+    "title": "Complex Variables and Applications",
+    "author": "R. V. Churchill and J. W. Brown",
+    "shortName": "Brown and Churchill",
+    "color": "fuchsia",
+    "cover": "covers/complex-variables-brown-and-churchill.jpg",
+    "chapters": {
+      "1": {
+        "problems": [],
+        "sections": {
+          "2": {
+            "problems": [
+              {
+                "number": "1.2.1",
+                "date": "2026-07-14",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.1: Verify the following equalities",
+                "difficulty": "easy",
+                "problem": "Verify that \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$(\\sqrt{2} - \\iota ) - \\iota (1 - \\sqrt{2} \\iota ) = -2\\iota $;</li>\n<li class=\"my-4\">$(2,-3)(-2,1) = (-1,8)$;</li>\n<li class=\"my-4\">$(3,1)(3,-1)\\left( \\frac{1}{5}, \\frac{1}{10} \\right) = (2,1)$.</li></ol>"
+              }
+            ]
+          }
+        }
       }
     }
   },

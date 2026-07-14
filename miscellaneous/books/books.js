@@ -150,7 +150,9 @@
     function stripBookPrefix(title, book) {
         if (!title || !book || !book.shortName) return title;
         const escaped = book.shortName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const re = new RegExp(`^\\s*${escaped}\\s*-\\s*(?:[\\d.]+\\s*-\\s*)?`, 'i');
+        // Separator between name/number/description can be "-" or ":" (or
+        // just whitespace) — different books' titles have used both styles.
+        const re = new RegExp(`^\\s*${escaped}\\s*[-:]?\\s*(?:[\\d.]+\\s*[-:]?\\s*)?`, 'i');
         const stripped = title.replace(re, '').trim();
         return stripped || title; // never return an empty title
     }

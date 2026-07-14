@@ -104,6 +104,14 @@ const BOOK_REGISTRY = [
     color: 'teal',
     aliases: ['complex-analysis-gamelin'],
   },
+  {
+    key: 'complex-variables-brown-and-churchill',
+    title: 'Complex Variables and Applications',
+    author: 'R. V. Churchill and J. W. Brown',
+    shortName: 'Brown and Churchill',
+    color: 'fuchsia',
+    aliases: ['complex-variables-brown-and-churchill'],
+  },
 ];
 
 const aliasToKey = {};
