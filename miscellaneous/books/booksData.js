@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-14T05:44:37.456Z
+// Generated on: 2026-07-16T15:07:12.621Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -58,6 +58,186 @@ const booksData = {
                 "title": "Herstein 1.2.2 - Set Theory - Describe the following sets verbally",
                 "difficulty": "easy",
                 "problem": "Describe the following sets verbally.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$S = \\{ 2,4,6,8, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 2,4,8,16, 32, \\dots \\} $.</li>\n<li class=\"my-4\">$S = \\{ 1,4,9,16,25, 36, \\dots \\}. $</li></ol>"
+              },
+              {
+                "number": "1.2.3",
+                "date": "2025-06-28",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.3 - Set Theory - Describe the following sets verbally",
+                "difficulty": "easy",
+                "problem": "If $A$ is the set of all residents of the United States, $B$ the set of all Canadian citizens, and $C$ the set of all women in the world, then describe the sets\n    \\[\n        A  \\cap B  \\cap C, \\quad A - B, \\quad A - C, \\quad C - A\n    \\]\n    verbally."
+              },
+              {
+                "number": "1.2.4",
+                "date": "2025-07-05",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.4 - Set Theory - Find the value of a if the intersection of two sets is given",
+                "difficulty": "easy",
+                "problem": "If $A = \\{ 1,4,7,a \\} $ and $B = \\{ 3,4,9,11 \\} $ and you have been told that $A  \\cap B = \\{ 4,9 \\} $, what must $a$ be?"
+              },
+              {
+                "number": "1.2.6",
+                "date": "2025-07-19",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.6 - Set Theory - Prove that A union C is a subset of B union C if A is a subset of B",
+                "difficulty": "easy",
+                "problem": "If $A \\subset B$, prove that $A  \\cup C \\subset B  \\cup C$ for any set $C$."
+              },
+              {
+                "number": "1.2.7",
+                "date": "2025-07-26",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.7 - Set Theory - Prove that A union B equals B union A and A intersection B equals B intersection A",
+                "difficulty": "easy",
+                "problem": "Show that $A  \\cup B = B  \\cup A$ and $A \\cap B = B \\cap A$."
+              },
+              {
+                "number": "1.2.8",
+                "date": "2025-08-02",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.8 - Set Theory - Prove that (A - B) union (B - A) equals (A union B) - (A intersection B)",
+                "difficulty": "easy",
+                "problem": "Prove that $(A - B)  \\cup (B - A) = (A  \\cup B) - (A \\cap B)$. What does this look pictorially?"
+              },
+              {
+                "number": "1.2.9",
+                "date": "2025-08-09",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.9 - Set Theory - Prove that A intersection (B union C) equals (A intersection B) union (A intersection C)",
+                "difficulty": "easy",
+                "problem": "Prove that \n    \\[\n        A  \\cap (B  \\cup C) = (A  \\cap B)  \\cup (A  \\cap C).\n    \\]"
+              },
+              {
+                "number": "1.2.10",
+                "date": "2025-08-16",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.10 - Set Theory - Prove that A union (B intersection C) equals (A union B) intersection (A union C)",
+                "difficulty": "easy",
+                "problem": "Prove that \n    \\[\n        A  \\cup (B  \\cap C) = (A  \\cup B)  \\cap (A  \\cup C).\n    \\]"
+              },
+              {
+                "number": "1.2.11",
+                "date": "2025-08-23",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.11 - Set Theory - List all the subsets of a given set",
+                "difficulty": "easy",
+                "problem": "Write down all the subsets of $S = \\{ 1,2,3,4 \\} $."
+              },
+              {
+                "number": "1.2.12",
+                "date": "2025-08-30",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.12 - Set Theory - Prove the De Morgan Rules for subsets",
+                "difficulty": "easy",
+                "problem": "If $C$ is a subset of $S$, let $C'$ denote the complement of $C$ in $S$. Prove the <em>De Morgan Rules</em> for subsets $A,B$ of $S$, namely:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$(A  \\cap B)' = A'  \\cup B'$.</li>\n<li class=\"my-4\">$(A  \\cup B)' = A'  \\cap B'$.</li></ol>"
+              },
+              {
+                "number": "1.2.13",
+                "date": "2025-09-06",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.13 - Set Theory - Prove the following properties of the operations + and .",
+                "difficulty": "easy",
+                "problem": "Let $S$ be a set. For any two subsets of $S$ we define \n    \\[\n        A + B \\coloneqq (A - B)  \\cup (B - A) \\text{ and } A \\cdot B \\coloneqq A  \\cap B.\n    \\] \n    Prove that\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$A + B = B + A$.</li>\n<li class=\"my-4\">$A + \\varnothing = A$.</li>\n<li class=\"my-4\">$A \\cdot A = A$.</li>\n<li class=\"my-4\">$A + A = \\varnothing $.</li>\n<li class=\"my-4\">$A + (B + C) = (A + B) + C.$</li>\n<li class=\"my-4\">If $A + B = A + C,$ then $B = C$.</li>\n<li class=\"my-4\">$A \\cdot (B + C) = A \\cdot B + A \\cdot C.$</li></ol>"
+              },
+              {
+                "number": "1.2.14",
+                "date": "2025-09-13",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.14 - Set Theory - Prove the inclusion-exclusion principle for two finite sets",
+                "difficulty": "medium",
+                "problem": "If $C$ is a finite set, let $m(C)$ denote the number of elements in $C$. If $A, B$ are finite sets, prove that\n    \\[\n        m(A  \\cup B) = m(A) + m(B) - m(A  \\cap B).\n    \\]"
+              },
+              {
+                "number": "1.2.15",
+                "date": "2025-09-20",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.15 - Set Theory - Find a formula for the union of three finite sets",
+                "difficulty": "medium",
+                "problem": "For three finite sets $A, B, C$ find a formula for $m(A  \\cup B  \\cup C).$"
+              },
+              {
+                "number": "1.2.16",
+                "date": "2025-09-27",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.16 - Set Theory - Find a formula for the number of elements in the union of n finite sets",
+                "difficulty": "difficult",
+                "problem": "Find a formula for the number of elements $m(A_1 \\cup A_2 \\cup \\dots \\cup A_n)$ for $n$ finite sets $A_1, A_2, \\dots, A_n$."
+              },
+              {
+                "number": "1.2.17",
+                "date": "2025-10-04",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.17 - Set Theory - Show that at least 50% of Americans have both gone to high school and read a daily newspaper",
+                "difficulty": "medium",
+                "problem": "Use the result of Problem 14 to show that if $80\\%$ of all Americans have gone to high school and $70\\%$ of all Americans read a daily newspaper then <em>at least</em> $50\\%$ of Americans have both gone to high school and read a daily newspaper."
+              },
+              {
+                "number": "1.2.18",
+                "date": "2025-10-11",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.18 - Set Theory - How many population agreed with the government on all three decisions",
+                "difficulty": "medium",
+                "problem": "A public opinion poll shows that $93\\%$ of the population agreed with the government on the first decision, $84\\%$ on the second, and $74\\%$ on the third, for three decisions made by the government.At least what percentage of the population agreed agreed with the government on all three decisions?"
+              },
+              {
+                "number": "1.2.19",
+                "date": "2025-10-18",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.19 - Set Theory - Solve Lewis Carroll's riddle about a group of disabled veterans",
+                "difficulty": "medium",
+                "problem": "In his book <em>A Tangled Tale</em>, Lewis Carroll proposed the following riddle about a group of disabled veterans:</p><blockquote class=\"border-l-4 border-gray-300 pl-4 italic text-gray-700 my-4\">Say that $70\\%$ have lost an eye, $75\\%$ an ear, $80\\%$ an arm, $85\\%$ a leg. What percentage <em>at least</em>, must have lost all four?</blockquote><p>Solve Lewis Carroll's problem."
+              },
+              {
+                "number": "1.2.20",
+                "date": "2025-10-25",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.20 - Set Theory - Show that for finite sets A, B, that m(A x B) = m(A) * m(B)",
+                "difficulty": "medium",
+                "problem": "Show, for finite sets $A, B$, that $m(A \\times B) = m(A) \\cdot m(B)$."
+              },
+              {
+                "number": "1.2.21",
+                "date": "2025-11-01",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.21 - Set Theory: Find the number of subsets of a set with 5 elements",
+                "difficulty": "easy",
+                "problem": "If $S$ is a set having five elements:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">How many subsets does $S$ have?</li>\n<li class=\"my-4\">How many subsets having four elements does $S$ have?</li>\n<li class=\"my-4\">How many subsets having two elements does $S$ have?</li></ol>"
+              },
+              {
+                "number": "1.2.22",
+                "date": "2025-11-08",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.2.22 - Set Theory: Show that a set having n elements has 2^n elements and find the number of subsets that have exactly m elements",
+                "difficulty": "medium",
+                "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that a set having $n$ elements has $2^n$ elements.</li>\n<li class=\"my-4\">If $0 < m < n$, how many subsets are there that have exactly $m$ elements?</li></ol>"
+              }
+            ]
+          },
+          "3": {
+            "problems": [
+              {
+                "number": "1.3.1",
+                "date": "2025-11-15",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.1 - Mappings: Determine if a mapping is clearly and unambiguously defined",
+                "difficulty": "easy",
+                "problem": "For the given sets $S, T$ determine if a mapping $f: S \\rightarrow T$ is clearly and unambiguously defined; if not, say why not.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$S=$ set of all women, $T=$ set of all men, $f(s)=$ husband of $s$.</li>\n<li class=\"my-4\">$S=$ set of positive integers, $T=S, f(s)=s-1$.</li>\n<li class=\"my-4\">$S=$ set of positive integers, $T=$ set of nonnegative integers, $f(s)= s-1$.</li>\n<li class=\"my-4\">$S=$ set of nonnegative integers, $T=S, f(s)=s-1$.</li>\n<li class=\"my-4\">$S=$ set of all integers, $T=S, f(s)=s-1$.</li>\n<li class=\"my-4\">$S=$ set of all real numbers, $T=S, f(s)=\\sqrt{s}$.</li>\n<li class=\"my-4\">$S=$ set of all positive real numbers, $T=S, f(s)=\\sqrt{s}$.</li></ol>"
+              },
+              {
+                "number": "1.3.2",
+                "date": "2025-11-22",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.2 - Mappings: Determine if a mapping is 1-1, onto, or both",
+                "difficulty": "easy",
+                "problem": "In those parts of Problem 1.3.1 where $f$ does define a function, determine if 1-1, onto, or both."
+              },
+              {
+                "number": "1.3.3",
+                "date": "2025-11-29",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.3 - Mappings: Prove that the inverse of a 1-1 mapping is also a 1-1 mapping",
+                "difficulty": "easy",
+                "problem": "If $f$ is a 1-1 mapping of $S$ onto $T$, prove that $f^{-1}$ is a 1-1 mapping of $T$ onto $S$."
               }
             ]
           }

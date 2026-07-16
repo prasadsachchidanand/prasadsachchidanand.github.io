@@ -323,41 +323,7 @@
                 return `<div class="flex flex-wrap justify-center my-4"><img src="../../../assets/img/${src}" class="h-auto" alt="${alt}" /></div>`;
             });
 
-            // ── List helpers ───────────────────────────────────────────────────────
-            function processLists(text) {
-                const listTypes = [
-                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\alph\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-alpha'],
-                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\Alph\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-Alpha'],
-                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\roman\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-roman'],
-                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\Roman\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-Roman'],
-                    [/\\begin\{enumerate\}([\s\S]*?)\\end\{enumerate\}/g, 'math-list'],
-                ];
-                for (const [re, cls] of listTypes) {
-                    text = text.replace(re, (_, body) => buildList('ol', cls, body, false));
-                }
-                text = text.replace(/\\begin\{itemize\}([\s\S]*?)\\end\{itemize\}/g, (_, body) =>
-                    buildList('ul', 'math-list-disc', body, false)
-                );
-                return text;
-            }
-
-            function processListsWithHr(text) {
-                const listTypes = [
-                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\alph\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-alpha'],
-                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\Alph\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-Alpha'],
-                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\roman\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-roman'],
-                    [/\\begin\{enumerate\}\[label\s*=\s*\(\\Roman\*\)\]([\s\S]*?)\\end\{enumerate\}/g, 'math-list-Roman'],
-                    [/\\begin\{enumerate\}([\s\S]*?)\\end\{enumerate\}/g, 'math-list'],
-                ];
-                for (const [re, cls] of listTypes) {
-                    text = text.replace(re, (_, body) => buildList('ol', cls, body, true));
-                }
-                text = text.replace(/\\begin\{itemize\}([\s\S]*?)\\end\{itemize\}/g, (_, body) =>
-                    buildList('ul', 'math-list-disc', body, true)
-                );
-                return text;
-            }
-
+            // ── List helpers (nesting-aware: innermost list converted first) ────────
             function buildList(tag, cls, body, withHr) {
                 const items = [...body.matchAll(/\\item\s+([\s\S]*?)(?=\\item|$)/g)];
                 const liArr = items.map(m => {
@@ -370,6 +336,46 @@
                     return `<li class="my-4">${content}${hr}</li>`;
                 });
                 return `<${tag} class="${cls} my-4">${liArr.join('\n')}</${tag}>`;
+            }
+
+            // Matches list body text that contains NO further nested list environments,
+            // so we always resolve the deepest/innermost list environment first.
+            function convertInnermostList(text, withHr) {
+                const noNested = '(?:(?!\\\\begin\\{itemize\\}|\\\\begin\\{enumerate\\})[\\s\\S])*?';
+                const patterns = [
+                    [new RegExp(`\\\\begin\\{itemize\\}(${noNested})\\\\end\\{itemize\\}`), 'ul', 'math-list-disc'],
+                    [new RegExp(`\\\\begin\\{enumerate\\}\\[label\\s*=\\s*\\(\\\\alph\\*\\)\\](${noNested})\\\\end\\{enumerate\\}`), 'ol', 'math-list-alpha'],
+                    [new RegExp(`\\\\begin\\{enumerate\\}\\[label\\s*=\\s*\\(\\\\Alph\\*\\)\\](${noNested})\\\\end\\{enumerate\\}`), 'ol', 'math-list-Alpha'],
+                    [new RegExp(`\\\\begin\\{enumerate\\}\\[label\\s*=\\s*\\(\\\\roman\\*\\)\\](${noNested})\\\\end\\{enumerate\\}`), 'ol', 'math-list-roman'],
+                    [new RegExp(`\\\\begin\\{enumerate\\}\\[label\\s*=\\s*\\(\\\\Roman\\*\\)\\](${noNested})\\\\end\\{enumerate\\}`), 'ol', 'math-list-Roman'],
+                    [new RegExp(`\\\\begin\\{enumerate\\}(${noNested})\\\\end\\{enumerate\\}`), 'ol', 'math-list'],
+                ];
+                for (const [re, tag, cls] of patterns) {
+                    const m = text.match(re);
+                    if (m) {
+                        return text.slice(0, m.index) + buildList(tag, cls, m[1], withHr) + text.slice(m.index + m[0].length);
+                    }
+                }
+                return null; // no more list environments left to convert
+            }
+
+            function processListsGeneric(text, withHr) {
+                let result = text;
+                let guard = 0;
+                let next;
+                while ((next = convertInnermostList(result, withHr)) !== null) {
+                    result = next;
+                    if (++guard > 500) break; // safety valve against runaway loops
+                }
+                return result;
+            }
+
+            function processLists(text) {
+                return processListsGeneric(text, false);
+            }
+
+            function processListsWithHr(text) {
+                return processListsGeneric(text, true);
             }
 
             // ── Restore math helper ────────────────────────────────────────────────

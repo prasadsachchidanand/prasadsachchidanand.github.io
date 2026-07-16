@@ -1,263 +1,244 @@
 .bleft-answer {
-    border-left: 0.25rem solid rgb(197, 211, 9);
-    background-color: rgb(255, 253, 231);
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-  }
-
-  .defn {
-    border-left: 0.25rem solid rgb(253, 218, 61);
-    background-color: rgba(240, 248, 128, 0.404);
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    margin-top: .5rem;
-    padding: 1rem;
-    line-height: 1.625;
-    line-height: 1.625;
-  }
-
-  .defn::before {
-    content: "Definition: ";
-    font-weight: bold;
-  }
-
-  .theorem {
-    border-left: 0.25rem solid rgb(255, 116, 236);
-    background-color: rgb(255, 249, 254);
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    margin-top: .5rem;
-    padding: 1rem;
-    line-height: 1.625;
-    line-height: 1.625;
-  }
-
-  .theorem::before {
-    content: "Theorem: ";
-    font-weight: bold;
-  }
-
-  .lemma {
-    border-left: 0.25rem solid rgb(153, 102, 255);
-    background-color: rgba(240, 230, 255, 0.5); 
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    margin-top: 0.5rem;
-    padding: 1rem;
-    line-height: 1.625;
-  }
-
-  .lemma::before {
-      content: "Lemma: ";
-      font-weight: bold;
-  }
-
-
-  .remark {
-    border-left: 0.25rem solid rgb(67, 89, 255);
-    background-color: rgb(229, 240, 253);
-    /* border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem; */
-    margin-top: .5rem;
-    padding: 1rem;
-    line-height: 1.625;
-    line-height: 1.625;
-  }
-
-  .remark::before {
-    content: "Remark: ";
-    font-weight: bold;
-  }
-
-  .result {
-    border-left: 0.25rem solid rgb(255, 227, 67);
-    background-color: rgb(253, 250, 229);
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    margin-top: .5rem;
-    padding: 1rem;
-    line-height: 1.625;
-    line-height: 1.625;
-  }
-
-  .result::before {
-    content: "Result: ";
-    font-weight: bold;
-  }
-
-  .proof {
-    border-left: 0.25rem solid rgb(61, 223, 255 );
-    background-color: rgb(223, 245, 250);
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    margin-top: 1rem;
-    padding: 1rem;
-    line-height: 1.625;
-    line-height: 1.625;
-  }
-
-  .text-head {
-    color: rgb(32, 192, 255);
-  }
-
-  .theory {
-    border-left: 0.25rem solid rgb(61, 223, 255 );
-    background-color: rgb(223, 245, 250);
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    margin-top: 1rem;
-    padding: 1rem;
-    line-height: 1.625;
-    line-height: 1.625;
-  }
-
-  .text-head {
-    color: rgb(32, 192, 255);
-  }
-
-  .math-list-nothing {
-    margin-left: 2.5rem;
-  }
-
-  .math-list {
-    list-style: decimal;
-    margin-left: 2.5rem;
-  }
-
-  /* .math-list-alpha {
-    list-style: lower-alpha;
-    margin-left: 2.5rem;
-  }
-
-  .math-list-Alpha {
-    list-style: upper-alpha;
-    margin-left: 2.5rem;
-  }
-  
-  .math-list-roman {
-    list-style: lower-roman;
-    margin-left: 2.5rem;
-  }
-  
-  .math-list-Roman {
-    list-style: upper-roman;
-    margin-left: 2.5rem;
-  } */
-
-  .math-list-alpha {
-    list-style: none;
-    margin-left: 2.5rem;
-    counter-reset: alpha-counter;
-  }
-
-  .math-list-alpha li::before {
-    counter-increment: alpha-counter;
-    content: "(" counter(alpha-counter, lower-alpha) ") ";
-  }
-
-  .math-list-Alpha {
-    list-style: none;
-    margin-left: 2.5rem;
-    counter-reset: Alpha-counter;
-  }
-
-  .math-list-Alpha li::before {
-    counter-increment: Alpha-counter;
-    content: "(" counter(Alpha-counter, upper-alpha) ") ";
-  }
-
-  .math-list-roman {
-    list-style: none;
-    margin-left: 2.5rem;
-    counter-reset: roman-counter;
-  }
-
-  .math-list-roman li::before {
-    counter-increment: roman-counter;
-    content: "(" counter(roman-counter, lower-roman) ") ";
-  }
-
-  .math-list-Roman {
-    list-style: none;
-    margin-left: 2.5rem;
-    counter-reset: Roman-counter;
-  }
-
-  .math-list-Roman li::before {
-    counter-increment: Roman-counter;
-    content: "(" counter(Roman-counter, upper-roman) ") "; 
-  }
-  
-  
-  .math-list-disc {
-    list-style: disc;
-    margin-left: 2.5rem;
-  }
-  
-  .math-list-square {
-    list-style: square;
-    margin-left: 2.5rem;
-  }
-
-  .equation {
-    color: #3b82f6;
-  }
-  :hover.equation {
-    color: #1e40af;
-  }
-
-  mjx-container a {
-    color: rgb(59 130 246) !important;
-    text-decoration: none !important;
-    /* font-weight: bold !important; */
-  }
-
-  .steps {
-    /* font-weight: 500; */
-    color:rgb(255, 166, 127)
-  }
-
-  /* Ensure the solution box has a default height */
-  #solution-container {
-    min-height: 150px;  /* Adjust as needed */
-    transition: min-height 0.3s ease-in-out;
-  }
-
-  /* When expanded, allow it to grow naturally */
-  #solution-container.expanded {
-    min-height: auto;
-  }
-
-  /* Center the comment box and set a max-width */
-  .commentbox {
-    max-width: 800px !important;
-    margin: 0 auto !important;
-    padding: 20px;
-  }
-
-  /* Ensure iframe inside commentbox takes full width of its container */
-  .commentbox iframe {
-    width: 100% !important;
-    max-width: 800px !important; /* Override iframe max-width */
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .blank-fill {
-    display: inline-block;
-    width: 5em;
-    height: 1px;
-    border-bottom: 0.1em solid black;
-    margin: 0 0.2em;
-    vertical-align: baseline;
+  border-left: 0.25rem solid rgb(197, 211, 9);
+  background-color: rgb(255, 253, 231);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
+.defn {
+  border-left: 0.25rem solid rgb(253, 218, 61);
+  background-color: rgba(240, 248, 128, 0.404);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin-top: .5rem;
+  padding: 1rem;
+  line-height: 1.625;
+}
 
-  /* class for ol and ul leading-relaxed lg:text-lg md:text-base text-justify */
+.defn::before {
+  content: "Definition: ";
+  font-weight: bold;
+}
 
-  /* Image */
-  /* 
+.theorem {
+  border-left: 0.25rem solid rgb(255, 116, 236);
+  background-color: rgb(255, 249, 254);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin-top: .5rem;
+  padding: 1rem;
+  line-height: 1.625;
+}
+
+.theorem::before {
+  content: "Theorem: ";
+  font-weight: bold;
+}
+
+.lemma {
+  border-left: 0.25rem solid rgb(153, 102, 255);
+  background-color: rgba(240, 230, 255, 0.5);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  line-height: 1.625;
+}
+
+.lemma::before {
+  content: "Lemma: ";
+  font-weight: bold;
+}
+
+.remark {
+  border-left: 0.25rem solid rgb(67, 89, 255);
+  background-color: rgb(229, 240, 253);
+  /* border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem; */
+  margin-top: .5rem;
+  padding: 1rem;
+  line-height: 1.625;
+}
+
+.remark::before {
+  content: "Remark: ";
+  font-weight: bold;
+}
+
+.result {
+  border-left: 0.25rem solid rgb(255, 227, 67);
+  background-color: rgb(253, 250, 229);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin-top: .5rem;
+  padding: 1rem;
+  line-height: 1.625;
+}
+
+.result::before {
+  content: "Result: ";
+  font-weight: bold;
+}
+
+.proof {
+  border-left: 0.25rem solid rgb(61, 223, 255);
+  background-color: rgb(223, 245, 250);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  line-height: 1.625;
+}
+
+.theory {
+  border-left: 0.25rem solid rgb(61, 223, 255);
+  background-color: rgb(223, 245, 250);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  line-height: 1.625;
+}
+
+.text-head {
+  color: rgb(32, 192, 255);
+}
+
+.math-list-nothing {
+  margin-left: 2.5rem;
+}
+
+.math-list {
+  list-style: decimal;
+  margin-left: 2.5rem;
+}
+
+/* ── Lettered / numbered lists ─────────────────────────────────────────────
+   These use CSS counters instead of native list-style so the label can be
+   wrapped in parentheses, e.g. "(a)", "(iii)".
+
+   IMPORTANT: the "> li" direct-child combinator below is required.
+   Without it, "li::before" matches every <li> anywhere inside the list,
+   including <li>s that belong to a nested <ul>/<ol> sitting inside one of
+   this list's items — which would make that nested list's bullets pick up
+   this list's lettering/numbering instead of their own marker.
+   ──────────────────────────────────────────────────────────────────────── */
+
+.math-list-alpha {
+  list-style: none;
+  margin-left: 2.5rem;
+  counter-reset: alpha-counter;
+}
+
+.math-list-alpha>li::before {
+  counter-increment: alpha-counter;
+  content: "(" counter(alpha-counter, lower-alpha) ") ";
+}
+
+.math-list-Alpha {
+  list-style: none;
+  margin-left: 2.5rem;
+  counter-reset: Alpha-counter;
+}
+
+.math-list-Alpha>li::before {
+  counter-increment: Alpha-counter;
+  content: "(" counter(Alpha-counter, upper-alpha) ") ";
+}
+
+.math-list-roman {
+  list-style: none;
+  margin-left: 2.5rem;
+  counter-reset: roman-counter;
+}
+
+.math-list-roman>li::before {
+  counter-increment: roman-counter;
+  content: "(" counter(roman-counter, lower-roman) ") ";
+}
+
+.math-list-Roman {
+  list-style: none;
+  margin-left: 2.5rem;
+  counter-reset: Roman-counter;
+}
+
+.math-list-Roman>li::before {
+  counter-increment: Roman-counter;
+  content: "(" counter(Roman-counter, upper-roman) ") ";
+}
+
+.math-list-disc {
+  list-style: disc;
+  margin-left: 2.5rem;
+}
+
+.math-list-square {
+  list-style: square;
+  margin-left: 2.5rem;
+}
+
+.equation {
+  color: #3b82f6;
+}
+
+.equation:hover {
+  color: #1e40af;
+}
+
+mjx-container a {
+  color: rgb(59 130 246) !important;
+  text-decoration: none !important;
+  /* font-weight: bold !important; */
+}
+
+.steps {
+  /* font-weight: 500; */
+  color: rgb(255, 166, 127);
+}
+
+/* Ensure the solution box has a default height */
+#solution-container {
+  min-height: 150px;
+  /* Adjust as needed */
+  transition: min-height 0.3s ease-in-out;
+}
+
+/* When expanded, allow it to grow naturally */
+#solution-container.expanded {
+  min-height: auto;
+}
+
+/* Center the comment box and set a max-width */
+.commentbox {
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  padding: 20px;
+}
+
+/* Ensure iframe inside commentbox takes full width of its container */
+.commentbox iframe {
+  width: 100% !important;
+  max-width: 800px !important;
+  /* Override iframe max-width */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.blank-fill {
+  display: inline-block;
+  width: 5em;
+  height: 1px;
+  border-bottom: 0.1em solid black;
+  margin: 0 0.2em;
+  vertical-align: baseline;
+}
+
+/* class for ol and ul leading-relaxed lg:text-lg md:text-base text-justify */
+
+/* Image */
+/*
   <div class="flex flex-wrap justify-center my-4">
     <img
       src="../../../assets/img/prob-25-03-25_01.svg"
@@ -267,5 +248,5 @@
   </div>
   */
 
-  /* anchor tag */
-  /* class="text-blue-500 hover:text-blue-800" */
+/* anchor tag */
+/* class="text-blue-500 hover:text-blue-800" */

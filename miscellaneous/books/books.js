@@ -141,19 +141,21 @@
         return tmp.innerHTML;
     }
 
-    // Strips a leading "<Author> - " or "<Author> - <number> - " from a title
-    // when browsing that book's own pages — e.g. "Herstein - 2.3.6 - Center of
-    // a group is..." becomes just "Center of a group is...", since the book
-    // and exercise number are already shown right next to it. Only strips the
-    // book's own shortName (not a generic pattern), so it can't accidentally
-    // eat into an unrelated title.
-    function stripBookPrefix(title, book) {
-        if (!title || !book || !book.shortName) return title;
-        const escaped = book.shortName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        // Separator between name/number/description can be "-" or ":" (or
-        // just whitespace) — different books' titles have used both styles.
-        const re = new RegExp(`^\\s*${escaped}\\s*[-:]?\\s*(?:[\\d.]+\\s*[-:]?\\s*)?`, 'i');
-        const stripped = title.replace(re, '').trim();
+    // Titles are typically written as "<Author name(s)> - <number> - <description>"
+    // or "<Author name(s)> <number>: <description>". Rather than needing an
+    // exact per-book name to match against (which breaks the moment an author
+    // is phrased differently than expected — e.g. "Hoffman" vs "Hoffman and
+    // Kunze"), this strips *any* short leading segment before the first "-"
+    // or ":" (plus an optional number+separator right after it). It's bounded
+    // to the first 40 characters, and refuses to cross a "$", so it can never
+    // eat into the actual mathematical content of a title that has no author
+    // prefix at all (math-heavy titles almost always start with "$" early on).
+    function stripBookPrefix(title) {
+        if (!title) return title;
+        const re = /^\s*[^$\n]{1,40}?[-:]\s*(?:[\d.]+\s*[-:]\s*)?/;
+        const m = title.match(re);
+        if (!m) return title;
+        const stripped = title.slice(m[0].length).trim();
         return stripped || title; // never return an empty title
     }
 
@@ -225,7 +227,7 @@
         if (!openChapter || !book.chapters[openChapter]) openChapter = chapterKeys[0];
 
         function problemRow(p) {
-            const cleanTitle = stripBookPrefix(p.title, book);
+            const cleanTitle = stripBookPrefix(p.title);
             const showTitle = cleanTitle && !isRedundantTitle(cleanTitle, p.problem);
             return `
                 <a href="#/${encodeURIComponent(bookKey)}/${encodeURIComponent(p.number)}"
@@ -403,7 +405,7 @@
 
         const hasHint = problem.hint && problem.hint.trim() !== '';
         const hasSolution = problem.solution && problem.solution.trim() !== '';
-        const cleanTitle = stripBookPrefix(problem.title, book);
+        const cleanTitle = stripBookPrefix(problem.title);
         const showTitle = cleanTitle && !isRedundantTitle(cleanTitle, problem.problem);
 
         content.innerHTML = `

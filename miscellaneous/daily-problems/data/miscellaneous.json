@@ -123,6 +123,314 @@
     },
 
     {
+      "date": "2025-06-28",
+      "title": "Herstein 1.2.3 - Set Theory - Describe the following sets verbally",
+      "difficulty": "easy",
+      "problem": "If $A$ is the set of all residents of the United States, $B$ the set of all Canadian citizens, and $C$ the set of all women in the world, then describe the sets\n    \\[\n        A  \\cap B  \\cap C, \\quad A - B, \\quad A - C, \\quad C - A\n    \\]\n    verbally.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The sets can be described verbally as follows:\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$A \\cap B \\cap C$ is the set of all women who are both residents of the United States and Canadian citizens.</li>\n<li class=\"my-4\">$A - B$ is the set of all residents of the United States who are not Canadian citizens.</li>\n<li class=\"my-4\">$A - C$ is the set of all residents of the United States who are not women.</li>\n<li class=\"my-4\">$C - A$ is the set of all women in the world who are not residents of the United States.</li></ol></div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.3)"
+      ]
+    },
+
+    {
+      "date": "2025-07-05",
+      "title": "Herstein 1.2.4 - Set Theory - Find the value of a if the intersection of two sets is given",
+      "difficulty": "easy",
+      "problem": "If $A = \\{ 1,4,7,a \\} $ and $B = \\{ 3,4,9,11 \\} $ and you have been told that $A  \\cap B = \\{ 4,9 \\} $, what must $a$ be?",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that $A \\cap B = \\{ 4,9 \\}$. Since $4 \\in A$ and $4 \\in B$, it is clear that $4$ is in the intersection. However, $9$ is not in set $A$ as given. Therefore, for the intersection to contain $9$, we must have $a = 9$. Thus, the value of $a$ must be $9$.</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.4)"
+      ]
+    },
+
+    {
+      "date": "2025-07-19",
+      "title": "Herstein 1.2.6 - Set Theory - Prove that A union C is a subset of B union C if A is a subset of B",
+      "difficulty": "easy",
+      "problem": "If $A \\subset B$, prove that $A  \\cup C \\subset B  \\cup C$ for any set $C$.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $x \\in A \\cup C$. Then either $x \\in A$ or $x \\in C$. \n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $x \\in A$, then since $A \\subset B$, we have $x \\in B$. Therefore, $x \\in B \\cup C$.</li>\n<li class=\"my-4\">If $x \\in C$, then clearly $x \\in B \\cup C$.</li></ul>\n    In both cases, we have shown that $x \\in B \\cup C$. Therefore, $A \\cup C \\subset B \\cup C$.</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.6)"
+      ]
+    },
+
+    {
+      "date": "2025-07-26",
+      "title": "Herstein 1.2.7 - Set Theory - Prove that A union B equals B union A and A intersection B equals B intersection A",
+      "difficulty": "easy",
+      "problem": "Show that $A  \\cup B = B  \\cup A$ and $A \\cap B = B \\cap A$.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $x \\in A \\cup B$. Then either $x \\in A$ or $x \\in B$. \n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $x \\in A$, then clearly $x \\in B \\cup A$.</li>\n<li class=\"my-4\">If $x \\in B$, then clearly $x \\in B \\cup A$.</li></ul>\n    In both cases, we have shown that $x \\in B \\cup A$. Therefore, $A \\cup B \\subset B \\cup A$. By a similar argument, we can show that $B \\cup A \\subset A \\cup B$. Thus, we conclude that $A \\cup B = B \\cup A$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now let $x \\in A \\cap B$. Then $x$ is in both $A$ and $B$. \n    Since the intersection is commutative, it follows that $x$ is also in both $B$ and $A$. Therefore, $x \\in B \\cap A$, and we have shown that $A \\cap B = B \\cap A$.</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.7)"
+      ]
+    },
+
+    {
+      "date": "2025-08-02",
+      "title": "Herstein 1.2.8 - Set Theory - Prove that (A - B) union (B - A) equals (A union B) - (A intersection B)",
+      "difficulty": "easy",
+      "problem": "Prove that $(A - B)  \\cup (B - A) = (A  \\cup B) - (A \\cap B)$. What does this look pictorially?",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $x \\in (A - B) \\cup (B - A)$. Then either $x \\in A - B$ or $x \\in B - A$. \n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $x \\in A - B$, then $x \\in A$ and $x \\notin B$. Therefore, $x \\in A \\cup B$ and $x \\notin A \\cap B$, which implies that $x \\in (A \\cup B) - (A \\cap B)$.</li>\n<li class=\"my-4\">If $x \\in B - A$, then $x \\in B$ and $x \\notin A$. Therefore, $x \\in A \\cup B$ and $x \\notin A \\cap B$, which implies that $x \\in (A \\cup B) - (A \\cap B)$.</li></ul>\n    In both cases, we have shown that $x \\in (A \\cup B) - (A \\cap B)$. Therefore, $(A - B)  \\cup (B - A) \\subseteq (A  \\cup B) - (A \\cap B)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Conversely, let $y \\in (A  \\cup B) - (A  \\cap B)$. Then $y$ is in either $A$ or $B$, but not in both. \n    If $y$ is in $A$ but not in $B$, then $y \\in A - B$. If $y$ is in $B$ but not in $A$, then $y \\in B - A$. In either case, we have shown that $y$ is in $(A - B)  \\cup (B - A)$. Therefore, $(A  \\cup B) - (A  \\cap B)  = (A - B)  \\cup (B - A)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Pictorially, this represents the symmetric difference of sets $A$ and $B$, which consists of the elements that are in either set but not in their intersection.\n    <div class=\"flex flex-wrap justify-center my-4\"><img src=\"../../../assets/img/prob-02-08-25_01.svg\" class=\"h-auto\" alt=\"$(A - B)  \\cup (B - A) = (A  \\cup B) - (A \\cap B)$ \" /></div></div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.8)"
+      ]
+    },
+
+    {
+      "date": "2025-08-09",
+      "title": "Herstein 1.2.9 - Set Theory - Prove that A intersection (B union C) equals (A intersection B) union (A intersection C)",
+      "difficulty": "easy",
+      "problem": "Prove that \n    \\[\n        A  \\cap (B  \\cup C) = (A  \\cap B)  \\cup (A  \\cap C).\n    \\]",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $x \\in A \\cap (B \\cup C)$. Then $x \\in A$ and $x \\in B \\cup C$. \n    Since $x \\in B \\cup C$, it follows that either $x \\in B$ or $x \\in C$. \n    If $x \\in B$, then $x \\in A \\cap B$. If $x \\in C$, then $x \\in A \\cap C$. \n    In either case, we have shown that $x \\in (A \\cap B) \\cup (A \\cap C)$. Therefore, $A  \\cap (B  \\cup C) \\subseteq (A  \\cap B)  \\cup (A  \\cap C)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Conversely, let $y \\in (A  \\cap B)  \\cup (A  \\cap C)$. Then either $y \\in A  \\cap B$ or $y \\in A  \\cap C$. \n    If $y \\in A  \\cap B$, then $y$ is in both $A$ and $B$, which implies that $y$ is in both $A$ and $B  \\cup C$. \n    If $y \\in A  \\cap C$, then $y$ is in both $A$ and $C$, which implies that $y$ is in both $A$ and $B  \\cup C$. \n    In either case, we have shown that $y$ is in both sets. Therefore, $(A  \\cap B)  \\cup (A  \\cap C) = A  \\cap (B  \\cup C)$.</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.9)"
+      ]
+    },
+
+    {
+      "date": "2025-08-16",
+      "title": "Herstein 1.2.10 - Set Theory - Prove that A union (B intersection C) equals (A union B) intersection (A union C)",
+      "difficulty": "easy",
+      "problem": "Prove that \n    \\[\n        A  \\cup (B  \\cap C) = (A  \\cup B)  \\cap (A  \\cup C).\n    \\]",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $x \\in A  \\cup (B  \\cap C)$. Then \n    \\begin{align*}\n        x \\in A \\text{ and } \\in B  \\cap  C & \\implies x \\in A \\text{ or } x \\in B  \\cap C \\\\\n        & \\implies x \\in A \\text{ or } (x \\in B \\text{ and } x \\in C) \\\\\n        & \\implies (x \\in A \\text{ or } x \\in B) \\text{ and } (x \\in A \\text{ or } x \\in C) \\\\\n        & \\implies x \\in (A  \\cup B)  \\cap (A  \\cup C).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Conversely, let $y \\in (A  \\cup B)  \\cap (A  \\cup C)$. Then\n    \\begin{align*}\n        y \\in (A  \\cup B)  \\cap (A  \\cup C) & \\implies y \\in (A  \\cup B) \\text{ and } y \\in (A  \\cup C) \\\\\n        & \\implies (y \\in A \\text{ or } y \\in B) \\text{ and } (y \\in A \\text{ or } y \\in C) \\\\\n        & \\implies y \\in A \\text{ or } (y \\in B \\text{ and } y \\in C) \\\\\n        & \\implies y \\in A  \\cup (B  \\cap C).\n    \\end{align*}</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.10)"
+      ]
+    },
+
+    {
+      "date": "2025-08-23",
+      "title": "Herstein 1.2.11 - Set Theory - List all the subsets of a given set",
+      "difficulty": "easy",
+      "problem": "Write down all the subsets of $S = \\{ 1,2,3,4 \\} $.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will list all the subsets of $S$ by looking at the number of elements in each subset.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">The empty set: $\\emptyset$.</li>\n<li class=\"my-4\">Subsets with one element: $\\{ 1 \\}, \\{ 2 \\}, \\{ 3 \\}, \\{ 4 \\}$.</li>\n<li class=\"my-4\">Subsets with two elements: $\\{ 1,2 \\}, \\{ 1,3 \\}, \\{ 1,4 \\}, \\{ 2,3 \\}, \\{ 2,4 \\}, \\{ 3,4 \\}$.</li>\n<li class=\"my-4\">Subsets with three elements: $\\{ 1,2,3 \\}, \\{ 1,2,4 \\}, \\{ 1,3,4 \\}, \\{ 2,3,4 \\}$.</li>\n<li class=\"my-4\">The subset with all four elements: $\\{ 1,2,3,4 \\}$.</li></ul>\n    Therefore, the total number of subsets of $S$ is $16$, and they are: \n    \\begin{align*}\n        & \\emptyset, \\{ 1 \\}, \\{ 2 \\}, \\{ 3 \\}, \\{ 4 \\}, \\{ 1,2 \\}, \\{ 1,3 \\}, \\{ 1,4 \\}, \\{ 2,3 \\}, \\\\\n        & \\quad  \\{ 2,4 \\}, \\{ 3,4 \\}, \n        \\{ 1,2,3 \\}, \\{ 1,2,4 \\}, \\{ 1,3,4 \\}, \\{ 2,3,4 \\}, \\{ 1,2,3,4\\}.\n    \\end{align*}</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.11)"
+      ]
+    },
+
+    {
+      "date": "2025-08-30",
+      "title": "Herstein 1.2.12 - Set Theory - Prove the De Morgan Rules for subsets",
+      "difficulty": "easy",
+      "problem": "If $C$ is a subset of $S$, let $C'$ denote the complement of $C$ in $S$. Prove the <em>De Morgan Rules</em> for subsets $A,B$ of $S$, namely:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$(A  \\cap B)' = A'  \\cup B'$.</li>\n<li class=\"my-4\">$(A  \\cup B)' = A'  \\cap B'$.</li></ol>",
+      "hint": "",
+      "solution": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Let $x \\in (A  \\cap B)'$. Then $x \\notin A  \\cap B$, which means that $x$ is not in either $A$ or $B$. Therefore, either $x \\notin A$ or $x \\notin B$, which implies that $x \\in A'$ or $x \\in B'$. Thus, $x \\in A'  \\cup B'$, and we have shown that $(A  \\cap B)' \\subseteq A'  \\cup B'$.\n\n        Conversely, let $y \\in A'  \\cup B'$. Then either $y \\in A'$ or $y \\in B'$, which means that either $y \\notin A$ or $y \\notin B$. This implies that $y \\notin A  \\cap B$. Thus, $y \\in (A  \\cap B)'$, and we have shown that $A'  \\cup B' \\subseteq (A  \\cap B)'$. \n\n        Combining both inclusions, we conclude that $(A  \\cap B)' = A'  \\cup B'$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">Let $x \\in (A  \\cup B)'$. Then $x \\notin A  \\cup B$, which means that $x$ is not in $A$ and not in $B$. Therefore, $x \\notin A$ and $x \\notin B$, which implies that $x \\in A'$ and $x \\in B'$. Thus, $x \\in A'  \\cap B'$, and we have shown that $(A  \\cup B)' \\subseteq A'  \\cap B'$.\n\n        Conversely, let $y \\in A'  \\cap B'$. Then $y$ is in both complements, which means that $y$ is not in either set. Therefore, $y$ is not in the union of the two sets, which implies that $y \\notin A  \\cup B$. Thus, $y \\in (A  \\cup B)'$, and we have shown that $A'  \\cap B' \\subseteq (A  \\cup B)'$.</li></ol>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.12)"
+      ]
+    },
+
+    {
+      "date": "2025-09-06",
+      "title": "Herstein 1.2.13 - Set Theory - Prove the following properties of the operations + and .",
+      "difficulty": "easy",
+      "problem": "Let $S$ be a set. For any two subsets of $S$ we define \n    \\[\n        A + B \\coloneqq (A - B)  \\cup (B - A) \\text{ and } A \\cdot B \\coloneqq A  \\cap B.\n    \\] \n    Prove that\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$A + B = B + A$.</li>\n<li class=\"my-4\">$A + \\varnothing = A$.</li>\n<li class=\"my-4\">$A \\cdot A = A$.</li>\n<li class=\"my-4\">$A + A = \\varnothing $.</li>\n<li class=\"my-4\">$A + (B + C) = (A + B) + C.$</li>\n<li class=\"my-4\">If $A + B = A + C,$ then $B = C$.</li>\n<li class=\"my-4\">$A \\cdot (B + C) = A \\cdot B + A \\cdot C.$</li></ol>",
+      "hint": "",
+      "solution": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">We have \n        \\begin{align*}\n            A + B & = (A - B)  \\cup (B - A) \\\\\n                  & = (B - A)  \\cup (A - B) \\\\\n                  & = B + A.\n        \\end{align*}\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">Note that \n        \\begin{align*}\n            A + \\varnothing & = (A - \\varnothing )  \\cup (\\varnothing - A) \\\\\n                            & = A  \\cup \\varnothing \\\\\n                            & = A. \n        \\end{align*}\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">We have\n        \\begin{align*}\n            A \\cdot A & = A  \\cap  A = A. \n        \\end{align*}\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">We have\n        \\begin{align*}\n            A + A & = (A - A)  \\cup (A - A) \\\\\n                  & = \\varnothing  \\cup \\varnothing = \\varnothing .\n        \\end{align*}\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">Note that\n        \\begin{align*}\n            A + (B + C) & = A + ((B - C)  \\cup (C - B)) \\\\\n                        & = (A - ((B - C)  \\cup (C - B)))  \\\\\n                        & \\quad \\cup (((B - C)  \\cup (C - B)) - A) \\\\[1ex]\n                        & = ((A - (B - C))  \\cap (A - (C - B))) \\\\\n                        & \\quad   \\cup (((B - C)  \\cup (C - B)) - A) \\\\[1ex]\n                        & = ((A - B)  \\cup (A - C))  \\cup (((B - C)  \\cup (C - B)) - A) \\\\[1ex]\n                        & = ((A - B)  \\cup ((B - C)  \\cup (C - B)))  \\\\\n                        & \\quad  \\cup ((A - C)  \\cup (((B - C)  \\cup (C - B)) - A)) \\\\[1ex]\n                        & = ((A + B) + C).\n        \\end{align*}\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">We have \n        \\begin{align*}\n            A \\cdot (B + C) & = A \\cdot \\left( (B - C)  \\cup (C - B) \\right) \\\\\n            & = A \\cap \\left( (B - C)  \\cup (C - B) \\right) \\\\\n            & = \\left[ A  \\cap  (B - C)  \\right]  \\cup \\left[ A  \\cap (C - B) \\right] \\\\\n            & = \\left[ (A  \\cap B) - (A  \\cap C)  \\right]  \\cup \\left[ (A  \\cap C) - (A  \\cap B) \\right] \\\\\n            & = (A \\cdot B) + (A \\cdot C).\n        \\end{align*}</li></ol>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.13)"
+      ]
+    },
+
+    {
+      "date": "2025-09-13",
+      "title": "Herstein 1.2.14 - Set Theory - Prove the inclusion-exclusion principle for two finite sets",
+      "difficulty": "medium",
+      "problem": "If $C$ is a finite set, let $m(C)$ denote the number of elements in $C$. If $A, B$ are finite sets, prove that\n    \\[\n        m(A  \\cup B) = m(A) + m(B) - m(A  \\cap B).\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$x \\in A  \\cup B$ means $x \\in A$ or $x \\in B$. So the intersection is being counted twice.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that $x \\in A  \\cup B$ if and only if $x \\in A$ or $x \\in B$. However, if $x \\in A  \\cap B$, then $x$ is counted twice in the sum $m(A) + m(B)$. Therefore, we must subtract $m(A  \\cap B)$ to avoid double counting.\n    <div class=\"flex flex-wrap justify-center my-4\"><img src=\"../../../assets/img/prob-13-09-25_01.svg\" class=\"h-auto\" alt=\"$ m(A  \\cup B) = m(A) + m(B) - m(A  \\cap B)$ \" /></div> \n    Thus, we have\n    \\[\n        m(A  \\cup B) = m(A) + m(B) - m(A  \\cap B).\n    \\]</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.14)"
+      ]
+    },
+
+    {
+      "date": "2025-09-20",
+      "title": "Herstein 1.2.15 - Set Theory - Find a formula for the union of three finite sets",
+      "difficulty": "medium",
+      "problem": "For three finite sets $A, B, C$ find a formula for $m(A  \\cup B  \\cup C).$",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">First consider $D = B  \\cup C$ and use the formula for two sets. Then apply the formula for two sets again to $A$ and $D$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Recall that from the previous problem (1.2.14), we know that \n    \\begin{equation}\\label{eq:20Sep2025-1}\n        m(A  \\cup B) = m(A) + m(B) - m(A  \\cap B).\n    \\end{equation}\n    Let $D = B  \\cup C$. Then, by the equation \\eqref{eq:20Sep2025-1}, we have\n    \\[\n        m(D) = m(B) + m(C) - m(B  \\cap C).\n    \\]\n    Applying the formula for two sets to $A$ and $D$, we get\n    \\[\n        m(A  \\cup  B  \\cup C) = m(A  \\cup D) = m(A) + m(D) - m(A  \\cap D).\n    \\]\n    Substituting the expression for $m(D)$, we have\n    \\begin{align*}\n        m(A  \\cup B  \\cup C) & = m(A) + m(D) - m(A  \\cap D) \\\\\n        & = m(A) + \\left[ m(B) + m(C) - m(B  \\cap C) \\right] - m(A  \\cap (B  \\cup C) ) \\\\[1ex]\n        & = m(A) + m(B) + m(C) - m(B  \\cap C) \\\\\n        & \\qquad  - m((A  \\cap B)  \\cup (A  \\cap C)).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now, applying the formula for two sets to $A  \\cap B$ and $A  \\cap C$, we have\n    \\begin{align*}\n        m((A  \\cap B)  \\cup (A  \\cap C)) & = m(A  \\cap B) + m(A  \\cap C) - m((A  \\cap B)  \\cap (A  \\cap C)) \\\\\n        & = m(A  \\cap B) + m(A  \\cap C) - m(A  \\cap B  \\cap C).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Substituting this back into the previous expression, we get\n    \\begin{align*}\n        m(A  \\cup B  \\cup C) & = m(A) + m(B) + m(C) \\\\\n        & \\quad - m(B  \\cap C) - \\left[ m(A  \\cap B) + m(A  \\cap C) - m(A  \\cap B  \\cap C) \\right] \\\\[1ex]\n        & = m(A) + m(B) + m(C) \\\\\n        & \\quad - m(A  \\cap B) - m(A  \\cap C) - m(B  \\cap C) \\\\\n        & \\quad + m(A  \\cap B  \\cap C).\n    \\end{align*}\n\n    Therefore, \n    \\begin{align*}\n        m(A  \\cup B  \\cup C) & = m(A) + m(B) + m(C) \\\\\n        & \\quad - m(A  \\cap B) - m(A  \\cap C) - m(B  \\cap C) \\\\\n        & \\quad + m(A  \\cap B  \\cap C).\n    \\end{align*}</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.15)"
+      ]
+    },
+
+    {
+      "date": "2025-09-27",
+      "title": "Herstein 1.2.16 - Set Theory - Find a formula for the number of elements in the union of n finite sets",
+      "difficulty": "difficult",
+      "problem": "Find a formula for the number of elements $m(A_1 \\cup A_2 \\cup \\dots \\cup A_n)$ for $n$ finite sets $A_1, A_2, \\dots, A_n$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Count how many times a single element $x$ lying in exactly $k$ of the sets gets counted by the right-hand side, and show this count is always $1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We claim that\n    \\begin{align*}\n        m(A_1 \\cup A_2 \\cup \\dots \\cup A_n) &= \\sum_{i=1}^{n} m(A_i) - \\sum_{1 \\le i < j \\le n} m(A_i \\cap A_j) \\\\\n        & \\quad + \\sum_{1 \\le i < j < l \\le n} m(A_i \\cap A_j \\cap A_l) \\\\\n        & \\quad - \\dots + (-1)^{n+1} m(A_1 \\cap A_2 \\cap \\dots \\cap A_n).\n    \\end{align*}\n    Equivalently, indexing the sum over nonempty subsets $S \\subseteq \\{1, 2, \\dots, n\\}$,\n    \\begin{equation}\\label{eq:27Sep2025-1}\n        m\\left( \\bigcup_{i=1}^n A_i \\right) = \\sum_{\\emptyset \\neq S \\subseteq \\{1,\\dots,n\\}} (-1)^{|S|+1} \\, m\\left( \\bigcap_{i \\in S} A_i \\right). \n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Proof.</strong> Let $x$ be an arbitrary element of $A_1 \\cup A_2 \\cup \\dots \\cup A_n$. It suffices to show that $x$ is counted <em>exactly once</em> by the right-hand side of \\eqref{eq:27Sep2025-1}; summing this fact over all $x \\in A_1 \\cup \\dots \\cup A_n$ then gives \\eqref{eq:27Sep2025-1}, since elements outside the union contribute $0$ to both sides.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $x \\in A_1 \\cup \\dots \\cup A_n$, it belongs to at least one of the sets. Suppose $x$ belongs to <em>exactly</em> $k$ of the sets $A_1, \\dots, A_n$, say\n    \\[\n        x \\in A_{i_1}, A_{i_2}, \\dots, A_{i_k}, \\qquad x \\notin A_j \\text{ for all other } j,\n    \\]\n    where $1 \\le k \\le n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For a nonempty subset $S \\subseteq \\{1, \\dots, n\\}$, the term $m\\left(\\bigcap_{i \\in S} A_i\\right)$ counts $x$ if and only if $x \\in A_i$ for every $i \\in S$, i.e., if and only if $S \\subseteq \\{i_1, \\dots, i_k\\}$. Thus the total contribution of $x$ to the right-hand side of \\eqref{eq:27Sep2025-1} is\n    \\begin{align*}\n        \\sum_{\\emptyset \\neq S \\subseteq \\{i_1, \\dots, i_k\\}} (-1)^{|S|+1}.\n    \\end{align*}\n    Grouping subsets by their size $r = |S|$, and noting there are $\\binom{k}{r}$ subsets of $\\{i_1, \\dots, i_k\\}$ of size $r$, this sum becomes\n    \\begin{align*}\n        \\sum_{\\emptyset \\neq S \\subseteq \\{i_1, \\dots, i_k\\}} (-1)^{|S|+1} &= \\sum_{r=1}^{k} \\binom{k}{r} (-1)^{r+1} \\\\\n        &= -\\sum_{r=1}^{k} \\binom{k}{r} (-1)^{r}.\n    \\end{align*}\n    By the Binomial Theorem,\n    \\[\n        \\sum_{r=0}^{k} \\binom{k}{r} (-1)^r = (1-1)^k = 0,\n    \\]\n    so that\n    \\[\n        \\sum_{r=1}^{k} \\binom{k}{r} (-1)^r = -\\binom{k}{0} = -1.\n    \\]\n    Substituting back,\n    \\[\n        \\sum_{\\emptyset \\neq S \\subseteq \\{i_1, \\dots, i_k\\}} (-1)^{|S|+1} = -(-1) = 1.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence every element $x \\in A_1 \\cup A_2 \\cup \\dots \\cup A_n$ is counted exactly once by the right-hand side of \\eqref{eq:27Sep2025-1}, regardless of how many (at least one) of the sets $A_i$ it belongs to. Since elements not in the union contribute nothing to either side, the two sides of \\eqref{eq:27Sep2025-1} are equal. This is exactly the <a href=\"https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">inclusion-exclusion principle</a>.</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.16)"
+      ]
+    },
+
+    {
+      "date": "2025-10-04",
+      "title": "Herstein 1.2.17 - Set Theory - Show that at least 50% of Americans have both gone to high school and read a daily newspaper",
+      "difficulty": "medium",
+      "problem": "Use the result of Problem 14 to show that if $80\\%$ of all Americans have gone to high school and $70\\%$ of all Americans read a daily newspaper then <em>at least</em> $50\\%$ of Americans have both gone to high school and read a daily newspaper.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the formula for two sets and the fact that $A \\cup B$ is a subset of $U$, the set of all Americans.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $A$ be the set of all Americans who have gone to high school and $B$ the set of all Americans who read a daily newspaper. Then we are given that \n    \\[\n        m(A) = 0.8m(U) \\text{ and } m(B) = 0.7m(U),\n    \\]\n    where $U$ is the set of all Americans. By the formula for two sets, we have\n    \\begin{align*}\n        m(A \\cup B) & = m(A) + m(B) - m(A \\cap B) \\\\\n        & = 0.8m(U) + 0.7m(U) - m(A \\cap B) \\\\\n        & = 1.5m(U) - m(A \\cap B).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $A \\cup B$ is a subset of $U$, we have $m(A \\cup B) \\le m(U)$, which implies that\n    \\begin{align*}\n        1.5m(U) - m(A \\cap B) & \\le m(U) \\\\\n        -m(A \\cap B) & \\le -0.5m(U) \\\\\n        m(A \\cap B) & \\ge 0.5m(U).\n    \\end{align*}\n    Therefore, at least $50\\%$ of Americans have both gone to high school and read a daily newspaper.</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.17)"
+      ]
+    },
+
+    {
+      "date": "2025-10-11",
+      "title": "Herstein 1.2.18 - Set Theory - How many population agreed with the government on all three decisions",
+      "difficulty": "medium",
+      "problem": "A public opinion poll shows that $93\\%$ of the population agreed with the government on the first decision, $84\\%$ on the second, and $74\\%$ on the third, for three decisions made by the government.At least what percentage of the population agreed agreed with the government on all three decisions?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that for any subsets $X,Y$ of $U$, we have \n        \\[\n            m(X) + m(Y) - m(X \\cap Y) \\le m(U).\n        \\]</li>\n<li class=\"my-4\">Use this to find a lower bound for $m(X \\cap Y)$, and then apply it twice to the three sets of people who agreed with the government on each decision.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $A, B, C$ be the sets of the population that agreed with the government on the first, second, and third decisions, respectively, and let $U$ be the set of all people in the population, so that\n    \\[\n        m(A) = 0.93\\,m(U), \\quad m(B) = 0.84\\,m(U), \\quad m(C) = 0.74\\,m(U).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For any two subsets $X, Y$ of $U$,\n    \\[\n        m(X \\cup Y) = m(X) + m(Y) - m(X \\cap Y),\n    \\]\n    and since $X \\cup Y \\subseteq U$, we have $m(X \\cup Y) \\le m(U)$. Hence\n    \\[\n        m(X) + m(Y) - m(X \\cap Y) \\le m(U),\n    \\]\n    which rearranges to\n    \\begin{equation}\\label{eq:11Oct2025-1}\n        m(X \\cap Y) \\ge m(X) + m(Y) - m(U).\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Applying \\eqref{eq:11Oct2025-1} to $A$ and $B$, we have\n    \\begin{align*}\n        m(A \\cap B) & \\ge m(A) + m(B) - m(U) \\\\\n        & = 0.93\\,m(U) + 0.84\\,m(U) - m(U) \\\\\n        & = 0.77\\,m(U).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now, applying \\eqref{eq:11Oct2025-1} to $A \\cap B$ and $C$, we have\n    \\begin{align*}\n        m((A \\cap B) \\cap C) & \\ge m(A \\cap B) + m(C) - m(U) \\\\\n        & = 0.77\\,m(U) + 0.74\\,m(U) - m(U) \\\\\n        & = 0.51\\,m(U).\n    \\end{align*}\n    Therefore, at least $51\\%$ of the population agreed with the government on all three decisions.</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.18)"
+      ]
+    },
+
+    {
+      "date": "2025-10-18",
+      "title": "Herstein 1.2.19 - Set Theory - Solve Lewis Carroll's riddle about a group of disabled veterans",
+      "difficulty": "medium",
+      "problem": "In his book <em>A Tangled Tale</em>, Lewis Carroll proposed the following riddle about a group of disabled veterans:</p><blockquote class=\"border-l-4 border-gray-300 pl-4 italic text-gray-700 my-4\">Say that $70\\%$ have lost an eye, $75\\%$ an ear, $80\\%$ an arm, $85\\%$ a leg. What percentage <em>at least</em>, must have lost all four?</blockquote><p>Solve Lewis Carroll's problem.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that for any subsets $X,Y$ of $U$, we have \n        \\[\n            m(X) + m(Y) - m(X \\cap Y) \\le m(U).\n        \\]</li>\n<li class=\"my-4\">Use this to find a lower bound for $m(X \\cap Y)$, and then apply it three times to the four sets of veterans who have lost an eye, an ear, an arm, and a leg.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $A_1, A_2, A_3, A_4$ be the sets of veterans who have lost an eye, an ear, an arm, and a leg, respectively. Then we are given that\n    \\begin{align*}\n        m(A_1) & = 0.70\\,m(U), \\\\\n        m(A_2) & = 0.75\\,m(U), \\\\\n        m(A_3) & = 0.80\\,m(U), \\\\\n        m(A_4) & = 0.85\\,m(U),\n    \\end{align*}\n    where $U$ is the set of all veterans.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For any two subsets $X, Y$ of $U$,\n    \\[\n        m(X \\cup Y) = m(X) + m(Y) - m(X \\cap Y),\n    \\]\n    and since $X \\cup Y \\subseteq U$, we have $m(X \\cup Y) \\le m(U)$. Hence\n    \\[\n        m(X) + m(Y) - m(X \\cap Y) \\le m(U),\n    \\]\n    which rearranges to\n    \\begin{equation}\\label{eq:18Oct2025-1}\n        m(X \\cap Y) \\ge m(X) + m(Y) - m(U).\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Applying \\eqref{eq:18Oct2025-1} to $A_1$ and $A_2$, we have\n    \\begin{align*}\n        m(A_1 \\cap A_2) &\\ge m(A_1) + m(A_2) - m(U) \\\\\n        & = 0.70\\,m(U) + 0.75\\,m(U) - m(U) \\\\\n        & = 0.45\\,m(U).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now, applying \\eqref{eq:18Oct2025-1} to $A_1 \\cap A_2$ and $A_3$, we have\n    \\begin{align*}\n        m\\big((A_1 \\cap A_2) \\cap A_3\\big) \\ge m(A_1 \\cap A_2) + m(A_3) - m(U).\n    \\end{align*}\n    Substituting the bound we get,\n    \\begin{align*}\n        m(A_1 \\cap A_2 \\cap A_3) & \\ge m(A_1 \\cap A_2) + m(A_3) - m(U) \\\\\n        & \\ge 0.45\\,m(U) + 0.80\\,m(U) - m(U) \\\\\n        & = 0.25\\,m(U).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Finally, applying \\eqref{eq:18Oct2025-1} to $A_1 \\cap A_2 \\cap A_3$ and $A_4$, we have\n    \\begin{align*}\n        m\\big((A_1 \\cap A_2 \\cap A_3) \\cap A_4\\big) \\ge m(A_1 \\cap A_2 \\cap A_3) + m(A_4) - m(U).\n    \\end{align*}\n    Substituting the bound we get,\n    \\begin{align*}\n        m(A_1 \\cap A_2 \\cap A_3 \\cap A_4) & \\ge m(A_1 \\cap A_2 \\cap A_3) + m(A_4) - m(U) \\\\\n        & \\ge 0.25\\,m(U) + 0.85\\,m(U) - m(U) \\\\\n        & = 0.10\\,m(U).\n    \\end{align*}\n    Therefore, at least $10\\%$ of the population must have lost all four body parts.</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.19)"
+      ]
+    },
+
+    {
+      "date": "2025-10-25",
+      "title": "Herstein 1.2.20 - Set Theory - Show that for finite sets A, B, that m(A x B) = m(A) * m(B)",
+      "difficulty": "medium",
+      "problem": "Show, for finite sets $A, B$, that $m(A \\times B) = m(A) \\cdot m(B)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that for each element of $A$, there are $m(B)$ number of choices and hence in total $m(A) \\cdot m(B)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $A = \\{ a_1, a_2, \\dots, a_m \\}$ and $B = \\{ b_1, b_2, \\dots, b_n \\}$ be finite sets with $m(A) = m$ and $m(B) = n$. The Cartesian product $A \\times B$ consists of all ordered pairs $(a_i, b_j)$ where $a_i \\in A$ and $b_j \\in B$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For each element $a_i$ in $A$, there are exactly $n$ elements in $B$, resulting in $n$ ordered pairs of the form $(a_i, b_j)$ for each $j = 1, 2, \\dots, n$. Since there are $m$ elements in $A$, the total number of ordered pairs in $A \\times B$ is given by:\n    \\[\n        m(A \\times B) = m \\cdot n.\n    \\]\n    Therefore, we conclude that:\n    \\[\n        m(A \\times B) = m(A) \\cdot m(B).\n    \\]</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.20)"
+      ]
+    },
+
+    {
+      "date": "2025-11-01",
+      "title": "Herstein 1.2.21 - Set Theory: Find the number of subsets of a set with 5 elements",
+      "difficulty": "easy",
+      "problem": "If $S$ is a set having five elements:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">How many subsets does $S$ have?</li>\n<li class=\"my-4\">How many subsets having four elements does $S$ have?</li>\n<li class=\"my-4\">How many subsets having two elements does $S$ have?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The total number of subsets of a set with $n$ elements is $2^n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given that the set $S$ has five elements, we can denote it as $S = \\{ s_1, s_2, s_3, s_4, s_5 \\}$.\n    Let us count all the subsets of $S$ by looking at the number of elements in each subset.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">The empty set: $\\emptyset$.</li>\n<li class=\"my-4\">Subsets with one element: Since there are $5$ elements in the set, the number of subsets with one element is $5$.</li>\n<li class=\"my-4\">Subsets with two elements: The number of ways to choose $2$ elements from $5$ is given by the binomial coefficient $\\binom{5}{2} = 10$.</li>\n<li class=\"my-4\">Subsets with three elements: The number of ways to choose $3$ elements from $5$ is given by the binomial coefficient $\\binom{5}{3} = 10$.</li>\n<li class=\"my-4\">Subsets with four elements: The number of ways to choose $4$ elements from $5$ is given by the binomial coefficient $\\binom{5}{4} = 5$.</li>\n<li class=\"my-4\">The subset with all five elements is the set $S$ itself: $\\{ s_1, s_2, s_3, s_4, s_5 \\}$.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">The total number of subsets of $S$ is the sum of the number of subsets with different numbers of elements:\n        \\[\n            1 + 5 + 10 + 10 + 5 + 1 = 32.\n        \\]\n        In general, a set with $n$ elements has $2^n$ subsets. It also follows from the above calculation (as it is binomial sum) that the total number of subsets of a set with $n$ elements is $2^n$. Therefore, the total number of subsets of $S$ is $2^5 = 32$.</li>\n<li class=\"my-4\">The number of subsets having four elements is $\\binom{5}{4} = 5$.</li>\n<li class=\"my-4\">The number of subsets having two elements is $\\binom{5}{2} = 10$.</li></ol>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.21)"
+      ]
+    },
+
+    {
+      "date": "2025-11-08",
+      "title": "Herstein 1.2.22 - Set Theory: Show that a set having n elements has 2^n elements and find the number of subsets that have exactly m elements",
+      "difficulty": "medium",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that a set having $n$ elements has $2^n$ elements.</li>\n<li class=\"my-4\">If $0 < m < n$, how many subsets are there that have exactly $m$ elements?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the binomial coefficient $\\binom{n}{m}$ to count the number of ways to choose $m$ elements from a set with $n$ elements.</li></ul>",
+      "solution": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Let $S$ be a set with $n$ elements. Each element of $S$ can either be included in a subset or not. Therefore, for each of the $n$ elements, there are $2$ choices (include or exclude). Hence, the total number of subsets is given by:\n        \\[\n            2 \\times 2 \\times \\dots \\times 2 = 2^n.\n        \\]\n        Thus, a set with $n$ elements has $2^n$ subsets.\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We can also see by looking at the subsets of $S$ with $k$ elements, where $k = 0,1,\\dots, n$. \n        \n        <ul class=\"math-list-disc my-4\"><li class=\"my-4\">The number of subsets with $0$ elements is $1$ (the empty set).</li>\n<li class=\"my-4\">The number of subsets with $1$ element is $n$ (each element of $S$ can form a subset).</li>\n<li class=\"my-4\">The number of subsets with $2$ elements is $\\binom{n}{2}$ (the number of ways to choose $2$ elements from $n$).</li>\n<li class=\"my-4\">The number of subsets with $3$ elements is $\\binom{n}{3}$ (the number of ways to choose $3$ elements from $n$).</li>\n<li class=\"my-4\">$\\dots$</li>\n<li class=\"my-4\">The number of subsets with $n$ elements is $1$ (the set $S$ itself).</li></ul>\n        Therefore, the total number of subsets of $S$ is given by the sum:\n        \\[\n            1 + n + \\binom{n}{2} + \\binom{n}{3} + \\dots + \\binom{n}{n-1} + 1 = 2^n.\n        \\]\n        The above sum can be proved using the binomial expansion of $(x + y)^n$ with $x = y = 1$. \n        \\[\n            (1 + 1)^n = \\sum_{k=0}^{n} \\binom{n}{k} = 2^n.\n        \\]\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The number of subsets that have exactly $m$ elements is given by the binomial coefficient $\\binom{n}{m}$, which counts the number of ways to choose $m$ elements from a set of $n$ elements. Therefore, the number of subsets with exactly $m$ elements is:\n        \\[\n            \\binom{n}{m} = \\frac{n!}{m!(n-m)!}.\n        \\]</li></ol></div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.2.22)"
+      ]
+    },
+
+    {
+      "date": "2025-11-15",
+      "title": "Herstein 1.3.1 - Mappings: Determine if a mapping is clearly and unambiguously defined",
+      "difficulty": "easy",
+      "problem": "For the given sets $S, T$ determine if a mapping $f: S \\rightarrow T$ is clearly and unambiguously defined; if not, say why not.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$S=$ set of all women, $T=$ set of all men, $f(s)=$ husband of $s$.</li>\n<li class=\"my-4\">$S=$ set of positive integers, $T=S, f(s)=s-1$.</li>\n<li class=\"my-4\">$S=$ set of positive integers, $T=$ set of nonnegative integers, $f(s)= s-1$.</li>\n<li class=\"my-4\">$S=$ set of nonnegative integers, $T=S, f(s)=s-1$.</li>\n<li class=\"my-4\">$S=$ set of all integers, $T=S, f(s)=s-1$.</li>\n<li class=\"my-4\">$S=$ set of all real numbers, $T=S, f(s)=\\sqrt{s}$.</li>\n<li class=\"my-4\">$S=$ set of all positive real numbers, $T=S, f(s)=\\sqrt{s}$.</li></ol>",
+      "hint": "",
+      "solution": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">The mapping is not defined because not all women have husbands, and some women may have more than one husband (in the case of polygamy). Therefore, $f(s)$ is not defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is not defined because $f(1) = 0$, which is not a positive integer. Therefore, $f(s)$ is not defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is clearly defined because for every positive integer $s$, $f(s) = s - 1$ is a nonnegative integer. Therefore, $f(s)$ is defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is not  defined because $f(0) = -1$, which is not a nonnegative integer. Therefore, $f(s)$ is not defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is clearly defined because for every integer $s$, $f(s) = s - 1$ is also an integer. Therefore, $f(s)$ is defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is not defined because the square root of a negative real number is not a real number. Therefore, $f(s)$ is not defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is clearly defined because for every positive real number $s$, $f(s) = \\sqrt{s}$ is also a positive real number. Therefore, $f(s)$ is defined for all $s \\in S$.</li></ol>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.3.1)"
+      ]
+    },
+
+    {
+      "date": "2025-11-22",
+      "title": "Herstein 1.3.2 - Mappings: Determine if a mapping is 1-1, onto, or both",
+      "difficulty": "easy",
+      "problem": "In those parts of Problem 1.3.1 where $f$ does define a function, determine if 1-1, onto, or both.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A function $f: S \\rightarrow T$ is 1-1 (injective) if for every $s_1, s_2 \\in S$, $f(s_1) = f(s_2)$ implies $s_1 = s_2$.</li>\n<li class=\"my-4\">A function $f: S \\rightarrow T$ is onto (surjective) if for every $t \\in T$, there exists an $s \\in S$ such that $f(s) = t$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In the parts of Problem 1.3.1 where $f$ defines a function, we analyze each case for injectivity (1-1) and surjectivity (onto):\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Not applicable, as $f$ is not defined.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">Not applicable, as $f$ is not defined.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping $f(s) = s - 1$ from the set of positive integers to the set of nonnegative integers is both 1-1 and onto. It is 1-1 because if $f(s_1) = f(s_2)$, then $s_1 - 1 = s_2 - 1$, which implies $s_1 = s_2$. It is onto because for every nonnegative integer $t$, there exists a positive integer $s = t + 1$ such that $f(s) = t$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">Not applicable, as $f$ is not defined.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping $f(s) = s - 1$ from the set of all integers to itself is both 1-1 and onto. It is 1-1 because if $f(s_1) = f(s_2)$, then $s_1 - 1 = s_2 - 1$, which implies $s_1 = s_2$. It is onto because for every integer $t$, there exists an integer $s = t + 1$ such that $f(s) = t$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">Not applicable, as $f$ is not defined.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping $f(s) = \\sqrt{s}$ from the set of all positive real numbers to itself is both 1-1 and onto. It is 1-1 because if $f(s_1) = f(s_2)$, then $\\sqrt{s_1} = \\sqrt{s_2}$, which implies $\\sqrt{s_1}^2 = \\sqrt{s_2}^2$, and thus $s_1 = s_2$. It is onto because for every positive real number $t$, there exists a positive real number $s = t^2$ such that $f(s) = t$.</li></ol></div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.3.2)"
+      ]
+    },
+
+    {
+      "date": "2025-11-29",
+      "title": "Herstein 1.3.3 - Mappings: Prove that the inverse of a 1-1 mapping is also a 1-1 mapping",
+      "difficulty": "easy",
+      "problem": "If $f$ is a 1-1 mapping of $S$ onto $T$, prove that $f^{-1}$ is a 1-1 mapping of $T$ onto $S$.",
+      "hint": "Note that $f\\circ f^{-1} = \\text{id}_T$ and $f^{-1} \\circ f = \\text{id}_S$. Use this to show that $f^{-1}$ is 1-1 and onto.",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given that $f$ is a 1-1 mapping of $S$ onto $T$, we need to show that the inverse function $f^{-1}$ is also a 1-1 mapping of $T$ onto $S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First, we show that $f^{-1}$ is 1-1. Suppose $f^{-1}(t_1) = f^{-1}(t_2)$ for some $t_1, t_2 \\in T$. Then, applying $f$ to both sides, we get $f(f^{-1}(t_1)) = f(f^{-1}(t_2))$. Since $f \\circ f^{-1} = \\text{id}_T$, this simplifies to $t_1 = t_2$. Thus, $f^{-1}$ is 1-1.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Next, we show that $f^{-1}$ is onto. For any $s \\in S$, since $f$ is onto, there exists a $t \\in T$ such that $f(s) = t$. Then, by the definition of the inverse function, $f^{-1}(t) = s$. Therefore, for every $s \\in S$, there exists a $t \\in T$ such that $f^{-1}(t) = s$, proving that $f^{-1}$ is onto.\n\n    Hence, $f^{-1}$ is a 1-1 mapping of $T$ onto $S$.</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "abstract-algebra-herstein (1.3.3)"
+      ]
+    },
+
+    {
       "date": "2026-01-03",
       "title": "Number Theory - n^7 - n is divisible by 42",
       "difficulty": "medium",
