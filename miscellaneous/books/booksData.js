@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-16T15:07:12.621Z
+// Generated on: 2026-07-17T06:08:37.294Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -359,6 +359,14 @@ const booksData = {
                 "title": "Herstein - 2.3.13 - Subgroup of cyclic group is cyclic",
                 "difficulty": "medium",
                 "problem": "If $G$ is cyclic, show that every subgroup of $G$ is cyclic."
+              },
+              {
+                "number": "2.3.14",
+                "date": "2026-07-15",
+                "topic": "abstract-algebra",
+                "title": "Herstein - 2.3.14 - Group with no proper subgroups is cyclic",
+                "difficulty": "easy",
+                "problem": "If $G$ has no proper subgroups, prove that $G$ is cyclic."
               }
             ]
           }
@@ -656,9 +664,17 @@ const booksData = {
                 "number": "2.13.1",
                 "date": "2026-07-09",
                 "topic": "topology",
-                "title": "",
+                "title": "Munkres 2.13.1: A subset of a topological space is open if each of its points has an open neighborhood contained in the subset",
                 "difficulty": "medium",
                 "problem": "Let $X$ be a topological space. Let $A$ be a subset of $X$ . Suppose that for each $x \\in A$ there is an open set $U$ containing $x$ such that $U \\subseteq A.$ Show that $A$ is open in $X$. (Recall that a set $U$ is open in $X$ if and only if $U$ belongs to the topology of $X$.)"
+              },
+              {
+                "number": "2.13.2",
+                "date": "2026-07-16",
+                "topic": "topology",
+                "title": "Munkres 2.13.2: Comparing Nine Topologies on a Three-Element Set",
+                "difficulty": "easy",
+                "problem": "Consider the nine topologies on the set $X = \\{ a, b, c \\}$ indicated in Example 1 of §12. Compare them; that is, for each pair of topologies, determine whether they are comparable, and if so, which is the finer. \n    <div class=\"flex flex-wrap justify-center my-4\"><img src=\"../../../assets/img/prob-16-07-26_01.svg\" class=\"h-auto\" alt=\"Nine topologies on the set $X = \\{ a,b,c \\}$\" /></div>"
               }
             ]
           }

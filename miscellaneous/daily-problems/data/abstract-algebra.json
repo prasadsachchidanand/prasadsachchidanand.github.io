@@ -384,6 +384,21 @@
         "cyclic-group",
         "abstract-algebra-herstein (2.3.13)"
       ]
+    },
+
+    {
+      "date": "2026-07-15",
+      "title": "Herstein - 2.3.14 - Group with no proper subgroups is cyclic",
+      "difficulty": "easy",
+      "problem": "If $G$ has no proper subgroups, prove that $G$ is cyclic.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that for any $a \\in G$, $\\langle a \\rangle$ is a subgroup of $G$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $G$ be a group with no proper subgroups. If $G = \\{ e \\}$, then $G$ is cyclic. Now, let $G \\neq \\{ e \\}$. Let $a \\in G$ with $a \\neq e$. Then, we have $\\langle a \\rangle$ is a subgroup of $G$. Since $G$ has no proper subgroups, we must have $\\langle a \\rangle = G$. Thus, we conclude that $G$ is cyclic.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cyclic-group",
+        "abstract-algebra-herstein (2.3.14)"
+      ]
     }
   ]
 }

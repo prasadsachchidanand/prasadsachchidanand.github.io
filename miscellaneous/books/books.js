@@ -341,7 +341,7 @@
         const locationLabel = entry.sectionKey ? `Section ${entry.chapterKey}.${entry.sectionKey}` : `Chapter ${entry.chapterKey}`;
         const a = accentClasses(book.color);
 
-        document.getElementById('page-title').textContent = `${entry.number} - ${entry.title} - ${book.title} - Sachchidanand Prasad`;
+        document.getElementById('page-title').textContent = `${entry.title} - ${book.title} - Sachchidanand Prasad`;
         window.scrollTo({ top: 0 });
 
         function pagerButton(target, direction) {

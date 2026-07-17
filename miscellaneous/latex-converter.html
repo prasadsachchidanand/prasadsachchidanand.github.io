@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LaTeX to JSON Converter - Sachchidanand Prasad</title>
     <meta name="description"
-        content="Convert LaTeX problem, hint, and solution environments into structured JSON format. Supports math notation, lists, figures, and formatting commands.">
+        content="Convert LaTeX problem, hint, and solution environments into structured JSON format. Supports math notation, lists, figures, MCQs, and formatting commands.">
     <meta name="keywords"
         content="LaTeX to JSON, LaTeX converter, math problem converter, Sachchidanand Prasad, LaTeX tools, JSON export, problem of the day">
     <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png" />
@@ -70,9 +70,14 @@
         <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-xl font-semibold text-slate-800">Metadata</h2>
-                <button id="resetBtn"
-                    class="px-3 py-1.5 bg-red-100 hover:bg-red-200 text-red-700 rounded-md text-sm transition-colors">Reset
-                    Form</button>
+                <div class="flex items-center gap-3">
+                    <span id="mcqBadge"
+                        class="hidden px-2.5 py-1 bg-emerald-100 text-emerald-700 rounded-md text-xs font-semibold tracking-wide">MCQ
+                        DETECTED</span>
+                    <button id="resetBtn"
+                        class="px-3 py-1.5 bg-red-100 hover:bg-red-200 text-red-700 rounded-md text-sm transition-colors">Reset
+                        Form</button>
+                </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
@@ -174,6 +179,23 @@
                 \noindent (will be ignored)
                 More content...
                 \end{solution}</pre>
+            <h3 class="font-semibold text-blue-900 mt-4 mb-2">MCQ Format (optional, goes inside \begin{problem}):</h3>
+            <pre class="text-sm text-blue-800 overflow-x-auto">\begin{problem}
+                Question text with $math$...
+                \begin{mcq}
+                \item First option text
+                \item Second option text
+                \item Third option text
+                \item Fourth option text
+                \end{mcq}
+                \correctanswer{a}
+                \end{problem}</pre>
+            <p class="text-xs text-blue-700 mt-2">Both <code>\begin{mcq}...\end{mcq}</code> and
+                <code>\correctanswer{}</code>
+                are stripped out of the rendered problem text and instead exported as
+                <code>isMcq</code>, <code>options</code>, and <code>correctAnswer</code> fields in the JSON, so the
+                answer never leaks into the problem HTML.
+            </p>
         </div>
     </div>
 
@@ -203,6 +225,7 @@
             ['latexInput', 'jsonOutput', 'dateInput', 'titleInput', 'tagsInput'].forEach(id => $(id).value = '');
             $('difficultyInput').value = 'medium';
             ['latexInput', 'jsonOutput', 'date', 'title', 'tags', 'difficulty'].forEach(k => safeSet(k, ''));
+            $('mcqBadge').classList.add('hidden');
         });
 
         // ── File upload ────────────────────────────────────────────────────────────
@@ -252,8 +275,10 @@
                 );
                 $('jsonOutput').value = result;
                 safeSet('jsonOutput', result);
+                $('mcqBadge').classList.toggle('hidden', JSON.parse(result).isMcq !== true);
             } catch (err) {
                 $('jsonOutput').value = 'Error: ' + err.message;
+                $('mcqBadge').classList.add('hidden');
             }
         });
 
@@ -387,10 +412,44 @@
                     .replace(/__DISPLAYDOLLAR_(\d+)__/g, (_, i) => `$$${displayDollarPlaceholders[i]}$$`);
             }
 
-            // ── Extract problem ────────────────────────────────────────────────────
+            // ── Extract problem (with optional MCQ) ────────────────────────────────
             let problem = '';
+            let mcqOptions = null;
+            let correctAnswer = null;
             const probM = s.match(/\\begin\{problem\}([\s\S]*?)\\end\{problem\}/);
-            if (probM) problem = restoreMath(processLists(probM[1].trim()));
+            if (probM) {
+                let probRaw = probM[1];
+
+                // \correctanswer{a} — extract + strip so the answer never appears in problem text
+                const caM = probRaw.match(/\\correctanswer\{([^}]+)\}/);
+                if (caM) {
+                    correctAnswer = caM[1].trim().toLowerCase();
+                    probRaw = probRaw.replace(/\\correctanswer\{[^}]+\}/, '');
+                }
+
+                // \begin{mcq}...\end{mcq} — extract options, strip block from problem text
+                const mcqM = probRaw.match(/\\begin\{mcq\}([\s\S]*?)\\end\{mcq\}/);
+                if (mcqM) {
+                    const items = [...mcqM[1].matchAll(/\\item\s+([\s\S]*?)(?=\\item|$)/g)];
+                    const letters = 'abcdefghijklmnopqrstuvwxyz';
+                    mcqOptions = items.map((m, idx) => ({
+                        label: letters[idx],
+                        text: restoreMath(m[1].trim())
+                    }));
+                    probRaw = probRaw.replace(/\\begin\{mcq\}[\s\S]*?\\end\{mcq\}/, '');
+                }
+
+                probRaw = probRaw.replace(/\n{3,}/g, '\n\n');
+                problem = restoreMath(processLists(probRaw.trim()));
+
+                // Validate correctAnswer actually matches one of the options
+                if (mcqOptions && correctAnswer && !mcqOptions.some(o => o.label === correctAnswer)) {
+                    throw new Error(`\\correctanswer{${correctAnswer}} does not match any \\item in the mcq block.`);
+                }
+                if (mcqOptions && !correctAnswer) {
+                    throw new Error('mcq block found but no \\correctanswer{} was provided.');
+                }
+            }
 
             // ── Extract hint ───────────────────────────────────────────────────────
             let hint = '';
@@ -424,6 +483,11 @@
                 solution,
                 tags: tags ? tags.split(',').map(t => t.trim()).filter(Boolean) : []
             };
+            if (mcqOptions) {
+                obj.isMcq = true;
+                obj.options = mcqOptions;
+                obj.correctAnswer = correctAnswer;
+            }
             return JSON.stringify(obj, null, 2);
         }
     </script>

@@ -301,6 +301,64 @@ function getDifficultyBadge(difficulty) {
     return `<span class="inline-block ${color} text-sm font-semibold rounded px-3 py-1 border">${difficulty || 'Medium'}</span>`;
 }
 
+// ==================== MCQ RENDERING ====================
+// Renders problem.options as clickable buttons when problem.isMcq is true.
+// On first click: selected wrong option -> red, correct option -> green,
+// all options then lock (no re-answering).
+function createMcqOptions(problem) {
+    const existing = document.getElementById('mcq-options');
+    if (existing) existing.remove();
+
+    if (!problem.isMcq || !Array.isArray(problem.options) || problem.options.length === 0) {
+        return null;
+    }
+
+    const wrap = document.createElement('div');
+    wrap.id = 'mcq-options';
+    wrap.className = 'mt-4 space-y-2';
+
+    const baseClasses = ['border-gray-200', 'hover:border-indigo-300', 'hover:bg-indigo-50'];
+
+    problem.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.dataset.label = opt.label;
+        btn.className = `mcq-option block w-full text-left px-4 py-2.5 border-2 rounded-lg bg-white transition-colors duration-150 ${baseClasses.join(' ')}`;
+        btn.innerHTML = `<span class="font-semibold mr-2">(${opt.label})</span><span>${opt.text}</span>`;
+
+        btn.addEventListener('click', () => {
+            if (wrap.dataset.answered) return; // lock after first answer
+            wrap.dataset.answered = 'true';
+
+            const isCorrect = opt.label === problem.correctAnswer;
+            btn.classList.remove(...baseClasses);
+            btn.classList.add(isCorrect ? 'border-green-500' : 'border-red-500', isCorrect ? 'bg-green-50' : 'bg-red-50');
+
+            if (!isCorrect) {
+                const correctBtn = wrap.querySelector(`[data-label="${problem.correctAnswer}"]`);
+                if (correctBtn) {
+                    correctBtn.classList.remove(...baseClasses);
+                    correctBtn.classList.add('border-green-500', 'bg-green-50');
+                }
+            }
+
+            // Disable further interaction/hover styling on all options
+            wrap.querySelectorAll('.mcq-option').forEach(b => {
+                b.classList.remove('hover:border-indigo-300', 'hover:bg-indigo-50');
+                b.style.cursor = 'default';
+            });
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise([wrap]).catch(err => console.log('MathJax mcq render error:', err));
+            }
+        });
+
+        wrap.appendChild(btn);
+    });
+
+    return wrap;
+}
+
 async function loadAllProblemDates() {
     const allDates = {};
     const topics = Object.values(topicMap);
@@ -497,6 +555,12 @@ function displayProblem(problem, problemDate, topicName, currentProblems) {
             tagLink.textContent = tag;
             tagsContainer.appendChild(tagLink);
         });
+    }
+
+    // MCQ options — rendered right after the tags row, before hint/solution/solved buttons
+    const mcqOptions = createMcqOptions(problem);
+    if (mcqOptions) {
+        problemBox.appendChild(mcqOptions);
     }
     
     const hasHint = problem.hint && problem.hint.trim() !== '';

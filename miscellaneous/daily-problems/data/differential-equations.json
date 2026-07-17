@@ -368,7 +368,7 @@
     },
 
     {
-      "date": "2026-07-10",
+      "date": "2026-07-17",
       "title": "Obtain the differential equation of all the circles of radius a and centre (h,k)",
       "difficulty": "easy",
       "problem": "Obtain the differential equation of all the circles of radius $a$ and centre $(h,k)$.",
@@ -378,6 +378,40 @@
         "differential-equation",
         "ode"
       ]
+    },
+
+    {
+      "date": "2026-07-10",
+      "title": "Find the intersection point of two solutions of the differential equation dy/dx = y + 17",
+      "difficulty": "easy",
+      "problem": "Let $y_1(x)$ and $y_2 (x)$ be the solution of the differential equation\n    \\[\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = y + 17,\n    \\] \n    with initial conditions $y_1(0) = 0$ and $y_2(0) = 1$. Then, which of the following is true?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Rewrite the differential equation in the form $\\frac{\\mathrm{d}y}{y - 17} = dx $ and then solve it.</li>\n<li class=\"my-4\">Use the initial conditions to find the particular solutions $y_1(x)$ and $y_2(x)$.</li>\n<li class=\"my-4\">To find the intersection point of $y_1(x)$ and $y_2(x)$, set $y_1(x) = y_2(x)$ and solve for $x$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given the differential equation\n    \\begin{equation}\\label{eq:17July2026-1}\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = y + 17,\n    \\end{equation}\n    with initial conditions $y_1(0) = 0$ and $y_2(0) = 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The differential equation \\eqref{eq:17July2026-1} is a first-order linear differential equation. We can solve it using the separation of variables method. Rearranging, we get\n    \\begin{align*}\n        \\frac{\\mathrm{d}y}{y + 17} = \\mathrm{d}x & \\implies \\int \\frac{\\mathrm{d}y}{y + 17} = \\int \\mathrm{d}x \\\\\n        & \\implies \\ln(y + 17) = x + C \\\\\n        & \\implies y + 17 = e^{x + C} = Ae^x, \n    \\end{align*}\n    where $A = e^C$ is an arbitrary constant. Thus, the general solution of \\eqref{eq:17July2026-1} is\n    \\begin{equation}\\label{eq:17July2026-2}\n        y(x) = Ae^x - 17.\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now, we will find the particular solutions $y_1(x)$ and $y_2(x)$ using the initial conditions.\n    \\begin{align*}\n        y_1(0) = 0 & \\implies 0 = A_1 e^0 - 17 \\implies A_1 = 17 \\\\\n        & \\implies y_1(x) = 17 e^x - 17, \\\\[2ex]\n        y_2(0) = 1 & \\implies 1 = A_2 e^0 - 17 \\implies A_2 = 18 \\\\\n        & \\implies y_2(x) = 18 e^x - 17.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To find the intersection point of $y_1(x)$ and $y_2(x)$, we set $y_1(x) = y_2(x)$:\n    \\begin{align*}\n        17 e^x - 17 = 18 e^x - 17 & \\implies 17 e^x = 18 e^x \\\\\n        & \\implies 0 = e^x,\n    \\end{align*}\n    which is impossible for any real value of $x$. Therefore, $y_1(x)$ and $y_2(x)$ will never intersect. Thus the correct answer is (a) $y_1$ and $y_2$ will never intersect.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "mcq"
+      ],
+      "isMcq": true,
+      "options": [
+        {
+          "label": "a",
+          "text": "$y_1$ and $y_2$ will never intersect."
+        },
+        {
+          "label": "b",
+          "text": "$y_1$ and $y_2$ will intersect at $x = 17$."
+        },
+        {
+          "label": "c",
+          "text": "$y_1$ and $y_2$ will intersect at $x = e$."
+        },
+        {
+          "label": "d",
+          "text": "$y_1$ and $y_2$ will intersect at $x = 1$."
+        }
+      ],
+      "correctAnswer": "a"
     }
   ]
 }
