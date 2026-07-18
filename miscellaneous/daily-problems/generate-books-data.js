@@ -25,6 +25,21 @@
  *   rights to use (e.g. photos of your own copy) — book cover art is
  *   normally copyrighted.
  *
+ * DEDICATED PER-BOOK PROBLEM FILES (optional):
+ *   You don't have to post a problem as a daily problem to get it into a
+ *   book's solution set. Drop a file into miscellaneous/books/data/ (name it
+ *   after the book, e.g. "abstract-algebra-herstein.json") using the exact
+ *   same entry shape as a daily-problems/data/*.json file — date, title,
+ *   difficulty, problem, hint, solution, tags (including the usual book
+ *   tag, e.g. "abstract-algebra-herstein (1.3.2)"). Using the same shape
+ *   means you can move a problem to/from a daily-problems file later just by
+ *   copy-pasting the same JSON object — no reformatting needed.
+ *   These merge into the same book as anything tagged from the daily-problem
+ *   JSON files. If the same exercise number shows up in both places, the
+ *   dedicated file here wins (with a console note explaining why) — handy if
+ *   you posted something as a daily problem first and later gave it a
+ *   proper standalone entry here.
+ *
  * TAGGING CONVENTION GOING FORWARD (please use this for all new problems):
  *   "<book-key> (<chapter>.<section>.<problem>)"
  *   e.g. "abstract-algebra-herstein (2.3.14)"
@@ -43,6 +58,12 @@ const OUT_FILE = path.join(__dirname, '..', 'books', 'booksData.js');
 // needed. A book with no matching file just keeps the plain spine-card look.
 const COVERS_DIR = path.join(__dirname, '..', 'books', 'covers');
 const COVER_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp'];
+// NEW: dedicated per-book problem files. Each file is named "<book-key>.json"
+// and contains problems that belong to that book directly — no daily-problem
+// date or tags required. These merge into the same book as anything picked
+// up from tags in the daily-problem JSON files; if a number exists in both
+// places, the dedicated file here wins (see the merge step below).
+const BOOKS_SOURCE_DIR = path.join(__dirname, '..', 'books', 'data');
 
 function findCoverImage(bookKey) {
   for (const ext of COVER_EXTENSIONS) {
@@ -103,14 +124,6 @@ const BOOK_REGISTRY = [
     shortName: 'Gamelin',
     color: 'teal',
     aliases: ['complex-analysis-gamelin'],
-  },
-  {
-    key: 'complex-variables-brown-and-churchill',
-    title: 'Complex Variables and Applications',
-    author: 'R. V. Churchill and J. W. Brown',
-    shortName: 'Brown and Churchill',
-    color: 'fuchsia',
-    aliases: ['complex-variables-brown-and-churchill'],
   },
 ];
 
@@ -173,10 +186,16 @@ function stripHtml(html) {
   return (html || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-// ---- 4. Scan all topic JSON files -------------------------------------------
-const books = {};
+// ---- 4. Scan problem files (daily-problems/data/*.json AND books/data/*.json)
+// Both use the *exact same* entry shape (date, title, difficulty, problem,
+// hint, solution, tags: [...]) — books/data/ files are just a place to keep
+// book-only problems before/without ever posting them as a daily problem.
+// Since the shape is identical, the same tag-parsing logic handles both; the
+// only difference is which "source" a match came from.
+const flat = {}; // flat[bookKey][number] = entry
 const unmatched = new Set();
-const numberToDates = {}; // "bookKey|number" -> Set of dates it was used on (for duplicate-number detection)
+const sourceDates = {}; // "bookKey|number" -> [{ source, date }, ...] (for duplicate detection)
+const overrides = []; // { bookKey, number, date } — daily entries superseded by a book-native one
 
 if (!fs.existsSync(DATA_DIR)) {
   console.error(`❌ Could not find data directory at ${DATA_DIR}`);
@@ -184,60 +203,83 @@ if (!fs.existsSync(DATA_DIR)) {
   process.exit(1);
 }
 
-const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('.json'));
+function scanProblemFiles(dir, sourceLabel) {
+  if (!fs.existsSync(dir)) return;
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
 
-files.forEach(file => {
-  const topicSlug = file.replace(/\.json$/, '');
-  let data;
-  try {
-    data = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'));
-  } catch (e) {
-    console.error(`Skipping ${file}: invalid JSON (${e.message})`);
-    return;
-  }
+  files.forEach(file => {
+    const fileSlug = file.replace(/\.json$/, '');
+    let data;
+    try {
+      data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+    } catch (e) {
+      console.error(`Skipping ${file}: invalid JSON (${e.message})`);
+      return;
+    }
 
-  (data.problems || []).forEach(problem => {
-    (problem.tags || []).forEach(tag => {
-      const parsed = parseBookTag(tag);
-      if (!parsed) {
-        if (/\(\s*[\d.]+\s*\)$/.test(tag) || /-\d+(\.\d+)*$/.test(tag)) {
-          unmatched.add(tag);
+    (data.problems || []).forEach(problem => {
+      (problem.tags || []).forEach(tag => {
+        const parsed = parseBookTag(tag);
+        if (!parsed) {
+          if (/\(\s*[\d.]+\s*\)$/.test(tag) || /-\d+(\.\d+)*$/.test(tag)) {
+            unmatched.add(tag);
+          }
+          return;
         }
-        return;
-      }
-      const { key, number } = parsed;
-      if (!books[key]) books[key] = { ...bookMeta[key], chapters: {} };
+        const { key, number } = parsed;
 
-      const { chapter, section } = splitNumber(number);
-      if (!books[key].chapters[chapter]) {
-        books[key].chapters[chapter] = { problems: [], sections: {} };
-      }
-      const chapterNode = books[key].chapters[chapter];
-      const bucket = section
-        ? (chapterNode.sections[section] || (chapterNode.sections[section] = { problems: [] }))
-        : chapterNode;
+        const trackKey = `${key}|${number}`;
+        if (!sourceDates[trackKey]) sourceDates[trackKey] = [];
+        sourceDates[trackKey].push({ source: sourceLabel, date: problem.date });
 
-      const dup = bucket.problems.some(p => p.number === number && p.date === problem.date);
-      if (!dup) {
-        bucket.problems.push({
-          number,
-          date: problem.date,
-          topic: topicSlug,
-          title: problem.title || '',
-          difficulty: problem.difficulty || '',
-          // Full problem statement (not a truncated preview) so it can be read
-          // directly in the chapter/section listing without an extra fetch.
-          // Trade-off: this duplicates HTML already present in the topic JSON,
-          // making booksData.js bigger over time — fine at current scale
-          // (tens–low hundreds of problems); revisit if it ever gets huge.
-          problem: problem.problem || '',
-        });
-      }
+        if (!flat[key]) flat[key] = {};
+        const existing = flat[key][number];
 
-      const trackKey = `${key}|${number}`;
-      if (!numberToDates[trackKey]) numberToDates[trackKey] = new Set();
-      numberToDates[trackKey].add(problem.date);
+        // A book-native entry always supersedes a daily one for the same
+        // number — report it, but it's a deliberate override, not an error.
+        if (sourceLabel === 'book' && existing && existing.source === 'daily') {
+          overrides.push({ bookKey: key, number, date: existing.date });
+        }
+
+        // First entry for a given number wins within a source; a second
+        // daily entry or second book entry with the same number is exactly
+        // what the duplicate-number warning below is for. A book entry only
+        // overwrites an *existing daily* entry, never another book entry.
+        const shouldSet = !existing || (sourceLabel === 'book' && existing.source === 'daily');
+        if (shouldSet) {
+          flat[key][number] = {
+            number,
+            source: sourceLabel, // 'daily' | 'book'
+            date: problem.date,
+            topic: fileSlug, // which file (under this source's base dir) to fetch from later
+            title: problem.title || '',
+            difficulty: problem.difficulty || '',
+            // Full problem statement (not a truncated preview) so it can be
+            // read directly in the chapter/section listing without an extra
+            // fetch.
+            problem: problem.problem || '',
+          };
+        }
+      });
     });
+  });
+}
+
+scanProblemFiles(DATA_DIR, 'daily');
+scanProblemFiles(BOOKS_SOURCE_DIR, 'book');
+
+// ---- 4b. Turn the flat map into the nested chapter -> section -> problem tree
+const books = {};
+Object.entries(flat).forEach(([key, numbersMap]) => {
+  if (!books[key]) books[key] = { ...bookMeta[key], chapters: {} };
+  Object.values(numbersMap).forEach(entry => {
+    const { chapter, section } = splitNumber(entry.number);
+    if (!books[key].chapters[chapter]) books[key].chapters[chapter] = { problems: [], sections: {} };
+    const chapterNode = books[key].chapters[chapter];
+    const bucket = section
+      ? (chapterNode.sections[section] || (chapterNode.sections[section] = { problems: [] }))
+      : chapterNode;
+    bucket.problems.push(entry);
   });
 });
 
@@ -278,13 +320,37 @@ if (unmatched.size > 0) {
   console.log('   → Add the missing alias to BOOK_REGISTRY in this script, or fix the tag at the source.');
 }
 
-const duplicateNumbers = Object.entries(numberToDates).filter(([, dates]) => dates.size > 1);
-if (duplicateNumbers.length > 0) {
-  console.log('\n🚨 The same exercise number is tagged on more than one problem — this breaks');
+const duplicateDailyNumbers = [];
+const duplicateBookNumbers = [];
+Object.entries(sourceDates).forEach(([trackKey, entries]) => {
+  const dailyDates = [...new Set(entries.filter(e => e.source === 'daily').map(e => e.date))];
+  const bookDates = [...new Set(entries.filter(e => e.source === 'book').map(e => e.date))];
+  if (dailyDates.length > 1) duplicateDailyNumbers.push([trackKey, dailyDates]);
+  if (bookDates.length > 1) duplicateBookNumbers.push([trackKey, bookDates]);
+});
+
+if (duplicateDailyNumbers.length > 0) {
+  console.log('\n🚨 The same exercise number is tagged on more than one daily problem — this breaks');
   console.log('   next/prev navigation for that number (the page can\'t tell them apart).');
-  duplicateNumbers.forEach(([trackKey, dates]) => {
+  duplicateDailyNumbers.forEach(([trackKey, dates]) => {
     const [bookKey, number] = trackKey.split('|');
-    console.log(`   - "${bookKey}" exercise ${number}: dates ${[...dates].join(', ')}`);
+    console.log(`   - "${bookKey}" exercise ${number}: dates ${dates.join(', ')}`);
   });
   console.log('   → Open those dates\' entries in your data/*.json and give one of them its correct exercise number.');
+}
+
+if (duplicateBookNumbers.length > 0) {
+  console.log('\n🚨 The same exercise number appears more than once within books/data/*.json:');
+  duplicateBookNumbers.forEach(([trackKey, dates]) => {
+    const [bookKey, number] = trackKey.split('|');
+    console.log(`   - "${bookKey}" exercise ${number}: dates ${dates.join(', ')}`);
+  });
+  console.log('   → Only the first one found is being used; fix the duplicate exercise number in that file.');
+}
+
+if (overrides.length > 0) {
+  console.log('\nℹ️  Book-native entries (books/data/*.json) superseded a daily-tagged problem with the same number:');
+  overrides.forEach(o => {
+    console.log(`   - "${o.bookKey}" exercise ${o.number} (was daily-tagged on ${o.date}) — now serving books/data/${o.bookKey}.json's version instead.`);
+  });
 }

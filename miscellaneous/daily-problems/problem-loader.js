@@ -319,6 +319,17 @@ function createMcqOptions(problem) {
 
     const baseClasses = ['border-gray-200', 'hover:border-indigo-300', 'hover:bg-indigo-50'];
 
+    const optionsList = document.createElement('div');
+    optionsList.className = 'space-y-2';
+    wrap.appendChild(optionsList);
+
+    const feedback = document.createElement('div');
+    feedback.id = 'mcq-feedback';
+    feedback.className = 'hidden mt-3 px-4 py-2.5 rounded-lg text-sm font-medium';
+    wrap.appendChild(feedback);
+
+    const correctOpt = problem.options.find(o => o.label === problem.correctAnswer);
+
     problem.options.forEach(opt => {
         const btn = document.createElement('button');
         btn.type = 'button';
@@ -348,12 +359,22 @@ function createMcqOptions(problem) {
                 b.style.cursor = 'default';
             });
 
+            // Feedback message
+            feedback.classList.remove('hidden');
+            if (isCorrect) {
+                feedback.className = 'mt-3 px-4 py-2.5 rounded-lg text-sm font-medium bg-green-50 text-green-800 border border-green-200';
+                feedback.innerHTML = `✓ Correct! The answer is (${opt.label}) ${correctOpt ? correctOpt.text : ''}`;
+            } else {
+                feedback.className = 'mt-3 px-4 py-2.5 rounded-lg text-sm font-medium bg-red-50 text-red-800 border border-red-200';
+                feedback.innerHTML = `✗ Not quite. The correct answer is (${problem.correctAnswer}) ${correctOpt ? correctOpt.text : ''}`;
+            }
+
             if (window.MathJax && MathJax.typesetPromise) {
                 MathJax.typesetPromise([wrap]).catch(err => console.log('MathJax mcq render error:', err));
             }
         });
 
-        wrap.appendChild(btn);
+        optionsList.appendChild(btn);
     });
 
     return wrap;

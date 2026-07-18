@@ -196,6 +196,21 @@
                 <code>isMcq</code>, <code>options</code>, and <code>correctAnswer</code> fields in the JSON, so the
                 answer never leaks into the problem HTML.
             </p>
+            <h3 class="font-semibold text-blue-900 mt-4 mb-2">Quote / Remark Format (works in problem, hint, or
+                solution):</h3>
+            <pre class="text-sm text-blue-800 overflow-x-auto">\begin{quote}
+                Plain quoted text, rendered as an indented italic blockquote.
+                \end{quote}
+
+                \begin{quote}[Remark]
+                Text with a heading, rendered as a bordered box titled "Remark".
+                \end{quote}</pre>
+            <p class="text-xs text-blue-700 mt-2">Recognized labels (case-insensitive) get their own color:
+                <code>Remark</code>/<code>Note</code> (blue), <code>Warning</code>/<code>Caution</code> (amber),
+                <code>Theorem</code> (emerald), <code>Lemma</code>/<code>Proposition</code> (indigo),
+                <code>Corollary</code> (purple), <code>Definition</code> (teal), <code>Example</code> (violet).
+                Any other label still renders the box, just in the default slate style.
+            </p>
         </div>
     </div>
 
@@ -346,6 +361,36 @@
                 let src = imgM ? imgM[1].replace('.pdf', '.svg').replace(/^figures\//, '') : '';
                 const alt = capM ? capM[1] : '';
                 return `<div class="flex flex-wrap justify-center my-4"><img src="../../../assets/img/${src}" class="h-auto" alt="${alt}" /></div>`;
+            });
+
+            // ── quote / labeled remark box ────────────────────────────────────────
+            // \begin{quote} ... \end{quote}            -> plain indented italic blockquote
+            // \begin{quote}[Remark] ... \end{quote}     -> theorem-style box, color keyed to the label
+            const quoteStyles = {
+                caution: { border: 'border-slate-200', bg: 'bg-slate-50', heading: 'text-slate-500', body: 'text-slate-800' },
+                note: { border: 'border-blue-200', bg: 'bg-blue-50', heading: 'text-blue-600', body: 'text-blue-900' },
+                warning: { border: 'border-amber-200', bg: 'bg-amber-50', heading: 'text-amber-600', body: 'text-amber-900' },
+                remark: { border: 'border-amber-200', bg: 'bg-amber-50', heading: 'text-amber-600', body: 'text-amber-900' },
+                theorem: { border: 'border-emerald-200', bg: 'bg-emerald-50', heading: 'text-emerald-600', body: 'text-emerald-900' },
+                lemma: { border: 'border-indigo-200', bg: 'bg-indigo-50', heading: 'text-indigo-600', body: 'text-indigo-900' },
+                proposition: { border: 'border-indigo-200', bg: 'bg-indigo-50', heading: 'text-indigo-600', body: 'text-indigo-900' },
+                corollary: { border: 'border-purple-200', bg: 'bg-purple-50', heading: 'text-purple-600', body: 'text-purple-900' },
+                definition: { border: 'border-teal-200', bg: 'bg-teal-50', heading: 'text-teal-600', body: 'text-teal-900' },
+                example: { border: 'border-violet-200', bg: 'bg-violet-50', heading: 'text-violet-600', body: 'text-violet-900' },
+            };
+            const defaultQuoteStyle = { border: 'border-slate-200', bg: 'bg-slate-50', heading: 'text-slate-500', body: 'text-slate-800' };
+
+            s = s.replace(/\\begin\{quote\}(?:\[([^\]]*)\])?([\s\S]*?)\\end\{quote\}/g, (_, label, body) => {
+                const content = body.trim();
+                const heading = label ? label.trim() : '';
+                if (heading) {
+                    const style = quoteStyles[heading.toLowerCase()] || defaultQuoteStyle;
+                    return `<div class="my-5 rounded-lg border ${style.border} ${style.bg} px-5 py-4">
+    <p class="mb-1.5 text-xs font-bold uppercase tracking-widest ${style.heading}">${heading}</p>
+    <p class="leading-relaxed ${style.body}">${content}</p>
+</div>`;
+                }
+                return `<blockquote class="my-5 border-l-4 border-slate-300 pl-4 py-0.5 italic leading-relaxed text-slate-600">${content}</blockquote>`;
             });
 
             // ── List helpers (nesting-aware: innermost list converted first) ────────

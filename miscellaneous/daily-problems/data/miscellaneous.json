@@ -397,7 +397,7 @@
       "solution": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">The mapping is not defined because not all women have husbands, and some women may have more than one husband (in the case of polygamy). Therefore, $f(s)$ is not defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is not defined because $f(1) = 0$, which is not a positive integer. Therefore, $f(s)$ is not defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is clearly defined because for every positive integer $s$, $f(s) = s - 1$ is a nonnegative integer. Therefore, $f(s)$ is defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is not  defined because $f(0) = -1$, which is not a nonnegative integer. Therefore, $f(s)$ is not defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is clearly defined because for every integer $s$, $f(s) = s - 1$ is also an integer. Therefore, $f(s)$ is defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is not defined because the square root of a negative real number is not a real number. Therefore, $f(s)$ is not defined for all $s \\in S$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping is clearly defined because for every positive real number $s$, $f(s) = \\sqrt{s}$ is also a positive real number. Therefore, $f(s)$ is defined for all $s \\in S$.</li></ol>",
       "tags": [
         "miscellaneous",
-        "set-theory",
+        "mappings",
         "abstract-algebra-herstein (1.3.1)"
       ]
     },
@@ -411,7 +411,7 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In the parts of Problem 1.3.1 where $f$ defines a function, we analyze each case for injectivity (1-1) and surjectivity (onto):\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Not applicable, as $f$ is not defined.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">Not applicable, as $f$ is not defined.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping $f(s) = s - 1$ from the set of positive integers to the set of nonnegative integers is both 1-1 and onto. It is 1-1 because if $f(s_1) = f(s_2)$, then $s_1 - 1 = s_2 - 1$, which implies $s_1 = s_2$. It is onto because for every nonnegative integer $t$, there exists a positive integer $s = t + 1$ such that $f(s) = t$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">Not applicable, as $f$ is not defined.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping $f(s) = s - 1$ from the set of all integers to itself is both 1-1 and onto. It is 1-1 because if $f(s_1) = f(s_2)$, then $s_1 - 1 = s_2 - 1$, which implies $s_1 = s_2$. It is onto because for every integer $t$, there exists an integer $s = t + 1$ such that $f(s) = t$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">Not applicable, as $f$ is not defined.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The mapping $f(s) = \\sqrt{s}$ from the set of all positive real numbers to itself is both 1-1 and onto. It is 1-1 because if $f(s_1) = f(s_2)$, then $\\sqrt{s_1} = \\sqrt{s_2}$, which implies $(\\sqrt{s_1})^2 = (\\sqrt{s_2})^2$, and thus $s_1 = s_2$. It is onto because for every positive real number $t$, there exists a positive real number $s = t^2$ such that $f(s) = t$.</li></ol></div>",
       "tags": [
         "miscellaneous",
-        "set-theory",
+        "mappings",
         "abstract-algebra-herstein (1.3.2)"
       ]
     },
@@ -421,12 +421,82 @@
       "title": "Herstein 1.3.3 - Mappings: Prove that the inverse of a 1-1 mapping is also a 1-1 mapping",
       "difficulty": "easy",
       "problem": "If $f$ is a 1-1 mapping of $S$ onto $T$, prove that $f^{-1}$ is a 1-1 mapping of $T$ onto $S$.",
-      "hint": "Note that $f\\circ f^{-1} = \\text{id}_T$ and $f^{-1} \\circ f = \\text{id}_S$. Use this to show that $f^{-1}$ is 1-1 and onto.",
-      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given that $f$ is a 1-1 mapping of $S$ onto $T$, we need to show that the inverse function $f^{-1}$ is also a 1-1 mapping of $T$ onto $S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First, we show that $f^{-1}$ is 1-1. Suppose $f^{-1}(t_1) = f^{-1}(t_2)$ for some $t_1, t_2 \\in T$. Then, applying $f$ to both sides, we get $f(f^{-1}(t_1)) = f(f^{-1}(t_2))$. Since $f \\circ f^{-1} = \\text{id}_T$, this simplifies to $t_1 = t_2$. Thus, $f^{-1}$ is 1-1.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Next, we show that $f^{-1}$ is onto. For any $s \\in S$, since $f$ is onto, there exists a $t \\in T$ such that $f(s) = t$. Then, by the definition of the inverse function, $f^{-1}(t) = s$. Therefore, for every $s \\in S$, there exists a $t \\in T$ such that $f^{-1}(t) = s$, proving that $f^{-1}$ is onto.\n\n    Hence, $f^{-1}$ is a 1-1 mapping of $T$ onto $S$.</div>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Since $f$ is a 1-1 mapping of $S$ onto $T$, for every $t \\in T$, there exists a unique element $s \\in S$ such that $f(s) = t$. Hence the inverse function $f^{-1}: T \\to S$ is well-defined by $f^{-1}(t) = s \\iff f(s) = t$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $f:S\\to T$ is a one-to-one mapping of $S$ onto $T$, for every $t\\in T$ there exists a unique element $s\\in S$ such that\n    \\[\n        f(s)=t.\n    \\]\n    Hence the inverse function $f^{-1}:T\\to S$ is well-defined by\n    \\[\n        f^{-1}(t)=s \\quad \\Longleftrightarrow \\quad f(s)=t.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We first show that $f^{-1}$ is one-to-one. Let $t_1,t_2\\in T$ and suppose\n    \\[\n        f^{-1}(t_1)=f^{-1}(t_2).\n    \\]\n    Let this common value be $s\\in S$. Then, by the definition of the inverse function,\n    \\[\n        f(s)=t_1 \\quad \\text{and} \\quad f(s)=t_2.\n    \\]\n    Therefore,\n    \\[\n        t_1=t_2.\n    \\]\n    Hence $f^{-1}$ is one-to-one.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Next, we show that $f^{-1}$ is onto. Let $s\\in S$. Since $f$ is a mapping from $S$ to $T$, we have $f(s)\\in T$. Put\n    \\[\n        t=f(s).\n    \\]\n    Then, by the definition of the inverse function,\n    \\[\n        f^{-1}(t)=s.\n    \\]\n    Thus, for every $s\\in S$, there exists a $t\\in T$ such that\n    \\[\n        f^{-1}(t)=s.\n    \\]\n    Hence $f^{-1}$ is onto.\n\n    Therefore, $f^{-1}$ is a one-to-one mapping of $T$ onto $S$.</div>",
       "tags": [
         "miscellaneous",
-        "set-theory",
+        "mappings",
         "abstract-algebra-herstein (1.3.3)"
+      ]
+    },
+
+    {
+      "date": "2025-12-06",
+      "title": "Herstein 1.3.4 - Mappings: Prove that the composition of a mapping and its inverse is the identity mapping",
+      "difficulty": "easy",
+      "problem": "If $f$ is a 1-1 mapping of $S$ onto $T$, prove that $f^{-1} \\circ f = i_S$, where $i_S$ is the identity mapping of $S$ onto itself.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Since $f$ is a 1-1 mapping of $S$ onto $T$, for every $s \\in S$, there exists a unique $t \\in T$ such that $f(s) = t$. Hence the inverse function $f^{-1}: T \\to S$ is well-defined by $f^{-1}(t) = s \\iff f(s) = t$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We need to prove that for every $s \\in S$, we have $(f^{-1} \\circ f)(s) = i_S(s) = s$.\n    By the definition of the composition of functions, we have\n    \\[\n        (f^{-1} \\circ f)(s) = f^{-1}(f(s)).\n    \\]\n    Since $f$ is a 1-1 mapping of $S$ onto $T$, for every $s \\in S$, there exists a unique $t \\in T$ such that $f(s) = t$. By the definition of the inverse function, we have\n    \\[\n        f^{-1}(t) = s \\quad \\text{if and only if} \\quad f(s) = t.\n    \\]\n    Therefore, substituting $t = f(s)$, we get\n    \\[\n        f^{-1}(f(s)) = s.\n    \\]\n    Hence, for every $s \\in S$, we have\n    \\[\n        (f^{-1} \\circ f)(s) = s = i_S(s).\n    \\]\n    Therefore, we conclude that\n    \\[\n        f^{-1} \\circ f = i_S.\n    \\]</div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.4)"
+      ]
+    },
+
+    {
+      "date": "2025-12-13",
+      "title": "Herstein 1.3.5 - Mappings: Prove that the composition of two onto mappings is also onto",
+      "difficulty": "easy",
+      "problem": "Give a proof of the Remark after Lemma 1.3.2. The remark is \n    <div class=\"my-5 rounded-lg border border-amber-200 bg-amber-50 px-5 py-4\">\n    <p class=\"mb-1.5 text-xs font-bold uppercase tracking-widest text-amber-600\">Remark</p>\n    <p class=\"leading-relaxed text-amber-900\">If $g: S \\to  T$ and $f: T \\to  U$ are both onto, then $f \\circ g: S \\to  U$ is also onto.</p>\n</div>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use $f$ being onto to get en element in $T$ and then use $g$ is onto to get a preimage in $S$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given that $g: S \\to T$ and $f: T \\to U$ are both onto, we need to show that the composition $f \\circ g: S \\to U$ is also onto. Let $u \\in U$ be given. Since $f: T \\to U$ is onto,  there exists $t \\in T$ such that $f(t) = u$. For this $t \\in T$, since $g: S \\to  T$ is onto, there exists $s \\in S$ such that $g(s) = t$. Therefore, we have\n    \\[\n        (f \\circ g)(s) = f(g(s)) = f(t) = u.\n    \\]\n    Since $u \\in U$ was arbitrary, we conclude that for every $u \\in U$, there exists $s \\in S$ such that $(f \\circ g)(s) = u$. Hence, $f \\circ g: S \\to U$ is onto.</div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.5)"
+      ]
+    },
+
+    {
+      "date": "2025-12-20",
+      "title": "Herstein 1.3.6 - Mappings: Prove that if f is onto and g∘f = h∘f, then g = h",
+      "difficulty": "easy",
+      "problem": "If $f: S \\to  T$ is onto and $g: T \\to  U$ and $h: T \\to  U$ are such that $g\\circ f = h\\circ f$, prove that $g = h$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the fact that $f$ is onto to find a preimage in $S$ for an arbitrary element in $T$. Then use the equality $g \\circ f = h \\circ f$ to show that $g(t) = h(t)$ for all $t \\in T$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $t \\in T$ be arbitrary. Since $f$ is onto, there exists $s \\in S$ such that $f(s) = t$. Then we have\n    \\begin{align*}\n        g(t) = g(f(s)) = (g \\circ f)(s) = (h \\circ f)(s) = h(f(s)) = h(t).\n    \\end{align*}  \n    Since $t \\in T$ was arbitrary, we conclude that $g(t) = h(t)$ for all $t \\in T$. Therefore, $g = h$.</div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.6)"
+      ]
+    },
+
+    {
+      "date": "2025-12-27",
+      "title": "Herstein 1.3.7 - Mappings: Prove that if f is 1-1 and f∘g = f∘h, then g = h",
+      "difficulty": "easy",
+      "problem": "If $g: S \\to T, \\, h: S \\to  T$ and if $f: T \\to U$ is 1-1, show that if $f\\circ g = f\\circ h$, then $g = h$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the fact that $f$ is 1-1 to show that $g(s) = h(s)$ for all $s \\in S$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $s \\in S$ be arbitrary. Then we have\n    \\[\n        (f \\circ g)(s) = (f \\circ h)(s).\n    \\]\n    By the definition of composition, this means\n    \\[\n        f(g(s)) = f(h(s)).\n    \\]\n    Since $f$ is 1-1, we can conclude that\n    \\[\n        g(s) = h(s).\n    \\]\n    Since $s \\in S$ was arbitrary, we conclude that $g(s) = h(s)$ for all $s \\in S$. Therefore, $g = h$.</div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.7)"
+      ]
+    },
+
+    {
+      "date": "2023-10-07",
+      "title": "Herstein 1.3.8 - Mappings: Show that a mapping from integers to {1,-1} is well-defined and satisfies certain properties",
+      "difficulty": "easy",
+      "problem": "Let $S$ be the set of all integers and $T = \\{ 1,-1 \\} $; $f: S \\to  T$ is defined by \n    \\[\n        f(s) = \n        \\begin{cases}\n            1, &\\text{ if } s \\text{ is even} ;\\\\\n            -1, &\\text{ if } s \\text{ is odd}.\n        \\end{cases}\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Does this define a function from $S$ to $T$?</li>\n<li class=\"my-4\">Show that $f(s_1 + s_2) = f(s_1) f(s_2)$. What does this say about the integers?</li>\n<li class=\"my-4\">Is $f(s_1 s_2) = f(s_1) f(s_2)$ also true?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">To show that $f(s_1 + s_2) = f(s_1) f(s_2)$, consider the parity of $s_1$ and $s_2$. If both are even or both are odd, then $s_1 + s_2$ is even. If one is even and the other is odd, then $s_1 + s_2$ is odd.</li>\n<li class=\"my-4\">To check if $f(s_1 s_2) = f(s_1) f(s_2)$, take $s_1$ and $s_2$ as different parity.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The function $f: S \\to  T$ is defined by  \n    \\[\n        f(s) = \n        \\begin{cases}\n            1, &\\text{ if } s \\text{ is even} ;\\\\\n            -1, &\\text{ if } s \\text{ is odd}.\n        \\end{cases}\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Yes, the function $f$ is well-defined. For each integer $s \\in S$, it assigns a unique value in $T$. If $s$ is even, it maps to $1$, and if $s$ is odd, it maps to $-1$. Therefore, it satisfies the definition of a function.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">To show that $f(s_1 + s_2) = f(s_1) f(s_2)$, we consider the parity of $s_1$ and $s_2$: \n        <ul class=\"math-list-disc my-4\"><li class=\"my-4\">if $s_1$ and $s_2$ have the same parity (both even or both odd), then $s_1 + s_2$ is even, and $f(s_1 + s_2) = 1$. In this case, $f(s_1) f(s_2) = 1 \\cdot 1 = 1$ if both are even, or $(-1) \\cdot (-1) = 1$ if both are odd. Thus, $f(s_1 + s_2) = f(s_1) f(s_2)$.</li>\n<li class=\"my-4\">if $s_1$ and $s_2$ have different parity (one even and one odd), then $s_1 + s_2$ is odd, and $f(s_1 + s_2) = -1$. In this case, $f(s_1) f(s_2) = 1 \\cdot (-1) = -1$ or $(-1) \\cdot 1 = -1$. Thus, $f(s_1 + s_2) = f(s_1) f(s_2)$.</li></ul>\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">To check if $f(s_1 s_2) = f(s_1) f(s_2)$, take $s_1 = 1 \\text{ and }  s_2 = 2$. Then,\n        \\[\n            f(s_1 s_2) = f(2) = 1, \\quad f(s_1) f(s_2) = f(1) f(2) = (-1)(1) = -1.\n        \\] \n        Therefore, $f(s_1 s_2) = f(s_1) f(s_2)$ is not true in general.</li></ol></div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.8)"
       ]
     },
 

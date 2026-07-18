@@ -15,9 +15,10 @@
 (function () {
     const APP = document.getElementById('app');
     const DATA_BASE = '../daily-problems/data/';
+    const BOOKS_DATA_BASE = 'data/'; // dedicated per-book problem files, see generate-books-data.js
     const LAST_FOLDER_DATE = '2025-12-31'; // must match problem-loader.js
 
-    const topicCache = {}; // topicSlug -> parsed JSON (cached across views)
+    const fileCache = {}; // `${source}:${slug}` -> parsed JSON (cached across views)
 
     // ---------- helpers ----------
 
@@ -27,13 +28,48 @@
             : `/miscellaneous/daily-problems/problem/?date=${dateString}`;
     }
 
-    async function fetchTopic(topicSlug) {
-        if (topicCache[topicSlug]) return topicCache[topicSlug];
-        const res = await fetch(`${DATA_BASE}${topicSlug}.json`);
-        if (!res.ok) throw new Error(`Failed to load ${topicSlug}.json (${res.status})`);
+    // entry.source is 'daily' (fetch from ../daily-problems/data/) or 'book'
+    // (fetch from ./data/) — both file shapes are identical (date, title,
+    // difficulty, problem, hint, solution, tags), so this one function and a
+    // plain find-by-date works for either.
+    async function fetchProblemFile(source, slug) {
+        const cacheKey = `${source}:${slug}`;
+        if (fileCache[cacheKey]) return fileCache[cacheKey];
+        const base = source === 'book' ? BOOKS_DATA_BASE : DATA_BASE;
+        const res = await fetch(`${base}${slug}.json`);
+        if (!res.ok) throw new Error(`Failed to load ${slug}.json (${res.status})`);
         const data = await res.json();
-        topicCache[topicSlug] = data;
+        fileCache[cacheKey] = data;
         return data;
+    }
+
+    // Pulls the exercise number out of a tag like "abstract-algebra-herstein
+    // (1.3.2)" or the legacy "Real-Analysis-Rudin-3.11" style — mirrors the
+    // parsing generate-books-data.js does server-side, simplified since we
+    // don't need to resolve which book a tag belongs to here (we've already
+    // fetched the right file for the right book).
+    function extractTagNumber(tag) {
+        let m = tag.match(/^(.*?)\s*\(([\d]+(?:\.\d+)*)\)$/);
+        if (m) return m[2];
+        m = tag.match(/^Real-Analysis-Rudin-([\d]+(?:\.\d+)*)$/i);
+        if (m) return m[1];
+        return null;
+    }
+
+    // Date isn't guaranteed unique — book-native entries can leave it empty
+    // (they don't need a calendar date), so several problems in the same
+    // file could all have date: "". Try matching by date first (fast, and
+    // always safe for daily-tagged problems, which always have a real
+    // date); if that's empty/ambiguous, fall back to matching by the
+    // exercise number embedded in each problem's own tags, which is what's
+    // actually guaranteed unique within a book.
+    function findProblemInFile(sourceData, entry) {
+        const problems = sourceData.problems || [];
+        if (entry.date) {
+            const byDate = problems.find(p => p.date === entry.date);
+            if (byDate) return byDate;
+        }
+        return problems.find(p => (p.tags || []).some(tag => extractTagNumber(tag) === entry.number));
     }
 
     function numericSort(keys) {
@@ -388,18 +424,17 @@
 
         const content = document.getElementById('problem-content');
 
-        let topicData;
+        let sourceData;
         try {
-            topicData = await fetchTopic(entry.topic);
+            sourceData = await fetchProblemFile(entry.source, entry.topic);
         } catch (e) {
             content.innerHTML = `<p class="text-red-600">Could not load this problem (${e.message}).</p>`;
             return;
         }
         if (document.getElementById('problem-content') !== content) return; // navigated away while loading
-
-        const problem = (topicData.problems || []).find(p => p.date === entry.date);
+        const problem = findProblemInFile(sourceData, entry);
         if (!problem) {
-            content.innerHTML = `<p class="text-red-600">Problem data missing for ${entry.date}.</p>`;
+            content.innerHTML = `<p class="text-red-600">Problem data missing for ${entry.number}.</p>`;
             return;
         }
 
@@ -415,8 +450,8 @@
                     <span class="coord ${a.text}">${entry.number}</span>
                     ${difficultyBadge(problem.difficulty)}
                 </div>
-                <a href="${buildDateURL(entry.date)}" target="_blank"
-                   class="text-xs text-gray-400 hover:text-gray-600">Permalink (${entry.date}) &#8599;</a>
+                ${entry.source === 'daily' ? `<a href="${buildDateURL(entry.date)}" target="_blank"
+                   class="text-xs text-gray-400 hover:text-gray-600">Permalink (${entry.date}) &#8599;</a>` : ''}
             </div>
             ${showTitle ? `
             <p class="text-xs uppercase tracking-wide text-gray-400 font-medium mb-1">${cleanTitle}</p>
