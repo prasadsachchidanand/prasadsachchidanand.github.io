@@ -2,6 +2,180 @@
   "topic": "Miscellaneous",
   "problems": [
     {
+      "date": "2023-05-13",
+      "title": "Combinatorics - Counting words of length n with certain conditions",
+      "difficulty": "medium",
+      "problem": "A word is a string of letters drawn from the $26$ English alphabets $a,b,\\dots,z$. Let $n$ be any natural number.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">How many words are there of length $n$?</li>\n<li class=\"my-4\">How many words are there of length $n$, with exactly three $b$'s?</li>\n<li class=\"my-4\">How many words are there of length $n$, with no vowels?</li></ol>",
+      "hint": "",
+      "solution": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">For each of the $n$ letters, we have $26$ choices. Therefore, the total number of words of length $n$ is $26^n$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">We need to choose three positions for the letter $b$. This can be done in $\\binom{n}{3}$ ways. For the remaining $n-3$ positions, we have $25$ choices. Therefore, the total number of words of length $n$ with exactly three $b$'s is $\\binom{n}{3} 25^{n-3}$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">We have $21$ choices for each letter as there are $5$ vowels. Therefore, the total number of words of length $n$ with no vowels is $21^n$.</li></ol>",
+      "tags": [
+        "miscellaneous",
+        "combinatorics"
+      ]
+    },
+    
+    {
+      "date": "2023-05-20",
+      "title": "Combinatorics - Evaluate a sum involving binomial coefficients",
+      "difficulty": "medium",
+      "problem": "Let $n\\in \\mathbb{N} ,~n\\geq 2$ be a fixed positive integer. \n    Evaluate \n    \\[\n        \\binom{n}{1} - 2\\binom{n}{2} + 3\\binom{n}{3} - 4\\binom{n}{4} + \\dots + (-1)^{n-1} n\\binom{n}{n}.\n    \\]",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(x) = (1+x)^n$. Then, $f'(x) = n(1+x)^{n-1}$. Now, consider the function $g(x) = x f'(x) = nx(1+x)^{n-1}$. Taking the derivative of $g(x)$ with respect to $x$, we get:\n    \\[\n        g'(x) = n(1+x)^{n-1} + n(n-1)x(1+x)^{n-2}.\n    \\]\n    Setting $x = -1$ in the expression for $g'(x)$, we obtain:\n    \\[\n        g'(-1) = n(0)^{n-1} + n(n-1)(-1)x(0)^{n-2} = 0.\n    \\]\n    On the other hand, differentiating the expression for $g(x)$ term by term and then setting $x = -1$, we get:\n    \\[\n        g'(-1) = n(-1)^{n-1} + n(n-1)(-1)^{n-2}.\n    \\]\n    Equating these two expressions for $g'(-1)$, we have:\n    \\[\n        0 = n(-1)^{n-1} + n(n-1)(-1)^{n-2}.\n    \\]\n    Dividing both sides by $n(-1)^{n-2}$ (assuming $n > 0$), we get:\n    \\[\n        0 = (-1) + (n-1).\n    \\]\n    This simplifies to:\n    \\[\n        0 = n - 2.\n    \\]\n    Therefore, $n = 2$. Substituting this back into our original sum, we find that it equals zero. Thus,\n    \\[\n        \\binom{n}{1} - 2\\binom{n}{2} + 3\\binom{n}{3} - 4\\binom{n}{4} + \\dots + (-1)^{n-1} n\\binom{n}{n} = 0.\n    \\]</div>",
+      "tags": [
+        "miscellaneous",
+        "combinatorics"
+      ]
+    },
+
+    {
+      "date": "2023-05-27",
+      "title": "Probability Theory - Average number of tosses required to get both head and tail",
+      "difficulty": "medium",
+      "problem": "A fair coin is tossed repeatedly till both head and tail appear at least once. Find out the average number of tosses required.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $X$ be the random variable denoting the number of tosses required until both a head and a tail have appeared. Clearly, $X=2,3,4,\\ldots$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To obtain both head and tail in exactly $n$ tosses, the first $n-1$ tosses must all be identical (either all heads or all tails), and the $n$-th toss must be the opposite face. Hence,\n    \\begin{align*}\n        P(X=n)\n        &=2\\left(\\frac12\\right)^{n-1}\\left(\\frac12\\right) =\\left(\\frac12\\right)^{n-1},\n        \\qquad n\\ge2.\n    \\end{align*}\n    Therefore,\n    \\begin{align*}\n        E[X]\n        &=\\sum_{n=2}^{\\infty} nP(X=n) \\\\\n        &=\\sum_{n=2}^{\\infty} n\\left(\\frac12\\right)^{n-1}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now, using the identity\n    \\[\n        \\sum_{n=1}^{\\infty} nr^{\\,n-1}\n        =\\frac{1}{(1-r)^2}, \\qquad |r|<1,\n    \\]\n    and taking $r=\\frac12$, we obtain\n    \\[\n        \\sum_{n=1}^{\\infty} n\\left(\\frac12\\right)^{n-1}\n        =\\frac{1}{\\left(1-\\frac12\\right)^2}\n        =4.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence,\n    \\begin{align*}\n        E[X]\n        &=\\sum_{n=2}^{\\infty} n\\left(\\frac12\\right)^{n-1} \\\\\n        &=\\sum_{n=1}^{\\infty} n\\left(\\frac12\\right)^{n-1}-1 \\\\\n        &=4-1 = 3.\n    \\end{align*}\n    Thus, the average number of tosses required until both a head and a tail appear is $3$.</div>",
+      "tags": [
+        "miscellaneous",
+        "probability-theory"
+      ]
+    },
+
+    {
+      "date": "2023-06-03",
+      "title": "Number Theory - Prove that the equation $y^2 = x^3 + 23$ does not have any solution in $\\mathbb{Z} $",
+      "difficulty": "medium",
+      "problem": "Prove that the equation $y^2 = x^3 + 23$ does not have any solution in $\\mathbb{Z} $.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Look at the equation modulo $4$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given equation is \n    \\begin{equation}\\label{eq:03June2023-1}\n        y^2 = x^3 + 23.\n    \\end{equation}\n    We will consider the equation \\eqref{eq:03June2023-1} modulo $4$. Note that $y^2 \\equiv 0,1 \\mod 4$ and $x^3 \\equiv 0,1,3 \\mod 4$. Therefore, we have\n    \\begin{align*}\n        x^3 + 23 \\equiv 0,1,3 + 3 \\equiv 3,0,2 \\mod 4.\n    \\end{align*}\n    Hence, $y^2 \\equiv 0,1 \\mod 4$ and $x^3 + 23 \\equiv 0,2,3 \\mod 4$. Therefore, the equation \\eqref{eq:03June2023-1} does not have any solution in $\\mathbb{Z} $.</div>",
+      "tags": [
+        "miscellaneous",
+        "number-theory"
+      ]
+    },
+
+    {
+      "date": "2023-07-15",
+      "title": "Herstein 1.3.14 - Mappings: Find necessary and sufficient conditions so that $f \\\\circ f = i_S$",
+      "difficulty": "medium",
+      "problem": "Let $f: S \\to  S$, where $S$ is the set of all integers, be defined by $f(s) = as + b$, where $a$ and $b$ are integers. Find the necessary and sufficient conditions on $a,b$ in order that $f \\circ f = i_S$, where $i_S$ is the identity function on $S$.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We have \n    \\[\n        f(f(s)) = a(as + b) + b = a^2 s + ab + b.\n    \\] \n    Now, $f \\circ f = i_S$ if and only if $f(f(s)) = s$ for all $s \\in S$. Therefore, we have \n    \\[\n        a^2 s + ab + b = s,~\\text{for all } s \\in S.\n    \\] \n    The above holds for all $s$, in particular, take $s = 0$. Then    \n    \\begin{align*}\n        ab + b = 0 & \\implies b(a+1) = 0.\n    \\end{align*}  \n    Hence, for all $s$, \n    \\begin{align*}\n        a^2 s = s & \\implies a^2 - 1 = 0 \\\\\n        &  \\implies a = 1 \\text{ or } a = -1,\\\\\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore, the necessary and sufficient conditions on $a,b$ in order that $f \\circ f = i_S$ are: \n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $a = 1$, then $b=0$.</li>\n<li class=\"my-4\">If $a=-1$, then $b$ can be any integer.</li></ul></div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.14)"
+      ]
+    },
+
+    {
+      "date": "2023-08-12",
+      "title": "Number Theory - Find $n$ such that $(n-3) \\mid \\left( n^3 - 3 \\right) $",
+      "difficulty": "medium",
+      "problem": "Find all integers $n\\neq 3$ such that $(n-3) \\mid \\left( n^3 - 3 \\right) $.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $n - 3 = k$. Therefore, we want to find nonzero integers $k$ such that $k \\mid \\left( (k+3)^3 - 3 \\right) $. That is,\n    \\[\n        k \\mid \\left( k^3 + 9k^2 + 27 k + 27 - 3\\right) \\iff k \\mid 24,\n    \\]  \n    which mean $(n-3) \\mid 24$. Thus, the possible values of $k$ will be \n    \\[\n        k = \\pm 1, \\pm 2, \\pm 3, \\pm 4, \\pm 6, \\pm 8, \\pm 12, \\pm 24.\n    \\]\n    Hence, the values of $n = k + 3$ will be \n    \\[\n        -21, -9, -5, -3, -1, 0, 1, 2, 4, 5, 6, 7, 9, 11, 15, 27.\n    \\]</div>",
+      "tags": [
+        "miscellaneous",
+        "number-theory"
+      ]
+    },
+
+    {
+      "date": "2023-08-19",
+      "title": "Number Theory - Prove that all coefficients of a polynomial are divisible by an odd prime",
+      "difficulty": "medium",
+      "problem": "Let $f$ be a polynomial of degree $2$ with integer coefficients. Let $p$ be an odd prime. Suppose that $f(k)$ is divisible by $p$ for every integer $k$. Prove that all coefficients of $f$ are divisible by $p$.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(x) = ax^2 + bx  c$. Substitute $x = 0$, gives \n    \\[\n        p \\mid f(0) \\implies  p \\mid c.\n    \\]   \n    Now substituting $x = \\pm 1$ gives, \n    \\begin{align*}\n        p \\mid f(1) \\implies  p \\mid a + b + c \\implies p \\mid a+b \\\\\n        p \\mid f(-1) \\implies p \\mid a - b + c \\implies p \\mid a - b.\n    \\end{align*}\n    Since $p$ divides $(a+b)$ and $(a-b)$, so it must divide $2a$ and $2b$. Therefore, $p$ must divide $a$ and $b$.</div>",
+      "tags": [
+        "miscellaneous",
+        "number-theory"
+      ]
+    },
+
+    {
+      "date": "2023-08-26",
+      "title": "Set Theory - Show that $f(S \\cup T) = f(S) \\cup f(T)$ and $f(S \\cap T) \\subseteq f(S) \\cap f(T)$",
+      "difficulty": "medium",
+      "problem": "Let $f$ be a function from a set $A$ to a set $B$. Let $S$ and $T$ be two nonempty subsets of $A$. Then show that \n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$f(S  \\cup  T) = f(S)  \\cup f(T)$</li>\n<li class=\"my-4\">$f(S  \\cap  T) \\subseteq  f(S)  \\cap f(T)$.</li></ol>\n    Also, show that in part (b), the inclusion may be proper.",
+      "hint": "",
+      "solution": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Note that \n        \\begin{align*}\n            y \\in f(S  \\cup T) \\iff & \\exists~ x \\in S \\cup T \\text{ such that } f(x) = y \\\\\n            \\iff & (\\exists~ x \\in S) \\text{ or } (\\exists~ x \\in T) \\text{ such that } f(x) = y  \\\\\n            \\iff & f(x) \\in f(S) \\text{ or } f(x) \\in f(T) \\\\ \n            \\iff & f(x) \\in f(S)  \\cup  f(T).\n        \\end{align*}</li>\n<li class=\"my-4\">Take $y \\in f(S  \\cap  T)$. This implies $\\exists~ x \\in S  \\cap  T$ such that $f(x) = y$ which means $ x \\in S \\text{ and } x \\in T $ such that $f(x) = y$. Hence, $f(x) \\in f(S)  \\cap  f(T)$.</li></ol>\n\n\n    The inclusion in part (b) will be proper. Take $A = S = \\{ 1 \\} $ and $T = \\{ -1 \\} $. Let $B = \\{ 0 \\} $. Define $f(1) = f(-1) = 0$. Then $f(S) \\cap f(T) = \\{ 0 \\} $, whereas $f(S  \\cap T) = \\emptyset$.",
+      "tags": [
+        "miscellaneous",
+        "set-theory"
+      ]
+    },
+
+    {
+      "date": "2023-09-02",
+      "title": "Set Theory - Show that the cardinality of the sets $(0,1)$ and $(0,1]$ are same",
+      "difficulty": "medium",
+      "problem": "Show that the cardinality of the sets $(0,1)$ and $(0,1]$ are same.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use <a href=\"https://en.wikipedia.org/wiki/Schr%C3%B6der%E2%80%93Bernstein_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Schröder-Bernstein theorem</a>.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In order to show the sets have the same cardinality, we need to find a bijection between the sets. Here we will apply Schröder-Bernstein theorem to solve this. Recall that the <a href=\"https://en.wikipedia.org/wiki/Schr%C3%B6der%E2%80%93Bernstein_theorem\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">Schröder-Bernstein theorem</a>\n    <div class=\"my-5 rounded-lg border border-orange-200 bg-orange-50 px-5 py-4\">\n    <p class=\"mb-1.5 text-xs font-bold uppercase tracking-widest text-orange-600\">Theorem</p>\n    <p class=\"leading-relaxed text-orange-900\">Let $A$ and $B$ be two sets such that there exist one-to-one maps from $A$ to $B$ and from $B$ to $A$, then there exists a bijection between the sets $A$ and $B$ and hence the have the same cardinality.</p>\n</div></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Using the above theorem, it is enough to find two injective maps, one from $(0,1)$ to $(0,1]$ and another from $(0,1]$ to $(0,1)$. Consider the maps:\n    \\begin{align*}\n        & f: (0,1) \\to  (0,1],~ x \\mapsto x, \\text{ and } \\\\\n        & g : (0,1] \\to  (0,1),~ x \\mapsto \\frac{x}{2}.\n    \\end{align*}\n    Then it is clear that the maps $f$ and $g$ are injective maps nad hence the Schr\\\"{o}der-Bernstein theorem implies that the sets $(0,1)$ and $(0,1]$ have the same cardinality.</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory"
+      ]
+    },
+
+    {
+      "date": "2023-12-09",
+      "title": "Herstein 1.3.15 - Mappings: Find all $f$ such that $f \\circ f \\circ f = i_S$",
+      "difficulty": "medium",
+      "problem": "Find all $f$ of the form given in problem 1.3.14 such that $f \\circ f \\circ f = i_S$, where $i_S$ is the identity function on $S$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that $(f \\circ f \\circ f)(s) = a^3 s + a^2 b + ab + b$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Recall that in Problem 1.3.14, we defined a function $f: S \\to S$ by\n    \\[\n        f(s) = as + b\n    \\]\n    for some integers $a,b$.  We need $f \\circ f \\circ f = i_S$. Note that\n    \\begin{align*}\n        (f \\circ f) (s) & = f(as + b) = a(as + b) + b = a^2 s + ab + b, \\\\\n        (f \\circ f \\circ f) (s) & = f(a^2 s + ab + b) \\\\\n        & = a(a^2 s + ab + b) + b \\\\\n        & = a^3 s + a^2 b + ab + b.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $f \\circ f \\circ f = i_S$, we need for any integer $s$, \n    \\begin{align*}\n        (f \\circ f \\circ f)(s) = s & \\implies a^3 s + a^2 b + ab + b = s \\\\\n        & \\implies (a^3 - 1)s + (a^2 b + ab + b) = 0 \\\\\n        & \\implies a^3 - 1 = 0 \\text{ and } a^2 b + ab + b = 0.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The first equation gives\n    \\begin{align*}\n        a^3 - 1 = 0 & \\implies (a - 1)(a^2 + a + 1) = 0 \\\\\n                    & \\implies a = 1 \\text{ or } a^2 + a + 1 = 0.\n    \\end{align*}\n    Since $a^2 + a + 1 > 0 \\implies a = 1$. Therefore, the second equation becomes $b(1 + 1 + 1) = 0 \\implies b = 0$. Therefore, the only function of the form $f(s) = as + b$ such that $f \\circ f \\circ f = i_S$ is\n    \\[\n        f(s) = s.\n    \\]</div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.15)"
+      ]
+    },
+
+    {
+      "date": "2023-12-16",
+      "title": "Herstein 1.3.16 - Mappings: Show that $\\left( f^{-1} \\right)^{-1} = f$",
+      "difficulty": "medium",
+      "problem": "If $f$ is a 1-1 mapping of $S$ onto itself, show that \n    \\[\n        \\left( f^{-1}  \\right) ^{-1} = f.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that $\\left( f^{-1}  \\right)^{-1} \\left( f^{-1} (s) = s \\right)  $.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given that $f: S \\to  S$ is a 1-1 mapping of $S$ onto itself, we know that $f^{-1}: S \\to  S$ is also a 1-1 mapping of $S$ onto itself. By the definition of the inverse function, we have\n    \\[\n        f^{-1}(f(s)) = s \\quad \\text{for all } s \\in S.\n    \\]\n    We need to find the inverse of $f^{-1}$, denoted as $\\left( f^{-1} \\right)^{-1}$. Again, we have\n    \\[\n        \\left( f^{-1} \\right)^{-1}(f^{-1}(s)) = s \\quad \\text{for all } s \\in S.\n    \\]\n    Now, let $t = f^{-1}(s)$. Then, we can rewrite the above equation as\n    \\[\n        \\left( f^{-1} \\right)^{-1}(t) = s.\n    \\]\n    Since $t = f^{-1}(s)$, we can express $s$ in terms of $t$ as $s = f(t)$. Therefore, we have\n    \\[\n        \\left( f^{-1} \\right)^{-1}(t) = f(t) \\quad \\text{for all } t \\in S.\n    \\]\n    Thus, we conclude that\n    \\[\n        \\left( f^{-1} \\right)^{-1} = f.\n    \\]</div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.16)"
+      ]
+    },
+
+    {
+      "date": "2023-12-23",
+      "title": "Herstein 1.3.17 - Mappings: Count the number of mappings of a finite set into itself",
+      "difficulty": "medium",
+      "problem": "If $S$ is a finite set having $m > 0$ elements, how many mappings are there of $S$ into itself?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Consider the number of choices for each element in the set.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $S = \\{ s_1, s_2, \\dots, s_m \\}$ be a finite set with $m$ elements. A mapping $f: S \\to S$ assigns to each element of $S$ an element of $S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For the first element $s_1$, there are $m$ choices for its image under the mapping $f$. For the second element $s_2$, there are also $m$ choices for its image, and this continues for each of the $m$ elements in the set.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore, the total number of mappings from $S$ into itself is given by multiplying the number of choices for each element:\n    \\[\n        m \\times m \\times \\dots \\times m = m^m.\n    \\]\n    Thus, there are \\( m^m \\) mappings of \\( S \\) into itself.</div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.17)"
+      ]
+    },
+
+    {
+      "date": "2023-12-30",
+      "title": "Herstein 1.3.18 - Mappings: Count the number of 1-1 mappings of a finite set into itself",
+      "difficulty": "medium",
+      "problem": "In Problem 1.3.17, how many 1-1 mappings are there of $S$ into itself?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">This time for the first element, we have $m$ choices, but for the second element we have $m-1$ choices.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $S = \\{ s_1, s_2, \\dots, s_m \\}$ be a finite set with $m$ elements. A 1-1 mapping (or injective function) from $S$ into itself assigns to each element of $S$ a unique element of $S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For the first element $s_1$, there are $m$ choices for its image under the mapping. For the second element $s_2$, there are only $m - 1$ choices left, since one element has already been used for $s_1$. This pattern continues, so for the third element $s_3$, there are $m - 2$ choices, and so on.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore, the total number of 1-1 mappings from $S$ into itself is given by the product:\n    \\[\n        m \\times (m - 1) \\times (m - 2) \\times \\dots \\times 2 \\times 1 = m!.\n    \\]\n    Thus, there are \\( m! \\) 1-1 mappings of \\( S \\) into itself.</div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.18)"
+      ]
+    },
+
+    {
       "date": "2025-04-26",
       "title": "Calculus - Find the speed, acceleration and time when particle is at rest",
       "difficulty": "easy",
@@ -510,7 +684,63 @@
       "tags": [
         "miscellaneous",
         "mappings",
-        "abstract-algebra-herstein (1.3.9"
+        "abstract-algebra-herstein (1.3.9)"
+      ]
+    },
+
+    {
+      "date": "2023-10-21",
+      "title": "Herstein 1.3.10 - Mappings: Compositions and Inverses of Mappings",
+      "difficulty": "medium",
+      "problem": "Let $S$ be the set of all real numbers and for $a,b\\in S$, where $a\\neq 0$; define \n    \\[\n        f_{a,b}(s) = as + b.\n    \\] \n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $f_{a,b} \\circ f_{c,d} = f_{u,v}$ for some real $u,v$. Give explicit values for $u$ and $v$ in terms of $a,b,c$ and $d$.</li>\n<li class=\"my-4\">Is $f_{a,b} \\circ f_{c,d} = f_{c,d} \\circ f_{a,b}$ always?</li>\n<li class=\"my-4\">Find all $f_{a,b}$ such that $f_{a,b} \\circ f_{1,1} = f_{1,1} \\circ f_{a,b}$.</li>\n<li class=\"my-4\">Show that $f_{a,b}^{-1} $ exists and find its form.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that $f_{a,b} \\circ f_{c,d} = f_{u,v}$ means that $(f_{a,b} \\circ f_{c,d})(s) = f_{u,v}(s)$ for all $s \\in S$.</li></ul>",
+      "solution": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">For any $a,b,c,d \\in \\mathbb{R} $ with $a \\neq 0$ and $c \\neq 0$, we have\n        \\begin{align*}\n            (f_{a,b} \\circ f_{c,d})(s) & = f_{a,b}(f_{c,d}(s)) \\\\\n                                       & = f_{a,b}(cs + d) \\\\\n                                       & = a(cs + d) + b \\\\\n                                       & = acs + ad + b.\n        \\end{align*}\n        Thus, $f_{a,b} \\circ f_{c,d} = f_{ac, ad + b}$, so $u = ac$ and $v = ad + b$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">To check if $f_{a,b} \\circ f_{c,d} = f_{c,d} \\circ f_{a,b}$, we compute the other composition:\n        \\begin{align*}\n            (f_{c,d} \\circ f_{a,b})(s) & = f_{c,d}(f_{a,b}(s)) \\\\\n                                       & = f_{c,d}(as + b) \\\\\n                                       & = c(as + b) + d \\\\\n                                       & = acs + cb + d.\n        \\end{align*}\n        Comparing the two compositions, we have:\n        \\[\n            f_{a,b} \\circ f_{c,d} = f_{ac, ad + b}, \\quad f_{c,d} \\circ f_{a,b} = f_{ac, cb + d}.\n        \\]\n        For these to be equal, we need $ad + b = cb + d$. This gives the condition $ad - d = cb - b$, or $(a - 1)d = (c - 1)b$. Therefore, $f_{a,b} \\circ f_{c,d} = f_{c,d} \\circ f_{a,b}$ if and only if $(a - 1)d = (c - 1)b$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">To find all $f_{a,b}$ such that $f_{a,b} \\circ f_{1,1} = f_{1,1} \\circ f_{a,b}$, we set $c = 1$ and $d = 1$ in the previous condition. This gives:\n        \\[\n            (a - 1) \\cdot 1 = (1 - 1)b \\implies a - 1 = 0 \\implies a = 1.\n        \\]\n        Thus, for any $b \\in \\mathbb{R}$, $f_{1,b} \\circ f_{1,1} = f_{1,1} \\circ f_{1,b}$.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">To show that $f_{a,b}^{-1}$ exists, we need to find a function $f_{a,b}^{-1}$ such that\n        \\[\n            f_{a,b}^{-1}(f_{a,b}(s)) = s \\quad \\text{ for all }  s \\in S.\n        \\]\n        We have $f_{a,b}(s) = as + b.$  To find the inverse, we solve for $s$:\n        \\[\n            y = as + b \\implies s = \\frac{y - b}{a}.\n        \\]\n        Therefore, the inverse function is given by:\n        \\[\n            f_{a,b}^{-1}(y) = \\frac{y - b}{a} =  \\frac{y}{a} - \\frac{b}{a}.\n        \\]  \n        Thus, the inverse function exists and is of the form \n        \\[\n            f_{a,b}^{-1}(s) = \\frac{s}{a} + \\left( -\\frac{b}{a} \\right)  = f_{\\frac{1}{a}, -\\frac{b}{a}}.\n        \\]</li></ol>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.10)"
+      ]
+    },
+
+    {
+      "date": "2023-09-16",
+      "title": "Herstein 1.3.11 - Mappings: Show that a specific mapping satisfies a certain property and find its inverse",
+      "difficulty": "easy",
+      "problem": "Let $S$ be the set of all positive integers. Define $f: S \\to S$, by \n     \\[\n        f(1) = 2, \\quad f(2) = 3,\\quad f(3) = 1, \\text{ and } f(s) = s \\text{ for all } s \\geq 4.\n     \\] \n     Show that $f \\circ f \\circ f = i_S$, where $i_S$ is the identity function on $S$. What is $f^{-1} $ in this case?",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The function $f: S \\to S$ is defined by \n    \\[\n        f(1) = 2, \\quad f(2) = 3,\\quad f(3) = 1, \\text{ and } f(s) = s \\text{ for all } s \\geq 4.\n    \\] \n    Now we have \n    \\begin{align*}\n        f(f(f(1))) & = f(f(2)) = f(3) = 1,\\\\\n        f(f(f(2))) & = f(f(3)) = f(1) = 2,\\\\\n        f(f(f(3))) & = f(f(1)) = f(2) = 3,\\\\\n        f(f(f(s))) & = f(f(s)) = f(s) = s,~ \\text{for all } s \\geq 4.\n    \\end{align*}\n    Hence, $f \\circ f \\circ f (s) = s$ for all $s\\in S$, which implies that $f \\circ f \\circ f = i_S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To find the inverse of $f$, we observe that \n    \\[\n        f^{-1}(1) = 3,~f^{-1}(2) = 1,~f^{-1}(3) = 2,~\\text{and }~f^{-1}(s) = s ~\\text{for all } s\\geq 4.\n    \\]</div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.11)"
+      ]
+    },
+
+    {
+      "date": "2023-09-23",
+      "title": "Herstein 1.3.12 - Mappings: Show that a specific mapping is not well-defined and modify it to be well-defined",
+      "difficulty": "medium",
+      "problem": "Let $S$ be the set of nonnegative rational numbers, that is \n    \\[\n        S = \\left\\{ \\frac{m}{n}: m,n \\text{ nonnegative integers }, n \\neq 0   \\right\\} ,\n    \\]\n    and $T$ be the set of all integers. \n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Does $f: S \\to  T$ defined by $f \\left( \\frac{m}{n} \\right) = 2^m 3^n $ define a legitimate function from $S$ to $T$?</li>\n<li class=\"my-4\">If not, how could you modify the definition of $f$ so as to get a  legitimate function?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that a rational number can be represented in different ways. For example, $\\frac{1}{2} = \\frac{2}{4}$.</li>\n<li class=\"my-4\">If we define $f$ in terms of the unique representation of a rational number in its lowest terms, then it will define a legitimate function.</li></ul>",
+      "solution": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">No, the function $f: S \\to  T$ defined by $f \\left( \\frac{m}{n} \\right) = 2^m 3^n $ does not define a legitimate function from $S$ to $T$. This is because the same rational number can be represented in different ways. For example, $\\frac{1}{2} = \\frac{2}{4}$, but $f\\left( \\frac{1}{2} \\right) = 2^1 3^2 = 18$ and $f\\left( \\frac{2}{4} \\right) = 2^2 3^4 = 162$. Since the same input gives different outputs, it violates the definition of a function.\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">To modify the definition of $f$ so as to get a legitimate function, we can define $f$ in terms of the unique representation of a rational number in its lowest terms. Specifically, we can define $f: S \\to T$ by\n        \\[\n            f\\left( \\frac{m}{n} \\right) = 2^{m'} 3^{n'},\n        \\]\n        where $\\frac{m'}{n'}$ is the unique representation of $\\frac{m}{n}$ in lowest terms (i.e., $m'$ and $n'$ are coprime). This way, each rational number will have a unique output, satisfying the definition of a function.</li></ol>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.12)"
+      ]
+    },
+
+    {
+      "date": "2023-09-30",
+      "title": "Herstein 1.3.13 - Mappings: Prove that a specific mapping defines a function from a set of positive integers to the set of rational numbers",
+      "difficulty": "medium",
+      "problem": "Let $S$ be the set of all positive integers of the form $2^m 3^n$, where $m > 0, n > 0$, and let $T$ be the set of all rational numbers. Define \n    \\[\n        f: S \\to  T,\\quad f\\left( 2^m 3^n \\right) \\coloneqq \\frac{m}{n}.\n    \\]  \n    Prove that $f$ defines a function from $S$ to $T$. (On what properties of the integers does this depend?)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Positive integers have a unique representation in terms of their prime factorization. This is known as the <a href=\"https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">fundamental theorem of arithmetic</a>.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The function $f: S \\to  T$ is defined by \n    \\[\n        f\\left( 2^m 3^n \\right) = \\frac{m}{n},\n    \\]  \n    where $S$ is the set of all positive integers of the form $2^m 3^n$, with $m > 0$ and $n > 0$, and $T$ is the set of all rational numbers. To show that $f$ defines a function from $S$ to $T$, we need to verify that for each element in $S$, there is a unique corresponding element in $T$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $x \\in S$. Then, by definition, $x = 2^m 3^n$ for some unique positive integers $m$ and $n$. The mapping defined by $f$ takes this unique representation and maps it to the rational number $\\frac{m}{n}$. Since the representation of any positive integer in the form of $2^m 3^n$ is unique (due to the <a href=\"https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic\" class=\"text-blue-500 hover:text-blue-800\" target=\"_blank\" rel=\"noopener noreferrer\">fundamental theorem of arithmetic</a>, which states that every integer greater than 1 can be uniquely factored into prime numbers), it follows that for each distinct element in $S$, there is a distinct element in $T$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore, the function $f$ is well-defined, and it depends on the property of integers that allows for unique prime factorization. Hence, we conclude that $f$ defines a legitimate function from $S$ to $T$.</div>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.13)"
       ]
     },
 
@@ -804,7 +1034,7 @@
 
     {
       "date": "2026-06-06",
-      "title": "Set Theory - Express sets in terms of $A, B$, and $C$ using set operations",
+      "title": "Munkres - 1.1.7 - Set Theory: Express sets in terms of $A, B$, and $C$ using set operations",
       "difficulty": "easy",
       "problem": "Given sets $A, B$, and $C$, express each of the following sets in terms of $A, B$, and $C$, using the symbol $ \\cup ,  \\cap ,$ and $-$. \n    \\begin{align*}\n        D & = \\{ x : x \\in A \\text{ and } (x \\in B \\text{ or } x \\in C ) \\}, \\\\\n        E & = \\{ x : (x \\in A \\text{ and } x \\in B) \\text{ or } x \\in C \\}, \\\\\n        F & = \\{ x : x\\in A \\text{ and } (x \\in B \\implies x \\in C) \\}.\n    \\end{align*}",
       "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Follow the definitions of set operations and logical implications to express each set in terms of $A, B$, and $C$ using the symbols $\\cup, \\cap,$ and $-$.</li></ul>",
@@ -818,7 +1048,7 @@
 
     {
       "date": "2026-06-13",
-      "title": "Set Theory - Show that the power set of a set with two elements has four elements",
+      "title": "Munkres - 1.1.8 - Set Theory: Show that the power set of a set with two elements has four elements",
       "difficulty": "easy",
       "problem": "If a set $A$ has two elements, show that $\\mathcal{P} (A)$ has four elements. How many elements does $\\mathcal{P} (A)$ have if $A$ has one element? Three elements? No elements? Why is $\\mathcal{P} (A)$ called the power set of $A$?",
       "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The power set $\\mathcal{P}(A)$ of a set $A$ is the set of all subsets of $A$.</li></ul>",
@@ -832,7 +1062,7 @@
 
     {
       "date": "2026-06-20",
-      "title": "Set Theory - Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets",
+      "title": "Munkres - 1.1.9 - Set Theory: Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets",
       "difficulty": "easy",
       "problem": "Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets.",
       "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The deMorgan's law for arbitrary unions is given by\n        \\[\n             \\left( \\bigcup_{i \\in I} A_i \\right)^c = \\bigcap_{i \\in I} A_i^c\n        \\]\n        and for the intersections is given by\n        \\[\n            \\left( \\bigcap_{i \\in I} A_i \\right)^c = \\bigcup_{i \\in I} A_i^c,\n        \\]\n        where $\\{ A_i \\}_{i \\in I}$ is a family of sets indexed by $I$.</li></ul>",
@@ -846,7 +1076,7 @@
 
     {
       "date": "2026-07-04",
-      "title": "Set Theory - Determine whether certain subsets of $\\mathbb{R} \\times \\mathbb{R}$ are equal to the cartesian product of two subsets of $\\mathbb{R}$",
+      "title": "Munkres - 1.1.10 - Set Theory: Determine whether certain subsets of $\\mathbb{R} \\times \\mathbb{R}$ are equal to the cartesian product of two subsets of $\\mathbb{R}$",
       "difficulty": "medium",
       "problem": "Let $\\mathbb{R}$ denote the set of real numbers. For each of the following subsets of $\\mathbb{R} \\times \\mathbb{R} $ determine whether it is equal to the cartesian product of two subsets of $\\mathbb{R} $.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$A = \\{ (x,y): x \\in \\mathbb{Z}  \\} $.</li>\n<li class=\"my-4\">$B = \\{ (x,y): 0 < y \\leq 1 \\} $.</li>\n<li class=\"my-4\">$C = \\{ (x,y): y > x \\} .$</li>\n<li class=\"my-4\">$D = \\{ (x,y): x \\notin \\mathbb{Z} \\text{ and } y \\in \\mathbb{Z}  \\}. $</li>\n<li class=\"my-4\">$E = \\{ (x,y) : x^2 + y^2 < 1 \\} .$</li></ol>",
       "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Draw each sets in the $xy$-plane to visualize their structure. Then analyze whether each set can be expressed as a cartesian product of two subsets of $\\mathbb{R}$.</li></ul>",
@@ -874,7 +1104,7 @@
 
     {
       "date": "2026-06-27",
-      "title": "Set Theory - Write the negation of statements involving sets",
+      "title": "Munkres - 1.1.1 - Set Theory: Write the negation of statements involving sets",
       "difficulty": "easy",
       "problem": "Let $A$ and $B$ be sets of real numbers. Write the negation of eacj of the following statements: \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">For every $a \\in A$, it is true that $a^2 \\in B$.</li>\n<li class=\"my-4\">For at least one $a \\in A$, it is true that $a^2 \\in B$.</li>\n<li class=\"my-4\">For every $a \\in A$, it is true that $a^2 \\notin B$.</li>\n<li class=\"my-4\">For at least one $a \\in A$, it is true that $a^2 \\in B$.</li></ol>",
       "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The negation of a universal quantifier is an existential quantifier, and vice versa.</li></ul>",
@@ -888,7 +1118,7 @@
 
     {
       "date": "2026-07-18",
-      "title": "Munkres - 1.1.1 - Check the distributive laws for $\\cup$ and $\\cap$ and DeMorgan's laws",
+      "title": "Munkres - 1.1.1 - Set Theory: Check the distributive laws for $\\cup$ and $\\cap$ and DeMorgan's laws",
       "difficulty": "easy",
       "problem": "Check the distributive laws for $\\cup$ and $\\cap$ and DeMorgan's laws.",
       "hint": "",

@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-18T04:47:06.700Z
+// Generated on: 2026-07-18T14:42:00.354Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -310,6 +310,96 @@ const booksData = {
                 "title": "Herstein 1.3.8 - Mappings: Show that a mapping from integers to {1,-1} is well-defined and satisfies certain properties",
                 "difficulty": "easy",
                 "problem": "Let $S$ be the set of all integers and $T = \\{ 1,-1 \\} $; $f: S \\to  T$ is defined by \n    \\[\n        f(s) = \n        \\begin{cases}\n            1, &\\text{ if } s \\text{ is even} ;\\\\\n            -1, &\\text{ if } s \\text{ is odd}.\n        \\end{cases}\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Does this define a function from $S$ to $T$?</li>\n<li class=\"my-4\">Show that $f(s_1 + s_2) = f(s_1) f(s_2)$. What does this say about the integers?</li>\n<li class=\"my-4\">Is $f(s_1 s_2) = f(s_1) f(s_2)$ also true?</li></ol>"
+              },
+              {
+                "number": "1.3.9",
+                "source": "daily",
+                "date": "2023-10-14",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.9 - Mappings: Find the compositions of two mappings and check if they are equal",
+                "difficulty": "easy",
+                "problem": "Let $S$ be the set of all real numbers. Define $f: S \\to  S$ by $f(s) = s^2$, and $g: S \\to S$ by $g(s) = s + 1$. \n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Find $f \\circ g$.</li>\n<li class=\"my-4\">Find $g \\circ f$.</li>\n<li class=\"my-4\">Is $f\\circ g = g\\circ f$?</li></ol>"
+              },
+              {
+                "number": "1.3.10",
+                "source": "daily",
+                "date": "2023-10-21",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.10 - Mappings: Compositions and Inverses of Mappings",
+                "difficulty": "medium",
+                "problem": "Let $S$ be the set of all real numbers and for $a,b\\in S$, where $a\\neq 0$; define \n    \\[\n        f_{a,b}(s) = as + b.\n    \\] \n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $f_{a,b} \\circ f_{c,d} = f_{u,v}$ for some real $u,v$. Give explicit values for $u$ and $v$ in terms of $a,b,c$ and $d$.</li>\n<li class=\"my-4\">Is $f_{a,b} \\circ f_{c,d} = f_{c,d} \\circ f_{a,b}$ always?</li>\n<li class=\"my-4\">Find all $f_{a,b}$ such that $f_{a,b} \\circ f_{1,1} = f_{1,1} \\circ f_{a,b}$.</li>\n<li class=\"my-4\">Show that $f_{a,b}^{-1} $ exists and find its form.</li></ol>"
+              },
+              {
+                "number": "1.3.11",
+                "source": "daily",
+                "date": "2023-09-16",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.11 - Mappings: Show that a specific mapping satisfies a certain property and find its inverse",
+                "difficulty": "easy",
+                "problem": "Let $S$ be the set of all positive integers. Define $f: S \\to S$, by \n     \\[\n        f(1) = 2, \\quad f(2) = 3,\\quad f(3) = 1, \\text{ and } f(s) = s \\text{ for all } s \\geq 4.\n     \\] \n     Show that $f \\circ f \\circ f = i_S$, where $i_S$ is the identity function on $S$. What is $f^{-1} $ in this case?"
+              },
+              {
+                "number": "1.3.12",
+                "source": "daily",
+                "date": "2023-09-23",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.12 - Mappings: Show that a specific mapping is not well-defined and modify it to be well-defined",
+                "difficulty": "medium",
+                "problem": "Let $S$ be the set of nonnegative rational numbers, that is \n    \\[\n        S = \\left\\{ \\frac{m}{n}: m,n \\text{ nonnegative integers }, n \\neq 0   \\right\\} ,\n    \\]\n    and $T$ be the set of all integers. \n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Does $f: S \\to  T$ defined by $f \\left( \\frac{m}{n} \\right) = 2^m 3^n $ define a legitimate function from $S$ to $T$?</li>\n<li class=\"my-4\">If not, how could you modify the definition of $f$ so as to get a  legitimate function?</li></ol>"
+              },
+              {
+                "number": "1.3.13",
+                "source": "daily",
+                "date": "2023-09-30",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.13 - Mappings: Prove that a specific mapping defines a function from a set of positive integers to the set of rational numbers",
+                "difficulty": "medium",
+                "problem": "Let $S$ be the set of all positive integers of the form $2^m 3^n$, where $m > 0, n > 0$, and let $T$ be the set of all rational numbers. Define \n    \\[\n        f: S \\to  T,\\quad f\\left( 2^m 3^n \\right) \\coloneqq \\frac{m}{n}.\n    \\]  \n    Prove that $f$ defines a function from $S$ to $T$. (On what properties of the integers does this depend?)"
+              },
+              {
+                "number": "1.3.14",
+                "source": "daily",
+                "date": "2023-07-15",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.14 - Mappings: Find necessary and sufficient conditions so that $f \\\\circ f = i_S$",
+                "difficulty": "medium",
+                "problem": "Let $f: S \\to  S$, where $S$ is the set of all integers, be defined by $f(s) = as + b$, where $a$ and $b$ are integers. Find the necessary and sufficient conditions on $a,b$ in order that $f \\circ f = i_S$, where $i_S$ is the identity function on $S$."
+              },
+              {
+                "number": "1.3.15",
+                "source": "daily",
+                "date": "2023-12-09",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.15 - Mappings: Find all $f$ such that $f \\circ f \\circ f = i_S$",
+                "difficulty": "medium",
+                "problem": "Find all $f$ of the form given in problem 1.3.14 such that $f \\circ f \\circ f = i_S$, where $i_S$ is the identity function on $S$."
+              },
+              {
+                "number": "1.3.16",
+                "source": "daily",
+                "date": "2023-12-16",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.16 - Mappings: Show that $\\left( f^{-1} \\right)^{-1} = f$",
+                "difficulty": "medium",
+                "problem": "If $f$ is a 1-1 mapping of $S$ onto itself, show that \n    \\[\n        \\left( f^{-1}  \\right) ^{-1} = f.\n    \\]"
+              },
+              {
+                "number": "1.3.17",
+                "source": "daily",
+                "date": "2023-12-23",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.17 - Mappings: Count the number of mappings of a finite set into itself",
+                "difficulty": "medium",
+                "problem": "If $S$ is a finite set having $m > 0$ elements, how many mappings are there of $S$ into itself?"
+              },
+              {
+                "number": "1.3.18",
+                "source": "daily",
+                "date": "2023-12-30",
+                "topic": "miscellaneous",
+                "title": "Herstein 1.3.18 - Mappings: Count the number of 1-1 mappings of a finite set into itself",
+                "difficulty": "medium",
+                "problem": "In Problem 1.3.17, how many 1-1 mappings are there of $S$ into itself?"
               }
             ]
           }
@@ -689,7 +779,7 @@ const booksData = {
                 "source": "daily",
                 "date": "2026-07-18",
                 "topic": "miscellaneous",
-                "title": "Munkres - 1.1.1 - Check the distributive laws for $\\cup$ and $\\cap$ and DeMorgan's laws",
+                "title": "Munkres - 1.1.1 - Set Theory: Check the distributive laws for $\\cup$ and $\\cap$ and DeMorgan's laws",
                 "difficulty": "easy",
                 "problem": "Check the distributive laws for $\\cup$ and $\\cap$ and DeMorgan's laws."
               },
@@ -698,7 +788,7 @@ const booksData = {
                 "source": "daily",
                 "date": "2026-06-27",
                 "topic": "miscellaneous",
-                "title": "Set Theory - Write the negation of statements involving sets",
+                "title": "Munkres - 1.1.1 - Set Theory: Write the negation of statements involving sets",
                 "difficulty": "easy",
                 "problem": "Let $A$ and $B$ be sets of real numbers. Write the negation of eacj of the following statements: \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">For every $a \\in A$, it is true that $a^2 \\in B$.</li>\n<li class=\"my-4\">For at least one $a \\in A$, it is true that $a^2 \\in B$.</li>\n<li class=\"my-4\">For every $a \\in A$, it is true that $a^2 \\notin B$.</li>\n<li class=\"my-4\">For at least one $a \\in A$, it is true that $a^2 \\in B$.</li></ol>"
               },
@@ -707,7 +797,7 @@ const booksData = {
                 "source": "daily",
                 "date": "2026-06-06",
                 "topic": "miscellaneous",
-                "title": "Set Theory - Express sets in terms of $A, B$, and $C$ using set operations",
+                "title": "Munkres - 1.1.7 - Set Theory: Express sets in terms of $A, B$, and $C$ using set operations",
                 "difficulty": "easy",
                 "problem": "Given sets $A, B$, and $C$, express each of the following sets in terms of $A, B$, and $C$, using the symbol $ \\cup ,  \\cap ,$ and $-$. \n    \\begin{align*}\n        D & = \\{ x : x \\in A \\text{ and } (x \\in B \\text{ or } x \\in C ) \\}, \\\\\n        E & = \\{ x : (x \\in A \\text{ and } x \\in B) \\text{ or } x \\in C \\}, \\\\\n        F & = \\{ x : x\\in A \\text{ and } (x \\in B \\implies x \\in C) \\}.\n    \\end{align*}"
               },
@@ -716,7 +806,7 @@ const booksData = {
                 "source": "daily",
                 "date": "2026-06-13",
                 "topic": "miscellaneous",
-                "title": "Set Theory - Show that the power set of a set with two elements has four elements",
+                "title": "Munkres - 1.1.8 - Set Theory: Show that the power set of a set with two elements has four elements",
                 "difficulty": "easy",
                 "problem": "If a set $A$ has two elements, show that $\\mathcal{P} (A)$ has four elements. How many elements does $\\mathcal{P} (A)$ have if $A$ has one element? Three elements? No elements? Why is $\\mathcal{P} (A)$ called the power set of $A$?"
               },
@@ -725,7 +815,7 @@ const booksData = {
                 "source": "daily",
                 "date": "2026-06-20",
                 "topic": "miscellaneous",
-                "title": "Set Theory - Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets",
+                "title": "Munkres - 1.1.9 - Set Theory: Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets",
                 "difficulty": "easy",
                 "problem": "Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets."
               },
@@ -734,7 +824,7 @@ const booksData = {
                 "source": "daily",
                 "date": "2026-07-04",
                 "topic": "miscellaneous",
-                "title": "Set Theory - Determine whether certain subsets of $\\mathbb{R} \\times \\mathbb{R}$ are equal to the cartesian product of two subsets of $\\mathbb{R}$",
+                "title": "Munkres - 1.1.10 - Set Theory: Determine whether certain subsets of $\\mathbb{R} \\times \\mathbb{R}$ are equal to the cartesian product of two subsets of $\\mathbb{R}$",
                 "difficulty": "medium",
                 "problem": "Let $\\mathbb{R}$ denote the set of real numbers. For each of the following subsets of $\\mathbb{R} \\times \\mathbb{R} $ determine whether it is equal to the cartesian product of two subsets of $\\mathbb{R} $.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$A = \\{ (x,y): x \\in \\mathbb{Z}  \\} $.</li>\n<li class=\"my-4\">$B = \\{ (x,y): 0 < y \\leq 1 \\} $.</li>\n<li class=\"my-4\">$C = \\{ (x,y): y > x \\} .$</li>\n<li class=\"my-4\">$D = \\{ (x,y): x \\notin \\mathbb{Z} \\text{ and } y \\in \\mathbb{Z}  \\}. $</li>\n<li class=\"my-4\">$E = \\{ (x,y) : x^2 + y^2 < 1 \\} .$</li></ol>"
               }
