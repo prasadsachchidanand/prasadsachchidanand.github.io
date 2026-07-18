@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-17T15:56:55.564Z
+// Generated on: 2026-07-18T04:47:06.700Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -682,10 +682,19 @@ const booksData = {
       "1": {
         "problems": [],
         "sections": {
-          "2": {
+          "1": {
             "problems": [
               {
-                "number": "1.2.4",
+                "number": "1.1.1",
+                "source": "daily",
+                "date": "2026-07-18",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.1.1 - Check the distributive laws for $\\cup$ and $\\cap$ and DeMorgan's laws",
+                "difficulty": "easy",
+                "problem": "Check the distributive laws for $\\cup$ and $\\cap$ and DeMorgan's laws."
+              },
+              {
+                "number": "1.1.4",
                 "source": "daily",
                 "date": "2026-06-27",
                 "topic": "miscellaneous",
@@ -694,7 +703,7 @@ const booksData = {
                 "problem": "Let $A$ and $B$ be sets of real numbers. Write the negation of eacj of the following statements: \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">For every $a \\in A$, it is true that $a^2 \\in B$.</li>\n<li class=\"my-4\">For at least one $a \\in A$, it is true that $a^2 \\in B$.</li>\n<li class=\"my-4\">For every $a \\in A$, it is true that $a^2 \\notin B$.</li>\n<li class=\"my-4\">For at least one $a \\in A$, it is true that $a^2 \\in B$.</li></ol>"
               },
               {
-                "number": "1.2.7",
+                "number": "1.1.7",
                 "source": "daily",
                 "date": "2026-06-06",
                 "topic": "miscellaneous",
@@ -703,7 +712,7 @@ const booksData = {
                 "problem": "Given sets $A, B$, and $C$, express each of the following sets in terms of $A, B$, and $C$, using the symbol $ \\cup ,  \\cap ,$ and $-$. \n    \\begin{align*}\n        D & = \\{ x : x \\in A \\text{ and } (x \\in B \\text{ or } x \\in C ) \\}, \\\\\n        E & = \\{ x : (x \\in A \\text{ and } x \\in B) \\text{ or } x \\in C \\}, \\\\\n        F & = \\{ x : x\\in A \\text{ and } (x \\in B \\implies x \\in C) \\}.\n    \\end{align*}"
               },
               {
-                "number": "1.2.8",
+                "number": "1.1.8",
                 "source": "daily",
                 "date": "2026-06-13",
                 "topic": "miscellaneous",
@@ -712,7 +721,7 @@ const booksData = {
                 "problem": "If a set $A$ has two elements, show that $\\mathcal{P} (A)$ has four elements. How many elements does $\\mathcal{P} (A)$ have if $A$ has one element? Three elements? No elements? Why is $\\mathcal{P} (A)$ called the power set of $A$?"
               },
               {
-                "number": "1.2.9",
+                "number": "1.1.9",
                 "source": "daily",
                 "date": "2026-06-20",
                 "topic": "miscellaneous",
@@ -721,7 +730,7 @@ const booksData = {
                 "problem": "Formulate and prove DeMorgan's laws for arbitrary unions and intersections of sets."
               },
               {
-                "number": "1.2.10",
+                "number": "1.1.10",
                 "source": "daily",
                 "date": "2026-07-04",
                 "topic": "miscellaneous",

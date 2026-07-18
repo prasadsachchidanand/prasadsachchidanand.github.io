@@ -368,7 +368,7 @@
     },
 
     {
-      "date": "2026-07-17",
+      "date": "2026-07-10",
       "title": "Obtain the differential equation of all the circles of radius a and centre (h,k)",
       "difficulty": "easy",
       "problem": "Obtain the differential equation of all the circles of radius $a$ and centre $(h,k)$.",
@@ -381,7 +381,7 @@
     },
 
     {
-      "date": "2026-07-10",
+      "date": "2026-07-17",
       "title": "Find the intersection point of two solutions of the differential equation dy/dx = y + 17",
       "difficulty": "easy",
       "problem": "Let $y_1(x)$ and $y_2 (x)$ be the solution of the differential equation\n    \\[\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = y + 17,\n    \\] \n    with initial conditions $y_1(0) = 0$ and $y_2(0) = 1$. Then, which of the following is true?",

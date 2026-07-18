@@ -2,776 +2,425 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-CVGSV7Y2CE');
-    </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CVGSV7Y2CE');
+  </script>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Problem Tags - Sachchidanand Prasad</title>
+  <title>Problem Tags - Sachchidanand Prasad</title>
 
-    
+  <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png" />
 
-    <link rel="icon" type="image/svg+xml" href="../../../assets/img/favicon.png"/>
+  <link href="../../../assets/style.css" rel="stylesheet" />
 
-    <link href="../../../assets/style.css" rel="stylesheet" />
+  <!-- Academic icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
+  <link rel="stylesheet" href="../answer.css">
 
-    <!-- Academic icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="../answer.css">
-    
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
-    <!-- Google ad -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
+  <!-- Google ad -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
     crossorigin="anonymous"></script>
 
-    <script src="tagsToProblems.js"></script> <!-- Include the JavaScript file -->
+  <script src="tagsToProblems.js"></script> <!-- Include the JavaScript file -->
 </head>
 
-
 <body style="background: #edf2f7;">
-    <div class="flex flex-col h-screen">
+  <div class="flex flex-col h-screen">
 
-      <!-- navbar -->
-      <div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
-        <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-          <div class="p-4 flex flex-row items-center justify-between">
-            <a href="../../../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand Prasad</a>
-            <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
-              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-              </svg>
-            </button>
-          </div>
-          <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../"> Home </a>
-
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../research/"> Research </a>
-
-						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../teaching/"> Teaching </a>
-
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../resume/"> CV </a>
-
-		        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../publications/">Publications</a>
-
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../miscellaneous/"> Miscellaneous </a>
-
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../../../contact/">Contact</a>
-          </nav>
+    <!-- navbar -->
+    <div
+      class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+      <div x-data="{ open: false }"
+        class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+        <div class="p-4 flex flex-row items-center justify-between">
+          <a href="../../../"
+            class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand
+            Prasad</a>
+          <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+              <path x-show="!open" fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                clip-rule="evenodd"></path>
+              <path x-show="open" fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
         </div>
+        <nav :class="{'flex': open, 'hidden': !open}"
+          class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../../"> Home </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../../research/"> Research </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../../teaching/"> Teaching </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../../resume/"> CV </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../../publications/">Publications</a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../../miscellaneous/"> Miscellaneous </a>
+
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            href="../../../contact/">Contact</a>
+        </nav>
       </div>
-
-        <!-- Section -->
-        <section class="text-gray-600 body-font">
-            <div class="container px-5 py-24 mx-auto">
-                <div class="flex flex-col items-center text-center justify-center">
-                    <h2 class="text-gray-900 text-3xl title-font font-medium">Tags</h2>
-                    <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-                </div>
-                <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-                    <div class="p-4 md:w-full flex">
-                        <div class="flex-grow lg:px-32 px-6">
-
-                            <div id="linear-algebra-buttons">
-                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Linear Algebra
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Row Reduction
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Subspaces
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Linear Independence
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Eigenvalues
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Eigenvectors
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Linear Transformation
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Basis
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Characteristic Polynomial
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Minimal Polynomial
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Inner Product Space
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Dimension
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div id="linear-algebra-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                            <hr class="h-px my-8 bg-gray-300 border-0 mx-auto">
-
-                            <div id="real-analysis-buttons">
-                                <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Real Analysis
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Real Numbers
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Supremum
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Sequences
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Continuity
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Derivatives
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Integral
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Improper Integral
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Partial Derivative
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Multivariable
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Inverse Function Theorem
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                      Sequence of Functions
-                                    </button>
-                                  </div>
-                                </div>
-                            </div>
-
-                            <div id="real-analysis-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                            <hr class="h-px my-8 bg-gray-300 border-0 mx-auto">
-
-                            <div id="complex-analysis-buttons">
-                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Complex Analysis
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Infinite Series
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Complex Differentiation
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Complex Integration
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Analytic Function
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Singularity
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Harmonic Conjugate
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Mobius Transformation
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Residue Theorem
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div id="complex-analysis-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                            <hr class="h-px my-8 bg-gray-300 border-0 mx-auto">
-
-                            <div id="abstract-algebra-buttons">
-                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Abstract Algebra
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Group Theory
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Subgroups
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Sylow Theorem
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Cyclic Group
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Group Action
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Ring Theory
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Field Theory
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Splitting Field
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Group Homomorphism
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div id="abstract-algebra-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                            <hr class="h-px my-8 bg-gray-300 border-0 mx-auto">
-
-                            <div id="topology-buttons">
-                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Topology
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Metric Space
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Open Set
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Product Topology
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Hausdorff Space
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Homeomorphism
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Connectedness
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Subspace Topology
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Separation
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Completeness
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Homotopy-theory
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div id="topology-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                            <hr class="h-px my-8 bg-gray-300 border-0 mx-auto">
-
-                            <div id="differential-equation-buttons">
-                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Differential Equation
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    ODE
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    PDE
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Characteristics
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Heat Equation
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Laplace Transformation
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Charpit Method
-                                  </button>
-                                </div>
-
-                              </div>
-                            </div>
-
-                            <div id="differential-equation-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                            <hr class="h-px my-8 bg-gray-300 border-0 mx-auto">
-
-                            <div id="miscellaneous-buttons">
-                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Miscellaneous
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Probability Theory
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Statistics
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Normal distribution
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Numerical Analysis
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Numerical Integration
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Lagrange Multiplier
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Linear Programming
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                   Functional Analysis
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                   Number Theory
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                   Calculus
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                   Differential Geometry
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Combinatorics
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                   Set Theory
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                   Mappings
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div id="miscellaneous-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                            <hr class="h-px my-8 bg-gray-300 border-0 mx-auto">
-
-                            <div id="gate-buttons">
-                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    GATE 2024
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    GATE 2023
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    GATE 2022
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    GATE 2021
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    GATE 2019
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    GATE 2007
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    GATE 2006
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div id="gate-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                            <hr class="h-px my-8 bg-gray-300 border-0 mx-auto">
-
-                            <div id="csir-net-buttons">
-                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    CSIR-NET June 2011
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    CSIR-NET Dec 2019
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    CSIR-NET Feb 2022
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div id="csir-net-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                            <hr class="h-px my-8 bg-gray-300 border-0 mx-auto">
-
-                            <div id="nbhm-buttons">
-                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    NBHM MSc 2019
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    NBHM PhD 2005
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    NBHM PhD 2006
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    NBHM PhD 2007
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    NBHM PhD 2017
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div id="nbhm-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                            <hr class="h-px my-8 bg-gray-300 border-0 mx-auto">
-
-                            <div id="mcq-buttons">
-                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    MCQ
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div id="mcq-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                            <hr class="h-px my-8 bg-gray-300 border-0 mx-auto">
-
-                            <div id="book-solution-buttons">
-                              <div class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4">
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Topology Munkres
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Linear Algebra Hoffman Kunze
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Real Analysis Rudin
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Real Analysis Bartle Sherbert
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Abstract Algebra Herstein
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Complex Analysis Gamelin
-                                  </button>
-                                </div>
-                                <div>
-                                  <button type="button" class="tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">
-                                    Complex Variables Brown and Churchill
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div id="book-solution-links">
-                              <!-- Links will be appended here -->
-                            </div>
-
-                          
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Add a container to display the links to the problems -->
-                 <div id="problems-container" class="mt-6 px-5 py-2.5"></div>
-            </div>
-        </section>
-
-        <!-- footer -->
-      <footer class="foot mt-auto border-t border-gray-200">
-        <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
-          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> Sachchidanand
-          </p>
-          <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
-          </p>
-          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-gray-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
-              <i class="ai ai-researchgate ai-lg"></i>
-            </a>
-            <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
-              <i class="ai ai-academia"></i>
-            </a>
-          </span>
-        </div>
-        <hr class="py-1 w-1/4 m-auto">
-				<div class="items-center">
-					<p class="text-center">
-						<span class="text-gray-500 text-sm mr-1">No of visitors: </span>
-						<img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
-						alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
-						<span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
-					</p>
-				</div>
-      </footer>
-      
     </div>
 
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-		
-    <script>
-			function myFunction() {
-				var x = document.lastModified;
-				document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
-				}
+    <!-- Section -->
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col items-center text-center justify-center">
+          <h2 class="text-gray-900 text-3xl title-font font-medium">Tags</h2>
+          <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+        </div>
 
-				myFunction()
-		</script>
+        <div class="flex flex-col items-center mb-6">
+          <div class="w-full sm:w-2/3 lg:w-1/2">
+            <div
+              class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-4 py-2.5 shadow-sm focus-within:ring-2 focus-within:ring-lime-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 flex-shrink-0" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 21l-4.35-4.35m1.35-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input id="tag-search" type="text" placeholder="Search tags — e.g. eigenvalues, GATE 2023..."
+                class="w-full bg-transparent outline-none text-gray-700 placeholder-gray-400 text-sm">
+              <button id="clear-search"
+                class="hidden text-xs font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap">Clear</button>
+            </div>
+            <p id="result-count" class="text-xs text-gray-400 mt-1.5 text-center"></p>
+          </div>
+          <div class="mt-3 flex gap-3 text-xs font-medium">
+            <button id="expand-all" class="text-indigo-500 hover:text-indigo-700">Expand all</button>
+            <span class="text-gray-300">|</span>
+            <button id="collapse-all" class="text-indigo-500 hover:text-indigo-700">Collapse all</button>
+          </div>
+        </div>
 
-    <script src="tags.js"></script>
+        <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+          <div class="p-4 md:w-full flex">
+            <div class="flex-grow lg:px-32 px-6" id="tag-categories">
+              <!-- Categories are generated by tags-data.js below -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Add a container to display the links to the problems -->
+        <div id="problems-container" class="mt-6 px-5 py-2.5"></div>
+
+        <p id="no-results" class="hidden text-center text-gray-400 text-sm py-10">No tags match your search. Try a
+          different word.</p>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="foot mt-auto border-t border-gray-200">
+      <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©
+          <script>document.write(new Date().getFullYear())</script> Sachchidanand
+        </p>
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last
+          updated: <span id="updated"></span>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+          <a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/"
+            target="_blank">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/"
+            target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand"
+            target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-gray-500"
+            href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
+            <i class="ai ai-researchgate ai-lg"></i>
+          </a>
+          <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad"
+            target="_blank">
+            <i class="ai ai-academia"></i>
+          </a>
+        </span>
+      </div>
+      <hr class="py-1 w-1/4 m-auto">
+      <div class="items-center">
+        <p class="text-center">
+          <span class="text-gray-500 text-sm mr-1">No of visitors: </span>
+          <img
+            src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D"
+            alt="Hit Counter by Digits" border="0" class="w-11 inline" />
+          <span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/"
+              class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+  <script>
+    function myFunction() {
+      var x = document.lastModified;
+      document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
+    }
+
+    myFunction()
+  </script>
+
+  <!-- =====================================================================
+         TAG DATA + RENDERING
+         Add a new tag: add one string to the right category's `tags` array.
+         Add a new category: add one object to CATEGORIES (id must match the
+         key used in tags.js's `linksContainers` / `subcategoryToCategoryMap`).
+         This script is intentionally NOT deferred: it must run synchronously
+         during page parse so the .tag-button elements exist in the DOM
+         before tags.js's DOMContentLoaded handler queries for them.
+         ===================================================================== -->
+  <script>
+      (function () {
+        const CATEGORIES = [
+          {
+            id: "linear-algebra", name: "Linear Algebra", tags: [
+              "Linear Algebra", "Row Reduction", "Subspaces", "Linear Independence", "Eigenvalues",
+              "Eigenvectors", "Linear Transformation", "Basis", "Characteristic Polynomial",
+              "Minimal Polynomial", "Inner Product Space", "Dimension"
+            ]
+          },
+          {
+            id: "real-analysis", name: "Real Analysis", tags: [
+              "Real Analysis", "Real Numbers", "Supremum", "Sequences", "Continuity", "Derivatives",
+              "Integral", "Improper Integral", "Partial Derivative", "Multivariable",
+              "Inverse Function Theorem", "Sequence of Functions"
+            ]
+          },
+          {
+            id: "complex-analysis", name: "Complex Analysis", tags: [
+              "Complex Analysis", "Infinite Series", "Complex Differentiation", "Complex Integration",
+              "Analytic Function", "Singularity", "Harmonic Conjugate", "Mobius Transformation",
+              "Residue Theorem"
+            ]
+          },
+          {
+            id: "abstract-algebra", name: "Abstract Algebra", tags: [
+              "Abstract Algebra", "Group Theory", "Subgroups", "Sylow Theorem", "Cyclic Group",
+              "Group Action", "Ring Theory", "Field Theory", "Splitting Field", "Group Homomorphism"
+            ]
+          },
+          {
+            id: "topology", name: "Topology", tags: [
+              "Topology", "Metric Space", "Open Set", "Product Topology", "Hausdorff Space",
+              "Homeomorphism", "Connectedness", "Subspace Topology", "Separation", "Completeness",
+              "Homotopy-theory"
+            ]
+          },
+          {
+            id: "differential-equation", name: "Differential Equation", tags: [
+              "Differential Equation", "ODE", "PDE", "Characteristics", "Heat Equation",
+              "Laplace Transformation", "Charpit Method"
+            ]
+          },
+          {
+            id: "miscellaneous", name: "Miscellaneous", tags: [
+              "Miscellaneous", "Probability Theory", "Statistics", "Normal distribution",
+              "Numerical Analysis", "Numerical Integration", "Lagrange Multiplier",
+              "Linear Programming", "Functional Analysis", "Number Theory", "Calculus",
+              "Differential Geometry", "Combinatorics", "Set Theory", "Mappings"
+            ]
+          },
+          {
+            id: "gate", name: "GATE", tags: [
+              "GATE 2024", "GATE 2023", "GATE 2022", "GATE 2021", "GATE 2019", "GATE 2007", "GATE 2006"
+            ]
+          },
+          {
+            id: "csir-net", name: "CSIR-NET", tags: [
+              "CSIR-NET June 2011", "CSIR-NET Dec 2019", "CSIR-NET Feb 2022"
+            ]
+          },
+          {
+            id: "nbhm", name: "NBHM", tags: [
+              "NBHM MSc 2019", "NBHM PhD 2005", "NBHM PhD 2006", "NBHM PhD 2007", "NBHM PhD 2017"
+            ]
+          },
+          { id: "mcq", name: "MCQ", tags: ["MCQ"] },
+          {
+            id: "book-solution", name: "Book Solutions", tags: [
+              "Topology Munkres", "Linear Algebra Hoffman Kunze", "Real Analysis Rudin",
+              "Real Analysis Bartle Sherbert", "Abstract Algebra Herstein", "Complex Analysis Gamelin",
+              "Complex Variables Brown and Churchill"
+            ]
+          }
+        ];
+
+        // Exact class tags.js expects on an inactive tag button — do not change
+        // without also updating the matching string inside tags.js.
+        const TAG_BUTTON_CLASS =
+          "tag-button text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 " +
+          "hover:bg-gradient-to-br font-medium rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2";
+
+        const root = document.getElementById("tag-categories");
+        const frag = document.createDocumentFragment();
+
+        CATEGORIES.forEach(function (cat, i) {
+          const section = document.createElement("div");
+          section.className = "category-section";
+          section.dataset.categoryId = cat.id;
+
+          const header = document.createElement("button");
+          header.type = "button";
+          header.className =
+            "category-toggle w-full flex items-center justify-between gap-3 py-3 px-1 " +
+            "text-left group";
+          header.innerHTML =
+            '<span class="flex items-baseline gap-2">' +
+            '<span class="text-lg font-semibold text-gray-800">' + cat.name + '</span>' +
+            '<span class="text-xs font-medium text-gray-400 bg-gray-100 rounded-full px-2 py-0.5">' + cat.tags.length + '</span>' +
+            '</span>' +
+            '<svg class="chevron h-5 w-5 text-gray-400 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+
+          const body = document.createElement("div");
+          body.className = "category-body"; // collapsed by default via inline style below
+          body.style.display = "none";
+
+          const buttonGrid = document.createElement("div");
+          buttonGrid.id = cat.id + "-buttons";
+          buttonGrid.className = "grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 my-4";
+
+          cat.tags.forEach(function (tagName) {
+            const wrap = document.createElement("div");
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = TAG_BUTTON_CLASS;
+            btn.textContent = tagName;
+            wrap.appendChild(btn);
+            buttonGrid.appendChild(wrap);
+          });
+
+          const linksDiv = document.createElement("div");
+          linksDiv.id = cat.id + "-links";
+
+          body.appendChild(buttonGrid);
+          body.appendChild(linksDiv);
+
+          section.appendChild(header);
+          section.appendChild(body);
+
+          if (i < CATEGORIES.length - 1) {
+            const hr = document.createElement("hr");
+            hr.className = "h-px my-2 bg-gray-200 border-0 mx-auto";
+            section.appendChild(hr);
+          }
+
+          frag.appendChild(section);
+
+          header.addEventListener("click", function () {
+            const isOpen = body.style.display !== "none";
+            body.style.display = isOpen ? "none" : "block";
+            header.querySelector(".chevron").style.transform = isOpen ? "" : "rotate(180deg)";
+          });
+        });
+
+        root.appendChild(frag);
+
+        // ---- search -------------------------------------------------------
+        const searchInput = document.getElementById("tag-search");
+        const clearBtn = document.getElementById("clear-search");
+        const resultCount = document.getElementById("result-count");
+        const noResults = document.getElementById("no-results");
+
+        function openSection(section) {
+          const body = section.querySelector(".category-body");
+          const chevron = section.querySelector(".chevron");
+          body.style.display = "block";
+          chevron.style.transform = "rotate(180deg)";
+        }
+        function closeSection(section) {
+          const body = section.querySelector(".category-body");
+          const chevron = section.querySelector(".chevron");
+          body.style.display = "none";
+          chevron.style.transform = "";
+        }
+
+        function runSearch() {
+          const q = searchInput.value.trim().toLowerCase();
+          clearBtn.classList.toggle("hidden", q.length === 0);
+
+          let total = 0;
+          document.querySelectorAll(".category-section").forEach(function (section) {
+            const buttons = section.querySelectorAll(".tag-button");
+            let matches = 0;
+            buttons.forEach(function (btn) {
+              const match = !q || btn.textContent.toLowerCase().includes(q);
+              btn.parentElement.classList.toggle("hidden", !match);
+              if (match) matches++;
+            });
+            total += matches;
+            section.classList.toggle("hidden", matches === 0);
+            if (q) {
+              if (matches > 0) openSection(section); else closeSection(section);
+            }
+          });
+
+          resultCount.textContent = q ? total + " tag" + (total !== 1 ? "s" : "") + " found" : "";
+          noResults.classList.toggle("hidden", !(q && total === 0));
+        }
+
+        searchInput.addEventListener("input", runSearch);
+        clearBtn.addEventListener("click", function () {
+          searchInput.value = "";
+          runSearch();
+          searchInput.focus();
+        });
+
+        document.getElementById("expand-all").addEventListener("click", function () {
+          document.querySelectorAll(".category-section").forEach(openSection);
+        });
+        document.getElementById("collapse-all").addEventListener("click", function () {
+          document.querySelectorAll(".category-section").forEach(closeSection);
+        });
+
+        // Keep the ?tag= deep link working: open the category that contains
+        // the requested tag before tags.js's own DOMContentLoaded logic clicks it.
+        const tagFromUrl = new URLSearchParams(window.location.search).get("tag");
+        if (tagFromUrl) {
+          document.querySelectorAll(".tag-button").forEach(function (btn) {
+            const slug = btn.textContent.trim().toLowerCase().replace(/ /g, "-");
+            if (slug === tagFromUrl) {
+              openSection(btn.closest(".category-section"));
+            }
+          });
+        }
+      })();
+  </script>
+
+  <script src="tags.js"></script>
 </body>
 </html>

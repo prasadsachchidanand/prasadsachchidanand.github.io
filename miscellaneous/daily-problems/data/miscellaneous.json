@@ -501,6 +501,20 @@
     },
 
     {
+      "date": "2023-10-14",
+      "title": "Herstein 1.3.9 - Mappings: Find the compositions of two mappings and check if they are equal",
+      "difficulty": "easy",
+      "problem": "Let $S$ be the set of all real numbers. Define $f: S \\to  S$ by $f(s) = s^2$, and $g: S \\to S$ by $g(s) = s + 1$. \n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Find $f \\circ g$.</li>\n<li class=\"my-4\">Find $g \\circ f$.</li>\n<li class=\"my-4\">Is $f\\circ g = g\\circ f$?</li></ol>",
+      "hint": "",
+      "solution": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">The composition $f \\circ g$ is defined as $(f \\circ g)(s) = f(g(s))$. Therefore, we have \n        \\[\n            (f \\circ g)(s) = f(s + 1) = (s + 1)^2.\n        \\]\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">The composition $g \\circ f$ is defined as $(g \\circ f)(s) = g(f(s))$. Therefore, we have \n        \\[\n            (g \\circ f)(s) = g(s^2) = s^2 + 1.\n        \\]\n<hr class=\"h-px my-4 bg-gray-300 border-0\"></li>\n<li class=\"my-4\">To check if $f\\circ g = g\\circ f$, we compare the two compositions:\n        \\[\n            (f \\circ g)(s) = (s + 1)^2 = s^2 + 2s + 1, \\quad (g \\circ f)(s) = s^2 + 1.\n        \\]\n        Since $(f \\circ g)(s) \\neq (g \\circ f)(s)$ for all $s$, we conclude that $f\\circ g \\neq g\\circ f$.</li></ol>",
+      "tags": [
+        "miscellaneous",
+        "mappings",
+        "abstract-algebra-herstein (1.3.9"
+      ]
+    },
+
+    {
       "date": "2026-01-03",
       "title": "Number Theory - n^7 - n is divisible by 42",
       "difficulty": "medium",
@@ -798,7 +812,7 @@
       "tags": [
         "miscellaneous",
         "set-theory",
-        "topology-munkres (1.2.7)"
+        "topology-munkres (1.1.7)"
       ]
     },
 
@@ -812,7 +826,7 @@
       "tags": [
         "miscellaneous",
         "set-theory",
-        "topology-munkres (1.2.8)"
+        "topology-munkres (1.1.8)"
       ]
     },
 
@@ -826,7 +840,7 @@
       "tags": [
         "miscellaneous",
         "set-theory",
-        "topology-munkres (1.2.9)"
+        "topology-munkres (1.1.9)"
       ]
     },
 
@@ -840,7 +854,7 @@
       "tags": [
         "miscellaneous",
         "set-theory",
-        "topology-munkres (1.2.10)"
+        "topology-munkres (1.1.10)"
       ]
     },
 
@@ -868,7 +882,21 @@
       "tags": [
         "miscellaneous",
         "set-theory",
-        "topology-munkres (1.2.4)"
+        "topology-munkres (1.1.4)"
+      ]
+    },
+
+    {
+      "date": "2026-07-18",
+      "title": "Munkres - 1.1.1 - Check the distributive laws for $\\cup$ and $\\cap$ and DeMorgan's laws",
+      "difficulty": "easy",
+      "problem": "Check the distributive laws for $\\cup$ and $\\cap$ and DeMorgan's laws.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Distributive Laws:</strong> Let $A, B, C$ be sets. We will check the distributive laws:\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$.</li>\n<li class=\"my-4\">$A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$.</li></ol></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To prove the first distributive law, let \n    \\begin{align*}\n        x \\in A \\cap (B \\cup C) & \\iff x \\in A \\text{ and } x \\in (B \\cup C) \\\\\n        & \\iff x \\in A \\text{ and } (x \\in B \\text{ or } x \\in C) \\\\\n        & \\iff (x \\in A \\text{ and } x \\in B) \\text{ or } (x \\in A \\text{ and } x \\in C) \\\\\n        & \\iff x \\in (A \\cap B) \\cup (A \\cap C).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To prove the second distributive law, let\n    \\begin{align*}\n        x \\in A  \\cup (B  \\cap C) & \\iff x \\in A \\text{ or } x \\in (B  \\cap C) \\\\\n        & \\iff x \\in A \\text{ or } (x \\in B \\text{ and } x \\in C) \\\\\n        & \\iff (x \\in A \\text{ or } x \\in B) \\text{ and } (x \\in A \\text{ or } x \\in C) \\\\\n        & \\iff x \\in (A \\cup B) \\cap (A \\cup C).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>DeMorgan's Laws:</strong> Let $A, B$ be sets. We will check DeMorgan's laws:\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$(A \\cup B)^c = A^c \\cap B^c$.</li>\n<li class=\"my-4\">$(A \\cap B)^c = A^c \\cup B^c$.</li></ol></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To prove the first DeMorgan's law, let\n    \\begin{align*}\n        x \\in (A \\cup B)^c & \\iff x \\notin (A \\cup B) \\\\\n        & \\iff x \\notin A \\text{ and } x \\notin B \\\\\n        & \\iff x \\in A^c \\text{ and } x \\in B^c \\\\\n        & \\iff x \\in A^c \\cap B^c.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To prove the second DeMorgan's law, let\n    \\begin{align*}\n        x \\in (A \\cap B)^c & \\iff x \\notin (A \\cap B) \\\\\n        & \\iff x \\notin A \\text{ or } x \\notin B \\\\\n        & \\iff x \\in A^c \\text{ or } x \\in B^c \\\\\n        & \\iff x \\in A^c \\cup B^c.\n    \\end{align*}</div>",
+      "tags": [
+        "miscellaneous",
+        "set-theory",
+        "topology-munkres (1.1.1)"
       ]
     }
   ]
