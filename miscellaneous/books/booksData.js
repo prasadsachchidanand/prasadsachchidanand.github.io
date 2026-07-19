@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-18T14:42:00.354Z
+// Generated on: 2026-07-19T07:02:43.376Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -752,9 +752,18 @@ const booksData = {
                 "source": "daily",
                 "date": "2026-07-12",
                 "topic": "linear-algebra",
-                "title": "Problem of the Day",
+                "title": "Hoffman and Kunze - Find a basis for the subspace of $\\mathbb{R}^4$ spanned by the four vectors of exercise 2",
                 "difficulty": "medium",
                 "problem": "Find a basis for the subspace of $\\mathbb{R}^4$ spanned by the four vectors of exercise 2 (<a href=\"/miscellaneous/daily-problems/problem/?date=2026-07-05\" class = \"text-blue-500 hover:text-blue-700\">previous problem</a>)."
+              },
+              {
+                "number": "2.3.4",
+                "source": "daily",
+                "date": "2026-07-19",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - Show that the given vectors form a basis for $\\mathbb{R} ^3$ and express the standard basis vectors as linear combinations of them",
+                "difficulty": "medium",
+                "problem": "Show that the vectors\n    \\[\n        \\alpha _1 = (1, 0, -1), \\quad \\alpha _2 = (1, 2, 1), \\quad \\alpha _3 = (0, -3, 2)\n    \\]\n    form a basis for $\\mathbb{R} ^3$. Express each of the standard basis vectors as linear combinations of $\\alpha _1, \\alpha _2, \\alpha _3$."
               }
             ]
           }
