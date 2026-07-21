@@ -118,6 +118,15 @@ const BOOK_REGISTRY = [
     aliases: ['topology-munkres'],
   },
   {
+    key: 'complex-variables-brown-and-churchill',
+    title: 'Complex Variables and Applications',
+    author: 'Brown and Churchill',
+    shortName: 'Brown and Churchill',
+    color: 'indigo',
+    aliases: ['complex-variables-brown-and-churchill'],
+  },
+  
+  {
     key: 'complex-analysis-gamelin',
     title: 'Complex Analysis',
     author: 'T. Gamelin',

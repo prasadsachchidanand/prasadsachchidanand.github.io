@@ -2,6 +2,219 @@
   "topic": "Differential Equation",
   "problems": [
     {
+      "date": "2023-01-06",
+      "title": "Solve the system of linear differential equations with initial conditions $x_1(0)=0$ and $x_2(0)=-1$",
+      "difficulty": "medium",
+      "problem": "Consider the system of linear differential equations\n    \\begin{align*}\n        \\frac{\\mathrm{d} x_1}{\\mathrm{d} t} & = 5x_1 - 2x_2 \\\\\n        \\frac{\\mathrm{d} x_2}{\\mathrm{d} t} & = 4x_1 - x_2\n    \\end{align*}  \n    with the initial conditions $x_1(0)=0$ and $x_2(0)=-1$. The find out the value of $\\log_e\\left( x_1(2)-x_2(2) \\right) $.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Find the eigenvalues and eigenvectors of the coefficient matrix.</li>\n<li class=\"my-4\">Use the initial conditions to find the constants in the general solution.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given system of linear differential equations can be written as \n    \\begin{equation}\\label{eq:06Jan2023-1}\n        \\frac{\\mathrm{d} }{\\mathrm{d} t}\n        \\begin{bmatrix}\n            x_1 \\\\ x_2\n        \\end{bmatrix} = \n        \\begin{bmatrix}\n            5 & -2 \\\\ 4 & -1\n        \\end{bmatrix}\n        \\begin{bmatrix}\n            x_1 \\\\ x_2\n        \\end{bmatrix}.\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will find eigenvalues of the coefficient matrix which is \n    \\[\n        A = \n        \\begin{bmatrix}\n            5 &  -2 \\\\\n            4 &  -1 \\\\\n        \\end{bmatrix}.\n    \\]\n    The characteristic polynomial of the matrix $A$ is\n    \\begin{align*}\n        \\det (A - \\lambda I) & = \\det \\begin{bmatrix} 5-\\lambda & -2 \\\\ 4 & -1-\\lambda \\end{bmatrix} \\\\\n        & = (5-\\lambda)(-1-\\lambda) - (-2)(4) \\\\\n        & = -5 - 5\\lambda + \\lambda + \\lambda^2 + 8 \\\\\n        & = \\lambda^2 - 4\\lambda + 3 \\\\\n        & = (\\lambda - 1)(\\lambda - 3).\n    \\end{align*}\n    Thus the eigenvalues are $\\lambda_1 = 1$ and $\\lambda_2 = 3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we will find the eigenvectors corresponding to each eigenvalue. For $\\lambda_1 = 1$, we have\n    \\begin{align*}\n        (A - I)v & = 0 & \\implies \n        \\begin{bmatrix}\n            4 & -2 \\\\\n            4 & -2\n        \\end{bmatrix}\n        \\begin{bmatrix}\n            v_1 \\\\ v_2\n        \\end{bmatrix} = 0  \\\\\n        & \\implies 4v_1 - 2v_2 = 0 \\implies v_2 = 2v_1.\n    \\end{align*}\n    Thus the eigenvector corresponding to $\\lambda_1 = 1$ is $v_1 = \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $\\lambda_2 = 3$, we have\n    \\begin{align*}\n        (A - 3I)v = 0 & \\implies \n        \\begin{bmatrix}\n            2 & -2 \\\\\n            4 & -4\n        \\end{bmatrix}\n        \\begin{bmatrix}\n            v_1 \\\\ v_2\n        \\end{bmatrix} = 0  \\\\\n        & \\implies 2v_1 - 2v_2 = 0 \\implies v_2 = v_1.\n    \\end{align*}\n    Thus the eigenvector corresponding to $\\lambda_2 = 3$ is $v_2 = \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So, the general solution will be \n    \\begin{align*}\n        \\begin{bmatrix}\n             x_1(t) \\\\\n             x_2 (t) \\\\\n        \\end{bmatrix} & = c_1 e^{\\lambda_1 t} v_1 + c_2 e^{\\lambda_2 t} v_2 \\\\\n        & = c_1 e^{t} \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix} + c_2 e^{3t} \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix} \\\\\n        & = \\begin{bmatrix} c_1 e^{t} + c_2 e^{3t} \\\\ 2c_1 e^{t} + c_2 e^{3t} \\end{bmatrix}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we will use the initial conditions to find $c_1$ and $c_2$. We have \n    \\begin{align*}\n        x_1(0) = 0 & \\implies c_1 + c_2 = 0 \\\\\n        x_2(0) = -1 & \\implies 2c_1 + c_2 = -1.\n    \\end{align*}\n    Solving the above system of equations, we get $c_1 = -1$ and $c_2 = 1$. Thus the solution will be\n    \\begin{align*}\n        \\begin{bmatrix}\n             x_1(t) \\\\\n             x_2 (t) \\\\\n        \\end{bmatrix} & = - e^{t} \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix} + e^{3t} \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix} \\\\\n        & = \\begin{bmatrix} -e^{t} + e^{3t} \\\\ -2e^{t} + e^{3t} \\end{bmatrix}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Finally, we need to find $\\log_e\\left( x_1(2)-x_2(2) \\right)$. We have\n    \\begin{align*}\n        x_1(2) - x_2(2) & = \\left( -e^{2} + e^{6} \\right) - \\left( -2e^{2} + e^{6} \\right) \\\\\n        & = -e^{2} + e^{6} + 2e^{2} - e^{6} \\\\\n        & = e^{2}.\n    \\end{align*}\n    Thus, \n    \\[\n        \\log _e\\left( x_1(2)-x_2(2) \\right) = \\log_e(e^{2}) = 2.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "system-of-odes"
+      ]
+    },
+
+    {
+      "date": "2023-06-16",
+      "title": "Existence of solution of initial value problem $y^\\prime = 1 + y + y^2 \\cos x,~y(0) = 0$, $0 \\leq x \\leq  \\frac{1}{3}$",
+      "difficulty": "medium",
+      "problem": "Show that the solution of the initial value problem \n    \\[\n        \\left\\{ \n            \\begin{aligned}\n                & y^\\prime = 1 + y + y^2 \\cos x \\\\\n                & y(0) = 0\n            \\end{aligned}\n        \\right.\n    \\]\n    exists on the interval $0 \\leq x \\leq  \\frac{1}{3}$.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given initial value problem can be written as\n    \\[\n        y^\\prime = f(x,y) = 1 + y + y^2 \\cos x.\n    \\]\n    Note that $f(x,y)$ is continuous on the rectangle \n    \\[\n        R = \\left\\{ (x,y) : 0 \\leq x \\leq \\frac{1}{3},~ -1 \\leq y \\leq 1 \\right\\}.\n    \\]\n    Also, we have\n    \\[\n        \\frac{\\partial f}{\\partial y} = 1 + 2y \\cos x.\n    \\]\n    Note that $\\frac{\\partial f}{\\partial y}$ is also continuous on the rectangle $R$. Therefore, by the existence and uniqueness theorem, the solution of the given initial value problem exists on the interval $0 \\leq x \\leq \\frac{1}{3}$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "system-of-odes"
+      ]
+    },
+
+    {
+      "date": "2023-06-23",
+      "title": "Solve the system of differential equations \\(x^\\prime  = x + 2y,~y^\\prime  = 3x + 2y\\)",
+      "difficulty": "medium",
+      "problem": "Solve the following system of differential equation. \n    \\begin{equation*}\n        \\begin{gathered}\n            x^\\prime  = x + 2y, \\\\\n            y^\\prime  = 3x + 2y.\n        \\end{gathered}\n    \\end{equation*}",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write the given system of differential equations in the matrix form.</li>\n<li class=\"my-4\">Find the eigenvalues and eigenvectors of the coefficient matrix.</li>\n<li class=\"my-4\">The general solution of the system of differential equations can be written as \n        \\[\n            \\begin{pmatrix}\n                 x(t) \\\\\n                 y(t) \\\\\n            \\end{pmatrix} = c_1 e^{\\lambda_1 t} v_1 + c_2 e^{\\lambda_2 t} v_2,\n        \\]\n        where $\\lambda_1$ and $\\lambda_2$ are the eigenvalues and $v_1$ and $v_2$ are the corresponding eigenvectors of the coefficient matrix.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given system of differential equations can be written in the matrix form as\n    \\begin{equation}\\label{eq:23June2023-1}\n        \\begin{pmatrix}\n            x^\\prime \\\\\n            y^\\prime\n        \\end{pmatrix} = \n        \\begin{pmatrix}\n            1 & 2 \\\\\n            3 & 2\n        \\end{pmatrix}\n        \\begin{pmatrix}\n            x \\\\\n            y\n        \\end{pmatrix}.\n    \\end{equation}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $A = \\begin{pmatrix}\n        1 & 2 \\\\\n        3 & 2\n    \\end{pmatrix}$. Then the characteristic polynomial of $A$ is\n    \\begin{align*}\n        \\det (A - \\lambda I) & = \n        \\begin{vmatrix}\n            1-\\lambda & 2 \\\\\n            3 & 2-\\lambda\n        \\end{vmatrix} \\\\\n        & = (1-\\lambda)(2-\\lambda) - 6 \\\\\n        & = \\lambda^2 - 3\\lambda - 4.\n    \\end{align*}\n    The eigenvalues of $A$ are the roots of the characteristic polynomial, which are $\\lambda_1 = 4$ and $\\lambda_2 = -1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we will find the eigenvectors corresponding to each eigenvalue. For $\\lambda_1 = 4$, we have\n    \\begin{align*}\n        (A - 4I)v = 0 & \\implies \n        \\begin{pmatrix}\n            -3 & 2 \\\\\n            3 & -2\n        \\end{pmatrix}\n        \\begin{pmatrix}\n            v_1 \\\\\n            v_2\n        \\end{pmatrix} = 0 \\\\\n        & \\implies -3v_1 + 2v_2 = 0 \\\\\n        & \\implies v_2 = \\frac{3}{2}v_1.\n    \\end{align*}\n    Thus, an eigenvector corresponding to $\\lambda_1 = 4$ is $v_1 = \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $\\lambda_2 = -1$, we have\n    \\begin{align*}\n        (A + I)v = 0 & \\implies\n        \\begin{pmatrix}\n            2 & 2 \\\\\n            3 & 3\n        \\end{pmatrix}\n        \\begin{pmatrix}\n            v_1 \\\\\n            v_2\n        \\end{pmatrix} = 0 \\\\\n        & \\implies 2v_1 + 2v_2 = 0 \\\\\n        & \\implies v_2 = -v_1.\n    \\end{align*}\n    Thus, an eigenvector corresponding to $\\lambda_2 = -1$ is $v_2 = \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore, the general solution of the system of differential equations is\n    \\begin{align*}\n        \\begin{pmatrix}\n            x(t) \\\\\n            y(t)\n        \\end{pmatrix} & = c_1 e^{4t} \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix} + c_2 e^{-t} \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} \\\\\n        & = \\begin{pmatrix}\n            2c_1 e^{4t} + c_2 e^{-t} \\\\\n            3c_1 e^{4t} - c_2 e^{-t}\n        \\end{pmatrix},\n    \\end{align*}\n    where $c_1$ and $c_2$ are arbitrary constants.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "system-of-odes"
+      ]
+    },
+
+    {
+      "date": "2023-07-14",
+      "title": "Solve the initial value problem $x^2 y^{\\prime\\prime} - 4xy^{\\prime} + 6y = 0,~y(2) = 0,~y^{\\prime}(2) = 4$",
+      "difficulty": "medium",
+      "problem": "Let $y(x)$ be the solution of the differential equation\n    \\begin{gather*}\n        x^2 \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} - 4x \\frac{\\mathrm{d}y}{\\mathrm{d}x} + 6y = 0, ~ x > 0 \\\\\n        y(2) = 0,~ \\frac{\\mathrm{d}y}{\\mathrm{d}x} (2) = 4.\n    \\end{gather*}\n    Then find the value of $y(4)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">This is a Cauchy-Euler equation. To solve this we will use the substitution $y = x^m$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:14July2023-1}\n        x^2 \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} - 4x \\frac{\\mathrm{d}y}{\\mathrm{d}x} + 6y = 0.\n    \\end{equation}\n    This is a Cauchy-Euler equation. To solve this we will use the substitution $y = x^m$. Then we have\n    \\begin{align*}\n        & \\frac{\\mathrm{d}y}{\\mathrm{d}x} = mx^{m-1} \\implies x \\frac{\\mathrm{d}y}{\\mathrm{d}x} = mx^m, \\\\\n        & \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = m(m-1)x^{m-2} \\implies x^2 \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = m(m-1)x^m.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Substituting these into \\eqref{eq:14July2023-1}, we get\n    \\begin{align*}\n        & m(m-1)x^m - 4mx^m + 6x^m = 0 \\\\\n        \\implies & x^m \\left( m(m-1) - 4m + 6 \\right) = 0 .\n    \\end{align*}\n    For $x > 0$, we have $x^m \\neq 0$. Therefore, we have\n    \\begin{align*}\n        m(m-1) - 4m + 6 = 0 & \\implies m^2 - 5m + 6 = 0 \\\\\n        & \\implies (m-2)(m-3) = 0 \\\\\n        & \\implies m = 2,~3.\n    \\end{align*}\n    Therefore, the general solution of the differential equation is\n    \\[\n        y(t) = c_1 x^2 + c_2 x^3. \n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we will use the initial conditions to find the values of $c_1$ and $c_2$. Given $y(2) = 0$, we have\n    \\begin{align*}\n        y(2) = 0 & \\implies c_1 (2^2) + c_2 (2^3) = 0 \\\\\n        & \\implies 4c_1 + 8c_2 = 0 \\\\\n        & \\implies c_1 + 2c_2 = 0 \\\\\n        & \\implies c_1 = -2c_2.\n    \\end{align*}  \n    Similarly, given $\\frac{\\mathrm{d}y}{\\mathrm{d}x}(2) = 4$, we have\n    \\begin{align*}\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x}(2) = 4 & \\implies 2c_1 (2) + 3c_2 (2^2) = 4 \\\\\n        & \\implies 4c_1 + 12c_2 = 4 \\\\\n        & \\implies c_1 + 3c_2 = 1 \\\\\n        & \\implies c_1 = 1 - 3c_2.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Solving the above systems, we get\n    \\begin{align*}\n        c_2 = 1,\\quad \\text{ and } \\quad c_1 = -2.\n    \\end{align*}\n    Thus, the solution of the given initial value problem is\n    \\[\n        y(t) = -2 x^2 + x^3. \n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Finally, we will find the value of $y(4)$.\n    \\begin{align*}\n        y(4) = -2 (4^2) + (4^3) = -32 + 64 = 32.\n    \\end{align*}</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2023-08-11",
+      "title": "Solve the differential equation $\\mathrm{d} x + e^{ 3x } \\mathrm{d} y = 0.$",
+      "difficulty": "easy",
+      "problem": "Solve the differential equation \n    \\[\n        \\mathrm{d} x + e^{ 3x } \\mathrm{d} y = 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Rewriting the given differential equation, we get\n        \\[\n            \\frac{\\mathrm{d}y}{\\mathrm{d}x} = - e^{-3x}.\n        \\]</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is \n    \\begin{equation}\\label{eq:11Aug2023-1}\n        \\mathrm{d} x + e^{ 3x } \\mathrm{d} y = 0.\n    \\end{equation}\n    Rewriting \\eqref{eq:11Aug2023-1}, we get\n    \\begin{align*}\n        \\mathrm{d} x + e^{ 3x } \\mathrm{d} y = 0 & \\implies \\frac{\\mathrm{d}y}{\\mathrm{d}x} = - e^{-3x} \\\\\n        & \\implies \\mathrm{d}y = - e^{-3x} \\mathrm{d}x \\\\\n        & \\implies y = \\frac{1}{3} e^{-3x} + c,\n    \\end{align*}\n    where $c$ is an arbitrary constant. Therefore, the solution of the given differential equation will be \n    \\[\n        y = \\frac{1}{3} e^{-3x} + c.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2023-08-18",
+      "title": "Solve the differential equation $x^2 y'' - 3x y' + 4y = 0$",
+      "difficulty": "medium",
+      "problem": "Solve the differential equation\n    \\[\n        x^2 y'' - 3x y' + 4y = 0, \\quad x > 0,\n    \\]\n    given the initial conditions:\n    \\[\n        y(1) = 2 \\text{ and } y'(1) = 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">This is a Cauchy-Euler equation. To solve this we will use the substitution $y = x^m$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:18Aug2023-1}\n        x^2 y'' - 3x y' + 4y = 0.\n    \\end{equation}\n    This is a Cauchy-Euler equation. To solve this we will use the substitution $y = x^m$. Then we have\n    \\begin{align*}\n        & \\frac{\\mathrm{d}y}{\\mathrm{d}x} = mx^{m-1} \\implies x \\frac{\\mathrm{d}y}{\\mathrm{d}x} = mx^m, \\\\\n        & \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = m(m-1)x^{m-2} \\implies x^2 \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = m(m-1)x^m.\n    \\end{align*}\n    Substituting these into \\eqref{eq:18Aug2023-1}, we get\n    \\begin{align*}\n        & m(m-1)x^m - 3mx^m + 4x^m = 0 \\\\\n        \\implies & x^m \\left( m(m-1) - 3m + 4 \\right) = 0 .\n    \\end{align*}\n    For $x > 0$, we have $x^m \\neq 0$. Therefore, we have\n    \\begin{align*}\n        m(m-1) - 3m + 4 = 0 & \\implies m^2 - 4m + 4 = 0 \\\\\n        & \\implies (m-2)^2 = 0 \\\\\n        & \\implies m = 2.\n    \\end{align*}\n    Therefore, for repeated roots, the general solution of \\eqref{eq:18Aug2023-1} will be\n    \\[\n        y = (c_1 + c_2 \\ln x) x^2.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we will use the initial conditions to find the values of $c_1$ and $c_2$. We have\n    \\begin{align*}\n        y(1) = 2 & \\implies (c_1 + c_2 \\ln 1) (1^2) = 2 \\\\\n                 & \\implies c_1 = 2.\n    \\end{align*}\n    Next, we will find $y'(x)$:\n    \\begin{align*}\n        y'(x) & = \\frac{\\mathrm{d}}{\\mathrm{d}x} \\left( (c_1 + c_2 \\ln x) x^2 \\right) \\\\\n              & = (c_1 + c_2 \\ln x) (2x) + c_2 x^2 \\cdot \\frac{1}{x} \\\\\n              & = 2x(c_1 + c_2 \\ln x) + c_2 x.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now using the initial condition $y'(1) = 0$, we get\n    \\begin{align*}\n        y'(1) = 0 & \\implies 2(1)(c_1 + c_2 \\ln 1) + c_2 (1) = 0 \\\\\n                  & \\implies 2c_1 + c_2 = 0 \\\n                  & \\implies 2(2) + c_2 = 0 \\\\\n                  & \\implies c_2 = -4.\n    \\end{align*}\n    Therefore, the solution of the given initial value problem is\n    \\[\n        y(x) = (2 - 4 \\ln x) x^2.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2023-08-25",
+      "title": "Solve the differential equation $y^{\\prime\\prime} + 5y^\\prime + 6y = 0$",
+      "difficulty": "easy",
+      "problem": "Solve $y^{\\prime\\prime} + 5y^\\prime + 6y = 0$.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is \n    \\begin{equation}\\label{eq:25Aug2023-1}\n        y^{\\prime\\prime} + 5y^\\prime + 6y = 0.\n    \\end{equation}\n    The characteristic equation is \n    \\[\n        r^2 + 5r + 6 = 0.\n    \\]\n    Factoring, we get\n    \\[\n        (r + 2)(r + 3) = 0.\n    \\]\n    Therefore, the roots are $r_1 = -2$ and $r_2 = -3$. The general solution is\n    \\[\n        y(x) = c_1 e^{-2x} + c_2 e^{-3x}.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2023-09-01",
+      "title": "Solve the differential equation using Laplace transformation $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} + y = g(x)$",
+      "difficulty": "medium",
+      "problem": "Use the Laplace transformation to solve the following differential equation:\n    \\begin{align*}\n        \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} + y = g(x), ~ y(0) = 0 \\text{ and } y^\\prime (0) = 1,\n    \\end{align*}\n    where \n    \\[\n        g(x) = \n        \\begin{cases}\n           \\frac{x}{2} , &\\text{ if } 0 \\leq x \\leq 6 ;\\\\\n            3, &\\text{ if } tx\\geq 6.\n        \\end{cases}\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The Laplace transformation of $g(x) $ will be (by using the Heaviside step function):\n        \\[\n            G(s) =  \\frac{1}{2s^2} - \\frac{1}{2s^2} e^{-6s}.\n        \\]</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:01Sep2023-1}\n        \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} + y = g(x), ~ y(0) = 0 \\text{ and } y^\\prime (0) = 1.\n    \\end{equation}\n    Taking the Laplace transform of both sides of \\eqref{eq:01Sep2023-1}, we get\n    \\begin{align*}\n        \\mathcal{L} \\left\\{ \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} \\right\\} + \\mathcal{L} \\left\\{ y \\right\\} = \\mathcal{L} \\{ g(x) \\}.\n    \\end{align*}\n    Using the properties of Laplace transform, we have\n    \\begin{align*}\n        s^2 Y(s) - sy(0) - y^\\prime (0) + Y(s) = G(s),\n    \\end{align*}\n    where $Y(s) = \\mathcal{L} \\{ y(x) \\}$ and $G(s) = \\mathcal{L} \\{ g(x) \\}$. Substituting the initial conditions, we get\n    \\begin{align*}\n        s^2 Y(s) - 0 - 1 + Y(s) = G(s) \\implies (s^2 + 1)Y(s) - 1 = G(s).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now note that $g(x)$ is a piecewise function. We can express it using the Heaviside step function:\n    \\[\n        g(x) = \\frac{x}{2} + \\left( 3 - \\frac{x}{2} \\right) u(x-6).\n    \\]\n    Therefore, we have\n    \\begin{align*}\n        G(s) & = \\mathcal{L} \\left\\{ \\frac{x}{2} \\right\\} + \\mathcal{L} \\left\\{ \\left( 3 - \\frac{x}{2} \\right) u(x-6) \\right\\} \\\\\n        & = \\frac{1}{2} \\cdot \\frac{1}{s^2} + e^{-6s} \\mathcal{L} \\left\\{ 3 - \\frac{x+6}{2} \\right\\} \\\\\n        & = \\frac{1}{2s^2} + e^{-6s} \\left( \\frac{3}{s} - \\frac{1}{2} \\cdot \\frac{1}{s^2} - \\frac{6}{2} \\cdot \\frac{1}{s} \\right) \\\\\n        & = \\frac{1}{2s^2} + e^{-6s} \\left( \\frac{3 - 3}{s} - \\frac{1}{2s^2} \\right) \\\\\n        & = \\frac{1}{2s^2} - \\frac{1}{2s^2} e^{-6s}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Substituting $G(s)$ back into the equation for $Y(s)$, we have\n    \\begin{align*}\n        & (s^2 + 1)Y(s) - 1 = \\frac{1}{2s^2} - \\frac{1}{2s^2} e^{-6s} \\\\\n        \\implies & Y(s) = \\frac{1}{s^2 + 1} + \\frac{1}{2s^2(s^2 + 1)} - \\frac{1}{2s^2(s^2 + 1)} e^{-6s} \\\\\n        \\implies & Y(s) = \\frac{1}{s^2 + 1} + \\frac{1}{2} \\left( \\frac{1}{s^2} - \\frac{1}{s^2 + 1} \\right) - \\frac{1}{2} e^{-6s} \\left( \\frac{1}{s^2} - \\frac{1}{s^2 + 1} \\right) \\\\\n        & = \\frac{1}{2} \\left( \\frac{1}{s^2 + 1} \\right) + \\frac{1}{2s^2} - \\frac{1}{2s^2}e^{-6s} + \\frac{1}{2} \\frac{1}{s^2 + 1} e^{-6s}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we will take the inverse Laplace transform to find $y(x)$:\n    \\begin{align*}\n        y(x) & = \\mathcal{L}^{-1} \\left\\{ Y(s) \\right\\} \\\\\n             & = \\mathcal{L} ^{-1} \\left\\{ \\frac{1}{2} \\left( \\frac{1}{s^2 + 1} \\right) + \\frac{1}{2s^2} - \\frac{1}{2s^2}e^{-6s} + \\frac{1}{2} \\frac{1}{s^2 + 1} e^{-6s} \\right\\} \\\\\n             & = \\frac{1}{2} \\sin x + \\frac{1}{2} x - \\frac{1}{2} (x-6) u(x-6) + \\frac{1}{2} \\sin (x-6) u(x-6) \\\\\n             & = \\frac{1}{2} \\sin x + \\frac{1}{2} x - \\frac{1}{2} (x-6) u(x-6) + \\frac{1}{2} \\sin (x-6) u(x-6).\n    \\end{align*}</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "laplace-transformation"
+      ]
+    },
+
+    {
+      "date": "2023-09-15",
+      "title": "Find the singular integral of the ODE $(xy' - y)^2 = x^2 (x^2 - y^2)$",
+      "difficulty": "medium",
+      "problem": "The singular integral of the ordinary differential equation\n    \\[\n        (xy' - y)^2 = x^2 (x^2 - y^2)\n    \\]\n    is",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Expand the given differential equation and rewrite it as a quadratic equation in $y'$.</li>\n<li class=\"my-4\">For the singular solution, the discriminant of the quadratic equation must be zero.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:15Sep2023-1}\n        (xy' - y)^2 = x^2 (x^2 - y^2).\n    \\end{equation}\n    We can rewrite \\autoref{eq:15Sep2023-1} as\n    \\begin{align*}\n        x^2 y^{\\prime 2} - 2xyy' + y^2 = x^4 - x^2 y^2 \\\\\n        \\implies x^2 y^{\\prime 2} - 2xyy' + y^2 + x^2 y^2 - x^4 = 0.\n    \\end{align*}\n    For the singular solution, the discriminant of this quadratic equation must be zero. So,\n    \\begin{align*}\n        \\Delta & = (-2xy)^2 - 4x^2 (y^2 + x^2 y^2 - x^4) = 0 \\\\\n        \\implies & 4x^2 y^2 - 4x^2 (y^2 + x^2 y^2 - x^4) = 0 \\\\\n        \\implies & 4x^4 (1 - y^2) = 0 \\\\\n        \\implies & y = \\pm x.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore, the singular integral of the given differential equation is $y = x$ or $y = -x$. Among the given options, $y = x$ is the correct answer.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "csir-net-june-2015",
+        "mcq"
+      ],
+      "isMcq": true,
+      "options": [
+        {
+          "label": "a",
+          "text": "$y = x \\sin x$"
+        },
+        {
+          "label": "b",
+          "text": "$y = x \\sin \\left( x + \\frac{\\pi}{4} \\right) $"
+        },
+        {
+          "label": "c",
+          "text": "$y = x$"
+        },
+        {
+          "label": "d",
+          "text": "$y = x + \\frac{\\pi}{4} $"
+        }
+      ],
+      "correctAnswer": "c"
+    },
+
+    {
+      "date": "2023-09-22",
+      "title": "Find the value of $y(3/2) if the ODE is given by $y' + 2y = f(x)$",
+      "difficulty": "medium",
+      "problem": "Let $y(x)$ be continuous solution of initial value problem \n    \\[\n        y' + 2y = f(x), \\quad y(0) = 0,\n    \\]\n    where\n    \\[\n        f(x) = \n        \\begin{cases}\n            1, &\\text{ if } 0 \\leq x \\leq 1;\\\\\n            0, &\\text{ if } x > 1.\n        \\end{cases}\n    \\]\n    Then $y\\left( \\frac{3}{2} \\right) $ is equal to",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Break it into two cases, $0 \\leq x \\leq 1$ and $x > 1$.</li>\n<li class=\"my-4\">Use the continuity of the solution to obtain the constant in the second case.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given initial value problem is\n    \\begin{equation}\\label{eq:22Sep2023-1}\n        y' + 2y = f(x), \\quad y(0) = 0,\n    \\end{equation}\n    where\n    \\[\n        f(x) = \n        \\begin{cases}\n            1, &\\text{ if } 0 \\leq x \\leq 1;\\\\\n            0, &\\text{ if } x > 1.\n        \\end{cases}\n    \\]\n    We split the problem into two cases: $0 \\leq x \\leq 1$ and $x > 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Case 1:</strong> $0 \\leq x \\leq 1$. In this case, $f(x) = 1$. The differential equation becomes\n    \\begin{align*}\n        y' + 2y = 1 & \\implies \\frac{\\mathrm{d}y}{1 - 2y} = \\mathrm{d} x \\\\\n        & \\implies \\int \\frac{\\mathrm{d}y}{1 - 2y} = \\int \\mathrm{d} x \\\\\n        & \\implies -\\frac{1}{2} \\ln (1 - 2y) = x + C_1 \\\\\n        & \\implies (1 - 2y) = e^{-2x - 2C_1} \\\\\n        & \\implies 1 - 2y = A e^{-2x}.\n    \\end{align*}\n    Now using the initial condition $y(0) = 0$, we get\n    \\begin{align*}\n        1 - 2(0) = A e^{0} \\implies A = 1.\n    \\end{align*}\n    Therefore, the solution for $0 \\leq x \\leq 1$ is\n    \\[\n        y(x) = \\frac{1 - e^{-2x}}{2}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Case 2:</strong> $x > 1$. In this case, $f(x) = 0$. The differential equation becomes\n    \\begin{align*}\n        y' + 2y = 0 & \\implies \\frac{\\mathrm{d}y}{y} = -2 \\mathrm{d} x \\\\\n        & \\implies \\int \\frac{\\mathrm{d}y}{y} = -2 \\int \\mathrm{d} x \\\\\n        & \\implies \\ln |y| = -2x + C_2 \\\\\n        & \\implies y = B e^{-2x}.\n    \\end{align*}\n    Now we need to find the constant $B$ using the continuity of $y(x)$ at $x = 1$. From Case 1, we have\n    \\[\n        y(1) = \\frac{1 - e^{-2}}{2}.\n    \\]\n    Therefore, we have\n    \\begin{align*}\n        \\frac{1 - e^{-2}}{2} = B e^{-2} \\implies B = \\frac{1 - e^{-2}}{2} e^{2} = \\frac{e^2 - 1}{2}.\n    \\end{align*}\n    Therefore, the solution for $x > 1$ is\n    \\[\n        y(x) = \\frac{e^2 - 1}{2} e^{-2x}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we can find $y\\left( \\frac{3}{2} \\right)$:\n    \\begin{align*}\n        y\\left( \\frac{3}{2} \\right) & = \\frac{e^2 - 1}{2} e^{-3} = \\frac{e^2 - 1}{2e^3} \\\\ \n        & = \\frac{1}{e^2} \\left( \\frac{e - e^{-1} }{2} \\right) = \\frac{\\sinh (1)}{e^2}.\n    \\end{align*}\n    Thus,\n    \\[\n        y\\left( \\frac{3}{2} \\right) = \\frac{\\sinh (1)}{e^2},\n    \\]\n    which is option c.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "csir-net-june-2015",
+        "mcq"
+      ],
+      "isMcq": true,
+      "options": [
+        {
+          "label": "a",
+          "text": "$\\frac{\\sinh (1)}{e^3}$"
+        },
+        {
+          "label": "b",
+          "text": "$\\frac{\\cosh (1)}{e^3}$"
+        },
+        {
+          "label": "c",
+          "text": "$\\frac{\\sinh (1)}{e^2}$"
+        },
+        {
+          "label": "d",
+          "text": "$\\frac{\\cosh (1)}{e^2}$"
+        }
+      ],
+      "correctAnswer": "c"
+    },
+
+    {
+      "date": "2023-09-29",
+      "title": "Problem of the Day",
+      "difficulty": "medium",
+      "problem": "Consider the ODE on $\\mathbb{R} $, \n    \\[\n        y'(x) = f(y(x)).\n    \\] \n    If $f$ is an even function and $y$ is an odd function, then",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For an odd function $y$, we have $y(-x) = -y(x)$ and for an even function $f$, we have $f(-y) = f(y)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We have \n    \\begin{equation}\\label{eq:29Sep2023-1}\n        y'(x) = f(y(x)).\n    \\end{equation}\n    Since $f$ is an even function, we have $f(-y) = f(y)$. Also, since $y$ is an odd function, we have $y(-x) = -y(x)$. Now consider the function $z(x) = -y(-x)$. Then we have\n    \\begin{align*}\n        z'(x) & = -y'(-x) \\cdot (-1) \\\\\n              & = y'(-x)  = f(y(-x)) \\\\\n              & = f(-y(x)) = f(y(x)) \\\\\n              & = f(z(x)).\n    \\end{align*}\n    Therefore, $z(x) = -y(-x)$ is also a solution of the ODE \\eqref{eq:29Sep2023-1}. Hence, option (a) is correct.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that $y(-x)$ is not a solution because\n    \\[\n        \\frac{\\mathrm{d}}{\\mathrm{d}x} y(-x) = -y'(-x) = -f(y(-x)) \\neq f(y(-x)).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Also, $-y(x)$ is not a solution because\n    \\[\n        \\frac{\\mathrm{d}}{\\mathrm{d}x} (-y(x)) = -y'(x) = -f(y(x)) \\neq f(-y(x)).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Finally, $y(x) y(-x)$ is not a solution because\n    \\begin{align*}\n        \\frac{\\mathrm{d}}{\\mathrm{d}x} (y(x) y(-x)) & = y'(x) y(-x) + y(x) (-y'(-x)) \\\\\n        & = f(y(x)) y(-x) - y(x) f(y(-x)) \\\\\n        & \\neq f(y(x) y(-x)).\n    \\end{align*}</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "mcq",
+        "csir-net-dec-2015"
+      ],
+      "isMcq": true,
+      "options": [
+        {
+          "label": "a",
+          "text": "$-y(-x)$ is also a solution"
+        },
+        {
+          "label": "b",
+          "text": "$y(-x)$ is also a solution"
+        },
+        {
+          "label": "c",
+          "text": "$-y(x)$ is also a solution"
+        },
+        {
+          "label": "d",
+          "text": "$y(x) y(-x)$ is also a solution."
+        }
+      ],
+      "correctAnswer": "a"
+    },
+
+    {
       "date": "2026-01-02",
       "title": "Eliminate the constants",
       "difficulty": "easy",

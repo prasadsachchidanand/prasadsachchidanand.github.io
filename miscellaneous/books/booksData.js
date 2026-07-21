@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-19T07:02:43.376Z
+// Generated on: 2026-07-21T07:13:11.751Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -565,6 +565,42 @@ const booksData = {
       }
     }
   },
+  "complex-variables-brown-and-churchill": {
+    "title": "Complex Variables and Applications",
+    "author": "Brown and Churchill",
+    "shortName": "Brown and Churchill",
+    "color": "indigo",
+    "cover": "covers/complex-variables-brown-and-churchill.jpg",
+    "chapters": {
+      "1": {
+        "problems": [],
+        "sections": {
+          "2": {
+            "problems": [
+              {
+                "number": "1.2.1",
+                "source": "daily",
+                "date": "2026-07-14",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.1: Verify the following equalities",
+                "difficulty": "easy",
+                "problem": "Verify that \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$(\\sqrt{2} - \\iota ) - \\iota (1 - \\sqrt{2} \\iota ) = -2\\iota $;</li>\n<li class=\"my-4\">$(2,-3)(-2,1) = (-1,8)$;</li>\n<li class=\"my-4\">$(3,1)(3,-1)\\left( \\frac{1}{5}, \\frac{1}{10} \\right) = (2,1)$.</li></ol>"
+              },
+              {
+                "number": "1.2.2",
+                "source": "daily",
+                "date": "2026-07-21",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.1: Properties of Complex Numbers",
+                "difficulty": "medium",
+                "problem": "Show that\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$\\text{ Re } (\\iota z) = - \\text{ Im } z$;</li>\n<li class=\"my-4\">$\\text{ Im }  (\\iota z) = \\text{ Re } z$.</li></ol>"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
   "linear-algebra-hoffman-kunze": {
     "title": "Linear Algebra",
     "author": "Hoffman & Kunze",
@@ -1039,6 +1075,15 @@ const booksData = {
                 "title": "Bartle and Sherbert 2.3.7: If a set contains one of its upper bounds, show that this upper bound is the supremum of the set",
                 "difficulty": "easy",
                 "problem": "If a set $S \\subseteq \\mathbb{R} $ contains one of its upper bounds, show that this upper bound is the supremum of $S$."
+              },
+              {
+                "number": "2.3.8",
+                "source": "daily",
+                "date": "2026-07-20",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.3.8: $u - 1/n$ is not an upper bound if $u = \\sup S$",
+                "difficulty": "easy",
+                "problem": "Let $S \\subseteq \\mathbb{R} $ be nonempty.  Show that if $u = \\sup S$, then for every number $n \\in \\mathbb{N} $ the number $u - \\frac{1}{n}$ is not an upper bound of $S$, but the number $u + \\frac{1}{n}$ is an upper bound of $S$."
               }
             ]
           }
