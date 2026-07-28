@@ -2,6 +2,33 @@
   "topic": "Abstract Algebra",
   "problems": [
     {
+      "date": "2023-10-11",
+      "title": "Prove that $(x + y)^{p^n} = x^{p^n} + y^{p^n}$",
+      "difficulty": "easy",
+      "problem": "Let $R$ be a commutative ring and $p$ be a prime number. Also assume that $\\text{char}(R)=p $. Let $x,y\\in R$. Prove that $(x + y)^{p^n} = x^{p^n} + y^{p^n}$ for $n \\in \\mathbb{N} $.  ",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will use the binomial expansion theorem. Recall that \n    \\[\n        (x + y)^n = \\sum_{k=0}^{n}  \\binom{n}{k} x^k y^{n-k}.\n    \\]\n    We have\n    \\begin{align*}\n        (x + y)^{p^n} & = \\sum_{k=0}^{p^n} \\binom{p^n}{k}x^k y^{p^n - k} \\\\\n        & = = x^{p^n} + \\sum_{k=1}^{p^n - 1} \\binom{p^n}{k}x^k y^{p^n - k} + y^{p^n}.  \n    \\end{align*}\n    Note that for each $1 \\leq k \\leq p^n - 1$, the term $\\binom{p^n}{k}$ is divisible by $p$ Since the ring has characteristic $p$, all the term vanishes. Therefore, \n    \\[\n        (x + y)^{p^n} = x^{p^n} + y^{p^n}.\n    \\]</div>",
+      "tags": [
+        "abstract-algebra",
+        "ring-theory"
+      ]
+    },
+
+    {
+      "date": "2023-10-18",
+      "title": "Prime and maximal ideal of $\\mathbb{Z}[x]",
+      "difficulty": "medium",
+      "problem": "Prove that\n    \\[\n        I = \\left\\{ f(x) \\in \\mathbb{Z} [x] : f(-3) = 0 \\right\\}\n    \\] \n        is a prime ideal of $\\mathbb{Z} [x]$. Check if it is a maximal ideal of $\\mathbb{Z} [x]$.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will the following characterization of the prime ideal. In a commutative ring $R$, an ideal $\\mathcal{P} $ is a prime ideal if and only if $R/\\mathcal{P} $ is an integral domain. It is a field if and only if $\\mathcal{P} $ is a maximal ideal. \n\n    \\vf \n    \\hf Consider the following map: \n    \\[\n        \\varphi : \\mathbb{Z} [x] \\to  \\mathbb{Z} ,~ f(x) \\to  f(-3).\n    \\]\n    For any $f,g\\in \\mathbb{Z} [x]$, we have \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$\\varphi (f+g) = (f+g)(-3) = f(-3) = g(-3) = \\varphi (f) + \\varphi (g)$.</li>\n<li class=\"my-4\">$\\varphi (fg) = (fg)(-3) = f(-3) g(-3) = \\varphi (f) \\varphi (g)$.</li></ol> \n    Therefore, $\\varphi $ is a ring homomorphism. Now for any integer $k$, consider the constant polynomial $f(x) = k$. Then $\\varphi (f) = f(-3) = k$. Hence, $\\varphi $ is surjective. Note that\n    \\[\n        \\ker \\varphi = \\left\\{ f \\in \\mathbb{Z} [x] : \\varphi (f) = f(-3) = 0 \\right\\} = I.\n    \\]\n    Therefore, by the <em>first isomorphism theorem</em> \n    \\[\n        \\mathbb{Z}[x]/I \\cong \\mathbb{Z} ,\n    \\]\n    which is an integral domain. Thus, $I$ is a prime ideal. Since, the quotient is not a field, $I$ is not a maximal ideal.</div>",
+      "tags": [
+        "abstract-algebra",
+        "ring-theory",
+        "ideals"
+      ]
+    },
+
+    {
       "date": "2026-01-07",
       "title": "Irreducibility of the polynomial x^3 + 2x + 1 in Z_3[x]",
       "difficulty": "easy",

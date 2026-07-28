@@ -2,6 +2,32 @@
   "topic": "Complex Analysis",
   "problems": [
     {
+      "date": "2023-10-10",
+      "title": "Show that $\\left\\vert e^a - e^b \\right\\vert \\leq \\vert a - b \\vert$ for complex numbers $a$ and $b$ with non-positive real parts",
+      "difficulty": "medium",
+      "problem": "Let $a$ and $b$ be complex numbers whose real parts are negative or $0$. Prove that \n    \\[\n        \\left\\vert e^a - e^b \\right\\vert \\leq \\vert a - b \\vert. \n    \\]",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Consider the function $f(z) = e^z$. Let $\\gamma $ be the line segment joining $a$ and $b$. We have the following \n    \\begin{align*}\n        \\left\\vert \\int\\limits_\\gamma e^z \\mathrm{d} z \\right\\vert & \\leq \\left\\vert e^z \\right\\vert l(\\gamma) \\\\\n        & = \\left\\vert e^{\\text{Re}(z) } \\right\\vert \\left\\vert b-a \\right\\vert \\\\\n        & \\leq 1 \\cdot \\vert b - a \\vert = \\vert b-a \\vert. \n    \\end{align*}  \n    The last inequality is due to the hypothesis that the real part of $a$ and $b$ is negative or zero and hence, the real part of any $z$ on $\\gamma $ has the same property. On the other hand, we have\n    \\[\n        \\int\\limits_{\\gamma } e^{z} \\mathrm{d} z = e^b - e^a.\n    \\]\n    Therefore,\n    \\[\n        \\left\\vert e^b - e^a \\right\\vert \\leq \\vert b - a \\vert.\n    \\]</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration"
+      ]
+    },
+
+    {
+      "date": "2023-10-17",
+      "title": "Show that $\\left|1+z\\right| +\\left|1+w\\right| + \\left|1+zw\\right|\\geq 2$ for any complex numbers $z,w$",
+      "difficulty": "easy",
+      "problem": "For any complex numbers $z,w$ show that \n    \\[\n        \\left|1+z\\right| +\\left|1+w\\right| + \\left|1+zw\\right|\\geq 2.\n    \\]",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $\\vert z \\vert \\geq 1$, then we have\n    \\begin{align*}\n        \\vert 1 + z \\vert + \\vert 1 + w \\vert + \\vert 1 + zw \\vert & \\geq \\vert 1 + z - (1 + zw) \\vert + \\vert 1 + w \\vert \\\\\n        & = \\vert z \\vert \\vert 1 - w \\vert + \\vert 1 + w \\vert \\\\\n        & \\geq \\vert 1 - w \\vert + \\vert 1 + w \\vert \\\\\n        & \\geq \\vert 1 - w + 1 + w \\vert = 2.\n    \\end{align*}\n   <hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"> Similarly, if $\\vert z \\vert \\leq 1$, then we have\n    \\begin{align*}\n        \\vert 1 + z \\vert + \\vert 1 + w \\vert + \\vert 1 + zw \\vert & \\geq \\vert 1 + z \\vert + \\vert z \\vert \\vert 1 + w \\vert + \\vert 1 + zw \\vert \\\\\n        & = \\vert 1 + z \\vert + \\vert z + zw \\vert + \\vert 1 + zw \\vert \\\\\n        & \\geq \\vert 1 + z - z - zw \\vert + \\vert 1 + zw \\vert \\\\\n        & = \\vert 1 - zw \\vert + \\vert 1 + zw \\vert \\\\\n        & \\geq \\vert 1 - zw + 1 + zw \\vert = 2.\n    \\end{align*} \n    Thus, we proved that for any $z,w \\in \\mathbb{C} $,\n    \\[\n        \\vert 1 + z \\vert + \\vert 1 + w \\vert + \\vert 1 + zw \\vert \\geq 2.\n    \\]</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers"
+      ]
+    },
+
+    {
       "date": "2026-01-06",
       "title": "NBHM 2005 - \\int_{\\Gamma } \\frac{z \\mathrm{d} z}{(z - 1)^4}",
       "difficulty": "easy",

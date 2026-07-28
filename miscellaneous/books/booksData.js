@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-21T07:13:11.751Z
+// Generated on: 2026-07-21T16:26:57.515Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -592,7 +592,7 @@ const booksData = {
                 "date": "2026-07-21",
                 "topic": "complex-analysis",
                 "title": "Brown and Churchill 1.2.1: Properties of Complex Numbers",
-                "difficulty": "medium",
+                "difficulty": "easy",
                 "problem": "Show that\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$\\text{ Re } (\\iota z) = - \\text{ Im } z$;</li>\n<li class=\"my-4\">$\\text{ Im }  (\\iota z) = \\text{ Re } z$.</li></ol>"
               }
             ]

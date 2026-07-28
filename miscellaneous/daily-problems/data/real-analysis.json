@@ -2,6 +2,32 @@
   "topic": "Real Analysis",
   "problems": [
     {
+      "date": "2023-10-09",
+      "title": "Convergence of the sequence (2n + 1)/(n^2 - 3) to 0 by epsilon definition",
+      "difficulty": "medium",
+      "problem": "By the $\\epsilon $ definition of convergence, prove that the sequence $x_n = \\frac{2n + 1}{n^2 - 3}$ is convergent to $0$.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\varepsilon > 0$ be given. We need to find $n_0 \\in \\mathbb{N} $ such that for any $n \\geq n_0$ \n    \\[\n        \\left\\vert \\frac{2n + 1}{n^2 - 3} \\right\\vert < \\varepsilon .\n    \\]\n    Note that for $n > 3$,\n    \\begin{align*}\n        \\left\\vert \\frac{2n + 1}{n^2 - 3} \\right\\vert = \\frac{2n + 1}{n^2 - 3} \\leq \\frac{2n + n}{n^2 - n} = \\frac{3}{n - 1}.\n    \\end{align*} \n    By the Archimedean property, we choose $n_0 > 3$ such that $\\frac{3}{n_0 - 1} < \\varepsilon $. So for any $n \\geq n_0$,\n    \\begin{align*}\n        \\left\\vert \\frac{2n + 1}{n^2 - 3} \\right\\vert & \\leq \\frac{3}{n-1} \\leq \\frac{3}{n_0 - 1} < \\varepsilon .\n    \\end{align*}</div>",
+      "tags": [
+        "real-analysis",
+        "sequences"
+      ]
+    },
+
+    {
+      "date": "2023-10-16",
+      "title": "A continuous and periodic function attains its supremum and infimum",
+      "difficulty": "medium",
+      "problem": "Prove that if $f: \\mathbb{R} \\to  \\mathbb{R} $ is continuous and periodic, then it attains its supremum and infimum.",
+      "hint": "",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given that $f$ is periodic, let $T$ be the period of $f$. Then $f$ is completely determined by $[0,T]$, that is, the range of $f$ over $\\mathbb{R} $ is same as the range of $f$ over $[0,T]$. Since, $f$ is continuous, the restriction on $[0,T]$ will remain the continuity. So, we have $f:[0,T \\to  \\mathbb{R} ]$ a continuous function and $[0,T]$ is a compact set. So, $f$ will have its maxima and minima. Thus,\n    \\begin{align*}\n        & f(m) = \\inf _{x\\in [0,T]} f(x) = \\inf _{x\\in \\mathbb{R} } f(x) ~~ \\text{ and } \\\\\n        & f(M) = \\sup _{x\\in [0,T]} f(x) = \\sup _{x\\in \\mathbb{R} } f(x).\n    \\end{align*}</div>",
+      "tags": [
+        "real-analysis",
+        "continuity"
+      ]
+    },
+
+    {
       "date": "2026-01-05",
       "title": "A  function that is discontinuous at every real number",
       "difficulty": "medium",

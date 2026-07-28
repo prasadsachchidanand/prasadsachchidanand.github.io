@@ -181,7 +181,7 @@
 
     {
       "date": "2023-09-29",
-      "title": "Problem of the Day",
+      "title": "CSIR NET -Dec - 2015 - If $f$ is an even function and $y$ is an odd function, then $-y(-x)$ is also a solution of the ODE $y'(x) = f(y(x))$",
       "difficulty": "medium",
       "problem": "Consider the ODE on $\\mathbb{R} $, \n    \\[\n        y'(x) = f(y(x)).\n    \\] \n    If $f$ is an even function and $y$ is an odd function, then",
       "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For an odd function $y$, we have $y(-x) = -y(x)$ and for an even function $f$, we have $f(-y) = f(y)$.</li></ul>",
@@ -215,12 +215,217 @@
     },
 
     {
+      "date": "2023-10-06",
+      "title": "Gate 2024 Solution -  Solving the heat equation with Dirichlet boundary conditions and finding the integral of the square of the solution",
+      "difficulty": "medium",
+      "problem": "Let $u = u(x,t)$ be the solution of\n    \\begin{gather*}\n        \\frac{\\partial u}{\\partial t} - 4 \\frac{\\partial^2 u}{\\partial x^2} =0 , \\quad 0 < x < 1, \\ t > 0,\\\\\n        u(0,t) = u(1,t) = 0, \\quad t > 0,\\\\\n        u(x,0) = \\sin(\\pi x), \\quad 0 \\leq  x < 1\n    \\end{gather*}\n    Define\n    \\[\n        g(t) = \\int_0^1 \\left( u(x,t) \\right) ^2 \\mathrm{d} x,\n    \\]\n    for $t > 0$. Which of the following is correct?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The given PDE is a heat equation with Dirichlet boundary conditions. The solution can be expressed as a Fourier sine series.</li>\n<li class=\"my-4\">Given the initial condition $u(x,0) = \\sin(\\pi x)$, we can see that the solution will be of the form $u(x,t) = e^{-4\\pi^2 t} \\sin(\\pi x)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given PDE is\n    \\begin{equation}\\label{eq:06Oct2023-1}\n        \\begin{gathered}\n            \\frac{\\partial u}{\\partial t} - 4 \\frac{\\partial^2 u}{\\partial x^2} =0 , \\quad 0 < x < 1, \\ t > 0,\\\\\n            u(0,t) = u(1,t) = 0, \\quad t > 0,\\\\\n            u(x,0) = \\sin(\\pi x), \\quad 0 \\leq  x < 1.\n        \\end{gathered}\n    \\end{equation}\n    This is a heat equation with Dirichlet boundary conditions. The solution can be expressed as a Fourier sine series. Given the initial condition $u(x,0) = \\sin(\\pi x)$, we can see that the solution will be of the form:\n    \\[\n        u(x,t) = e^{-4\\pi^2 t} \\sin(\\pi x).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now, we define\n    \\begin{align*}\n        g(t) & = \\int_0^1 \\left( u(x,t) \\right) ^2 \\mathrm{d} x \\\\\n        & = \\int_0^1 \\left( e^{-4\\pi^2 t} \\sin(\\pi x) \\right)^2 \\mathrm{d} x \\\\\n        & = e^{-8\\pi^2 t} \\int_0^1 \\sin^2(\\pi x) \\mathrm{d} x.\n    \\end{align*}\n    We can compute the integral:\n    \\begin{align*}\n        \\int_0^1 \\sin^2(\\pi x) \\mathrm{d} x & = \\frac{1}{2} \\int_0^1 (1 - \\cos(2\\pi x)) \\mathrm{d} x \\\\\n        & = \\frac{1}{2} \\left[ x - \\frac{\\sin(2\\pi x)}{2\\pi} \\right]_0^1 \\\\\n        & = \\frac{1}{2} (1 - 0) = \\frac{1}{2}.\n    \\end{align*}\n    Therefore, we have\n    \\[\n        g(t) = \\frac{1}{2} e^{-8\\pi^2 t}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $e^{-8\\pi^2 t}$ is a decreasing function of $t$ and approaches $0$ as $t \\to \\infty$, we conclude that $g(t)$ is decreasing on $(0, \\infty)$ and $\\displaystyle \\lim_{t \\to \\infty} g(t) = 0$. Hence, option (a) is correct.</div>",
+      "tags": [
+        "differential-equation",
+        "pde",
+        "mcq",
+        "gate-2024"
+      ],
+      "isMcq": true,
+      "options": [
+        {
+          "label": "a",
+          "text": "$g$ is decreasing on $(0, \\infty )$ and $\\displaystyle \\lim_{t \\to \\infty} g(t) = 0$"
+        },
+        {
+          "label": "b",
+          "text": "$g$ is decreasing on $(0, \\infty )$ and $\\displaystyle \\lim_{t \\to \\infty} g(t) = \\frac{1}{4}$"
+        },
+        {
+          "label": "c",
+          "text": "$g$ is increasing on $(0, \\infty )$ and $\\displaystyle \\lim_{t \\to \\infty} g(t)$ does not exist"
+        },
+        {
+          "label": "d",
+          "text": "$g$ is increasing on $(0, \\infty )$ and $\\displaystyle \\lim_{t \\to \\infty} g(t) = 3$"
+        }
+      ],
+      "correctAnswer": "a"
+    },
+
+    {
+      "date": "2023-10-13",
+      "title": "Gate 2024 Solution -  Find the general solution of the given ordinary differential equation",
+      "difficulty": "medium",
+      "problem": "If $y_1$ and $y_2$ are two different solutions of the ordinary differential equation\n    \\[\n        y' + \\sin \\left( e^x \\right) y = \\cos \\left( e^{x+1}  \\right), \\quad 0 \\leq x\\leq 1,\n    \\]\n    then which one of the following is its general solution on $[0,1]$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The solution of a non-homogeneous linear ordinary differential equation can be expressed as the sum of a particular solution and the general solution of the corresponding homogeneous equation.</li>\n<li class=\"my-4\">Note that $y_1 - y_2$ will be a solution of the corresponding homogeneous equation.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:13Oct2023-1}\n        y' + \\sin \\left( e^x \\right) y = \\cos \\left( e^{x+1}  \\right), \\quad 0 \\leq x\\leq 1.\n    \\end{equation}\n    This is a first-order linear ordinary differential equation. The general solution of a first-order linear ODE can be expressed in terms of a particular solution and the homogeneous solution.\n    Let $y_1$ and $y_2$ be two different solutions of \\autoref{eq:13Oct2023-1}. Then $y_1 - y_2$ will be a solution of the corresponding homogeneous equation\n    \\[\n         y' + \\sin \\left( e^x \\right) y = 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $y_1 - y_2$ is a solution of the corresponding homogeneous equation, then $c (y_1 - y_2)$ is also a solution of the homogeneous equation for any constant $c$. Therefore, the general solution of the given differential equation can be expressed as\n    \\[\n        y = y_1 + c(y_1 - y_2), \\quad c \\in \\mathbb{R}.\n    \\]\n    Hence, the correct option is (b).</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "mcq",
+        "gate-2024"
+      ],
+      "isMcq": true,
+      "options": [
+        {
+          "label": "a",
+          "text": "$c_1 y_1 + c_2 y_2, \\quad c_1, c_2 \\in \\mathbb{R}  $"
+        },
+        {
+          "label": "b",
+          "text": "$y_1 + c(y_1 - y_2), \\quad c\\in \\mathbb{R} $"
+        },
+        {
+          "label": "c",
+          "text": "$cy_1 + (y_1 - y_2), \\quad c\\in \\mathbb{R} $"
+        },
+        {
+          "label": "d",
+          "text": "$c_1 (y_1 + y_2) + c_2 (y_1 + y_2), \\quad c_1, c_2 \\in \\mathbb{R}  $"
+        }
+      ],
+      "correctAnswer": "b"
+    },
+
+    {
+      "date": "2023-10-20",
+      "title": "Find the singular points of the given differential equation",
+      "difficulty": "medium",
+      "problem": "Consider the differential equation\n    \\[\n        (x - 1)y'' + x y' + \\frac{1}{x}y = 0.\n    \\]\n    Then",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A point $x = x_0$ is a singular point of the differential equation if either $P(x)$ or $Q(x)$ is not analytic at $x = x_0$, where the differential equation is in the standard form\n        \\[\n            y'' + P(x)y' + Q(x)y = 0.\n        \\]</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given differential equation is\n    \\begin{equation}\\label{eq:20Oct2023-1}\n        (x - 1)y'' + x y' + \\frac{1}{x}y = 0.\n    \\end{equation}\n    We can rewrite equation \\eqref{eq:20Oct2023-1} in the standard form of a second-order linear ODE:\n    \\[\n        y'' + \\frac{x}{x - 1}y' + \\frac{1}{x(x - 1)}y = 0.\n    \\]\n    In this form, we can identify the coefficients:\n    \\[\n        P(x) = \\frac{x}{x - 1}, \\quad Q(x) = \\frac{1}{x(x - 1)}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">A point $x = x_0$ is a singular point of the differential equation if either $P(x)$ or $Q(x)$ is not analytic at $x = x_0$. Note that \n    \\begin{align*}\n        \\lim_{x \\to 0} P(x) & = \\lim_{x \\to 0} \\frac{x}{x - 1} = 0, \\\\\n         \\lim_{x \\to 0} Q(x) & = \\lim_{x \\to 0} \\frac{1}{x(x - 1)} = -\\infty, \\\\[2ex]\n        \\lim_{x \\to 1} P(x) & = \\lim_{x \\to 1} \\frac{x}{x - 1} = \\infty, \\\\\n        \\lim_{x \\to 1} Q(x) & = \\lim_{x \\to 1} \\frac{1}{x(x - 1)} = \\infty.\n    \\end{align*}    \n    Since both $P(x)$ and $Q(x)$ are not analytic at $x = 0$ and $x = 1$, we conclude that both $x = 0$ and $x = 1$ are singular points of the given differential equation. Hence, option (c) is correct.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "mcq",
+        "csir-net-dec-2017"
+      ],
+      "isMcq": true,
+      "options": [
+        {
+          "label": "a",
+          "text": "$x = 1$ is the only singular point"
+        },
+        {
+          "label": "b",
+          "text": "$x = 0$ is the only singular point"
+        },
+        {
+          "label": "c",
+          "text": "Both $x = 0$ and $x = 1$ are singular points"
+        },
+        {
+          "label": "d",
+          "text": "Neither $x = 0$ nor $x = 1$ are singular points"
+        }
+      ],
+      "correctAnswer": "c"
+    },
+
+    {
+      "date": "2023-12-01",
+      "title": "Problem of the Day",
+      "difficulty": "medium",
+      "problem": "Consider the ordinary differential equation \n    \\[\n        y' = y (y - 1)(y - 2).\n    \\]\n    Which of the following statements is true?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Look at the sign of $y'$ in the intervals defined by the roots of the polynomial on the right-hand side of the differential equation. The roots are $0, 1, 2$. Analyse the behaviour of $y$ based on its initial value relative to these roots.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given ordinary differential equation is \n    \\begin{equation}\\label{eq:01Dec2023-1}\n        y' = y (y - 1)(y - 2).\n    \\end{equation}\n    We can analyse the behaviour of the solution based on the initial condition $y(0)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that the right-hand side of \\eqref{eq:01Dec2023-1} is a cubic polynomial in $y$, and it is zero exactly when $y = 0, 1, 2$. So, the sign of $y'$ will depend on the intervals defined by these three values, namely, if $y \\in (-\\infty ,0)  \\cup (1,2)$, then $y' < 0$ and if $y \\in (0,1)  \\cup (2,\\infty)$, then $y' > 0$. That is, $y$ will be decreasing if $y \\in (-\\infty ,0)  \\cup (1,2)$ and increasing if $y \\in (0,1)  \\cup (2,\\infty)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We now check each option using this sign analysis. In each case, we use the fact that a continuous function $y(t)$ can only move from one of these intervals into another by passing through one of the values $0, 1, 2$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Option (a):</strong> If $y(0) = 0.5$, then $y(0) \\in (0,1)$, so $y' > 0$ at $t = 0$. Since $y$ starts strictly between $0$ and $1$ and $y'>0$ there, $y$ moves further away from $0$ and towards $1$; it cannot decrease and cross $0$ instead. So $y$ is increasing, not decreasing. So, this option is <strong>false</strong>.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Option (b):</strong> If $y(0) = 1.2$, then $y(0) \\in (1,2)$, so $y' < 0$ at $t = 0$. Since $y$ starts strictly between $1$ and $2$ and $y' < 0$ there, $y$ moves towards $1$ and away from $2$; it cannot increase and cross $2$ instead. So $y$ is decreasing, not increasing. So, this option is <strong>false</strong>.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Option (c):</strong> If $y(0) = 2.5$, then $y(0) \\in (2,\\infty)$, so $y' > 0$. Since $y$ starts above $2$ and $y' > 0$ throughout $(2,\\infty)$, $y$ can never turn around and come back down to $2$; it must keep increasing. Hence $y$ grows without bound, that is, $y$ is unbounded. So, this option is <strong>true</strong>.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Option (d):</strong> If $y(0) < 0$, then $y(0) \\in (-\\infty, 0)$, so $y' < 0$. Since $y$ starts below $0$ and $y' < 0$ throughout $(-\\infty, 0)$, $y$ can never turn around and come back up to $0$; it must keep decreasing. Hence $y \\to -\\infty$, so $y$ is <em>not</em> bounded below. So, this option is <strong>false</strong>.\n\n  <br/> <br/>  Hence, the correct option is <strong>(c)</strong>.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "mcq",
+        "csir-net-june-2018"
+      ],
+      "isMcq": true,
+      "options": [
+        {
+          "label": "a",
+          "text": "If $y(0) = 0.5$, then $y$ is decreasing."
+        },
+        {
+          "label": "b",
+          "text": "If $y(0) = 1.2$, then $y$ is increasing."
+        },
+        {
+          "label": "c",
+          "text": "If $y(0) = 2.5$, then $y$ is unbounded."
+        },
+        {
+          "label": "d",
+          "text": "If $y(0) < 0$, then $y$ is bounded below."
+        }
+      ],
+      "correctAnswer": "c"
+    },
+
+    {
       "date": "2026-01-02",
       "title": "Eliminate the constants",
       "difficulty": "easy",
       "problem": "Eliminate $a, b$ and $c$ from $z = a(x + y) + b(x - y) + abt + c$.",
       "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Differentiate to eliminate $a,b$ and $c$ and get a PDE.\n                    </li>\n                  </ul>",
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The given equation is \n    \\begin{equation}\\label{eq:02Jan2026-1}\n        z = a(x + y) + b(x - y) + abt + c.\n    \\end{equation}\n    Differentiate \\eqref{eq:02Jan2026-1} partially with respect to $x,y$ and $t$, respectively, to get \n    \\begin{align*}\n        \\frac{\\partial z}{\\partial x} & = a + b \\\\\n        \\frac{\\partial z}{\\partial y} & = a - b \\\\\n        \\frac{\\partial z}{\\partial t} & = ab.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since, \n    \\begin{align*}\n        (a+b)^2 + (a-b)^2 = 4ab \\implies \\left( \\frac{\\partial z}{\\partial x}  \\right) ^2+ \\left( \\frac{\\partial z}{\\partial y}  \\right) ^2 = 4\\left( \\frac{\\partial z}{\\partial t}  \\right).\n    \\end{align*}</div>",
+      "tags": [
+        "differential-equation",
+        "pde"
+      ]
+    },
+
+    {
+      "date": "2023-12-08",
+      "title": "Solve the exact differential equation $(2xy+3)\\,dx + (x^2-1)\\,dy = 0$",
+      "difficulty": "easy",
+      "problem": "Solve the exact differential equation\n    \\[\n        (2xy+3)\\,dx + (x^2-1)\\,dy = 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Check exactness by comparing $\\partial M/\\partial y$ and $\\partial N/\\partial x$.</li><li class=\"my-4\">If exact, find $F(x,y)$ such that $F_x = M$, $F_y = N$, and the solution is $F(x,y)=C$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Here $M = 2xy+3$ and $N = x^2-1$. We check exactness:\n    \\begin{align*}\n        \\frac{\\partial M}{\\partial y} = 2x, \\qquad \\frac{\\partial N}{\\partial x} = 2x.\n    \\end{align*}\n    Since $M_y = N_x$, the equation is exact.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We seek $F(x,y)$ with $F_x = M$. Integrating with respect to $x$,\n    \\begin{align*}\n        F(x,y) = \\int (2xy+3)\\,dx = x^2 y + 3x + g(y),\n    \\end{align*}\n    for some function $g(y)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Differentiating with respect to $y$ and matching with $N$,\n    \\begin{align*}\n        F_y = x^2 + g'(y) = x^2 - 1 \\quad\\Longrightarrow\\quad g'(y) = -1 \\quad\\Longrightarrow\\quad g(y) = -y.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence the general solution is\n    \\begin{align*}\n        x^2 y + 3x - y = C.\n    \\end{align*}</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2023-05-26",
+      "title": "Find the complete and singular integrals of $2xz - px^2 - 2qxy + pq = 0$",
+      "difficulty": "hard",
+      "problem": "Find the complete integral and the singular integral of\n    \\[\n        2xz - px^{2} - 2qxy + pq = 0, \\qquad p = \\frac{\\partial z}{\\partial x},\\ q = \\frac{\\partial z}{\\partial y}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use Charpit's method. Compute $F_p, F_q, F_x, F_y, F_z$ and set up the auxiliary equations\n        \\[\n            \\frac{dx}{F_p} = \\frac{dy}{F_q} = \\frac{dz}{pF_p+qF_q} = \\frac{-dp}{F_x+pF_z} = \\frac{-dq}{F_y+qF_z}.\n        \\]</li><li class=\"my-4\">Notice that $F_y + qF_z = 0$ identically, which immediately gives $q = a$, a constant.</li><li class=\"my-4\">For the singular integral, eliminate $a,b$ from the complete integral using $\\partial z/\\partial a = 0$, $\\partial z/\\partial b = 0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $F = 2xz - px^2 - 2qxy + pq$. Then\n    \\begin{align*}\n        F_p = -x^2 + q, \\qquad F_q = -2xy + p, \\qquad F_x = 2z - 2px - 2qy, \\qquad F_y = -2qx, \\qquad F_z = 2x.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Charpit's auxiliary equations are\n    \\begin{align*}\n        \\frac{dx}{F_p} = \\frac{dy}{F_q} = \\frac{dz}{pF_p+qF_q} = \\frac{-dp}{F_x+pF_z} = \\frac{-dq}{F_y+qF_z}.\n    \\end{align*}\n    We compute the last denominator:\n    \\begin{align*}\n        F_y + qF_z = -2qx + q(2x) = 0.\n    \\end{align*}\n    Since this denominator vanishes identically, consistency of the ratios forces $dq = 0$, i.e.\n    \\begin{align*}\n        q = a,\n    \\end{align*}\n    where $a$ is an arbitrary constant.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Substituting $q=a$ into $F=0$,\n    \\begin{align*}\n        2xz - px^2 - 2axy + pa = 0 \\quad\\Longrightarrow\\quad p(a-x^2) = 2axy - 2xz \\quad\\Longrightarrow\\quad p = \\frac{2x(ay-z)}{a-x^2}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $v = z - ay$. Since $q=a$, we have $v_x = z_x = p$, so\n    \\begin{align*}\n        \\frac{\\partial v}{\\partial x} = \\frac{-2xv}{a-x^2} = \\frac{2xv}{x^2-a}.\n    \\end{align*}\n    Separating variables and integrating with respect to $x$,\n    \\begin{align*}\n        \\int \\frac{dv}{v} = \\int \\frac{2x\\,dx}{x^2-a} \\quad\\Longrightarrow\\quad \\ln|v| = \\ln|x^2-a| + \\text{const.}\n    \\end{align*}\n    Thus $v = -b(y)(x^2-a)$, i.e.\n    \\begin{align*}\n        z - ay = -b(y)(x^2-a),\n    \\end{align*}\n    for some function $b(y)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we impose $\\partial z/\\partial y = q = a$:\n    \\begin{align*}\n        \\frac{\\partial z}{\\partial y} = a - b'(y)(x^2-a) = a \\quad\\Longrightarrow\\quad b'(y)(x^2-a) = 0 \\quad\\Longrightarrow\\quad b'(y) = 0.\n    \\end{align*}\n    So $b(y) = b$, a constant. Hence the complete integral is\n    \\begin{equation}\\label{eq:26May2023-1}\n        z = ay - b(x^2-a) = ay - bx^2 + ab,\n    \\end{equation}\n    where $a,b$ are arbitrary constants.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To find the singular integral, differentiate \\eqref{eq:26May2023-1} with respect to $a$ and $b$ and set the results to zero:\n    \\begin{align*}\n        \\frac{\\partial z}{\\partial a} = y + b = 0 \\quad\\Longrightarrow\\quad b = -y, \\\\\n        \\frac{\\partial z}{\\partial b} = -x^2 + a = 0 \\quad\\Longrightarrow\\quad a = x^2.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Substituting $a=x^2$, $b=-y$ back into \\eqref{eq:26May2023-1},\n    \\begin{align*}\n        z = (x^2)(y) - (-y)x^2 + (x^2)(-y) = x^2y + x^2y - x^2y.\n    \\end{align*}\n    Hence the singular integral is\n    \\begin{align*}\n        z = x^2y.\n    \\end{align*}</div>",
+      "tags": [
+        "differential-equation",
+        "pde"
+      ]
+    },
+
+    {
+      "date": "2023-12-15",
+      "title": "Solve the ODE $y'' - 3y' + 2y = e^{x}$ (case of resonance)",
+      "difficulty": "medium",
+      "problem": "Solve the ODE\n    \\[\n        y'' - 3y' + 2y = e^{x}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">First find the roots of the auxiliary (characteristic) equation for the homogeneous part.</li><li class=\"my-4\">Notice that $e^x$ solves the homogeneous equation, so the usual guess for $y_p$ must be modified (multiplied by $x$).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The auxiliary equation for the homogeneous part $y''-3y'+2y=0$ is\n    \\begin{align*}\n        r^2 - 3r + 2 = 0 \\quad\\Longrightarrow\\quad (r-1)(r-2)=0 \\quad\\Longrightarrow\\quad r = 1,\\, 2.\n    \\end{align*}\n    So the complementary function is $y_c = C_1 e^{x} + C_2 e^{2x}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since the forcing term $e^x$ coincides with a homogeneous solution ($r=1$), the standard trial $y_p = Ae^x$ fails (resonance). We instead try\n    \\begin{align*}\n        y_p = A x e^{x}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Computing derivatives,\n    \\begin{align*}\n        y_p' &= A e^{x}(1+x), \\\\\n        y_p'' &= A e^{x}(2+x).\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Substituting into the ODE,\n    \\begin{align*}\n        A e^{x}(2+x) - 3A e^{x}(1+x) + 2A x e^{x} &= e^{x} \\\\\n        A e^{x}\\big[(2+x) - 3(1+x) + 2x\\big] &= e^{x} \\\\\n        A e^{x}(-1) &= e^{x}\n        \\quad\\Longrightarrow\\quad A = -1.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Thus $y_p = -x e^{x}$, and the general solution is\n    \\begin{align*}\n        y = C_1 e^{x} + C_2 e^{2x} - x e^{x}.\n    \\end{align*}</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+
+    {
+      "date": "2023-12-22",
+      "title": "Solve the first-order linear PDE $xp + yq = z$ using Lagrange's method",
+      "difficulty": "medium",
+      "problem": "Find the general solution of the first-order linear PDE\n    \\[\n        xp + yq = z, \\qquad p = \\frac{\\partial z}{\\partial x},\\ q = \\frac{\\partial z}{\\partial y}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use Lagrange's method: write the auxiliary (subsidiary) equations $\\dfrac{dx}{P} = \\dfrac{dy}{Q} = \\dfrac{dz}{R}$.</li><li class=\"my-4\">Find two independent integrals from these equations and combine them as $F(u,v)=0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">This is of Lagrange's linear form $Pp+Qq=R$ with $P=x$, $Q=y$, $R=z$. The subsidiary equations are\n    \\begin{align*}\n        \\frac{dx}{x} = \\frac{dy}{y} = \\frac{dz}{z}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Taking the first pair,\n    \\begin{align*}\n        \\frac{dx}{x} = \\frac{dy}{y} \\quad\\Longrightarrow\\quad \\ln x = \\ln y + \\ln c_1 \\quad\\Longrightarrow\\quad \\frac{x}{y} = c_1.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Taking the second pair,\n    \\begin{align*}\n        \\frac{dy}{y} = \\frac{dz}{z} \\quad\\Longrightarrow\\quad \\frac{y}{z} = c_2.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The general solution is then given implicitly by an arbitrary function relating these two independent integrals:\n    \\begin{align*}\n        F\\!\\left(\\frac{x}{y},\\, \\frac{y}{z}\\right) = 0.\n    \\end{align*}</div>",
+      "tags": [
+        "differential-equation",
+        "pde"
+      ]
+    },
+
+    {
+      "date": "2023-12-29",
+      "title": "Find the complete integral and singular solution of $z = px + qy + p^2 + q^2$ (Clairaut's PDE)",
+      "difficulty": "medium",
+      "problem": "Find the complete integral and the singular solution of the PDE\n    \\[\n        z = px + qy + p^2 + q^2.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">This PDE is of Clairaut's form $z = px+qy+f(p,q)$; the complete integral is obtained by simply replacing $p\\to a$, $q\\to b$.</li><li class=\"my-4\">The singular solution is found by eliminating $a,b$ from the complete integral and its partial derivatives with respect to $a$ and $b$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since the equation is of Clairaut's form $z = px+qy+f(p,q)$ with $f(p,q)=p^2+q^2$, the complete integral is obtained directly:\n    \\begin{equation}\\label{eq:29Dec2023-1}\n        z = ax + by + a^2 + b^2,\n    \\end{equation}\n    where $a,b$ are arbitrary constants.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To find the singular solution, differentiate \\eqref{eq:29Dec2023-1} with respect to $a$ and $b$:\n    \\begin{align*}\n        \\frac{\\partial z}{\\partial a} = 0: \\quad x + 2a = 0 \\quad\\Longrightarrow\\quad a = -\\frac{x}{2}, \\\\\n        \\frac{\\partial z}{\\partial b} = 0: \\quad y + 2b = 0 \\quad\\Longrightarrow\\quad b = -\\frac{y}{2}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Substituting back into \\eqref{eq:29Dec2023-1},\n    \\begin{align*}\n        z &= \\left(-\\frac{x}{2}\\right)x + \\left(-\\frac{y}{2}\\right)y + \\frac{x^2}{4} + \\frac{y^2}{4} \\\\\n          &= -\\frac{x^2}{2} - \\frac{y^2}{2} + \\frac{x^2}{4} + \\frac{y^2}{4}.\n    \\end{align*}</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence the singular solution is\n    \\begin{align*}\n        z = -\\frac{x^2+y^2}{4}.\n    \\end{align*}</div>",
       "tags": [
         "differential-equation",
         "pde"

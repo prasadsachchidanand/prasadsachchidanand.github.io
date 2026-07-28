@@ -53,6 +53,7 @@ const CATEGORY_ICONS = {
 // index.html can use it too, instead of duplicating it.
 const subcategoryToCategoryMap = {
     // linear algebra
+    'vector-spaces': 'linear-algebra',
     'subspaces': 'linear-algebra',
     'linear-independence': 'linear-algebra',
     'eigenvalues': 'linear-algebra',
@@ -100,6 +101,7 @@ const subcategoryToCategoryMap = {
     'field-theory': 'abstract-algebra',
     'splitting-field': 'abstract-algebra',
     'group-homomorphism': 'abstract-algebra',
+    'ideals': 'abstract-algebra',
 
     // topology
     'metric-space': 'topology',
@@ -146,6 +148,8 @@ const subcategoryToCategoryMap = {
     'csir-net-june-2011': 'csir-net',
     'csir-net-june-2015': 'csir-net',
     'csir-net-dec-2015': 'csir-net',
+    'csir-net-dec-2017': 'csir-net',
+    'csir-net-june-2018': 'csir-net',
     'csir-net-dec-2019': 'csir-net',
     'csir-net-feb-2022': 'csir-net',
 
