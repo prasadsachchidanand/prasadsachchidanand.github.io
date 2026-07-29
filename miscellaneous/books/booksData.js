@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-21T16:26:57.515Z
+// Generated on: 2026-07-28T05:09:25.036Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -535,6 +535,15 @@ const booksData = {
                 "title": "Herstein - 2.3.14 - Group with no proper subgroups is cyclic",
                 "difficulty": "easy",
                 "problem": "If $G$ has no proper subgroups, prove that $G$ is cyclic."
+              },
+              {
+                "number": "2.3.15",
+                "source": "daily",
+                "date": "2026-07-22",
+                "topic": "abstract-algebra",
+                "title": "Herstein - 2.3.15 - If a nonempty subset is closed under ab^{-1}, then it is a subgroup",
+                "difficulty": "easy",
+                "problem": "If $G$ is a group and $H$ a nonempty subset of $G$ such that, given $a,b \\in H$, then $a b^{-1} \\in H$, prove that $H$ is a subgroup of $G$."
               }
             ]
           }
@@ -899,6 +908,15 @@ const booksData = {
                 "title": "Munkres 2.13.2: Comparing Nine Topologies on a Three-Element Set",
                 "difficulty": "easy",
                 "problem": "Consider the nine topologies on the set $X = \\{ a, b, c \\}$ indicated in Example 1 of §12. Compare them; that is, for each pair of topologies, determine whether they are comparable, and if so, which is the finer. \n    <div class=\"flex flex-wrap justify-center my-4\"><img src=\"../../../assets/img/prob-16-07-26_01.svg\" class=\"h-auto\" alt=\"Nine topologies on the set $X = \\{ a,b,c \\}$\" /></div>"
+              },
+              {
+                "number": "2.13.3",
+                "source": "daily",
+                "date": "2026-07-23",
+                "topic": "topology",
+                "title": "Munkres 2.13.3: Show that the collection $\\mathcal{T}_c$ is a topology on $X$ and that $\\mathcal{T}_\\infty$ is not a topology on $X$",
+                "difficulty": "medium",
+                "problem": "Show that the collection\n    \\[\n        \\mathcal{T} _c = \\{ U \\subseteq X : X \\setminus U \\text{ is countable or all of } X \\}\n    \\] \n    given in Example 4 of \\S 12 is a topology on the set $X$. Is the collection\n    \\[\n        \\mathcal{T} _\\infty = \\{ U \\subseteq X : X \\setminus U \\text{ is infinite or empty or all of } X \\}\n    \\] \n    a topology on $X$?"
               }
             ]
           }

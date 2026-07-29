@@ -426,6 +426,21 @@
         "cyclic-group",
         "abstract-algebra-herstein (2.3.14)"
       ]
+    },
+
+    {
+      "date": "2026-07-22",
+      "title": "Herstein - 2.3.15 - If a nonempty subset is closed under ab^{-1}, then it is a subgroup",
+      "difficulty": "easy",
+      "problem": "If $G$ is a group and $H$ a nonempty subset of $G$ such that, given $a,b \\in H$, then $a b^{-1} \\in H$, prove that $H$ is a subgroup of $G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that $e \\in H$ (as $H$ is nonempty) and $H$ is closed under inversion.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We are given that $H$ is a nonempty subset of $G$ such that for any $a,b \\in H$, we have $ab^{-1} \\in H$. We will show that $H$ is a subgroup of $G$. Note that since $H$ is nonempty, there exists an element $h \\in H$. Since $h \\in H$, we have $hh^{-1} = e \\in H$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that for any $h \\in H$, we have $e h^{-1} = h^{-1} \\in H$. Thus, $H$ is closed under taking inverses.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now we will show that $H$ is closed under the group operation. Let $x, y \\in H$. Then, we have $y^{-1} \\in H$. Thus, we have $x (y^{-1})^{-1}  \\in H$ which implies $xy \\in H$. Therefore, by the subgroup test, we conclude that $H$ is a subgroup of $G$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "abstract-algebra-herstein (2.3.15)"
+      ]
     }
   ]
 }
