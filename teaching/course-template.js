@@ -97,19 +97,36 @@ function renderCourseHeader(data) {
 
 // Render main content
 function renderMainContent(data) {
+  // A section (lectures, homework, ...) only appears once it has at least one item
+  const postedSections = Object.fromEntries(
+    Object.entries(data.sections || {}).filter(([, section]) => section.items && section.items.length)
+  );
+
   return `
         ${renderGradingBreakdown(data.grading)}
-        ${renderResourceCards(data.sections)}
+        ${Object.keys(postedSections).length ? renderResourceCards(postedSections) : renderNothingPosted()}
         ${renderReferences(data.references)}
-        ${renderDynamicSections(data.sections)}
+        ${renderDynamicSections(postedSections)}
         ${renderBackButton()}
       </div>
     </section>
   `;
 }
 
+// Shown in place of the resource cards before any material is posted
+function renderNothingPosted() {
+  return `
+    <div class="bg-white rounded-xl shadow-lg p-6 mb-12 text-center text-gray-600">
+      <i class="fas fa-book-open text-2xl text-blue-600 block mb-3"></i>
+      <p>Lecture notes, homework and quizzes will be posted here during the semester.</p>
+    </div>
+  `;
+}
+
 // Render grading breakdown with responsive design
 function renderGradingBreakdown(grading) {
+  if (!grading || !Object.keys(grading).length) return '';
+
   const colors = {
     'Assignments': 'green',
     'Quizzes': 'yellow',
@@ -191,6 +208,8 @@ function renderResourceCards(sections) {
 
 // Render references with optional links
 function renderReferences(references) {
+  if (!references || !references.length) return '';
+
   const referencesHTML = references.map(ref => {
     const titleHTML = ref.link 
       ? `<a href="${ref.link}" target="_blank" class="text-purple-600 hover:text-purple-800 hover:underline">${ref.title}</a>`
@@ -384,7 +403,7 @@ function initializeToggles(data) {
     
     sections.forEach(id => {
       const element = document.getElementById(id);
-      if (id !== sectionId) {
+      if (element && id !== sectionId) {
         element.classList.add('hidden');
       }
     });

@@ -626,12 +626,12 @@ video {
   pointer-events: none;
 }
 
-.visible {
-  visibility: visible;
-}
-
 .\!visible {
   visibility: visible !important;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .invisible {
@@ -747,16 +747,16 @@ video {
   z-index: 10;
 }
 
+.z-20 {
+  z-index: 20;
+}
+
 .z-50 {
   z-index: 50;
 }
 
 .z-\[5\] {
   z-index: 5;
-}
-
-.z-20 {
-  z-index: 20;
 }
 
 .float-right {
@@ -1549,13 +1549,13 @@ video {
        column-gap: 0.75rem;
 }
 
-.gap-y-1 {
-  row-gap: 0.25rem;
-}
-
 .gap-x-4 {
   -moz-column-gap: 1rem;
        column-gap: 1rem;
+}
+
+.gap-y-1 {
+  row-gap: 0.25rem;
 }
 
 .gap-y-2 {
@@ -3374,6 +3374,15 @@ video {
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* On phones (narrower than the sm breakpoint, 640px) justified text leaves big
+   gaps between words, so text-justify falls back to left alignment there. */
+
+@media (max-width: 639.98px) {
+  .text-justify {
+    text-align: left;
+  }
 }
 
 /* Custom fill-in-the-blank underline */

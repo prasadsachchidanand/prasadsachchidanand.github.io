@@ -1,13 +1,24 @@
 {
   "courses": [
     {
-      "code": "MTH 565",
+      "code": "MTH 100",
+      "title": "Linear Algebra",
+      "abbreviation": "LA",
+      "semester": "Monsoon 2026",
+      "year": "2026",
+      "location": "IIIT Delhi",
+      "status": "ongoing",
+      "tags": ["algebra", "matrices", "undergraduate"],
+      "url": "linear-algebra/"
+    },
+    {
+      "code": "MTH 566",
       "title": "Algebraic Topology I",
       "abbreviation": "AT",
       "semester": "Winter 2026",
       "year": "2026",
       "location": "IIIT Delhi",
-      "status": "ongoing",
+      "status": "completed",
       "tags": ["topology", "geometry", "graduate"],
       "url": "algebraic-topology-I/"
     },

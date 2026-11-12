@@ -1,0 +1,122 @@
+{
+  "courseCode": "MTH100",
+  "courseTitle": "Linear Algebra",
+  "semester": "Monsoon Semester 2026",
+  "schedule": [],
+  "location": "IIIT Delhi",
+  "grading": {},
+  "references": [],
+  "sections": {
+    "lectures": {
+      "title": "Lecture Notes",
+      "icon": "fa-book-open",
+      "color": "blue",
+      "cardIcon": "fas fa-book-open",
+      "fields": [
+        {
+          "name": "number",
+          "label": "Lecture",
+          "prefix": "Lecture"
+        },
+        {
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "name": "date",
+          "type": "badge",
+          "icon": "fa-calendar-alt",
+          "iconColor": "blue"
+        },
+        {
+          "name": "file",
+          "type": "button",
+          "label": "Download PDF",
+          "buttonColor": "blue",
+          "optional": true,
+          "lockedText": "Coming Soon"
+        }
+      ],
+      "items": []
+    },
+    "homeworks": {
+      "title": "Homework and Assignments",
+      "icon": "fa-pen-to-square",
+      "color": "green",
+      "cardIcon": "fas fa-pen-to-square",
+      "fields": [
+        {
+          "name": "number",
+          "label": "Homework",
+          "prefix": "Homework"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "deadline",
+          "type": "badge",
+          "icon": "fa-calendar-alt",
+          "iconColor": "red"
+        },
+        {
+          "name": "file",
+          "type": "button",
+          "label": "Homework",
+          "optional": true,
+          "buttonColor": "blue",
+          "lockedText": "Homework"
+        },
+        {
+          "name": "solution",
+          "type": "button",
+          "label": "Solution",
+          "buttonColor": "green",
+          "optional": true,
+          "lockedText": "Solution"
+        }
+      ],
+      "items": []
+    },
+    "quizzes": {
+      "title": "Quizzes",
+      "icon": "fa-question-circle",
+      "color": "yellow",
+      "cardIcon": "fas fa-question-circle",
+      "fields": [
+        {
+          "name": "number",
+          "label": "Quiz",
+          "prefix": "Quiz"
+        },
+        {
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "name": "date",
+          "type": "badge",
+          "icon": "fa-calendar-alt",
+          "iconColor": "blue",
+          "prefix": "Date:"
+        },
+        {
+          "name": "file",
+          "type": "button",
+          "label": "Quiz",
+          "buttonColor": "yellow"
+        },
+        {
+          "name": "solution",
+          "type": "button",
+          "label": "Solution",
+          "buttonColor": "green",
+          "optional": true,
+          "lockedText": "Solution"
+        }
+      ],
+      "items": []
+    }
+  }
+}
