@@ -16,8 +16,10 @@
     
     <title>Sachchidanand Prasad - Tuition Charge Tracker</title>
     <style>
-        #loadingScreen {
-            display: none; /* Hide by default */
+        /* Same height for every control in the one-row "Add" forms so labels line up */
+        form.grid select,
+        form.grid input:not([type="checkbox"]) {
+            height: 2.75rem;
         }
     </style>
 
@@ -60,58 +62,59 @@
         <!-- section -->
         <section class="text-gray-600 body-font">
 
-            <!-- Loading Screen -->
-            <div id="loadingScreen" class="fixed inset-0 flex items-center justify-center bg-white">
+            <!-- Loading Screen (shown until sign-in state and data are known) -->
+            <div id="loadingScreen" class="fixed inset-0 flex flex-col items-center justify-center bg-white">
                 <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+                <p class="mt-4 text-sm text-gray-500">Loading…</p>
             </div>
 
-            <div id="loginScreen" class="max-w-md mx-auto mt-20 bg-white p-8 rounded-lg shadow-md text-center">
+            <div id="loginScreen" class="hidden max-w-md mx-auto mt-20 bg-white p-8 rounded-lg shadow-md text-center">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Tuition Charge Tracker</h2>
                 <p class="text-gray-600 mb-6">Please enter your email and password to access the application</p>
                 <div id="loginError" class="text-red-500 mb-4"></div>
                 <form id="loginForm" onsubmit="event.preventDefault(); login();">
                     <div class="space-y-4">
-                        <input type="email" id="emailInput" placeholder="Enter email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
-                        <input type="password" id="passwordInput" placeholder="Enter password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        <input type="email" id="emailInput" placeholder="Enter email" autocomplete="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        <input type="password" id="passwordInput" placeholder="Enter password" autocomplete="current-password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
                         <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200">Login</button>
                         <p class="text-sm text-gray-600">
-                            <a href="#" onclick="openForgotPasswordModal()" class="text-blue-500 hover:underline">Forgot Password?</a>
+                            <a href="#" onclick="openForgotPasswordModal(); return false;" class="text-blue-500 hover:underline">Forgot Password?</a>
                         </p>
                         <p class="text-sm text-gray-600">
-                            Don't have an account? <a href="#" onclick="openSignUpModal()" class="text-blue-500 hover:underline">Sign Up</a>
+                            Don't have an account? <a href="#" onclick="openSignUpModal(); return false;" class="text-blue-500 hover:underline">Sign Up</a>
                         </p>
                     </div>
                 </form>
             </div>
-            
-              <!-- Forgot Password Modal -->
-              <div id="forgotPasswordModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-                <div class="bg-white p-6 rounded-lg w-full max-w-md">
-                  <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold text-gray-800">Forgot Password</h2>
-                    <span class="text-gray-600 cursor-pointer text-2xl" onclick="closeForgotPasswordModal()">&times;</span>
-                  </div>
-                  <div class="space-y-4">
-                    <p class="text-gray-600">Enter your email address to reset your password.</p>
-                    <input type="email" id="forgotPasswordEmail" placeholder="Enter email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="resetPassword()">Reset Password</button>
-                  </div>
+
+            <!-- Forgot Password Modal -->
+            <div id="forgotPasswordModal" class="fixed inset-0 z-20 bg-black bg-opacity-50 flex items-center justify-center hidden">
+                <div class="bg-white p-6 rounded-lg w-full max-w-md mx-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold text-gray-800">Forgot Password</h2>
+                        <span class="text-gray-600 cursor-pointer text-2xl" onclick="closeModal('forgotPasswordModal')">&times;</span>
+                    </div>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); resetPassword();">
+                        <p class="text-gray-600">Enter your email address to reset your password.</p>
+                        <input type="email" id="forgotPasswordEmail" placeholder="Enter email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200">Reset Password</button>
+                    </form>
                 </div>
-              </div>
-                            
+            </div>
 
             <!-- Sign-Up Modal -->
-            <div id="signUpModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-                <div class="bg-white p-6 rounded-lg w-full max-w-md">
+            <div id="signUpModal" class="fixed inset-0 z-20 bg-black bg-opacity-50 flex items-center justify-center hidden">
+                <div class="bg-white p-6 rounded-lg w-full max-w-md mx-4">
                     <div class="flex justify-between items-center mb-4">
                         <h2 class="text-xl font-bold text-gray-800">Sign Up</h2>
-                        <span class="text-gray-600 cursor-pointer text-2xl" onclick="closeSignUpModal()">×</span>
+                        <span class="text-gray-600 cursor-pointer text-2xl" onclick="closeModal('signUpModal')">&times;</span>
                     </div>
                     <form id="signUpForm" onsubmit="event.preventDefault(); signUp();">
                         <div class="space-y-4">
-                            <input type="email" id="signUpEmail" placeholder="Enter email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
-                            <input type="password" id="signUpPassword" placeholder="Enter password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
-                            <input type="password" id="signUpConfirmPassword" placeholder="Confirm password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                            <div id="signUpError" class="text-red-500 text-sm"></div>
+                            <input type="email" id="signUpEmail" placeholder="Enter email" autocomplete="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                            <input type="password" id="signUpPassword" placeholder="Enter password (at least 6 characters)" autocomplete="new-password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                            <input type="password" id="signUpConfirmPassword" placeholder="Confirm password" autocomplete="new-password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
                             <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200">Sign Up</button>
                         </div>
                     </form>
@@ -119,57 +122,89 @@
             </div>
 
             <!-- App Container -->
-            <div id="appContainer" class="container mx-auto py-24 px-4 bg-gray-50 rounded-lg shadow-md" style="display: none;">
-                <div class="flex justify-between items-center mb-6">
+            <div id="appContainer" class="hidden container mx-auto py-24 px-4 bg-gray-50 rounded-lg shadow-md">
+                <div class="flex flex-wrap justify-between items-center gap-2 mb-6">
                     <h1 class="text-2xl font-bold text-gray-800">Tuition Charge Tracker</h1>
-                    <button id="settingsBtn" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-200" onclick="openSettings()">Settings</button>
+                    <div class="flex items-center gap-3">
+                        <span id="saveStatus" class="text-sm text-gray-500"></span>
+                        <button id="settingsBtn" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-200" onclick="openSettings()">Settings</button>
+                    </div>
                 </div>
-        
+
+                <div id="loadError" class="hidden mb-4 p-3 rounded-lg bg-red-100 text-red-700 text-sm">
+                    Could not load your data, so changes will not be saved (this protects your existing records).
+                    Please check your connection and <a href="" class="underline font-semibold">reload the page</a>.
+                </div>
+
                 <!-- Settings Modal -->
-                <div id="settingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-                    <div class="bg-white p-6 rounded-lg w-full max-w-md">
+                <div id="settingsModal" class="fixed inset-0 z-20 bg-black bg-opacity-50 flex items-center justify-center hidden">
+                    <div class="bg-white p-6 rounded-lg w-full max-w-md mx-4 max-h-screen overflow-y-auto">
                         <div class="flex justify-between items-center mb-4">
                             <h2 class="text-xl font-bold text-gray-800">Settings</h2>
-                            <span class="text-gray-600 cursor-pointer text-2xl" onclick="closeSettings()">×</span>
+                            <span class="text-gray-600 cursor-pointer text-2xl" onclick="closeModal('settingsModal')">&times;</span>
                         </div>
                         <div class="space-y-4">
+                            <h3 class="text-lg font-semibold text-gray-700">Currency</h3>
+                            <div>
+                                <label for="defaultCurrency" class="block text-sm font-medium text-gray-700">Default currency for new students</label>
+                                <select id="defaultCurrency" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" onchange="changeDefaultCurrency(this.value)"></select>
+                                <p class="mt-1 text-xs text-gray-500">Each student has their own currency. To change an existing student's currency, use Manage Students &rarr; Edit.</p>
+                            </div>
+
                             <h3 class="text-lg font-semibold text-gray-700">Change Password</h3>
                             <form id="changePasswordForm" onsubmit="event.preventDefault(); changePassword();">
                                 <div class="space-y-4">
-                                    <input type="password" id="currentPassword" placeholder="Current Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
-                                    <input type="password" id="newPassword" placeholder="New Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
-                                    <input type="password" id="confirmPassword" placeholder="Confirm New Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                                    <input type="password" id="currentPassword" placeholder="Current Password" autocomplete="current-password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                                    <input type="password" id="newPassword" placeholder="New Password" autocomplete="new-password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                                    <input type="password" id="confirmPassword" placeholder="Confirm New Password" autocomplete="new-password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
                                     <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200">Update Password</button>
                                 </div>
                             </form>
-                
+
                             <h3 class="text-lg font-semibold text-gray-700">Data Management</h3>
                             <button class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition duration-200" onclick="exportData()">Export Data</button>
                             <button class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition duration-200" onclick="document.getElementById('importFile').click()">Import Data</button>
-                            <input type="file" id="importFile" class="hidden" onchange="importData(event)">
-                
+                            <input type="file" id="importFile" accept=".json,application/json" class="hidden" onchange="importData(event)">
+
                             <button class="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600 transition duration-200" onclick="logout()">Logout</button>
                         </div>
                     </div>
                 </div>
-        
-                <!-- Tabs -->
-                <div class="flex space-x-2 border-b mb-4">
-                    <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" onclick="showTab('sessions')">Sessions</div>
-                    <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" onclick="showTab('summary')">Summary</div>
-                    <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" onclick="showTab('students')">Manage Students</div>
-                    <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" onclick="showTab('payments')">Payments</div>
+
+                <!-- Edit Modal (shared by students, sessions and payments) -->
+                <div id="editModal" class="fixed inset-0 z-20 bg-black bg-opacity-50 flex items-center justify-center hidden">
+                    <div class="bg-white p-6 rounded-lg w-full max-w-md mx-4 max-h-screen overflow-y-auto">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 id="editModalTitle" class="text-xl font-bold text-gray-800">Edit</h2>
+                            <span class="text-gray-600 cursor-pointer text-2xl" onclick="closeModal('editModal')">&times;</span>
+                        </div>
+                        <form id="editModalForm" class="space-y-4">
+                            <div id="editModalFields" class="space-y-4"></div>
+                            <div class="flex space-x-2">
+                                <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200">Save Changes</button>
+                                <button type="button" class="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600 transition duration-200" onclick="closeModal('editModal')">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-        
+
+                <!-- Tabs -->
+                <div class="flex space-x-2 border-b mb-4 overflow-x-auto whitespace-nowrap">
+                    <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" data-tab="sessions" onclick="showTab('sessions')">Sessions</div>
+                    <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" data-tab="summary" onclick="showTab('summary')">Summary</div>
+                    <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" data-tab="students" onclick="showTab('students')">Manage Students</div>
+                    <div class="tab px-4 py-2 cursor-pointer bg-gray-200 rounded-t-lg" data-tab="payments" onclick="showTab('payments')">Payments</div>
+                </div>
+
                 <!-- Sessions Tab -->
                 <div id="sessions" class="tab-content">
                     <h2 class="text-xl font-bold text-gray-800 mb-4">Tutoring Sessions</h2>
                     <div class="bg-gray-50 p-4 rounded-lg mb-6">
                         <h3 class="text-lg font-semibold text-gray-700 mb-4">Add New Session</h3>
-                        <div class="space-y-4">
+                        <form class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 items-end" onsubmit="event.preventDefault(); addSession();">
                             <div>
-                                <label for="sessionStudent" class="block text-sm font-medium text-gray-700">Student</label>
-                                <select id="sessionStudent" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <label for="sessionStudent" class="block text-sm font-medium text-gray-700">Student <span id="sessionRateHint" class="font-normal text-xs text-gray-500"></span></label>
+                                <select id="sessionStudent" onchange="updateSessionRateHint()" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                                     <option value="">Select Student</option>
                                 </select>
                             </div>
@@ -179,16 +214,29 @@
                             </div>
                             <div>
                                 <label for="sessionDuration" class="block text-sm font-medium text-gray-700">Duration (hours)</label>
-                                <input type="number" id="sessionDuration" min="0.5" step="0.5" value="1" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <input type="number" id="sessionDuration" min="0.25" step="0.25" value="1" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                             </div>
-                            <div class="flex items-center">
-                                <input type="checkbox" id="sessionCompleted" checked class="mr-2">
-                                <label for="sessionCompleted" class="text-sm text-gray-700">Completed</label>
-                            </div>
-                            <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="addSession()">Add Session</button>
+                            <label class="flex items-center h-10 text-sm text-gray-700">
+                                <input type="checkbox" id="sessionCompleted" checked class="mr-2">Completed
+                            </label>
+                            <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200">Add Session</button>
+                        </form>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
+                        <label for="sessionFilterStudent" class="text-sm font-medium text-gray-700">Show</label>
+                        <select id="sessionFilterStudent" onchange="setStudentFilter('sessions', this.value)" class="px-3 py-1.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <option value="">All students</option>
+                        </select>
+                        <label class="archived-toggle-wrap hidden flex items-center gap-2 text-sm text-gray-700">
+                            <input type="checkbox" class="show-archived-toggle" onchange="setShowArchived(this.checked)">Show archived students
+                        </label>
+                        <div class="flex gap-3 text-sm sm:ml-auto">
+                            <button type="button" class="text-blue-600 hover:underline" onclick="setAllMonths('sessions', true)">Expand all</button>
+                            <button type="button" class="text-blue-600 hover:underline" onclick="setAllMonths('sessions', false)">Collapse all</button>
                         </div>
                     </div>
-        
+
                     <div class="overflow-x-auto">
                         <table class="w-full border-collapse">
                             <thead>
@@ -196,9 +244,9 @@
                                     <th class="p-3 text-left text-sm sm:text-base">Student</th>
                                     <th class="p-3 text-left text-sm sm:text-base">Date</th>
                                     <th class="p-3 text-left text-sm sm:text-base">Duration (hours)</th>
-                                    <th class="p-3 text-left text-sm sm:text-base">Rate (GBP)</th>
+                                    <th class="p-3 text-left text-sm sm:text-base">Rate</th>
                                     <th class="p-3 text-left text-sm sm:text-base">Completed</th>
-                                    <th class="p-3 text-left text-sm sm:text-base">Amount (GBP)</th>
+                                    <th class="p-3 text-left text-sm sm:text-base">Amount</th>
                                     <th class="p-3 text-left text-sm sm:text-base">Actions</th>
                                 </tr>
                             </thead>
@@ -207,78 +255,94 @@
                             </tbody>
                             <tfoot>
                                 <tr class="bg-gray-100">
-                                    <td colspan="5" class="p-3 text-right font-bold text-sm sm:text-base">Total:</td>
-                                    <td id="totalAmount" class="p-3 font-bold text-sm sm:text-base">0.00</td>
+                                    <td colspan="5" id="sessionsTotalLabel" class="p-3 text-right font-bold text-sm sm:text-base">Total:</td>
+                                    <td id="totalAmount" class="p-3 font-bold text-sm sm:text-base whitespace-nowrap">0.00</td>
                                     <td></td>
                                 </tr>
                             </tfoot>
                         </table>
                     </div>
                 </div>
-        
+
                 <!-- Summary Tab -->
                 <div id="summary" class="tab-content hidden">
-                    <h2 class="text-xl font-bold text-gray-800 mb-4">Student Summary</h2>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                        <h2 class="text-xl font-bold text-gray-800">Student Summary</h2>
+                        <label class="archived-toggle-wrap hidden flex items-center gap-2 text-sm text-gray-700">
+                            <input type="checkbox" class="show-archived-toggle" onchange="setShowArchived(this.checked)">Show archived students
+                        </label>
+                    </div>
                     <div id="summaryCards" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <!-- Summary cards will be added here -->
                     </div>
-        
-                    <table class="w-full border-collapse">
-                        <thead>
-                            <tr class="bg-gray-200">
-                                <th class="p-3 text-left">Student</th>
-                                <th class="p-3 text-left">Hourly Rate (GBP)</th>
-                                <th class="p-3 text-left">Total Hours</th>
-                                <th class="p-3 text-left">Total Charges (GBP)</th>
-                                <th class="p-3 text-left">Total Paid (GBP)</th>
-                                <th class="p-3 text-left">Outstanding (GBP)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="summaryBody">
-                            <!-- Summary rows will be added here -->
-                        </tbody>
-                        <tfoot>
-                            <tr class="bg-gray-100">
-                                <td colspan="2" class="p-3 text-right font-bold">Totals:</td>
-                                <td id="totalHours" class="p-3 font-bold">0</td>
-                                <td id="totalEarnings" class="p-3 font-bold">£0.00</td>
-                                <td id="totalPaymentsReceived" class="p-3 font-bold">£0.00</td>
-                                <td id="totalOutstanding" class="p-3 font-bold">£0.00</td>
-                            </tr>
-                        </tfoot>
-                    </table>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="p-3 text-left">Student</th>
+                                    <th class="p-3 text-left">Hourly Rate</th>
+                                    <th class="p-3 text-left">Total Hours</th>
+                                    <th class="p-3 text-left">Total Charges</th>
+                                    <th class="p-3 text-left">Total Paid</th>
+                                    <th class="p-3 text-left">Outstanding</th>
+                                    <th class="p-3 text-left">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="summaryBody">
+                                <!-- Summary rows will be added here -->
+                            </tbody>
+                            <tfoot>
+                                <tr class="bg-gray-100">
+                                    <td colspan="2" id="summaryTotalLabel" class="p-3 text-right font-bold">Totals:</td>
+                                    <td id="totalHours" class="p-3 font-bold">0</td>
+                                    <td id="totalEarnings" class="p-3 font-bold whitespace-nowrap">0.00</td>
+                                    <td id="totalPaymentsReceived" class="p-3 font-bold whitespace-nowrap">0.00</td>
+                                    <td id="totalOutstanding" class="p-3 font-bold whitespace-nowrap">0.00</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
-        
+
                 <!-- Students Tab -->
                 <div id="students" class="tab-content hidden">
                     <h2 class="text-xl font-bold text-gray-800 mb-4">Manage Students</h2>
                     <div class="bg-gray-50 p-4 rounded-lg mb-6">
                         <h3 class="text-lg font-semibold text-gray-700 mb-4">Add New Student</h3>
-                        <div class="space-y-4">
+                        <form class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 items-end" onsubmit="event.preventDefault(); addStudent();">
                             <div>
                                 <label for="studentName" class="block text-sm font-medium text-gray-700">Student Name</label>
                                 <input type="text" id="studentName" placeholder="Enter student name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                             </div>
                             <div>
-                                <label for="hourlyRate" class="block text-sm font-medium text-gray-700">Hourly Rate (GBP)</label>
-                                <input type="number" id="hourlyRate" min="1" step="0.5" value="25" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <label for="studentCurrency" class="block text-sm font-medium text-gray-700">Currency</label>
+                                <select id="studentCurrency" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></select>
                             </div>
-                            <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="addStudent()">Add Student</button>
-                        </div>
+                            <div>
+                                <label for="hourlyRate" class="block text-sm font-medium text-gray-700">Hourly Rate</label>
+                                <input type="number" id="hourlyRate" min="0" step="any" placeholder="Enter hourly rate" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200">Add Student</button>
+                        </form>
                     </div>
-        
-                    <table class="w-full border-collapse">
-                        <thead>
-                            <tr class="bg-gray-200">
-                                <th class="p-3 text-left">Student Name</th>
-                                <th class="p-3 text-left">Hourly Rate (GBP)</th>
-                                <th class="p-3 text-left">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="studentsBody">
-                            <!-- Students will be added here -->
-                        </tbody>
-                    </table>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="p-3 text-left">Student Name</th>
+                                    <th class="p-3 text-left">Currency</th>
+                                    <th class="p-3 text-left">Hourly Rate</th>
+                                    <th class="p-3 text-left">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentsBody">
+                                <!-- Students will be added here -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <!-- Payments Tab -->
@@ -286,16 +350,15 @@
                     <h2 class="text-xl font-bold text-gray-800 mb-4">Student Payments</h2>
                     <div class="bg-gray-50 p-4 rounded-lg mb-6">
                         <h3 class="text-lg font-semibold text-gray-700 mb-4">Record New Payment</h3>
-                        <div class="space-y-4">
+                        <form class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 items-end" onsubmit="event.preventDefault(); addPayment();">
                             <div>
                                 <label for="paymentStudent" class="block text-sm font-medium text-gray-700">Student</label>
-                                <select id="paymentStudent" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <select id="paymentStudent" onchange="updatePaymentCurrencyLabel()" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                                     <option value="">Select Student</option>
-                                    <!-- Students will be populated here -->
                                 </select>
                             </div>
                             <div>
-                                <label for="paymentAmount" class="block text-sm font-medium text-gray-700">Amount (GBP)</label>
+                                <label for="paymentAmount" id="paymentAmountLabel" class="block text-sm font-medium text-gray-700">Amount</label>
                                 <input type="number" id="paymentAmount" min="0.01" step="0.01" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                             </div>
                             <div>
@@ -306,7 +369,21 @@
                                 <label for="paymentNotes" class="block text-sm font-medium text-gray-700">Notes</label>
                                 <input type="text" id="paymentNotes" placeholder="Cash, bank transfer, etc." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                             </div>
-                            <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200" onclick="addPayment()">Record Payment</button>
+                            <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-200">Record Payment</button>
+                        </form>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
+                        <label for="paymentFilterStudent" class="text-sm font-medium text-gray-700">Show</label>
+                        <select id="paymentFilterStudent" onchange="setStudentFilter('payments', this.value)" class="px-3 py-1.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <option value="">All students</option>
+                        </select>
+                        <label class="archived-toggle-wrap hidden flex items-center gap-2 text-sm text-gray-700">
+                            <input type="checkbox" class="show-archived-toggle" onchange="setShowArchived(this.checked)">Show archived students
+                        </label>
+                        <div class="flex gap-3 text-sm sm:ml-auto">
+                            <button type="button" class="text-blue-600 hover:underline" onclick="setAllMonths('payments', true)">Expand all</button>
+                            <button type="button" class="text-blue-600 hover:underline" onclick="setAllMonths('payments', false)">Collapse all</button>
                         </div>
                     </div>
 
@@ -316,7 +393,7 @@
                                 <tr class="bg-gray-200">
                                     <th class="p-3 text-left text-sm sm:text-base">Student</th>
                                     <th class="p-3 text-left text-sm sm:text-base">Date</th>
-                                    <th class="p-3 text-left text-sm sm:text-base">Amount (GBP)</th>
+                                    <th class="p-3 text-left text-sm sm:text-base">Amount</th>
                                     <th class="p-3 text-left text-sm sm:text-base">Notes</th>
                                     <th class="p-3 text-left text-sm sm:text-base">Actions</th>
                                 </tr>
@@ -326,8 +403,8 @@
                             </tbody>
                             <tfoot>
                                 <tr class="bg-gray-100">
-                                    <td colspan="2" class="p-3 text-right font-bold text-sm sm:text-base">Total Payments:</td>
-                                    <td id="totalPayments" class="p-3 font-bold text-sm sm:text-base">£0.00</td>
+                                    <td colspan="2" id="paymentsTotalLabel" class="p-3 text-right font-bold text-sm sm:text-base">Total:</td>
+                                    <td id="totalPayments" class="p-3 font-bold text-sm sm:text-base whitespace-nowrap">0.00</td>
                                     <td colspan="2"></td>
                                 </tr>
                             </tfoot>
