@@ -1,0 +1,41 @@
+{
+  "_help": "Research group shown on the Research page (and the CV). For each person: photo = file name inside assets/img/group/ (leave empty for the placeholder), webpage = link for their name, cv = link to their CV. Empty links are simply not shown. Move someone from current to past by adding 'to' and 'now'.",
+  "current": [
+    {
+      "name": "Dr Jyoti Yadav",
+      "role": "Postdoctoral Fellow",
+      "from": "October 2026",
+      "photo": "",
+      "webpage": "",
+      "cv": ""
+    },
+    {
+      "name": "Kajal Gaytri",
+      "role": "PhD Student",
+      "from": "July 2026",
+      "photo": "",
+      "webpage": "",
+      "cv": ""
+    },
+    {
+      "name": "Suvam Goswami",
+      "role": "PhD Student",
+      "from": "July 2026",
+      "photo": "",
+      "webpage": "",
+      "cv": ""
+    }
+  ],
+  "past": [
+    {
+      "name": "Dr Sandip Samanta",
+      "role": "Research Associate",
+      "from": "April 2026",
+      "to": "July 2026",
+      "now": "Postdoctoral Fellow, ISI Kolkata",
+      "photo": "",
+      "webpage": "",
+      "cv": ""
+    }
+  ]
+}

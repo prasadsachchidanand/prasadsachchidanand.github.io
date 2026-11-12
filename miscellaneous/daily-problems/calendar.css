@@ -143,3 +143,13 @@
     margin-right: 3rem;
   }
 }
+/* Days the visitor marked as solved: small green dot under the date */
+.date-picker.is-solved > span::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  margin: 1px auto 0;
+  border-radius: 50%;
+  background: #10b981;
+}

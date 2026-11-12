@@ -380,26 +380,108 @@ function createMcqOptions(problem) {
     return wrap;
 }
 
-async function loadAllProblemDates() {
+let allProblemDatesPromise = null;
+function loadAllProblemDates() {
+    if (!allProblemDatesPromise) allProblemDatesPromise = fetchAllProblemDates();
+    return allProblemDatesPromise;
+}
+
+async function fetchAllProblemDates() {
     const allDates = {};
     const topics = Object.values(topicMap);
-    const base = getDataBasePath();
-    
-    for (const topic of topics) {
-        try {
-            const response = await fetch(`${base}${topic}.json`);
-            if (!response.ok) continue;
-            const data = await response.json();
-            if (data.problems) {
-                data.problems.forEach(p => {
-                    allDates[p.date] = topic;
-                });
-            }
-        } catch (e) {
-            console.error(`Calendar: failed to load ${topic}`, e);
-        }
-    }
+    const results = await Promise.all(topics.map(topic =>
+        fetchTopicData(topic).catch(e => { console.error(`Could not load ${topic}`, e); return null; })
+    ));
+    results.forEach((data, i) => {
+        if (data && data.problems) data.problems.forEach(p => { allDates[p.date] = topics[i]; });
+    });
     return allDates;
+}
+
+// ==================== TOPIC DATA ====================
+
+const topicDataCache = {};
+function fetchTopicData(topic) {
+    if (!topicDataCache[topic]) {
+        topicDataCache[topic] = fetch(`${getDataBasePath()}${topic}.json`).then(response => {
+            if (!response.ok) throw new Error(`Failed to load ${topic} data (${response.status})`);
+            return response.json();
+        });
+    }
+    return topicDataCache[topic];
+}
+
+// ==================== DAYS THAT HAVE A PROBLEM ====================
+// Not every past day has a problem; the days that do are exactly the dates
+// in the topic files.
+
+function todayString() {
+    const t = new Date();
+    return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`;
+}
+
+let knownProblemDatesPromise = null;
+function loadKnownProblemDates() {
+    if (!knownProblemDatesPromise) {
+        knownProblemDatesPromise = loadAllProblemDates().then(fromData => Object.keys(fromData).sort());
+    }
+    return knownProblemDatesPromise;
+}
+
+// Nearest earlier problem, and nearest later one that is already published
+function neighbouringProblemDates(problemDate, sortedDates) {
+    const today = todayString();
+    let prev = null, next = null;
+    for (const d of sortedDates) {
+        if (d < problemDate) prev = d;
+        else if (d > problemDate && d <= today) { next = d; break; }
+    }
+    return { prev, next };
+}
+
+function formatShortDate(dateString) {
+    const [y, m, d] = dateString.split('-').map(Number);
+    return new Date(y, m - 1, d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+function setNavLink(link, dateString) {
+    if (!link) return;
+    if (dateString) {
+        link.href = buildDateURL(dateString);
+        link.title = formatShortDate(dateString);
+        link.style.pointerEvents = 'auto';
+        link.style.cursor = 'pointer';
+        link.style.opacity = '';
+        link.removeAttribute('aria-disabled');
+    } else {
+        link.removeAttribute('href');
+        link.title = '';
+        link.style.pointerEvents = 'none';
+        link.style.cursor = 'not-allowed';
+        link.style.opacity = '0.4';
+        link.setAttribute('aria-disabled', 'true');
+    }
+}
+
+// Previous/Next skip the days that have no problem
+function pointNavigationToRealProblems(problemDate) {
+    return loadKnownProblemDates().then(dates => {
+        const { prev, next } = neighbouringProblemDates(problemDate, dates);
+        setNavLink(document.getElementById('prev-link'), prev);
+        setNavLink(document.getElementById('next-link'), next);
+        return { prev, next };
+    }).catch(err => console.error('Could not load the list of problem dates:', err));
+}
+
+// Search engines should not list pages that have no problem on them
+function markPageNoindex() {
+    let robots = document.querySelector('meta[name="robots"]');
+    if (!robots) {
+        robots = document.createElement('meta');
+        robots.name = 'robots';
+        document.head.appendChild(robots);
+    }
+    robots.content = 'noindex';
 }
 
 // ==================== MAIN LOADER ====================
@@ -427,21 +509,24 @@ async function loadProblem() {
         
         renderTitleHeader(problemDate, null);
         
-        const topic = getTopicFromDate(problemDate);
+        let topic = getTopicFromDate(problemDate);
         renderTitleHeader(problemDate, topic);
 
-        const base = getDataBasePath();
-        const jsonPath = `${base}${topic}.json`;
-        
-        console.log(`Loading ${topic} data for ${problemDate} from ${jsonPath}`);
-        
-        const response = await fetch(jsonPath);
-        if (!response.ok) {
-            throw new Error(`Failed to load ${topic} data (${response.status})`);
+        let data = await fetchTopicData(topic);
+        let problem = data.problems.find(p => p.date === problemDate);
+
+        // A few problems are filed under their own subject rather than the
+        // weekday's topic (e.g. a topology problem posted on a Friday).
+        if (!problem) {
+            const allDates = await loadAllProblemDates();
+            const otherTopic = allDates[problemDate];
+            if (otherTopic && otherTopic !== topic) {
+                topic = otherTopic;
+                data = await fetchTopicData(topic);
+                problem = data.problems.find(p => p.date === problemDate);
+                renderTitleHeader(problemDate, topic);
+            }
         }
-        
-        const data = await response.json();
-        const problem = data.problems.find(p => p.date === problemDate);
         
         if (!isProblemVisible(problemDate)) {
             displayUpcomingProblem(problemDate, data.topic);
@@ -485,26 +570,45 @@ function displayMissingProblem(problemDate, topicName) {
     const problemStrong = problemBox.querySelector('strong');
     if (problemStrong) problemStrong.remove();
     problemBox.innerHTML = '';
-    
+
     const [year, month, day] = problemDate.split('-');
-    const formattedDate = new Date(year, month - 1, day).toLocaleDateString('en-US', { 
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+    const formattedDate = new Date(year, month - 1, day).toLocaleDateString('en-GB', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
     });
-    
-    const missingMessage = document.createElement('div');
-    missingMessage.className = 'text-lg';
-    missingMessage.innerHTML = `
-        <span class="text-orange-600 font-semibold text-xl">⏳ Problem Coming Soon!</span>
-        <p class="mt-3 text-gray-700">The problem for <strong>${formattedDate}</strong> is being prepared and will be posted shortly.</p>
-        <p class="mt-2 text-gray-600">Topic: <strong class="text-blue-600">${formatTopicName(topicName)}</strong></p>
-        <p class="mt-3 text-gray-500 italic">Please check back later. Thank you for your patience! In the meanwhile solve other ${formatTopicName(topicName)} problems.</p>
+    const isToday = problemDate === todayString();
+
+    const message = document.createElement('div');
+    message.className = 'text-lg';
+    message.innerHTML = isToday ? `
+        <span class="text-orange-600 font-semibold text-xl">Today's problem is not up yet</span>
+        <p class="mt-3 text-gray-700">The ${formatTopicName(topicName)} problem for <strong>${formattedDate}</strong> has not been posted yet. Please check back later.</p>
+        <div id="nearby-problems" class="mt-4 flex flex-wrap gap-3"></div>
+    ` : `
+        <span class="text-gray-700 font-semibold text-xl">No problem on this day</span>
+        <p class="mt-3 text-gray-700">No problem was posted on <strong>${formattedDate}</strong>. Try one of the nearest problems instead:</p>
+        <div id="nearby-problems" class="mt-4 flex flex-wrap gap-3"></div>
     `;
-    problemBox.appendChild(missingMessage);
-    
+    problemBox.appendChild(message);
+
     const solutionBox = document.getElementById('solution-box');
     if (solutionBox) solutionBox.style.display = 'none';
     const hintBox = document.getElementById('hint-box');
     if (hintBox) hintBox.style.display = 'none';
+
+    markPageNoindex();
+    document.title = `No problem on ${problemDate} | Problem of the Day | Sachchidanand Prasad`;
+
+    // Buttons to the nearest days that do have a problem
+    pointNavigationToRealProblems(problemDate).then(near => {
+        const box = document.getElementById('nearby-problems');
+        if (!box || !near) return;
+        const button = (date, label) => `<a href="${buildDateURL(date)}" class="inline-flex items-center px-4 py-2 rounded-lg border border-indigo-300 text-indigo-600 text-base font-medium hover:bg-indigo-50">${label}</a>`;
+        let html = '';
+        if (near.prev) html += button(near.prev, `&larr; ${isToday ? 'Latest problem' : 'Previous problem'} (${formatShortDate(near.prev)})`);
+        if (near.next) html += button(near.next, `Next problem (${formatShortDate(near.next)}) &rarr;`);
+        html += `<a href="/miscellaneous/daily-problems/" class="inline-flex items-center px-4 py-2 rounded-lg border border-gray-300 text-gray-700 text-base font-medium hover:bg-gray-50">All problems</a>`;
+        box.innerHTML = html;
+    });
 }
 
 function displayUpcomingProblem(problemDate, topicName) {
@@ -550,6 +654,13 @@ function displayProblem(problem, problemDate, topicName, currentProblems) {
     const problemContainer = document.createElement('span');
     problemContainer.innerHTML = problem.problem;
     parent.appendChild(problemContainer);
+
+    if (problem.sameAs) {
+        const note = document.createElement('p');
+        note.className = 'mt-3 text-base text-gray-600 italic';
+        note.innerHTML = `This is the same problem as on <a href="${buildDateURL(problem.sameAs)}" class="text-blue-500 hover:text-blue-800">${formatShortDate(problem.sameAs)}</a>.`;
+        parent.appendChild(note);
+    }
     
     let tagsContainer = problemBox.querySelector('.mt-2');
     if (!tagsContainer) {
@@ -764,8 +875,9 @@ function updateMetadata(problemDate, problem, topicName) {
         }
     });
 
+    // A problem repeated from an earlier day points search engines to the original
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.href = baseURL;
+    if (canonical) canonical.href = problem.sameAs ? window.location.origin + buildDateURL(problem.sameAs) : baseURL;
     
     if (document.getElementById('shareLink')) {
         document.getElementById('shareLink').value = baseURL;
@@ -840,6 +952,7 @@ function updateNavigationLinks(problemDate, currentTopic, currentProblems, isPro
             addTopicButton(currentTopic);
         }
         styleNavigationLinks();
+        if (isProblemVisible) pointNavigationToRealProblems(problemDate);
         
     } catch (error) {
         console.error('Error updating navigation links:', error);
@@ -999,6 +1112,46 @@ function displaySimilarProblems(currentProblem, allProblems, currentDate, topicN
         return tmp.textContent || tmp.innerText || '';
     }
 
+    function escapePreview(text) {
+        return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // Shorten to about `limit` characters without cutting a formula in half
+    // (a half formula shows up as raw LaTeX). A formula that straddles the
+    // limit is kept whole if it is short, otherwise the text stops before it.
+    // Returns null when not even the start of the text fits (e.g. it opens
+    // with a long display formula); the caller then uses the title.
+    function mathSafePreview(text, limit) {
+        text = text.replace(/\s+/g, ' ').trim();
+        if (text.length <= limit) return text;
+        const closers = { '$$': '$$', '$': '$', '\\[': '\\]', '\\(': '\\)' };
+        let cut = 0, i = 0;
+        while (i < text.length) {
+            const open = text.startsWith('$$', i) ? '$$'
+                : text.startsWith('\\[', i) ? '\\['
+                : text.startsWith('\\(', i) ? '\\('
+                : text[i] === '$' ? '$' : null;
+            if (open) {
+                const end = text.indexOf(closers[open], i + open.length);
+                if (end === -1) break;
+                const after = end + closers[open].length;
+                // a long formula does not fit in the small card: stop before it
+                if (after > limit + 60 || after - i > 60) break;
+                i = after;
+                cut = i;
+                if (i >= limit) break;
+                continue;
+            }
+            if (text[i] === '\\') { i += 2; continue; }
+            if (i >= limit) break;
+            if (text[i] === ' ') cut = i;
+            i++;
+        }
+        if (cut < 20) return null;
+        if (cut >= text.length) return text;
+        return text.slice(0, cut).trim() + ' …';
+    }
+
     const section = document.createElement('div');
     section.id = 'similar-problems';
     section.className = 'mt-10';
@@ -1015,8 +1168,10 @@ function displaySimilarProblems(currentProblem, allProblems, currentDate, topicN
                 const sharedTags = (p.tags || []).filter(tag => currentTags.includes(tag));
                 const difficultyColors = { 'easy': 'bg-green-100 text-green-800', 'medium': 'bg-yellow-100 text-yellow-800', 'hard': 'bg-red-100 text-red-800' };
                 const diffClass = difficultyColors[(p.difficulty || 'medium').toLowerCase()] || difficultyColors['medium'];
-                const plainText = stripHtml(p.problem);
-                const preview = plainText.length > 120 ? plainText.substring(0, 120) + '...' : plainText;
+                let preview = mathSafePreview(stripHtml(p.problem), 120);
+                if (preview === null) preview = mathSafePreview(stripHtml(p.title || ''), 120) || '';
+                // show displayed formulas inline, so they fit in the small card
+                preview = escapePreview(preview).replace(/\\\[/g, '\\(').replace(/\\\]/g, '\\)').replace(/\$\$/g, '$');
                 return `
                     <a href="${buildDateURL(p.date)}"
                        class="flex flex-col justify-between p-4 bg-white border border-gray-200 rounded-xl hover:border-indigo-400 hover:shadow-md transition-all duration-200 group" target="_blank">

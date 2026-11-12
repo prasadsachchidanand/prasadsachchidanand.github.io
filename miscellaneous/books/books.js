@@ -20,6 +20,32 @@
 
     const fileCache = {}; // `${source}:${slug}` -> parsed JSON (cached across views)
 
+    // Daily problems can be written in advance. Like the daily-problem pages,
+    // this page shows a problem only from its date on, and its solution only
+    // from the next day.
+    const now = new Date();
+    const TODAY = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    const isPublished = entry => entry.source !== 'daily' || !entry.date || entry.date <= TODAY;
+    const solutionIsOut = entry => entry.source !== 'daily' || !entry.date || entry.date < TODAY;
+
+    (function hideScheduledProblems() {
+        if (typeof booksData === 'undefined') return;
+        Object.keys(booksData).forEach(bookKey => {
+            const chapters = booksData[bookKey].chapters || {};
+            Object.keys(chapters).forEach(chKey => {
+                const ch = chapters[chKey];
+                ch.problems = (ch.problems || []).filter(isPublished);
+                Object.keys(ch.sections || {}).forEach(secKey => {
+                    const sec = ch.sections[secKey];
+                    sec.problems = (sec.problems || []).filter(isPublished);
+                    if (sec.problems.length === 0) delete ch.sections[secKey];
+                });
+                if (ch.problems.length === 0 && Object.keys(ch.sections || {}).length === 0) delete chapters[chKey];
+            });
+            if (Object.keys(chapters).length === 0) delete booksData[bookKey];
+        });
+    })();
+
     // ---------- helpers ----------
 
     function buildDateURL(dateString) {
@@ -439,7 +465,7 @@
         }
 
         const hasHint = problem.hint && problem.hint.trim() !== '';
-        const hasSolution = problem.solution && problem.solution.trim() !== '';
+        const hasSolution = problem.solution && problem.solution.trim() !== '' && solutionIsOut(entry);
         const cleanTitle = stripBookPrefix(problem.title);
         const showTitle = cleanTitle && !isRedundantTitle(cleanTitle, problem.problem);
 

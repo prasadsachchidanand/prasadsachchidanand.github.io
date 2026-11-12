@@ -30,34 +30,22 @@ document.addEventListener("DOMContentLoaded", function () {
   
           // Loop through the courses and create HTML elements
           institution.courses.forEach((course) => {
+            // Plain card (no gradient): reads well in both light and dark mode
             const courseItem = document.createElement("div");
-  
-            // Split the gradient string into two class names
-            const gradientClasses = course.gradient.split(" ");
-            courseItem.classList.add("bg-gradient-to-br", ...gradientClasses, "p-4", "rounded-lg", "shadow-sm");
-  
-            // Create the HTML structure for each course
+            courseItem.className = "flex items-start gap-3 p-4 rounded-lg bg-gray-50 border border-gray-200";
             courseItem.innerHTML = `
-              <div class="flex items-start">
-                <i class="fa-solid fa-chalkboard-teacher text-indigo-500 mr-3 mt-1"></i>
-                <div>
-                  <p class="text-gray-800 font-medium">${course.title}</p>
-                  <p class="text-gray-600 text-sm">
-                    <i class="fa-solid fa-calendar-check text-red-500 mr-1"></i> ${course.date}
-                  </p>
-                  ${course.location ? `
-                    <p class="text-gray-600 text-sm">
-                      <i class="fa-solid fa-location-pin text-purple-500 mr-1"></i> ${course.location}
-                    </p>
-                  ` : ""}
-                </div>
+              <span class="flex-shrink-0 w-9 h-9 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center" aria-hidden="true">
+                <i class="fa-solid fa-chalkboard-user text-sm"></i>
+              </span>
+              <div class="min-w-0">
+                <p class="text-gray-800 font-medium leading-snug">${course.title}</p>
+                <p class="mt-1 text-gray-500 text-sm"><i class="fa-regular fa-calendar mr-1" aria-hidden="true"></i>${course.date}</p>
+                ${course.location ? `<p class="text-gray-500 text-sm"><i class="fa-solid fa-location-dot mr-1" aria-hidden="true"></i>${course.location}</p>` : ""}
               </div>
             `;
-  
-            // Append the course item to the grid
             coursesGrid.appendChild(courseItem);
           });
-  
+
           // Append the courses grid to the institution group
           institutionGroup.appendChild(coursesGrid);
   

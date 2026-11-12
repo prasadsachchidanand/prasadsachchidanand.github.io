@@ -17,6 +17,10 @@ function buildCalendarDateURL(dateString) {
     }
 }
 
+// Days this visitor marked as solved on a problem page (stored in this browser)
+var solvedProblemDates = {};
+try { solvedProblemDates = JSON.parse(localStorage.getItem('solvedProblems') || '{}'); } catch (e) { }
+
 // Set of all dates that have problems, populated asynchronously
 var availableProblemDates = new Set();
 var problemDatesLoaded = false;
@@ -32,7 +36,8 @@ const calendarTopicMap = {
     6: 'miscellaneous'
 };
 
-// Load all problem dates from all JSON files upfront
+// Load all problem dates upfront from the topic files. Days that are not in
+// any of them have no problem.
 async function loadAllProblemDates() {
     const allTopics = Object.values(calendarTopicMap);
     for (const topic of allTopics) {
@@ -229,23 +234,34 @@ function links() {
         } else {
             const dateString = `${year}-${month}-${day}`;
 
-            // For dates from 2026 onwards, check if a problem exists in JSON
-            const isMissingProblem = year >= 2026 && problemDatesLoaded && !availableProblemDates.has(dateString);
-
-            let link = document.createElement('a');
-
-            // ── KEY CHANGE: use buildCalendarDateURL instead of a hardcoded template ──
-            link.href = buildCalendarDateURL(dateString);
-            link.target = "_blank";
-            link.textContent = element.textContent;
+            // Days without a problem are shown in grey and are not links
+            const isMissingProblem = problemDatesLoaded && !availableProblemDates.has(dateString);
 
             if (isMissingProblem) {
-                link.style.color = "#9ca3af";
-                link.title = "No problem available for this date";
+                element.innerHTML = "";
+                element.textContent = String(parseInt(day, 10));
+                element.style.color = "#c0c4cc";
+                element.style.cursor = "default";
+                element.title = "No problem on this day";
+                return;
             }
+
+            element.style.color = "";
+            element.style.cursor = "";
+            element.title = "";
+
+            let link = document.createElement('a');
+            link.href = buildCalendarDateURL(dateString);
+            link.target = "_blank";
+            link.textContent = String(parseInt(day, 10));
 
             element.innerHTML = "";
             element.appendChild(link);
+
+            // Green dot under days this visitor marked as solved
+            const isSolved = solvedProblemDates[dateString] === true;
+            parent.classList.toggle('is-solved', isSolved);
+            if (isSolved) element.title = "Solved";
         }
     });
 }

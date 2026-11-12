@@ -32,10 +32,7 @@ function renderPublications(containerId, style = 'cv', filter = 'all') {
               <div class="flex-1">
                 <p class="text-gray-800 font-medium"><span class="italic">${pub.title}</span></p>
                 <p class="text-gray-600 text-sm mt-1">${pub.authors}</p>
-                <p class="text-gray-600 text-sm mt-1">
-                  ${pub.journal ? `<span>${pub.journal}</span>` : '<span>Preprint</span>'}
-                  ${pub.date ? `<span>, ${pub.date}</span>` : ''}
-                </p>
+                <p class="text-gray-600 text-sm mt-1">${pub.journal || 'Preprint'}${pub.date ? `, ${pub.date}` : ''}</p>
                 <div class="flex flex-wrap items-center text-gray-600 text-sm mt-1 gap-3">
                   ${pub.arxiv ? `<a href="${pub.arxiv}" target="_blank" class="text-indigo-500 hover:text-indigo-700">arXiv link</a>` : ''}
                   ${pub.journal_link ? `<a href="${pub.journal_link}" target="_blank" class="text-indigo-500 hover:text-indigo-700">Journal link</a>` : ''}
@@ -72,13 +69,14 @@ function renderPublications(containerId, style = 'cv', filter = 'all') {
         }
 
         container.appendChild(pubItem);
-
-        // Reprocess MathJax after inserting the publication
-        if (window.MathJax) {
-          MathJax.typeset([pubItem]);
-          console.log('Math success');
-        }
       });
+
+      // Typeset any maths in the titles. If MathJax is still loading, it will
+      // typeset the whole page (including these items) once it is ready.
+      const mj = window.MathJax;
+      if (mj && mj.startup && mj.startup.promise && typeof mj.typesetPromise === 'function') {
+        mj.startup.promise.then(() => mj.typesetPromise([container])).catch(err => console.error(err));
+      }
     })
     .catch(error => console.error('Error fetching publications:', error));
 }

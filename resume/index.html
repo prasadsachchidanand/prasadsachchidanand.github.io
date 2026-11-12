@@ -1,350 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-CVGSV7Y2CE');
-    </script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CVGSV7Y2CE');
+  </script>
 
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>CV - Sachchidanand Prasad</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Sachchidanand Prasad</title>
 
-		<meta name="description" content="Sachchidanand Prasad's homepage. Postdoctoral Fellow at Jilin University and Göttingen University. Explore research, teaching, CV, articles, daily problems, and more.">
-    	<meta name="keywords" content="Sachchidanand Prasad, postdoctoral fellow, Jilin University, Göttingen University, research, teaching, CV, articles, differential geometry, symplectic geometry, daily problems, gate, research papers, cut locus, quandles, independence complex">
-		
-		<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png"/>
+  <meta name="description" content="Curriculum vitae of Sachchidanand Prasad, Assistant Professor in the Department of Mathematics, IIIT Delhi: positions, education, publications, research group, talks and teaching.">
+  <meta name="keywords" content="Sachchidanand Prasad, CV, assistant professor, IIIT Delhi, differential geometry, algebraic topology, cut locus, Morse-Bott, publications, talks, teaching">
 
-		<link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png" />
+  <link rel="stylesheet" href="../assets/style.css">
 
-		<script src="../assets/js/renderPublications.js"></script>
-		<script src="../assets/js/renderEmployment.js"></script>
-		<script src="../assets/js/renderEducation.js"></script>
-		<script src="../assets/js/renderConferences.js"></script>
-		<script src="../assets/js/renderTalks.js"></script>
-		<script src="../assets/js/renderTeaching.js"></script>
-		<script src="../assets/js/renderAwards.js"></script>
+  <!--
+    Every section of this page is filled from a data file, so to update the CV
+    you edit the data, not this page:
+      Employment ............ data/employment.json
+      Education ............. data/education.json
+      Grants and awards ..... data/awards.json
+      Publications .......... data/publications.json   (also used on the Research page)
+      Research group ........ data/group.json          (also used on the Research page)
+      Courses taught ........ teaching/courses-data.json (also used on the Teaching page)
+      Teaching assistant .... data/teaching.json
+      Talks ................. data/talks.json
+      Conferences ........... data/conferences.json
+  -->
+  <script src="../assets/js/renderPublications.js"></script>
+  <script src="../assets/js/renderEmployment.js"></script>
+  <script src="../assets/js/renderEducation.js"></script>
+  <script src="../assets/js/renderConferences.js"></script>
+  <script src="../assets/js/renderTalks.js"></script>
+  <script src="../assets/js/renderTeaching.js"></script>
+  <script src="../assets/js/renderAwards.js"></script>
+  <script src="../assets/js/renderGroup.js"></script>
+  <script src="../assets/js/renderCoursesTaught.js"></script>
 
-		<!-- Font awesome -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- academic icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-		<!-- academic icons -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- MathJax, for maths in publication titles -->
+  <script>
+    MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-		<style>
-			/* Ensure the accordion content is hidden by default */
-			.accordion-toggle:not(:checked) ~ .accordion-content {
-				display: none;
-			}
+  <style>
+    html { scroll-behavior: smooth; }
 
-			/* Show accordion content when checked */
-				.accordion-toggle:checked ~ .accordion-content {
-				display: block;
-				max-height: none; /* Remove any height restrictions */
-				overflow: visible; /* Ensure content is not clipped */
-			}
+    /* Leave room for the fixed menu and the section bar when jumping to a section */
+    .cv-section { scroll-margin-top: 8.5rem; }
 
-			/* Rotate chevron when accordion is open */
-				.accordion-toggle:checked + .accordion-label .fa-chevron-down {
-				transform: rotate(180deg);
-			}
+    /* Section bar sits just under the fixed site menu */
+    .cv-nav { top: 60px; }
+    .cv-nav a.active { background: #4f46e5; color: #fff; }
 
-			/* Ensure the grid container doesn't restrict content */
-			.grid {
-				display: grid;
-				width: 100%;
-				overflow: visible; /* Prevent clipping within the grid */
-			}
+    /* Conferences: show the latest few until "Show all" is pressed */
+    #conferences-list.cv-collapsed > :nth-child(n+7) { display: none; }
 
-			/* Ensure each grid item (publication card) is fully visible */
-			.grid > div {
-				min-height: 0; /* Prevent shrinking issues */
-				overflow: visible; /* Ensure no content is clipped */
-			}
+    /* "Print this page" / Save as PDF: a plain, compact CV */
+    @media print {
+      @page { margin: 14mm; }
+      html { font-size: 11px; }
+      body { background: #fff !important; }
+      site-header, site-footer, .cv-nav, .no-print, #back-to-top { display: none !important; }
+      .cv-page { padding: 0 !important; }
+      .cv-card { box-shadow: none !important; border: 0 !important; border-radius: 0 !important; padding: 0 !important; }
+      .cv-section h2 { border-bottom: 1px solid #c7d2fe; padding-bottom: 0.25rem; }
+      .cv-section h2, .cv-section h3 { break-after: avoid; page-break-after: avoid; }
+      .cv-section > div > * { break-inside: avoid; }
+      .cv-page [class*="shadow"] { box-shadow: none !important; }
+      #conferences-list.cv-collapsed > :nth-child(n+7) { display: block; }
+      a { color: inherit !important; text-decoration: none !important; }
+    }
+  </style>
 
-			/* Add smooth scrolling behavior */
-			html {
-				scroll-behavior: smooth;
-				scroll-snap-type: y proximity;
-			}
-		</style>
-        
-	</head>
+  <!-- Shared header and footer (edit assets/js/site-layout.js) -->
+  <script src="../assets/js/site-layout.js"></script>
+</head>
 
-	<body style="background: #edf2f7;">
-		<div class="flex flex-col h-screen">	
-			
-			<!-- navbar -->
-			<div class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
-				<div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto   md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-					<div class="p-4 flex flex-row items-center justify-between">
-						<a href="../" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
-							Sachchidanand Prasad
-						</a>
-						<button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
-						<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-							<path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-							<path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-						</svg>
-						</button>
-					</div>
-					
-					<nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
-						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../">Home</a>
-				
-						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../research/">Research</a>
+<body style="background: #edf2f7;">
+  <div class="flex flex-col min-h-screen">
+    <site-header></site-header>
 
-						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../teaching/">Teaching</a>
-						
-						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../resume/">CV</a>
+    <main class="cv-page text-gray-600 body-font px-4 pt-24 pb-16">
+      <div class="mx-auto max-w-5xl space-y-6">
 
-						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../publications">Publications</a>
+        <!-- Profile summary -->
+        <div class="cv-card bg-white rounded-xl shadow-sm p-6 flex flex-col sm:flex-row items-center gap-6">
+          <img src="../assets/img/sprasad-small.jpg" alt="Portrait of Sachchidanand Prasad" width="112" height="112"
+            class="w-28 h-28 rounded-full object-cover ring-4 ring-indigo-50 flex-shrink-0">
+          <div class="flex-1 text-center sm:text-left">
+            <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Sachchidanand Prasad</h1>
+            <p class="mt-1 text-indigo-600 font-medium">Assistant Professor, Department of Mathematics, IIIT Delhi</p>
+            <p class="mt-2 text-sm text-gray-600">
+              Research interests: differential geometry, differential topology and algebraic topology
+              (cut locus of submanifolds, Morse–Bott theory, independence complexes).
+            </p>
+            <div class="mt-3 flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 text-sm">
+              <span class="text-gray-700"><i class="fa-solid fa-envelope text-indigo-500 mr-1"></i>sachchidanand@iiitd.ac.in</span>
+              <a class="text-indigo-600 hover:text-indigo-800" href="https://scholar.google.com/citations?user=2XaM18gAAAAJ" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar mr-1"></i>Google Scholar</a>
+              <a class="text-indigo-600 hover:text-indigo-800" href="https://arxiv.org/a/prasad_s_4.html" target="_blank" rel="noopener noreferrer"><i class="ai ai-arxiv mr-1"></i>arXiv</a>
+              <a class="text-indigo-600 hover:text-indigo-800" href="https://orcid.org/0000-0002-2943-3163" target="_blank" rel="noopener noreferrer"><i class="ai ai-orcid mr-1"></i>ORCID</a>
+              <a class="text-indigo-600 hover:text-indigo-800" href="https://mathscinet.ams.org/mathscinet/2006/mathscinet/search/author.html?mrauthid=1563509" target="_blank" rel="noopener noreferrer">MathSciNet</a>
+            </div>
+          </div>
+          <div class="no-print flex sm:flex-col gap-2 flex-shrink-0">
+            <a href="../assets/attachments/CV_Sachchidanand.pdf" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center px-4 py-2 bg-indigo-600 text-white text-sm font-semibold rounded-lg hover:bg-indigo-700">
+              <i class="fa-solid fa-file-pdf mr-2"></i>PDF CV
+            </a>
+            <button type="button" onclick="window.print()"
+              class="inline-flex items-center justify-center px-4 py-2 bg-white text-gray-700 text-sm font-semibold rounded-lg border border-gray-300 hover:bg-gray-100">
+              <i class="fa-solid fa-print mr-2"></i>Print this page
+            </button>
+          </div>
+        </div>
 
-						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../miscellaneous">Miscellaneous</a>
-						
-						<a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="../contact">Contact</a>	  
-					</nav>
-				</div>
-			</div>
+        <!-- Jump to a section -->
+        <nav class="cv-nav sticky z-[5] -mx-4 px-4 py-2 bg-[#edf2f7]/95 backdrop-blur" aria-label="CV sections">
+          <div class="flex gap-2 overflow-x-auto text-sm font-medium whitespace-nowrap">
+            <a href="#employment" class="px-3 py-1.5 rounded-full bg-white text-gray-700 hover:bg-indigo-100">Employment</a>
+            <a href="#education" class="px-3 py-1.5 rounded-full bg-white text-gray-700 hover:bg-indigo-100">Education</a>
+            <a href="#awards" class="px-3 py-1.5 rounded-full bg-white text-gray-700 hover:bg-indigo-100">Grants &amp; Awards</a>
+            <a href="#publications" class="px-3 py-1.5 rounded-full bg-white text-gray-700 hover:bg-indigo-100">Publications</a>
+            <a href="#group" class="px-3 py-1.5 rounded-full bg-white text-gray-700 hover:bg-indigo-100">Research Group</a>
+            <a href="#teaching" class="px-3 py-1.5 rounded-full bg-white text-gray-700 hover:bg-indigo-100">Teaching</a>
+            <a href="#talks" class="px-3 py-1.5 rounded-full bg-white text-gray-700 hover:bg-indigo-100">Talks</a>
+            <a href="#conferences" class="px-3 py-1.5 rounded-full bg-white text-gray-700 hover:bg-indigo-100">Conferences</a>
+          </div>
+        </nav>
 
-			<!-- section -->
-			<section class="text-gray-600 body-font">
-				<div class="container px-5 py-24 mx-auto max-w-5xl">
-				  	
-					<!-- Header -->
-					<div class="flex flex-col items-center text-center justify-center mb-12">
-						<h2 class="text-gray-900 text-4xl title-font font-bold tracking-tight">Curriculum Vitae</h2>
-						<div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-						<p class="text-lg text-gray-500 max-w-lg mb-4">
-						  A snapshot of my academic journey, research, and professional experiences.
-						</p>
-						<a href="../assets/attachments/CV_Sachchidanand.pdf" target="_blank" class="inline-flex items-center px-2 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-indigo-600 transition">
-						  <i class="fa-solid fa-file-pdf text-red-500 mr-2"></i>Download PDF
-						</a>
-					</div>
+        <section id="employment" class="cv-section cv-card bg-white rounded-xl shadow-sm p-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4"><i class="fa-solid fa-briefcase text-indigo-500 mr-2"></i>Employment</h2>
+          <div id="employment-list"></div>
+        </section>
 
-					<!-- Expand/Collapse Buttons -->
-					<div class="flex justify-end mb-6">
-						<button id="toggle-all" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition">
-						  Expand All
-						</button>
-					</div>
+        <section id="education" class="cv-section cv-card bg-white rounded-xl shadow-sm p-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4"><i class="fa-solid fa-graduation-cap text-indigo-500 mr-2"></i>Education</h2>
+          <div id="education-list"></div>
+        </section>
 
-					<div class="space-y-6">
-						
-						<!-- Employment -->
-						<div class="bg-indigo-50 rounded-lg shadow-md">
-							<input type="checkbox" id="employment-toggle" class="accordion-toggle hidden">
-							<label for="employment-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
-							  <h3 class="text-xl font-semibold text-gray-900">Employment</h3>
-							  <i class="fa-solid fa-chevron-down text-gray-600"></i>
-							</label>
-							<div class="accordion-content p-4">
-							  <!-- Container for dynamically rendered employment data -->
-							  <div id="employment-list"></div>
-							</div>
-						</div>
+        <section id="awards" class="cv-section cv-card bg-white rounded-xl shadow-sm p-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4"><i class="fa-solid fa-award text-indigo-500 mr-2"></i>Grants, Honours and Awards</h2>
+          <div id="awards-list" class="space-y-4"></div>
+        </section>
 
-						<!-- Education -->
-						<div class="bg-indigo-50 rounded-lg shadow-md">
-							<input type="checkbox" id="education-toggle" class="accordion-toggle hidden">
-							<label for="education-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
-							  <h3 class="text-xl font-semibold text-gray-900">Education</h3>
-							  <i class="fa-solid fa-chevron-down text-gray-600"></i>
-							</label>
-							<div class="accordion-content p-4">
-							  <!-- Container for dynamically rendered education data -->
-							  <div id="education-list"></div>
-							</div>
-						</div>
-						
-						<!-- Publications/Preprints -->
-						<div class="bg-indigo-50 rounded-lg shadow-md">
-							<!-- Accordion Toggle -->
-							<input type="checkbox" id="publications-toggle" class="accordion-toggle hidden">
-							<label for="publications-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
-							  <h3 class="text-xl font-semibold text-gray-900">Publications/Preprints</h3>
-							  <i class="fa-solid fa-chevron-down text-gray-600 transition-transform duration-300"></i>
-							</label>
-						  
-							<!-- Accordion Content -->
-							<div class="accordion-content p-4 overflow-visible">
-							  <div id="publications-list-cv"></div>
-							</div>
-						</div>
-						
-						<!-- Conferences -->
-						<div class="bg-indigo-50 rounded-lg shadow-md">
-							<input type="checkbox" id="conferences-toggle" class="accordion-toggle hidden">
-							<label for="conferences-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
-							  <h3 class="text-xl font-semibold text-gray-900">Training Programmes and Conferences Attended</h3>
-							  <i class="fa-solid fa-chevron-down text-gray-600 transition-transform duration-300"></i>
-							</label>
-							<div class="accordion-content p-4">
-							  <!-- Container for dynamically rendered conference data -->
-							  <div id="conferences-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-							</div>
-						</div>
-						
-						<!-- Selected Talks -->
-						<div class="bg-indigo-50 rounded-lg shadow-md">
-							<input type="checkbox" id="talks-toggle" class="accordion-toggle hidden">
-							<label for="talks-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
-							  <h3 class="text-xl font-semibold text-gray-900">Selected Talks</h3>
-							  <i class="fa-solid fa-chevron-down text-gray-600 transition-transform duration-300"></i>
-							</label>
-							<div class="accordion-content p-4">
-							  <!-- Container for dynamically rendered talks data -->
-							  <div id="talks-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-							</div>
-						</div>
+        <section id="publications" class="cv-section cv-card bg-white rounded-xl shadow-sm p-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4"><i class="fa-solid fa-file-lines text-indigo-500 mr-2"></i>Publications and Preprints</h2>
+          <div id="publications-list-cv"></div>
+        </section>
 
-						<!-- Teaching Assistant -->
-						<div class="bg-indigo-50 rounded-lg shadow-md">
-							<input type="checkbox" id="teaching-toggle" class="accordion-toggle hidden">
-							<label for="teaching-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
-							  <h3 class="text-xl font-semibold text-gray-900">Teaching Assistant</h3>
-							  <i class="fa-solid fa-chevron-down text-gray-600 transition-transform duration-300"></i>
-							</label>
-							<div class="accordion-content p-4">
-							  <!-- Container for dynamically rendered teaching data -->
-							  <div id="teaching-list"></div>
-							</div>
-						</div>
-						
-						<!-- Honours and Awards -->
-						<div class="bg-indigo-50 rounded-lg shadow-md">
-							<input type="checkbox" id="awards-toggle" class="accordion-toggle hidden">
-							<label for="awards-toggle" class="accordion-label flex justify-between items-center p-4 cursor-pointer bg-indigo-50 rounded-t-lg hover:bg-indigo-100 transition">
-							  <h3 class="text-xl font-semibold text-gray-900">Honours and Awards</h3>
-							  <i class="fa-solid fa-chevron-down text-gray-600"></i>
-							</label>
-							<div class="accordion-content p-4">
-							  <!-- Container for dynamically rendered awards data -->
-							  <div id="awards-list" class="space-y-4"></div>
-							</div>
-						</div>
+        <section id="group" class="cv-section cv-card bg-white rounded-xl shadow-sm p-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4"><i class="fa-solid fa-user-group text-indigo-500 mr-2"></i>Research Group</h2>
+          <div id="supervision-list"></div>
+          <p class="no-print mt-4 text-sm text-gray-500">Photos and links: <a href="../research/#group" class="text-indigo-600 hover:text-indigo-800">Research page</a>.</p>
+        </section>
 
-						<!-- Back to Top Button with Tooltip -->
-						<div class="fixed bottom-8 right-8 group">
-							<button id="back-to-top" class="p-3 bg-indigo-500 text-white rounded-full shadow-lg hover:bg-indigo-600 transition-all duration-300 opacity-0 invisible">
-								<i class="fa-solid fa-arrow-up"></i>
-							</button>
-							<!-- Tooltip -->
-							<div class="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-800 text-white text-sm rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-								Back to Top
-								<div class="absolute top-full right-2 w-2 h-2 bg-gray-800 transform rotate-45"></div>
-							</div>
-						</div>
+        <section id="teaching" class="cv-section cv-card bg-white rounded-xl shadow-sm p-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4"><i class="fa-solid fa-chalkboard-user text-indigo-500 mr-2"></i>Teaching</h2>
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">Courses taught</h3>
+          <div id="courses-taught-list"></div>
+          <h3 class="text-lg font-semibold text-gray-800 mt-8 mb-3">Teaching assistant</h3>
+          <div id="teaching-list"></div>
+        </section>
 
-					</div>
+        <section id="talks" class="cv-section cv-card bg-white rounded-xl shadow-sm p-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4"><i class="fa-solid fa-microphone text-indigo-500 mr-2"></i>Selected Talks</h2>
+          <div id="talks-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </section>
 
-				</div>
-			</section>
+        <section id="conferences" class="cv-section cv-card bg-white rounded-xl shadow-sm p-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4"><i class="fa-solid fa-calendar-days text-indigo-500 mr-2"></i>Training Programmes and Conferences Attended</h2>
+          <div id="conferences-list" class="cv-collapsed grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+          <div class="no-print text-center mt-5">
+            <button type="button" id="conferences-more" hidden
+              class="px-4 py-2 text-sm font-semibold rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100"></button>
+          </div>
+        </section>
 
-			<!-- footer -->
-			<footer class="foot mt-auto border-t border-gray-200">
-				<div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
-				  <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> Sachchidanand
-				  </p>
-				  <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last updated: <span id="updated"></span>
-				  </p>
-				  <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-					<a class="text-gray-500 hover:text-blue-500" href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
-					  <i class="fa-brands fa-facebook-f"></i>
-					</a>
-					<a class="ml-3 text-gray-500 hover:text-red-500" href="https://www.instagram.com/sachchidanand1729/" target="_blank">
-					  <i class="fa-brands fa-instagram"></i>
-					</a>
-					<a class="ml-3 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26" target="_blank">
-					  <i class="fa-brands fa-twitter"></i>
-					</a>
-					<a class="ml-3 text-gray-500 hover:text-purple-700" href="https://github.com/prasadsachchidanand" target="_blank">
-					  <i class="fa-brands fa-github"></i>
-					</a>
-					<a class="ml-3 text-gray-500 hover:text-green-500" href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
-					  <i class="ai ai-researchgate ai-lg"></i>
-					</a>
-					<a class="ml-3 text-gray-500 hover:text-gray-900" href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
-					  <i class="ai ai-academia"></i>
-					</a>
-				  </span>
-				</div>
-				<hr class="py-1 w-1/4 m-auto">
-				<div class="items-center">
-					<p class="text-center">
-						<span class="text-gray-500 text-sm mr-1">No of visitors: </span>
-						<img src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D" 
-						alt="Hit Counter by Digits" border="0" class="w-11 inline" /> 
-						<span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/" class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
-					</p>
-				</div>
-			  </footer>
+      </div>
+    </main>
 
-		</div>
+    <site-footer></site-footer>
+  </div>
 
-		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-		<script>
-			function myFunction() {
-					var x = document.lastModified;
-					document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
-				}
-				myFunction()
-		</script>
+  <!-- Back to top -->
+  <button id="back-to-top" type="button" aria-label="Back to top"
+    class="fixed bottom-8 right-8 p-3 bg-indigo-500 text-white rounded-full shadow-lg hover:bg-indigo-600 transition-all duration-300 opacity-0 invisible">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
-		<!-- for expand and collapse -->
-		<script>
-			const toggleAllBtn = document.getElementById('toggle-all');
-			const toggles = document.querySelectorAll('.accordion-toggle');
-			let expanded = false;
-			
-			toggleAllBtn.addEventListener('click', () => {
-			expanded = !expanded;
-			toggles.forEach(toggle => toggle.checked = expanded);
-			toggleAllBtn.textContent = expanded ? 'Collapse All' : 'Expand All';
-			toggleAllBtn.classList.toggle('bg-indigo-500', !expanded);
-			toggleAllBtn.classList.toggle('bg-gray-500', expanded);
-			toggleAllBtn.classList.toggle('hover:bg-indigo-600', !expanded);
-			toggleAllBtn.classList.toggle('hover:bg-gray-600', expanded);
-			});
-		</script>
+  <script>
+    renderPublications('publications-list-cv', 'cv');
+    renderGroupList('supervision-list');
+    renderCoursesTaught('courses-taught-list');
 
-		<script>
-			renderPublications('publications-list-cv', 'cv');
-		</script>
+    // Conferences: "Show all" button once the list has loaded
+    (function () {
+      const list = document.getElementById('conferences-list');
+      const button = document.getElementById('conferences-more');
+      const update = () => {
+        const n = list.children.length;
+        button.hidden = n <= 6;
+        button.textContent = list.classList.contains('cv-collapsed') ? `Show all ${n}` : 'Show fewer';
+      };
+      new MutationObserver(update).observe(list, { childList: true });
+      button.addEventListener('click', () => {
+        list.classList.toggle('cv-collapsed');
+        update();
+        if (list.classList.contains('cv-collapsed')) document.getElementById('conferences').scrollIntoView();
+      });
+    })();
 
-		<!-- Back to top -->
-		<script>
-			// Back to Top Button
-			document.addEventListener("DOMContentLoaded", function () {
-				const backToTopButton = document.getElementById("back-to-top");
+    // Highlight the section you are reading in the section bar
+    (function () {
+      const links = [...document.querySelectorAll('.cv-nav a')];
+      const byId = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
+      const sections = [...document.querySelectorAll('.cv-section')];
+      const visible = new Set();
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => e.isIntersecting ? visible.add(e.target) : visible.delete(e.target));
+        const top = sections.find(s => visible.has(s));
+        if (!top) return;
+        {
+          links.forEach(a => a.classList.remove('active'));
+          const link = byId[top.id];
+          if (link) {
+            link.classList.add('active');
+            // On phones the bar scrolls sideways: keep the highlighted entry in view
+            const bar = link.parentElement;
+            if (link.offsetLeft < bar.scrollLeft || link.offsetLeft + link.offsetWidth > bar.scrollLeft + bar.clientWidth) {
+              bar.scrollTo({ left: link.offsetLeft - 16, behavior: 'smooth' });
+            }
+          }
+        }
+      }, { rootMargin: '-140px 0px -60% 0px' });
+      sections.forEach(s => observer.observe(s));
+    })();
 
-				// Show/hide the button based on scroll position
-				window.addEventListener("scroll", function () {
-					if (window.scrollY > 300) {
-					backToTopButton.classList.remove("opacity-0", "invisible");
-					backToTopButton.classList.add("opacity-100", "visible");
-					} else {
-					backToTopButton.classList.remove("opacity-100", "visible");
-					backToTopButton.classList.add("opacity-0", "invisible");
-					}
-				});
-
-				// Smooth scroll to top when the button is clicked
-				backToTopButton.addEventListener("click", function () {
-					window.scrollTo({
-					top: 0,
-					behavior: "smooth",
-					});
-				});
-			});
-		</script>
-
-	</body>
+    // Back to top button
+    (function () {
+      const button = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        const show = window.scrollY > 300;
+        button.classList.toggle('opacity-0', !show);
+        button.classList.toggle('invisible', !show);
+      });
+      button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+  </script>
+</body>
 </html>
-

@@ -78,12 +78,20 @@ function findCoverImage(bookKey) {
 const BOOK_REGISTRY = [
   {
     key: 'abstract-algebra-herstein',
-    title: 'Topics in Algebra',
+    title: 'Abstract Algebra',
     author: 'I. N. Herstein',
     shortName: 'Herstein',
     color: 'rose',
     // covers both naming variants seen historically in the data:
     aliases: ['abstract-algebra-herstein', 'herstein-abstract-algebra'],
+  },
+  {
+    key: 'topics-in-algebra-herstein',
+    title: 'Topics in Algebra',
+    author: 'I. N. Herstein',
+    shortName: 'Herstein (Topics)',
+    color: 'rose',
+    aliases: ['topics-in-algebra-herstein'],
   },
   {
     key: 'real-analysis-rudin',

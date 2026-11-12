@@ -63,7 +63,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Does NOT touch visibility or the URL — callers decide that.
     function renderTagContent(linksContainer, tag) {
         const canonicalTag = (typeof TAG_ALIASES !== 'undefined' && TAG_ALIASES[tag]) || tag;
-        const problemDirs = tagsToProblems[canonicalTag] || tagsToProblems[tag];
+        // Problems scheduled for a later date are not shown until that day
+        const now = new Date();
+        const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+        const problemDirs = (tagsToProblems[canonicalTag] || tagsToProblems[tag] || []).filter(entry => {
+            const m = entry.match(/(\d{4}-\d{2}-\d{2})/);
+            return !m || m[1] <= todayStr;
+        });
 
         const wasHidden = linksContainer.classList.contains('hidden');
         linksContainer.className = 'p-5' + (wasHidden ? ' hidden' : '');

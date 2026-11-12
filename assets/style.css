@@ -666,21 +666,12 @@ video {
   inset: 0px;
 }
 
-.inset-x-0 {
-  left: 0px;
-  right: 0px;
-}
-
 .bottom-4 {
   bottom: 1rem;
 }
 
 .bottom-8 {
   bottom: 2rem;
-}
-
-.bottom-full {
-  bottom: 100%;
 }
 
 .left-0 {
@@ -739,10 +730,6 @@ video {
   top: 1rem;
 }
 
-.top-full {
-  top: 100%;
-}
-
 .z-10 {
   z-index: 10;
 }
@@ -777,10 +764,6 @@ video {
 
 .m-3 {
   margin: 0.75rem;
-}
-
-.m-auto {
-  margin: auto;
 }
 
 .-mx-1 {
@@ -923,6 +906,10 @@ video {
   margin-right: 0.25rem;
 }
 
+.mr-1\.5 {
+  margin-right: 0.375rem;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -949,6 +936,10 @@ video {
 
 .mt-12 {
   margin-top: 3rem;
+}
+
+.mt-14 {
+  margin-top: 3.5rem;
 }
 
 .mt-16 {
@@ -1079,6 +1070,10 @@ video {
   height: 0.25rem;
 }
 
+.h-1\.5 {
+  height: 0.375rem;
+}
+
 .h-10 {
   height: 2.5rem;
 }
@@ -1109,6 +1104,10 @@ video {
 
 .h-24 {
   height: 6rem;
+}
+
+.h-28 {
+  height: 7rem;
 }
 
 .h-3\.5 {
@@ -1145,6 +1144,10 @@ video {
 
 .h-80 {
   height: 20rem;
+}
+
+.h-9 {
+  height: 2.25rem;
 }
 
 .h-96 {
@@ -1215,10 +1218,6 @@ video {
   width: 33.333333%;
 }
 
-.w-1\/4 {
-  width: 25%;
-}
-
 .w-10 {
   width: 2.5rem;
 }
@@ -1253,6 +1252,10 @@ video {
 
 .w-24 {
   width: 6rem;
+}
+
+.w-28 {
+  width: 7rem;
 }
 
 .w-3\.5 {
@@ -1299,6 +1302,10 @@ video {
   width: 20rem;
 }
 
+.w-9 {
+  width: 2.25rem;
+}
+
 .w-96 {
   width: 24rem;
 }
@@ -1343,10 +1350,6 @@ video {
   max-width: 80rem;
 }
 
-.max-w-lg {
-  max-width: 32rem;
-}
-
 .max-w-md {
   max-width: 28rem;
 }
@@ -1383,6 +1386,10 @@ video {
   flex-grow: 1;
 }
 
+.grow {
+  flex-grow: 1;
+}
+
 .border-collapse {
   border-collapse: collapse;
 }
@@ -1394,11 +1401,6 @@ video {
 
 .rotate-180 {
   --tw-rotate: 180deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.rotate-45 {
-  --tw-rotate: 45deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1434,6 +1436,10 @@ video {
 
 .resize {
   resize: both;
+}
+
+.scroll-mt-24 {
+  scroll-margin-top: 6rem;
 }
 
 .list-inside {
@@ -1633,17 +1639,8 @@ video {
   border-color: rgb(229 231 235 / var(--tw-divide-opacity, 1));
 }
 
-.divide-gray-300 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-divide-opacity, 1));
-}
-
 .overflow-hidden {
   overflow: hidden;
-}
-
-.overflow-visible {
-  overflow: visible;
 }
 
 .overflow-x-auto {
@@ -1828,6 +1825,11 @@ video {
   border-color: rgb(34 197 94 / var(--tw-border-opacity, 1));
 }
 
+.border-indigo-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(224 231 255 / var(--tw-border-opacity, 1));
+}
+
 .border-indigo-200 {
   --tw-border-opacity: 1;
   border-color: rgb(199 210 254 / var(--tw-border-opacity, 1));
@@ -1896,10 +1898,6 @@ video {
 .border-teal-200 {
   --tw-border-opacity: 1;
   border-color: rgb(153 246 228 / var(--tw-border-opacity, 1));
-}
-
-.border-transparent {
-  border-color: transparent;
 }
 
 .border-violet-200 {
@@ -1981,6 +1979,11 @@ video {
   background-color: rgb(209 250 229 / var(--tw-bg-opacity, 1));
 }
 
+.bg-emerald-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(16 185 129 / var(--tw-bg-opacity, 1));
+}
+
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
@@ -2014,11 +2017,6 @@ video {
 .bg-gray-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
-}
-
-.bg-gray-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
 }
 
 .bg-green-100 {
@@ -2363,12 +2361,6 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-teal-50 {
-  --tw-gradient-from: #f0fdfa var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(240 253 250 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
 .from-transparent {
   --tw-gradient-from: transparent var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
@@ -2414,10 +2406,6 @@ video {
 
 .to-blue-600 {
   --tw-gradient-to: #2563eb var(--tw-gradient-to-position);
-}
-
-.to-cyan-100 {
-  --tw-gradient-to: #cffafe var(--tw-gradient-to-position);
 }
 
 .to-gray-100 {
@@ -2472,10 +2460,6 @@ video {
   --tw-gradient-to: #475569 var(--tw-gradient-to-position);
 }
 
-.to-teal-100 {
-  --tw-gradient-to: #ccfbf1 var(--tw-gradient-to-position);
-}
-
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
 }
@@ -2491,10 +2475,6 @@ video {
 .bg-clip-text {
   -webkit-background-clip: text;
           background-clip: text;
-}
-
-.fill-current {
-  fill: currentColor;
 }
 
 .object-contain {
@@ -2543,6 +2523,11 @@ video {
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+}
+
+.px-1\.5 {
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
 }
 
 .px-2 {
@@ -2655,6 +2640,10 @@ video {
   padding-bottom: 2rem;
 }
 
+.pb-16 {
+  padding-bottom: 4rem;
+}
+
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -2701,6 +2690,10 @@ video {
 
 .pt-24 {
   padding-top: 6rem;
+}
+
+.pt-32 {
+  padding-top: 8rem;
 }
 
 .pt-4 {
@@ -2765,6 +2758,11 @@ video {
 
 .text-6xl {
   font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
   line-height: 1;
 }
 
@@ -2997,6 +2995,11 @@ video {
   color: rgb(224 231 255 / var(--tw-text-opacity, 1));
 }
 
+.text-indigo-400 {
+  --tw-text-opacity: 1;
+  color: rgb(129 140 248 / var(--tw-text-opacity, 1));
+}
+
 .text-indigo-500 {
   --tw-text-opacity: 1;
   color: rgb(99 102 241 / var(--tw-text-opacity, 1));
@@ -3213,6 +3216,14 @@ video {
   text-decoration-line: line-through;
 }
 
+.decoration-indigo-200 {
+  text-decoration-color: #c7d2fe;
+}
+
+.underline-offset-4 {
+  text-underline-offset: 4px;
+}
+
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -3230,10 +3241,6 @@ video {
 
 .opacity-0 {
   opacity: 0;
-}
-
-.opacity-100 {
-  opacity: 1;
 }
 
 .opacity-50 {
@@ -3303,13 +3310,40 @@ video {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
+.ring-4 {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.ring-indigo-50 {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(238 242 255 / var(--tw-ring-opacity, 1));
+}
+
+.ring-white {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity, 1));
+}
+
 .blur {
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.invert {
+  --tw-invert: invert(100%);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.backdrop-blur {
+  --tw-backdrop-blur: blur(8px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
 .backdrop-blur-sm {
@@ -3385,6 +3419,16 @@ video {
   }
 }
 
+/* A displayed formula wider than its box (common on phones) scrolls sideways
+   inside the box instead of running off the page. */
+
+mjx-container[display="true"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0;
+}
+
 /* Custom fill-in-the-blank underline */
 
 .fill-in-blank {
@@ -3395,6 +3439,350 @@ video {
   /* Fixed width */
   height: 1em;
   /* Aligns with text height */
+}
+
+/* ===================================================================
+   DARK MODE
+   The pages use fixed light colour classes, so instead of adding dark:
+   variants everywhere, this block re-maps the common colours when the
+   <html> element has the class "dark" (set by the sun/moon button in the
+   shared header, assets/js/site-layout.js). Delete this block and the
+   button to remove dark mode entirely.
+   =================================================================== */
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background: #0f172a !important;
+  color: #cbd5e1;
+}
+
+/* surfaces */
+
+html.dark .bg-white {
+  background-color: #1e293b !important;
+}
+
+html.dark .bg-gray-50 {
+  background-color: #172033 !important;
+}
+
+html.dark .bg-gray-100 {
+  background-color: #243145 !important;
+}
+
+html.dark .bg-gray-200 {
+  background-color: #334155 !important;
+}
+
+html.dark .bg-gray-300 {
+  background-color: #475569 !important;
+}
+
+html.dark .hover\:bg-gray-50:hover,
+html.dark .hover\:bg-gray-100:hover,
+html.dark .hover\:bg-gray-200:hover {
+  background-color: #334155 !important;
+}
+
+html.dark .hover\:bg-gray-300:hover {
+  background-color: #475569 !important;
+}
+
+/* text */
+
+html.dark .text-black, html.dark .text-gray-900, html.dark .text-gray-800,
+html.dark .text-slate-800, html.dark .hover\:text-gray-900:hover {
+  color: #f1f5f9 !important;
+}
+
+html.dark .text-gray-700, html.dark .text-slate-700, html.dark .hover\:text-gray-800:hover {
+  color: #e2e8f0 !important;
+}
+
+html.dark .text-gray-600, html.dark .hover\:text-gray-700:hover {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-gray-500, html.dark .hover\:text-gray-600:hover {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-gray-400 {
+  color: #7c8aa0 !important;
+}
+
+/* borders and dividers */
+
+html.dark .border-gray-100, html.dark .border-gray-200, html.dark .border-gray-300,
+html.dark .border-slate-300, html.dark .hover\:border-gray-300:hover {
+  border-color: #334155 !important;
+}
+
+html.dark .divide-gray-200 > :not([hidden]) ~ :not([hidden]),
+html.dark .divide-gray-300 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #334155 !important;
+}
+
+/* links and accents */
+
+html.dark .text-blue-500, html.dark .text-blue-600 {
+  color: #60a5fa !important;
+}
+
+html.dark .hover\:text-blue-700:hover, html.dark .hover\:text-blue-800:hover,
+html.dark .text-blue-800 {
+  color: #93c5fd !important;
+}
+
+html.dark .text-indigo-500, html.dark .text-indigo-600 {
+  color: #818cf8 !important;
+}
+
+html.dark .text-indigo-700, html.dark .text-indigo-800,
+html.dark .hover\:text-indigo-700:hover, html.dark .hover\:text-indigo-800:hover {
+  color: #a5b4fc !important;
+}
+
+/* tinted boxes: problem (red), solution (green), hint (yellow), notes (blue/sky/indigo) */
+
+html.dark .bg-red-50 {
+  background-color: rgba(248, 113, 113, 0.10) !important;
+}
+
+html.dark .bg-red-100 {
+  background-color: rgba(248, 113, 113, 0.14) !important;
+}
+
+html.dark .bg-green-50 {
+  background-color: rgba(74, 222, 128, 0.09) !important;
+}
+
+html.dark .bg-green-100 {
+  background-color: rgba(74, 222, 128, 0.14) !important;
+}
+
+html.dark .bg-yellow-50 {
+  background-color: rgba(250, 204, 21, 0.09) !important;
+}
+
+html.dark .bg-yellow-100 {
+  background-color: rgba(250, 204, 21, 0.14) !important;
+}
+
+html.dark .bg-blue-50, html.dark .bg-sky-50 {
+  background-color: rgba(96, 165, 250, 0.10) !important;
+}
+
+html.dark .bg-blue-100 {
+  background-color: rgba(96, 165, 250, 0.16) !important;
+}
+
+html.dark .bg-indigo-50, html.dark .hover\:bg-indigo-50:hover {
+  background-color: rgba(129, 140, 248, 0.12) !important;
+}
+
+html.dark .bg-indigo-100, html.dark .hover\:bg-indigo-100:hover {
+  background-color: rgba(129, 140, 248, 0.18) !important;
+}
+
+html.dark .bg-indigo-200 {
+  background-color: rgba(129, 140, 248, 0.26) !important;
+}
+
+html.dark .bg-purple-100 {
+  background-color: rgba(192, 132, 252, 0.16) !important;
+}
+
+html.dark .bg-emerald-50 {
+  background-color: rgba(52, 211, 153, 0.10) !important;
+}
+
+html.dark .text-red-700, html.dark .text-red-800 {
+  color: #fca5a5 !important;
+}
+
+html.dark .text-green-700, html.dark .text-green-800 {
+  color: #86efac !important;
+}
+
+html.dark .text-yellow-800 {
+  color: #fde047 !important;
+}
+
+html.dark .text-emerald-700 {
+  color: #6ee7b7 !important;
+}
+
+html.dark .border-indigo-100, html.dark .border-green-200, html.dark .border-blue-200 {
+  border-color: #334155 !important;
+}
+
+html.dark .from-yellow-50 {
+  --tw-gradient-from: rgba(250, 204, 21, 0.08) var(--tw-gradient-from-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+html.dark .to-white {
+  --tw-gradient-to: #1e293b var(--tw-gradient-to-position) !important;
+}
+
+/* form fields */
+
+html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.dark textarea, html.dark select {
+  background-color: #0f172a !important;
+  color: #e2e8f0 !important;
+  border-color: #475569 !important;
+}
+
+html.dark ::-moz-placeholder {
+  color: #64748b !important;
+}
+
+html.dark ::placeholder {
+  color: #64748b !important;
+}
+
+/* diagrams are drawn in black on a transparent background: give them a light backdrop */
+
+html.dark main img, html.dark section img {
+  background-color: #f8fafc;
+}
+
+/* daily-problems calendar and the small calendar on problem pages */
+
+html.dark .table-calendar td, html.dark .table-calendar th {
+  border-color: #334155 !important;
+}
+
+html.dark #mini-calendar {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+html.dark #mini-calendar #cal-month-label {
+  color: #f1f5f9 !important;
+}
+
+html.dark #mini-calendar button {
+  background: #243145 !important;
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark .date-picker.selected {
+  background-color: rgba(52, 211, 153, 0.22) !important;
+}
+
+html.dark .date-picker.selected a {
+  color: #6ee7b7 !important;
+}
+
+/* --- dark mode: page-specific styles --------------------------------- */
+
+/* Research page cards; CV section bar */
+
+html.dark .research-card {
+  background: #1e293b !important;
+  box-shadow: none !important;
+  border: 1px solid #334155;
+}
+
+html.dark .bg-\[\#edf2f7\]\/95 {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+}
+
+/* Boxes inside solutions (miscellaneous/daily-problems/answer.css): keep the coloured edge, darken the fill */
+
+html.dark .bleft-answer, html.dark .defn, html.dark .result {
+  background-color: rgba(250, 204, 21, 0.09) !important;
+}
+
+html.dark .theorem {
+  background-color: rgba(244, 114, 182, 0.09) !important;
+}
+
+html.dark .lemma {
+  background-color: rgba(167, 139, 250, 0.10) !important;
+}
+
+html.dark .remark {
+  background-color: rgba(96, 165, 250, 0.10) !important;
+}
+
+html.dark .proof, html.dark .theory {
+  background-color: rgba(34, 211, 238, 0.08) !important;
+}
+
+/* Books page ("working notebook" colours are CSS variables) */
+
+html.dark {
+  --paper: #0f172a;
+  --paper-deep: #172033;
+  --rule: #334155;
+  --ink: #e2e8f0;
+  --ink-soft: #94a3b8;
+  --chalk: #7dd3fc;
+  --chalk-dark: #bae6fd;
+  --rust: #fb923c;
+  --card: #1e293b;
+}
+
+html.dark .btn-hint {
+  background: rgba(250, 204, 21, 0.12) !important;
+  color: #fde68a !important;
+  border-color: rgba(250, 204, 21, 0.3) !important;
+}
+
+html.dark .btn-solution {
+  background: rgba(52, 211, 153, 0.12) !important;
+  color: #a7f3d0 !important;
+  border-color: rgba(52, 211, 153, 0.3) !important;
+}
+
+html.dark .reveal-box {
+  background: rgba(125, 211, 252, 0.07) !important;
+}
+
+html.dark .reveal-box.is-hint {
+  background: rgba(250, 204, 21, 0.07) !important;
+}
+
+html.dark .surface-card:hover {
+  border-color: #475569 !important;
+}
+
+/* Similar-problem cards: a formula wider than the card scrolls inside it */
+
+#similar-problems mjx-container {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle;
+}
+
+/* Light gradients (from-white, from-*-50 …) would stay pale in dark mode: drop them */
+
+html.dark [class*="from-white"], html.dark [class*="from-gray-50"], html.dark [class*="from-slate-50"],
+html.dark [class*="from-yellow-50"], html.dark [class*="from-green-50"], html.dark [class*="from-blue-50"],
+html.dark [class*="from-purple-50"], html.dark [class*="from-orange-50"], html.dark [class*="from-indigo-50"],
+html.dark [class*="from-red-50"] {
+  background-image: none !important;
+}
+
+/* Footer visitor counter is a light image: invert it in dark mode */
+
+html.dark .site-counter {
+  filter: invert(1) hue-rotate(180deg);
+  opacity: 0.85;
+}
+
+.first\:mt-0:first-child {
+  margin-top: 0px;
 }
 
 .last\:border-b-0:last-child {
@@ -3591,11 +3979,6 @@ video {
   background-color: rgb(254 202 202 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:bg-red-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));
-}
-
 .hover\:bg-red-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
@@ -3669,11 +4052,6 @@ video {
 .hover\:text-gray-200:hover {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity, 1));
-}
-
-.hover\:text-gray-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-gray-600:hover {
@@ -3809,11 +4187,6 @@ video {
   border-color: rgb(99 102 241 / var(--tw-border-opacity, 1));
 }
 
-.focus\:border-red-700:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(185 28 28 / var(--tw-border-opacity, 1));
-}
-
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -3831,12 +4204,6 @@ video {
 .focus\:text-gray-900:focus {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity, 1));
-}
-
-.focus\:shadow-none:focus {
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .focus\:outline-none:focus {
@@ -3918,11 +4285,6 @@ video {
   --tw-ring-offset-width: 1px;
 }
 
-.active\:bg-red-700:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity, 1));
-}
-
 .disabled\:cursor-not-allowed:disabled {
   cursor: not-allowed;
 }
@@ -3935,17 +4297,9 @@ video {
   opacity: 0.5;
 }
 
-.group:hover .group-hover\:visible {
-  visibility: visible;
-}
-
 .group:hover .group-hover\:text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity, 1));
-}
-
-.group:hover .group-hover\:opacity-100 {
-  opacity: 1;
 }
 
 @media (min-width: 520px) {
@@ -3955,6 +4309,10 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
   .sm\:-m-4 {
     margin: -1rem;
   }
@@ -3965,10 +4323,6 @@ video {
 
   .sm\:mb-6 {
     margin-bottom: 1.5rem;
-  }
-
-  .sm\:ml-4 {
-    margin-left: 1rem;
   }
 
   .sm\:ml-auto {
@@ -4023,12 +4377,12 @@ video {
     flex-direction: row;
   }
 
-  .sm\:justify-start {
-    justify-content: flex-start;
+  .sm\:flex-col {
+    flex-direction: column;
   }
 
-  .sm\:justify-between {
-    justify-content: space-between;
+  .sm\:justify-start {
+    justify-content: flex-start;
   }
 
   .sm\:gap-6 {
@@ -4047,17 +4401,8 @@ video {
     border-left-width: 1px;
   }
 
-  .sm\:border-l-2 {
-    border-left-width: 2px;
-  }
-
   .sm\:border-t-0 {
     border-top-width: 0px;
-  }
-
-  .sm\:border-gray-200 {
-    --tw-border-opacity: 1;
-    border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
   }
 
   .sm\:p-6 {
@@ -4083,18 +4428,9 @@ video {
     padding-bottom: 0px;
   }
 
-  .sm\:py-2 {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
   .sm\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
-
-  .sm\:pl-4 {
-    padding-left: 1rem;
   }
 
   .sm\:pl-8 {
@@ -4122,6 +4458,11 @@ video {
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .sm\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
   }
 
   .sm\:text-base {
@@ -4172,6 +4513,10 @@ video {
 
   .md\:flex {
     display: flex;
+  }
+
+  .md\:inline-flex {
+    display: inline-flex;
   }
 
   .md\:grid {
@@ -4257,17 +4602,16 @@ video {
     padding-right: 1.5rem;
   }
 
-  .md\:py-4 {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
   .md\:pb-0 {
     padding-bottom: 0px;
   }
 
   .md\:pl-8 {
     padding-left: 2rem;
+  }
+
+  .md\:pb-24 {
+    padding-bottom: 6rem;
   }
 
   .md\:text-right {
@@ -4297,11 +4641,6 @@ video {
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
-  }
-
-  .md\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
   }
 
   .md\:text-xl {
@@ -4342,10 +4681,6 @@ video {
 
   .lg\:w-1\/2 {
     width: 50%;
-  }
-
-  .lg\:w-1\/3 {
-    width: 33.333333%;
   }
 
   .lg\:w-2\/3 {

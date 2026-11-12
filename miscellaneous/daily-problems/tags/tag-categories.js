@@ -65,6 +65,7 @@ const subcategoryToCategoryMap = {
     'minimal-polynomial': 'linear-algebra',
     'dimension': 'linear-algebra',
     'row-reduction': 'linear-algebra',
+    'coordinates': 'linear-algebra',
 
     // real analysis
     'supremum': 'real-analysis',
@@ -90,6 +91,7 @@ const subcategoryToCategoryMap = {
     'harmonic-conjugate': 'complex-analysis',
     'mobius-transformation': 'complex-analysis',
     'residue-theorem': 'complex-analysis',
+    'cauchy-integral-formula': 'complex-analysis',
 
     // abstract algebra
     'group-theory': 'abstract-algebra',
@@ -102,6 +104,9 @@ const subcategoryToCategoryMap = {
     'splitting-field': 'abstract-algebra',
     'group-homomorphism': 'abstract-algebra',
     'ideals': 'abstract-algebra',
+    'normal-subgroup': 'abstract-algebra',
+    'lagrange-theorem': 'abstract-algebra',
+    'class-equation': 'abstract-algebra',
 
     // topology
     'metric-space': 'topology',
@@ -123,6 +128,8 @@ const subcategoryToCategoryMap = {
     'laplace-transformation': 'differential-equation',
     'charpit-method': 'differential-equation',
     'system-of-odes': 'differential-equation',
+    'series-solution': 'differential-equation',
+    'wave-equation': 'differential-equation',
 
     // miscellaneous
     'probability-theory': 'miscellaneous',
@@ -139,6 +146,7 @@ const subcategoryToCategoryMap = {
     'combinatorics': 'miscellaneous',
     'set-theory': 'miscellaneous',
     'mappings': 'miscellaneous',
+    'relations': 'miscellaneous',
 
     // gate
     'gate-2006': 'gate', 'gate-2007': 'gate', 'gate-2019': 'gate',
@@ -166,6 +174,7 @@ const subcategoryToCategoryMap = {
     'real-analysis-rudin': 'book-solution',
     'real-analysis-bartle-sherbert': 'book-solution',
     'abstract-algebra-herstein': 'book-solution',
+    'topics-in-algebra-herstein': 'book-solution',
     'complex-analysis-gamelin': 'book-solution',
     'complex-variables-brown-and-churchill': 'book-solution',
 };

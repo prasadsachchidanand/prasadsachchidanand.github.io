@@ -12,14 +12,49 @@ const db = firebase.firestore();
 const auth = firebase.auth();
 
 let commentsCollection = null;
- 
+
+// A visitor who posts a comment is signed in anonymously (no account or
+// password needed; it only happens when they post). The Firebase id stays the
+// same in this browser, so the author - and only the author - can edit or
+// delete their comment. Firestore security rules enforce the same thing on the
+// server (see firestore.rules in the repository root).
+const authReady = new Promise(resolve => {
+	let settled = false;
+	const done = () => { if (!settled) { settled = true; resolve(); } };
+	auth.onAuthStateChanged(done);   // fires once the saved sign-in (if any) is known
+	setTimeout(done, 5000);          // never block the comments on a slow network
+});
+
+function ensureSignedIn() {
+	if (auth.currentUser) return Promise.resolve(auth.currentUser);
+	return auth.signInAnonymously()
+		.then(cred => cred.user)
+		.catch(err => {
+			// Anonymous sign-in is switched off in the Firebase console
+			console.warn('Anonymous sign-in failed:', err && err.code);
+			return null;
+		});
+}
+
+function currentUid() {
+	return auth.currentUser ? auth.currentUser.uid : null;
+}
+
+function isOwnComment(comment) {
+	const uid = currentUid();
+	return !!uid && comment.userId === uid;
+}
+
 document.addEventListener('problemIdReady', function (e) {
     const problemId = e.detail.problemId;
     commentsCollection = db.collection(`problems/${problemId}/comments`);
- 
-    // Now that the collection is ready, load existing comments.
-    loadComments();
+
+    // Load existing comments once we know who the visitor is.
+    authReady.then(loadComments);
 });
+
+const MAX_NAME_LENGTH = 60;
+const MAX_COMMENT_LENGTH = 10000;
 
 
 // Get the problem identifier from the hidden input field
@@ -218,18 +253,19 @@ function applyFormatting(textarea, format, isBlock = false, isLink = false, isMu
 
 function renderLikeDislikeButtons(comment) {
 	// Get the like/dislike counts (default to 0 if not present)
-	const likes = comment.likes || 0;
-	const dislikes = comment.dislikes || 0;
+	const likes = Math.max(0, parseInt(comment.likes, 10) || 0);
+	const dislikes = Math.max(0, parseInt(comment.dislikes, 10) || 0);
 
 	// Check if the current user has liked or disliked
 	// We'll use local storage to track this
 	const commentInteractions = JSON.parse(localStorage.getItem('commentInteractions') || '{}');
 	const userInteraction = commentInteractions[comment.id] || 'none'; // 'liked', 'disliked', or 'none'
+	const id = escapeHtml(comment.id);
 
 	return `
       <div class="flex items-center space-x-4 mt-3">
         <button class="like-btn flex items-center space-x-1 text-sm ${userInteraction === 'liked' ? 'text-blue-600 font-medium' : 'text-gray-500'}" 
-                data-id="${comment.id}" data-action="like">
+                data-id="${id}" data-action="like">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
           </svg>
@@ -237,7 +273,7 @@ function renderLikeDislikeButtons(comment) {
         </button>
         
         <button class="dislike-btn flex items-center space-x-1 text-sm ${userInteraction === 'disliked' ? 'text-red-600 font-medium' : 'text-gray-500'}" 
-                data-id="${comment.id}" data-action="dislike">
+                data-id="${id}" data-action="dislike">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.096c.5 0 .905-.405.905-.904 0-.715.211-1.413.608-2.008L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5" />
           </svg>
@@ -278,72 +314,60 @@ function renderLikeDislikeButtons(comment) {
 	return renderedContent;
 }*/
 
-// Enhance the renderContent function to ensure proper Markdown parsing
-function renderContent(text) {
-    // Configure marked options
-    marked.setOptions({
-        breaks: true,
-        gfm: true,
-        headerIds: true,
-        mangle: false,
-        smartLists: true,
-        renderer: createCustomRenderer(),
-        highlight: function(code, language) {
-            if (language && hljs.getLanguage(language)) {
-                try {
-                    return hljs.highlight(code, { language }).value;
-                } catch (err) {
-                    console.error('Error highlighting code:', err);
-                }
+// ==================== SAFE RENDERING ====================
+// Comments are written by visitors, so everything shown on the page is
+// escaped or sanitised. Markdown is turned into HTML by marked and then
+// cleaned by DOMPurify (both loaded, at fixed versions, by the problem page).
+
+function escapeHtml(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+}
+
+let purifyConfigured = false;
+function sanitizeHtml(html) {
+    if (typeof DOMPurify === 'undefined' || !DOMPurify.sanitize) return null;
+    if (!purifyConfigured) {
+        // Links in comments open in a new tab and pass no referrer/ranking.
+        DOMPurify.addHook('afterSanitizeAttributes', node => {
+            if (node.tagName === 'A' && node.hasAttribute('href')) {
+                node.setAttribute('target', '_blank');
+                node.setAttribute('rel', 'noopener noreferrer nofollow ugc');
             }
-            return hljs.highlightAuto(code).value;
-        }
+        });
+        purifyConfigured = true;
+    }
+    return DOMPurify.sanitize(html, {
+        FORBID_TAGS: ['style', 'form', 'input', 'button', 'textarea', 'select', 'option', 'iframe', 'object', 'embed'],
+        FORBID_ATTR: ['style', 'id', 'name'],
     });
-
-    // Convert single backslashes to double in matrix environments
-    const processedText = text.replace(
-        /\\begin{(pmatrix|bmatrix|matrix|array)}([\s\S]*?)\\end{\1}/g,
-        function(match, env, content) {
-            // Replace single backslashes with double backslashes in matrix content
-            const fixedContent = content.replace(/([^\\])\\([^\\])/g, '$1\\\\$2');
-            return `\\begin{${env}}${fixedContent}\\end{${env}}`;
-        }
-    );
-
-    // Protect all LaTeX blocks from marked processing
-    const protectedText = processedText.replace(
-        /(\$\$[\s\S]*?\$\$|\\begin\{.*?\}[\s\S]*?\\end\{.*?\}|\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\))/g,
-        function(match) {
-            return `\x1BLATEX\x1B${btoa(unescape(encodeURIComponent(match)))}\x1BLATEX\x1B`;
-        }
-    );
-
-    // Process with marked
-    let renderedContent = marked.parse(protectedText);
-
-    // Restore LaTeX blocks
-    renderedContent = renderedContent.replace(
-        /\x1BLATEX\x1B([^\x1B]+)\x1BLATEX\x1B/g,
-        function(match, p1) {
-            return decodeURIComponent(escape(atob(p1)));
-        }
-    );
-
-    return renderedContent;
 }
 
-// Create a custom renderer for links
-function createCustomRenderer() {
-	const renderer = new marked.Renderer();
+// Markdown + LaTeX -> safe HTML
+function renderContent(text) {
+    text = String(text == null ? '' : text);
 
-	// Override the link renderer
-	renderer.link = function(href, title, text) {
-		const titleAttr = title ? ` title="${title}"` : '';
-		return `<a href="${href}"${titleAttr} target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-800 text-decoration-line: none;">${text}</a>`;
-	};
+    // Without the sanitiser (e.g. a blocked CDN) show the text as plain text.
+    if (typeof marked === 'undefined' || typeof DOMPurify === 'undefined') {
+        return '<p>' + escapeHtml(text).replace(/\n/g, '<br>') + '</p>';
+    }
 
-	return renderer;
+    // Keep LaTeX away from the Markdown parser (so _ and * inside maths survive);
+    // it is put back, escaped, after parsing. MathJax reads it as text.
+    const latex = [];
+    const protectedText = text.replace(
+        /(\$\$[\s\S]+?\$\$|\\begin\{([a-zA-Z*]+)\}[\s\S]*?\\end\{\2\}|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\)|\$[^$\n]+?\$)/g,
+        match => { latex.push(match); return `@@LATEX${latex.length - 1}@@`; }
+    );
+
+    let html = marked.parse(protectedText);
+    html = html.replace(/@@LATEX(\d+)@@/g, (m, i) => escapeHtml(latex[Number(i)]));
+
+    const clean = sanitizeHtml(html);
+    return clean === null ? '<p>' + escapeHtml(text) + '</p>' : clean;
 }
+
 // Function to apply highlight.js to code blocks
 function applyCodeHighlighting() {
 	// Apply highlighting to all code blocks
@@ -502,28 +526,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	// loadComments();
 	addCustomStyles();
 	enhanceFormattingToolbar();
-
-	// Ensure marked library is configured correctly
-	if (typeof marked !== "undefined") {
-		marked.setOptions({
-			breaks: true,
-			gfm: true,
-			headerIds: true,
-			mangle: false,
-			smartLists: true,
-			// renderer: createCustomRenderer(),
-			highlight: function(code, language) {
-				if (language && hljs.getLanguage(language)) {
-					try {
-						return hljs.highlight(code, {
-							language
-						}).value;
-					} catch (err) {}
-				}
-				return hljs.highlightAuto(code).value;
-			}
-		});
-	}
 
 	// Ensure highlight.js is ready
 	if (typeof hljs !== "undefined") {
@@ -703,39 +705,10 @@ function insertMention(username) {
 	}
 }
 
-// Configure marked to safely handle HTML and properly integrate with highlight.js
+// Markdown options (code blocks are coloured afterwards by applyCodeHighlighting)
 function configureMarked() {
 	if (typeof marked !== "undefined") {
-		marked.setOptions({
-			breaks: true, // Convert line breaks to <br>
-			gfm: true, // Enable GitHub Flavored Markdown
-			headerIds: true, // Create header IDs for linking
-			mangle: false, // Don't mangle header IDs
-			smartLists: true, // Better list detection
-			sanitize: false, // Don't sanitize HTML (we'll handle it differently)
-			highlight: function(code, lang) {
-				if (!lang) {
-					return code; // No language specified
-				}
-
-				// Sanitize the language attribute
-				const sanitizedLang = lang.replace(/[^\w-]/g, '');
-
-				if (hljs.getLanguage(sanitizedLang)) {
-					try {
-						return hljs.highlight(code, {
-							language: sanitizedLang
-						}).value;
-					} catch (err) {
-						console.error('Highlight.js error:', err);
-						return code;
-					}
-				}
-
-				// If language isn't supported, just return the code
-				return code;
-			}
-		});
+		marked.setOptions({ breaks: true, gfm: true });
 	}
 }
 
@@ -859,10 +832,6 @@ function formatDate(timestamp) {
 	return date.toLocaleString("en-GB", options).replace(",", " at");
 }
 
-// Render markdown and LaTeX
-function renderContent(text) {
-	return marked.parse(text);
-}
 
 // Process MathJax
 function processMathJax() {
@@ -908,7 +877,7 @@ commentContentInput.addEventListener("input", function() {
 
 // Submit comment (either new comment or reply)
 submitCommentButton.addEventListener("click", function() {
-	const name = commentNameInput.value.trim();
+	const name = commentNameInput.value.trim().slice(0, MAX_NAME_LENGTH);
 	const content = commentContentInput.value.trim();
 	const replyToId = commentContentInput.getAttribute("data-reply-to") || null;
 
@@ -916,8 +885,15 @@ submitCommentButton.addEventListener("click", function() {
 		alert("Please enter your name and comment");
 		return;
 	}
+	if (content.length > MAX_COMMENT_LENGTH) {
+		alert(`Please keep the comment under ${MAX_COMMENT_LENGTH} characters.`);
+		return;
+	}
 
-	const userId = firebase.auth().currentUser?.uid || "anonymous";
+	submitCommentButton.disabled = true;
+	ensureSignedIn().then(user => {
+	// null when anonymous sign-in is unavailable: such a comment cannot be edited later
+	const userId = user ? user.uid : null;
 
 	const newComment = {
 		id: generateId(),
@@ -927,10 +903,10 @@ submitCommentButton.addEventListener("click", function() {
 		edited: false,
 		replyToId: replyToId,
 		replies: [], 
-		userId: userId, 
+		userId: userId,
 	};
 
-	commentsCollection
+	return commentsCollection
 		.doc(newComment.id)
 		.set(newComment)
 		.then(() => {
@@ -958,6 +934,7 @@ submitCommentButton.addEventListener("click", function() {
 			console.error("Error adding comment:", error);
 			alert("Failed to add comment. Please try again.");
 		});
+	}).finally(() => { submitCommentButton.disabled = false; });
 });
 
 // Reset reply form to normal comment state
@@ -997,7 +974,7 @@ function startReply(commentId, authorName) {
 	}
 
 	replyingToInfo.innerHTML = `
-    <span>Replying to <strong>${authorName}</strong></span>
+    <span>Replying to <strong>${escapeHtml(authorName)}</strong></span>
     <button type="button" id="cancelReply" class="text-xs underline">Cancel</button>
   `;
 
@@ -1068,21 +1045,22 @@ function renderComment(comment, allComments, container, isReply = false) {
     );
     commentElement.id = `comment-${comment.id}`;
 
-    // Get the current user's UID
-    const currentUserId = firebase.auth().currentUser?.uid || "anonymous";
+    // Everything stored in a comment came from a visitor: escape it.
+    const id = escapeHtml(comment.id);
+    const name = escapeHtml(comment.name);
 
-    // Only show delete button if the current user is the comment creator
-    const deleteButton = comment.userId === currentUserId ?
-        `<button class="delete-btn text-xs text-red-600 hover:text-red-800" data-id="${comment.id}">Delete</button>` :
-        "";
+    // Only the author (same browser) sees Edit and Delete
+    const ownerButtons = isOwnComment(comment) ? `
+                <button class="edit-btn text-xs text-blue-600 hover:text-blue-800" data-id="${id}">Edit</button>
+                <button class="delete-btn text-xs text-red-600 hover:text-red-800" data-id="${id}">Delete</button>` : "";
 
     const commentHTML = `
         <div class="flex justify-between items-start mb-2">
             <div class="flex items-center">
                 <!-- Avatar -->
-                <img src="https://www.gravatar.com/avatar/${comment.id}?d=identicon&s=40" alt="Avatar" class="w-8 h-8 rounded-full mr-2">
+                <img src="https://www.gravatar.com/avatar/${encodeURIComponent(comment.id)}?d=identicon&s=40" alt="" class="w-8 h-8 rounded-full mr-2">
                 <div>
-                    <h4 class="font-semibold text-gray-900">${comment.name}</h4>
+                    <h4 class="font-semibold text-gray-900">${name}</h4>
                     <p class="text-xs text-gray-500">
                         ${formatDate(comment.timestamp)}
                         ${comment.edited ? ' (edited)' : ''}
@@ -1091,9 +1069,7 @@ function renderComment(comment, allComments, container, isReply = false) {
                 </div>
             </div>
             <div class="flex space-x-2">
-                <button class="reply-btn text-xs text-green-600 hover:text-green-800" data-id="${comment.id}" data-author="${comment.name}">Reply</button>
-                <button class="edit-btn text-xs text-blue-600 hover:text-blue-800" data-id="${comment.id}">Edit</button>
-                ${deleteButton}
+                <button class="reply-btn text-xs text-green-600 hover:text-green-800" data-id="${id}" data-author="${name}">Reply</button>${ownerButtons}
             </div>
         </div>
         <div class="comment-content prose max-w-none">
@@ -1101,11 +1077,11 @@ function renderComment(comment, allComments, container, isReply = false) {
         </div>
         ${renderLikeDislikeButtons(comment)}
         <div class="edit-form hidden mt-3 space-y-3">
-            <div id="edit-toolbar-${comment.id}" class="flex flex-wrap gap-2 mb-2"></div>
-            <textarea class="edit-textarea w-full px-3 py-2 border border-gray-300 rounded-md">${comment.content}</textarea>
+            <div id="edit-toolbar-${id}" class="flex flex-wrap gap-2 mb-2"></div>
+            <textarea class="edit-textarea w-full px-3 py-2 border border-gray-300 rounded-md">${escapeHtml(comment.content)}</textarea>
             <div class="flex justify-end space-x-2">
                 <button class="cancel-edit-btn px-3 py-1 bg-gray-200 text-gray-800 rounded-md text-sm">Cancel</button>
-                <button class="save-edit-btn px-3 py-1 bg-blue-600 text-white rounded-md text-sm" data-id="${comment.id}">Save</button>
+                <button class="save-edit-btn px-3 py-1 bg-blue-600 text-white rounded-md text-sm" data-id="${id}">Save</button>
             </div>
         </div>
     `;
@@ -1156,8 +1132,10 @@ function handleLikeDislike(commentId, action) {
 	commentRef.get().then((doc) => {
 		if (doc.exists) {
 			const comment = doc.data();
-			let likes = comment.likes || 0;
-			let dislikes = comment.dislikes || 0;
+			const oldLikes = Math.max(0, parseInt(comment.likes, 10) || 0);
+			const oldDislikes = Math.max(0, parseInt(comment.dislikes, 10) || 0);
+			let likes = oldLikes;
+			let dislikes = oldDislikes;
 
 			// Determine the update based on current interaction and new action
 			if (currentInteraction === 'none') {
@@ -1198,11 +1176,12 @@ function handleLikeDislike(commentId, action) {
 			// Update localStorage
 			localStorage.setItem('commentInteractions', JSON.stringify(commentInteractions));
 
-			// Update the comment in Firestore
-			return commentRef.update({
-				likes: likes,
-				dislikes: dislikes
-			}).then(() => {
+			// Update the comment in Firestore (each count moves by at most one)
+			const change = {};
+			const increment = firebase.firestore.FieldValue.increment;
+			if (likes !== oldLikes) change.likes = increment(likes - oldLikes);
+			if (dislikes !== oldDislikes) change.dislikes = increment(dislikes - oldDislikes);
+			return commentRef.update(change).then(() => {
 				// Update the UI without reloading all comments
 				updateLikeDislikeUI(commentId, likes, dislikes, commentInteractions[commentId]);
 			});
@@ -1358,36 +1337,12 @@ function setupCommentActions() {
 		});
 	});
 
-	// Delete button handlers
+	// Delete button handlers (the button is only shown to the author)
 	document.querySelectorAll(".delete-btn").forEach((button) => {
 		button.addEventListener("click", function () {
-			const commentId = this.getAttribute("data-id");
-	
-			// Get the current user's UID
-			const currentUserId = firebase.auth().currentUser?.uid || "anonymous";
-	
-			// Fetch the comment to check the userId
-			commentsCollection
-				.doc(commentId)
-				.get()
-				.then((doc) => {
-					if (doc.exists) {
-						const comment = doc.data();
-	
-						// Check if the current user is the comment creator
-						if (comment.userId === currentUserId) {
-							if (confirm("Are you sure you want to delete this comment?")) {
-								deleteCommentAndReplies(commentId);
-							}
-						} else {
-							alert("You are not authorized to delete this comment.");
-						}
-					}
-				})
-				.catch((error) => {
-					console.error("Error fetching comment:", error);
-					alert("Failed to delete comment. Please try again.");
-				});
+			if (confirm("Are you sure you want to delete this comment?")) {
+				deleteCommentAndReplies(this.getAttribute("data-id"));
+			}
 		});
 	});
 
@@ -1425,43 +1380,31 @@ function repositionCommentForm() {
 }
 
 
-// Function to delete a comment and all its replies recursively
+// Delete one of your own comments, together with your own replies under it.
+// Replies written by other people are left alone (they are no longer shown,
+// because their parent comment is gone).
+function deleteOwnComment(commentId) {
+	return commentsCollection.doc(commentId).get().then((doc) => {
+		if (!doc.exists) return;
+		const comment = doc.data();
+		if (!isOwnComment(comment)) return;
+		const replies = Array.isArray(comment.replies) ? comment.replies : [];
+		return Promise.all(replies.map(id => deleteOwnComment(String(id)).catch(() => {})))
+			.then(() => commentsCollection.doc(commentId).delete());
+	});
+}
+
 function deleteCommentAndReplies(commentId) {
-    // Get the current user's UID
-    const currentUserId = firebase.auth().currentUser?.uid || "anonymous";
-
-    // Fetch the comment to verify ownership
-    commentsCollection
-        .doc(commentId)
-        .get()
-        .then((doc) => {
-            if (doc.exists) {
-                const comment = doc.data();
-
-                // Check if the current user is the comment creator
-                if (comment.userId === currentUserId) {
-                    // Proceed with deletion
-                    if (comment.replies && comment.replies.length > 0) {
-                        const deletePromises = comment.replies.map(replyId => {
-                            return deleteCommentAndReplies(replyId);
-                        });
-
-                        return Promise.all(deletePromises).then(() => {
-                            return commentsCollection.doc(commentId).delete();
-                        });
-                    } else {
-                        return commentsCollection.doc(commentId).delete();
-                    }
-                } else {
-                    throw new Error("Unauthorized: You are not the comment creator.");
-                }
-            }
-        })
-        .then(() => {
-            loadComments();
-        })
-        .catch((error) => {
-            console.error("Error deleting comment:", error);
-            alert("Failed to delete comment. You are not authorized.");
-        });
+	commentsCollection.doc(commentId).get()
+		.then((doc) => {
+			if (!doc.exists || !isOwnComment(doc.data())) {
+				throw new Error("Only the author can delete this comment.");
+			}
+			return deleteOwnComment(commentId);
+		})
+		.then(() => loadComments())
+		.catch((error) => {
+			console.error("Error deleting comment:", error);
+			alert("Could not delete the comment. Only its author can delete it.");
+		});
 }

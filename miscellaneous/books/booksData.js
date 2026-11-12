@@ -1,10 +1,55 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-07-28T05:09:25.036Z
+// Generated on: 2026-11-12T08:16:54.654Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
-  "abstract-algebra-herstein": {
+  "topics-in-algebra-herstein": {
     "title": "Topics in Algebra",
+    "author": "I. N. Herstein",
+    "shortName": "Herstein (Topics)",
+    "color": "rose",
+    "cover": null,
+    "chapters": {
+      "2": {
+        "problems": [],
+        "sections": {
+          "3": {
+            "problems": [
+              {
+                "number": "2.3.6",
+                "source": "daily",
+                "date": "2026-03-11",
+                "topic": "abstract-algebra",
+                "title": "In $S_3$ give an example of two elements $x,y$ such that $(x \\cdot y)^2 \\neq x^2 \\cdot y^2$",
+                "difficulty": "easy",
+                "problem": "In $S_3$ give an example of two elements $x,y$ such that $(x \\cdot y)^2 \\neq x^2 \\cdot y^2$."
+              },
+              {
+                "number": "2.3.7",
+                "source": "daily",
+                "date": "2026-03-18",
+                "topic": "abstract-algebra",
+                "title": "Herstein - In $S_3$ show that there are four elements $x$ such that $x^2 = e$, and three elements $y$ such that $y^3 = e$.",
+                "difficulty": "easy",
+                "problem": "In $S_3$ show that there are four elements $x$ such that $x^2 = e$, and three elements $y$ such that $y^3 = e$."
+              },
+              {
+                "number": "2.3.8",
+                "source": "daily",
+                "date": "2026-03-25",
+                "topic": "abstract-algebra",
+                "title": "Herstein - If $G$ is a finite group, show that there exists a positive integer $N$ such that $a^N = e$ for all $a \\in G$.",
+                "difficulty": "easy",
+                "problem": "If $G$ is a finite group, show that there exists a positive integer $N$ such that $a^N = e$ for all $a \\in G$."
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "abstract-algebra-herstein": {
+    "title": "Abstract Algebra",
     "author": "I. N. Herstein",
     "shortName": "Herstein",
     "color": "rose",
@@ -458,11 +503,11 @@ const booksData = {
               {
                 "number": "2.3.6",
                 "source": "daily",
-                "date": "2026-03-11",
+                "date": "2026-05-13",
                 "topic": "abstract-algebra",
-                "title": "In $S_3$ give an example of two elements $x,y$ such that $(x \\cdot y)^2 \\neq x^2 \\cdot y^2$",
+                "title": "Herstein - 2.3.6 - Center of a group is the set of elements whose centralizer is the whole group",
                 "difficulty": "easy",
-                "problem": "In $S_3$ give an example of two elements $x,y$ such that $(x \\cdot y)^2 \\neq x^2 \\cdot y^2$."
+                "problem": "Show that $a \\in Z(G)$ if and only if $C(a) = G$."
               },
               {
                 "number": "2.3.7",
@@ -548,29 +593,6 @@ const booksData = {
             ]
           }
         }
-      },
-      "3": {
-        "problems": [
-          {
-            "number": "3.7",
-            "source": "daily",
-            "date": "2026-03-18",
-            "topic": "abstract-algebra",
-            "title": "Herstein - In $S_3$ show that there are four elements $x$ such that $x^2 = e$, and three elements $y$ such that $y^3 = e$.",
-            "difficulty": "easy",
-            "problem": "In $S_3$ show that there are four elements $x$ such that $x^2 = e$, and three elements $y$ such that $y^3 = e$."
-          },
-          {
-            "number": "3.8",
-            "source": "daily",
-            "date": "2026-03-25",
-            "topic": "abstract-algebra",
-            "title": "Herstein - If $G$ is a finite group, show that there exists a positive integer $N$ such that $a^N = e$ for all $a \\in G$.",
-            "difficulty": "easy",
-            "problem": "If $G$ is a finite group, show that there exists a positive integer $N$ such that $a^N = e$ for all $a \\in G$."
-          }
-        ],
-        "sections": {}
       }
     }
   },
@@ -603,6 +625,154 @@ const booksData = {
                 "title": "Brown and Churchill 1.2.1: Properties of Complex Numbers",
                 "difficulty": "easy",
                 "problem": "Show that\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$\\text{ Re } (\\iota z) = - \\text{ Im } z$;</li>\n<li class=\"my-4\">$\\text{ Im }  (\\iota z) = \\text{ Re } z$.</li></ol>"
+              },
+              {
+                "number": "1.2.3",
+                "source": "daily",
+                "date": "2026-07-28",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.3: $(1 + z)^2 = 1 + 2z + z^2$",
+                "difficulty": "easy",
+                "problem": "Show that\n    \\[\n        (1 + z)^2 = 1 + 2z + z^2.\n    \\]"
+              },
+              {
+                "number": "1.2.4",
+                "source": "daily",
+                "date": "2026-08-04",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.4: $z = 1 \\pm \\iota$ satisfy $z^2 - 2z + 2 = 0$",
+                "difficulty": "easy",
+                "problem": "Verify that each of the two numbers $z = 1 \\pm \\iota$ satisfies the equation $z^2 - 2z + 2 = 0$."
+              },
+              {
+                "number": "1.2.5",
+                "source": "daily",
+                "date": "2026-08-11",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.5: Multiplication of complex numbers is commutative",
+                "difficulty": "easy",
+                "problem": "Prove that multiplication of complex numbers is commutative, that is, $z_1 z_2 = z_2 z_1$ for all complex numbers $z_1, z_2$."
+              },
+              {
+                "number": "1.2.6",
+                "source": "daily",
+                "date": "2026-08-18",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.6: The associative law for addition and the distributive law",
+                "difficulty": "easy",
+                "problem": "Verify\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">the associative law for addition of complex numbers: $(z_1 + z_2) + z_3 = z_1 + (z_2 + z_3)$;</li>\n<li class=\"my-4\">the distributive law: $z(z_1 + z_2) = z z_1 + z z_2$.</li></ol>"
+              },
+              {
+                "number": "1.2.7",
+                "source": "daily",
+                "date": "2026-08-25",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.7: $z(z_1 + z_2 + z_3) = z z_1 + z z_2 + z z_3$",
+                "difficulty": "easy",
+                "problem": "Use the associative law for addition and the distributive law to show that\n    \\[\n        z(z_1 + z_2 + z_3) = z z_1 + z z_2 + z z_3.\n    \\]"
+              },
+              {
+                "number": "1.2.8",
+                "source": "daily",
+                "date": "2026-09-01",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.8: Uniqueness of the additive and multiplicative identities",
+                "difficulty": "easy",
+                "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Write $(x, y) + (u, v) = (x, y)$ and point out how it follows that the complex number $0 = (0, 0)$ is unique as an additive identity.</li>\n<li class=\"my-4\">Likewise, write $(x, y)(u, v) = (x, y)$ and show that the number $1 = (1, 0)$ is a unique multiplicative identity.</li></ol>"
+              },
+              {
+                "number": "1.2.9",
+                "source": "daily",
+                "date": "2026-09-08",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.9: $(-1) z = -z$",
+                "difficulty": "easy",
+                "problem": "Use $-1 = (-1, 0)$ and $z = (x, y)$ to show that $(-1) z = -z$."
+              },
+              {
+                "number": "1.2.10",
+                "source": "daily",
+                "date": "2026-09-15",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.10: $-(\\iota y) = (-\\iota) y$",
+                "difficulty": "easy",
+                "problem": "Use $\\iota = (0, 1)$ and $y = (y, 0)$ to verify that $-(\\iota y) = (-\\iota) y$. Thus show that the additive inverse of a complex number $z = x + \\iota y$ can be written $-z = -x - \\iota y$ without ambiguity."
+              },
+              {
+                "number": "1.2.11",
+                "source": "daily",
+                "date": "2026-09-22",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.2.11: Solve $z^2 + z + 1 = 0$ using ordered pairs",
+                "difficulty": "medium",
+                "problem": "Solve the equation $z^2 + z + 1 = 0$ for $z = (x, y)$ by writing\n    \\[\n        (x, y)(x, y) + (x, y) + (1, 0) = (0, 0)\n    \\]\n    and then solving a pair of simultaneous equations in $x$ and $y$."
+              }
+            ]
+          },
+          "3": {
+            "problems": [
+              {
+                "number": "1.3.1",
+                "source": "daily",
+                "date": "2026-09-29",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.3.1: Reduce the quantities to real numbers",
+                "difficulty": "easy",
+                "problem": "Reduce each of these quantities to a real number:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\displaystyle \\frac{1 + 2\\iota}{3 - 4\\iota} + \\frac{2 - \\iota}{5\\iota}$;</li>\n<li class=\"my-4\">$\\displaystyle \\frac{5\\iota}{(1 - \\iota)(2 - \\iota)(3 - \\iota)}$;</li>\n<li class=\"my-4\">$(1 - \\iota)^4$.</li></ol>"
+              },
+              {
+                "number": "1.3.2",
+                "source": "daily",
+                "date": "2026-10-06",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.3.2: $\\frac{1}{1/z} = z$",
+                "difficulty": "easy",
+                "problem": "Show that\n    \\[\n        \\frac{1}{1/z} = z \\qquad (z \\neq 0).\n    \\]"
+              },
+              {
+                "number": "1.3.3",
+                "source": "daily",
+                "date": "2026-10-13",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.3.3: $(z_1 z_2)(z_3 z_4) = (z_1 z_3)(z_2 z_4)$",
+                "difficulty": "easy",
+                "problem": "Use the associative and commutative laws for multiplication to show that\n    \\[\n        (z_1 z_2)(z_3 z_4) = (z_1 z_3)(z_2 z_4).\n    \\]"
+              },
+              {
+                "number": "1.3.4",
+                "source": "daily",
+                "date": "2026-10-20",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.3.4: If $z_1 z_2 z_3 = 0$, one of the factors is zero",
+                "difficulty": "easy",
+                "problem": "Prove that if $z_1 z_2 z_3 = 0$, then at least one of the three factors is zero."
+              },
+              {
+                "number": "1.3.5",
+                "source": "daily",
+                "date": "2026-10-27",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.3.5: Derive the formula for the quotient $z_1 / z_2$",
+                "difficulty": "medium",
+                "problem": "Let $z_1 = x_1 + \\iota y_1$ and $z_2 = x_2 + \\iota y_2 \\neq 0$. Derive the expression\n    \\[\n        \\frac{z_1}{z_2} = \\frac{x_1 x_2 + y_1 y_2}{x_2^2 + y_2^2} + \\iota\\, \\frac{y_1 x_2 - x_1 y_2}{x_2^2 + y_2^2}\n    \\]\n    by solving the equation $z_2 z = z_1$ for $z = x + \\iota y$."
+              },
+              {
+                "number": "1.3.6",
+                "source": "daily",
+                "date": "2026-11-03",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.3.6: $\\left( \\frac{z_1}{z_2} \\right) \\left( \\frac{z_3}{z_4} \\right) = \\frac{z_1 z_3}{z_2 z_4}$",
+                "difficulty": "easy",
+                "problem": "Using $\\frac{z_1}{z_2} = z_1 \\cdot \\frac{1}{z_2}$ and $\\frac{1}{z_2 z_4} = \\frac{1}{z_2} \\cdot \\frac{1}{z_4}$, derive the identity\n    \\[\n        \\left( \\frac{z_1}{z_2} \\right) \\left( \\frac{z_3}{z_4} \\right) = \\frac{z_1 z_3}{z_2 z_4} \\qquad (z_2 \\neq 0,\\ z_4 \\neq 0).\n    \\]"
+              },
+              {
+                "number": "1.3.7",
+                "source": "daily",
+                "date": "2026-11-10",
+                "topic": "complex-analysis",
+                "title": "Brown and Churchill 1.3.7: The cancellation law $\\frac{z_1 z}{z_2 z} = \\frac{z_1}{z_2}$",
+                "difficulty": "easy",
+                "problem": "Use the identity of Exercise 1.3.6 to derive the cancellation law\n    \\[\n        \\frac{z_1 z}{z_2 z} = \\frac{z_1}{z_2} \\qquad (z_2 \\neq 0,\\ z \\neq 0).\n    \\]"
               }
             ]
           }
@@ -757,7 +927,7 @@ const booksData = {
                 "source": "daily",
                 "date": "2026-06-14",
                 "topic": "linear-algebra",
-                "title": "Problem of the Day",
+                "title": "Hoffman and Kunze - Even and odd functions: $V = V_e \\oplus V_o$",
                 "difficulty": "medium",
                 "problem": "Let $V$ be a vector space of all functions from $\\mathbb{R}$ into $\\mathbb{R} $; let $V_e$ be the subset of even functions, $f(-x) = f(x)$; let $V_o$ be the subset of odd functions, $f(-x) = -f(x)$. \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">Prove that $V_e$ and $V_o$ are subspaces of $V$.</li>\n<li class=\"my-4\">Prove that $V_e + V_o = V$.</li>\n<li class=\"my-4\">Prove that $V_e \\cap V_o = \\{0\\}$.</li></ol>"
               },
@@ -766,7 +936,7 @@ const booksData = {
                 "source": "daily",
                 "date": "2026-06-21",
                 "topic": "linear-algebra",
-                "title": "Problem of the Day",
+                "title": "Hoffman and Kunze - Unique decomposition when $W_1 + W_2 = V$ and $W_1 \\cap W_2 = \\{ 0 \\}$",
                 "difficulty": "medium",
                 "problem": "Let $W_1$ and $W_2$ be subspaces of a vector space $V$ such that $W_1 + W_2 = V$ and $W_1  \\cap W_2 = \\{ 0\\} $. Prove that for each vector $\\mathbf{v} \\in V$, there are unique vectors $\\mathbf{w}_1 \\in W_1$ and $\\mathbf{w}_2 \\in W_2$ such that $\\mathbf{v} = \\mathbf{w}_1 + \\mathbf{w}_2$."
               }
@@ -809,6 +979,154 @@ const booksData = {
                 "title": "Hoffman and Kunze - Show that the given vectors form a basis for $\\mathbb{R} ^3$ and express the standard basis vectors as linear combinations of them",
                 "difficulty": "medium",
                 "problem": "Show that the vectors\n    \\[\n        \\alpha _1 = (1, 0, -1), \\quad \\alpha _2 = (1, 2, 1), \\quad \\alpha _3 = (0, -3, 2)\n    \\]\n    form a basis for $\\mathbb{R} ^3$. Express each of the standard basis vectors as linear combinations of $\\alpha _1, \\alpha _2, \\alpha _3$."
+              },
+              {
+                "number": "2.3.5",
+                "source": "daily",
+                "date": "2026-07-26",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - Three linearly dependent vectors in $\\mathbb{R}^3$, any two of which are linearly independent",
+                "difficulty": "easy",
+                "problem": "Find three vectors in $\\mathbb{R}^3$ which are linearly dependent, and are such that any two of them are linearly independent."
+              },
+              {
+                "number": "2.3.6",
+                "source": "daily",
+                "date": "2026-08-02",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - The space of $2 \\times 2$ matrices has dimension $4$",
+                "difficulty": "easy",
+                "problem": "Let $V$ be the vector space of all $2 \\times 2$ matrices over the field $F$. Prove that $V$ has dimension $4$ by exhibiting a basis for $V$ which has four elements."
+              },
+              {
+                "number": "2.3.7",
+                "source": "daily",
+                "date": "2026-08-09",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - Dimensions of $W_1$, $W_2$, $W_1 + W_2$ and $W_1 \\cap W_2$ in the space of $2 \\times 2$ matrices",
+                "difficulty": "medium",
+                "problem": "Let $V$ be the vector space of all $2 \\times 2$ matrices over the field $F$. Let $W_1$ be the set of matrices of the form\n    \\[\n        \\begin{bmatrix} x & -x \\\\ y & z \\end{bmatrix}\n    \\]\n    and let $W_2$ be the set of matrices of the form\n    \\[\n        \\begin{bmatrix} a & b \\\\ -a & c \\end{bmatrix}.\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Prove that $W_1$ and $W_2$ are subspaces of $V$.</li>\n<li class=\"my-4\">Find the dimensions of $W_1$, $W_2$, $W_1 + W_2$ and $W_1 \\cap W_2$.</li></ol>"
+              },
+              {
+                "number": "2.3.8",
+                "source": "daily",
+                "date": "2026-08-16",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - A basis of $2 \\times 2$ matrices consisting of idempotents",
+                "difficulty": "medium",
+                "problem": "Let $V$ be the space of $2 \\times 2$ matrices over the field $F$. Find a basis $\\{ A_1, A_2, A_3, A_4 \\}$ for $V$ such that $A_j^2 = A_j$ for each $j$."
+              },
+              {
+                "number": "2.3.9",
+                "source": "daily",
+                "date": "2026-08-23",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - If $\\alpha, \\beta, \\gamma$ are linearly independent, so are $\\alpha + \\beta$, $\\beta + \\gamma$, $\\gamma + \\alpha$",
+                "difficulty": "easy",
+                "problem": "Let $V$ be a vector space over a subfield $F$ of the complex numbers. Suppose $\\alpha$, $\\beta$ and $\\gamma$ are linearly independent vectors in $V$. Prove that $(\\alpha + \\beta)$, $(\\beta + \\gamma)$ and $(\\gamma + \\alpha)$ are linearly independent."
+              },
+              {
+                "number": "2.3.10",
+                "source": "daily",
+                "date": "2026-08-30",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - A vector space spanned by finitely many vectors is finite-dimensional",
+                "difficulty": "easy",
+                "problem": "Let $V$ be a vector space over the field $F$. Suppose there are a finite number of vectors $\\alpha _1, \\dots, \\alpha _r$ in $V$ which span $V$. Prove that $V$ is finite-dimensional."
+              },
+              {
+                "number": "2.3.11",
+                "source": "daily",
+                "date": "2026-09-06",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - Trace-zero complex $2 \\times 2$ matrices as a real vector space",
+                "difficulty": "medium",
+                "problem": "Let $V$ be the set of all $2 \\times 2$ matrices $A$ with complex entries which satisfy $A_{11} + A_{22} = 0$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $V$ is a vector space over the field of real numbers, with the usual operations of matrix addition and multiplication of a matrix by a scalar.</li>\n<li class=\"my-4\">Find a basis for this vector space.</li>\n<li class=\"my-4\">Let $W$ be the set of all matrices $A$ in $V$ such that $A_{21} = - \\overline{A_{12}}$ (the bar denotes complex conjugation). Prove that $W$ is a subspace of $V$ and find a basis for $W$.</li></ol>"
+              },
+              {
+                "number": "2.3.12",
+                "source": "daily",
+                "date": "2026-09-13",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - The space of $m \\times n$ matrices has dimension $mn$",
+                "difficulty": "easy",
+                "problem": "Prove that the space of all $m \\times n$ matrices over the field $F$ has dimension $mn$, by exhibiting a basis for this space."
+              },
+              {
+                "number": "2.3.13",
+                "source": "daily",
+                "date": "2026-09-20",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - Exercise 2.3.9 over the field with two elements",
+                "difficulty": "easy",
+                "problem": "Discuss Exercise 2.3.9 when $V$ is a vector space over the field with two elements, $F = \\{ 0, 1 \\}$ with $1 + 1 = 0$. That is: if $\\alpha, \\beta, \\gamma$ are linearly independent vectors in $V$, are $\\alpha + \\beta$, $\\beta + \\gamma$, $\\gamma + \\alpha$ linearly independent?"
+              },
+              {
+                "number": "2.3.14",
+                "source": "daily",
+                "date": "2026-09-27",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - $\\mathbb{R}$ is not finite-dimensional over $\\mathbb{Q}$",
+                "difficulty": "medium",
+                "problem": "Let $V$ be the set of real numbers. Regard $V$ as a vector space over the field of rational numbers, with the usual operations. Prove that this vector space is not finite-dimensional."
+              }
+            ]
+          },
+          "4": {
+            "problems": [
+              {
+                "number": "2.4.1",
+                "source": "daily",
+                "date": "2026-10-04",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - Coordinates of the standard basis vectors in a basis of $\\mathbb{R}^4$",
+                "difficulty": "medium",
+                "problem": "Show that the vectors\n    \\[\n        \\alpha _1 = (1, 1, 0, 0), \\quad \\alpha _2 = (0, 0, 1, 1), \\quad \\alpha _3 = (1, 0, 0, 4), \\quad \\alpha _4 = (0, 0, 0, 2)\n    \\]\n    form a basis for $\\mathbb{R}^4$. Find the coordinates of each of the standard basis vectors in the ordered basis $\\{ \\alpha _1, \\alpha _2, \\alpha _3, \\alpha _4 \\}$."
+              },
+              {
+                "number": "2.4.2",
+                "source": "daily",
+                "date": "2026-10-11",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - Coordinates of $(1,0,1)$ in a basis of $\\mathbb{C}^3$",
+                "difficulty": "medium",
+                "problem": "Find the coordinate matrix of the vector $(1, 0, 1)$ in the basis of $\\mathbb{C}^3$ consisting of the vectors\n    \\[\n        (2\\iota, 1, 0), \\quad (2, -1, 1), \\quad (0, 1 + \\iota, 1 - \\iota),\n    \\]\n    in that order."
+              },
+              {
+                "number": "2.4.3",
+                "source": "daily",
+                "date": "2026-10-18",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - Coordinates of $(a,b,c)$ in the ordered basis $\\{(1,0,-1), (1,1,1), (1,0,0)\\}$",
+                "difficulty": "easy",
+                "problem": "Let $\\mathcal{B} = \\{ \\alpha _1, \\alpha _2, \\alpha _3 \\}$ be the ordered basis for $\\mathbb{R}^3$ consisting of\n    \\[\n        \\alpha _1 = (1, 0, -1), \\quad \\alpha _2 = (1, 1, 1), \\quad \\alpha _3 = (1, 0, 0).\n    \\]\n    What are the coordinates of the vector $(a, b, c)$ in the ordered basis $\\mathcal{B}$?"
+              },
+              {
+                "number": "2.4.4",
+                "source": "daily",
+                "date": "2026-10-25",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - Two bases of a subspace of $\\mathbb{C}^3$ and the change of coordinates",
+                "difficulty": "medium",
+                "problem": "Let $W$ be the subspace of $\\mathbb{C}^3$ spanned by $\\alpha _1 = (1, 0, \\iota)$ and $\\alpha _2 = (1 + \\iota, 1, -1)$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $\\alpha _1$ and $\\alpha _2$ form a basis for $W$.</li>\n<li class=\"my-4\">Show that the vectors $\\beta _1 = (1, 1, 0)$ and $\\beta _2 = (1, \\iota, 1 + \\iota)$ are in $W$ and form another basis for $W$.</li>\n<li class=\"my-4\">What are the coordinates of $\\alpha _1$ and $\\alpha _2$ in the ordered basis $\\{ \\beta _1, \\beta _2 \\}$ for $W$?</li></ol>"
+              },
+              {
+                "number": "2.4.5",
+                "source": "daily",
+                "date": "2026-11-01",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - Two perpendicular unit vectors form a basis of $\\mathbb{R}^2$",
+                "difficulty": "medium",
+                "problem": "Let $\\alpha = (x_1, x_2)$ and $\\beta = (y_1, y_2)$ be vectors in $\\mathbb{R}^2$ such that\n    \\[\n        x_1 y_1 + x_2 y_2 = 0, \\qquad x_1^2 + x_2^2 = y_1^2 + y_2^2 = 1.\n    \\]\n    Prove that $\\mathcal{B} = \\{ \\alpha, \\beta \\}$ is a basis for $\\mathbb{R}^2$. Find the coordinates of the vector $(a, b)$ in the ordered basis $\\mathcal{B} = \\{ \\alpha, \\beta \\}$. (The conditions on $\\alpha$ and $\\beta$ say, geometrically, that $\\alpha$ and $\\beta$ are perpendicular and each has length $1$.)"
+              },
+              {
+                "number": "2.4.6",
+                "source": "daily",
+                "date": "2026-11-08",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze - $1, e^{\\iota x}, e^{-\\iota x}$ are independent; change of basis to $1, \\cos x, \\sin x$",
+                "difficulty": "medium",
+                "problem": "Let $V$ be the vector space over the complex numbers of all functions from $\\mathbb{R}$ into $\\mathbb{C}$, i.e., the space of all complex-valued functions on the real line. Let $f_1(x) = 1$, $f_2(x) = e^{\\iota x}$, $f_3(x) = e^{-\\iota x}$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Prove that $f_1$, $f_2$ and $f_3$ are linearly independent.</li>\n<li class=\"my-4\">Let $g_1(x) = 1$, $g_2(x) = \\cos x$, $g_3(x) = \\sin x$. Find an invertible $3 \\times 3$ matrix $P$ such that\n    \\[\n        g_j = \\sum_{i=1}^{3} P_{ij} f_i, \\qquad j = 1, 2, 3.\n    \\]</li></ol>"
               }
             ]
           }
@@ -838,6 +1156,15 @@ const booksData = {
                 "problem": "Check the distributive laws for $\\cup$ and $\\cap$ and DeMorgan's laws."
               },
               {
+                "number": "1.1.3",
+                "source": "daily",
+                "date": "2026-07-25",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.1.3 - Logic: Contrapositive and converse of \"if $x \\lt 0$, then $x^2 - x > 0$\"",
+                "difficulty": "easy",
+                "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Write the contrapositive and converse of the following statement: \"If $x \\lt 0$, then $x^2 - x > 0$,\" and determine which (if any) of the three statements are true.</li>\n<li class=\"my-4\">Do the same for the statement \"If $x > 0$, then $x^2 - x > 0$.\"</li></ol>"
+              },
+              {
                 "number": "1.1.4",
                 "source": "daily",
                 "date": "2026-06-27",
@@ -845,6 +1172,15 @@ const booksData = {
                 "title": "Munkres - 1.1.1 - Set Theory: Write the negation of statements involving sets",
                 "difficulty": "easy",
                 "problem": "Let $A$ and $B$ be sets of real numbers. Write the negation of eacj of the following statements: \n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">For every $a \\in A$, it is true that $a^2 \\in B$.</li>\n<li class=\"my-4\">For at least one $a \\in A$, it is true that $a^2 \\in B$.</li>\n<li class=\"my-4\">For every $a \\in A$, it is true that $a^2 \\notin B$.</li>\n<li class=\"my-4\">For at least one $a \\in A$, it is true that $a^2 \\in B$.</li></ol>"
+              },
+              {
+                "number": "1.1.5",
+                "source": "daily",
+                "date": "2026-08-01",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.1.5 - Set Theory: Membership in unions and intersections of a collection of sets",
+                "difficulty": "easy",
+                "problem": "Let $\\mathcal{A}$ be a nonempty collection of sets. Determine the truth of each of the following statements and of their converses:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$x \\in \\bigcup_{A \\in \\mathcal{A}} A \\Rightarrow x \\in A$ for at least one $A \\in \\mathcal{A}$.</li>\n<li class=\"my-4\">$x \\in \\bigcup_{A \\in \\mathcal{A}} A \\Rightarrow x \\in A$ for every $A \\in \\mathcal{A}$.</li>\n<li class=\"my-4\">$x \\in \\bigcap_{A \\in \\mathcal{A}} A \\Rightarrow x \\in A$ for at least one $A \\in \\mathcal{A}$.</li>\n<li class=\"my-4\">$x \\in \\bigcap_{A \\in \\mathcal{A}} A \\Rightarrow x \\in A$ for every $A \\in \\mathcal{A}$.</li></ol>"
               },
               {
                 "number": "1.1.7",
@@ -883,6 +1219,113 @@ const booksData = {
                 "problem": "Let $\\mathbb{R}$ denote the set of real numbers. For each of the following subsets of $\\mathbb{R} \\times \\mathbb{R} $ determine whether it is equal to the cartesian product of two subsets of $\\mathbb{R} $.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$A = \\{ (x,y): x \\in \\mathbb{Z}  \\} $.</li>\n<li class=\"my-4\">$B = \\{ (x,y): 0 < y \\leq 1 \\} $.</li>\n<li class=\"my-4\">$C = \\{ (x,y): y > x \\} .$</li>\n<li class=\"my-4\">$D = \\{ (x,y): x \\notin \\mathbb{Z} \\text{ and } y \\in \\mathbb{Z}  \\}. $</li>\n<li class=\"my-4\">$E = \\{ (x,y) : x^2 + y^2 < 1 \\} .$</li></ol>"
               }
             ]
+          },
+          "2": {
+            "problems": [
+              {
+                "number": "1.2.1",
+                "source": "daily",
+                "date": "2026-08-08",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.2.1 - Functions: $A_0 \\subseteq f^{-1}(f(A_0))$ and $f(f^{-1}(B_0)) \\subseteq B_0$",
+                "difficulty": "easy",
+                "problem": "Let $f : A \\to B$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $A_0 \\subseteq A$, then $A_0 \\subseteq f^{-1}(f(A_0))$, and that equality holds if $f$ is injective.</li>\n<li class=\"my-4\">Show that if $B_0 \\subseteq B$, then $f(f^{-1}(B_0)) \\subseteq B_0$, and that equality holds if $f$ is surjective.</li></ol>"
+              },
+              {
+                "number": "1.2.2",
+                "source": "daily",
+                "date": "2026-08-15",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.2.2 - Functions: Preimages preserve unions, intersections and differences; images only unions",
+                "difficulty": "medium",
+                "problem": "Let $f : A \\to B$ and let $A_i \\subseteq A$ and $B_i \\subseteq B$ for $i = 0, 1$. Show that $f^{-1}$ preserves inclusions, unions, intersections and differences of sets:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$B_0 \\subseteq B_1 \\Rightarrow f^{-1}(B_0) \\subseteq f^{-1}(B_1)$;</li>\n<li class=\"my-4\">$f^{-1}(B_0 \\cup B_1) = f^{-1}(B_0) \\cup f^{-1}(B_1)$;</li>\n<li class=\"my-4\">$f^{-1}(B_0 \\cap B_1) = f^{-1}(B_0) \\cap f^{-1}(B_1)$;</li>\n<li class=\"my-4\">$f^{-1}(B_0 \\setminus B_1) = f^{-1}(B_0) \\setminus f^{-1}(B_1)$.</li></ol>\n    Show that $f$ preserves inclusions and unions only:\n    <ol class=\"math-list-alpha my-4\" style=\"counter-reset: alpha-counter 4\"><li class=\"my-4\">$A_0 \\subseteq A_1 \\Rightarrow f(A_0) \\subseteq f(A_1)$;</li>\n<li class=\"my-4\">$f(A_0 \\cup A_1) = f(A_0) \\cup f(A_1)$;</li>\n<li class=\"my-4\">$f(A_0 \\cap A_1) \\subseteq f(A_0) \\cap f(A_1)$; show that equality holds if $f$ is injective;</li>\n<li class=\"my-4\">$f(A_0 \\setminus A_1) \\supseteq f(A_0) \\setminus f(A_1)$; show that equality holds if $f$ is injective.</li></ol>"
+              },
+              {
+                "number": "1.2.3",
+                "source": "daily",
+                "date": "2026-08-22",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.2.3 - Functions: Preimages and images of arbitrary unions and intersections",
+                "difficulty": "easy",
+                "problem": "Let $f : A \\to B$, let $\\{ B_\\alpha \\}_{\\alpha \\in J}$ be a family of subsets of $B$ and $\\{ A_\\alpha \\}_{\\alpha \\in J}$ a family of subsets of $A$, with $J \\neq \\varnothing$. Show that\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$f^{-1}\\left( \\bigcup_\\alpha B_\\alpha \\right) = \\bigcup_\\alpha f^{-1}(B_\\alpha)$;</li>\n<li class=\"my-4\">$f^{-1}\\left( \\bigcap_\\alpha B_\\alpha \\right) = \\bigcap_\\alpha f^{-1}(B_\\alpha)$;</li>\n<li class=\"my-4\">$f\\left( \\bigcup_\\alpha A_\\alpha \\right) = \\bigcup_\\alpha f(A_\\alpha)$;</li>\n<li class=\"my-4\">$f\\left( \\bigcap_\\alpha A_\\alpha \\right) \\subseteq \\bigcap_\\alpha f(A_\\alpha)$, with equality if $f$ is injective.</li></ol>"
+              },
+              {
+                "number": "1.2.4",
+                "source": "daily",
+                "date": "2026-08-29",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.2.4 - Functions: Injectivity and surjectivity of a composite $g \\circ f$",
+                "difficulty": "medium",
+                "problem": "Let $f : A \\to B$ and $g : B \\to C$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">If $C_0 \\subseteq C$, show that $(g \\circ f)^{-1}(C_0) = f^{-1}(g^{-1}(C_0))$.</li>\n<li class=\"my-4\">If $f$ and $g$ are injective, show that $g \\circ f$ is injective.</li>\n<li class=\"my-4\">If $g \\circ f$ is injective, what can you say about injectivity of $f$ and $g$?</li>\n<li class=\"my-4\">If $f$ and $g$ are surjective, show that $g \\circ f$ is surjective.</li>\n<li class=\"my-4\">If $g \\circ f$ is surjective, what can you say about surjectivity of $f$ and $g$?</li>\n<li class=\"my-4\">Summarize your answers to (b)-(e) in the form of a theorem.</li></ol>"
+              },
+              {
+                "number": "1.2.5",
+                "source": "daily",
+                "date": "2026-09-05",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.2.5 - Functions: Left inverses and right inverses",
+                "difficulty": "medium",
+                "problem": "For a set $C$ let $i_C$ denote its identity function. Given $f : A \\to B$, a function $g : B \\to A$ is a <em>left inverse</em> for $f$ if $g \\circ f = i_A$, and $h : B \\to A$ is a <em>right inverse</em> for $f$ if $f \\circ h = i_B$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $f$ has a left inverse, $f$ is injective; and if $f$ has a right inverse, $f$ is surjective.</li>\n<li class=\"my-4\">Give an example of a function that has a left inverse but no right inverse.</li>\n<li class=\"my-4\">Give an example of a function that has a right inverse but no left inverse.</li>\n<li class=\"my-4\">Can a function have more than one left inverse? More than one right inverse?</li>\n<li class=\"my-4\">Show that if $f$ has both a left inverse $g$ and a right inverse $h$, then $f$ is bijective and $g = h = f^{-1}$.</li></ol>"
+              }
+            ]
+          },
+          "3": {
+            "problems": [
+              {
+                "number": "1.3.1",
+                "source": "daily",
+                "date": "2026-09-12",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.3.1 - Relations: The equivalence relation $y_0 - x_0^2 = y_1 - x_1^2$ on the plane",
+                "difficulty": "easy",
+                "problem": "Define two points $(x_0, y_0)$ and $(x_1, y_1)$ of the plane to be equivalent if $y_0 - x_0^2 = y_1 - x_1^2$. Check that this is an equivalence relation and describe the equivalence classes."
+              },
+              {
+                "number": "1.3.2",
+                "source": "daily",
+                "date": "2026-09-19",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.3.2 - Relations: The restriction of an equivalence relation",
+                "difficulty": "easy",
+                "problem": "Let $C$ be a relation on a set $A$. If $A_0 \\subseteq A$, define the <em>restriction</em> of $C$ to $A_0$ to be the relation $C \\cap (A_0 \\times A_0)$. Show that the restriction of an equivalence relation is an equivalence relation."
+              },
+              {
+                "number": "1.3.3",
+                "source": "daily",
+                "date": "2026-09-26",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.3.3 - Relations: The flaw in a \"proof\" that symmetric and transitive implies reflexive",
+                "difficulty": "easy",
+                "problem": "Here is a \"proof\" that every relation $C$ that is both symmetric and transitive is also reflexive: \"Since $C$ is symmetric, $aCb$ implies $bCa$. Since $C$ is transitive, $aCb$ and $bCa$ together imply $aCa$, as desired.\" Find the flaw in this argument."
+              },
+              {
+                "number": "1.3.4",
+                "source": "daily",
+                "date": "2026-10-03",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.3.4 - Relations: A surjection $f : A \\to B$ identifies the equivalence classes with $B$",
+                "difficulty": "medium",
+                "problem": "Let $f : A \\to B$ be a surjective function. Define a relation on $A$ by setting $a_0 \\sim a_1$ if $f(a_0) = f(a_1)$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that this is an equivalence relation.</li>\n<li class=\"my-4\">Let $A^{*}$ be the set of equivalence classes. Show there is a bijective correspondence of $A^{*}$ with $B$.</li></ol>"
+              },
+              {
+                "number": "1.3.5",
+                "source": "daily",
+                "date": "2026-10-10",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.3.5 - Relations: The smallest equivalence relation containing $S = \\{ (x, x + 1) : 0 \\lt x \\lt 2 \\}$",
+                "difficulty": "hard",
+                "problem": "Let $S$ and $S'$ be the following subsets of the plane:\n    \\[\n        S = \\{ (x, y) : y = x + 1 \\text{ and } 0 \\lt x \\lt 2 \\}, \\qquad S' = \\{ (x, y) : y - x \\in \\mathbb{Z} \\}.\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $S'$ is an equivalence relation on the real line and $S' \\supseteq S$. Describe the equivalence classes of $S'$.</li>\n<li class=\"my-4\">Show that given any collection of equivalence relations on a set $A$, their intersection is an equivalence relation on $A$.</li>\n<li class=\"my-4\">Describe the equivalence relation $T$ on the real line that is the intersection of all equivalence relations on the real line that contain $S$. Describe the equivalence classes of $T$.</li></ol>"
+              },
+              {
+                "number": "1.3.6",
+                "source": "daily",
+                "date": "2026-10-17",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.3.6 - Relations: An order relation on the plane defined by parabolas",
+                "difficulty": "medium",
+                "problem": "Define a relation on the plane by setting $(x_0, y_0) \\lt (x_1, y_1)$ if either\n    \\[\n        y_0 - x_0^2 \\lt y_1 - x_1^2, \\quad \\text{or} \\quad y_0 - x_0^2 = y_1 - x_1^2 \\text{ and } x_0 \\lt x_1.\n    \\]\n    Show that this is an order relation on the plane, and describe it geometrically."
+              }
+            ]
           }
         }
       },
@@ -916,7 +1359,159 @@ const booksData = {
                 "topic": "topology",
                 "title": "Munkres 2.13.3: Show that the collection $\\mathcal{T}_c$ is a topology on $X$ and that $\\mathcal{T}_\\infty$ is not a topology on $X$",
                 "difficulty": "medium",
-                "problem": "Show that the collection\n    \\[\n        \\mathcal{T} _c = \\{ U \\subseteq X : X \\setminus U \\text{ is countable or all of } X \\}\n    \\] \n    given in Example 4 of \\S 12 is a topology on the set $X$. Is the collection\n    \\[\n        \\mathcal{T} _\\infty = \\{ U \\subseteq X : X \\setminus U \\text{ is infinite or empty or all of } X \\}\n    \\] \n    a topology on $X$?"
+                "problem": "Show that the collection\n    \\[\n        \\mathcal{T} _c = \\{ U \\subseteq X : X \\setminus U \\text{ is countable or all of } X \\}\n    \\] \n    given in Example 4 of §12 is a topology on the set $X$. Is the collection\n    \\[\n        \\mathcal{T} _\\infty = \\{ U \\subseteq X : X \\setminus U \\text{ is infinite or empty or all of } X \\}\n    \\] \n    a topology on $X$?"
+              },
+              {
+                "number": "2.13.4",
+                "source": "daily",
+                "date": "2026-07-30",
+                "topic": "topology",
+                "title": "Munkres 2.13.4: Intersections and unions of topologies; smallest and largest topologies",
+                "difficulty": "medium",
+                "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">If $\\{ \\mathcal{T}_\\alpha \\}$ is a family of topologies on $X$, show that $\\bigcap \\mathcal{T}_\\alpha$ is a topology on $X$. Is $\\bigcup \\mathcal{T}_\\alpha$ a topology on $X$?</li>\n<li class=\"my-4\">Let $\\{ \\mathcal{T}_\\alpha \\}$ be a family of topologies on $X$. Show that there is a unique smallest topology on $X$ containing all the collections $\\mathcal{T}_\\alpha$, and a unique largest topology contained in all $\\mathcal{T}_\\alpha$.</li>\n<li class=\"my-4\">If $X = \\{ a, b, c \\}$, let\n    \\[\n        \\mathcal{T}_1 = \\{ \\varnothing, X, \\{ a \\}, \\{ a, b \\} \\} \\quad \\text{and} \\quad \\mathcal{T}_2 = \\{ \\varnothing, X, \\{ a \\}, \\{ b, c \\} \\}.\n    \\]\n    Find the smallest topology containing $\\mathcal{T}_1$ and $\\mathcal{T}_2$, and the largest topology contained in $\\mathcal{T}_1$ and $\\mathcal{T}_2$.</li></ol>"
+              },
+              {
+                "number": "2.13.5",
+                "source": "daily",
+                "date": "2026-08-06",
+                "topic": "topology",
+                "title": "Munkres 2.13.5: The topology generated by a basis is the intersection of all topologies containing it",
+                "difficulty": "medium",
+                "problem": "Show that if $\\mathcal{A}$ is a basis for a topology on $X$, then the topology generated by $\\mathcal{A}$ equals the intersection of all topologies on $X$ that contain $\\mathcal{A}$. Prove the same if $\\mathcal{A}$ is a subbasis."
+              },
+              {
+                "number": "2.13.6",
+                "source": "daily",
+                "date": "2026-08-13",
+                "topic": "topology",
+                "title": "Munkres 2.13.6: The topologies of $\\mathbb{R}_\\ell$ and $\\mathbb{R}_K$ are not comparable",
+                "difficulty": "medium",
+                "problem": "Show that the topologies of $\\mathbb{R}_\\ell$ and $\\mathbb{R}_K$ are not comparable. Here $\\mathbb{R}_\\ell$ is $\\mathbb{R}$ with the lower limit topology (basis $[a, b)$), and $\\mathbb{R}_K$ is $\\mathbb{R}$ with the $K$-topology (basis: all $(a, b)$ and all $(a, b) \\setminus K$, where $K = \\{ \\frac{1}{n} : n \\in \\mathbb{N} \\}$)."
+              },
+              {
+                "number": "2.13.7",
+                "source": "daily",
+                "date": "2026-08-20",
+                "topic": "topology",
+                "title": "Munkres 2.13.7: Comparing five topologies on $\\mathbb{R}$",
+                "difficulty": "hard",
+                "problem": "Consider the following topologies on $\\mathbb{R}$:\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\mathcal{T}_1$ = the standard topology,</li>\n<li class=\"my-4\">$\\mathcal{T}_2$ = the topology of $\\mathbb{R}_K$,</li>\n<li class=\"my-4\">$\\mathcal{T}_3$ = the finite complement topology,</li>\n<li class=\"my-4\">$\\mathcal{T}_4$ = the upper limit topology, having all sets $(a, b]$ as basis,</li>\n<li class=\"my-4\">$\\mathcal{T}_5$ = the topology having all sets $(-\\infty, a) = \\{ x : x \\lt a \\}$ as basis.</li></ul>\n    Determine, for each of these topologies, which of the others it contains."
+              },
+              {
+                "number": "2.13.8",
+                "source": "daily",
+                "date": "2026-08-27",
+                "topic": "topology",
+                "title": "Munkres 2.13.8: Bases with rational endpoints",
+                "difficulty": "medium",
+                "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Apply Lemma 13.2 to show that the countable collection\n    \\[\n        \\mathcal{B} = \\{ (a, b) : a \\lt b,\\ a \\text{ and } b \\text{ rational} \\}\n    \\]\n    is a basis that generates the standard topology on $\\mathbb{R}$.</li>\n<li class=\"my-4\">Show that the collection\n    \\[\n        \\mathcal{C} = \\{ [a, b) : a \\lt b,\\ a \\text{ and } b \\text{ rational} \\}\n    \\]\n    is a basis that generates a topology different from the lower limit topology on $\\mathbb{R}$.</li></ol>"
+              }
+            ]
+          },
+          "16": {
+            "problems": [
+              {
+                "number": "2.16.1",
+                "source": "daily",
+                "date": "2026-09-03",
+                "topic": "topology",
+                "title": "Munkres 2.16.1: A subspace of a subspace",
+                "difficulty": "easy",
+                "problem": "Show that if $Y$ is a subspace of $X$, and $A$ is a subset of $Y$, then the topology $A$ inherits as a subspace of $Y$ is the same as the topology it inherits as a subspace of $X$."
+              },
+              {
+                "number": "2.16.2",
+                "source": "daily",
+                "date": "2026-09-10",
+                "topic": "topology",
+                "title": "Munkres 2.16.2: Subspace topologies of a finer topology",
+                "difficulty": "easy",
+                "problem": "If $\\mathcal{T}$ and $\\mathcal{T}'$ are topologies on $X$ and $\\mathcal{T}'$ is strictly finer than $\\mathcal{T}$, what can you say about the corresponding subspace topologies on the subset $Y$ of $X$?"
+              },
+              {
+                "number": "2.16.3",
+                "source": "daily",
+                "date": "2026-09-17",
+                "topic": "topology",
+                "title": "Munkres 2.16.3: Which subsets of $[-1, 1]$ are open in $Y$ and which in $\\mathbb{R}$?",
+                "difficulty": "medium",
+                "problem": "Consider the set $Y = [-1, 1]$ as a subspace of $\\mathbb{R}$. Which of the following sets are open in $Y$? Which are open in $\\mathbb{R}$?\n    \\[\n        \\begin{aligned}\n            A &= \\{ x : \\tfrac{1}{2} \\lt \\vert x \\vert \\lt 1 \\}, \\\\\n            B &= \\{ x : \\tfrac{1}{2} \\lt \\vert x \\vert \\leq 1 \\}, \\\\\n            C &= \\{ x : \\tfrac{1}{2} \\leq \\vert x \\vert \\lt 1 \\}, \\\\\n            D &= \\{ x : \\tfrac{1}{2} \\leq \\vert x \\vert \\leq 1 \\}, \\\\\n            E &= \\{ x : 0 \\lt \\vert x \\vert \\lt 1 \\text{ and } \\tfrac{1}{x} \\notin \\mathbb{Z}_+ \\}.\n        \\end{aligned}\n    \\]"
+              },
+              {
+                "number": "2.16.4",
+                "source": "daily",
+                "date": "2026-09-24",
+                "topic": "topology",
+                "title": "Munkres 2.16.4: The projections $X \\times Y \\to X$ and $X \\times Y \\to Y$ are open maps",
+                "difficulty": "easy",
+                "problem": "A map $f : X \\to Y$ is said to be an <em>open map</em> if for every open set $U$ of $X$, the set $f(U)$ is open in $Y$. Show that $\\pi_1 : X \\times Y \\to X$ and $\\pi_2 : X \\times Y \\to Y$ are open maps."
+              },
+              {
+                "number": "2.16.5",
+                "source": "daily",
+                "date": "2026-10-01",
+                "topic": "topology",
+                "title": "Munkres 2.16.5: Finer factor topologies give a finer product topology, and conversely",
+                "difficulty": "medium",
+                "problem": "Let $X$ and $X'$ denote a single set in the topologies $\\mathcal{T}$ and $\\mathcal{T}'$, respectively; let $Y$ and $Y'$ denote a single set in the topologies $\\mathcal{U}$ and $\\mathcal{U}'$, respectively. Assume these sets are nonempty.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $\\mathcal{T}' \\supseteq \\mathcal{T}$ and $\\mathcal{U}' \\supseteq \\mathcal{U}$, then the product topology on $X' \\times Y'$ is finer than the product topology on $X \\times Y$.</li>\n<li class=\"my-4\">Does the converse of (a) hold? Justify your answer.</li></ol>"
+              },
+              {
+                "number": "2.16.6",
+                "source": "daily",
+                "date": "2026-10-08",
+                "topic": "topology",
+                "title": "Munkres 2.16.6: Rectangles with rational corners form a countable basis for $\\mathbb{R}^2$",
+                "difficulty": "easy",
+                "problem": "Show that the countable collection\n    \\[\n        \\{ (a, b) \\times (c, d) : a \\lt b \\text{ and } c \\lt d, \\text{ and } a, b, c, d \\text{ are rational} \\}\n    \\]\n    is a basis for $\\mathbb{R}^2$."
+              },
+              {
+                "number": "2.16.7",
+                "source": "daily",
+                "date": "2026-10-15",
+                "topic": "topology",
+                "title": "Munkres 2.16.7: Must a convex subset of an ordered set be an interval or a ray?",
+                "difficulty": "medium",
+                "problem": "Let $X$ be an ordered set. If $Y$ is a proper subset of $X$ that is convex in $X$, does it follow that $Y$ is an interval or a ray in $X$? (Recall that $Y$ is convex if $a, b \\in Y$ and $a \\lt c \\lt b$ imply $c \\in Y$.)"
+              },
+              {
+                "number": "2.16.8",
+                "source": "daily",
+                "date": "2026-10-22",
+                "topic": "topology",
+                "title": "Munkres 2.16.8: The topology a straight line inherits from $\\mathbb{R}_\\ell \\times \\mathbb{R}$ and $\\mathbb{R}_\\ell \\times \\mathbb{R}_\\ell$",
+                "difficulty": "hard",
+                "problem": "If $L$ is a straight line in the plane, describe the topology $L$ inherits as a subspace of $\\mathbb{R}_\\ell \\times \\mathbb{R}$ and as a subspace of $\\mathbb{R}_\\ell \\times \\mathbb{R}_\\ell$. In each case it is a familiar topology."
+              },
+              {
+                "number": "2.16.9",
+                "source": "daily",
+                "date": "2026-10-29",
+                "topic": "topology",
+                "title": "Munkres 2.16.9: The dictionary order topology on $\\mathbb{R} \\times \\mathbb{R}$ equals $\\mathbb{R}_d \\times \\mathbb{R}$",
+                "difficulty": "medium",
+                "problem": "Show that the dictionary order topology on the set $\\mathbb{R} \\times \\mathbb{R}$ is the same as the product topology $\\mathbb{R}_d \\times \\mathbb{R}$, where $\\mathbb{R}_d$ denotes $\\mathbb{R}$ in the discrete topology. Compare this topology with the standard topology on $\\mathbb{R}^2$."
+              },
+              {
+                "number": "2.16.10",
+                "source": "daily",
+                "date": "2026-11-05",
+                "topic": "topology",
+                "title": "Munkres 2.16.10: Three topologies on the unit square $I \\times I$",
+                "difficulty": "hard",
+                "problem": "Let $I = [0, 1]$. Compare the product topology on $I \\times I$, the dictionary order topology on $I \\times I$, and the topology $I \\times I$ inherits as a subspace of $\\mathbb{R} \\times \\mathbb{R}$ in the dictionary order topology."
+              }
+            ]
+          },
+          "17": {
+            "problems": [
+              {
+                "number": "2.17.1",
+                "source": "daily",
+                "date": "2026-11-12",
+                "topic": "topology",
+                "title": "Munkres 2.17.1: Defining a topology by its closed sets",
+                "difficulty": "easy",
+                "problem": "Let $\\mathcal{C}$ be a collection of subsets of the set $X$. Suppose that $\\varnothing$ and $X$ are in $\\mathcal{C}$, and that finite unions and arbitrary intersections of elements of $\\mathcal{C}$ are in $\\mathcal{C}$. Show that the collection\n    \\[\n        \\mathcal{T} = \\{ X \\setminus C : C \\in \\mathcal{C} \\}\n    \\]\n    is a topology on $X$."
               }
             ]
           }
@@ -933,6 +1528,42 @@ const booksData = {
     "chapters": {
       "3": {
         "problems": [
+          {
+            "number": "3.1",
+            "source": "daily",
+            "date": "2025-03-31",
+            "topic": "real-analysis",
+            "title": "Prove that convergence of $\\{ s_n \\} $ implies convergence of $\\{ \\vert s_n \\vert \\} $. Is the converse true?",
+            "difficulty": "",
+            "problem": "Prove that convergence of $\\{ s_n \\} $ implies convergence of $\\{ \\vert s_n \\vert  \\} $. Is the converse true?"
+          },
+          {
+            "number": "3.2",
+            "source": "daily",
+            "date": "2025-05-26",
+            "topic": "real-analysis",
+            "title": "Rudin Chapter 3 Problem 2 - Find limit √(n² + n) - n",
+            "difficulty": "",
+            "problem": "Calculate $\\displaystyle \\lim_{n \\to \\infty} \\left( \\sqrt{n^2 + n} - n \\right) $."
+          },
+          {
+            "number": "3.3",
+            "source": "daily",
+            "date": "2025-06-02",
+            "topic": "real-analysis",
+            "title": "Rudin Solution - Chapter 3 - Show that sequence (s_n) is convergent if s_{n+1} = \\sqrt{2 + \\sqrt{s_n} }",
+            "difficulty": "",
+            "problem": "If $s_1 = \\sqrt{2} $, and\n\\[\n    s_{n+1} = \\sqrt{2 + \\sqrt{s_n} }, \\quad n \\in \\mathbb{N} .\n\\]\nProve that the sequence $(s_n)$ converges, and $s_n \\lt 2$ for $n \\in \\mathbb{N} $."
+          },
+          {
+            "number": "3.4",
+            "source": "daily",
+            "date": "2025-08-18",
+            "topic": "real-analysis",
+            "title": "Rudin Solution - Chapter 3 - Find the upper and lower limits of the sequence",
+            "difficulty": "",
+            "problem": "Find the upper and lower limits or the sequence $\\{ s_n \\}$ defined by\n\\[\n  s_1 = 0; \\quad s_{2m} = \\frac{s_{2m-1} }{2}; \\quad s_{2m+1} = \\frac{1}{2}+ s_{2m} .\n\\]"
+          },
           {
             "number": "3.5",
             "source": "daily",
@@ -1013,6 +1644,34 @@ const booksData = {
             "title": "Rudin Real Analysis - Prove that the Cauchy product of two absolutely convergent series converges absolutely",
             "difficulty": "medium",
             "problem": "Prove that the Cauchy product of two absolutely convergent series converges absolutely."
+          }
+        ],
+        "sections": {}
+      },
+      "5": {
+        "problems": [
+          {
+            "number": "5",
+            "source": "daily",
+            "date": "2025-04-21",
+            "topic": "real-analysis",
+            "title": "Prove that if f satisfies |f(x) - f(y)| ≤ (x - y)², then f is Constant",
+            "difficulty": "",
+            "problem": "Let $f$ be defined for all real $x$, and suppose that\n\\[\n    \\vert f(x) - f(y) \\vert \\leq (x - y)^2\n\\]\nfor all real $x$ and $y$. Prove that $f$ is constant."
+          }
+        ],
+        "sections": {}
+      },
+      "7": {
+        "problems": [
+          {
+            "number": "7.1",
+            "source": "daily",
+            "date": "2025-04-14",
+            "topic": "real-analysis",
+            "title": "Prove that every uniformly convergent sequence of bounded functions is uniformly bounded",
+            "difficulty": "",
+            "problem": "Prove that every uniformly convergent sequence of bounded functions is uniformly bounded."
           }
         ],
         "sections": {}
@@ -1102,6 +1761,154 @@ const booksData = {
                 "title": "Bartle and Sherbert 2.3.8: $u - 1/n$ is not an upper bound if $u = \\sup S$",
                 "difficulty": "easy",
                 "problem": "Let $S \\subseteq \\mathbb{R} $ be nonempty.  Show that if $u = \\sup S$, then for every number $n \\in \\mathbb{N} $ the number $u - \\frac{1}{n}$ is not an upper bound of $S$, but the number $u + \\frac{1}{n}$ is an upper bound of $S$."
+              },
+              {
+                "number": "2.3.10",
+                "source": "daily",
+                "date": "2026-07-27",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.3.10: $\\sup (A \\cup B) = \\sup \\{ \\sup A, \\sup B \\}$",
+                "difficulty": "easy",
+                "problem": "Show that if $A$ and $B$ are bounded subsets of $\\mathbb{R}$, then $A \\cup B$ is a bounded set. Show that, if $A$ and $B$ are nonempty,\n    \\[\n        \\sup (A \\cup B) = \\sup \\{ \\sup A, \\sup B \\}.\n    \\]"
+              },
+              {
+                "number": "2.3.11",
+                "source": "daily",
+                "date": "2026-08-03",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.3.11: $\\inf S \\leq \\inf S_0 \\leq \\sup S_0 \\leq \\sup S$ for $S_0 \\subseteq S$",
+                "difficulty": "easy",
+                "problem": "Let $S$ be a bounded set in $\\mathbb{R}$ and let $S_0$ be a nonempty subset of $S$. Show that\n    \\[\n        \\inf S \\leq \\inf S_0 \\leq \\sup S_0 \\leq \\sup S.\n    \\]"
+              },
+              {
+                "number": "2.3.12",
+                "source": "daily",
+                "date": "2026-08-10",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.3.12: $\\sup (S \\cup \\{ u \\}) = \\sup \\{ s^*, u \\}$",
+                "difficulty": "easy",
+                "problem": "Let $S \\subseteq \\mathbb{R}$ and suppose that $s^* \\coloneqq \\sup S$ belongs to $S$. If $u \\notin S$, show that\n    \\[\n        \\sup (S \\cup \\{ u \\}) = \\sup \\{ s^*, u \\}.\n    \\]"
+              },
+              {
+                "number": "2.3.13",
+                "source": "daily",
+                "date": "2026-08-17",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.3.13: A nonempty finite set contains its supremum",
+                "difficulty": "easy",
+                "problem": "Show that a nonempty finite set $S \\subseteq \\mathbb{R}$ contains its supremum."
+              },
+              {
+                "number": "2.3.14",
+                "source": "daily",
+                "date": "2026-08-24",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.3.14: The $\\varepsilon$-characterisation of the infimum",
+                "difficulty": "medium",
+                "problem": "Let $S$ be a set that is bounded below. Prove that a lower bound $w$ of $S$ is the infimum of $S$ if and only if for any $\\varepsilon > 0$ there exists $t \\in S$ such that $t \\lt w + \\varepsilon$."
+              }
+            ]
+          },
+          "4": {
+            "problems": [
+              {
+                "number": "2.4.1",
+                "source": "daily",
+                "date": "2026-08-31",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.4.1: $\\sup \\{ 1 - 1/n : n \\in \\mathbb{N} \\} = 1$",
+                "difficulty": "easy",
+                "problem": "Show that\n    \\[\n        \\sup \\left\\{ 1 - \\frac{1}{n} : n \\in \\mathbb{N} \\right\\} = 1.\n    \\]"
+              },
+              {
+                "number": "2.4.2",
+                "source": "daily",
+                "date": "2026-09-07",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.4.2: $\\inf$ and $\\sup$ of $\\{ 1/n - 1/m : n, m \\in \\mathbb{N} \\}$",
+                "difficulty": "medium",
+                "problem": "If\n    \\[\n        S \\coloneqq \\left\\{ \\frac{1}{n} - \\frac{1}{m} : n, m \\in \\mathbb{N} \\right\\},\n    \\]\n    find $\\inf S$ and $\\sup S$."
+              },
+              {
+                "number": "2.4.3",
+                "source": "daily",
+                "date": "2026-09-14",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.4.3: The converse of the $u \\pm 1/n$ criterion for the supremum",
+                "difficulty": "medium",
+                "problem": "Let $S \\subseteq \\mathbb{R}$ be nonempty. Prove that if a number $u$ in $\\mathbb{R}$ has the properties:\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">for every $n \\in \\mathbb{N}$ the number $u - \\frac{1}{n}$ is not an upper bound of $S$, and</li>\n<li class=\"my-4\">for every $n \\in \\mathbb{N}$ the number $u + \\frac{1}{n}$ is an upper bound of $S$,</li></ol>\n    then $u = \\sup S$. (This is the converse of the exercise solved on 20 July 2026.)"
+              },
+              {
+                "number": "2.4.4",
+                "source": "daily",
+                "date": "2026-09-21",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.4.4: $\\sup$ and $\\inf$ of $aS$ for $a > 0$ and $a \\lt 0$",
+                "difficulty": "medium",
+                "problem": "Let $S$ be a nonempty bounded set in $\\mathbb{R}$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Let $a > 0$, and let $aS \\coloneqq \\{ as : s \\in S \\}$. Prove that\n    \\[\n        \\inf (aS) = a \\inf S, \\qquad \\sup (aS) = a \\sup S.\n    \\]</li>\n<li class=\"my-4\">Let $b \\lt 0$ and let $bS \\coloneqq \\{ bs : s \\in S \\}$. Prove that\n    \\[\n        \\inf (bS) = b \\sup S, \\qquad \\sup (bS) = b \\inf S.\n    \\]</li></ol>"
+              },
+              {
+                "number": "2.4.5",
+                "source": "daily",
+                "date": "2026-09-28",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.4.5: If $u = \\sup S$ with $S \\subseteq [0, \\infty)$, then $u^2 = \\sup \\{ x^2 : x \\in S \\}$",
+                "difficulty": "medium",
+                "problem": "Let $S$ be a set of nonnegative real numbers that is bounded above and let $T \\coloneqq \\{ x^2 : x \\in S \\}$. Prove that if $u = \\sup S$, then $u^2 = \\sup T$. Give an example that shows the conclusion may be false if the restriction against negative numbers is removed."
+              },
+              {
+                "number": "2.4.6",
+                "source": "daily",
+                "date": "2026-10-05",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.4.6: $\\sup \\{ a + f(x) \\} = a + \\sup \\{ f(x) \\}$",
+                "difficulty": "easy",
+                "problem": "Let $X$ be a nonempty set and let $f : X \\to \\mathbb{R}$ have bounded range in $\\mathbb{R}$. If $a \\in \\mathbb{R}$, show that\n    \\[\n        \\sup \\{ a + f(x) : x \\in X \\} = a + \\sup \\{ f(x) : x \\in X \\}, \\qquad\n        \\inf \\{ a + f(x) : x \\in X \\} = a + \\inf \\{ f(x) : x \\in X \\}.\n    \\]"
+              },
+              {
+                "number": "2.4.7",
+                "source": "daily",
+                "date": "2026-10-12",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.4.7: $\\sup (A + B) = \\sup A + \\sup B$",
+                "difficulty": "medium",
+                "problem": "Let $A$ and $B$ be bounded nonempty subsets of $\\mathbb{R}$, and let $A + B \\coloneqq \\{ a + b : a \\in A, b \\in B \\}$. Prove that\n    \\[\n        \\sup (A + B) = \\sup A + \\sup B \\quad \\text{and} \\quad \\inf (A + B) = \\inf A + \\inf B.\n    \\]"
+              },
+              {
+                "number": "2.4.8",
+                "source": "daily",
+                "date": "2026-10-19",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.4.8: $\\sup (f + g) \\leq \\sup f + \\sup g$",
+                "difficulty": "medium",
+                "problem": "Let $X$ be a nonempty set, and let $f$ and $g$ be defined on $X$ and have bounded ranges in $\\mathbb{R}$. Show that\n    \\[\n        \\sup \\{ f(x) + g(x) : x \\in X \\} \\leq \\sup \\{ f(x) : x \\in X \\} + \\sup \\{ g(x) : x \\in X \\}\n    \\]\n    and that\n    \\[\n        \\inf \\{ f(x) : x \\in X \\} + \\inf \\{ g(x) : x \\in X \\} \\leq \\inf \\{ f(x) + g(x) : x \\in X \\}.\n    \\]\n    Give examples to show that each of these inequalities can be either equalities or strict inequalities."
+              },
+              {
+                "number": "2.4.9",
+                "source": "daily",
+                "date": "2026-10-26",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.4.9: Iterated sup and inf of $h(x, y) = 2x + y$ on $(0,1) \\times (0,1)$",
+                "difficulty": "medium",
+                "problem": "Let $X = Y \\coloneqq \\{ x \\in \\mathbb{R} : 0 \\lt x \\lt 1 \\}$. Define $h : X \\times Y \\to \\mathbb{R}$ by $h(x, y) \\coloneqq 2x + y$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">For each $x \\in X$, find $f(x) \\coloneqq \\sup \\{ h(x, y) : y \\in Y \\}$; then find $\\inf \\{ f(x) : x \\in X \\}$.</li>\n<li class=\"my-4\">For each $y \\in Y$, find $g(y) \\coloneqq \\inf \\{ h(x, y) : x \\in X \\}$; then find $\\sup \\{ g(y) : y \\in Y \\}$. Compare with the result found in part (a).</li></ol>"
+              },
+              {
+                "number": "2.4.10",
+                "source": "daily",
+                "date": "2026-11-02",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.4.10: Iterated sup and inf can differ",
+                "difficulty": "medium",
+                "problem": "Let $X = Y \\coloneqq \\{ x \\in \\mathbb{R} : 0 \\lt x \\lt 1 \\}$ and define $h : X \\times Y \\to \\mathbb{R}$ by\n    \\[\n        h(x, y) \\coloneqq \\begin{cases} 0 & \\text{if } x \\lt y, \\\\ 1 & \\text{if } x \\geq y. \\end{cases}\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">For each $x \\in X$, find $f(x) \\coloneqq \\sup \\{ h(x, y) : y \\in Y \\}$; then find $\\inf \\{ f(x) : x \\in X \\}$.</li>\n<li class=\"my-4\">For each $y \\in Y$, find $g(y) \\coloneqq \\inf \\{ h(x, y) : x \\in X \\}$; then find $\\sup \\{ g(y) : y \\in Y \\}$. Compare with part (a).</li></ol>"
+              },
+              {
+                "number": "2.4.11",
+                "source": "daily",
+                "date": "2026-11-09",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 2.4.11: $\\sup_y \\inf_x h(x, y) \\leq \\inf_x \\sup_y h(x, y)$",
+                "difficulty": "medium",
+                "problem": "Let $X$ and $Y$ be nonempty sets and let $h : X \\times Y \\to \\mathbb{R}$ have bounded range in $\\mathbb{R}$. Let $f : X \\to \\mathbb{R}$ and $g : Y \\to \\mathbb{R}$ be defined by\n    \\[\n        f(x) \\coloneqq \\sup \\{ h(x, y) : y \\in Y \\}, \\qquad g(y) \\coloneqq \\inf \\{ h(x, y) : x \\in X \\}.\n    \\]\n    Prove that\n    \\[\n        \\sup \\{ g(y) : y \\in Y \\} \\leq \\inf \\{ f(x) : x \\in X \\}.\n    \\]\n    We sometimes express this by writing $\\sup_y \\inf_x h(x, y) \\leq \\inf_x \\sup_y h(x, y)$."
               }
             ]
           }

@@ -66,204 +66,59 @@
   <!-- academic icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
+  <!-- Shared header and footer (edit assets/js/site-layout.js) -->
+  <script src="../../assets/js/site-layout.js"></script>
 </head>
 <body style="background: #edf2f7;">
   <div class="flex flex-col min-h-screen">
     <!-- navbar -->
-    <div
-      class="fixed inset-x-0 left-0 right-0 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-50 shadow-sm">
-      <div x-data="{ open: false }"
-        class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-        <div class="p-4 flex flex-row items-center justify-between">
-          <a href="../../"
-            class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Sachchidanand
-            Prasad</a>
-          <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-              <path x-show="!open" fill-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                clip-rule="evenodd"></path>
-              <path x-show="open" fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </button>
-        </div>
-        <nav :class="{'flex': open, 'hidden': !open}"
-          class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
-          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="../../"> Home </a>
-
-          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="../../research/"> Research </a>
-
-          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="../../teaching/"> Teaching </a>
-
-          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="../../resume/"> CV </a>
-
-          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="../../publications/">Publications</a>
-
-          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-gray-200 text-gray-900 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="../../miscellaneous/"> Miscellaneous </a>
-
-          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="../../contact/">Contact</a>
-        </nav>
-      </div>
-    </div>
+    <site-header></site-header>
 
     <!-- Main Content -->
     <main class="flex-grow pt-20">
       <section class="text-gray-600 body-font">
-        <div class="container px-5 py-8 mx-auto">
+        <div class="container px-5 pt-8 pb-16 md:pb-24 mx-auto">
 
-          <!-- Hero Section -->
-          <div class="mb-12 text-center">
-            <h1 class="mb-4 text-4xl sm:text-4xl font-bold text-gray-900">Daily Math Problems</h1>
-            <div class="w-24 h-1 mx-auto bg-indigo-500 rounded mb-6"></div>
+          <!-- Hero -->
+          <div class="mb-10 text-center">
+            <h1 class="mb-3 text-3xl sm:text-4xl font-bold text-gray-900">Daily Math Problems</h1>
+            <div class="w-24 h-1 mx-auto bg-indigo-500 rounded mb-5"></div>
+            <p class="max-w-2xl mx-auto text-base md:text-lg text-gray-700">
+              A new problem every day, with the full solution the next day.
+              Pick a date in the calendar, browse by topic, or try a random problem.
+            </p>
+            <p class="mt-3 text-sm text-gray-500" id="dp-stats">&nbsp;</p>
+            <div class="mt-5 flex flex-wrap justify-center gap-3">
+              <a href="#problem-of-the-day" class="inline-flex items-center px-5 py-2.5 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700">
+                <i class="fa-solid fa-calendar-day mr-2" aria-hidden="true"></i>Today's problem</a>
+              <button type="button" id="dp-random" class="inline-flex items-center px-5 py-2.5 rounded-lg bg-white text-gray-800 font-semibold border border-gray-300 hover:bg-gray-100" title="Opens a problem you have not marked as solved">
+                <i class="fa-solid fa-shuffle mr-2" aria-hidden="true"></i>Random problem</button>
+              <a href="tags/" class="inline-flex items-center px-5 py-2.5 rounded-lg bg-white text-gray-800 font-semibold border border-gray-300 hover:bg-gray-100">
+                <i class="fa-solid fa-tags mr-2" aria-hidden="true"></i>All tags</a>
+            </div>
           </div>
 
-          <!-- Two Column Layout -->
-          <div class="flex flex-col lg:flex-row gap-8">
-
-            <!-- Left Column - Content -->
-            <div class="lg:w-2/3">
-
-              <!-- Introduction -->
-              <div class="p-6 mb-8 bg-white rounded-lg shadow-md border border-gray-200">
-                <p class="mb-4 leading-relaxed text-base md:text-lg text-justify text-gray-700">
-                  Every day, a <a href="#problem-of-the-day" class="font-medium text-blue-600 hover:text-blue-800">new
-                    problem</a> is posted on this
-                  platform. Click on any date in the calendar to access previous problems and practice different
-                  mathematical concepts.
-                </p>
-                <p class="leading-relaxed text-base md:text-lg text-justify text-gray-700">
-                  This resource helps improve problem-solving skills across various areas of mathematics, providing a
-                  challenging and stimulating learning experience.
-                </p>
-              </div>
-
-              <!-- Problem of the Day -->
-              <h2 class="mt-4 mb-4 text-gray-900 text-xl title-font font-medium" id="problem-of-the-day">
+          <!-- Today's problem and the calendar -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <div class="lg:col-span-2 min-w-0">
+              <h2 class="mb-4 text-gray-900 text-xl title-font font-medium scroll-mt-24" id="problem-of-the-day">
                 <a class="text-blue-500 hover:text-blue-800" href="#"></a>
               </h2>
-
               <div
-                class="border-l-4 border-red-500 mt-2 p-6 md:p-8 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl shadow-lg mb-12">
+                class="border-l-4 border-red-500 p-6 md:p-8 lg:text-lg md:text-base text-black-900 bg-red-100 rounded-lg shadow-md">
                 <strong class="text-xl md:text-xl font-bold text-gray-900">Problem: </strong>
                 <div class="mt-2">
                   <!-- It will automatically load -->
                 </div>
               </div>
-
-              <!-- Weekly Schedule -->
-              <div class="mb-8 mt-16">
-                <h2 class="text-gray-900 text-2xl md:text-3xl title-font font-bold mb-3" id="publications">Problems
-                  Schedule</h2>
-                <div class="w-16 h-1 bg-indigo-500 rounded mb-5"></div>
-                <p class="mb-6 leading-relaxed text-base md:text-lg text-justify text-gray-700">
-                  Each day of the week is dedicated to a specific topic of mathematics. Problems are also categorized
-                  with tags for easier navigation.
-                  <a href="tags/" class="ml-1 font-medium text-blue-600 hover:text-blue-800">View all tags</a>
-                </p>
-              </div>
-
-              <!-- Schedule Table -->
-              <div class="mb-12 overflow-x-auto">
-                <div class="inline-block min-w-full align-middle">
-                  <div class="overflow-hidden shadow-lg rounded-lg border border-gray-200">
-                    <table class="min-w-full divide-y divide-gray-300">
-                      <thead class="bg-gray-800">
-                        <tr>
-                          <th scope="col"
-                            class="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-white uppercase tracking-wider">
-                            Day of the Week
-                          </th>
-                          <th scope="col"
-                            class="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-white uppercase tracking-wider">
-                            Topic
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody class="bg-white divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50 transition-colors duration-150">
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
-                            Sunday
-                          </td>
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
-                            Linear Algebra
-                          </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors duration-150">
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
-                            Monday
-                          </td>
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
-                            Real Analysis
-                          </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors duration-150">
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
-                            Tuesday
-                          </td>
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
-                            Complex Analysis
-                          </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors duration-150">
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
-                            Wednesday
-                          </td>
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
-                            Abstract Algebra
-                          </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors duration-150">
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
-                            Thursday
-                          </td>
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
-                            Topology
-                          </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors duration-150">
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
-                            Friday
-                          </td>
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
-                            Differential Equations
-                          </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors duration-150">
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-900">
-                            Saturday
-                          </td>
-                          <td class="px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-gray-700">
-                            Arbitrary
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+              <a id="dp-open" href="#" class="mt-4 inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-800">
+                Try it: hint, solution and comments <i class="fa-solid fa-arrow-right ml-2" aria-hidden="true"></i></a>
             </div>
 
-            <!-- Right Column - Calendar (Sticky) -->
-            <div class="lg:w-1/3">
-              <div class="lg:sticky lg:top-24">
-
-                <!-- Calendar Card -->
-                <div class="p-6 bg-white rounded-lg shadow-md border border-gray-200">
-                  <h2 class="text-2xl font-bold text-gray-800 mb-4">Problem Archive</h2>
-
-                  <p class="mb-6 text-sm md:text-base text-gray-600">
-                    Click on any date to view the problem from that day. Today's date is highlighted.
-                  </p>
-
+            <div class="min-w-0 lg:sticky lg:top-24">
+              <div class="p-6 bg-white rounded-lg shadow-md border border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Problem Archive</h2>
+                <p class="mb-5 text-sm md:text-base text-gray-600">Click a date to open its problem.</p>
                   <!-- Calendar Controls -->
                   <div class="flex items-center justify-between mb-6">
                     <h2 class="text-xl md:text-2xl font-bold text-gray-900" id="monthAndYear"></h2>
@@ -283,7 +138,10 @@
                       <tbody id="calendar-body"></tbody>
                     </table>
                   </div>
-
+                <p class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500 mb-2">
+                  <span><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1 align-middle"></span>solved by you</span>
+                  <span><span class="text-gray-400 font-semibold mr-1">13</span>no problem that day</span>
+                </p>
                   <!-- Jump Controls -->
                   <div class="mt-6 pt-6 border-t border-gray-200">
                     <div class="flex flex-wrap items-center justify-center gap-3">
@@ -307,9 +165,28 @@
                         class="px-3 py-2 border border-gray-300 rounded-lg bg-white text-sm md:text-base focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"></select>
                     </div>
                   </div>
-                </div>
-
               </div>
+            </div>
+          </div>
+
+          <!-- Browse by topic (one topic per day of the week) -->
+          <div class="mt-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Browse by topic</h2>
+            <div class="w-16 h-1 bg-indigo-500 rounded mb-4"></div>
+            <p class="mb-6 text-base md:text-lg text-gray-700">
+              Each day of the week has its own topic. Problems are also tagged by subject and by book:
+              see <a href="tags/" class="font-medium text-blue-600 hover:text-blue-800">all tags</a>
+              or the <a href="../books/" class="font-medium text-blue-600 hover:text-blue-800">book solutions</a>.
+            </p>
+            <div id="dp-topics" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <!-- Filled in by daily-index.js; plain links in case it does not load -->
+              <a href="tags/?tag=linear-algebra" class="p-5 bg-white rounded-lg shadow-sm border border-gray-200 text-gray-800 hover:border-indigo-400">Sunday &middot; Linear Algebra</a>
+              <a href="tags/?tag=real-analysis" class="p-5 bg-white rounded-lg shadow-sm border border-gray-200 text-gray-800 hover:border-indigo-400">Monday &middot; Real Analysis</a>
+              <a href="tags/?tag=complex-analysis" class="p-5 bg-white rounded-lg shadow-sm border border-gray-200 text-gray-800 hover:border-indigo-400">Tuesday &middot; Complex Analysis</a>
+              <a href="tags/?tag=abstract-algebra" class="p-5 bg-white rounded-lg shadow-sm border border-gray-200 text-gray-800 hover:border-indigo-400">Wednesday &middot; Abstract Algebra</a>
+              <a href="tags/?tag=topology" class="p-5 bg-white rounded-lg shadow-sm border border-gray-200 text-gray-800 hover:border-indigo-400">Thursday &middot; Topology</a>
+              <a href="tags/?tag=differential-equation" class="p-5 bg-white rounded-lg shadow-sm border border-gray-200 text-gray-800 hover:border-indigo-400">Friday &middot; Differential Equations</a>
+              <a href="tags/?tag=miscellaneous" class="p-5 bg-white rounded-lg shadow-sm border border-gray-200 text-gray-800 hover:border-indigo-400">Saturday &middot; Miscellaneous</a>
             </div>
           </div>
         </div>
@@ -317,57 +194,10 @@
     </main>
 
     <!-- footer -->
-    <footer class="foot mt-auto border-t border-gray-200 bg-white">
-      <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
-        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©
-          <script>document.write(new Date().getFullYear())</script> Sachchidanand
-        </p>
-        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">Last
-          updated: <span id="updated"></span>
-        </p>
-        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a class="text-gray-500 hover:text-blue-500 transition-colors"
-            href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
-            <i class="fa-brands fa-facebook-f"></i>
-          </a>
-          <a class="ml-3 text-gray-500 hover:text-red-500 transition-colors"
-            href="https://www.instagram.com/sachchidanand1729/" target="_blank">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a class="ml-3 text-gray-500 hover:text-blue-500 transition-colors" href="https://twitter.com/speinstene26"
-            target="_blank">
-            <i class="fa-brands fa-twitter"></i>
-          </a>
-          <a class="ml-3 text-gray-500 hover:text-purple-700 transition-colors"
-            href="https://github.com/prasadsachchidanand" target="_blank">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a class="ml-3 text-gray-500 hover:text-gray-500 transition-colors"
-            href="https://www.researchgate.net/profile/Sachchidanand-Prasad-2" target="_blank">
-            <i class="ai ai-researchgate ai-lg"></i>
-          </a>
-          <a class="ml-3 text-gray-500 hover:text-gray-900 transition-colors"
-            href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
-            <i class="ai ai-academia"></i>
-          </a>
-        </span>
-      </div>
-      <hr class="py-1 w-1/4 m-auto">
-      <div class="items-center">
-        <p class="text-center">
-          <span class="text-gray-500 text-sm mr-1">No of visitors: </span>
-          <img
-            src="https://counter.digits.net/?counter={ecc0f233-f3f7-d324-95c8-cc741ed787df}&COUNTER_TEMPLATE1&background=EDF2F7&foreground=8D8D8D"
-            alt="Hit Counter by Digits" border="0" class="w-11 inline" />
-          <span class="text-gray-500 text-sm ml-1">Counter provided by <a href="https://www.digits.net/"
-              class="text-gray-400 hover:text-gray-500" target="_blank">Digits.Net</a></span>
-        </p>
-      </div>
-    </footer>
+    <site-footer></site-footer>
 
   </div>
 
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
   <script>
     function myFunction() {
@@ -378,6 +208,7 @@
 
   <script src="calendar.js" type="text/javascript"></script>
   <script src="daily-problem-loader.js" type="text/javascript"></script>
+  <script src="daily-index.js" type="text/javascript"></script>
 
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 

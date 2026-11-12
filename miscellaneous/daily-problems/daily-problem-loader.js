@@ -128,8 +128,10 @@ async function findMostRecentProblem() {
             if (!response.ok) continue;
 
             const data = await response.json();
-            if (data.problems && data.problems.length > 0) {
-                const sorted = [...data.problems].sort((a, b) => b.date.localeCompare(a.date));
+            // Problems dated after today are scheduled, not published yet
+            const published = (data.problems || []).filter(p => p.date && p.date <= getTodayDate());
+            if (published.length > 0) {
+                const sorted = [...published].sort((a, b) => b.date.localeCompare(a.date));
                 const latest = sorted[0];
                 if (!mostRecentDate || latest.date > mostRecentDate) {
                     mostRecentDate    = latest.date;

@@ -1,0 +1,76 @@
+rules_version = '2';
+
+// Security rules for the Firebase project "comment-system-e4f85", which stores
+// the comments under the daily problems (assets/js/comment.js).
+//
+// This file does nothing by itself. To use it:
+//   1. Firebase console -> Authentication -> Sign-in method -> enable "Anonymous".
+//      (Do this first; with these rules a visitor must be signed in to comment.)
+//   2. Firebase console -> Firestore Database -> Rules -> paste this file -> Publish.
+//
+// What it allows:
+//   - anyone can read comments;
+//   - a visitor (signed in anonymously by comment.js) can post a comment under
+//     their own id, and later edit or delete only that comment;
+//   - anyone can like/dislike, but a count can only move by one at a time;
+//   - a reply may add its own id to the parent comment's list of replies.
+// Everything else in this Firebase project is closed.
+// You can still delete any comment yourself from the Firebase console.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function validText(value, maxLength) {
+      return value is string && value.size() > 0 && value.size() <= maxLength;
+    }
+
+    function countStep(newValue, oldValue) {
+      return newValue is int && newValue >= 0
+        && newValue - oldValue <= 1 && oldValue - newValue <= 1;
+    }
+
+    match /problems/{problemId}/comments/{commentId} {
+      allow read: if true;
+
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly(
+             ['id', 'name', 'content', 'timestamp', 'edited', 'replyToId', 'replies', 'userId'])
+        && request.resource.data.id == commentId
+        && request.resource.data.userId == request.auth.uid
+        && validText(request.resource.data.name, 60)
+        && validText(request.resource.data.content, 10000)
+        && request.resource.data.timestamp is number
+        && request.resource.data.edited == false
+        && request.resource.data.replies is list
+        && request.resource.data.replies.size() == 0
+        && (request.resource.data.replyToId == null || request.resource.data.replyToId is string);
+
+      // The author edits the text of their own comment
+      allow update: if request.auth != null
+        && resource.data.userId == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['content', 'edited', 'timestamp'])
+        && validText(request.resource.data.content, 10000)
+        && request.resource.data.edited == true
+        && request.resource.data.timestamp is number;
+
+      // Like / dislike
+      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likes', 'dislikes'])
+        && countStep(request.resource.data.get('likes', 0), resource.data.get('likes', 0))
+        && countStep(request.resource.data.get('dislikes', 0), resource.data.get('dislikes', 0));
+
+      // A new reply records its id on the parent comment
+      allow update: if request.auth != null
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['replies'])
+        && request.resource.data.replies is list
+        && request.resource.data.replies.size() == resource.data.get('replies', []).size() + 1
+        && request.resource.data.replies.hasAll(resource.data.get('replies', []));
+
+      allow delete: if request.auth != null
+        && resource.data.userId == request.auth.uid;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

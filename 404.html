@@ -3,47 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+    <meta name="robots" content="noindex">
+    <title>Page not found - Sachchidanand Prasad</title>
+
     <script>
+        // Daily problems after LAST_FOLDER_DATE have no folder of their own; they are
+        // shown by the problem page instead. Send those addresses there straight away.
+        // Must match LAST_FOLDER_DATE in miscellaneous/daily-problems/problem-loader.js.
         (function () {
-            // Dates UP TO AND INCLUDING this date have a real folder.
-            // Must match LAST_FOLDER_DATE in problem-loader.js.
             var LAST_FOLDER_DATE = '2025-12-31';
-
-            var path = window.location.pathname;
-
-            // Match /miscellaneous/daily-problems/YYYY-MM-DD/ (with or without trailing slash)
-            var dateMatch = path.match(/\/miscellaneous\/daily-problems\/(\d{4}-\d{2}-\d{2})\/?$/);
-
-            if (dateMatch) {
-                var date = dateMatch[1];
-
-                if (date <= LAST_FOLDER_DATE) {
-                    // Old date — real folder should exist on GitHub Pages but doesn't
-                    // here (local dev or genuinely missing). Show a plain 404.
-                    document.title = '404 – Page Not Found';
-                    document.getElementById('message').style.display = 'block';
-                } else {
-                    // New date — no folder exists by design, redirect to canonical page.
-                    window.location.replace(
-                        '/miscellaneous/daily-problems/problem/?date=' + date
-                    );
-                }
-            } else {
-                // Not a date URL — generic 404.
-                document.title = '404 – Page Not Found';
-                document.getElementById('message').style.display = 'block';
+            var m = location.pathname.match(/\/miscellaneous\/daily-problems\/(\d{4}-\d{2}-\d{2})\/?$/);
+            if (m && m[1] > LAST_FOLDER_DATE) {
+                location.replace('/miscellaneous/daily-problems/problem/?date=' + m[1]);
             }
         })();
     </script>
+
+    <!-- Google tag (gtag.js): lets you see which broken addresses people visit -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CVGSV7Y2CE');
+    </script>
+
+    <!-- This page is shown for missing pages at any depth, so every path starts with "/" -->
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <!-- Shared header and footer (edit assets/js/site-layout.js) -->
+    <script src="/assets/js/site-layout.js"></script>
 </head>
-<body>
-    <div id="message" style="display:none; font-family: sans-serif; text-align: center; padding: 80px 20px;">
-        <h1 style="font-size: 4rem; color: #ef4444; margin: 0;">404</h1>
-        <p style="font-size: 1.2rem; color: #6b7280; margin-top: 12px;">Page not found.</p>
-        <a href="/" style="color: #3b82f6; text-decoration: underline; margin-top: 16px; display: inline-block;">
-            Go back home
-        </a>
+
+<body style="background: #edf2f7;">
+    <div class="flex flex-col min-h-screen">
+        <site-header active="none"></site-header>
+
+        <main class="flex-grow flex items-center justify-center px-4 pt-32 pb-16">
+            <div class="max-w-xl w-full text-center">
+                <p class="text-7xl sm:text-8xl font-bold text-indigo-600">404</p>
+                <h1 class="mt-4 text-2xl sm:text-3xl font-semibold text-gray-900">Page not found</h1>
+                <p class="mt-3 text-gray-600">
+                    Sorry, there is no page at
+                    <code id="missing-path" class="px-1.5 py-0.5 rounded bg-white text-gray-800 text-sm break-all"></code>.
+                    It may have moved, or the link may have a typo.
+                </p>
+
+                <div class="mt-8 flex flex-wrap justify-center gap-3">
+                    <a href="/" class="inline-flex items-center px-5 py-2.5 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700">
+                        <i class="fas fa-house mr-2"></i>Home
+                    </a>
+                    <a href="/research/" class="inline-flex items-center px-5 py-2.5 rounded-lg bg-white text-gray-800 font-semibold border border-gray-300 hover:bg-gray-100">Research</a>
+                    <a href="/teaching/" class="inline-flex items-center px-5 py-2.5 rounded-lg bg-white text-gray-800 font-semibold border border-gray-300 hover:bg-gray-100">Teaching</a>
+                    <a href="/miscellaneous/daily-problems/" class="inline-flex items-center px-5 py-2.5 rounded-lg bg-white text-gray-800 font-semibold border border-gray-300 hover:bg-gray-100">Daily problems</a>
+                </div>
+
+                <p class="mt-8 text-sm text-gray-500">
+                    If a link on this site brought you here, please
+                    <a href="/contact/" class="text-blue-500 hover:text-blue-800">let me know</a>.
+                </p>
+            </div>
+        </main>
+
+        <site-footer></site-footer>
     </div>
+
+    <script>
+        var path = location.pathname;
+        try { path = decodeURI(path); } catch (e) { /* keep the raw address */ }
+        document.getElementById('missing-path').textContent = path;
+    </script>
 </body>
 </html>
