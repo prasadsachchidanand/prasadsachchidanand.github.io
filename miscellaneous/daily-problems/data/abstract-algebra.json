@@ -536,6 +536,216 @@
       ]
     },
     {
+      "date": "2024-01-10",
+      "title": "Herstein - 2.4.5 - Left cosets are the classes of $a \\sim b \\iff a^{-1} b \\in H$",
+      "difficulty": "easy",
+      "problem": "Let $G$ be a group and $H$ a subgroup of $G$. Define, for $a, b \\in G$, $a \\sim b$ if $a^{-1} b \\in H$. Prove that this defines an equivalence relation on $G$, and show that the equivalence class of $a$ is\n    \\[\n        [a] = aH = \\{ ah : h \\in H \\}.\n    \\]\n    (The sets $aH$ are called the left cosets of $H$ in $G$.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Each of the three properties uses one of the subgroup properties: $e \\in H$, closure under inverses, closure under products.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Reflexive:</strong> $a^{-1} a = e \\in H$, so $a \\sim a$.<br>\n    <strong>Symmetric:</strong> if $a^{-1} b \\in H$, then $b^{-1} a = (a^{-1} b)^{-1} \\in H$, so $b \\sim a$.<br>\n    <strong>Transitive:</strong> if $a^{-1} b \\in H$ and $b^{-1} c \\in H$, then $a^{-1} c = (a^{-1} b)(b^{-1} c) \\in H$, so $a \\sim c$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The classes.</strong> For $b \\in G$,\n    \\[\n        b \\in [a] \\iff a^{-1} b \\in H \\iff a^{-1} b = h \\text{ for some } h \\in H \\iff b = ah \\text{ for some } h \\in H \\iff b \\in aH.\n    \\]\n    Hence $[a] = aH$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since equivalence classes partition $G$, the left cosets of $H$ partition $G$: any two are either equal or disjoint. Moreover $h \\mapsto ah$ is a bijection $H \\to aH$, so for finite $G$ all cosets have $\\vert H \\vert$ elements, which is the heart of Lagrange's theorem.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "abstract-algebra-herstein (2.4.5)"
+      ]
+    },
+    {
+      "date": "2024-01-17",
+      "title": "Herstein - 2.4.6 - Left and right cosets of $H = \\{ i, f \\}$ in $S_3$",
+      "difficulty": "medium",
+      "problem": "Let $G = S_3$ and $H = \\{ i, f \\}$, where $f : S \\to S$ is defined by $f(x_1) = x_2$, $f(x_2) = x_1$, $f(x_3) = x_3$. List all the right cosets of $H$ in $G$ and all the left cosets of $H$ in $G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">In cycle notation $f = (1\\ 2)$. Let $g = (1\\ 2\\ 3)$; then $S_3 = \\{ i, g, g^2, f, fg, fg^2 \\}$. Compute the products $gf$, $g^2 f$, $fg$, $fg^2$ (composing from right to left).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Write permutations of $\\{ x_1, x_2, x_3 \\}$ by the indices, and compose from right to left ($\\sigma\\tau$ means \"first $\\tau$, then $\\sigma$\"). Then $f = (1\\ 2)$; let $g = (1\\ 2\\ 3)$, so $g^2 = (1\\ 3\\ 2)$. Computing,\n    \\[\n        fg = (2\\ 3), \\qquad fg^2 = (1\\ 3), \\qquad gf = (1\\ 3), \\qquad g^2 f = (2\\ 3).\n    \\]\n    (For instance, $fg$: $1 \\xrightarrow{g} 2 \\xrightarrow{f} 1$, $2 \\xrightarrow{g} 3 \\xrightarrow{f} 3$, $3 \\xrightarrow{g} 1 \\xrightarrow{f} 2$, so $fg = (2\\ 3)$.) Thus $S_3 = \\{ i, g, g^2, f, fg, fg^2 \\}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Right cosets</strong> $Ha = \\{ a, fa \\}$:\n    \\[\n        H = \\{ i, (1\\ 2) \\}, \\qquad Hg = \\{ (1\\ 2\\ 3), (2\\ 3) \\}, \\qquad Hg^2 = \\{ (1\\ 3\\ 2), (1\\ 3) \\}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Left cosets</strong> $aH = \\{ a, af \\}$:\n    \\[\n        H = \\{ i, (1\\ 2) \\}, \\qquad gH = \\{ (1\\ 2\\ 3), (1\\ 3) \\}, \\qquad g^2 H = \\{ (1\\ 3\\ 2), (2\\ 3) \\}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In each case there are $3 = \\frac{6}{2}$ cosets, of two elements each, and they partition $S_3$. Note that $Hg \\neq gH$: the right and left cosets of this $H$ are different, apart from $H$ itself (see the next exercise).</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "abstract-algebra-herstein (2.4.6)"
+      ]
+    },
+    {
+      "date": "2024-01-24",
+      "title": "Herstein - 2.4.7 - Is every right coset of $H = \\{ i, f \\}$ in $S_3$ also a left coset?",
+      "difficulty": "easy",
+      "problem": "In the previous exercise ($G = S_3$, $H = \\{ i, f \\}$ with $f = (1\\ 2)$), is every right coset of $H$ in $G$ also a left coset of $H$ in $G$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Compare the lists of right and left cosets found in Exercise 2.4.6.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>No.</strong> From Exercise 2.4.6 (with $g = (1\\ 2\\ 3)$), the right cosets are\n    \\[\n        \\{ i, (1\\ 2) \\}, \\quad \\{ (1\\ 2\\ 3), (2\\ 3) \\}, \\quad \\{ (1\\ 3\\ 2), (1\\ 3) \\},\n    \\]\n    and the left cosets are\n    \\[\n        \\{ i, (1\\ 2) \\}, \\quad \\{ (1\\ 2\\ 3), (1\\ 3) \\}, \\quad \\{ (1\\ 3\\ 2), (2\\ 3) \\}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The right coset $Hg = \\{ (1\\ 2\\ 3), (2\\ 3) \\}$ is not a left coset: the only left coset containing $(1\\ 2\\ 3)$ is $gH = \\{ (1\\ 2\\ 3), (1\\ 3) \\}$ (left cosets are disjoint), and $gH \\neq Hg$. Only $H$ itself is both a left and a right coset.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By the next exercise this means that $H$ is not a normal subgroup of $S_3$: indeed $g H g^{-1} = \\{ i, g f g^{-1} \\} = \\{ i, (2\\ 3) \\} \\neq H$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "abstract-algebra-herstein (2.4.7)"
+      ]
+    },
+    {
+      "date": "2024-01-31",
+      "title": "Herstein - 2.4.8 - If every right coset is a left coset, then $aHa^{-1} = H$",
+      "difficulty": "medium",
+      "problem": "Let $H$ be a subgroup of a group $G$. If every right coset of $H$ in $G$ is a left coset of $H$ in $G$, prove that $aHa^{-1} = H$ for all $a \\in G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The right coset $Ha$ and the left coset $aH$ both contain $a$. Two left cosets that share an element are equal.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $a \\in G$. By hypothesis the right coset $Ha$ is a left coset, say $Ha = bH$. Since $a = ea \\in Ha$, we have $a \\in bH$. But also $a = ae \\in aH$. Left cosets are equivalence classes (Exercise 2.4.5), so two left cosets with a common element are equal: $bH = aH$. Hence\n    \\[\n        Ha = aH \\qquad \\text{for every } a \\in G.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now $aHa^{-1} = (aH)a^{-1} = (Ha)a^{-1} = H(aa^{-1}) = H$. Explicitly: for $h \\in H$, $ah \\in aH = Ha$, so $ah = h'a$ for some $h' \\in H$ and $aha^{-1} = h' \\in H$; this shows $aHa^{-1} \\subseteq H$, and applying it to $a^{-1}$ gives $a^{-1}Ha \\subseteq H$, i.e. $H \\subseteq aHa^{-1}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $H$ is a normal subgroup of $G$. Conversely, if $aHa^{-1} = H$ for all $a$, then $aH = Ha$ for all $a$, so every right coset is a left coset. Exercise 2.4.7 shows that this can fail.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "normal-subgroup",
+        "abstract-algebra-herstein (2.4.8)"
+      ]
+    },
+    {
+      "date": "2024-02-07",
+      "title": "Herstein - 2.3.16 - A group with no proper subgroups is cyclic of prime order",
+      "difficulty": "medium",
+      "problem": "If $G$ has no proper subgroups, prove that $G$ is cyclic of order $p$, where $p$ is a prime number. (This sharpens the result of Problem 14.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">By Problem 14, $G = \\langle a \\rangle$. Rule out $G$ infinite (look at $\\langle a^2 \\rangle$) and $\\vert G \\vert = rs$ with $1 \\lt r \\lt \\vert G \\vert$ (look at $\\langle a^r \\rangle$).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Here \"proper\" means different from $(e)$ and from $G$, and we assume $G \\neq (e)$ (the trivial group is cyclic of order $1$). Take $a \\in G$, $a \\neq e$. Then $\\langle a \\rangle \\neq (e)$, so $\\langle a \\rangle = G$: $G$ is cyclic (Problem 14).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$G$ is finite.</strong> Suppose $a$ had infinite order. Then $H = \\langle a^2 \\rangle$ is a subgroup with $H \\neq (e)$. Also $a \\notin H$: if $a = a^{2k}$ then $a^{2k - 1} = e$ with $2k - 1 \\neq 0$, impossible for an element of infinite order. So $H \\neq G$, a proper subgroup, a contradiction. Hence $G$ is finite, say $\\vert G \\vert = n = o(a)$, with $n > 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$n$ is prime.</strong> Suppose $n = rs$ with $1 \\lt r \\lt n$ (so $1 \\lt s \\lt n$). Let $b = a^r$. Then $b^s = a^{rs} = e$, while for $1 \\leq j \\lt s$, $b^j = a^{rj} \\neq e$ because $0 \\lt rj \\lt n = o(a)$. So $o(b) = s$ and $\\langle b \\rangle$ has exactly $s$ elements, with $1 \\lt s \\lt n$: a proper subgroup, a contradiction. Hence $n$ is a prime $p$, and $G$ is cyclic of order $p$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cyclic-group",
+        "abstract-algebra-herstein (2.3.16)"
+      ]
+    },
+    {
+      "date": "2024-02-14",
+      "title": "Herstein - 2.3.17 - The centralizer of a conjugate: $C(x^{-1}ax) = x^{-1}C(a)x$",
+      "difficulty": "easy",
+      "problem": "If $G$ is a group and $a, x \\in G$, prove that $C(x^{-1}ax) = x^{-1}C(a)x$. (Here $C(b) = \\{ g \\in G : gb = bg \\}$ is the centralizer of $b$, and $x^{-1}C(a)x = \\{ x^{-1}gx : g \\in C(a) \\}$.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$g$ commutes with $x^{-1}ax$ if and only if $xgx^{-1}$ commutes with $a$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $g \\in G$, multiplying on the left by $x$ and on the right by $x^{-1}$ (which is reversible),\n    \\[\n        g\\,(x^{-1}ax) = (x^{-1}ax)\\,g\n        \\iff (xgx^{-1})\\,a = a\\,(xgx^{-1}).\n    \\]\n    (Indeed $x\\,(g x^{-1} a x)\\,x^{-1} = (xgx^{-1})\\,a$ and $x\\,(x^{-1} a x g)\\,x^{-1} = a\\,(xgx^{-1})$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore\n    \\[\n        g \\in C(x^{-1}ax) \\iff xgx^{-1} \\in C(a) \\iff g \\in x^{-1}C(a)x,\n    \\]\n    where the last step holds because $xgx^{-1} = c \\iff g = x^{-1}cx$. Hence $C(x^{-1}ax) = x^{-1}C(a)x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So conjugate elements have conjugate centralizers. In particular, for a finite group, conjugate elements have centralizers of the same order (and so conjugacy classes have well-defined sizes $[G : C(a)]$).</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abstract-algebra-herstein (2.3.17)"
+      ]
+    },
+    {
+      "date": "2024-02-21",
+      "title": "Herstein - 2.3.18 - The permutations preserving a finite subset form a subgroup",
+      "difficulty": "medium",
+      "problem": "If $S$ is a nonempty set and $X \\subset S$, show that $T(X) = \\{ f \\in A(S) \\mid f(X) \\subset X \\}$ is a subgroup of $A(S)$ if $X$ is finite. (Here $A(S)$ is the group of all bijections of $S$ onto itself.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Closure under composition is easy. For inverses, show that $f(X) \\subset X$ forces $f(X) = X$ when $X$ is finite.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Identity.</strong> The identity map $i$ satisfies $i(X) = X$, so $i \\in T(X)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Products.</strong> If $f, g \\in T(X)$, then $(f \\circ g)(X) = f(g(X)) \\subset f(X) \\subset X$, so $f \\circ g \\in T(X)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Inverses.</strong> Let $f \\in T(X)$. The restriction $f|_X : X \\to X$ is one-to-one (as $f$ is), and $X$ is finite, so $f|_X$ is also onto: $f(X) = X$. (A one-to-one map from a finite set to itself is onto.) Applying $f^{-1}$, we get $X = f^{-1}(X)$, so $f^{-1}(X) \\subset X$ and $f^{-1} \\in T(X)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $T(X)$ is a subgroup of $A(S)$. (The criterion \"a nonempty finite subset closed under products is a subgroup\" cannot be used here, since $T(X)$ itself may be infinite; it is the finiteness of $X$ that matters. Problem 25 shows it is really needed.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "abstract-algebra-herstein (2.3.18)"
+      ]
+    },
+    {
+      "date": "2024-02-28",
+      "title": "Herstein - 2.3.19 - If $A$, $B$ are subgroups of an abelian group, then $AB$ is a subgroup",
+      "difficulty": "easy",
+      "problem": "If $A$, $B$ are subgroups of an abelian group $G$, let $AB = \\{ ab \\mid a \\in A, b \\in B \\}$. Prove that $AB$ is a subgroup of $G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use commutativity to rearrange $(a_1 b_1)(a_2 b_2)$ and $(ab)^{-1}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$e = ee \\in AB$. Let $a_1 b_1, a_2 b_2 \\in AB$. Since $G$ is abelian,\n    \\[\n        (a_1 b_1)(a_2 b_2) = (a_1 a_2)(b_1 b_2) \\in AB,\n    \\]\n    as $a_1 a_2 \\in A$ and $b_1 b_2 \\in B$. Also\n    \\[\n        (ab)^{-1} = b^{-1} a^{-1} = a^{-1} b^{-1} \\in AB.\n    \\]\n    So $AB$ is a subgroup of $G$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Only part of the commutativity was used: it suffices that elements of $A$ commute with elements of $B$, or more generally that $AB = BA$. Problem 20 shows that some such hypothesis is needed.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "abstract-algebra-herstein (2.3.19)"
+      ]
+    },
+    {
+      "date": "2024-03-06",
+      "title": "Herstein - 2.3.20 - Two subgroups $A$, $B$ of $S_3$ for which $AB$ is not a subgroup",
+      "difficulty": "easy",
+      "problem": "Give an example of a group $G$ and two subgroups $A$, $B$ of $G$ such that $AB$ is <em>not</em> a subgroup of $G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Try $G = S_3$ with $A$ and $B$ generated by two different transpositions.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $G = S_3$, $A = \\{ e, (1\\ 2) \\}$ and $B = \\{ e, (1\\ 3) \\}$. Composing permutations from right to left,\n    \\[\n        (1\\ 2)(1\\ 3) = (1\\ 3\\ 2), \\qquad (1\\ 3)(1\\ 2) = (1\\ 2\\ 3).\n    \\]\n    So\n    \\[\n        AB = \\{ e,\\ (1\\ 2),\\ (1\\ 3),\\ (1\\ 3\\ 2) \\}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$AB$ is not closed under multiplication: $(1\\ 3)$ and $(1\\ 2)$ are in $AB$, but their product $(1\\ 3)(1\\ 2) = (1\\ 2\\ 3) \\notin AB$. Hence $AB$ is not a subgroup of $S_3$. (Alternatively: $AB$ has $4$ elements, and $4$ does not divide $6$, so by Lagrange's theorem it cannot be a subgroup.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "abstract-algebra-herstein (2.3.20)"
+      ]
+    },
+    {
+      "date": "2024-03-13",
+      "title": "Herstein - 2.3.21 - If $b^{-1}Ab \\subset A$ for all $b \\in B$, then $AB$ is a subgroup",
+      "difficulty": "medium",
+      "problem": "If $A$, $B$ are subgroups of $G$ such that $b^{-1}Ab \\subset A$ for all $b \\in B$, show that $AB$ is a subgroup of $G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Rewrite $b_1 a_2$ as $(b_1 a_2 b_1^{-1})\\, b_1$, and $b^{-1}a^{-1}$ as $(b^{-1}a^{-1}b)\\, b^{-1}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Clearly $e = ee \\in AB$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Products.</strong> Let $a_1 b_1, a_2 b_2 \\in AB$. Since $b_1^{-1} \\in B$, the hypothesis (applied to $b = b_1^{-1}$) gives $b_1 a_2 b_1^{-1} = (b_1^{-1})^{-1} a_2\\, b_1^{-1} \\in A$. Hence\n    \\[\n        (a_1 b_1)(a_2 b_2) = a_1 (b_1 a_2 b_1^{-1})\\, b_1 b_2 = \\big( a_1\\, (b_1 a_2 b_1^{-1}) \\big) (b_1 b_2) \\in AB.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Inverses.</strong> For $ab \\in AB$, $b^{-1} a^{-1} b \\in A$ by hypothesis, so\n    \\[\n        (ab)^{-1} = b^{-1} a^{-1} = (b^{-1} a^{-1} b)\\, b^{-1} \\in AB.\n    \\]\n    Hence $AB$ is a subgroup. This generalizes Problem 19, and applies in particular when $A$ is normal in $G$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "abstract-algebra-herstein (2.3.21)"
+      ]
+    },
+    {
+      "date": "2024-03-20",
+      "title": "Herstein - 2.3.22 - In an abelian group, $\\vert AB \\vert = mn$ when $\\vert A \\vert = m$, $\\vert B \\vert = n$ are coprime",
+      "difficulty": "medium",
+      "problem": "If $A$ and $B$ are finite subgroups, of orders $m$ and $n$, respectively, of the abelian group $G$, prove that $AB$ is a subgroup of order $mn$ if $m$ and $n$ are relatively prime.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$AB$ is a subgroup by Problem 19. The map $A \\times B \\to AB$, $(a, b) \\mapsto ab$, is onto; show it is one-to-one using $A \\cap B$.</li>\n<li class=\"my-4\">The order of $A \\cap B$ divides both $m$ and $n$ (Lagrange's theorem).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Problem 19, $AB$ is a subgroup. Consider the map $\\phi : A \\times B \\to AB$, $\\phi(a, b) = ab$. It is onto by definition of $AB$, so $\\vert AB \\vert \\leq mn$, with equality if and only if $\\phi$ is one-to-one.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$A \\cap B$ is a subgroup of both $A$ and $B$, so by Lagrange's theorem its order divides $m$ and $n$, hence divides $\\gcd(m, n) = 1$. Thus $A \\cap B = (e)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now if $ab = a'b'$, then $a'^{-1} a = b' b^{-1}$ lies in $A \\cap B = (e)$, so $a = a'$ and $b = b'$. Hence $\\phi$ is one-to-one and $\\vert AB \\vert = mn$. (For example, in $\\mathbb{Z}_6$ the subgroups $\\{ 0, 3 \\}$ and $\\{ 0, 2, 4 \\}$ give $AB = \\mathbb{Z}_6$, of order $2 \\cdot 3$.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "lagrange-theorem",
+        "abstract-algebra-herstein (2.3.22)"
+      ]
+    },
+    {
+      "date": "2024-03-27",
+      "title": "Herstein - 2.3.23 - The order of $AB$ when the orders are not relatively prime",
+      "difficulty": "medium",
+      "problem": "What is the order of $AB$ in Problem 22 if $m$ and $n$ are not relatively prime?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Count how many pairs $(a, b) \\in A \\times B$ give the same product $ab$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Answer:</strong>\n    \\[\n        \\vert AB \\vert = \\frac{mn}{\\vert A \\cap B \\vert}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Consider again $\\phi : A \\times B \\to AB$, $\\phi(a, b) = ab$. Fix a product $ab$. For each $c \\in A \\cap B$ the pair $(ac, c^{-1}b)$ lies in $A \\times B$ and has the same product. Conversely, if $a'b' = ab$, then $c = a^{-1}a' = b b'^{-1}$ lies in $A \\cap B$, and $(a', b') = (ac, c^{-1}b)$. Different $c$ give different pairs. So each element of $AB$ has exactly $\\vert A \\cap B \\vert$ preimages, and\n    \\[\n        mn = \\vert A \\times B \\vert = \\vert AB \\vert \\cdot \\vert A \\cap B \\vert.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the order is not determined by $m$ and $n$ alone. Since $\\vert A \\cap B \\vert$ divides $\\gcd(m, n)$, we always have $\\operatorname{lcm}(m, n) \\leq \\vert AB \\vert \\leq mn$. For example, in $\\mathbb{Z}_{12}$ with $A = \\langle 2 \\rangle$ (order $6$) and $B = \\langle 3 \\rangle$ (order $4$): $A \\cap B = \\langle 6 \\rangle$ has order $2$ and $AB = \\mathbb{Z}_{12}$ has order $\\frac{24}{2} = 12$. (The counting argument does not use commutativity, so the formula holds for the set $AB$ in any group.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "abstract-algebra-herstein (2.3.23)"
+      ]
+    },
+    {
+      "date": "2024-04-03",
+      "title": "Herstein - 2.3.24 - The intersection of all conjugates of $H$ is a normal subgroup",
+      "difficulty": "medium",
+      "problem": "If $H$ is a subgroup of $G$, let $N = \\bigcap_{x \\in G} x^{-1}Hx$. Prove that $N$ is a subgroup of $G$ such that $y^{-1}Ny = N$ for every $y \\in G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Each $x^{-1}Hx$ is a subgroup. For the second part, $y^{-1}(x^{-1}Hx)y = (xy)^{-1}H(xy)$, and $xy$ runs over all of $G$ as $x$ does.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Each conjugate is a subgroup.</strong> $e = x^{-1}ex \\in x^{-1}Hx$; $(x^{-1}h_1x)(x^{-1}h_2x) = x^{-1}h_1h_2x$; $(x^{-1}hx)^{-1} = x^{-1}h^{-1}x$. An intersection of subgroups is a subgroup, so $N$ is a subgroup of $G$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$N$ is normal.</strong> Fix $y \\in G$. Since $g \\mapsto y^{-1}gy$ is a bijection of $G$, it maps intersections to intersections:\n    \\[\n        y^{-1}Ny = \\bigcap_{x \\in G} y^{-1}(x^{-1}Hx)y = \\bigcap_{x \\in G} (xy)^{-1}H(xy) = \\bigcap_{z \\in G} z^{-1}Hz = N,\n    \\]\n    because as $x$ runs over $G$, so does $z = xy$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$N$ is the largest normal subgroup of $G$ contained in $H$ (the \"core\" of $H$): it is contained in $H = e^{-1}He$, and any normal subgroup $K \\subseteq H$ satisfies $K = x^{-1}Kx \\subseteq x^{-1}Hx$ for all $x$, so $K \\subseteq N$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "normal-subgroup",
+        "abstract-algebra-herstein (2.3.24)"
+      ]
+    },
+    {
+      "date": "2024-04-10",
+      "title": "Herstein - 2.3.25 - For an infinite subset $X$, $T(X)$ need not be a subgroup",
+      "difficulty": "medium",
+      "problem": "Let $S$, $X$, $T(X)$ be as in Problem 18 (but $X$ no longer finite). Give an example of a set $S$ and an infinite subset $X$ such that $T(X)$ is <em>not</em> a subgroup of $A(S)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Take $S = \\mathbb{Z}$, $X = \\{ 1, 2, 3, \\dots \\}$ and the shift $f(n) = n + 1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $S = \\mathbb{Z}$, $X = \\{ 1, 2, 3, \\dots \\}$, and $f : \\mathbb{Z} \\to \\mathbb{Z}$, $f(n) = n + 1$. Then $f$ is a bijection, so $f \\in A(S)$, and\n    \\[\n        f(X) = \\{ 2, 3, 4, \\dots \\} \\subset X,\n    \\]\n    so $f \\in T(X)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">But $f^{-1}(n) = n - 1$, and $f^{-1}(1) = 0 \\notin X$, so $f^{-1}(X) \\not\\subset X$ and $f^{-1} \\notin T(X)$. Hence $T(X)$ is not closed under inverses, and is not a subgroup of $A(S)$. (It is closed under composition and contains the identity: it is a \"submonoid\".)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The proof of Problem 18 breaks down exactly here: $f|_X : X \\to X$ is one-to-one but not onto, which is possible only because $X$ is infinite.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "abstract-algebra-herstein (2.3.25)"
+      ]
+    },
+    {
+      "date": "2024-04-17",
+      "title": "Herstein - 2.3.26 - Two right cosets are either equal or disjoint",
+      "difficulty": "easy",
+      "problem": "Let $G$ be a group, $H$ a subgroup of $G$. Let $Hx = \\{ hx \\mid h \\in H \\}$. Show that, given $a, b \\in G$, then $Ha = Hb$ or $Ha \\cap Hb = \\varnothing$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $x \\in Ha \\cap Hb$, write $x = h_1 a = h_2 b$ and use $Hh = H$ for $h \\in H$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First, $Hh = H$ for every $h \\in H$: $Hh \\subseteq H$ by closure, and any $k \\in H$ equals $(kh^{-1})h \\in Hh$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Suppose $Ha \\cap Hb \\neq \\varnothing$, say $x = h_1 a = h_2 b$ with $h_1, h_2 \\in H$. Then $a = h_1^{-1} h_2\\, b$, and\n    \\[\n        Ha = H(h_1^{-1}h_2)\\, b = Hb,\n    \\]\n    because $h_1^{-1}h_2 \\in H$. So two right cosets are either equal or disjoint.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since every $a \\in G$ lies in its own coset $Ha$, the right cosets of $H$ partition $G$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "abstract-algebra-herstein (2.3.26)"
+      ]
+    },
+    {
       "date": "2024-04-24",
       "title": "If G/Z(G) is cyclic, then G is abelian",
       "problem": "<ul class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\nLet $G$ be a group which has a normal subgroup $N$ of order $2$. If $G /N$ is cyclic, then $G$ is abelian.",
@@ -756,6 +966,245 @@
       ]
     },
     {
+      "date": "2024-09-04",
+      "title": "Herstein - 2.3.27 - All right cosets of a finite subgroup $H$ have $o(H)$ elements",
+      "difficulty": "easy",
+      "problem": "If in Problem 26 $H$ is a finite subgroup of $G$, prove that $Ha$ and $Hb$ have the same number of elements. What is this number?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The map $H \\to Ha$, $h \\mapsto ha$, is a bijection.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The map $\\phi_a : H \\to Ha$, $\\phi_a(h) = ha$, is onto by the definition of $Ha$, and one-to-one: $h_1 a = h_2 a$ implies $h_1 = h_2$ by cancellation. So $\\vert Ha \\vert = \\vert H \\vert$ for every $a \\in G$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $Ha$ and $Hb$ have the same number of elements, namely $o(H)$, the order of $H$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Together with Problem 26 this gives Lagrange's theorem: if $G$ is finite, it is a disjoint union of, say, $k$ right cosets, each with $o(H)$ elements, so $o(G) = k \\cdot o(H)$ and $o(H)$ divides $o(G)$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "subgroups",
+        "lagrange-theorem",
+        "abstract-algebra-herstein (2.3.27)"
+      ]
+    },
+    {
+      "date": "2024-09-11",
+      "title": "Herstein - 2.3.28 - If $M$, $N$ are normal subgroups, then $MN$ is a normal subgroup",
+      "difficulty": "medium",
+      "problem": "Let $M$, $N$ be subgroups of $G$ such that $x^{-1}Mx \\subset M$ and $x^{-1}Nx \\subset N$ for all $x \\in G$. Prove that $MN$ is a subgroup of $G$ and that $x^{-1}(MN)x \\subset MN$ for all $x \\in G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For the first part apply Problem 21; for the second, $x^{-1}mnx = (x^{-1}mx)(x^{-1}nx)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$MN$ is a subgroup.</strong> In particular $n^{-1}Mn \\subset M$ for every $n \\in N$, so by Problem 21 (with $A = M$, $B = N$), $MN$ is a subgroup of $G$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$MN$ is normal.</strong> For $m \\in M$, $n \\in N$ and $x \\in G$,\n    \\[\n        x^{-1}(mn)x = (x^{-1}mx)(x^{-1}nx) \\in MN,\n    \\]\n    since $x^{-1}mx \\in M$ and $x^{-1}nx \\in N$. Hence $x^{-1}(MN)x \\subset MN$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the product of two normal subgroups is a normal subgroup (and by Problem 29 the inclusion is in fact an equality).</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "normal-subgroup",
+        "abstract-algebra-herstein (2.3.28)"
+      ]
+    },
+    {
+      "date": "2024-09-18",
+      "title": "Herstein - 2.3.29 - If $x^{-1}Mx \\subset M$ for all $x$, then $x^{-1}Mx = M$",
+      "difficulty": "easy",
+      "problem": "If $M$ is a subgroup of $G$ such that $x^{-1}Mx \\subset M$ for all $x \\in G$, prove that actually $x^{-1}Mx = M$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Apply the hypothesis to $x^{-1}$ instead of $x$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Fix $x \\in G$. We already have $x^{-1}Mx \\subset M$; we need $M \\subset x^{-1}Mx$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Applying the hypothesis to the element $x^{-1}$ gives $(x^{-1})^{-1} M x^{-1} = xMx^{-1} \\subset M$. So for $m \\in M$, $xmx^{-1} = m'$ for some $m' \\in M$, and then\n    \\[\n        m = x^{-1} m' x \\in x^{-1}Mx.\n    \\]\n    Hence $M \\subset x^{-1}Mx$, and so $x^{-1}Mx = M$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The point is that the hypothesis is for <em>all</em> $x$. For a single fixed $x$ the inclusion $x^{-1}Mx \\subset M$ can be strict in an infinite group (although not in a finite one, where both sides have the same number of elements).</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "normal-subgroup",
+        "abstract-algebra-herstein (2.3.29)"
+      ]
+    },
+    {
+      "date": "2024-09-25",
+      "title": "Herstein - 2.3.30 - Normal subgroups with trivial intersection commute elementwise",
+      "difficulty": "medium",
+      "problem": "If $M$, $N$ are such that $x^{-1}Mx = M$ and $x^{-1}Nx = N$ for all $x \\in G$, and if $M \\cap N = (e)$, prove that $mn = nm$ for any $m \\in M$, $n \\in N$. (Hint: Consider the element $m^{-1}n^{-1}mn$.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Show that the commutator $m^{-1}n^{-1}mn$ lies in $M$ (group it as $m^{-1}(n^{-1}mn)$) and in $N$ (group it as $(m^{-1}n^{-1}m)\\,n$).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $m \\in M$, $n \\in N$, and $c = m^{-1}n^{-1}mn$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$c \\in M$:</strong> $n^{-1}mn \\in n^{-1}Mn = M$, so $c = m^{-1}\\,(n^{-1}mn)$ is a product of two elements of $M$.<br>\n    <strong>$c \\in N$:</strong> $m^{-1}n^{-1}m \\in m^{-1}Nm = N$, so $c = (m^{-1}n^{-1}m)\\,n$ is a product of two elements of $N$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $c \\in M \\cap N = (e)$, i.e. $m^{-1}n^{-1}mn = e$, which gives $mn = nm$. (This is a key step in recognising a group as an internal direct product $G \\cong M \\times N$.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "normal-subgroup",
+        "abstract-algebra-herstein (2.3.30)"
+      ]
+    },
+    {
+      "date": "2024-10-02",
+      "title": "Herstein (Topics in Algebra) - 2.3.3 - If $(ab)^2 = a^2 b^2$ for all $a, b$, then $G$ is abelian",
+      "difficulty": "easy",
+      "problem": "If $G$ is a group such that $(a \\cdot b)^2 = a^2 \\cdot b^2$ for all $a, b \\in G$, show that $G$ must be abelian.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Expand $(ab)^2 = abab$ and cancel.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $a, b \\in G$. The hypothesis says $abab = aabb$. Cancelling $a$ on the left (multiply by $a^{-1}$) gives $bab = abb$, and cancelling $b$ on the right gives $ba = ab$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $a, b$ were arbitrary, $G$ is abelian. (Conversely, in an abelian group $(ab)^2 = a^2 b^2$ always holds, by Problem 2.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abelian-group",
+        "topics-in-algebra-herstein (2.3.3)"
+      ]
+    },
+    {
+      "date": "2024-10-09",
+      "title": "Herstein (Topics in Algebra) - 2.3.4 - $(ab)^i = a^i b^i$ for three consecutive integers $i$ forces $G$ to be abelian",
+      "difficulty": "medium",
+      "problem": "If $G$ is a group in which $(a \\cdot b)^i = a^i \\cdot b^i$ for three consecutive integers $i$ for all $a, b \\in G$, show that $G$ is abelian.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">From the identities for $i$ and $i + 1$, deduce $b^i a = a b^i$. Similarly from $i + 1$ and $i + 2$, $b^{i+1} a = a b^{i+1}$. Then compare.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let the three consecutive integers be $i, i + 1, i + 2$, and fix $a, b \\in G$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Step 1.</strong> From $(ab)^{i+1} = (ab)^i (ab)$ we get $a^{i+1} b^{i+1} = a^i b^i a b$. Cancelling $a^i$ on the left and $b$ on the right:\n    \\[\n        a b^i = b^i a. \\tag{1}\n    \\]\n    In the same way, from $(ab)^{i+2} = (ab)^{i+1}(ab)$ we get $a^{i+2} b^{i+2} = a^{i+1} b^{i+1} a b$, hence\n    \\[\n        a b^{i+1} = b^{i+1} a. \\tag{2}\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Step 2.</strong> Using (1),\n    \\[\n        b^{i+1} a = b \\,(b^i a) = b \\,(a b^i) = (ba)\\, b^i,\n    \\]\n    while $a b^{i+1} = (ab)\\, b^i$. By (2) these are equal: $(ba) b^i = (ab) b^i$. Cancelling $b^i$ on the right gives $ba = ab$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $G$ is abelian. (The argument works for negative $i$ as well, since the laws of exponents hold for all integers.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abelian-group",
+        "topics-in-algebra-herstein (2.3.4)"
+      ]
+    },
+    {
+      "date": "2024-10-16",
+      "title": "Herstein (Topics in Algebra) - 2.3.5 - Two consecutive integers are not enough",
+      "difficulty": "easy",
+      "problem": "Show that the conclusion of Problem 4 does not follow if we assume the relation $(a \\cdot b)^i = a^i \\cdot b^i$ for just two consecutive integers.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Try $i = 0, 1$. For a less trivial example, use a nonabelian group in which $x^6 = e$ for every $x$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Trivial example.</strong> For $i = 0$ and $i = 1$ the relation reads $e = e$ and $ab = ab$, which hold in <em>every</em> group, including the nonabelian group $S_3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>A less trivial example.</strong> Every element of $S_3$ has order $1$, $2$ or $3$, so $x^6 = e$ for all $x \\in S_3$. Hence for all $a, b \\in S_3$:\n    \\[\n        (ab)^6 = e = a^6 b^6, \\qquad (ab)^7 = ab = a^7 b^7.\n    \\]\n    So the relation holds for the two consecutive integers $6$ and $7$, but $S_3$ is not abelian.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">What the two identities do give (Step 1 of Problem 4) is that every $i$-th power commutes with everything, i.e. $b^i$ lies in the center of $G$; in $S_3$ with $i = 6$ this says only that $e$ is central.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abelian-group",
+        "symmetric-group",
+        "topics-in-algebra-herstein (2.3.5)"
+      ]
+    },
+    {
+      "date": "2024-10-23",
+      "title": "Herstein (Topics in Algebra) - 2.3.9 - Groups with three, four or five elements are abelian",
+      "difficulty": "medium",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">If the group $G$ has three elements, show it must be abelian.</li>\n<li class=\"my-4\">Do part (a) if $G$ has four elements.</li>\n<li class=\"my-4\">Do part (a) if $G$ has five elements.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $ab \\neq ba$, show that $e, a, b, ab, ba$ are five distinct elements.</li>\n<li class=\"my-4\">For (c), the group would be exactly $\\{ e, a, b, ab, ba \\}$; ask where $a^2$ and $aba$ can be.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Key lemma.</strong> If $ab \\neq ba$, then $e, a, b, ab, ba$ are five distinct elements.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">$a \\neq e$, $b \\neq e$ and $a \\neq b$, since $e$ commutes with everything and $a$ commutes with itself.</li>\n<li class=\"my-4\">$ab \\notin \\{ e, a, b \\}$: $ab = e$ means $b = a^{-1}$, which commutes with $a$; $ab = a$ means $b = e$; $ab = b$ means $a = e$. Likewise $ba \\notin \\{ e, a, b \\}$.</li>\n<li class=\"my-4\">$ab \\neq ba$ by assumption.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a) and (b).</strong> A nonabelian group has at least $5$ elements by the lemma. So every group with $3$ or $4$ (indeed at most $4$) elements is abelian.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Suppose $|G| = 5$ and $ab \\neq ba$. By the lemma, $G = \\{ e, a, b, ab, ba \\}$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\"><em>Where is $a^2$?</em> $a^2 \\neq a$ (else $a = e$), $a^2 \\neq ab$ and $a^2 \\neq ba$ (else $a = b$), and $a^2 \\neq b$ (else $b$ would commute with $a$). So $a^2 = e$, i.e. $a^{-1} = a$.</li>\n<li class=\"my-4\"><em>Where is $aba$?</em> $aba = e$ gives $ab = a^{-1} = a$, so $b = e$. $aba = a$ gives $ba = e$, so $b = a^{-1} = a$. $aba = b$ gives $ab = ba^{-1} = ba$. $aba = ab$ gives $a = e$. $aba = ba$ gives $ab = b$, so $a = e$.</li></ul>\n    Every case is impossible, so no such $a, b$ exist: a group with five elements is abelian.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(With Lagrange's theorem of the next section there is a quicker proof: a group of prime order is cyclic. The lemma shows more: the smallest nonabelian group has order $6$, and $S_3$ is an example.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abelian-group",
+        "topics-in-algebra-herstein (2.3.9)"
+      ]
+    },
+    {
+      "date": "2024-10-30",
+      "title": "Herstein (Topics in Algebra) - 2.3.10 - If every element is its own inverse, $G$ is abelian",
+      "difficulty": "easy",
+      "problem": "Show that if every element of the group $G$ has its own inverse, then $G$ is abelian.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Apply the hypothesis to $a$, $b$ and $ab$, and use $(ab)^{-1} = b^{-1} a^{-1}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $a, b \\in G$. By hypothesis $a^{-1} = a$, $b^{-1} = b$ and $(ab)^{-1} = ab$. Hence\n    \\[\n        ab = (ab)^{-1} = b^{-1} a^{-1} = ba.\n    \\]\n    So $G$ is abelian.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Equivalently: if $x^2 = e$ for all $x \\in G$, then $G$ is abelian. Examples are $\\mathbb{Z}_2 \\times \\mathbb{Z}_2$ and, more generally, the subsets of a set under symmetric difference.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abelian-group",
+        "topics-in-algebra-herstein (2.3.10)"
+      ]
+    },
+    {
+      "date": "2024-11-06",
+      "title": "Herstein (Topics in Algebra) - 2.3.11 - A group of even order has an element $a \\neq e$ with $a^2 = e$",
+      "difficulty": "easy",
+      "problem": "If $G$ is a group of even order, prove it has an element $a \\neq e$ satisfying $a^2 = e$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Pair each element $x$ with $x^{-1}$. The elements with $x \\neq x^{-1}$ come in pairs.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that $x^2 = e \\iff x = x^{-1}$. Partition $G$ into the sets $\\{ x, x^{-1} \\}$. Each such set has two elements if $x \\neq x^{-1}$, and one element if $x = x^{-1}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the elements with $x \\neq x^{-1}$ can be grouped into disjoint pairs, and their number is even. Hence the number of elements with $x = x^{-1}$, which is $|G|$ minus this even number, is even too.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The identity $e$ is one element with $e = e^{-1}$. Since their number is even, there is at least one more: some $a \\neq e$ with $a = a^{-1}$, i.e. $a^2 = e$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(The argument shows that the number of elements of order $2$ in a group of even order is odd.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "topics-in-algebra-herstein (2.3.11)"
+      ]
+    },
+    {
+      "date": "2024-11-13",
+      "title": "Herstein (Topics in Algebra) - 2.3.12 - A right identity and right inverses are enough for a group",
+      "difficulty": "medium",
+      "problem": "Let $G$ be a nonempty set closed under an associative product, which in addition satisfies:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">There exists an $e \\in G$ such that $a \\cdot e = a$ for all $a \\in G$.</li>\n<li class=\"my-4\">Given $a \\in G$, there exists an element $y(a) \\in G$ such that $a \\cdot y(a) = e$.</li></ol>\n    Prove that $G$ must be a group under this product.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Show first that if $u \\cdot u = u$, then $u = e$. Then apply this to $u = y(a) \\cdot a$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Idempotents are trivial.</strong> If $u \\cdot u = u$, then\n    \\[\n        u = u e = u\\, (u\\, y(u)) = (u u)\\, y(u) = u\\, y(u) = e.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Right inverses are left inverses.</strong> Let $a \\in G$ and $y = y(a)$. Then\n    \\[\n        (y a)(y a) = y\\, (a y)\\, a = y\\, e\\, a = (y e)\\, a = y a.\n    \\]\n    So $ya$ is idempotent, and therefore $y a = e$. Thus $y(a)$ is a two-sided inverse of $a$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$e$ is a left identity.</strong> $e a = (a\\, y(a))\\, a = a\\, (y(a)\\, a) = a e = a$. So $e$ is a two-sided identity.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $G$ is associative, has a two-sided identity $e$, and every element has a two-sided inverse: $G$ is a group.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "group-axioms",
+        "topics-in-algebra-herstein (2.3.12)"
+      ]
+    },
+    {
+      "date": "2024-11-20",
+      "title": "Herstein (Topics in Algebra) - 2.3.13 - A right identity with left inverses need not give a group",
+      "difficulty": "medium",
+      "problem": "Prove, by an example, that the conclusion of Problem 12 is false if we assume instead:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">There exists an $e \\in G$ such that $a \\cdot e = a$ for all $a \\in G$.</li>\n<li class=\"my-4\">Given $a \\in G$, there exists $y(a) \\in G$ such that $y(a) \\cdot a = e$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Try the product $a \\cdot b = a$ on a set with at least two elements.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $G$ be any set with at least two elements, and define $a \\cdot b = a$ for all $a, b \\in G$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Associative:</strong> $(a \\cdot b) \\cdot c = a \\cdot c = a$ and $a \\cdot (b \\cdot c) = a \\cdot b = a$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Condition (a):</strong> fix any $e \\in G$. Then $a \\cdot e = a$ for all $a$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Condition (b):</strong> take $y(a) = e$ for every $a$. Then $y(a) \\cdot a = e \\cdot a = e$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Not a group.</strong> In a group, $x \\cdot a = x \\cdot b$ implies $a = b$. Here $x \\cdot a = x = x \\cdot b$ for all $a \\neq b$, so left cancellation fails. (Equivalently, $e \\cdot a = e \\neq a$ for $a \\neq e$, so $e$ is not a two-sided identity.) So mixing a right identity with <em>left</em> inverses is not enough.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "group-axioms",
+        "topics-in-algebra-herstein (2.3.13)"
+      ]
+    },
+    {
+      "date": "2024-11-27",
+      "title": "Herstein (Topics in Algebra) - 2.3.14 - A finite set with an associative product and both cancellation laws is a group",
+      "difficulty": "medium",
+      "problem": "Suppose a finite set $G$ is closed under an associative product and that both cancellation laws hold in $G$. Prove that $G$ must be a group.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For fixed $a$, the maps $x \\mapsto xa$ and $x \\mapsto ax$ are one-to-one, hence onto (finiteness). Find a right identity and right inverses, then use Problem 12.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(We assume $G \\neq \\varnothing$.) For $a \\in G$, the maps $R_a(x) = xa$ and $L_a(x) = ax$ of $G$ into itself are one-to-one, by right and left cancellation. Since $G$ is finite, they are also onto.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>A right identity.</strong> Fix $a_0 \\in G$. Since $L_{a_0}$ is onto, there is $e$ with $a_0 e = a_0$. Let $b \\in G$ be arbitrary. Since $R_{a_0}$ is onto, $b = x a_0$ for some $x$, and then\n    \\[\n        b e = x a_0 e = x a_0 = b.\n    \\]\n    So $b e = b$ for all $b \\in G$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Right inverses.</strong> For $a \\in G$, since $L_a$ is onto, there is $y$ with $a y = e$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Problem 12, $G$ is a group.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Finiteness is essential: see Problem 17.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "group-axioms",
+        "topics-in-algebra-herstein (2.3.14)"
+      ]
+    },
+    {
+      "date": "2024-12-04",
+      "title": "Herstein (Topics in Algebra) - 2.3.15 - The nonzero residues mod $p$, and the units mod $n$, are groups",
+      "difficulty": "medium",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Using the result of Problem 14, prove that the nonzero integers modulo $p$, $p$ a prime number, form a group under multiplication mod $p$.</li>\n<li class=\"my-4\">Do part (a) for the nonzero integers relatively prime to $n$ under multiplication mod $n$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">You need closure, associativity and cancellation. For cancellation: if $n \\mid a(b - c)$ and $\\gcd(a, n) = 1$, then $n \\mid b - c$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $G = \\{ 1, 2, \\ldots, p - 1 \\}$ with $a \\cdot b$ the remainder of $ab$ on division by $p$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\"><em>Closure:</em> if $p \\nmid a$ and $p \\nmid b$, then $p \\nmid ab$, because $p$ is prime. So $a \\cdot b \\in G$.</li>\n<li class=\"my-4\"><em>Associativity:</em> both $(a \\cdot b) \\cdot c$ and $a \\cdot (b \\cdot c)$ are the remainder of $abc$ mod $p$.</li>\n<li class=\"my-4\"><em>Cancellation:</em> if $a \\cdot b = a \\cdot c$, then $p \\mid a(b - c)$, and since $p \\nmid a$, $p \\mid b - c$; as $|b - c| \\lt p$, $b = c$. Multiplication is commutative, so this gives both cancellation laws.</li></ul>\n    $G$ is finite, so by Problem 14 it is a group (of order $p - 1$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Let $U_n = \\{ a : 1 \\leq a \\lt n,\\ \\gcd(a, n) = 1 \\}$ with multiplication mod $n$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\"><em>Closure:</em> if $\\gcd(a, n) = \\gcd(b, n) = 1$, then $\\gcd(ab, n) = 1$ (a prime dividing $ab$ and $n$ would divide $a$ or $b$). The remainder $r$ of $ab$ mod $n$ also satisfies $\\gcd(r, n) = 1$, and $r \\neq 0$ (for $n > 1$).</li>\n<li class=\"my-4\"><em>Associativity:</em> as in (a).</li>\n<li class=\"my-4\"><em>Cancellation:</em> if $n \\mid a(b - c)$ with $\\gcd(a, n) = 1$, then $n \\mid b - c$, so $b = c$.</li></ul>\n    By Problem 14, $U_n$ is a group, of order $\\varphi(n)$ (Euler's function).</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "number-theory",
+        "topics-in-algebra-herstein (2.3.15)"
+      ]
+    },
+    {
+      "date": "2024-12-11",
+      "title": "Herstein (Topics in Algebra) - 2.3.16 - One cancellation law is not enough in Problem 14",
+      "difficulty": "easy",
+      "problem": "In Problem 14 show by an example that if one just assumed one of the cancellation laws, then the conclusion need not follow.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the product $a \\cdot b = b$ on a finite set with at least two elements.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $G$ be a finite set with at least two elements and define $a \\cdot b = b$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Associative:</strong> $(a \\cdot b) \\cdot c = c$ and $a \\cdot (b \\cdot c) = b \\cdot c = c$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Left cancellation holds:</strong> $a \\cdot b = a \\cdot c$ means $b = c$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Right cancellation fails:</strong> $b \\cdot a = a = c \\cdot a$ for any $b \\neq c$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Not a group:</strong> a group satisfies both cancellation laws. (Directly: an identity $e$ would need $a \\cdot e = e$ to equal $a$ for every $a$, which is impossible with two elements.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "group-axioms",
+        "topics-in-algebra-herstein (2.3.16)"
+      ]
+    },
+    {
+      "date": "2024-12-18",
+      "title": "Herstein (Topics in Algebra) - 2.3.17 - Infinite examples: both cancellation laws but not a group",
+      "difficulty": "easy",
+      "problem": "Prove that in Problem 14 infinite examples exist, satisfying the conditions, which are not groups.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Think of $(\\mathbb{Z}_{+}, +)$ or $(\\mathbb{Z}_{+}, \\cdot)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Example 1.</strong> $G = \\{ 1, 2, 3, \\ldots \\}$ under ordinary addition. It is closed and associative, and both cancellation laws hold ($a + b = a + c \\Rightarrow b = c$). But there is no identity: $a + e = a$ would force $e = 0 \\notin G$. So $G$ is not a group.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Example 2.</strong> $G = \\{ 1, 2, 3, \\ldots \\}$ under ordinary multiplication: associative, both cancellation laws hold, and $1$ is an identity, but $2$ has no inverse, since $2x = 1$ has no solution in positive integers.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the hypothesis that $G$ is finite in Problem 14 cannot be dropped: in the infinite case, the one-to-one maps $x \\mapsto ax$ need not be onto (for example $x \\mapsto 2x$ in Example 2).</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "group-axioms",
+        "topics-in-algebra-herstein (2.3.17)"
+      ]
+    },
+    {
+      "date": "2024-12-25",
+      "title": "Herstein (Topics in Algebra) - 2.3.18 - A nonabelian group of order $2n$ for every $n > 2$",
+      "difficulty": "medium",
+      "problem": "For any $n > 2$ construct a non-abelian group of order $2n$. (Hint: imitate the relation in $S_3$.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Work with bijections of $\\mathbb{Z}_n = \\{ 0, 1, \\ldots, n - 1 \\}$ (arithmetic mod $n$) of the form $k \\mapsto \\pm k + c$: rotations and reflections of a regular $n$-gon.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $\\varepsilon \\in \\{ 1, -1 \\}$ and $c \\in \\mathbb{Z}_n$, let $T_{\\varepsilon, c} : \\mathbb{Z}_n \\to \\mathbb{Z}_n$ be $T_{\\varepsilon, c}(k) = \\varepsilon k + c$ (mod $n$), and let $D_n = \\{ T_{\\varepsilon, c} \\}$. (Think of the vertices of a regular $n$-gon: $T_{1, c}$ are rotations and $T_{-1, c}$ are reflections.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$D_n$ is a group.</strong> Each $T_{\\varepsilon, c}$ is a bijection, so $D_n \\subseteq A(\\mathbb{Z}_n)$, the group of all bijections. It is closed under composition and inverses:\n    \\[\n        T_{\\varepsilon, c} \\circ T_{\\delta, d}\\,(k) = \\varepsilon(\\delta k + d) + c = T_{\\varepsilon\\delta,\\ \\varepsilon d + c}(k), \\qquad T_{\\varepsilon, c}^{-1} = T_{\\varepsilon,\\ -\\varepsilon c},\n    \\]\n    and it contains the identity $T_{1, 0}$. So $D_n$ is a group under composition.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$|D_n| = 2n$.</strong> $T_{\\varepsilon, c}(0) = c$ and $T_{\\varepsilon, c}(1) = \\varepsilon + c$ determine $c$ and $\\varepsilon$, because $1 \\not\\equiv -1 \\pmod n$ when $n > 2$. So the $2n$ maps $T_{\\varepsilon, c}$ are distinct.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Nonabelian.</strong> Let $r = T_{1, 1}$ and $s = T_{-1, 0}$. Then $(s \\circ r)(k) = -k - 1$ and $(r \\circ s)(k) = -k + 1$. These differ at $k = 0$ since $-1 \\not\\equiv 1 \\pmod n$. So $sr \\neq rs$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In terms of generators, $r^n = e$, $s^2 = e$ and $s r s^{-1} = r^{-1}$, which imitate the relations $\\psi^3 = e$, $\\phi^2 = e$, $\\phi \\psi \\phi^{-1} = \\psi^{-1}$ satisfied by the $3$-cycle $\\psi$ and the transposition $\\phi$ in $S_3$; for $n = 3$ we recover $S_3$. This is the dihedral group of order $2n$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "dihedral-group",
+        "topics-in-algebra-herstein (2.3.18)"
+      ]
+    },
+    {
       "date": "2025-01-01",
       "title": "Symmetries of equilateral triangle",
       "problem": "With pictures and words, describe each symmetry in $D_3$ (the set of symmetries of an equilateral triangle).",
@@ -938,6 +1387,48 @@
       ]
     },
     {
+      "date": "2025-04-30",
+      "title": "Herstein - 2.4.1 - Four equivalence relations",
+      "difficulty": "easy",
+      "problem": "Verify that the relation $\\sim$ is an equivalence relation on the set $S$ given.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$S = \\mathbb{R}$ reals, $a \\sim b$ if $a - b$ is rational.</li>\n<li class=\"my-4\">$S = \\mathbb{C}$, the complex numbers, $a \\sim b$ if $|a| = |b|$.</li>\n<li class=\"my-4\">$S$ = straight lines in the plane, $a \\sim b$ if $a, b$ are parallel.</li>\n<li class=\"my-4\">$S$ = set of all people, $a \\sim b$ if they have the same color eyes.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Check reflexivity, symmetry and transitivity in each case. In (b)-(d), $a \\sim b$ means that some attribute of $a$ equals the same attribute of $b$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Reflexive: $a - a = 0 \\in \\mathbb{Q}$. Symmetric: if $a - b \\in \\mathbb{Q}$ then $b - a = -(a - b) \\in \\mathbb{Q}$. Transitive: if $a - b, b - c \\in \\mathbb{Q}$, then $a - c = (a - b) + (b - c) \\in \\mathbb{Q}$. (These are exactly the subgroup properties of $\\mathbb{Q}$ in $(\\mathbb{R}, +)$; the classes are the cosets $a + \\mathbb{Q}$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)-(d)</strong> In each case $a \\sim b$ means $\\phi(a) = \\phi(b)$ for a function $\\phi$: the modulus $\\phi(a) = |a|$; the direction (slope, with vertical lines given slope $\\infty$) of a line, under the convention that a line is parallel to itself; the eye colour of a person. Any relation of the form $\\phi(a) = \\phi(b)$ is an equivalence relation, because equality is reflexive, symmetric and transitive. The classes are: circles $|z| = r$ centred at $0$ (and $\\{ 0 \\}$); families of parallel lines; groups of people with a given eye colour.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "equivalence-relation",
+        "abstract-algebra-herstein (2.4.1)"
+      ]
+    },
+    {
+      "date": "2025-05-07",
+      "title": "Herstein - 2.4.2 - \"$a > b$ and $b > a$\" is not an equivalence relation",
+      "difficulty": "easy",
+      "problem": "The relation $\\sim$ on the real numbers $\\mathbb{R}$ defined by $a \\sim b$ if both $a > b$ and $b > a$ is <em>not</em> an equivalence relation. Why not? What properties of an equivalence relation does it satisfy?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Can $a > b$ and $b > a$ ever hold together?</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">No two real numbers satisfy both $a > b$ and $b > a$, so $\\sim$ is the <em>empty</em> relation: $a \\sim b$ never holds.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Not reflexive:</strong> $a \\sim a$ would require $a > a$, which is false. So $\\sim$ is not an equivalence relation.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Symmetric and transitive</strong>, vacuously: the hypotheses \"$a \\sim b$\" and \"$a \\sim b$ and $b \\sim c$\" are never satisfied, so the implications $a \\sim b \\Rightarrow b \\sim a$ and $(a \\sim b,\\ b \\sim c) \\Rightarrow a \\sim c$ hold trivially. (See Problem 3 for why symmetry and transitivity do not imply reflexivity.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "equivalence-relation",
+        "abstract-algebra-herstein (2.4.2)"
+      ]
+    },
+    {
+      "date": "2025-05-14",
+      "title": "Herstein - 2.4.3 - What is wrong with \"symmetric + transitive implies reflexive\"?",
+      "difficulty": "easy",
+      "problem": "Let $\\sim$ be a relation on a set $S$ that satisfies (1) $a \\sim b$ implies that $b \\sim a$ and (2) $a \\sim b$ and $b \\sim c$ implies that $a \\sim c$. These seem to imply that $a \\sim a$. For if $a \\sim b$, then by (1), $b \\sim a$, so $a \\sim b$, $b \\sim a$, so by (2), $a \\sim a$. If this argument is correct, then the relation $\\sim$ must be an equivalence relation. Problem 2 shows that this is not so. What is wrong with the argument we have given?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The argument starts with \"if $a \\sim b$\". What if $a$ is related to nothing?</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The argument proves only: <em>if $a \\sim b$ for some $b$, then $a \\sim a$.</em> It silently assumes that every $a$ is related to at least one element $b$. If some $a$ is related to no element at all, the argument never gets started, and nothing forces $a \\sim a$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In Problem 2, no element is related to anything, so (1) and (2) hold but reflexivity fails everywhere. Another example: on $S = \\{ 1, 2, 3 \\}$ let $\\sim$ consist of $1 \\sim 1$, $1 \\sim 2$, $2 \\sim 1$, $2 \\sim 2$. It is symmetric and transitive, but $3 \\not\\sim 3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So a symmetric, transitive relation is an equivalence relation exactly when every element is related to something.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "equivalence-relation",
+        "abstract-algebra-herstein (2.4.3)"
+      ]
+    },
+    {
       "date": "2025-05-21",
       "title": "Herstein Chapter 2 - Problem 1 - Determine if the following set is a group with the given operation",
       "problem": "Determine if the following sets $G$ with the operation indicated form a group. If not, point out which of the group axioms fail.\n<ol class=\"math-list-alpha\">\n  <li class=\"my-4\">\n      $G=$ set of all integers, $a * b=a-b$.\n  </li>\n  <li class=\"my-4\">\n      $G=$ set of all integers, $a * b=a+b+a b$.\n  </li>\n  <li class=\"my-4\">\n      $G=$ set of nonnegative integers, $a * b=a+b$.\n  </li>\n  <li class=\"my-4\">\n      $G=$ set of all rational numbers $\\neq-1, a * b=a+b+a b$.\n  </li>\n  <li class=\"my-4\">\n      $G=$ set of all rational numbers with denominator divisible by 5 (written so that numerator and denominator are relatively prime), $a * b=$ $a+b$.\n  </li>\n  <li class=\"my-4\">\n      $G$ a set having more than one element, $a * b=a$ for all $a, b \\in G$.\n  </li>\n</ol>",
@@ -974,6 +1465,420 @@
         "group-theory",
         "herstein-abstract-algebra-(2.3.3)",
         "abstract-algebra-herstein"
+      ]
+    },
+    {
+      "date": "2025-06-11",
+      "title": "Herstein - 2.4.4 - Every partition comes from an equivalence relation",
+      "difficulty": "easy",
+      "problem": "Let $S$ be a set, $\\{ S_\\alpha \\}$ nonempty subsets such that $S = \\bigcup_\\alpha S_\\alpha$ and $S_\\alpha \\cap S_\\beta = \\varnothing$ if $\\alpha \\neq \\beta$. Define an equivalence relation on $S$ in such a way that the $S_\\alpha$ are precisely all the equivalence classes.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Declare $a \\sim b$ if $a$ and $b$ lie in the same $S_\\alpha$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Define $a \\sim b$ if there is an $\\alpha$ with $a, b \\in S_\\alpha$. Since $S = \\bigcup S_\\alpha$ and the $S_\\alpha$ are disjoint, each $a \\in S$ lies in exactly one set, call it $S_{\\alpha(a)}$; then $a \\sim b \\iff \\alpha(a) = \\alpha(b)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">This is an equivalence relation, being of the form \"$\\alpha(a) = \\alpha(b)$\". Directly: reflexive since $a \\in S_{\\alpha(a)}$; symmetric by the symmetry of the definition; transitive, because if $a, b \\in S_\\alpha$ and $b, c \\in S_\\beta$, then $b \\in S_\\alpha \\cap S_\\beta$, so $\\alpha = \\beta$ and $a, c \\in S_\\alpha$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The equivalence class of $a$ is $[a] = \\{ b : \\alpha(b) = \\alpha(a) \\} = S_{\\alpha(a)}$. Every $S_\\alpha$ is nonempty, so each is the class of any of its elements. Hence the classes are precisely the $S_\\alpha$. Together with the fact that equivalence classes always partition $S$, this shows that equivalence relations and partitions are the same thing.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "equivalence-relation",
+        "abstract-algebra-herstein (2.4.4)"
+      ]
+    },
+    {
+      "date": "2025-06-18",
+      "title": "Herstein - 2.4.9 - The cosets of $H = \\{ [0], [4], [8], [12] \\}$ in $\\mathbb{Z}_{16}$",
+      "difficulty": "easy",
+      "problem": "In $\\mathbb{Z}_{16}$, write down all the cosets of the subgroup $H = \\{ [0], [4], [8], [12] \\}$. (Since the operation in $\\mathbb{Z}_n$ is $+$, write your coset as $[a] + H$. We don't need to distinguish between right cosets and left cosets, since $\\mathbb{Z}_n$ is abelian under $+$.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$[a] + H = [b] + H$ iff $a \\equiv b \\pmod 4$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$[a] + H = \\{ [a], [a + 4], [a + 8], [a + 12] \\}$, and $[a] + H = [b] + H$ iff $[a - b] \\in H$, i.e. $4 \\mid a - b$. So there is one coset for each residue mod $4$:\n    \\[\n        \\begin{aligned}\n            H &= \\{ [0], [4], [8], [12] \\}, & [1] + H &= \\{ [1], [5], [9], [13] \\}, \\\\\n            [2] + H &= \\{ [2], [6], [10], [14] \\}, & [3] + H &= \\{ [3], [7], [11], [15] \\}.\n        \\end{aligned}\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">These four cosets are disjoint, each has $4$ elements, and together they exhaust the $16$ elements of $\\mathbb{Z}_{16}$, as Lagrange's theorem predicts.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cosets",
+        "abstract-algebra-herstein (2.4.9)"
+      ]
+    },
+    {
+      "date": "2025-06-25",
+      "title": "Herstein - 2.4.10 - The index of $H$ in $\\mathbb{Z}_{16}$",
+      "difficulty": "easy",
+      "problem": "In Problem 9, what is the index of $H$ in $\\mathbb{Z}_{16}$? (Recall that we defined the index $i_G(H)$ as the number of right cosets in $G$.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Count the cosets found in Problem 9, or use $i_G(H) = |G|/|H|$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Problem 9 there are exactly $4$ cosets, so $i_{\\mathbb{Z}_{16}}(H) = 4$. This agrees with Lagrange's theorem: $i_G(H) = \\frac{|G|}{|H|} = \\frac{16}{4} = 4$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(Here $H = \\langle [4] \\rangle$ and $\\mathbb{Z}_{16}/H \\cong \\mathbb{Z}_4$.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cosets",
+        "lagrange-theorem",
+        "abstract-algebra-herstein (2.4.10)"
+      ]
+    },
+    {
+      "date": "2025-07-02",
+      "title": "Herstein - 2.4.11 - As many left cosets as right cosets",
+      "difficulty": "easy",
+      "problem": "For any finite group $G$, show that there are as many distinct left cosets of $H$ in $G$ as there are right cosets of $H$ in $G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Each left coset and each right coset has exactly $|H|$ elements, and each family partitions $G$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The right cosets partition $G$ (they are the classes of the equivalence relation $a \\sim b \\iff ab^{-1} \\in H$), and each has $|H|$ elements, since $h \\mapsto ha$ is a bijection $H \\to Ha$. So their number is $\\frac{|G|}{|H|}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Likewise the left cosets are the classes of $a \\sim b \\iff a^{-1}b \\in H$ (Problem 5), and $h \\mapsto ah$ is a bijection $H \\to aH$, so there are $\\frac{|G|}{|H|}$ left cosets too. The two numbers agree.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Problem 26 gives an explicit bijection between the two sets of cosets which works for infinite groups as well.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cosets",
+        "lagrange-theorem",
+        "abstract-algebra-herstein (2.4.11)"
+      ]
+    },
+    {
+      "date": "2025-07-09",
+      "title": "Herstein - 2.4.12 - Distinct left cosets need not give distinct right cosets",
+      "difficulty": "medium",
+      "problem": "If $aH$ and $bH$ are distinct left cosets of $H$ in $G$, are $Ha$ and $Hb$ distinct right cosets of $H$ in $G$? Prove that this is true or give a counterexample.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use $G = S_3$ and $H = \\{ e, (1\\,2) \\}$. $aH = bH \\iff a^{-1}b \\in H$, while $Ha = Hb \\iff ab^{-1} \\in H$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Not necessarily.</strong> Let $G = S_3$ and $H = \\{ e, (1\\,2) \\}$, composing permutations right to left. Then\n    \\[\n        H(1\\,3) = \\{ (1\\,3), (1\\,3\\,2) \\}, \\quad (1\\,3)H = \\{ (1\\,3), (1\\,2\\,3) \\}, \\quad (2\\,3)H = \\{ (2\\,3), (1\\,3\\,2) \\}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Take $a = (1\\,3)$ and $b = (1\\,3\\,2)$. Both lie in the right coset $H(1\\,3)$, so $Ha = Hb$. But $aH = (1\\,3)H$ and $bH = (2\\,3)H$ (since $(1\\,3\\,2) \\in (2\\,3)H$), and these left cosets are distinct.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $aH \\neq bH$ while $Ha = Hb$: the correspondence $aH \\mapsto Ha$ is not even well defined. In terms of elements: $a^{-1}b = (1\\,3)(1\\,3\\,2) = (2\\,3) \\notin H$, but $ab^{-1} = (1\\,3)(1\\,2\\,3) = (1\\,2) \\in H$. For a <em>normal</em> subgroup the answer would be yes (Problem 27).</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cosets",
+        "symmetric-group",
+        "abstract-algebra-herstein (2.4.12)"
+      ]
+    },
+    {
+      "date": "2025-07-16",
+      "title": "Herstein - 2.4.13 - The orders of the elements of $U_{18}$; $U_{18}$ is cyclic",
+      "difficulty": "easy",
+      "problem": "Find the orders of all the elements of $U_{18}$. Is $U_{18}$ cyclic?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$U_{18} = \\{ 1, 5, 7, 11, 13, 17 \\}$ has order $\\varphi(18) = 6$. Compute powers mod $18$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$U_{18} = \\{ [1], [5], [7], [11], [13], [17] \\}$, of order $\\varphi(18) = 6$. Computing powers mod $18$:\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">$[1]$: order $1$.</li>\n<li class=\"my-4\">$[5]$: $5^2 = 25 \\equiv 7$, $5^3 \\equiv 35 \\equiv 17 \\equiv -1$, so $5^6 \\equiv 1$ and the order is $6$.</li>\n<li class=\"my-4\">$[7]$: $7^2 = 49 \\equiv 13$, $7^3 \\equiv 91 \\equiv 1$: order $3$.</li>\n<li class=\"my-4\">$[11]$: $11^2 = 121 \\equiv 13$, $11^3 \\equiv 143 \\equiv 17 \\equiv -1$: order $6$.</li>\n<li class=\"my-4\">$[13]$: $13^2 = 169 \\equiv 7$, $13^3 \\equiv 91 \\equiv 1$: order $3$.</li>\n<li class=\"my-4\">$[17] = [-1]$: order $2$.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $[5]$ has order $6 = |U_{18}|$, $U_{18} = \\langle [5] \\rangle$ is cyclic (and $[11] = [5]^{-1}$ is the other generator). Indeed $5^1, \\ldots, 5^6 \\equiv 5, 7, 17, 13, 11, 1$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cyclic-group",
+        "number-theory",
+        "abstract-algebra-herstein (2.4.13)"
+      ]
+    },
+    {
+      "date": "2025-07-23",
+      "title": "Herstein - 2.4.14 - The orders of the elements of $U_{20}$; $U_{20}$ is not cyclic",
+      "difficulty": "easy",
+      "problem": "Find the orders of all the elements of $U_{20}$. Is $U_{20}$ cyclic?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$U_{20} = \\{ 1, 3, 7, 9, 11, 13, 17, 19 \\}$ has order $8$. Is there an element of order $8$?</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$U_{20} = \\{ [1], [3], [7], [9], [11], [13], [17], [19] \\}$, of order $\\varphi(20) = 8$. Computing mod $20$:\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">$[1]$: order $1$.</li>\n<li class=\"my-4\">$[3]$: $3^2 = 9$, $3^3 = 27 \\equiv 7$, $3^4 \\equiv 21 \\equiv 1$: order $4$.</li>\n<li class=\"my-4\">$[7]$: $7^2 = 49 \\equiv 9$, $7^4 \\equiv 81 \\equiv 1$: order $4$.</li>\n<li class=\"my-4\">$[9]$: $81 \\equiv 1$: order $2$.</li>\n<li class=\"my-4\">$[11]$: $121 \\equiv 1$: order $2$.</li>\n<li class=\"my-4\">$[13]$: $13^2 = 169 \\equiv 9$, $13^4 \\equiv 1$: order $4$.</li>\n<li class=\"my-4\">$[17]$: $17^2 = 289 \\equiv 9$, $17^4 \\equiv 1$: order $4$.</li>\n<li class=\"my-4\">$[19] = [-1]$: order $2$.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">No element has order $8$, so $U_{20}$ is <strong>not</strong> cyclic. (It has three elements of order $2$, namely $9, 11, 19$, whereas a cyclic group has at most one. In fact $U_{20} \\cong \\mathbb{Z}_2 \\times \\mathbb{Z}_4$.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cyclic-group",
+        "number-theory",
+        "abstract-algebra-herstein (2.4.14)"
+      ]
+    },
+    {
+      "date": "2025-07-30",
+      "title": "Herstein - 2.4.15 - $x^2 \\equiv 1 \\pmod p$ only for $x \\equiv \\pm 1$",
+      "difficulty": "easy",
+      "problem": "If $p$ is a prime, show that the only solutions of $x^2 \\equiv 1 \\bmod p$ are $x \\equiv 1 \\bmod p$ or $x \\equiv -1 \\bmod p$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$p \\mid x^2 - 1 = (x - 1)(x + 1)$, and $p$ is prime.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$x^2 \\equiv 1 \\pmod p$ means $p \\mid x^2 - 1 = (x - 1)(x + 1)$. Since $p$ is prime, $p \\mid x - 1$ or $p \\mid x + 1$, i.e. $x \\equiv 1$ or $x \\equiv -1 \\pmod p$. Conversely both of these satisfy $x^2 \\equiv 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In group terms: in $U_p$ the only elements with $a^2 = e$ are $[1]$ and $[-1]$ (which coincide when $p = 2$). Primality matters: mod $8$, all of $1, 3, 5, 7$ satisfy $x^2 \\equiv 1$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "number-theory",
+        "abstract-algebra-herstein (2.4.15)"
+      ]
+    },
+    {
+      "date": "2025-08-06",
+      "title": "Herstein - 2.4.16 - In a finite abelian group the product of all elements squares to $e$",
+      "difficulty": "easy",
+      "problem": "If $G$ is a finite abelian group and $a_1, \\ldots, a_n$ are all its elements, show that $x = a_1a_2 \\cdots a_n$ must satisfy $x^2 = e$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Inversion $a \\mapsto a^{-1}$ is a bijection of $G$, so $a_1^{-1}a_2^{-1}\\cdots a_n^{-1}$ is again the product of all elements.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $a \\mapsto a^{-1}$ is a bijection of $G$ onto itself, the list $a_1^{-1}, \\ldots, a_n^{-1}$ is a rearrangement of $a_1, \\ldots, a_n$. As $G$ is abelian, the order of the factors does not matter, so\n    \\[\n        x^{-1} = (a_1 \\cdots a_n)^{-1} = a_n^{-1}\\cdots a_1^{-1} = a_1 a_2 \\cdots a_n = x.\n    \\]\n    Hence $x^2 = e$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Alternatively: in the product, each $a$ with $a \\neq a^{-1}$ is paired with its inverse and the pair contributes $e$; so $x$ is the product of the elements with $a^2 = e$, and therefore $x^2 = e$. Problem 43 determines $x$ exactly.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abelian-group",
+        "abstract-algebra-herstein (2.4.16)"
+      ]
+    },
+    {
+      "date": "2025-08-13",
+      "title": "Herstein - 2.4.17 - For $G$ of odd order, the product of all elements is $e$",
+      "difficulty": "easy",
+      "problem": "If $G$ is of odd order, what can you say about the $x$ in Problem 16?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$x^2 = e$, so the order of $x$ is $1$ or $2$, and it divides $|G|$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Problem 16, $x^2 = e$, so $o(x) \\in \\{ 1, 2 \\}$. By Lagrange's theorem, $o(x)$ divides $|G|$, which is odd. Hence $o(x) = 1$, i.e. $x = e$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(Equivalently: a group of odd order has no element of order $2$, so in the pairing argument of Problem 16 every element except $e$ is paired with a different inverse.) For example, in $\\mathbb{Z}_5$, $0 + 1 + 2 + 3 + 4 = 10 \\equiv 0$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abelian-group",
+        "lagrange-theorem",
+        "abstract-algebra-herstein (2.4.17)"
+      ]
+    },
+    {
+      "date": "2025-08-27",
+      "title": "Herstein - 2.4.18 - Wilson's theorem: $(p - 1)! \\equiv -1 \\pmod p$",
+      "difficulty": "medium",
+      "problem": "Using the results of Problems 15 and 16, prove that if $p$ is an odd prime number, then $(p - 1)! \\equiv -1 \\bmod p$. (This is known as <em>Wilson's Theorem</em>.) It is, of course, also true if $p = 2$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$(p - 1)!$ is the product of all elements of the abelian group $U_p$. Pair each element with its inverse.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$U_p = \\{ [1], [2], \\ldots, [p - 1] \\}$ is a finite abelian group, and $[(p - 1)!] = [1][2]\\cdots[p - 1]$ is the product of all its elements.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In this product, each element $[a]$ with $[a] \\neq [a]^{-1}$ can be paired with its inverse, and each pair contributes $[1]$. What remains is the product of the elements with $[a]^2 = [1]$, which by Problem 15 are exactly $[1]$ and $[-1]$, distinct since $p$ is odd. Hence\n    \\[\n        [(p - 1)!] = [1][-1] = [-1], \\qquad \\text{i.e.} \\quad (p - 1)! \\equiv -1 \\pmod p.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $p = 2$: $1! = 1 \\equiv -1 \\pmod 2$. Example: $p = 7$, $6! = 720 = 7 \\cdot 103 - 1$. (The converse is also true: if $n > 1$ and $(n - 1)! \\equiv -1 \\pmod n$, then $n$ is prime.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "number-theory",
+        "abstract-algebra-herstein (2.4.18)"
+      ]
+    },
+    {
+      "date": "2025-09-03",
+      "title": "Herstein - 2.4.19 - The conjugacy classes of $S_3$",
+      "difficulty": "easy",
+      "problem": "Find all the distinct conjugacy classes of $S_3$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Conjugation preserves cycle type: $\\sigma(a_1\\,a_2\\,\\cdots)\\sigma^{-1} = (\\sigma(a_1)\\,\\sigma(a_2)\\,\\cdots)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $\\sigma \\in S_3$ and a cycle, $\\sigma (a_1\\, a_2 \\cdots a_k) \\sigma^{-1} = (\\sigma(a_1)\\, \\sigma(a_2) \\cdots \\sigma(a_k))$. So conjugate elements have the same cycle type, and any two cycles of the same length are conjugate (choose $\\sigma$ sending one list of entries to the other).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence the conjugacy classes of $S_3$ are\n    \\[\n        \\{ e \\}, \\qquad \\{ (1\\,2), (1\\,3), (2\\,3) \\}, \\qquad \\{ (1\\,2\\,3), (1\\,3\\,2) \\},\n    \\]\n    of sizes $1, 3, 2$. The sizes divide $|S_3| = 6$ and add up to $6$, as they must (class equation).</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "conjugacy",
+        "symmetric-group",
+        "abstract-algebra-herstein (2.4.19)"
+      ]
+    },
+    {
+      "date": "2025-09-10",
+      "title": "Herstein - 2.4.20 - The conjugacy class of $T_{a,b} : x \\mapsto ax + b$",
+      "difficulty": "medium",
+      "problem": "In the group $G$ of Example 6 of Section 1 (the maps $T_{a,b} : \\mathbb{R} \\to \\mathbb{R}$, $T_{a,b}(x) = ax + b$, with $a, b$ real and $a \\neq 0$, under composition), find the conjugacy class of the element $T_{a,b}$. Describe it in terms of $a$ and $b$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Compute $T_{c,d}\\, T_{a,b}\\, T_{c,d}^{-1}$, where $T_{c,d}^{-1}(x) = \\frac{x - d}{c}$. Then distinguish $a \\neq 1$ and $a = 1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $g = T_{c,d}$ ($c \\neq 0$), so $g^{-1}(x) = \\frac{x - d}{c}$. Then\n    \\[\n        g\\, T_{a,b}\\, g^{-1}(x) = c\\left( a\\frac{x - d}{c} + b \\right) + d = ax + \\big( cb + d(1 - a) \\big).\n    \\]\n    So every conjugate of $T_{a,b}$ is $T_{a, b'}$ with $b' = cb + (1 - a)d$ for some $c \\neq 0$, $d \\in \\mathbb{R}$: the coefficient $a$ (the \"slope\") is a conjugation invariant.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Case $a \\neq 1$.</strong> Taking $c = 1$ and $d$ arbitrary, $b' = b + (1 - a)d$ runs through all of $\\mathbb{R}$. So the class of $T_{a,b}$ is $\\{ T_{a,\\beta} : \\beta \\in \\mathbb{R} \\}$: all maps with the same slope $a$. (Each has the fixed point $\\frac{\\beta}{1 - a}$; conjugation just moves the fixed point.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Case $a = 1$.</strong> Then $b' = cb$. If $b = 0$, $T_{1,0}$ is the identity and its class is $\\{ T_{1,0} \\}$. If $b \\neq 0$, $b' = cb$ runs through all nonzero reals, so the class is $\\{ T_{1,\\beta} : \\beta \\neq 0 \\}$: all nontrivial translations.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "conjugacy",
+        "abstract-algebra-herstein (2.4.20)"
+      ]
+    },
+    {
+      "date": "2025-09-17",
+      "title": "Herstein - 2.4.21 - The conjugacy classes of the dihedral group of order $8$",
+      "difficulty": "medium",
+      "problem": "Let $G$ be the dihedral group of order $8$ (see Example 9, Section 1: $G = \\{ x^i y^j : i = 0, 1;\\ j = 0, 1, 2, 3 \\}$ with $x^2 = e$, $y^4 = e$, $xy = y^{-1}x$). Find the conjugacy classes in $G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">From $xy = y^{-1}x$: $x y^j x^{-1} = y^{-j}$ and $y\\, x\\, y^{-1} = x y^{-2}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Useful relations.</strong> From $xy = y^{-1}x$ we get $xy^jx^{-1} = y^{-j}$ and $y^jx = xy^{-j}$. Hence\n    \\[\n        y\\,(xy^j)\\,y^{-1} = x y^{-1} y^{j} y^{-1} = xy^{j-2}, \\qquad x\\,(xy^j)\\,x^{-1} = y^{j}x = xy^{-j}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Rotations.</strong> $y^j$ commutes with all powers of $y$ and $x y^j x^{-1} = y^{-j}$, so the class of $y^j$ is $\\{ y^j, y^{-j} \\}$:\n    \\[\n        \\{ e \\}, \\qquad \\{ y^2 \\}, \\qquad \\{ y, y^3 \\}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Reflections.</strong> Conjugating $xy^j$ by $y$ changes $j$ by $2$, and conjugating by $x$ changes $j$ to $-j$; both preserve the parity of $j$. So the classes are\n    \\[\n        \\{ x, xy^2 \\}, \\qquad \\{ xy, xy^3 \\}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Altogether there are $5$ classes, of sizes $1 + 1 + 2 + 2 + 2 = 8$. The center is $Z(G) = \\{ e, y^2 \\}$ (the classes of size $1$). Geometrically, for the symmetries of a square: the identity, the half-turn, the two quarter-turns, the reflections in the two diagonals, and the reflections in the two lines through midpoints of opposite sides.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "conjugacy",
+        "dihedral-group",
+        "abstract-algebra-herstein (2.4.21)"
+      ]
+    },
+    {
+      "date": "2025-09-24",
+      "title": "Herstein - 2.4.22 - Verify Euler's theorem for $n = 14$, $a = 3$ and $a = 5$",
+      "difficulty": "easy",
+      "problem": "Verify Euler's Theorem for $n = 14$ and $a = 3$, and for $n = 14$ and $a = 5$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Euler: $a^{\\varphi(n)} \\equiv 1 \\pmod n$ if $\\gcd(a, n) = 1$. Here $\\varphi(14) = 6$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$\\varphi(14) = \\varphi(2)\\varphi(7) = 6$; the units mod $14$ are $1, 3, 5, 9, 11, 13$. Euler's theorem predicts $a^6 \\equiv 1 \\pmod{14}$ for $a = 3, 5$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$a = 3$.</strong> $3^2 = 9$, $3^3 = 27 \\equiv -1 \\pmod{14}$, so $3^6 = (3^3)^2 \\equiv 1$. Indeed $3^6 = 729 = 14 \\cdot 52 + 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$a = 5$.</strong> $5^2 = 25 \\equiv 11 \\equiv -3$, so $5^3 \\equiv -15 \\equiv -1 \\pmod{14}$ and $5^6 \\equiv 1$. Indeed $5^6 = 15625 = 14 \\cdot 1116 + 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In both cases the order of $a$ in $U_{14}$ is exactly $6$, so $U_{14}$ is cyclic, generated by $3$ (or by $5$).</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "number-theory",
+        "abstract-algebra-herstein (2.4.22)"
+      ]
+    },
+    {
+      "date": "2025-10-01",
+      "title": "Herstein - 2.4.23 - An integer with $a^2 \\equiv -1 \\pmod{41}$",
+      "difficulty": "easy",
+      "problem": "In $U_{41}$, show that there is an element $a$ such that $[a]^2 = [-1]$, that is, an integer $a$ such that $a^2 \\equiv -1 \\bmod 41$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Look for $a^2 + 1$ divisible by $41$: try $a^2 = 81$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Take $a = 9$: $9^2 + 1 = 82 = 2 \\cdot 41$, so $9^2 \\equiv -1 \\pmod{41}$. The other solution is $a = 41 - 9 = 32$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">This is consistent with Problems 24 and 41: $41 = 4 \\cdot 10 + 1$ has the form $4n + 1$, so $-1$ is a square mod $41$. Wilson's method (Problem 42) gives $y = 20! \\equiv \\pm 9 \\pmod{41}$. Also $41 = 4^2 + 5^2$ and $9 \\equiv 4 \\cdot 5^{-1} \\pmod{41}$ (as $5 \\cdot 9 = 45 \\equiv 4$), which illustrates Fermat's two-squares theorem.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "number-theory",
+        "abstract-algebra-herstein (2.4.23)"
+      ]
+    },
+    {
+      "date": "2025-10-08",
+      "title": "Herstein - 2.4.24 - $x^2 \\equiv -1 \\pmod p$ has no solution when $p = 4n + 3$",
+      "difficulty": "easy",
+      "problem": "If $p$ is a prime number of the form $4n + 3$, show that we <em>cannot</em> solve\n    \\[\n        x^2 \\equiv -1 \\bmod p.\n    \\]\n    [Hint: Use Fermat's Theorem that $a^{p-1} \\equiv 1 \\bmod p$ if $p \\nmid a$.]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Raise $x^2 \\equiv -1$ to the power $\\frac{p - 1}{2} = 2n + 1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Suppose $x^2 \\equiv -1 \\pmod p$. Then $p \\nmid x$ (otherwise $0 \\equiv -1$). Raising to the power $\\frac{p - 1}{2} = 2n + 1$, which is odd,\n    \\[\n        x^{p-1} = (x^2)^{2n + 1} \\equiv (-1)^{2n+1} = -1 \\pmod p.\n    \\]\n    But Fermat's theorem gives $x^{p-1} \\equiv 1 \\pmod p$. Thus $1 \\equiv -1$, i.e. $p \\mid 2$, impossible for $p \\geq 3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $-1$ is not a square modulo $3, 7, 11, 19, \\ldots$. Together with Problem 41: $-1$ is a square mod an odd prime $p$ if and only if $p \\equiv 1 \\pmod 4$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "number-theory",
+        "abstract-algebra-herstein (2.4.24)"
+      ]
+    },
+    {
+      "date": "2025-10-15",
+      "title": "Herstein - 2.4.25 - The nonzero elements of $\\mathbb{Z}_n$ form a group under multiplication iff $n$ is prime",
+      "difficulty": "easy",
+      "problem": "Show that the nonzero elements in $\\mathbb{Z}_n$ form a group under the product $[a][b] = [ab]$ if and only if $n$ is a prime.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $n = rs$ with $1 \\lt r, s \\lt n$, then $[r][s] = [0]$. If $n = p$ is prime, use $\\gcd(a, p) = 1$ for $p \\nmid a$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(We take $n > 1$.) <strong>If $n$ is composite</strong>, $n = rs$ with $1 \\lt r, s \\lt n$. Then $[r], [s]$ are nonzero but $[r][s] = [n] = [0]$, so the set of nonzero elements is not closed under the product: not a group.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>If $n = p$ is prime</strong>, the nonzero classes are $[1], \\ldots, [p - 1]$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\"><em>Closure:</em> $p \\nmid a$, $p \\nmid b \\Rightarrow p \\nmid ab$.</li>\n<li class=\"my-4\"><em>Associativity</em> and the <em>identity</em> $[1]$ are inherited from the integers.</li>\n<li class=\"my-4\"><em>Inverses:</em> if $p \\nmid a$, then $\\gcd(a, p) = 1$, so $ua + vp = 1$ for some integers $u, v$, and $[u][a] = [1]$; also $p \\nmid u$.</li></ul>\n    So the nonzero elements form a group; in fact it is $U_p$, of order $p - 1$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "number-theory",
+        "abstract-algebra-herstein (2.4.25)"
+      ]
+    },
+    {
+      "date": "2025-10-22",
+      "title": "Herstein - 2.4.26 - A bijection between right cosets and left cosets: $Ha \\mapsto a^{-1}H$",
+      "difficulty": "medium",
+      "problem": "Let $G$ be a group, $H$ a subgroup of $G$, and let $S$ be the set of all distinct right cosets of $H$ in $G$, $T$ the set of all left cosets of $H$ in $G$. Prove that there is a $1$-$1$ mapping of $S$ onto $T$. (<strong>Note:</strong> The obvious map that comes to mind, which sends $Ha$ into $aH$, is not the right one. See Problems 5 and 12.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use $\\phi(Ha) = a^{-1}H$. Check that it is well defined: $Ha = Hb \\iff ab^{-1} \\in H$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Define $\\phi : S \\to T$ by $\\phi(Ha) = a^{-1}H$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Well defined and one-one.</strong>\n    \\[\n        Ha = Hb \\iff ab^{-1} \\in H \\iff (a^{-1})^{-1}b^{-1} \\in H \\iff a^{-1}H = b^{-1}H.\n    \\]\n    The direction \"$\\Rightarrow$\" says that $\\phi(Ha)$ does not depend on the representative $a$; the direction \"$\\Leftarrow$\" says that $\\phi$ is one-one.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Onto.</strong> Every left coset $bH$ equals $\\phi(Hb^{-1})$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $\\phi$ is a bijection; in other words, inversion $g \\mapsto g^{-1}$ maps each right coset $Ha$ onto the left coset $a^{-1}H$, since $(Ha)^{-1} = a^{-1}H^{-1} = a^{-1}H$. This works for infinite groups too, so \"the index of $H$\" is the same whether we count left or right cosets. The naive map $Ha \\mapsto aH$ is not well defined, by Problem 12.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cosets",
+        "abstract-algebra-herstein (2.4.26)"
+      ]
+    },
+    {
+      "date": "2025-10-29",
+      "title": "Herstein - 2.4.27 - If $aH = bH$ always forces $Ha = Hb$, then $aHa^{-1} = H$",
+      "difficulty": "medium",
+      "problem": "If $aH = bH$ forces $Ha = Hb$ in $G$, show that $aHa^{-1} = H$ for every $a \\in G$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For $h \\in H$, $(ah)H = aH$. Apply the hypothesis with $b = ah$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $a \\in G$ and $h \\in H$. Since $(ah)H = aH$, the hypothesis gives $H(ah) = Ha$, i.e. $(ah)a^{-1} \\in H$. Thus $aha^{-1} \\in H$ for every $h \\in H$:\n    \\[\n        aHa^{-1} \\subseteq H \\qquad \\text{for all } a \\in G.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Applying this to $a^{-1}$ gives $a^{-1}Ha \\subseteq H$, i.e. $H \\subseteq aHa^{-1}$. Hence $aHa^{-1} = H$ for every $a \\in G$: $H$ is a normal subgroup. (Compare Problem 8, which has a similar hypothesis and the same conclusion.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cosets",
+        "normal-subgroup",
+        "abstract-algebra-herstein (2.4.27)"
+      ]
+    },
+    {
+      "date": "2025-11-05",
+      "title": "Herstein - 2.4.28 - A cyclic group of order $n$ has $\\varphi(n)$ generators",
+      "difficulty": "medium",
+      "problem": "If $G$ is a cyclic group of order $n$, show that there are $\\varphi(n)$ generators for $G$. Give their form explicitly.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Let $G = \\langle a \\rangle$. Then $a^k$ generates $G$ iff $a \\in \\langle a^k \\rangle$, iff $km \\equiv 1 \\pmod n$ for some $m$, iff $\\gcd(k, n) = 1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $G = \\langle a \\rangle$ with $o(a) = n$, so $G = \\{ a^k : 0 \\leq k \\lt n \\}$, and $a^r = a^s \\iff r \\equiv s \\pmod n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Claim:</strong> $a^k$ generates $G$ iff $\\gcd(k, n) = 1$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $\\gcd(k, n) = 1$, write $uk + vn = 1$; then $a = a^{uk + vn} = (a^k)^u$, so $a \\in \\langle a^k \\rangle$ and hence $\\langle a^k \\rangle = G$.</li>\n<li class=\"my-4\">If $\\langle a^k \\rangle = G$, then $a = (a^k)^m$ for some $m$, so $km \\equiv 1 \\pmod n$, and any common divisor of $k$ and $n$ divides $1$.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore the generators of $G$ are exactly\n    \\[\n        a^k, \\qquad 1 \\leq k \\leq n, \\quad \\gcd(k, n) = 1,\n    \\]\n    and there are $\\varphi(n)$ of them. For example, $\\mathbb{Z}_{12}$ has the $\\varphi(12) = 4$ generators $[1], [5], [7], [11]$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "cyclic-group",
+        "abstract-algebra-herstein (2.4.28)"
+      ]
+    },
+    {
+      "date": "2025-11-12",
+      "title": "Herstein - 2.4.29 - If $aba^{-1} = b^i$, then $a^rba^{-r} = b^{i^r}$",
+      "difficulty": "easy",
+      "problem": "If in a group $G$, $aba^{-1} = b^i$, show that $a^rba^{-r} = b^{i^r}$ for all positive integers $r$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Induct on $r$, using that conjugation is a homomorphism: $a\\,b^m\\,a^{-1} = (aba^{-1})^m$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Conjugation by $a$ is a homomorphism, so $a\\, b^m a^{-1} = (aba^{-1})^m = b^{im}$ for every integer $m$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We induct on $r$. For $r = 1$ it is the hypothesis. If $a^rba^{-r} = b^{i^r}$, then\n    \\[\n        a^{r+1}ba^{-(r+1)} = a\\left( a^rba^{-r} \\right)a^{-1} = a\\, b^{i^r}\\, a^{-1} = b^{i \\cdot i^r} = b^{i^{r+1}}.\n    \\]\n    This completes the induction.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abstract-algebra-herstein (2.4.29)"
+      ]
+    },
+    {
+      "date": "2025-11-19",
+      "title": "Herstein - 2.4.30 - If $a^5 = e$ and $aba^{-1} = b^2$ with $b \\neq e$, then $o(b) = 31$",
+      "difficulty": "medium",
+      "problem": "If in $G$ $a^5 = e$ and $aba^{-1} = b^2$, find $o(b)$ if $b \\neq e$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">By Problem 29 with $r = 5$: $b = a^5ba^{-5} = b^{2^5}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Problem 29 with $i = 2$ and $r = 5$,\n    \\[\n        b = eb e = a^5 b a^{-5} = b^{2^5} = b^{32}.\n    \\]\n    Hence $b^{31} = e$, so $o(b)$ divides $31$ (Problem 31).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $31$ is prime and $b \\neq e$, we conclude $o(b) = 31$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Such groups exist: in $U_{31}$, $2^5 = 32 \\equiv 1$, so the map $x \\mapsto x^2$ is an automorphism of order $5$ of $\\mathbb{Z}_{31}$, and the semidirect product $\\mathbb{Z}_{31} \\rtimes \\mathbb{Z}_5$ (of order $155$) contains such $a, b$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "abstract-algebra-herstein (2.4.30)"
+      ]
+    },
+    {
+      "date": "2025-11-26",
+      "title": "Herstein - 2.4.31 - If $o(a) = m$ and $a^s = e$, then $m \\mid s$",
+      "difficulty": "easy",
+      "problem": "If $o(a) = m$ and $a^s = e$, prove that $m \\mid s$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Divide: $s = qm + r$ with $0 \\leq r \\lt m$, and use the minimality of $m$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By the division algorithm, $s = qm + r$ with $0 \\leq r \\lt m$. Then\n    \\[\n        a^r = a^{s - qm} = a^s (a^m)^{-q} = e \\cdot e = e.\n    \\]\n    Since $m$ is the <em>least</em> positive integer with $a^m = e$ and $0 \\leq r \\lt m$, we must have $r = 0$. Hence $m \\mid s$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Equivalently, $\\{ s \\in \\mathbb{Z} : a^s = e \\}$ is a subgroup of $\\mathbb{Z}$, namely $m\\mathbb{Z}$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "order",
+        "abstract-algebra-herstein (2.4.31)"
+      ]
+    },
+    {
+      "date": "2025-12-03",
+      "title": "Herstein - 2.4.32 - The least $m$ with $a^m \\in H$ divides $o(a)$",
+      "difficulty": "medium",
+      "problem": "Let $G$ be a finite group, $H$ a subgroup of $G$. Let $f(a)$ be the least positive $m$ such that $a^m \\in H$. Prove that $f(a) \\mid o(a)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$K = \\{ k \\in \\mathbb{Z} : a^k \\in H \\}$ is a subgroup of $\\mathbb{Z}$ containing $o(a)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $K = \\{ k \\in \\mathbb{Z} : a^k \\in H \\}$. It is a subgroup of $(\\mathbb{Z}, +)$: $0 \\in K$; if $k, l \\in K$, then $a^{k - l} = a^k(a^l)^{-1} \\in H$. Also $o(a) \\in K$, since $a^{o(a)} = e \\in H$ (the order is finite because $G$ is finite). So $f(a)$, the least positive element of $K$, exists.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Divide $o(a) = q f(a) + r$ with $0 \\leq r \\lt f(a)$. Then $r = o(a) - qf(a) \\in K$, so $a^r \\in H$; by minimality of $f(a)$, $r = 0$. Hence $f(a) \\mid o(a)$. (In fact $K = f(a)\\mathbb{Z}$, and $f(a)$ is the order of the coset $Ha$ in $G/H$ when $H$ is normal.)</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "order",
+        "abstract-algebra-herstein (2.4.32)"
+      ]
+    },
+    {
+      "date": "2025-12-10",
+      "title": "Herstein - 2.4.33 - If $f^p = i$ and $f^j(s) = s$ for some $1 \\leq j \\lt p$, then $f(s) = s$",
+      "difficulty": "easy",
+      "problem": "If $i \\neq f \\in A(S)$ is such that $f^p = i$, $p$ a prime, and if for some $s \\in S$, $f^j(s) = s$ for some $1 \\leq j \\lt p$, show that $f(s) = s$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\gcd(j, p) = 1$, so $1 = uj + vp$ for integers $u, v$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $p$ is prime and $1 \\leq j \\lt p$, $\\gcd(j, p) = 1$, so $1 = uj + vp$ for some integers $u, v$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">From $f^j(s) = s$ we get $(f^j)^u(s) = s$ for every integer $u$ (for negative $u$, apply $f^{-j}$ to both sides of $f^j(s) = s$). Also $(f^p)^v = i$. Hence\n    \\[\n        f(s) = f^{uj + vp}(s) = (f^j)^u\\left( (f^p)^v(s) \\right) = (f^j)^u(s) = s.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In words: a point fixed by a nontrivial power $f^j$ ($j \\lt p$) of a permutation of prime order is fixed by $f$ itself.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "permutations",
+        "abstract-algebra-herstein (2.4.33)"
+      ]
+    },
+    {
+      "date": "2025-12-17",
+      "title": "Herstein - 2.4.34 - Under $f$ of prime order $p$, every orbit has $1$ or $p$ elements",
+      "difficulty": "medium",
+      "problem": "If $f \\in A(S)$ has order $p$, $p$ a prime, show that for every $s \\in S$ the orbit of $s$ under $f$ has one or $p$ elements. [<strong>Recall:</strong> The orbit of $s$ under $f$ is $\\{ f^j(s) \\mid j \\text{ any integer} \\}$.]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $f(s) = s$ the orbit is $\\{ s \\}$. Otherwise, by Problem 33, $s, f(s), \\ldots, f^{p-1}(s)$ are distinct.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $f^p = i$, the orbit of $s$ is $\\{ s, f(s), \\ldots, f^{p-1}(s) \\}$: every $f^j(s)$ equals $f^r(s)$ with $r$ the remainder of $j$ mod $p$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>If $f(s) = s$</strong>, the orbit is $\\{ s \\}$, with one element.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>If $f(s) \\neq s$</strong>, the elements $s, f(s), \\ldots, f^{p-1}(s)$ are distinct. Indeed, if $f^k(s) = f^l(s)$ with $0 \\leq k \\lt l \\leq p - 1$, then applying $f^{-k}$ gives $f^{l-k}(s) = s$ with $1 \\leq l - k \\lt p$, and Problem 33 gives $f(s) = s$, a contradiction. So the orbit has exactly $p$ elements.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "permutations",
+        "abstract-algebra-herstein (2.4.34)"
+      ]
+    },
+    {
+      "date": "2025-12-24",
+      "title": "Herstein - 2.4.35 - A permutation of prime order $p$ of an $n$-set with $p \\nmid n$ has a fixed point",
+      "difficulty": "easy",
+      "problem": "If $f \\in A(S)$ has order $p$, $p$ a prime, and $S$ is a finite set having $n$ elements, where $(n, p) = 1$, show that for some $s \\in S$, $f(s) = s$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The orbits partition $S$. Use Problem 34.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The orbits of $f$ partition $S$ (they are the classes of the equivalence relation $s \\sim t \\iff t = f^j(s)$ for some $j$). By Problem 34, each orbit has $1$ or $p$ elements.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $f$ had no fixed point, every orbit would have $p$ elements, and then $n = |S|$ would be a multiple of $p$, contradicting $(n, p) = 1$. Hence some orbit has a single element, i.e. $f(s) = s$ for some $s \\in S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">More precisely, $n \\equiv (\\text{number of fixed points}) \\pmod p$. For example, a permutation of order $3$ of a $7$-element set fixes at least one point (in fact exactly $1$ or $4$ points, since the number of fixed points is $\\equiv 7 \\equiv 1 \\pmod 3$ and is less than $7$).</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "permutations",
+        "abstract-algebra-herstein (2.4.35)"
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "title": "Herstein - 2.4.36 - $n \\mid \\varphi(a^n - 1)$ for every integer $a > 1$",
+      "difficulty": "medium",
+      "problem": "If $a > 1$ is an integer, show that $n \\mid \\varphi(a^n - 1)$, where $\\varphi$ is the Euler $\\varphi$-function. [<strong>Hint:</strong> Consider the integers $\\bmod(a^n - 1)$.]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">In $U_{a^n - 1}$, the class of $a$ has order exactly $n$. Then use Lagrange.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $N = a^n - 1$. If $N = 1$ (i.e. $a = 2$, $n = 1$), the claim $1 \\mid \\varphi(1)$ is trivial, so let $N > 1$. Since $a \\cdot a^{n-1} = N + 1 \\equiv 1 \\pmod N$, $\\gcd(a, N) = 1$ and $[a] \\in U_N$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The order of $[a]$ is $n$.</strong> $a^n = N + 1 \\equiv 1 \\pmod N$. For $1 \\leq k \\lt n$, $0 \\lt a^k - 1 \\lt a^n - 1 = N$ (as $a > 1$), so $N \\nmid a^k - 1$ and $a^k \\not\\equiv 1$. Hence $o([a]) = n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Lagrange's theorem, the order of an element divides the order of the group, so\n    \\[\n        n \\mid |U_N| = \\varphi(a^n - 1).\n    \\]\n    For example, $a = 2$, $n = 5$: $\\varphi(31) = 30$ is divisible by $5$; $a = 3$, $n = 4$: $\\varphi(80) = 32$ is divisible by $4$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "number-theory",
+        "lagrange-theorem",
+        "abstract-algebra-herstein (2.4.36)"
       ]
     },
     {

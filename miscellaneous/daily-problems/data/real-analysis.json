@@ -543,6 +543,170 @@
       ]
     },
     {
+      "date": "2024-01-08",
+      "title": "Bartle and Sherbert 2.4.13: For every real $x$ there is a unique integer $n$ with $n - 1 \\leq x \\lt n$",
+      "difficulty": "medium",
+      "problem": "Given any $x \\in \\mathbb{R}$, show that there exists a unique $n \\in \\mathbb{Z}$ such that $n - 1 \\leq x \\lt n$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Consider the set of integers greater than $x$. Use the Archimedean property to see that it is nonempty and bounded below, so it has a least element.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Existence.</strong> Let $S = \\{ m \\in \\mathbb{Z} : m > x \\}$. By the Archimedean property there is $m \\in \\mathbb{N}$ with $m > x$, so $S \\neq \\varnothing$. Also there is $k \\in \\mathbb{N}$ with $k > -x$, i.e. $-k \\lt x$, so every element of $S$ is greater than $-k$. Hence $\\{ m + k : m \\in S \\}$ is a nonempty set of positive integers, and by the well-ordering property of $\\mathbb{N}$ it has a least element. Consequently $S$ has a least element; call it $n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $n \\in S$, we have $x \\lt n$. Since $n - 1 \\lt n$ and $n$ is the least element of $S$, the integer $n - 1$ is not in $S$, which means $n - 1 \\leq x$. Thus $n - 1 \\leq x \\lt n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Uniqueness.</strong> Suppose also $m - 1 \\leq x \\lt m$ with $m \\in \\mathbb{Z}$. Then $n - 1 \\leq x \\lt m$ gives $n \\lt m + 1$, so $n \\leq m$ (both are integers). By symmetry $m \\leq n$. Hence $m = n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The integer $n - 1$ is the \"floor\" of $x$, usually written $\\lfloor x \\rfloor$; the exercise shows that $\\lfloor x \\rfloor$ is well defined for every real $x$.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.4.13)"
+      ]
+    },
+    {
+      "date": "2024-01-15",
+      "title": "Bartle and Sherbert 2.4.14: If $y > 0$, then $1/2^n \\lt y$ for some $n$",
+      "difficulty": "easy",
+      "problem": "If $y > 0$, show that there exists $n \\in \\mathbb{N}$ such that $\\frac{1}{2^n} \\lt y$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">First show that $2^n > n$ for every $n \\in \\mathbb{N}$, then use the Archimedean property.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Claim: $2^n > n$ for all $n \\in \\mathbb{N}$.</strong> For $n = 1$, $2 > 1$. If $2^n > n$, then $2^{n+1} = 2 \\cdot 2^n > 2n \\geq n + 1$. By induction the claim holds. (Alternatively, Bernoulli's inequality gives $2^n = (1 + 1)^n \\geq 1 + n$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now let $y > 0$. By the Archimedean property there is $n \\in \\mathbb{N}$ with $\\frac{1}{n} \\lt y$. Then\n    \\[\n        \\frac{1}{2^n} \\lt \\frac{1}{n} \\lt y.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">This is used constantly: for instance, it shows that $\\inf \\left\\{ \\frac{1}{2^n} : n \\in \\mathbb{N} \\right\\} = 0$, and that repeated bisection of an interval produces intervals of arbitrarily small length.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.4.14)"
+      ]
+    },
+    {
+      "date": "2024-01-22",
+      "title": "Bartle and Sherbert 2.4.15: There is a positive real number $y$ with $y^2 = 3$",
+      "difficulty": "medium",
+      "problem": "Modify the argument in Theorem 2.4.7 (existence of $\\sqrt{2}$) to show that there exists a positive real number $y$ such that $y^2 = 3$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Let $S = \\{ s \\in \\mathbb{R} : s \\geq 0, s^2 \\lt 3 \\}$ and $y = \\sup S$. Rule out $y^2 \\lt 3$ and $y^2 > 3$ separately.</li>\n<li class=\"my-4\">For $n \\in \\mathbb{N}$, $\\left( y + \\frac{1}{n} \\right)^2 \\leq y^2 + \\frac{2y + 1}{n}$ and $\\left( y - \\frac{1}{m} \\right)^2 > y^2 - \\frac{2y}{m}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $S = \\{ s \\in \\mathbb{R} : s \\geq 0,\\ s^2 \\lt 3 \\}$. Then $1 \\in S$, so $S \\neq \\varnothing$, and $S$ is bounded above by $2$ (if $s > 2$ then $s^2 > 4 > 3$). By the completeness property, $y = \\sup S$ exists, and $y \\geq 1$. We show $y^2 = 3$ by ruling out the other two possibilities.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$y^2 \\lt 3$ is impossible.</strong> For $n \\in \\mathbb{N}$,\n    \\[\n        \\left( y + \\frac{1}{n} \\right)^2 = y^2 + \\frac{2y}{n} + \\frac{1}{n^2} \\leq y^2 + \\frac{2y + 1}{n}.\n    \\]\n    If $y^2 \\lt 3$, choose (Archimedean property) $n$ with $\\frac{1}{n} \\lt \\frac{3 - y^2}{2y + 1}$. Then $\\left( y + \\frac{1}{n} \\right)^2 \\lt 3$, so $y + \\frac{1}{n} \\in S$, contradicting that $y$ is an upper bound of $S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$y^2 > 3$ is impossible.</strong> For $m \\in \\mathbb{N}$,\n    \\[\n        \\left( y - \\frac{1}{m} \\right)^2 = y^2 - \\frac{2y}{m} + \\frac{1}{m^2} > y^2 - \\frac{2y}{m}.\n    \\]\n    If $y^2 > 3$, choose $m$ with $\\frac{1}{m} \\lt \\frac{y^2 - 3}{2y}$. Note $\\frac{y^2 - 3}{2y} \\lt \\frac{y}{2}$, so $y - \\frac{1}{m} > 0$, and $\\left( y - \\frac{1}{m} \\right)^2 > 3$. Now every $s \\in S$ satisfies $s^2 \\lt 3 \\lt \\left( y - \\frac{1}{m} \\right)^2$ with both numbers nonnegative, hence $s \\lt y - \\frac{1}{m}$. So $y - \\frac{1}{m}$ is an upper bound of $S$ smaller than $y = \\sup S$, a contradiction.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore $y^2 = 3$, and $y \\geq 1 > 0$. (So $\\sqrt{3}$ exists in $\\mathbb{R}$; as with $\\sqrt{2}$, it is not rational.)</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "supremum",
+        "real-analysis-bartle-sherbert (2.4.15)"
+      ]
+    },
+    {
+      "date": "2024-01-29",
+      "title": "Bartle and Sherbert 2.4.16: Every positive real number has a positive square root",
+      "difficulty": "medium",
+      "problem": "Modify the argument in Theorem 2.4.7 to show that if $a > 0$, then there is a positive real number $z$ such that $z^2 = a$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use $S = \\{ s \\geq 0 : s^2 \\lt a \\}$ and $z = \\sup S$, as in Exercise 2.4.15. An upper bound for $S$ is $\\max\\{ 1, a \\}$, and $\\min\\{ 1, \\frac{a}{2} \\} \\in S$ shows that $z > 0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $S = \\{ s \\in \\mathbb{R} : s \\geq 0,\\ s^2 \\lt a \\}$.\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$S$ is bounded above by $b = \\max\\{ 1, a \\}$: if $s > b$, then $s > 1$ gives $s^2 > s$, and $s > a$, so $s^2 > a$.</li>\n<li class=\"my-4\">$S$ contains $t = \\min\\{ 1, \\frac{a}{2} \\} > 0$: indeed $t^2 \\leq t \\cdot 1 \\leq \\frac{a}{2} \\lt a$.</li></ol>\n    So $z = \\sup S$ exists and $z \\geq t > 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$z^2 \\lt a$ is impossible.</strong> For $n \\in \\mathbb{N}$, $\\left( z + \\frac{1}{n} \\right)^2 \\leq z^2 + \\frac{2z + 1}{n}$. If $z^2 \\lt a$, choose $n$ with $\\frac{1}{n} \\lt \\frac{a - z^2}{2z + 1}$; then $z + \\frac{1}{n} \\in S$, contradicting that $z$ is an upper bound.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$z^2 > a$ is impossible.</strong> For $m \\in \\mathbb{N}$, $\\left( z - \\frac{1}{m} \\right)^2 > z^2 - \\frac{2z}{m}$. If $z^2 > a$, choose $m$ with $\\frac{1}{m} \\lt \\frac{z^2 - a}{2z}$ $\\left( \\lt \\frac{z}{2} \\right)$. Then $z - \\frac{1}{m} > 0$ and $\\left( z - \\frac{1}{m} \\right)^2 > a > s^2$ for every $s \\in S$, so $z - \\frac{1}{m}$ is an upper bound of $S$ smaller than $z$, a contradiction.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $z^2 = a$ with $z > 0$. The positive square root is also unique: if $z, w > 0$ and $z^2 = w^2$, then $(z - w)(z + w) = 0$ with $z + w > 0$, so $z = w$. This is the number denoted $\\sqrt{a}$.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "supremum",
+        "real-analysis-bartle-sherbert (2.4.16)"
+      ]
+    },
+    {
+      "date": "2024-02-05",
+      "title": "Bartle and Sherbert 2.3.8: $u$ is an upper bound of $S$ if and only if $t > u$ implies $t \\notin S$",
+      "difficulty": "easy",
+      "problem": "Let $S \\subseteq \\mathbb{R}$ be nonempty. Show that $u \\in \\mathbb{R}$ is an upper bound of $S$ if and only if the conditions $t \\in \\mathbb{R}$ and $t > u$ imply that $t \\notin S$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The second condition is the contrapositive of \"$t \\in S \\Rightarrow t \\leq u$\".</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Rightarrow$)</strong> Let $u$ be an upper bound of $S$, and let $t \\in \\mathbb{R}$ with $t > u$. If $t$ were in $S$, then $t \\leq u$, contradicting $t > u$. So $t \\notin S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Leftarrow$)</strong> Suppose that $t > u$ implies $t \\notin S$. Let $s \\in S$. If $s > u$, then the hypothesis (with $t = s$) gives $s \\notin S$, a contradiction. Hence $s \\leq u$ for every $s \\in S$, i.e. $u$ is an upper bound of $S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In words: $u$ is an upper bound exactly when no element of $S$ lies strictly to the right of $u$. The two conditions are contrapositives of each other: \"$s \\in S \\Rightarrow s \\leq u$\" is equivalent to \"$t > u \\Rightarrow t \\notin S$\".</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.3.8)"
+      ]
+    },
+    {
+      "date": "2024-02-12",
+      "title": "Bartle and Sherbert 2.4.12: The principle of iterated suprema",
+      "difficulty": "medium",
+      "problem": "Let $X$ and $Y$ be nonempty sets and let $h : X \\times Y \\to \\mathbb{R}$ have bounded range in $\\mathbb{R}$. Let $F : X \\to \\mathbb{R}$ and $G : Y \\to \\mathbb{R}$ be defined by\n    \\[\n        F(x) \\coloneqq \\sup\\{ h(x, y) : y \\in Y \\}, \\qquad G(y) \\coloneqq \\sup\\{ h(x, y) : x \\in X \\}.\n    \\]\n    Establish the <strong>Principle of the Iterated Suprema</strong>:\n    \\[\n        \\sup\\{ h(x, y) : x \\in X, y \\in Y \\} = \\sup\\{ F(x) : x \\in X \\} = \\sup\\{ G(y) : y \\in Y \\}.\n    \\]\n    We sometimes express this in symbols by $\\displaystyle \\sup_{x,y} h(x, y) = \\sup_x \\sup_y h(x, y) = \\sup_y \\sup_x h(x, y)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Let $M = \\sup_{x,y} h(x, y)$. Show $F(x) \\leq M$ for every $x$, and $h(x, y) \\leq F(x) \\leq \\sup F$ for every $(x, y)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">All the suprema exist because $X, Y$ are nonempty and $h$ is bounded (and then $F$, $G$ are bounded too). Let $M = \\sup\\{ h(x, y) : x \\in X, y \\in Y \\}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\sup_x F(x) \\leq M$.</strong> Fix $x \\in X$. For every $y \\in Y$, $h(x, y) \\leq M$, so $M$ is an upper bound of $\\{ h(x, y) : y \\in Y \\}$ and $F(x) \\leq M$. As this holds for every $x$, $\\sup\\{ F(x) : x \\in X \\} \\leq M$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$M \\leq \\sup_x F(x)$.</strong> For every $(x, y)$,\n    \\[\n        h(x, y) \\leq F(x) \\leq \\sup\\{ F(x') : x' \\in X \\}.\n    \\]\n    So $\\sup_x F(x)$ is an upper bound of all values of $h$, and $M \\leq \\sup_x F(x)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $M = \\sup_x F(x)$. Exchanging the roles of $x$ and $y$, the same argument gives $M = \\sup_y G(y)$. So suprema can be taken in either order. (Contrast Exercise 2.4.11: mixing a supremum and an infimum gives only an inequality, which can be strict by Exercise 2.4.10.)</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "supremum",
+        "real-analysis-bartle-sherbert (2.4.12)"
+      ]
+    },
+    {
+      "date": "2024-02-19",
+      "title": "Bartle and Sherbert 2.4.17: There is a positive real number $u$ with $u^3 = 2$",
+      "difficulty": "medium",
+      "problem": "Modify the argument in Theorem 2.4.7 to show that there exists a positive real number $u$ such that $u^3 = 2$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Let $S = \\{ s \\geq 0 : s^3 \\lt 2 \\}$ and $u = \\sup S$. Rule out $u^3 \\lt 2$ and $u^3 > 2$.</li>\n<li class=\"my-4\">Useful estimates: $\\left( u + \\frac{1}{n} \\right)^3 \\leq u^3 + \\frac{3u^2 + 3u + 1}{n}$ and $\\left( u - \\frac{1}{m} \\right)^3 > u^3 - \\frac{3u^2}{m}$ (for $u \\geq 1$).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $S = \\{ s \\in \\mathbb{R} : s \\geq 0,\\ s^3 \\lt 2 \\}$. Then $1 \\in S$, and $S$ is bounded above by $2$ (if $s > 2$ then $s^3 > 8$). So $u = \\sup S$ exists and $u \\geq 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$u^3 \\lt 2$ is impossible.</strong> For $n \\in \\mathbb{N}$,\n    \\[\n        \\left( u + \\frac{1}{n} \\right)^3 = u^3 + \\frac{3u^2}{n} + \\frac{3u}{n^2} + \\frac{1}{n^3} \\leq u^3 + \\frac{3u^2 + 3u + 1}{n}.\n    \\]\n    If $u^3 \\lt 2$, choose $n$ with $\\frac{1}{n} \\lt \\frac{2 - u^3}{3u^2 + 3u + 1}$ (Archimedean property). Then $\\left( u + \\frac{1}{n} \\right)^3 \\lt 2$, so $u + \\frac{1}{n} \\in S$, contradicting that $u$ is an upper bound of $S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$u^3 > 2$ is impossible.</strong> For $m \\in \\mathbb{N}$,\n    \\[\n        \\left( u - \\frac{1}{m} \\right)^3 = u^3 - \\frac{3u^2}{m} + \\frac{3um - 1}{m^3} > u^3 - \\frac{3u^2}{m},\n    \\]\n    since $3um - 1 > 0$. If $u^3 > 2$, choose $m$ with $\\frac{1}{m} \\lt \\frac{u^3 - 2}{3u^2}$; as $\\frac{u^3 - 2}{3u^2} \\lt \\frac{u}{3}$, we get $u - \\frac{1}{m} > 0$ and $\\left( u - \\frac{1}{m} \\right)^3 > 2$. For every $s \\in S$, $s^3 \\lt 2 \\lt \\left( u - \\frac{1}{m} \\right)^3$, and since $t \\mapsto t^3$ is increasing on $[0, \\infty)$, $s \\lt u - \\frac{1}{m}$. So $u - \\frac{1}{m}$ is an upper bound of $S$ smaller than $\\sup S$, a contradiction.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $u^3 = 2$, with $u \\geq 1 > 0$: the real number $\\sqrt[3]{2}$ exists.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "supremum",
+        "real-analysis-bartle-sherbert (2.4.17)"
+      ]
+    },
+    {
+      "date": "2024-02-26",
+      "title": "Bartle and Sherbert 2.4.18: The Density Theorem without the assumption $x > 0$",
+      "difficulty": "easy",
+      "problem": "The Density Theorem 2.4.8 states: if $x$ and $y$ are any real numbers with $x \\lt y$, then there exists a rational number $r \\in \\mathbb{Q}$ such that $x \\lt r \\lt y$. Complete the proof of the Density Theorem 2.4.8 by removing the assumption that $x > 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Shift by an integer: choose $k \\in \\mathbb{N}$ with $x + k > 0$ and apply the case already proved to $x + k \\lt y + k$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The case $x > 0$</strong> (proved in the book): since $y - x > 0$, the Archimedean property gives $n \\in \\mathbb{N}$ with $\\frac{1}{n} \\lt y - x$, i.e. $nx + 1 \\lt ny$. As $nx > 0$, there is $m \\in \\mathbb{N}$ with $m - 1 \\leq nx \\lt m$. Then $m \\leq nx + 1 \\lt ny$, so $nx \\lt m \\lt ny$, and $r = \\frac{m}{n}$ satisfies $x \\lt r \\lt y$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The general case.</strong> Let $x \\lt y$ be arbitrary. By the Archimedean property there is $k \\in \\mathbb{N}$ with $k > -x$, so $x + k > 0$. Applying the case above to $x + k \\lt y + k$ gives a rational $r'$ with\n    \\[\n        x + k \\lt r' \\lt y + k.\n    \\]\n    Then $r = r' - k$ is rational (a difference of rationals) and $x \\lt r \\lt y$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So between any two distinct real numbers there is a rational number, and hence (applying this repeatedly) infinitely many.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.4.18)"
+      ]
+    },
+    {
+      "date": "2024-03-04",
+      "title": "Bartle and Sherbert 2.4.19: The multiples $ru$, $r \\in \\mathbb{Q}$, are dense in $\\mathbb{R}$",
+      "difficulty": "easy",
+      "problem": "If $u > 0$ is any real number and $x \\lt y$, show that there exists a rational number $r$ such that $x \\lt ru \\lt y$. (Hence the set $\\{ ru : r \\in \\mathbb{Q} \\}$ is dense in $\\mathbb{R}$.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Divide by $u$ and use the Density Theorem.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $u > 0$, dividing by $u$ preserves inequalities: $\\frac{x}{u} \\lt \\frac{y}{u}$. By the Density Theorem (Exercise 2.4.18) there is a rational number $r$ with\n    \\[\n        \\frac{x}{u} \\lt r \\lt \\frac{y}{u}.\n    \\]\n    Multiplying by $u > 0$ gives $x \\lt ru \\lt y$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So every open interval contains a number of the form $ru$ with $r \\in \\mathbb{Q}$, i.e. $\\{ ru : r \\in \\mathbb{Q} \\}$ is dense in $\\mathbb{R}$. For example, with $u = \\sqrt{2}$: since the interval contains infinitely many rationals $r$, we may take $r \\neq 0$, and then $r\\sqrt{2}$ is irrational. So every interval contains an irrational number as well (Corollary 2.4.9).</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.4.19)"
+      ]
+    },
+    {
+      "date": "2024-03-11",
+      "title": "Bartle and Sherbert 2.5.1: $[a, b] \\subseteq [a', b']$ if and only if $a' \\leq a$ and $b \\leq b'$",
+      "difficulty": "easy",
+      "problem": "If $I := [a, b]$ and $I' := [a', b']$ are closed intervals in $\\mathbb{R}$, show that $I \\subseteq I'$ if and only if $a' \\leq a$ and $b \\leq b'$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For \"only if\", use that the endpoints $a, b$ belong to $I$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">As usual, a closed interval $[a, b]$ is written with $a \\leq b$, so $a, b \\in I$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Rightarrow$)</strong> If $I \\subseteq I'$, then $a \\in I'$ gives $a' \\leq a$, and $b \\in I'$ gives $b \\leq b'$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Leftarrow$)</strong> If $a' \\leq a$ and $b \\leq b'$, then for $x \\in I$ we have $a' \\leq a \\leq x \\leq b \\leq b'$, so $x \\in I'$. Hence $I \\subseteq I'$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(The convention $a \\leq b$ matters: if empty \"intervals\" $[a, b]$ with $a > b$ were allowed, then $\\varnothing \\subseteq I'$ would hold for any endpoints.)</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "intervals",
+        "real-analysis-bartle-sherbert (2.5.1)"
+      ]
+    },
+    {
+      "date": "2024-03-18",
+      "title": "Bartle and Sherbert 2.5.2: $S$ is bounded if and only if it lies in a closed bounded interval",
+      "difficulty": "easy",
+      "problem": "If $S \\subseteq \\mathbb{R}$ is nonempty, show that $S$ is bounded if and only if there exists a closed bounded interval $I$ such that $S \\subseteq I$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A lower bound and an upper bound of $S$ are the endpoints of such an interval.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Rightarrow$)</strong> If $S$ is bounded, there are $m, M$ with $m \\leq s \\leq M$ for all $s \\in S$. Since $S \\neq \\varnothing$, $m \\leq M$, and $S \\subseteq [m, M]$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Leftarrow$)</strong> If $S \\subseteq [a, b]$, then $a \\leq s \\leq b$ for every $s \\in S$: $a$ is a lower bound and $b$ an upper bound, so $S$ is bounded.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "intervals",
+        "real-analysis-bartle-sherbert (2.5.2)"
+      ]
+    },
+    {
+      "date": "2024-03-25",
+      "title": "Bartle and Sherbert 2.5.3: $[\\inf S, \\sup S]$ is the smallest closed interval containing $S$",
+      "difficulty": "easy",
+      "problem": "If $S \\subseteq \\mathbb{R}$ is a nonempty bounded set, and $I_S := [\\inf S, \\sup S]$, show that $S \\subseteq I_S$. Moreover, if $J$ is any closed bounded interval containing $S$, show that $I_S \\subseteq J$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Combine the definitions of $\\inf$ and $\\sup$ with Exercise 2.5.1.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $s \\in S$, $\\inf S \\leq s$ (as $\\inf S$ is a lower bound) and $s \\leq \\sup S$ (as $\\sup S$ is an upper bound). So $S \\subseteq I_S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $J = [c, d] \\supseteq S$. Then $c$ is a lower bound of $S$, so $c \\leq \\inf S$ (the infimum is the greatest lower bound); and $d$ is an upper bound, so $\\sup S \\leq d$. By Exercise 2.5.1, $I_S = [\\inf S, \\sup S] \\subseteq [c, d] = J$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $I_S$ is the smallest closed bounded interval containing $S$.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "intervals",
+        "supremum",
+        "real-analysis-bartle-sherbert (2.5.3)"
+      ]
+    },
+    {
       "date": "2024-04-01",
       "title": "Convergence of improper integral",
       "problem": "<ul class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\nDetermine whether the improper integral\n\\[\n    \\int _0^{\\infty} \\frac{\\cos x}{1+x^2}\\mathrm{d} x\n\\]\nconverges or not.",
@@ -551,6 +715,49 @@
       "tags": [
         "real-analysis",
         "improper-integral"
+      ]
+    },
+    {
+      "date": "2024-04-08",
+      "title": "Bartle and Sherbert 2.5.4: Why do $x, y$ exist in Case (ii) of the Characterization Theorem?",
+      "difficulty": "easy",
+      "problem": "Theorem 2.5.1 (Characterization Theorem) says: if $S \\subseteq \\mathbb{R}$ contains at least two points and has the property\n    \\[\n        \\text{(1)} \\qquad \\text{if } x, y \\in S \\text{ and } x \\lt y, \\text{ then } [x, y] \\subseteq S,\n    \\]\n    then $S$ is an interval. In Case (ii) of the proof, $S$ is bounded above but not bounded below, $b := \\sup S$, and the proof claims that if $z \\lt b$, then there exist $x, y \\in S$ such that $z \\in [x, y] \\subseteq S$. In the proof of Case (ii) of Theorem 2.5.1, explain why $x, y$ exist in $S$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$z$ is not a lower bound of $S$, and $z$ is not an upper bound of $S$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $z \\lt b = \\sup S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Existence of $x$.</strong> $S$ is not bounded below, so in particular $z$ is not a lower bound of $S$: there is $x \\in S$ with $x \\lt z$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Existence of $y$.</strong> Since $z \\lt \\sup S$, $z$ is not an upper bound of $S$ (the supremum is the least upper bound): there is $y \\in S$ with $z \\lt y$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Then $x \\lt z \\lt y$ with $x, y \\in S$, so $z \\in [x, y] \\subseteq S$ by property (1). As $z \\lt b$ was arbitrary, $(-\\infty, b) \\subseteq S$, and $S$ is $(-\\infty, b)$ or $(-\\infty, b]$ according as $b \\notin S$ or $b \\in S$.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "intervals",
+        "supremum",
+        "real-analysis-bartle-sherbert (2.5.4)"
+      ]
+    },
+    {
+      "date": "2024-04-15",
+      "title": "Bartle and Sherbert 2.5.5: Case (iv) of the Characterization Theorem: $S = \\mathbb{R}$",
+      "difficulty": "easy",
+      "problem": "Write out the details of the proof of case (iv) in Theorem 2.5.1: if $S \\subseteq \\mathbb{R}$ contains at least two points, satisfies property (1) (if $x, y \\in S$ and $x \\lt y$, then $[x, y] \\subseteq S$), and is neither bounded above nor bounded below, then $S$ is an interval.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Show that every real number $z$ lies between two points of $S$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We show that $S = \\mathbb{R} = (-\\infty, \\infty)$, which is an interval.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $z \\in \\mathbb{R}$. Since $S$ is not bounded below, $z$ is not a lower bound, so there is $x \\in S$ with $x \\lt z$. Since $S$ is not bounded above, $z$ is not an upper bound, so there is $y \\in S$ with $z \\lt y$. Then $z \\in [x, y] \\subseteq S$ by property (1).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $\\mathbb{R} \\subseteq S$, i.e. $S = \\mathbb{R}$.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "intervals",
+        "real-analysis-bartle-sherbert (2.5.5)"
+      ]
+    },
+    {
+      "date": "2024-04-22",
+      "title": "Bartle and Sherbert 2.5.6: Endpoints of nested intervals are monotone",
+      "difficulty": "easy",
+      "problem": "If $I_1 \\supseteq I_2 \\supseteq \\cdots \\supseteq I_n \\supseteq \\cdots$ is a nested sequence of intervals and if $I_n = [a_n, b_n]$, show that $a_1 \\leq a_2 \\leq \\cdots \\leq a_n \\leq \\cdots$ and $b_1 \\geq b_2 \\geq \\cdots \\geq b_n \\geq \\cdots$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Apply Exercise 2.5.1 to $I_{n+1} \\subseteq I_n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For each $n$, $I_{n+1} = [a_{n+1}, b_{n+1}] \\subseteq [a_n, b_n] = I_n$. By Exercise 2.5.1, this means $a_n \\leq a_{n+1}$ and $b_{n+1} \\leq b_n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since this holds for every $n \\in \\mathbb{N}$, $(a_n)$ is increasing and $(b_n)$ is decreasing. Moreover $a_n \\leq b_n$ for each $n$, so all the left endpoints lie to the left of all the right endpoints (see Exercise 2.5.10).</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "intervals",
+        "real-analysis-bartle-sherbert (2.5.6)"
       ]
     },
     {
@@ -756,6 +963,253 @@
       ]
     },
     {
+      "date": "2024-09-02",
+      "title": "Bartle and Sherbert 2.5.7: $\\bigcap_{n} [0, 1/n] = \\{ 0 \\}$",
+      "difficulty": "easy",
+      "problem": "Let $I_n := [0, 1/n]$ for $n \\in \\mathbb{N}$. Prove that $\\bigcap_{n=1}^{\\infty} I_n = \\{ 0 \\}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $x > 0$, the Archimedean property gives $n$ with $1/n \\lt x$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Clearly $0 \\in [0, 1/n]$ for every $n$, so $0 \\in \\bigcap I_n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Conversely, let $x \\in \\bigcap I_n$. Then $x \\geq 0$. If $x > 0$, by the Archimedean property (Corollary 2.4.5) there is $n \\in \\mathbb{N}$ with $0 \\lt 1/n \\lt x$, so $x \\notin I_n$, a contradiction. Hence $x = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore $\\bigcap_{n} I_n = \\{ 0 \\}$. This illustrates the Nested Intervals Property: the intersection is nonempty, and since $\\inf\\{ 1/n \\} = 0$, it consists of exactly one point.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "intervals",
+        "archimedean-property",
+        "real-analysis-bartle-sherbert (2.5.7)"
+      ]
+    },
+    {
+      "date": "2024-09-09",
+      "title": "Bartle and Sherbert 2.5.8: $\\bigcap_{n} (0, 1/n) = \\varnothing$",
+      "difficulty": "easy",
+      "problem": "Let $J_n := (0, 1/n)$ for $n \\in \\mathbb{N}$. Prove that $\\bigcap_{n=1}^{\\infty} J_n = \\varnothing$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A point of the intersection would be a positive number below every $1/n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Suppose $x \\in \\bigcap J_n$. Then $x > 0$ and $x \\lt 1/n$ for all $n$. By the Archimedean property there is $n$ with $1/n \\lt x$, a contradiction. Hence the intersection is empty.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the Nested Intervals Property fails for open intervals: the $J_n$ are nested, nonempty and bounded, but their intersection is empty. Compare Exercise 2.5.7, where the closed intervals $[0, 1/n]$ still meet at $0$.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "intervals",
+        "archimedean-property",
+        "real-analysis-bartle-sherbert (2.5.8)"
+      ]
+    },
+    {
+      "date": "2024-09-16",
+      "title": "Bartle and Sherbert 2.5.9: $\\bigcap_{n} (n, \\infty) = \\varnothing$",
+      "difficulty": "easy",
+      "problem": "Let $K_n := (n, \\infty)$ for $n \\in \\mathbb{N}$. Prove that $\\bigcap_{n=1}^{\\infty} K_n = \\varnothing$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A point of the intersection would be an upper bound of $\\mathbb{N}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Suppose $x \\in \\bigcap K_n$. Then $x > n$ for all $n \\in \\mathbb{N}$, so $x$ is an upper bound of $\\mathbb{N}$. This contradicts the Archimedean property (there is $n_x \\in \\mathbb{N}$ with $x \\lt n_x$). Hence $\\bigcap K_n = \\varnothing$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the Nested Intervals Property also fails for nested closed rays (for instance $[n, \\infty)$): boundedness of the intervals is essential.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "intervals",
+        "archimedean-property",
+        "real-analysis-bartle-sherbert (2.5.9)"
+      ]
+    },
+    {
+      "date": "2024-09-23",
+      "title": "Bartle and Sherbert 2.5.10: $\\bigcap_n I_n = [\\xi, \\eta]$ with $\\xi = \\sup a_n$ and $\\eta = \\inf b_n$",
+      "difficulty": "medium",
+      "problem": "Let $I_n = [a_n, b_n]$, $n \\in \\mathbb{N}$, be a nested sequence of closed bounded intervals, and, as in the proofs of Theorems 2.5.2 and 2.5.3, let $\\xi := \\sup\\{ a_n : n \\in \\mathbb{N} \\}$ and $\\eta := \\inf\\{ b_n : n \\in \\mathbb{N} \\}$. Show that we have $\\eta \\in \\bigcap_{n=1}^{\\infty} I_n$. Also show that $[\\xi, \\eta] = \\bigcap_{n=1}^{\\infty} I_n$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">First prove $a_m \\leq b_n$ for all $m, n$, using Exercise 2.5.6.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Step 1: $a_m \\leq b_n$ for all $m, n$.</strong> By Exercise 2.5.6, $(a_n)$ increases and $(b_n)$ decreases. If $m \\leq n$, then $a_m \\leq a_n \\leq b_n$; if $m > n$, then $a_m \\leq b_m \\leq b_n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Step 2: $a_n \\leq \\xi \\leq \\eta \\leq b_n$ for every $n$.</strong> By Step 1, each $b_n$ is an upper bound of $\\{ a_m \\}$, so $\\xi \\leq b_n$ for all $n$. Thus $\\xi$ is a lower bound of $\\{ b_n \\}$, and $\\xi \\leq \\eta$. Of course $a_n \\leq \\xi$ and $\\eta \\leq b_n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\eta \\in \\bigcap I_n$.</strong> By Step 2, $a_n \\leq \\eta \\leq b_n$, i.e. $\\eta \\in I_n$, for every $n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$[\\xi, \\eta] = \\bigcap I_n$.</strong> If $\\xi \\leq x \\leq \\eta$, then $a_n \\leq \\xi \\leq x \\leq \\eta \\leq b_n$, so $x \\in I_n$ for all $n$. Conversely, if $x \\in \\bigcap I_n$, then $a_n \\leq x$ for all $n$, so $\\xi \\leq x$; and $x \\leq b_n$ for all $n$, so $x \\leq \\eta$. Hence $x \\in [\\xi, \\eta]$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In particular the intersection is a single point exactly when $\\xi = \\eta$, which happens when $\\inf\\{ b_n - a_n \\} = 0$ (Theorem 2.5.3).</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "intervals",
+        "supremum",
+        "real-analysis-bartle-sherbert (2.5.10)"
+      ]
+    },
+    {
+      "date": "2024-09-30",
+      "title": "Bartle and Sherbert 2.5.11: The intervals in the binary representation are nested",
+      "difficulty": "easy",
+      "problem": "For $x \\in [0, 1]$, the binary digits $a_1, a_2, \\ldots \\in \\{ 0, 1 \\}$ are chosen so that the inequalities\n    \\[\n        \\text{(2)} \\qquad \\frac{a_1}{2} + \\frac{a_2}{2^2} + \\cdots + \\frac{a_n}{2^n} \\leq x \\leq \\frac{a_1}{2} + \\frac{a_2}{2^2} + \\cdots + \\frac{a_n}{2^n} + \\frac{1}{2^n}\n    \\]\n    hold for every $n \\in \\mathbb{N}$. Show that the intervals obtained from the inequalities in (2) form a nested sequence.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $s_n = \\sum_{k=1}^{n} a_k / 2^k$ and $J_n = [s_n, s_n + 2^{-n}]$. Then $s_{n+1} = s_n + a_{n+1}/2^{n+1}$ with $a_{n+1} \\in \\{ 0, 1 \\}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $s_n = \\frac{a_1}{2} + \\cdots + \\frac{a_n}{2^n}$ and $J_n = \\left[ s_n,\\ s_n + \\frac{1}{2^n} \\right]$, so that (2) says $x \\in J_n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $s_{n+1} = s_n + \\frac{a_{n+1}}{2^{n+1}}$ with $a_{n+1} \\in \\{ 0, 1 \\}$:\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">left endpoint: $s_{n+1} \\geq s_n$;</li>\n<li class=\"my-4\">right endpoint: $s_{n+1} + \\frac{1}{2^{n+1}} \\leq s_n + \\frac{1}{2^{n+1}} + \\frac{1}{2^{n+1}} = s_n + \\frac{1}{2^n}$.</li></ul>\n    By Exercise 2.5.1, $J_{n+1} \\subseteq J_n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In fact $J_{n+1}$ is the left half of $J_n$ if $a_{n+1} = 0$ and the right half if $a_{n+1} = 1$. Since the lengths $2^{-n}$ have infimum $0$, Theorem 2.5.3 shows that $\\bigcap J_n = \\{ x \\}$.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "intervals",
+        "real-analysis-bartle-sherbert (2.5.11)"
+      ]
+    },
+    {
+      "date": "2024-10-07",
+      "title": "Bartle and Sherbert 2.5.12: The two binary representations of $3/8$ and $7/16$",
+      "difficulty": "easy",
+      "problem": "Give the two binary representations of $\\frac{3}{8}$ and $\\frac{7}{16}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A number of the form $m/2^n$ has a terminating binary expansion and a second one ending in $1$'s, because $\\sum_{k > n} 2^{-k} = 2^{-n}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Use $\\sum_{k = n+1}^{\\infty} \\frac{1}{2^k} = \\frac{1}{2^n}$, i.e. $(0.0\\cdots0111\\cdots)_2$ with $n$ zeros equals $\\frac{1}{2^n}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\frac{3}{8} = \\frac{1}{4} + \\frac{1}{8}$:</strong>\n    \\[\n        \\frac{3}{8} = (0.011000\\cdots)_2 = (0.010111\\cdots)_2,\n    \\]\n    since $(0.010111\\cdots)_2 = \\frac{1}{4} + \\left( \\frac{1}{16} + \\frac{1}{32} + \\cdots \\right) = \\frac{1}{4} + \\frac{1}{8}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\frac{7}{16} = \\frac{1}{4} + \\frac{1}{8} + \\frac{1}{16}$:</strong>\n    \\[\n        \\frac{7}{16} = (0.0111000\\cdots)_2 = (0.0110111\\cdots)_2,\n    \\]\n    since $(0.0110111\\cdots)_2 = \\frac{1}{4} + \\frac{1}{8} + \\left( \\frac{1}{32} + \\frac{1}{64} + \\cdots \\right) = \\frac{1}{4} + \\frac{1}{8} + \\frac{1}{16}$.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.5.12)"
+      ]
+    },
+    {
+      "date": "2024-10-14",
+      "title": "Bartle and Sherbert 2.5.13: The binary representation of $1/3$",
+      "difficulty": "easy",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Give the first four digits in the binary representation of $\\frac{1}{3}$.</li>\n<li class=\"my-4\">Give the complete binary representation of $\\frac{1}{3}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Repeatedly double: the digit is the integer part, and the fractional part is carried on.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Doubling $\\frac{1}{3}$ gives $\\frac{2}{3} \\lt 1$, so $a_1 = 0$; doubling $\\frac{2}{3}$ gives $\\frac{4}{3} = 1 + \\frac{1}{3}$, so $a_2 = 1$ with remainder $\\frac{1}{3}$; then the pattern repeats: $a_3 = 0$, $a_4 = 1$. So the first four digits are $0, 1, 0, 1$, i.e. $\\frac{1}{3} = (0.0101\\cdots)_2$. (Check: $\\frac{1}{4} + \\frac{1}{16} = \\frac{5}{16} \\leq \\frac{1}{3} \\leq \\frac{5}{16} + \\frac{1}{16} = \\frac{6}{16}$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $\\frac{1}{3} = (0.010101\\cdots)_2$, i.e. $a_n = 0$ for odd $n$ and $a_n = 1$ for even $n$. Indeed\n    \\[\n        \\sum_{k=1}^{\\infty} \\frac{1}{2^{2k}} = \\sum_{k=1}^{\\infty} \\frac{1}{4^k} = \\frac{1/4}{1 - 1/4} = \\frac{1}{3}.\n    \\]\n    This representation is unique, because $\\frac{1}{3}$ is not of the form $m/2^n$.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.5.13)"
+      ]
+    },
+    {
+      "date": "2024-10-21",
+      "title": "Bartle and Sherbert 2.5.14: Terminating decimal representations are unique",
+      "difficulty": "medium",
+      "problem": "Show that if $a_k, b_k \\in \\{ 0, 1, \\ldots, 9 \\}$ and if\n    \\[\n        \\frac{a_1}{10} + \\frac{a_2}{10^2} + \\cdots + \\frac{a_n}{10^n} = \\frac{b_1}{10} + \\frac{b_2}{10^2} + \\cdots + \\frac{b_m}{10^m} \\neq 0,\n    \\]\n    then $n = m$ and $a_k = b_k$ for $k = 1, \\ldots, n$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Here the last digits $a_n$, $b_m$ are understood to be nonzero (otherwise $\\frac{5}{10} = \\frac{5}{10} + \\frac{0}{10^2}$). Look at the first index $j$ where the digits differ and estimate the tail.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The last digits must be nonzero for the statement to be true (otherwise $\\frac{5}{10} = \\frac{5}{10} + \\frac{0}{100}$ gives $n = 1$, $m = 2$). So assume $a_n \\neq 0$ and $b_m \\neq 0$, and say $n \\leq m$. Put $a_k = 0$ for $n \\lt k \\leq m$, so that $\\sum_{k=1}^{m} \\frac{a_k - b_k}{10^k} = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>All digits agree.</strong> Suppose not, and let $j$ be the first index with $a_j \\neq b_j$. Then\n    \\[\n        \\frac{a_j - b_j}{10^j} = \\sum_{k = j+1}^{m} \\frac{b_k - a_k}{10^k}.\n    \\]\n    The left side has absolute value at least $\\frac{1}{10^j}$. The right side has absolute value at most\n    \\[\n        \\sum_{k = j+1}^{m} \\frac{9}{10^k} = \\frac{1}{10^j} - \\frac{1}{10^m} \\lt \\frac{1}{10^j}.\n    \\]\n    This is a contradiction, so $a_k = b_k$ for $k = 1, \\ldots, m$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$n = m$.</strong> In particular $a_m = b_m \\neq 0$. But $a_k = 0$ for $k > n$, so $m \\leq n$. Together with $n \\leq m$, $n = m$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So a number with a terminating decimal expansion has exactly one expansion that ends in a nonzero digit. (It has one more expansion, ending in $9$'s, which is not of this terminating form.)</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.5.14)"
+      ]
+    },
+    {
+      "date": "2024-10-28",
+      "title": "Bartle and Sherbert 2.5.15: The decimal representation of $-2/7$",
+      "difficulty": "easy",
+      "problem": "Find the decimal representation of $-\\frac{2}{7}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Do long division $2 \\div 7$; the remainders $2, 6, 4, 5, 1, 3$ repeat.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Long division of $20$ by $7$: $20 = 2 \\cdot 7 + 6$, $60 = 8 \\cdot 7 + 4$, $40 = 5 \\cdot 7 + 5$, $50 = 7 \\cdot 7 + 1$, $10 = 1 \\cdot 7 + 3$, $30 = 4 \\cdot 7 + 2$, and the remainder $2$ brings us back to the start. So\n    \\[\n        \\frac{2}{7} = 0.285714\\,285714\\cdots = 0.\\overline{285714},\n    \\]\n    a periodic decimal with period $6$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence\n    \\[\n        -\\frac{2}{7} = -0.285714\\,285714\\cdots.\n    \\]\n    (If one insists on writing a negative number as an integer plus a decimal in $[0, 1)$, then $-\\frac{2}{7} = -1 + \\frac{5}{7} = -1 + 0.714285\\,714285\\cdots$.)</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.5.15)"
+      ]
+    },
+    {
+      "date": "2024-11-04",
+      "title": "Bartle and Sherbert 2.5.16: $1/7$ and $2/19$ as periodic decimals",
+      "difficulty": "easy",
+      "problem": "Express $\\frac{1}{7}$ and $\\frac{2}{19}$ as periodic decimals.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Long division: the period ends when a remainder repeats. For $7$ there are at most $6$ nonzero remainders, for $19$ at most $18$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\frac{1}{7}$.</strong> The remainders when dividing $10, 30, 20, 60, 40, 50$ by $7$ are $3, 2, 6, 4, 5, 1$, with quotient digits $1, 4, 2, 8, 5, 7$; then the remainder $1$ repeats. So\n    \\[\n        \\frac{1}{7} = 0.\\overline{142857} = 0.142857\\,142857\\cdots.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\frac{2}{19}$.</strong> Long division runs through all $18$ nonzero remainders before repeating, so the period is $18$:\n    \\[\n        \\frac{2}{19} = 0.\\overline{105263157894736842} = 0.105263157894736842\\,105263\\cdots.\n    \\]\n    Check: $105263157894736842 \\times 19 = 1999999999999999998 = 2 \\times (10^{18} - 1)$, so $\\frac{105263157894736842}{10^{18} - 1} = \\frac{2}{19}$, as it must be for a purely periodic decimal.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.5.16)"
+      ]
+    },
+    {
+      "date": "2024-11-11",
+      "title": "Bartle and Sherbert 2.5.17: Which rationals are $1.25137137\\cdots$ and $35.14653653\\cdots$?",
+      "difficulty": "easy",
+      "problem": "What rationals are represented by the periodic decimals $1.25137\\cdots137\\cdots$ and $35.14653\\cdots653\\cdots$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $x = 1.25\\overline{137}$, then $10^5 x - 10^2 x$ is an integer.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$x = 1.25\\overline{137}$.</strong> Then $10^5 x = 125137.\\overline{137}$ and $10^2 x = 125.\\overline{137}$, so\n    \\[\n        99900\\, x = 125137 - 125 = 125012, \\qquad x = \\frac{125012}{99900} = \\frac{31253}{24975}.\n    \\]\n    (We divided by $4$; since $24975 = 3^3 \\cdot 5^2 \\cdot 37$ and $31253$ is divisible by none of $3, 5, 37$, the fraction is in lowest terms.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$y = 35.14\\overline{653}$.</strong> Then $10^5 y = 3514653.\\overline{653}$ and $10^2 y = 3514.\\overline{653}$, so\n    \\[\n        99900\\, y = 3514653 - 3514 = 3511139, \\qquad y = \\frac{3511139}{99900},\n    \\]\n    which is already in lowest terms ($3511139$ is odd, its digit sum $23$ is not divisible by $3$, it does not end in $0$ or $5$, and it is not divisible by $37$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In general, a decimal that is eventually periodic always represents a rational number, and conversely.</div>",
+      "tags": [
+        "real-analysis",
+        "real-numbers",
+        "real-analysis-bartle-sherbert (2.5.17)"
+      ]
+    },
+    {
+      "date": "2024-11-18",
+      "title": "Bartle and Sherbert 3.1.1: Write the first five terms of four sequences",
+      "difficulty": "easy",
+      "problem": "The sequence $(x_n)$ is defined by the following formulas for the $n$th term. Write the first five terms in each case:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$x_n := 1 + (-1)^n$,</li>\n<li class=\"my-4\">$x_n := (-1)^n / n$,</li>\n<li class=\"my-4\">$x_n := \\dfrac{1}{n(n + 1)}$,</li>\n<li class=\"my-4\">$x_n := \\dfrac{1}{n^2 + 2}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Substitute $n = 1, 2, 3, 4, 5$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$0, 2, 0, 2, 0$.</li>\n<li class=\"my-4\">$-1, \\frac{1}{2}, -\\frac{1}{3}, \\frac{1}{4}, -\\frac{1}{5}$.</li>\n<li class=\"my-4\">$\\frac{1}{2}, \\frac{1}{6}, \\frac{1}{12}, \\frac{1}{20}, \\frac{1}{30}$.</li>\n<li class=\"my-4\">$\\frac{1}{3}, \\frac{1}{6}, \\frac{1}{11}, \\frac{1}{18}, \\frac{1}{27}$.</li></ol></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Sequence (a) does not converge (it oscillates between $0$ and $2$), while (b), (c), (d) converge to $0$. For (c), note $\\frac{1}{n(n + 1)} = \\frac{1}{n} - \\frac{1}{n + 1}$ (compare Exercise 3.1.11 in the book).</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "real-analysis-bartle-sherbert (3.1.1)"
+      ]
+    },
+    {
+      "date": "2024-11-25",
+      "title": "Bartle and Sherbert 3.1.2: Find a formula for the $n$th term",
+      "difficulty": "easy",
+      "problem": "The first several terms of a sequence $(x_n)$ are given below. Assuming that the \"natural pattern\" indicated by these terms persists, give a formula for the $n$th term $x_n$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$5, 7, 9, 11, \\ldots$,</li>\n<li class=\"my-4\">$\\frac{1}{2}, -\\frac{1}{4}, \\frac{1}{8}, -\\frac{1}{16}, \\ldots$,</li>\n<li class=\"my-4\">$\\frac{1}{2}, \\frac{2}{3}, \\frac{3}{4}, \\frac{4}{5}, \\ldots$,</li>\n<li class=\"my-4\">$1, 4, 9, 16, \\ldots$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Arithmetic progression, alternating geometric progression, ratio of consecutive integers, squares.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$x_n = 2n + 3$ (start at $5$, add $2$ each time).</li>\n<li class=\"my-4\">$x_n = \\dfrac{(-1)^{n+1}}{2^n}$.</li>\n<li class=\"my-4\">$x_n = \\dfrac{n}{n + 1}$.</li>\n<li class=\"my-4\">$x_n = n^2$.</li></ol></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Of course finitely many terms never determine a sequence: for example $x_n = 2n + 3 + (n - 1)(n - 2)(n - 3)(n - 4)$ also begins $5, 7, 9, 11$. That is why the exercise asks for the \"natural pattern\".</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "real-analysis-bartle-sherbert (3.1.2)"
+      ]
+    },
+    {
+      "date": "2024-12-02",
+      "title": "Bartle and Sherbert 3.1.3: The first five terms of four inductively defined sequences",
+      "difficulty": "easy",
+      "problem": "List the first five terms of the following inductively defined sequences.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$x_1 := 1$, $x_{n+1} := 3x_n + 1$,</li>\n<li class=\"my-4\">$y_1 := 2$, $y_{n+1} := \\frac{1}{2}\\left( y_n + \\frac{2}{y_n} \\right)$,</li>\n<li class=\"my-4\">$z_1 := 1$, $z_2 := 2$, $z_{n+2} := (z_{n+1} + z_n)/(z_{n+1} - z_n)$,</li>\n<li class=\"my-4\">$s_1 := 3$, $s_2 := 5$, $s_{n+2} := s_n + s_{n+1}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Apply the recursion four times. In (b) keep exact fractions.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $1, 4, 13, 40, 121$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $y_2 = \\frac{1}{2}(2 + 1) = \\frac{3}{2}$, $y_3 = \\frac{1}{2}\\left( \\frac{3}{2} + \\frac{4}{3} \\right) = \\frac{17}{12}$, $y_4 = \\frac{1}{2}\\left( \\frac{17}{12} + \\frac{24}{17} \\right) = \\frac{577}{408}$, $y_5 = \\frac{1}{2}\\left( \\frac{577}{408} + \\frac{816}{577} \\right) = \\frac{665857}{470832}$. So the terms are\n    \\[\n        2, \\ \\frac{3}{2}, \\ \\frac{17}{12}, \\ \\frac{577}{408}, \\ \\frac{665857}{470832}.\n    \\]\n    These are Newton's approximations to $\\sqrt{2}$: $y_5 \\approx 1.41421356237469$, while $\\sqrt{2} \\approx 1.41421356237310$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> $z_3 = \\frac{2 + 1}{2 - 1} = 3$, $z_4 = \\frac{3 + 2}{3 - 2} = 5$, $z_5 = \\frac{5 + 3}{5 - 3} = 4$. So the terms are $1, 2, 3, 5, 4$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> $3, 5, 8, 13, 21$ (a Fibonacci-type sequence).</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "real-analysis-bartle-sherbert (3.1.3)"
+      ]
+    },
+    {
+      "date": "2024-12-09",
+      "title": "Bartle and Sherbert 3.1.4: $\\lim (b/n) = 0$ for every real $b$",
+      "difficulty": "easy",
+      "problem": "For any $b \\in \\mathbb{R}$, prove that $\\lim (b/n) = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $b \\neq 0$, choose $K > |b| / \\varepsilon$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $b = 0$ the sequence is constantly $0$, and the claim is clear. Let $b \\neq 0$ and $\\varepsilon > 0$. By the Archimedean property choose $K \\in \\mathbb{N}$ with $K > |b| / \\varepsilon$. Then for $n \\geq K$,\n    \\[\n        \\left| \\frac{b}{n} - 0 \\right| = \\frac{|b|}{n} \\leq \\frac{|b|}{K} \\lt \\varepsilon.\n    \\]\n    Hence $\\lim (b/n) = 0$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.4)"
+      ]
+    },
+    {
+      "date": "2024-12-16",
+      "title": "Bartle and Sherbert 3.1.5: Four limits from the definition",
+      "difficulty": "easy",
+      "problem": "Use the definition of the limit of a sequence to establish the following limits.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\lim \\left( \\dfrac{n}{n^2 + 1} \\right) = 0$,</li>\n<li class=\"my-4\">$\\lim \\left( \\dfrac{2n}{n + 1} \\right) = 2$,</li>\n<li class=\"my-4\">$\\lim \\left( \\dfrac{3n + 1}{2n + 5} \\right) = \\dfrac{3}{2}$,</li>\n<li class=\"my-4\">$\\lim \\left( \\dfrac{n^2 - 1}{2n^2 + 3} \\right) = \\dfrac{1}{2}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Simplify $|x_n - x|$ to a single fraction and bound it above by a constant times $\\frac{1}{n}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In each case, let $\\varepsilon > 0$; we bound $|x_n - x|$ by $\\frac{c}{n}$ and then take $K \\in \\mathbb{N}$ with $K > \\frac{c}{\\varepsilon}$, so that $|x_n - x| \\leq \\frac{c}{n} \\leq \\frac{c}{K} \\lt \\varepsilon$ for all $n \\geq K$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $\\left| \\frac{n}{n^2 + 1} \\right| \\lt \\frac{n}{n^2} = \\frac{1}{n}$. So $c = 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $\\left| \\frac{2n}{n + 1} - 2 \\right| = \\frac{2}{n + 1} \\lt \\frac{2}{n}$. So $c = 2$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> $\\left| \\frac{3n + 1}{2n + 5} - \\frac{3}{2} \\right| = \\left| \\frac{6n + 2 - 6n - 15}{2(2n + 5)} \\right| = \\frac{13}{4n + 10} \\lt \\frac{13}{4n}$. So $c = \\frac{13}{4}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> $\\left| \\frac{n^2 - 1}{2n^2 + 3} - \\frac{1}{2} \\right| = \\left| \\frac{2n^2 - 2 - 2n^2 - 3}{2(2n^2 + 3)} \\right| = \\frac{5}{4n^2 + 6} \\lt \\frac{5}{4n^2} \\leq \\frac{5}{4n}$. So $c = \\frac{5}{4}$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.5)"
+      ]
+    },
+    {
+      "date": "2024-12-23",
+      "title": "Bartle and Sherbert 3.1.6: Four more limits, including $\\lim \\frac{\\sqrt{n}}{n + 1} = 0$",
+      "difficulty": "easy",
+      "problem": "Show that\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\lim \\left( \\dfrac{1}{\\sqrt{n + 7}} \\right) = 0$,</li>\n<li class=\"my-4\">$\\lim \\left( \\dfrac{2n}{n + 2} \\right) = 2$,</li>\n<li class=\"my-4\">$\\lim \\left( \\dfrac{\\sqrt{n}}{n + 1} \\right) = 0$,</li>\n<li class=\"my-4\">$\\lim \\left( \\dfrac{(-1)^n n}{n^2 + 1} \\right) = 0$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">In (a) and (c), bound by $\\frac{1}{\\sqrt{n}}$, and make $\\frac{1}{\\sqrt{n}} \\lt \\varepsilon$ by taking $n > \\frac{1}{\\varepsilon^2}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\varepsilon > 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $0 \\lt \\frac{1}{\\sqrt{n + 7}} \\lt \\frac{1}{\\sqrt{n}}$, and $\\frac{1}{\\sqrt{n}} \\lt \\varepsilon \\iff n > \\frac{1}{\\varepsilon^2}$. Take $K > \\frac{1}{\\varepsilon^2}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $\\left| \\frac{2n}{n + 2} - 2 \\right| = \\frac{4}{n + 2} \\lt \\frac{4}{n}$. Take $K > \\frac{4}{\\varepsilon}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> $0 \\lt \\frac{\\sqrt{n}}{n + 1} \\lt \\frac{\\sqrt{n}}{n} = \\frac{1}{\\sqrt{n}}$. Take $K > \\frac{1}{\\varepsilon^2}$ as in (a).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> $\\left| \\frac{(-1)^n n}{n^2 + 1} \\right| = \\frac{n}{n^2 + 1} \\lt \\frac{1}{n}$. Take $K > \\frac{1}{\\varepsilon}$. (The factor $(-1)^n$ does not matter, because the limit is $0$; compare Exercise 3.1.8 of the book.)</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.6)"
+      ]
+    },
+    {
+      "date": "2024-12-30",
+      "title": "Bartle and Sherbert 3.1.7: $\\lim \\frac{1}{\\ln(n + 1)} = 0$, with explicit $K(\\varepsilon)$",
+      "difficulty": "easy",
+      "problem": "Let $x_n := 1 / \\ln(n + 1)$ for $n \\in \\mathbb{N}$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Use the definition of limit to show that $\\lim (x_n) = 0$.</li>\n<li class=\"my-4\">Find a specific value of $K(\\varepsilon)$ as required in the definition of limit for each of (i) $\\varepsilon = 1/2$, and (ii) $\\varepsilon = 1/10$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\frac{1}{\\ln(n + 1)} \\lt \\varepsilon \\iff \\ln(n + 1) > \\frac{1}{\\varepsilon} \\iff n + 1 > e^{1/\\varepsilon}$, because $\\ln$ is increasing.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $\\varepsilon > 0$. Since $\\ln$ is strictly increasing and $\\ln(n + 1) > 0$ for $n \\geq 1$,\n    \\[\n        0 \\lt x_n \\lt \\varepsilon \\iff \\ln(n + 1) > \\frac{1}{\\varepsilon} \\iff n > e^{1/\\varepsilon} - 1.\n    \\]\n    Choose $K(\\varepsilon) \\in \\mathbb{N}$ with $K(\\varepsilon) > e^{1/\\varepsilon} - 1$. Then for $n \\geq K(\\varepsilon)$, $|x_n - 0| \\lt \\varepsilon$. So $\\lim (x_n) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong>\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">$\\varepsilon = \\frac{1}{2}$: we need $n > e^2 - 1 \\approx 6.389$, so $K = 7$ works. Indeed $x_7 = \\frac{1}{\\ln 8} \\approx 0.481 \\lt 0.5$, while $x_6 = \\frac{1}{\\ln 7} \\approx 0.514$.</li>\n<li class=\"my-4\">$\\varepsilon = \\frac{1}{10}$: we need $n > e^{10} - 1 \\approx 22025.47$, so $K = 22026$ works.</li></ol>\n    The sequence converges to $0$, but extremely slowly.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.7)"
+      ]
+    },
+    {
       "date": "2025-01-06",
       "title": "Real Sequences defined iteratively",
       "problem": "The real sequence generated by the iterative scheme\n\\[\n    x_n = \\frac{x_{n-1} }{2} + \\frac{1}{x_{n-1} }, \\quad  n\\geq 1\n\\]\n<ol class=\"math-list-Alpha\">\n  <li class=\"my-2\">converges to $\\sqrt{2} $, for all $x_0 \\in \\mathbb{R} \\setminus \\{ 0 \\} $ </li>\n  <li class=\"my-2\">converges to $\\sqrt{2} $, whenever $x_0 >\\sqrt{\\frac{2}{3}} $ </li>\n  <li class=\"my-2\">converges to $\\sqrt{2} $, whenever $x_0 \\in (-1,1) \\setminus \\{ 0 \\}  $ </li>\n  <li class=\"my-2\">diverges for any $x_0 \\neq 0$ </li>\n</ol>",
@@ -957,6 +1411,48 @@
       "sameAs": "2025-04-21"
     },
     {
+      "date": "2025-04-28",
+      "title": "Bartle and Sherbert 3.1.8: $\\lim(x_n) = 0$ if and only if $\\lim(|x_n|) = 0$",
+      "difficulty": "easy",
+      "problem": "Prove that $\\lim(x_n) = 0$ if and only if $\\lim(|x_n|) = 0$. Give an example to show that the convergence of $(|x_n|)$ need not imply the convergence of $(x_n)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\big| |x_n| - 0 \\big| = |x_n - 0|$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For every $n$, $\\big| |x_n| - 0 \\big| = |x_n| = |x_n - 0|$. So the condition \"$|x_n - 0| \\lt \\varepsilon$ for $n \\geq K$\" is literally the same for $(x_n)$ and for $(|x_n|)$, and $\\lim(x_n) = 0 \\iff \\lim(|x_n|) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Example.</strong> Let $x_n = (-1)^n$. Then $|x_n| = 1$ for all $n$, so $(|x_n|)$ converges to $1$; but $(x_n)$ diverges: if $x_n \\to x$, then $2 = |x_{n+1} - x_n| \\leq |x_{n+1} - x| + |x - x_n| \\to 0$, which is absurd. So the equivalence holds only for the limit $0$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.8)"
+      ]
+    },
+    {
+      "date": "2025-05-05",
+      "title": "Bartle and Sherbert 3.1.9: If $x_n \\geq 0$ and $\\lim(x_n) = 0$, then $\\lim(\\sqrt{x_n}) = 0$",
+      "difficulty": "easy",
+      "problem": "Show that if $x_n \\geq 0$ for all $n \\in \\mathbb{N}$ and $\\lim(x_n) = 0$, then $\\lim\\left( \\sqrt{x_n} \\right) = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Given $\\varepsilon > 0$, apply the definition of $\\lim(x_n) = 0$ with $\\varepsilon^2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\varepsilon > 0$. Since $\\lim(x_n) = 0$, there is $K$ such that $0 \\leq x_n \\lt \\varepsilon^2$ for all $n \\geq K$. Since the square root is increasing on $[0, \\infty)$, for $n \\geq K$\n    \\[\n        \\left| \\sqrt{x_n} - 0 \\right| = \\sqrt{x_n} \\lt \\sqrt{\\varepsilon^2} = \\varepsilon.\n    \\]\n    Hence $\\lim\\left( \\sqrt{x_n} \\right) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(More generally, if $x_n \\to x > 0$, then $|\\sqrt{x_n} - \\sqrt{x}| = \\frac{|x_n - x|}{\\sqrt{x_n} + \\sqrt{x}} \\leq \\frac{|x_n - x|}{\\sqrt{x}}$, so $\\sqrt{x_n} \\to \\sqrt{x}$ as well.)</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.9)"
+      ]
+    },
+    {
+      "date": "2025-05-12",
+      "title": "Bartle and Sherbert 3.1.10: If $\\lim(x_n) = x > 0$, then $x_n > 0$ eventually",
+      "difficulty": "easy",
+      "problem": "Prove that if $\\lim(x_n) = x$ and if $x > 0$, then there exists a natural number $M$ such that $x_n > 0$ for all $n \\geq M$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Take $\\varepsilon = \\frac{x}{2}$ in the definition of the limit.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Apply the definition of the limit with $\\varepsilon = \\frac{x}{2} > 0$: there is $M \\in \\mathbb{N}$ such that $|x_n - x| \\lt \\frac{x}{2}$ for all $n \\geq M$. Then for $n \\geq M$,\n    \\[\n        x_n > x - \\frac{x}{2} = \\frac{x}{2} > 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So a sequence with a positive limit is eventually positive (indeed eventually larger than half its limit; compare Exercise 3.1.18). The analogous statement fails for $x = 0$: $x_n = -\\frac{1}{n} \\to 0$, yet every term is negative.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.10)"
+      ]
+    },
+    {
       "date": "2025-05-19",
       "title": "Show that $f(x) = \\int _{x^2}^{x^4} e^{\\sqrt{t} } dt$ is Differentiable",
       "problem": "Let $f$ is a function defined on $[0,10]$ by\n\\[\n    f(x) = \\int _{x^2}^{x^4} e^{\\sqrt{t} } \\mathrm{d} t.\n\\]\nShow that $f$ is differentiable on $(0,10)$ and find the derivative function.",
@@ -994,6 +1490,146 @@
       ]
     },
     {
+      "date": "2025-06-09",
+      "title": "Bartle and Sherbert 3.1.11: $\\lim\\left( \\frac{1}{n} - \\frac{1}{n + 1} \\right) = 0$",
+      "difficulty": "easy",
+      "problem": "Show that $\\displaystyle \\lim\\left( \\frac{1}{n} - \\frac{1}{n + 1} \\right) = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\frac{1}{n} - \\frac{1}{n + 1} = \\frac{1}{n(n + 1)}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $\\frac{1}{n} - \\frac{1}{n + 1} = \\frac{1}{n(n + 1)}$, we have\n    \\[\n        0 \\lt \\frac{1}{n} - \\frac{1}{n + 1} = \\frac{1}{n(n + 1)} \\lt \\frac{1}{n}.\n    \\]\n    Given $\\varepsilon > 0$, choose $K \\in \\mathbb{N}$ with $K > \\frac{1}{\\varepsilon}$. Then for $n \\geq K$, $\\left| \\frac{1}{n} - \\frac{1}{n+1} - 0 \\right| \\lt \\frac{1}{n} \\leq \\frac{1}{K} \\lt \\varepsilon$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(Of course, this also follows from $\\frac{1}{n} \\to 0$ and $\\frac{1}{n + 1} \\to 0$, once we know that limits of differences are differences of limits, Theorem 3.2.3.)</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.11)"
+      ]
+    },
+    {
+      "date": "2025-06-16",
+      "title": "Bartle and Sherbert 3.1.12: $\\lim\\left( \\sqrt{n^2 + 1} - n \\right) = 0$",
+      "difficulty": "easy",
+      "problem": "Show that $\\lim\\left( \\sqrt{n^2 + 1} - n \\right) = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Rationalise: multiply and divide by $\\sqrt{n^2 + 1} + n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Multiplying and dividing by the conjugate,\n    \\[\n        \\sqrt{n^2 + 1} - n = \\frac{(n^2 + 1) - n^2}{\\sqrt{n^2 + 1} + n} = \\frac{1}{\\sqrt{n^2 + 1} + n} \\lt \\frac{1}{2n}.\n    \\]\n    Given $\\varepsilon > 0$, take $K > \\frac{1}{2\\varepsilon}$. For $n \\geq K$, $0 \\lt \\sqrt{n^2 + 1} - n \\lt \\frac{1}{2n} \\leq \\frac{1}{2K} \\lt \\varepsilon$. So the limit is $0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that the rationalisation is essential: $\\sqrt{n^2 + 1}$ and $n$ both tend to $\\infty$, and \"$\\infty - \\infty$\" tells us nothing.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.12)"
+      ]
+    },
+    {
+      "date": "2025-06-23",
+      "title": "Bartle and Sherbert 3.1.13: $\\lim(1/3^n) = 0$",
+      "difficulty": "easy",
+      "problem": "Show that $\\lim(1/3^n) = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">By Bernoulli's inequality (or the binomial theorem), $3^n = (1 + 2)^n \\geq 1 + 2n > n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By the binomial theorem, $3^n = (1 + 2)^n \\geq 1 + 2n > n$ for all $n \\in \\mathbb{N}$. Hence\n    \\[\n        0 \\lt \\frac{1}{3^n} \\lt \\frac{1}{n}.\n    \\]\n    Given $\\varepsilon > 0$, choose $K > \\frac{1}{\\varepsilon}$; then for $n \\geq K$, $\\left| \\frac{1}{3^n} - 0 \\right| \\lt \\frac{1}{n} \\leq \\frac{1}{K} \\lt \\varepsilon$. So $\\lim(1/3^n) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The same argument shows $\\lim(b^n) = 0$ whenever $0 \\lt b \\lt 1$: write $b = \\frac{1}{1 + a}$ with $a > 0$; then $(1 + a)^n \\geq 1 + na$ gives $0 \\lt b^n \\lt \\frac{1}{na}$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.13)"
+      ]
+    },
+    {
+      "date": "2025-06-30",
+      "title": "Bartle and Sherbert 3.1.14: If $0 \\lt b \\lt 1$, then $\\lim(nb^n) = 0$",
+      "difficulty": "medium",
+      "problem": "Let $b \\in \\mathbb{R}$ satisfy $0 \\lt b \\lt 1$. Show that $\\lim(nb^n) = 0$. [Hint: Use the Binomial Theorem as in Example 3.1.11(d).]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $b = \\frac{1}{1 + a}$ with $a > 0$, and keep the quadratic term of the binomial expansion: $(1 + a)^n \\geq \\frac{n(n - 1)}{2}a^2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $0 \\lt b \\lt 1$, we can write $b = \\frac{1}{1 + a}$ with $a = \\frac{1}{b} - 1 > 0$. For $n \\geq 2$, keeping only one term of the binomial expansion,\n    \\[\n        (1 + a)^n = \\sum_{k=0}^{n}\\binom{n}{k}a^k \\geq \\binom{n}{2}a^2 = \\frac{n(n - 1)}{2}a^2.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence for $n \\geq 2$,\n    \\[\n        0 \\lt nb^n = \\frac{n}{(1 + a)^n} \\leq \\frac{n}{\\frac{n(n-1)}{2}a^2} = \\frac{2}{(n - 1)a^2}.\n    \\]\n    Given $\\varepsilon > 0$, choose $K \\geq 2$ with $K > 1 + \\frac{2}{a^2\\varepsilon}$. For $n \\geq K$, $0 \\lt nb^n \\leq \\frac{2}{(n - 1)a^2} \\lt \\varepsilon$. So $\\lim(nb^n) = 0$: the geometric decay of $b^n$ beats the linear growth of $n$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.14)"
+      ]
+    },
+    {
+      "date": "2025-07-07",
+      "title": "Bartle and Sherbert 3.1.15: $\\lim\\left( (2n)^{1/n} \\right) = 1$",
+      "difficulty": "medium",
+      "problem": "Show that $\\lim\\left( (2n)^{1/n} \\right) = 1$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $(2n)^{1/n} = 1 + k_n$ with $k_n > 0$ (for $n \\geq 1$) and use $(1 + k_n)^n \\geq \\frac{n(n-1)}{2}k_n^2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $n \\geq 1$, $2n > 1$, so $(2n)^{1/n} > 1$; write $(2n)^{1/n} = 1 + k_n$ with $k_n > 0$. For $n \\geq 2$, by the binomial theorem\n    \\[\n        2n = (1 + k_n)^n \\geq \\frac{n(n - 1)}{2}k_n^2 \\implies k_n^2 \\leq \\frac{4}{n - 1} \\implies 0 \\lt k_n \\leq \\frac{2}{\\sqrt{n - 1}}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given $\\varepsilon > 0$, choose $K \\geq 2$ with $K > 1 + \\frac{4}{\\varepsilon^2}$. Then for $n \\geq K$, $\\left| (2n)^{1/n} - 1 \\right| = k_n \\leq \\frac{2}{\\sqrt{n - 1}} \\lt \\varepsilon$. Hence $\\lim\\left( (2n)^{1/n} \\right) = 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(Alternatively, $(2n)^{1/n} = 2^{1/n} \\cdot n^{1/n}$, and both factors tend to $1$ by Example 3.1.11; then apply the product rule for limits.)</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.15)"
+      ]
+    },
+    {
+      "date": "2025-07-14",
+      "title": "Bartle and Sherbert 3.1.16: $\\lim(n^2/n!) = 0$",
+      "difficulty": "easy",
+      "problem": "Show that $\\lim(n^2/n!) = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\frac{n^2}{n!} = \\frac{n}{(n - 1)!}$, and $(n - 1)! \\geq (n - 1)(n - 2)$ for $n \\geq 3$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $n \\geq 3$, $\\frac{n^2}{n!} = \\frac{n}{(n - 1)!}$ and $(n - 1)! \\geq (n - 1)(n - 2)$. Since $n \\leq 2(n - 1)$ for $n \\geq 2$,\n    \\[\n        0 \\lt \\frac{n^2}{n!} \\leq \\frac{n}{(n - 1)(n - 2)} \\leq \\frac{2}{n - 2}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Given $\\varepsilon > 0$, choose $K \\geq 3$ with $K > 2 + \\frac{2}{\\varepsilon}$. Then for $n \\geq K$, $0 \\lt \\frac{n^2}{n!} \\leq \\frac{2}{n - 2} \\lt \\varepsilon$. So $\\lim(n^2/n!) = 0$: factorials grow faster than any power of $n$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.16)"
+      ]
+    },
+    {
+      "date": "2025-07-21",
+      "title": "Bartle and Sherbert 3.1.17: $\\lim(2^n/n!) = 0$",
+      "difficulty": "easy",
+      "problem": "Show that $\\lim(2^n/n!) = 0$. [Hint: If $n \\geq 3$, then $0 \\lt 2^n/n! \\leq 2\\left( \\frac{2}{3} \\right)^{n-2}$.]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $\\frac{2^n}{n!} = \\frac{2}{1} \\cdot \\frac{2}{2} \\cdot \\frac{2}{3} \\cdots \\frac{2}{n}$. Then show $\\left( \\frac{2}{3} \\right)^m \\to 0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The hint.</strong> For $n \\geq 3$,\n    \\[\n        \\frac{2^n}{n!} = \\frac{2}{1} \\cdot \\frac{2}{2} \\cdot \\frac{2}{3} \\cdot \\frac{2}{4} \\cdots \\frac{2}{n} \\leq 2 \\cdot 1 \\cdot \\left( \\frac{2}{3} \\right)^{n-2},\n    \\]\n    since each of the last $n - 2$ factors is at most $\\frac{2}{3}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\left( \\frac{2}{3} \\right)^m \\to 0$.</strong> By Bernoulli's inequality, $\\left( \\frac{3}{2} \\right)^m = \\left( 1 + \\frac{1}{2} \\right)^m \\geq 1 + \\frac{m}{2} > \\frac{m}{2}$, so $0 \\lt \\left( \\frac{2}{3} \\right)^m \\lt \\frac{2}{m}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence for $n \\geq 3$, $0 \\lt \\frac{2^n}{n!} \\lt 2 \\cdot \\frac{2}{n - 2} = \\frac{4}{n - 2}$. Given $\\varepsilon > 0$, choose $K > 2 + \\frac{4}{\\varepsilon}$; for $n \\geq K$, $\\frac{2^n}{n!} \\lt \\varepsilon$. So $\\lim(2^n/n!) = 0$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.17)"
+      ]
+    },
+    {
+      "date": "2025-07-28",
+      "title": "Bartle and Sherbert 3.1.18: If $\\lim(x_n) = x > 0$, then eventually $\\frac{1}{2}x \\lt x_n \\lt 2x$",
+      "difficulty": "easy",
+      "problem": "If $\\lim(x_n) = x > 0$, show that there exists a natural number $K$ such that if $n \\geq K$, then $\\frac{1}{2}x \\lt x_n \\lt 2x$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use $\\varepsilon = \\frac{x}{2}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Take $\\varepsilon = \\frac{x}{2} > 0$. There is $K$ such that $|x_n - x| \\lt \\frac{x}{2}$ for $n \\geq K$, i.e.\n    \\[\n        \\frac{1}{2}x \\lt x_n \\lt \\frac{3}{2}x \\lt 2x \\qquad (n \\geq K).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">This is a quantitative form of Exercise 3.1.10, and it is the kind of estimate used to prove the quotient rule: eventually $\\frac{1}{x_n}$ is bounded by $\\frac{2}{x}$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.1.18)"
+      ]
+    },
+    {
+      "date": "2025-08-04",
+      "title": "Bartle and Sherbert 3.2.1: Convergence or divergence of four sequences",
+      "difficulty": "easy",
+      "problem": "For $x_n$ given by the following formulas, establish either the convergence or the divergence of the sequence $X = (x_n)$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$x_n := \\dfrac{n}{n + 1}$,</li>\n<li class=\"my-4\">$x_n := \\dfrac{(-1)^n n}{n + 1}$,</li>\n<li class=\"my-4\">$x_n := \\dfrac{n^2}{n + 1}$,</li>\n<li class=\"my-4\">$x_n := \\dfrac{2n^2 + 3}{n^2 + 1}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the limit theorems for (a), (d); show (c) is unbounded; for (b), consecutive terms stay far apart.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $x_n = \\frac{1}{1 + 1/n} \\to \\frac{1}{1 + 0} = 1$ by the quotient theorem. Convergent.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Divergent. For every $n$, $x_n$ and $x_{n+1}$ have opposite signs and $|x_n| = \\frac{n}{n + 1} \\geq \\frac{1}{2}$, so $|x_{n+1} - x_n| = |x_{n+1}| + |x_n| \\geq 1$. If $x_n \\to x$, then $|x_{n+1} - x_n| \\leq |x_{n+1} - x| + |x - x_n| \\to 0$, a contradiction. (The even terms tend to $1$ and the odd terms to $-1$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Divergent: $x_n = \\frac{n^2}{n + 1} \\geq \\frac{n^2}{2n} = \\frac{n}{2}$, so $(x_n)$ is unbounded, and convergent sequences are bounded.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> $x_n = \\frac{2 + 3/n^2}{1 + 1/n^2} \\to \\frac{2}{1} = 2$. Convergent. (Directly: $|x_n - 2| = \\frac{1}{n^2 + 1} \\lt \\frac{1}{n}$.)</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.1)"
+      ]
+    },
+    {
+      "date": "2025-08-11",
+      "title": "Bartle and Sherbert 3.2.2: Divergent $X$, $Y$ with convergent $X + Y$, and with convergent $XY$",
+      "difficulty": "easy",
+      "problem": "Give an example of two divergent sequences $X$ and $Y$ such that:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">their sum $X + Y$ converges,</li>\n<li class=\"my-4\">their product $XY$ converges.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use $(-1)^n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $X = ((-1)^n)$ and $Y = ((-1)^{n+1})$ both diverge (Exercise 3.1.8), but $X + Y = (0, 0, 0, \\ldots)$ converges to $0$. (Another example: $X = (n)$, $Y = (-n)$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $X = Y = ((-1)^n)$ diverge, but $XY = ((-1)^{2n}) = (1, 1, 1, \\ldots)$ converges to $1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the converses of the sum and product theorems fail. Contrast Exercises 3.2.3 and 3.2.4, where one of the two sequences is assumed to converge.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.2)"
+      ]
+    },
+    {
       "date": "2025-08-18",
       "title": "Rudin Solution - Chapter 3 - Find the upper and lower limits of the sequence",
       "problem": "Find the upper and lower limits or the sequence $\\{ s_n \\}$ defined by\n\\[\n  s_1 = 0; \\quad s_{2m} = \\frac{s_{2m-1} }{2}; \\quad s_{2m+1} = \\frac{1}{2}+ s_{2m} .\n\\]",
@@ -1004,6 +1640,266 @@
         "real-analysis-rudin-3.4",
         "nbhm-phd-2005",
         "real-analysis-rudin"
+      ]
+    },
+    {
+      "date": "2025-08-25",
+      "title": "Bartle and Sherbert 3.2.3: If $X$ and $X + Y$ converge, then $Y$ converges",
+      "difficulty": "easy",
+      "problem": "Show that if $X$ and $Y$ are sequences such that $X$ and $X + Y$ are convergent, then $Y$ is convergent.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$Y = (X + Y) - X$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Write $Y = (X + Y) + (-1)X$. Both $X + Y$ and $X$ converge, so by the limit theorems (Theorem 3.2.3) the difference converges:\n    \\[\n        \\lim Y = \\lim(X + Y) - \\lim X.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Exercise 3.2.2(a) shows that we cannot drop the assumption that $X$ converges.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.3)"
+      ]
+    },
+    {
+      "date": "2025-09-01",
+      "title": "Bartle and Sherbert 3.2.4: If $X \\to x \\neq 0$ and $XY$ converges, then $Y$ converges",
+      "difficulty": "easy",
+      "problem": "Show that if $X$ and $Y$ are sequences such that $X$ converges to $x \\neq 0$ and $XY$ converges, then $Y$ converges.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$x_n \\neq 0$ for large $n$, and then $y_n = \\frac{x_n y_n}{x_n}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $x_n \\to x \\neq 0$, we have $|x_n| \\to |x| > 0$, so there is $K$ with $|x_n| > \\frac{|x|}{2} > 0$ for $n \\geq K$ (Exercise 3.1.18 applied to $|x_n|$). For these $n$,\n    \\[\n        y_n = \\frac{x_ny_n}{x_n}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The tail $(x_n y_n)_{n \\geq K}$ converges, and $(x_n)_{n \\geq K}$ converges to $x \\neq 0$ with nonzero terms, so by the quotient theorem $(y_n)_{n \\geq K}$ converges to $\\frac{\\lim(x_ny_n)}{x}$. Convergence depends only on tails, so $Y$ converges.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The hypothesis $x \\neq 0$ is needed: $X = \\left( \\frac{1}{n} \\right)$, $Y = (n)$ gives $XY = (1)$ convergent, while $Y$ diverges.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.4)"
+      ]
+    },
+    {
+      "date": "2025-09-08",
+      "title": "Bartle and Sherbert 3.2.5: $(2^n)$ and $((-1)^n n^2)$ are not convergent",
+      "difficulty": "easy",
+      "problem": "Show that the following sequences are not convergent.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$(2^n)$,</li>\n<li class=\"my-4\">$((-1)^n n^2)$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A convergent sequence is bounded (Theorem 3.2.2).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">A convergent sequence is bounded, so it suffices to show that each sequence is unbounded.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> By Bernoulli's inequality, $2^n = (1 + 1)^n \\geq 1 + n > n$. So for every $M$ there is $n$ with $2^n > M$ (take $n > M$, Archimedean property). Unbounded, hence divergent.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $|(-1)^n n^2| = n^2 \\geq n$, which is unbounded. Hence $((-1)^n n^2)$ is not convergent.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.5)"
+      ]
+    },
+    {
+      "date": "2025-09-15",
+      "title": "Bartle and Sherbert 3.2.6: Four limits computed with the limit theorems",
+      "difficulty": "easy",
+      "problem": "Find the limits of the following sequences:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\lim\\left( (2 + 1/n)^2 \\right)$,</li>\n<li class=\"my-4\">$\\lim\\left( \\dfrac{(-1)^n}{n + 2} \\right)$,</li>\n<li class=\"my-4\">$\\lim\\left( \\dfrac{\\sqrt{n} - 1}{\\sqrt{n} + 1} \\right)$,</li>\n<li class=\"my-4\">$\\lim\\left( \\dfrac{n + 1}{n\\sqrt{n}} \\right)$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use $\\frac{1}{n} \\to 0$ and $\\frac{1}{\\sqrt{n}} \\to 0$ together with the sum, product and quotient theorems.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $2 + \\frac{1}{n} \\to 2$, so by the product theorem $\\left( 2 + \\frac{1}{n} \\right)^2 \\to 4$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $\\left| \\frac{(-1)^n}{n + 2} \\right| = \\frac{1}{n + 2} \\lt \\frac{1}{n} \\to 0$, so the limit is $0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Dividing numerator and denominator by $\\sqrt{n}$, $\\frac{\\sqrt{n} - 1}{\\sqrt{n} + 1} = \\frac{1 - 1/\\sqrt{n}}{1 + 1/\\sqrt{n}}$. Since $\\frac{1}{\\sqrt{n}} \\to 0$ (Exercise 3.1.9 applied to $\\frac{1}{n}$), the limit is $\\frac{1 - 0}{1 + 0} = 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> $\\frac{n + 1}{n\\sqrt{n}} = \\frac{1}{\\sqrt{n}} + \\frac{1}{n\\sqrt{n}} \\to 0 + 0 = 0$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.6)"
+      ]
+    },
+    {
+      "date": "2025-09-22",
+      "title": "Bartle and Sherbert 3.2.7: Bounded times null is null",
+      "difficulty": "easy",
+      "problem": "If $(b_n)$ is a bounded sequence and $\\lim(a_n) = 0$, show that $\\lim(a_nb_n) = 0$. Explain why Theorem 3.2.3 <em>cannot</em> be used.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$|a_nb_n| \\leq M|a_n|$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $|b_n| \\leq M$ for all $n$, with $M > 0$. Given $\\varepsilon > 0$, choose $K$ such that $|a_n| \\lt \\frac{\\varepsilon}{M}$ for $n \\geq K$. Then for $n \\geq K$,\n    \\[\n        |a_nb_n - 0| \\leq M|a_n| \\lt \\varepsilon.\n    \\]\n    So $\\lim(a_nb_n) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Theorem 3.2.3 says that if $(a_n)$ and $(b_n)$ <em>both converge</em>, then $\\lim(a_nb_n) = \\lim(a_n)\\lim(b_n)$. Here $(b_n)$ is only assumed bounded and may diverge, e.g. $b_n = (-1)^n$ or $b_n = \\sin n$; so the theorem does not apply. For instance $\\lim\\left( \\frac{\\sin n}{n} \\right) = 0$ follows from this exercise but not from Theorem 3.2.3.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.7)"
+      ]
+    },
+    {
+      "date": "2025-09-29",
+      "title": "Bartle and Sherbert 3.2.8: Why $\\lim(x_n^k) = (\\lim x_n)^k$ does not give $\\lim\\left( (1 + 1/n)^n \\right)$",
+      "difficulty": "easy",
+      "problem": "Explain why the result in equation (3) before Theorem 3.2.4 <em>cannot</em> be used to evaluate the limit of the sequence $((1 + 1/n)^n)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Equation (3) concerns $(x_n^k)$ for a <em>fixed</em> exponent $k$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Equation (3) is the consequence of the product theorem that if $X = (x_n)$ converges to $x$ and $k \\in \\mathbb{N}$ is <em>fixed</em>, then $\\lim(x_n^k) = x^k$. It is proved by applying the product rule $k$ times, a fixed finite number of times.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In $\\left( \\left( 1 + \\frac{1}{n} \\right)^n \\right)$ the exponent $n$ is not fixed: it changes with $n$. So the sequence is not of the form $(x_n^k)$ with constant $k$, and equation (3) does not apply. Using it anyway would suggest the false limit $1^n = 1$; in fact the sequence increases to $e \\approx 2.718$ (see Section 3.3).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">What equation (3) does give is, for example, $\\lim\\left( \\left( 1 + \\frac{1}{n} \\right)^5 \\right) = 1$ and $\\lim\\left( \\left( 1 + \\frac{1}{n} \\right)^k \\right) = 1$ for each fixed $k$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.8)"
+      ]
+    },
+    {
+      "date": "2025-10-06",
+      "title": "Bartle and Sherbert 3.2.9: $\\lim\\left( \\sqrt{n}\\left( \\sqrt{n + 1} - \\sqrt{n} \\right) \\right) = \\frac{1}{2}$",
+      "difficulty": "easy",
+      "problem": "Let $y_n := \\sqrt{n + 1} - \\sqrt{n}$ for $n \\in \\mathbb{N}$. Show that $(\\sqrt{n}\\,y_n)$ converges. Find the limit.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Rationalise: $y_n = \\frac{1}{\\sqrt{n + 1} + \\sqrt{n}}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Rationalising, $y_n = \\frac{(n + 1) - n}{\\sqrt{n + 1} + \\sqrt{n}} = \\frac{1}{\\sqrt{n + 1} + \\sqrt{n}}$, so\n    \\[\n        \\sqrt{n}\\, y_n = \\frac{\\sqrt{n}}{\\sqrt{n + 1} + \\sqrt{n}} = \\frac{1}{\\sqrt{1 + 1/n} + 1}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now $\\sqrt{1 + 1/n} \\to 1$, since $\\left| \\sqrt{1 + 1/n} - 1 \\right| = \\frac{1/n}{\\sqrt{1 + 1/n} + 1} \\leq \\frac{1}{n}$. By the quotient theorem,\n    \\[\n        \\lim\\left( \\sqrt{n}\\, y_n \\right) = \\frac{1}{1 + 1} = \\frac{1}{2}.\n    \\]\n    (Note that $y_n \\to 0$ by itself, but only like $\\frac{1}{2\\sqrt{n}}$.)</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.9)"
+      ]
+    },
+    {
+      "date": "2025-10-13",
+      "title": "Bartle and Sherbert 3.2.10: $\\lim\\left( \\sqrt{4n^2 + n} - 2n \\right)$ and $\\lim\\left( \\sqrt{n^2 + 5n} - n \\right)$",
+      "difficulty": "easy",
+      "problem": "Determine the limits of the following sequences.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\left( \\sqrt{4n^2 + n} - 2n \\right)$,</li>\n<li class=\"my-4\">$\\left( \\sqrt{n^2 + 5n} - n \\right)$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Rationalise and divide numerator and denominator by $n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong>\n    \\[\n        \\sqrt{4n^2 + n} - 2n = \\frac{(4n^2 + n) - 4n^2}{\\sqrt{4n^2 + n} + 2n} = \\frac{n}{\\sqrt{4n^2 + n} + 2n} = \\frac{1}{\\sqrt{4 + 1/n} + 2} \\to \\frac{1}{2 + 2} = \\frac{1}{4}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong>\n    \\[\n        \\sqrt{n^2 + 5n} - n = \\frac{5n}{\\sqrt{n^2 + 5n} + n} = \\frac{5}{\\sqrt{1 + 5/n} + 1} \\to \\frac{5}{2}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We used $\\sqrt{c + a_n} \\to \\sqrt{c}$ when $a_n \\to 0$ and $c > 0$, which follows from $|\\sqrt{c + a_n} - \\sqrt{c}| = \\frac{|a_n|}{\\sqrt{c + a_n} + \\sqrt{c}} \\leq \\frac{|a_n|}{\\sqrt{c}}$. In general $\\sqrt{n^2 + bn} - n \\to \\frac{b}{2}$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.10)"
+      ]
+    },
+    {
+      "date": "2025-10-20",
+      "title": "Bartle and Sherbert 3.2.11: $\\lim\\left( (3\\sqrt{n})^{1/2n} \\right)$ and $\\lim\\left( (n + 1)^{1/\\ln(n + 1)} \\right)$",
+      "difficulty": "easy",
+      "problem": "Determine the following limits.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\lim\\left( (3\\sqrt{n})^{1/2n} \\right)$,</li>\n<li class=\"my-4\">$\\lim\\left( (n + 1)^{1/\\ln(n + 1)} \\right)$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">(a) Split into $3^{1/2n}$ and $n^{1/4n}$ and use $c^{1/n} \\to 1$, $n^{1/n} \\to 1$ (Example 3.1.11). (b) Take logarithms.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $(3\\sqrt{n})^{1/2n} = 3^{1/(2n)} \\cdot n^{1/(4n)} = \\left( 3^{1/n} \\right)^{1/2} \\left( n^{1/n} \\right)^{1/4}$. By Example 3.1.11, $3^{1/n} \\to 1$ and $n^{1/n} \\to 1$. Also $1 \\leq \\left( n^{1/n} \\right)^{1/4} \\leq n^{1/n}$ and $1 \\leq (3^{1/n})^{1/2} \\leq 3^{1/n}$ (since the bases are $\\geq 1$), so by squeezing both factors tend to $1$. Hence the limit is $1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> For $n \\geq 1$, $\\ln(n + 1) > 0$ and\n    \\[\n        (n + 1)^{1/\\ln(n + 1)} = e^{\\ln(n + 1)/\\ln(n + 1)} = e.\n    \\]\n    The sequence is the constant sequence $(e, e, e, \\ldots)$, so its limit is $e$. (A good example of an \"indeterminate form $\\infty^0$\" with limit neither $1$ nor $\\infty$.)</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.11)"
+      ]
+    },
+    {
+      "date": "2025-10-27",
+      "title": "Bartle and Sherbert 3.2.12: $\\lim\\left( \\frac{a^{n+1} + b^{n+1}}{a^n + b^n} \\right) = b$ for $0 \\lt a \\lt b$",
+      "difficulty": "easy",
+      "problem": "If $0 \\lt a \\lt b$, determine $\\displaystyle \\lim\\left( \\frac{a^{n+1} + b^{n+1}}{a^n + b^n} \\right)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Divide numerator and denominator by $b^n$ and use $(a/b)^n \\to 0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $r = \\frac{a}{b} \\in (0, 1)$, so $r^n \\to 0$. Dividing numerator and denominator by $b^n$,\n    \\[\n        \\frac{a^{n+1} + b^{n+1}}{a^n + b^n} = \\frac{a\\, r^n + b}{r^n + 1} \\to \\frac{a \\cdot 0 + b}{0 + 1} = b.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the limit is $b = \\max\\{ a, b \\}$: the larger base dominates. Compare Exercise 3.2.15, where $(a^n + b^n)^{1/n} \\to b$ as well.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.12)"
+      ]
+    },
+    {
+      "date": "2025-11-03",
+      "title": "Bartle and Sherbert 3.2.13: $\\lim\\left( \\sqrt{(n + a)(n + b)} - n \\right) = \\frac{a + b}{2}$",
+      "difficulty": "easy",
+      "problem": "If $a > 0$, $b > 0$, show that $\\lim\\left( \\sqrt{(n + a)(n + b)} - n \\right) = (a + b)/2$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Rationalise and divide numerator and denominator by $n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Rationalising,\n    \\[\n        \\sqrt{(n + a)(n + b)} - n = \\frac{(n + a)(n + b) - n^2}{\\sqrt{(n + a)(n + b)} + n} = \\frac{(a + b)n + ab}{\\sqrt{(n + a)(n + b)} + n}.\n    \\]\n    Dividing numerator and denominator by $n$:\n    \\[\n        = \\frac{(a + b) + ab/n}{\\sqrt{(1 + a/n)(1 + b/n)} + 1} \\to \\frac{a + b}{1 + 1} = \\frac{a + b}{2},\n    \\]\n    using $\\sqrt{(1 + a/n)(1 + b/n)} \\to 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Interpretation: $\\sqrt{(n + a)(n + b)}$ is the geometric mean of $n + a$ and $n + b$, and for large $n$ it is close to their arithmetic mean $n + \\frac{a + b}{2}$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.13)"
+      ]
+    },
+    {
+      "date": "2025-11-10",
+      "title": "Bartle and Sherbert 3.2.14: Squeeze: $\\lim(n^{1/n^2}) = 1$ and $\\lim\\left( (n!)^{1/n^2} \\right) = 1$",
+      "difficulty": "easy",
+      "problem": "Use the Squeeze Theorem 3.2.7 to determine the limits of the following.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$(n^{1/n^2})$,</li>\n<li class=\"my-4\">$\\left( (n!)^{1/n^2} \\right)$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Compare with $n^{1/n}$, which tends to $1$ (Example 3.1.11(d)). For (b) use $n! \\leq n^n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> For $n \\geq 1$, $n \\geq 1$ and $\\frac{1}{n^2} \\leq \\frac{1}{n}$, so\n    \\[\n        1 \\leq n^{1/n^2} \\leq n^{1/n}.\n    \\]\n    Since $n^{1/n} \\to 1$, the Squeeze Theorem gives $\\lim(n^{1/n^2}) = 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Since $1 \\leq n! \\leq n^n$,\n    \\[\n        1 \\leq (n!)^{1/n^2} \\leq (n^n)^{1/n^2} = n^{1/n}.\n    \\]\n    Again by the Squeeze Theorem, $\\lim\\left( (n!)^{1/n^2} \\right) = 1$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "squeeze-theorem",
+        "real-analysis-bartle-sherbert (3.2.14)"
+      ]
+    },
+    {
+      "date": "2025-11-17",
+      "title": "Bartle and Sherbert 3.2.15: $(a^n + b^n)^{1/n} \\to b$ for $0 \\lt a \\lt b$",
+      "difficulty": "easy",
+      "problem": "Show that if $z_n := (a^n + b^n)^{1/n}$ where $0 \\lt a \\lt b$, then $\\lim(z_n) = b$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$b^n \\lt a^n + b^n \\lt 2b^n$; take $n$th roots and use $2^{1/n} \\to 1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $0 \\lt a^n \\lt b^n$, we have $b^n \\lt a^n + b^n \\lt 2b^n$. Taking $n$th roots (an increasing operation on positive numbers),\n    \\[\n        b \\lt z_n \\lt 2^{1/n}\\, b.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Example 3.1.11, $2^{1/n} \\to 1$, so $2^{1/n}b \\to b$. By the Squeeze Theorem, $\\lim(z_n) = b$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In words, $(a^n + b^n)^{1/n} \\to \\max\\{ a, b \\}$. This is why the \"$\\ell^p$-norm\" $(|x_1|^p + |x_2|^p)^{1/p}$ tends to $\\max\\{ |x_1|, |x_2| \\}$ as $p \\to \\infty$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "squeeze-theorem",
+        "real-analysis-bartle-sherbert (3.2.15)"
+      ]
+    },
+    {
+      "date": "2025-11-24",
+      "title": "Cesàro means: if $x_n \\to x$, then $\\frac{x_1 + \\cdots + x_n}{n} \\to x$",
+      "difficulty": "medium",
+      "problem": "Let $(x_n)$ be a sequence of real numbers with $x_n \\to x$, and let $\\sigma_n = \\dfrac{x_1 + x_2 + \\cdots + x_n}{n}$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Prove that $\\sigma_n \\to x$.</li>\n<li class=\"my-4\">Show by an example that $(\\sigma_n)$ may converge although $(x_n)$ diverges.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Split $\\sigma_n - x = \\frac{1}{n}\\sum_{k \\leq N}(x_k - x) + \\frac{1}{n}\\sum_{N \\lt k \\leq n}(x_k - x)$ with $N$ chosen so that $|x_k - x| \\lt \\frac{\\varepsilon}{2}$ for $k > N$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $\\varepsilon > 0$. Choose $N$ with $|x_k - x| \\lt \\frac{\\varepsilon}{2}$ for $k > N$, and let $C = \\sum_{k=1}^{N} |x_k - x|$. For $n > N$,\n    \\[\n        |\\sigma_n - x| = \\left| \\frac{1}{n}\\sum_{k=1}^{n}(x_k - x) \\right| \\leq \\frac{C}{n} + \\frac{1}{n}\\sum_{k=N+1}^{n} |x_k - x| \\lt \\frac{C}{n} + \\frac{n - N}{n}\\cdot\\frac{\\varepsilon}{2} \\lt \\frac{C}{n} + \\frac{\\varepsilon}{2}.\n    \\]\n    Now choose $K > N$ with $\\frac{C}{K} \\lt \\frac{\\varepsilon}{2}$. For $n \\geq K$, $|\\sigma_n - x| \\lt \\varepsilon$. So $\\sigma_n \\to x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Let $x_n = (-1)^n$, which diverges. Then $x_1 + \\cdots + x_n$ is $-1$ or $0$, so $|\\sigma_n| \\leq \\frac{1}{n} \\to 0$. Averaging can create convergence: this is the idea behind Cesàro summation of series such as $1 - 1 + 1 - \\cdots$ (whose Cesàro sum is $\\frac{1}{2}$).</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits"
+      ]
+    },
+    {
+      "date": "2025-12-01",
+      "title": "Darboux's theorem: a derivative has the intermediate value property",
+      "difficulty": "hard",
+      "problem": "Let $f : [a, b] \\to \\mathbb{R}$ be differentiable on $[a, b]$ (one-sided derivatives at the endpoints), and suppose $f'(a) \\lt k \\lt f'(b)$. Prove that there is $c \\in (a, b)$ with $f'(c) = k$. Deduce that a derivative cannot have a jump discontinuity.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Let $g(x) = f(x) - kx$. Then $g'(a) \\lt 0 \\lt g'(b)$; show that the minimum of $g$ on $[a, b]$ is attained at an interior point.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $g(x) = f(x) - kx$, which is differentiable with $g'(a) = f'(a) - k \\lt 0$ and $g'(b) = f'(b) - k > 0$. Being continuous on $[a, b]$, $g$ attains a minimum at some $c \\in [a, b]$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$c \\neq a$.</strong> Since $g'(a) = \\lim_{x \\to a^+} \\frac{g(x) - g(a)}{x - a} \\lt 0$, we have $g(x) \\lt g(a)$ for $x$ slightly larger than $a$. So $a$ is not a minimum point.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$c \\neq b$.</strong> Since $g'(b) = \\lim_{x \\to b^-} \\frac{g(x) - g(b)}{x - b} > 0$ and $x - b \\lt 0$, we get $g(x) \\lt g(b)$ for $x$ slightly less than $b$. So $b$ is not a minimum point.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $c \\in (a, b)$ is an interior minimum, so $g'(c) = 0$ (Fermat), i.e. $f'(c) = k$. <strong>Consequence.</strong> If $f'$ had a jump at $x_0$ (one-sided limits $L^- \\neq L^+$), $f'$ would omit values between them near $x_0$, contradicting Darboux. Note that $f'$ need not be continuous: $f(x) = x^2 \\sin\\frac{1}{x}$, $f(0) = 0$, has a derivative that is discontinuous at $0$, but the discontinuity is oscillatory, not a jump.</div>",
+      "tags": [
+        "real-analysis",
+        "differentiation",
+        "mean-value-theorem"
+      ]
+    },
+    {
+      "date": "2025-12-08",
+      "title": "The horizontal chord theorem: if $f(0) = f(1)$, then $f(x) = f(x + \\frac{1}{2})$ for some $x$",
+      "difficulty": "medium",
+      "problem": "Let $f : [0, 1] \\to \\mathbb{R}$ be continuous with $f(0) = f(1)$. Prove that there is $x \\in \\left[ 0, \\frac{1}{2} \\right]$ such that $f(x) = f\\left( x + \\frac{1}{2} \\right)$. (In other words, the graph has a horizontal chord of length $\\frac{1}{2}$.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Apply the intermediate value theorem to $g(x) = f\\left( x + \\frac{1}{2} \\right) - f(x)$ on $\\left[ 0, \\frac{1}{2} \\right]$, and compute $g(0) + g\\left( \\frac{1}{2} \\right)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $g(x) = f\\left( x + \\frac{1}{2} \\right) - f(x)$ for $x \\in \\left[ 0, \\frac{1}{2} \\right]$; $g$ is continuous. Then\n    \\[\n        g(0) + g\\left( \\tfrac{1}{2} \\right) = \\left[ f\\left( \\tfrac{1}{2} \\right) - f(0) \\right] + \\left[ f(1) - f\\left( \\tfrac{1}{2} \\right) \\right] = f(1) - f(0) = 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $g(0)$ and $g\\left( \\frac{1}{2} \\right)$ are negatives of each other. If one of them is $0$, we are done ($x = 0$ or $x = \\frac{1}{2}$). Otherwise they have opposite signs, and the intermediate value theorem gives $x \\in \\left( 0, \\frac{1}{2} \\right)$ with $g(x) = 0$, i.e. $f(x) = f\\left( x + \\frac{1}{2} \\right)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The same argument with $g(x) = f\\left( x + \\frac{1}{n} \\right) - f(x)$ and $\\sum_{k=0}^{n-1} g\\left( \\frac{k}{n} \\right) = 0$ gives a horizontal chord of length $\\frac{1}{n}$ for every $n$. Surprisingly, a chord of length $\\frac{2}{5}$ need not exist (Lévy's universal chord theorem).</div>",
+      "tags": [
+        "real-analysis",
+        "continuity",
+        "intermediate-value-theorem"
+      ]
+    },
+    {
+      "date": "2025-12-15",
+      "title": "Using the mean value theorem: $|\\sin x - \\sin y| \\leq |x - y|$ and $|\\arctan x - \\arctan y| \\leq |x - y|$",
+      "difficulty": "easy",
+      "problem": "Prove that for all real $x, y$,\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$|\\sin x - \\sin y| \\leq |x - y|$;</li>\n<li class=\"my-4\">$|\\arctan x - \\arctan y| \\leq |x - y|$;</li>\n<li class=\"my-4\">$\\dfrac{x}{1 + x} \\lt \\ln(1 + x) \\lt x$ for $x > 0$.</li></ol>\n    Deduce that $\\sin$ and $\\arctan$ are uniformly continuous on $\\mathbb{R}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">By the mean value theorem, $f(x) - f(y) = f'(c)(x - y)$ for some $c$ between $x$ and $y$; bound $|f'(c)|$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> By the mean value theorem, $\\sin x - \\sin y = \\cos c\\,(x - y)$ for some $c$ between $x$ and $y$, and $|\\cos c| \\leq 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Similarly $\\arctan x - \\arctan y = \\frac{1}{1 + c^2}(x - y)$, and $0 \\lt \\frac{1}{1 + c^2} \\leq 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Apply the mean value theorem to $\\ln(1 + t)$ on $[0, x]$: $\\ln(1 + x) = \\frac{x}{1 + c}$ for some $c \\in (0, x)$. Since $1 \\lt 1 + c \\lt 1 + x$, we get $\\frac{x}{1 + x} \\lt \\ln(1 + x) \\lt x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Uniform continuity.</strong> A function with $|f(x) - f(y)| \\leq L|x - y|$ (Lipschitz) is uniformly continuous: given $\\varepsilon > 0$, $\\delta = \\frac{\\varepsilon}{L}$ works for all $x, y$ at once. By (a) and (b), $\\sin$ and $\\arctan$ are Lipschitz with $L = 1$.</div>",
+      "tags": [
+        "real-analysis",
+        "mean-value-theorem",
+        "differentiation"
+      ]
+    },
+    {
+      "date": "2025-12-22",
+      "title": "Thomae's function is continuous exactly at the irrationals",
+      "difficulty": "hard",
+      "problem": "Define $f : (0, 1) \\to \\mathbb{R}$ by\n    \\[\n        f(x) = \\begin{cases} \\dfrac{1}{q}, & x = \\dfrac{p}{q} \\text{ in lowest terms } (p, q \\in \\mathbb{N}), \\\\ 0, & x \\text{ irrational}. \\end{cases}\n    \\]\n    Prove that $f$ is continuous at every irrational point and discontinuous at every rational point of $(0, 1)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">At a rational point, approach it by irrationals. At an irrational point $x$, for a given $\\varepsilon$ there are only finitely many rationals in $(0, 1)$ with denominator $q \\leq \\frac{1}{\\varepsilon}$; keep a neighbourhood of $x$ away from them.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Discontinuous at rationals.</strong> Let $x = \\frac{p}{q}$, so $f(x) = \\frac{1}{q} > 0$. Every interval around $x$ contains irrationals $t$ with $f(t) = 0$, so there are irrationals $t_n \\to x$ with $f(t_n) = 0 \\not\\to f(x)$. Hence $f$ is not continuous at $x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Continuous at irrationals.</strong> Let $x$ be irrational (so $f(x) = 0$) and $\\varepsilon > 0$. Choose $N \\in \\mathbb{N}$ with $\\frac{1}{N} \\lt \\varepsilon$. The set $R_N$ of rationals in $(0, 1)$ with denominator $q \\leq N$ is finite (at most $1 + 2 + \\cdots + N$ elements), and $x \\notin R_N$. Let $\\delta > 0$ be smaller than the distance from $x$ to every point of $R_N$ (and to $0$ and $1$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $|t - x| \\lt \\delta$, then $t \\notin R_N$: either $t$ is irrational and $f(t) = 0$, or $t = \\frac{p}{q}$ with $q > N$ and $f(t) = \\frac{1}{q} \\lt \\frac{1}{N} \\lt \\varepsilon$. In both cases $|f(t) - f(x)| \\lt \\varepsilon$. So $f$ is continuous at $x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(By contrast, there is no function continuous exactly at the rationals: the set of continuity points of any function is a countable intersection of open sets, and $\\mathbb{Q}$ is not, by the Baire category theorem.)</div>",
+      "tags": [
+        "real-analysis",
+        "continuity"
+      ]
+    },
+    {
+      "date": "2025-12-29",
+      "title": "Cauchy condensation: $\\sum \\frac{1}{n \\ln n}$ diverges while $\\sum \\frac{1}{n (\\ln n)^2}$ converges",
+      "difficulty": "medium",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">(Cauchy condensation test) Let $(a_n)$ be a decreasing sequence of nonnegative numbers. Prove that $\\sum a_n$ converges if and only if $\\sum 2^k a_{2^k}$ converges.</li>\n<li class=\"my-4\">Deduce that $\\sum_{n \\geq 2} \\dfrac{1}{n \\ln n}$ diverges and $\\sum_{n \\geq 2} \\dfrac{1}{n (\\ln n)^2}$ converges.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Group the terms in blocks $2^k \\leq n \\lt 2^{k+1}$: each block has $2^k$ terms, each between $a_{2^{k+1}}$ and $a_{2^k}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Since $(a_n)$ decreases, for each $k \\geq 0$\n    \\[\n        2^{k}a_{2^{k+1}} \\leq \\sum_{n = 2^k}^{2^{k+1} - 1} a_n \\leq 2^k a_{2^k}.\n    \\]\n    Summing over $k = 0, \\ldots, m$: $\\frac{1}{2}\\sum_{k=1}^{m+1} 2^k a_{2^k} \\leq \\sum_{n=1}^{2^{m+1} - 1} a_n \\leq \\sum_{k=0}^{m} 2^k a_{2^k}$. Both series have nonnegative terms, so each converges iff its partial sums are bounded; these inequalities show that one is bounded iff the other is.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> For $a_n = \\frac{1}{n\\ln n}$ (decreasing for $n \\geq 2$): $2^k a_{2^k} = \\frac{2^k}{2^k\\, k\\ln 2} = \\frac{1}{k\\ln 2}$, and $\\sum \\frac{1}{k}$ diverges. So $\\sum \\frac{1}{n\\ln n}$ diverges.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $a_n = \\frac{1}{n(\\ln n)^2}$: $2^k a_{2^k} = \\frac{1}{k^2 (\\ln 2)^2}$, and $\\sum \\frac{1}{k^2}$ converges. So $\\sum \\frac{1}{n(\\ln n)^2}$ converges. (The condensation test only needs the terms from $n = 2$ on to be decreasing.) This shows how delicate the boundary between convergence and divergence is: both series are \"just barely\" smaller than the harmonic series.</div>",
+      "tags": [
+        "real-analysis",
+        "infinite-series"
       ]
     },
     {
@@ -1310,7 +2206,7 @@
     },
     {
       "date": "2026-06-22",
-      "title": "Bartle and Sherbert 2.3.4: Lower and Upper Bounds of the set $S_1 = { x \\in \\mathbb{R} : x \\geq 0 }$",
+      "title": "Bartle and Sherbert 2.3.4: Infimum and supremum of $S_4 = \\{ 1 - (-1)^n/n : n \\in \\mathbb{N} \\}$",
       "difficulty": "medium",
       "problem": "Let $S_4 = \\left\\{ 1 - \\frac{(-1)^n}{n}: n \\in \\mathbb{N}  \\right\\} .$ Find $\\inf S_4$ and $\\sup S_4$.",
       "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Look at the odd and even terms of the sequence $x_n = 1 - \\frac{(-1)^n}{n}$ separately. Note that the odd terms are greater than $1$ and the even terms are less than $1$. Use this to find the infimum and supremum of $S_4$.</li></ul>",
@@ -1362,7 +2258,7 @@
     },
     {
       "date": "2026-07-20",
-      "title": "Bartle and Sherbert 2.3.8: $u - 1/n$ is not an upper bound if $u = \\sup S$",
+      "title": "Bartle and Sherbert 2.3.9: $u - 1/n$ is not an upper bound if $u = \\sup S$",
       "difficulty": "easy",
       "problem": "Let $S \\subseteq \\mathbb{R} $ be nonempty.  Show that if $u = \\sup S$, then for every number $n \\in \\mathbb{N} $ the number $u - \\frac{1}{n}$ is not an upper bound of $S$, but the number $u + \\frac{1}{n}$ is an upper bound of $S$.",
       "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that for any $n \\in \\mathbb{N} $, \n        \\[\n            u - \\frac{1}{n} < u < u + \\frac{1}{n}.\n        \\]</li></ul>",
@@ -1370,7 +2266,7 @@
       "tags": [
         "real-analysis",
         "real-numbers",
-        "real-analysis-bartle-sherbert (2.3.8)"
+        "real-analysis-bartle-sherbert (2.3.9)"
       ]
     },
     {
@@ -1475,7 +2371,7 @@
       "date": "2026-09-14",
       "title": "Bartle and Sherbert 2.4.3: The converse of the $u \\pm 1/n$ criterion for the supremum",
       "difficulty": "medium",
-      "problem": "Let $S \\subseteq \\mathbb{R}$ be nonempty. Prove that if a number $u$ in $\\mathbb{R}$ has the properties:\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">for every $n \\in \\mathbb{N}$ the number $u - \\frac{1}{n}$ is not an upper bound of $S$, and</li>\n<li class=\"my-4\">for every $n \\in \\mathbb{N}$ the number $u + \\frac{1}{n}$ is an upper bound of $S$,</li></ol>\n    then $u = \\sup S$. (This is the converse of the exercise solved on 20 July 2026.)",
+      "problem": "Let $S \\subseteq \\mathbb{R}$ be nonempty. Prove that if a number $u$ in $\\mathbb{R}$ has the properties:\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">for every $n \\in \\mathbb{N}$ the number $u - \\frac{1}{n}$ is not an upper bound of $S$, and</li>\n<li class=\"my-4\">for every $n \\in \\mathbb{N}$ the number $u + \\frac{1}{n}$ is an upper bound of $S$,</li></ol>\n    then $u = \\sup S$. (This is the converse of Exercise 2.3.9.)",
       "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">First use (ii) and the Archimedean property to show that $u$ itself is an upper bound.</li>\n<li class=\"my-4\">Then, if some $v \\lt u$ were an upper bound, choose $n$ with $\\frac{1}{n} \\lt u - v$ and contradict (i).</li></ul>",
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$u$ is an upper bound of $S$.</strong> Suppose not; then there is $s \\in S$ with $s \\gt u$. By the Archimedean property choose $n \\in \\mathbb{N}$ with $\\frac{1}{n} \\lt s - u$. Then $u + \\frac{1}{n} \\lt s$, so $u + \\frac{1}{n}$ is not an upper bound of $S$, contradicting (ii).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$u$ is the least upper bound.</strong> Let $v$ be an upper bound of $S$ and suppose $v \\lt u$. Choose $n \\in \\mathbb{N}$ with $\\frac{1}{n} \\lt u - v$; then $v \\lt u - \\frac{1}{n}$. Every number larger than an upper bound is again an upper bound, so $u - \\frac{1}{n}$ is an upper bound of $S$, contradicting (i). Hence $u \\leq v$ for every upper bound $v$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore $u = \\sup S$.</div>",
       "tags": [

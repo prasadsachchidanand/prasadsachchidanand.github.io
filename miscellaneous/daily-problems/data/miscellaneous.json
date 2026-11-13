@@ -574,6 +574,225 @@
       ]
     },
     {
+      "date": "2024-01-13",
+      "title": "Munkres - 1.3.7 - Relations: The restriction of an order relation is an order relation",
+      "difficulty": "easy",
+      "problem": "Let $C$ be an order relation on a set $A$ and let $A_0 \\subseteq A$. Show that the restriction $C_0 = C \\cap (A_0 \\times A_0)$ of $C$ to $A_0$ is an order relation on $A_0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">An order relation is one that is comparable, non-reflexive and transitive. For $x, y \\in A_0$, $x C_0 y$ holds exactly when $x C y$ holds.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Recall that $C$ is an <em>order relation</em> on $A$ if it is (1) comparable: for $x \\neq y$ in $A$, $xCy$ or $yCx$; (2) non-reflexive: $xCx$ for no $x \\in A$; (3) transitive: $xCy$ and $yCz$ imply $xCz$. For $x, y \\in A_0$ we have $x C_0 y \\iff x C y$, since $(x, y) \\in A_0 \\times A_0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Comparability.</strong> If $x \\neq y$ in $A_0$, then $xCy$ or $yCx$, hence $x C_0 y$ or $y C_0 x$.<br>\n    <strong>Non-reflexivity.</strong> $x C_0 x$ would mean $xCx$, which never holds.<br>\n    <strong>Transitivity.</strong> If $x C_0 y$ and $y C_0 z$ with $x, y, z \\in A_0$, then $xCy$ and $yCz$, so $xCz$, and since $(x, z) \\in A_0 \\times A_0$, $x C_0 z$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $C_0$ is an order relation on $A_0$. For example, the usual order of $\\mathbb{R}$ restricts to the usual orders of $\\mathbb{Z}$, $\\mathbb{Q}$ and of any interval.</div>",
+      "tags": [
+        "miscellaneous",
+        "relations",
+        "topology-munkres (1.3.7)"
+      ]
+    },
+    {
+      "date": "2024-01-20",
+      "title": "Munkres - 1.3.8 - Relations: Ordering $\\mathbb{R}$ by $x^2 \\lt y^2$, or $x^2 = y^2$ and $x \\lt y$",
+      "difficulty": "easy",
+      "problem": "On the real line define $x \\prec y$ if either $x^2 \\lt y^2$, or $x^2 = y^2$ and $x \\lt y$. (This is the relation of Example 7 in Munkres, §3.) Check that $\\prec$ is an order relation, and describe it.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">This is a dictionary order: compare $x^2$ first, and break ties with the usual order of $x$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Comparability.</strong> Let $x \\neq y$. If $x^2 \\neq y^2$, then $x^2 \\lt y^2$ or $y^2 \\lt x^2$, giving $x \\prec y$ or $y \\prec x$. If $x^2 = y^2$, then since $x \\neq y$, the usual order gives $x \\lt y$ or $y \\lt x$, hence $x \\prec y$ or $y \\prec x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Non-reflexivity.</strong> $x \\prec x$ would require $x^2 \\lt x^2$, or $x \\lt x$; neither is possible.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Transitivity.</strong> Let $x \\prec y$ and $y \\prec z$. Then $x^2 \\leq y^2 \\leq z^2$. If $x^2 \\lt z^2$, then $x \\prec z$. Otherwise $x^2 = y^2 = z^2$; then both relations come from the second clause, so $x \\lt y \\lt z$, and $x \\prec z$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Description.</strong> The real numbers are ordered by absolute value, and a negative number comes just before its positive counterpart:\n    \\[\n        0 \\prec \\dots \\prec -\\tfrac{1}{2} \\prec \\tfrac{1}{2} \\prec \\dots \\prec -1 \\prec 1 \\prec \\dots \\prec -2 \\prec 2 \\prec \\cdots.\n    \\]\n    In this order $-1$ has an immediate successor ($1$), but $1$ has no immediate successor.</div>",
+      "tags": [
+        "miscellaneous",
+        "relations",
+        "topology-munkres (1.3.8)"
+      ]
+    },
+    {
+      "date": "2024-01-27",
+      "title": "Munkres - 1.3.9 - Relations: The dictionary order is an order relation",
+      "difficulty": "easy",
+      "problem": "Let $A$ and $B$ be sets with order relations $\\lt_A$ and $\\lt_B$. Define the dictionary order on $A \\times B$ by\n    \\[\n        a_1 \\times b_1 \\lt a_2 \\times b_2 \\quad \\text{if} \\quad a_1 \\lt_A a_2, \\quad \\text{or} \\quad a_1 = a_2 \\text{ and } b_1 \\lt_B b_2.\n    \\]\n    Check that the dictionary order is an order relation.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Compare first coordinates; only when they are equal do the second coordinates matter.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Comparability.</strong> Let $a_1 \\times b_1 \\neq a_2 \\times b_2$. If $a_1 \\neq a_2$, then $a_1 \\lt_A a_2$ or $a_2 \\lt_A a_1$, and accordingly one pair precedes the other. If $a_1 = a_2$, then $b_1 \\neq b_2$, so $b_1 \\lt_B b_2$ or $b_2 \\lt_B b_1$, and again one precedes the other.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Non-reflexivity.</strong> $a \\times b \\lt a \\times b$ would require $a \\lt_A a$ or $b \\lt_B b$, both impossible.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Transitivity.</strong> Let $a_1 \\times b_1 \\lt a_2 \\times b_2$ and $a_2 \\times b_2 \\lt a_3 \\times b_3$. Then $a_1 \\leq_A a_2 \\leq_A a_3$ (writing $\\leq$ for \"$\\lt$ or $=$\").\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">If $a_1 \\lt_A a_2$ or $a_2 \\lt_A a_3$, then $a_1 \\lt_A a_3$ (by transitivity of $\\lt_A$, or directly if one of the two relations is an equality), so $a_1 \\times b_1 \\lt a_3 \\times b_3$.</li>\n<li class=\"my-4\">Otherwise $a_1 = a_2 = a_3$, and both relations come from the second clause: $b_1 \\lt_B b_2 \\lt_B b_3$, so $b_1 \\lt_B b_3$ and $a_1 \\times b_1 \\lt a_3 \\times b_3$.</li></ol></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the dictionary order is an order relation. For instance, on $\\mathbb{R} \\times \\mathbb{R}$ it orders the plane line by line: all points of the vertical line $x = a$ come before those of $x = a'$ when $a \\lt a'$.</div>",
+      "tags": [
+        "miscellaneous",
+        "relations",
+        "topology-munkres (1.3.9)"
+      ]
+    },
+    {
+      "date": "2024-02-03",
+      "title": "Munkres - 1.3.10 - Relations: $f(x) = x/(1 - x^2)$ is an order isomorphism $(-1, 1) \\to \\mathbb{R}$",
+      "difficulty": "medium",
+      "problem": "Let $f : (-1, 1) \\to \\mathbb{R}$ be the map of Example 9 of §3, $f(x) = \\dfrac{x}{1 - x^2}$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that the map $f : (-1, 1) \\to \\mathbb{R}$ is order preserving.</li>\n<li class=\"my-4\">Show that the equation $g(y) = 2y/[1 + (1 + 4y^2)^{1/2}]$ defines a function $g : \\mathbb{R} \\to (-1, 1)$ that is both a left and a right inverse for $f$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Factor $f(y) - f(x)$; the factor $1 + xy$ is positive when $|x|, |y| \\lt 1$.</li>\n<li class=\"my-4\">Check that $x = g(y)$ satisfies $y x^2 + x - y = 0$, i.e. $f(x) = y$. An order preserving map is injective.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $-1 \\lt x \\lt y \\lt 1$. Then\n    \\[\n        f(y) - f(x) = \\frac{y(1 - x^2) - x(1 - y^2)}{(1 - x^2)(1 - y^2)} = \\frac{(y - x) + xy(y - x)}{(1 - x^2)(1 - y^2)} = \\frac{(y - x)(1 + xy)}{(1 - x^2)(1 - y^2)}.\n    \\]\n    Here $y - x > 0$, $1 + xy > 0$ (as $|xy| \\lt 1$), and both factors of the denominator are positive. So $f(x) \\lt f(y)$, and $f$ is order preserving. In particular $f$ is injective.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b) $g$ maps into $(-1, 1)$.</strong> Write $s = \\sqrt{1 + 4y^2}$. Since $s > \\sqrt{4y^2} = |2y|$, we get $|2y| \\lt 1 + s$, so $|g(y)| \\lt 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$f \\circ g = \\mathrm{id}_{\\mathbb{R}}$.</strong> Let $x = g(y) = \\frac{2y}{1 + s}$. Then, using $s^2 = 1 + 4y^2$,\n    \\[\n        y x^2 + x - y = \\frac{y \\left[ 4y^2 + 2(1 + s) - (1 + s)^2 \\right]}{(1 + s)^2} = \\frac{y \\left[ 4y^2 + 1 - s^2 \\right]}{(1 + s)^2} = 0.\n    \\]\n    So $x = y(1 - x^2)$, and since $1 - x^2 \\neq 0$, $f(g(y)) = \\frac{x}{1 - x^2} = y$. Thus $g$ is a right inverse of $f$ (and $f$ is surjective).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$g \\circ f = \\mathrm{id}_{(-1, 1)}$.</strong> For $x \\in (-1, 1)$, applying $f \\circ g = \\mathrm{id}$ to $y = f(x)$ gives $f(g(f(x))) = f(x)$. Since $f$ is injective, $g(f(x)) = x$. So $g$ is also a left inverse.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $f$ is a bijective order preserving map, and $(-1, 1)$ and $\\mathbb{R}$ have the same order type. (Where does $g$ come from? Solving $y x^2 + x - y = 0$ for $x$ when $y \\neq 0$ gives $x = \\frac{-1 \\pm s}{2y}$; the root in $(-1, 1)$ is $\\frac{s - 1}{2y} = \\frac{2y}{1 + s}$ after rationalising, and this formula also gives the correct value $0$ at $y = 0$.)</div>",
+      "tags": [
+        "miscellaneous",
+        "relations",
+        "mappings",
+        "topology-munkres (1.3.10)"
+      ]
+    },
+    {
+      "date": "2024-02-10",
+      "title": "Munkres - 1.3.11 - Relations: Immediate successors and smallest elements are unique",
+      "difficulty": "easy",
+      "problem": "Show that an element in an ordered set has at most one immediate successor and at most one immediate predecessor. Show that a subset of an ordered set has at most one smallest element and at most one largest element.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $b \\neq b'$ were both immediate successors of $a$, compare $b$ and $b'$ (comparability).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\lt$ be an order relation on $A$: it is comparable, nonreflexive and transitive. Recall that $b$ is the immediate successor of $a$ if $a \\lt b$ and there is no $x$ with $a \\lt x \\lt b$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Immediate successors.</strong> Suppose $b$ and $b'$ are both immediate successors of $a$ and $b \\neq b'$. By comparability, say $b \\lt b'$. Then $a \\lt b \\lt b'$, so $b$ lies strictly between $a$ and $b'$, contradicting that $b'$ is an immediate successor of $a$. Hence $b = b'$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Immediate predecessors.</strong> If $c \\neq c'$ are both immediate predecessors of $a$, say $c \\lt c'$, then $c \\lt c' \\lt a$, contradicting that $c$ is an immediate predecessor of $a$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Smallest and largest elements.</strong> Let $A_0 \\subset A$, and suppose $b$ and $b'$ are both smallest elements of $A_0$: $b \\leq x$ and $b' \\leq x$ for all $x \\in A_0$. Then $b \\leq b'$ and $b' \\leq b$. If $b \\neq b'$, these say $b \\lt b'$ and $b' \\lt b$, so by transitivity $b \\lt b$, contradicting nonreflexivity. Hence $b = b'$. The argument for largest elements is the same with the inequalities reversed.</div>",
+      "tags": [
+        "miscellaneous",
+        "relations",
+        "topology-munkres (1.3.11)"
+      ]
+    },
+    {
+      "date": "2024-02-17",
+      "title": "Munkres - 1.3.12 - Relations: Three orders on $\\mathbb{Z}_+ \\times \\mathbb{Z}_+$ with different order types",
+      "difficulty": "medium",
+      "problem": "Let $\\mathbb{Z}_+$ denote the set of positive integers. Consider the following order relations on $\\mathbb{Z}_+ \\times \\mathbb{Z}_+$:\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\">The dictionary order.</li>\n<li class=\"my-4\">$(x_0, y_0) \\lt (x_1, y_1)$ if either $x_0 - y_0 \\lt x_1 - y_1$, or $x_0 - y_0 = x_1 - y_1$ and $y_0 \\lt y_1$.</li>\n<li class=\"my-4\">$(x_0, y_0) \\lt (x_1, y_1)$ if either $x_0 + y_0 \\lt x_1 + y_1$, or $x_0 + y_0 = x_1 + y_1$ and $y_0 \\lt y_1$.</li></ol>\n    In these order relations, which elements have immediate predecessors? Does the set have a smallest element? Show that all three order types are different.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">In (ii) and (iii), sort the points by the \"diagonal\" $d = x - y$, resp. $s = x + y$, and then by $y$. In (iii) each diagonal is finite.</li>\n<li class=\"my-4\">An order isomorphism carries immediate predecessors to immediate predecessors and a smallest element to a smallest element.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(i) Dictionary order.</strong> The set is a sequence of copies of $\\mathbb{Z}_+$: first $\\{ 1 \\} \\times \\mathbb{Z}_+$, then $\\{ 2 \\} \\times \\mathbb{Z}_+$, and so on.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $y > 1$, the immediate predecessor of $(x, y)$ is $(x, y - 1)$.</li>\n<li class=\"my-4\">$(x, 1)$ has no immediate predecessor: for $x = 1$ nothing is smaller; for $x > 1$, every $(x', y') \\lt (x, 1)$ has $x' \\lt x$, and then $(x', y') \\lt (x', y' + 1) \\lt (x, 1)$.</li>\n<li class=\"my-4\">The smallest element is $(1, 1)$.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(ii)</strong> Let $d = x - y \\in \\mathbb{Z}$. Points with the same $d$ form the diagonal $\\{ (y + d, y) : y \\geq \\max\\{ 1, 1 - d \\} \\}$, ordered by $y$ like $\\mathbb{Z}_+$, and the diagonals are ordered by $d \\in \\mathbb{Z}$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">A point that is not the first point of its diagonal has the immediate predecessor $(x - 1, y - 1)$.</li>\n<li class=\"my-4\">The first point of each diagonal, namely $(1, y)$ or $(x, 1)$ (the points with $x = 1$ or $y = 1$), has no immediate predecessor: anything smaller lies on a lower diagonal, and its successor on that diagonal is still smaller.</li>\n<li class=\"my-4\">There is no smallest element: $d = 1 - n$ for $(1, n)$, so $d$ is unbounded below, and $(1, n + 1) \\lt (1, n)$ for every $n$.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(iii)</strong> Let $s = x + y \\geq 2$. The diagonal with sum $s$ is the finite set $(s - 1, 1) \\lt (s - 2, 2) \\lt \\dots \\lt (1, s - 1)$, and the diagonals follow one another in order of $s$:\n    \\[\n        (1, 1) \\lt (2, 1) \\lt (1, 2) \\lt (3, 1) \\lt (2, 2) \\lt (1, 3) \\lt (4, 1) \\lt \\cdots\n    \\]\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $y > 1$, the immediate predecessor of $(x, y)$ is $(x + 1, y - 1)$; if $y = 1$ and $x > 1$, it is $(1, x - 1)$, the last point of the previous diagonal.</li>\n<li class=\"my-4\">So every element except $(1, 1)$ has an immediate predecessor, and $(1, 1)$ is the smallest element. The listing above is an order isomorphism with $\\mathbb{Z}_+$.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The order types are different.</strong> If $\\varphi : A \\to B$ is an order isomorphism, then $b$ is an immediate predecessor of $a$ iff $\\varphi(b)$ is one of $\\varphi(a)$, and $a$ is smallest in $A$ iff $\\varphi(a)$ is smallest in $B$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">(ii) has no smallest element, while (i) and (iii) do; so (ii) differs from both.</li>\n<li class=\"my-4\">In (iii) only the smallest element lacks an immediate predecessor, while in (i) the element $(2, 1)$ is not smallest and has no immediate predecessor; so (i) and (iii) differ.</li></ul></div>",
+      "tags": [
+        "miscellaneous",
+        "relations",
+        "topology-munkres (1.3.12)"
+      ]
+    },
+    {
+      "date": "2024-02-24",
+      "title": "Munkres - 1.3.13 - Relations: The least upper bound property implies the greatest lower bound property",
+      "difficulty": "medium",
+      "problem": "Prove the following:\n    <p class=\"my-4\"><em>Theorem.</em> If an ordered set $A$ has the least upper bound property, then it has the greatest lower bound property.</p>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Given $A_0$ nonempty and bounded below, let $B$ be the set of lower bounds of $A_0$. Show that $\\sup B$ exists and equals $\\inf A_0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $A_0 \\subset A$ be nonempty and bounded below. Let\n    \\[\n        B = \\{ b \\in A : b \\leq a \\text{ for every } a \\in A_0 \\}\n    \\]\n    be the set of lower bounds of $A_0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$B$ is nonempty because $A_0$ is bounded below. $B$ is bounded above: every element of $A_0$ (and $A_0 \\neq \\varnothing$) is an upper bound of $B$. By the least upper bound property, $m = \\sup B$ exists.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$m$ is a lower bound of $A_0$.</strong> Each $a \\in A_0$ is an upper bound of $B$, and $m$ is the least upper bound, so $m \\leq a$. Hence $m \\in B$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$m$ is the greatest lower bound.</strong> If $c$ is any lower bound of $A_0$, then $c \\in B$, so $c \\leq m$ because $m$ is an upper bound of $B$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore $m = \\inf A_0$, and $A$ has the greatest lower bound property. (Note that $\\sup B$ turned out to belong to $B$; that is, $B$ has a largest element.)</div>",
+      "tags": [
+        "miscellaneous",
+        "relations",
+        "supremum",
+        "topology-munkres (1.3.13)"
+      ]
+    },
+    {
+      "date": "2024-03-02",
+      "title": "Munkres - 1.3.14 - Relations: The reverse relation $D$, and the converse of Exercise 1.3.13",
+      "difficulty": "medium",
+      "problem": "If $C$ is a relation on a set $A$, define a new relation $D$ on $A$ by letting $(b, a) \\in D$ if $(a, b) \\in C$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $C$ is symmetric if and only if $C = D$.</li>\n<li class=\"my-4\">Show that if $C$ is an order relation, $D$ is also an order relation.</li>\n<li class=\"my-4\">Prove the converse of the theorem in Exercise 13.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$D$ is $C$ \"read backwards\": $a \\mathrel{D} b \\iff b \\mathrel{C} a$. Upper bounds for $D$ are lower bounds for $C$, and vice versa.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Suppose $C$ is symmetric. If $(b, a) \\in D$, then $(a, b) \\in C$, so $(b, a) \\in C$; thus $D \\subset C$. If $(a, b) \\in C$, then $(b, a) \\in C$, so $(a, b) \\in D$; thus $C \\subset D$. Conversely, if $C = D$ and $(a, b) \\in C$, then $(b, a) \\in D = C$, so $C$ is symmetric.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Let $C$ be an order relation, written $\\lt$, and write $a \\lt_D b$ for $(a, b) \\in D$, i.e. $b \\lt a$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\"><em>Comparability:</em> if $a \\neq b$, then $a \\lt b$ or $b \\lt a$, i.e. $b \\lt_D a$ or $a \\lt_D b$.</li>\n<li class=\"my-4\"><em>Nonreflexivity:</em> $a \\lt_D a$ would mean $a \\lt a$, which never holds.</li>\n<li class=\"my-4\"><em>Transitivity:</em> if $a \\lt_D b$ and $b \\lt_D c$, then $c \\lt b$ and $b \\lt a$, so $c \\lt a$, i.e. $a \\lt_D c$.</li></ul>\n    So $D$ is an order relation.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c) Converse: if $A$ has the greatest lower bound property, it has the least upper bound property.</strong> Compare $(A, C)$ with $(A, D)$: an element $u$ is an upper bound of a set $A_0$ for $D$ iff it is a lower bound of $A_0$ for $C$, and \"least\" for $D$ means \"greatest\" for $C$. So\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">$(A, C)$ has the greatest lower bound property $\\iff$ $(A, D)$ has the least upper bound property;</li>\n<li class=\"my-4\">$(A, D)$ has the greatest lower bound property $\\iff$ $(A, C)$ has the least upper bound property.</li></ul>\n    Now suppose $(A, C)$ has the greatest lower bound property. Then $(A, D)$ has the least upper bound property, so by Exercise 13 applied to the ordered set $(A, D)$, it has the greatest lower bound property. Hence $(A, C)$ has the least upper bound property.</div>",
+      "tags": [
+        "miscellaneous",
+        "relations",
+        "supremum",
+        "topology-munkres (1.3.14)"
+      ]
+    },
+    {
+      "date": "2024-03-09",
+      "title": "Munkres - 1.3.15 - Relations: The least upper bound property for $[0, 1]$, $[0, 1)$ and dictionary-order squares",
+      "difficulty": "hard",
+      "problem": "Assume that the real line has the least upper bound property.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that the sets\n    \\[\n        [0, 1] = \\{ x \\mid 0 \\leq x \\leq 1 \\}, \\qquad [0, 1) = \\{ x \\mid 0 \\leq x \\lt 1 \\}\n    \\]\n    have the least upper bound property.</li>\n<li class=\"my-4\">Does $[0, 1] \\times [0, 1]$ in the dictionary order have the least upper bound property? What about $[0, 1] \\times [0, 1)$? What about $[0, 1) \\times [0, 1]$?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For (a), take the supremum in $\\mathbb{R}$ and check that it lies in the subset.</li>\n<li class=\"my-4\">For (b), let $a$ be the supremum of the first coordinates. Distinguish whether $a$ is itself a first coordinate of a point of the set. For $[0, 1] \\times [0, 1)$, look at $\\{ 0 \\} \\times [0, 1)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $A_0 \\subset [0, 1]$ be nonempty (it is automatically bounded above by $1$). By the least upper bound property of $\\mathbb{R}$, $s = \\sup A_0$ exists in $\\mathbb{R}$. For $a \\in A_0$, $0 \\leq a \\leq s$, and $s \\leq 1$ because $1$ is an upper bound; so $s \\in [0, 1]$. It is an upper bound of $A_0$ in $[0, 1]$, and every upper bound in $[0, 1]$ is an upper bound in $\\mathbb{R}$, hence $\\geq s$. So $s$ is the least upper bound of $A_0$ in $[0, 1]$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $[0, 1)$: let $A_0 \\subset [0, 1)$ be nonempty and bounded above by some $b \\in [0, 1)$. Then $s = \\sup_{\\mathbb{R}} A_0$ satisfies $0 \\leq s \\leq b \\lt 1$, so $s \\in [0, 1)$, and as before $s$ is the least upper bound in $[0, 1)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b) $[0, 1] \\times [0, 1]$: yes.</strong> Let $A_0$ be nonempty (it is bounded above by $1 \\times 1$), let $P = \\{ x : x \\times y \\in A_0 \\text{ for some } y \\}$ and $a = \\sup P \\in [0, 1]$ (by (a)).\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\"><em>If $a \\in P$:</em> let $b = \\sup\\{ y : a \\times y \\in A_0 \\} \\in [0, 1]$. Then $a \\times b$ is an upper bound (points of $A_0$ have first coordinate $\\lt a$, or first coordinate $a$ and second $\\leq b$). If $u \\times v \\lt a \\times b$, then either $u \\lt a$, and some $a \\times y \\in A_0$ exceeds $u \\times v$; or $u = a$ and $v \\lt b$, and some $a \\times y \\in A_0$ with $y > v$ exceeds it. So $a \\times b = \\sup A_0$.</li>\n<li class=\"my-4\"><em>If $a \\notin P$:</em> every point of $A_0$ has first coordinate $\\lt a$, so $a \\times 0$ is an upper bound. If $u \\times v \\lt a \\times 0$, then $u \\lt a$, so some $x \\in P$ has $x > u$, and a point $x \\times y$ of $A_0$ exceeds $u \\times v$. So $a \\times 0 = \\sup A_0$.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$[0, 1] \\times [0, 1)$: no.</strong> Let $A_0 = \\{ 0 \\} \\times [0, 1)$, which is bounded above by $1 \\times 0$. An upper bound $u \\times v$ cannot have $u = 0$ (no $v \\in [0, 1)$ exceeds every $y \\in [0, 1)$), so $u > 0$. But then $\\frac{u}{2} \\times 0$ is a smaller upper bound. So $A_0$ has no least upper bound.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$[0, 1) \\times [0, 1]$: yes.</strong> Let $A_0$ be nonempty and bounded above by $p \\times q$, with $p \\lt 1$. Every first coordinate $x$ of a point of $A_0$ satisfies $x \\leq p$, so $a = \\sup P \\leq p \\lt 1$ lies in $[0, 1)$. The two cases above now go through unchanged: the candidate $a \\times b$ (with $b \\in [0, 1]$) or $a \\times 0$ lies in $[0, 1) \\times [0, 1]$, and the same argument shows it is the least upper bound. What went wrong for $[0, 1] \\times [0, 1)$ was that the second coordinate, a subset of $[0, 1)$ not bounded in $[0, 1)$, could have no supremum; here the second factor is $[0, 1]$.</div>",
+      "tags": [
+        "miscellaneous",
+        "relations",
+        "supremum",
+        "topology-munkres (1.3.15)"
+      ]
+    },
+    {
+      "date": "2024-03-16",
+      "title": "Munkres - 1.4.1 - Real Numbers: The laws of algebra from the field axioms",
+      "difficulty": "medium",
+      "problem": "Here the real numbers satisfy the algebraic axioms of §4: (1) $+$ and $\\cdot$ are associative, (2) commutative, (3) there are distinct elements $0$ and $1$ with $x + 0 = x$ and $x \\cdot 1 = x$, (4) each $x$ has an additive inverse $-x$, and each $x \\neq 0$ a multiplicative inverse $1/x$, (5) $x \\cdot (y + z) = x \\cdot y + x \\cdot z$. One defines $x - y = x + (-y)$ and $x / y = x \\cdot (1/y)$. Prove the following \"laws of algebra\" for $\\mathbb{R}$, using only axioms (1)-(5) and the results proved in this section:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">If $x + y = x$, then $y = 0$.</li>\n<li class=\"my-4\">$0 \\cdot x = 0$. [Hint: Compute $(x + 0) \\cdot x$.]</li>\n<li class=\"my-4\">$-0 = 0$.</li>\n<li class=\"my-4\">$-(-x) = x$.</li>\n<li class=\"my-4\">$x(-y) = -(xy) = (-x)y$.</li>\n<li class=\"my-4\">$(-1)x = -x$.</li>\n<li class=\"my-4\">$x(y - z) = xy - xz$.</li>\n<li class=\"my-4\">$-(x + y) = -x - y$; $-(x - y) = -x + y$.</li>\n<li class=\"my-4\">If $x \\neq 0$ and $x \\cdot y = x$, then $y = 1$.</li>\n<li class=\"my-4\">$x / x = 1$ if $x \\neq 0$.</li>\n<li class=\"my-4\">$x / 1 = x$.</li>\n<li class=\"my-4\">$x \\neq 0$ and $y \\neq 0 \\Rightarrow xy \\neq 0$.</li>\n<li class=\"my-4\">$(1/y)(1/z) = 1/(yz)$ if $y, z \\neq 0$.</li>\n<li class=\"my-4\">$(x/y)(w/z) = (xw)/(yz)$ if $y, z \\neq 0$.</li>\n<li class=\"my-4\">$(x/y) + (w/z) = (xz + wy)/(yz)$ if $y, z \\neq 0$.</li>\n<li class=\"my-4\">$x \\neq 0 \\Rightarrow 1/x \\neq 0$.</li>\n<li class=\"my-4\">$1/(w/z) = z/w$ if $w, z \\neq 0$.</li>\n<li class=\"my-4\">$(x/y)/(w/z) = (xz)/(yw)$ if $y, w, z \\neq 0$.</li>\n<li class=\"my-4\">$(ax)/y = a(x/y)$ if $y \\neq 0$.</li>\n<li class=\"my-4\">$(-x)/y = x/(-y) = -(x/y)$ if $y \\neq 0$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Two facts do most of the work: additive and multiplicative inverses are unique (if $x + y = 0 = x + y'$ then $y = y'$; similarly for products), and part (b).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Uniqueness of inverses.</strong> If $x + y = 0$, then $y = (-x + x) + y = -x + (x + y) = -x$. Similarly, if $x \\neq 0$ and $xy = 1$, then $y = 1/x$. We use this repeatedly: to show that something equals $-a$ (or $1/a$), it suffices to show that it adds to $a$ to give $0$ (multiplies with $a$ to give $1$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Add $-x$: $y = (-x + x) + y = -x + (x + y) = -x + x = 0$.<br>\n    <strong>(b)</strong> $x \\cdot x + 0 \\cdot x = (x + 0) \\cdot x = x \\cdot x$, so $0 \\cdot x = 0$ by (a).<br>\n    <strong>(c)</strong> $0 + 0 = 0$, so $0$ is the additive inverse of $0$: $-0 = 0$.<br>\n    <strong>(d)</strong> $(-x) + x = 0$, so $x$ is the additive inverse of $-x$.<br>\n    <strong>(e)</strong> $x(-y) + xy = x(-y + y) = x \\cdot 0 = 0$ by (b), so $x(-y) = -(xy)$; similarly $(-x)y = -(xy)$.<br>\n    <strong>(f)</strong> By (e), $(-1)x = -(1 \\cdot x) = -x$.<br>\n    <strong>(g)</strong> $x(y - z) = x(y + (-z)) = xy + x(-z) = xy - xz$ by (e).<br>\n    <strong>(h)</strong> $(x + y) + (-x - y) = (x - x) + (y - y) = 0$, so $-(x + y) = -x - y$; then $-(x - y) = -x - (-y) = -x + y$ by (d).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(i)</strong> Multiply $xy = x$ by $1/x$: $y = 1$.<br>\n    <strong>(j)</strong> $x/x = x \\cdot (1/x) = 1$.<br>\n    <strong>(k)</strong> $1 \\cdot 1 = 1$, so $1/1 = 1$ and $x/1 = x \\cdot 1 = x$.<br>\n    <strong>(l)</strong> If $xy = 0$ with $x \\neq 0$, then $y = (1/x)(xy) = (1/x) \\cdot 0 = 0$ by (b).<br>\n    <strong>(m)</strong> $yz \\neq 0$ by (l), and $(1/y)(1/z)(yz) = (y \\cdot 1/y)(z \\cdot 1/z) = 1$, so $(1/y)(1/z) = 1/(yz)$.<br>\n    <strong>(n)</strong> $(x/y)(w/z) = xw \\cdot (1/y)(1/z) = xw \\cdot 1/(yz)$ by (m).<br>\n    <strong>(o)</strong> By (n) and (j), $x/y = (x/y)(z/z) = (xz)/(yz)$ and $w/z = (wy)/(yz)$; add and use distributivity.<br>\n    <strong>(p)</strong> If $1/x = 0$, then $1 = x \\cdot (1/x) = x \\cdot 0 = 0$, contradicting $0 \\neq 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(q)</strong> $w/z \\neq 0$ by (l), (p), and $(w/z)(z/w) = (wz)/(zw) = 1$ by (n), (j); so $1/(w/z) = z/w$.<br>\n    <strong>(r)</strong> $(x/y)/(w/z) = (x/y) \\cdot (z/w) = (xz)/(yw)$ by (q), (n).<br>\n    <strong>(s)</strong> $(ax)/y = (ax)(1/y) = a(x \\cdot 1/y) = a(x/y)$.<br>\n    <strong>(t)</strong> $(-x)/y = (-x)(1/y) = -(x/y)$ by (e). Also $(-y)\\left( -(1/y) \\right) = -\\left( (-y)(1/y) \\right) = -(-(y \\cdot 1/y)) = 1$ by (e) and (d), so $1/(-y) = -(1/y)$ and $x/(-y) = x \\cdot \\left( -(1/y) \\right) = -(x/y)$.</div>",
+      "tags": [
+        "miscellaneous",
+        "real-numbers",
+        "field-axioms",
+        "topology-munkres (1.4.1)"
+      ]
+    },
+    {
+      "date": "2024-03-23",
+      "title": "Munkres - 1.4.2 - Real Numbers: The laws of inequalities from the order axioms",
+      "difficulty": "medium",
+      "problem": "In addition to the algebraic axioms (1)-(5), $\\mathbb{R}$ has an order relation $\\lt$ satisfying (6): if $x \\lt y$, then $x + z \\lt y + z$; and if $x \\lt y$ and $0 \\lt z$, then $x \\cdot z \\lt y \\cdot z$. Prove the following \"laws of inequalities\" for $\\mathbb{R}$, using axioms (1)-(6) along with the results of Exercise 1:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$x > y$ and $w > z \\Rightarrow x + w > y + z$.</li>\n<li class=\"my-4\">$x > 0$ and $y > 0 \\Rightarrow x + y > 0$ and $x \\cdot y > 0$.</li>\n<li class=\"my-4\">$x > 0 \\iff -x \\lt 0$.</li>\n<li class=\"my-4\">$x > y \\iff -x \\lt -y$.</li>\n<li class=\"my-4\">$x > 0 \\iff 1/x > 0$.</li>\n<li class=\"my-4\">$x > y > 0 \\Rightarrow 1/x \\lt 1/y$.</li>\n<li class=\"my-4\">$x \\lt y \\Rightarrow x \\lt (x + y)/2 \\lt y$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For (e), first prove $1 > 0$: otherwise $-1 > 0$, and $(-1)(-1) = 1 > 0$ by (b).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Adding $w$ to $y \\lt x$ gives $y + w \\lt x + w$; adding $y$ to $z \\lt w$ gives $y + z \\lt y + w$. By transitivity $y + z \\lt x + w$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Adding $y$ to $0 \\lt x$: $y \\lt x + y$, and $0 \\lt y$, so $0 \\lt x + y$. Multiplying $0 \\lt x$ by $y > 0$: $0 \\cdot y \\lt x y$, i.e. $0 \\lt xy$ by 1.4.1(b).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Adding $-x$ to $0 \\lt x$ gives $-x \\lt 0$; adding $x$ to $-x \\lt 0$ gives $0 \\lt x$.<br>\n    <strong>(d)</strong> Adding $-x - y$ to $y \\lt x$ gives $-x \\lt -y$; adding $x + y$ to $-x \\lt -y$ gives $y \\lt x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(e)</strong> First, $1 > 0$: we have $1 \\neq 0$; if $1 \\lt 0$, then $-1 > 0$ by (c), and $(-1)(-1) > 0$ by (b); but $(-1)(-1) = -(-1) = 1$ by 1.4.1(e), (d), a contradiction. Now let $x > 0$. Then $1/x \\neq 0$ (1.4.1(p)). If $1/x \\lt 0$, then $-(1/x) > 0$, so $x \\cdot (-(1/x)) = -1 > 0$ by (b), contradicting $1 > 0$. Hence $1/x > 0$. The converse follows by applying this to $1/x$, since $1/(1/x) = x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(f)</strong> By (e), $1/x > 0$ and $1/y > 0$, so $(1/x)(1/y) > 0$ by (b). Multiplying $y \\lt x$ by this positive number gives $1/x \\lt 1/y$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(g)</strong> $2 = 1 + 1 > 0$ by (b), so $1/2 > 0$ by (e). From $x \\lt y$: $2x = x + x \\lt x + y$ and $x + y \\lt y + y = 2y$. Multiplying by $1/2 > 0$ gives $x \\lt (x + y)/2 \\lt y$.</div>",
+      "tags": [
+        "miscellaneous",
+        "real-numbers",
+        "order-axioms",
+        "topology-munkres (1.4.2)"
+      ]
+    },
+    {
+      "date": "2024-03-30",
+      "title": "Munkres - 1.4.3 - Real Numbers: Intersections of inductive sets; the principle of induction",
+      "difficulty": "easy",
+      "problem": "A subset $A$ of $\\mathbb{R}$ is <strong>inductive</strong> if it contains $1$ and if $x \\in A$ implies $x + 1 \\in A$; $\\mathbb{Z}_+$ is defined as the intersection of all inductive subsets of $\\mathbb{R}$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $\\mathcal{A}$ is a collection of inductive sets, then the intersection of the elements of $\\mathcal{A}$ is an inductive set.</li>\n<li class=\"my-4\">Prove the basic properties (1) and (2) of $\\mathbb{Z}_+$: (1) $\\mathbb{Z}_+$ is inductive; (2) (Principle of induction) if $A$ is an inductive set of positive integers, then $A = \\mathbb{Z}_+$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For (2): $\\mathbb{Z}_+$ is the intersection of all inductive sets, and $A$ is one of them.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $I = \\bigcap_{A \\in \\mathcal{A}} A$ ($\\mathcal{A}$ nonempty). Each $A$ contains $1$, so $1 \\in I$. If $x \\in I$, then $x \\in A$ for every $A \\in \\mathcal{A}$, so $x + 1 \\in A$ for every $A$, i.e. $x + 1 \\in I$. So $I$ is inductive.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b) (1)</strong> The collection of all inductive subsets of $\\mathbb{R}$ is nonempty ($\\mathbb{R}$ itself is inductive), so by (a) its intersection $\\mathbb{Z}_+$ is inductive.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(2)</strong> Let $A \\subseteq \\mathbb{Z}_+$ be inductive. Since $\\mathbb{Z}_+$ is the intersection of all inductive sets, and $A$ is one of them, $\\mathbb{Z}_+ \\subseteq A$. Hence $A = \\mathbb{Z}_+$.</div>",
+      "tags": [
+        "miscellaneous",
+        "real-numbers",
+        "induction",
+        "topology-munkres (1.4.3)"
+      ]
+    },
+    {
+      "date": "2024-04-06",
+      "title": "Munkres - 1.4.4 - Real Numbers: Nonempty subsets of $\\{ 1, \\ldots, n \\}$ have a largest element",
+      "difficulty": "easy",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Prove by induction that given $n \\in \\mathbb{Z}_+$, every nonempty subset of $\\{ 1, \\ldots, n \\}$ has a largest element.</li>\n<li class=\"my-4\">Explain why you cannot conclude from (a) that every nonempty subset of $\\mathbb{Z}_+$ has a largest element.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use $\\{ 1, \\ldots, n + 1 \\} = \\{ 1, \\ldots, n \\} \\cup \\{ n + 1 \\}$, and split according to whether $n + 1$ is in the subset.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $A$ be the set of $n \\in \\mathbb{Z}_+$ for which every nonempty subset of $\\{ 1, \\ldots, n \\}$ has a largest element. $1 \\in A$: the only nonempty subset of $\\{ 1 \\}$ is $\\{ 1 \\}$. Suppose $n \\in A$ and let $C \\subseteq \\{ 1, \\ldots, n + 1 \\}$ be nonempty. If $n + 1 \\in C$, then $n + 1$ is the largest element of $C$. Otherwise $C \\subseteq \\{ 1, \\ldots, n \\}$ (there is no integer strictly between $n$ and $n + 1$), so $C$ has a largest element because $n \\in A$. Hence $n + 1 \\in A$, $A$ is inductive, and $A = \\mathbb{Z}_+$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Part (a) is a statement about each set $\\{ 1, \\ldots, n \\}$; it covers exactly the subsets of $\\mathbb{Z}_+$ that are bounded above (contained in some $\\{ 1, \\ldots, n \\}$). An unbounded subset is not contained in any $\\{ 1, \\ldots, n \\}$, so (a) says nothing about it. And indeed the conclusion is false: $\\mathbb{Z}_+$ itself has no largest element, since $n + 1 > n$. (Induction proves \"for all $n$, $P(n)$\", not a statement \"at $n = \\infty$\".)</div>",
+      "tags": [
+        "miscellaneous",
+        "real-numbers",
+        "induction",
+        "topology-munkres (1.4.4)"
+      ]
+    },
+    {
+      "date": "2024-04-13",
+      "title": "Munkres - 1.4.5 - Real Numbers: Closure properties of $\\mathbb{Z}_+$ and $\\mathbb{Z}$",
+      "difficulty": "medium",
+      "problem": "Prove the following properties of $\\mathbb{Z}$ and $\\mathbb{Z}_+$:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$a, b \\in \\mathbb{Z}_+ \\Rightarrow a + b \\in \\mathbb{Z}_+$. [Hint: Show that given $a \\in \\mathbb{Z}_+$, the set $X = \\{ x \\mid x \\in \\mathbb{R} \\text{ and } a + x \\in \\mathbb{Z}_+ \\}$ is inductive.]</li>\n<li class=\"my-4\">$a, b \\in \\mathbb{Z}_+ \\Rightarrow a \\cdot b \\in \\mathbb{Z}_+$.</li>\n<li class=\"my-4\">Show that $a \\in \\mathbb{Z}_+ \\Rightarrow a - 1 \\in \\mathbb{Z}_+ \\cup \\{ 0 \\}$. [Hint: Let $X = \\{ x \\mid x \\in \\mathbb{R} \\text{ and } x - 1 \\in \\mathbb{Z}_+ \\cup \\{ 0 \\} \\}$; show that $X$ is inductive.]</li>\n<li class=\"my-4\">$c, d \\in \\mathbb{Z} \\Rightarrow c + d \\in \\mathbb{Z}$ and $c - d \\in \\mathbb{Z}$. [Hint: Prove it first for $d = 1$.]</li>\n<li class=\"my-4\">$c, d \\in \\mathbb{Z} \\Rightarrow c \\cdot d \\in \\mathbb{Z}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">In each case show the indicated set is inductive; then it contains $\\mathbb{Z}_+$. Recall $\\mathbb{Z} = \\mathbb{Z}_+ \\cup \\{ 0 \\} \\cup (-\\mathbb{Z}_+)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Fix $a \\in \\mathbb{Z}_+$ and let $X = \\{ x \\in \\mathbb{R} : a + x \\in \\mathbb{Z}_+ \\}$. $1 \\in X$ since $a + 1 \\in \\mathbb{Z}_+$ ($\\mathbb{Z}_+$ is inductive). If $x \\in X$, then $a + (x + 1) = (a + x) + 1 \\in \\mathbb{Z}_+$, so $x + 1 \\in X$. Thus $X$ is inductive, $\\mathbb{Z}_+ \\subseteq X$, and $a + b \\in \\mathbb{Z}_+$ for all $b \\in \\mathbb{Z}_+$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Fix $a$ and let $X = \\{ x : a x \\in \\mathbb{Z}_+ \\}$. $1 \\in X$. If $x \\in X$, then $a(x + 1) = ax + a \\in \\mathbb{Z}_+$ by (a). So $X$ is inductive and contains $\\mathbb{Z}_+$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Let $X = \\{ x : x - 1 \\in \\mathbb{Z}_+ \\cup \\{ 0 \\} \\}$. $1 \\in X$, since $1 - 1 = 0$. If $x \\in X$, then $x = (x - 1) + 1$ is either $0 + 1 = 1$ or (positive integer) $+ 1$; in both cases $x \\in \\mathbb{Z}_+$, i.e. $(x + 1) - 1 \\in \\mathbb{Z}_+$, so $x + 1 \\in X$. So $X \\supseteq \\mathbb{Z}_+$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> <em>Case $d = 1$.</em> If $c \\in \\mathbb{Z}_+$: $c + 1 \\in \\mathbb{Z}_+$ and $c - 1 \\in \\mathbb{Z}_+ \\cup \\{ 0 \\}$ by (c). If $c = 0$: $\\pm 1 \\in \\mathbb{Z}$. If $c = -m$ with $m \\in \\mathbb{Z}_+$: $c + 1 = -(m - 1)$ with $m - 1 \\in \\mathbb{Z}_+ \\cup \\{ 0 \\}$, and $c - 1 = -(m + 1)$; both lie in $\\mathbb{Z}$.\n    <em>General $d$.</em> Let $X = \\{ d \\in \\mathbb{R} : c + d \\in \\mathbb{Z} \\text{ and } c - d \\in \\mathbb{Z} \\text{ for all } c \\in \\mathbb{Z} \\}$. Then $1 \\in X$, and if $d \\in X$, then $c + (d + 1) = (c + d) + 1$ and $c - (d + 1) = (c - d) - 1$ lie in $\\mathbb{Z}$ by the case $d = 1$. So $\\mathbb{Z}_+ \\subseteq X$. For $d = 0$ the claim is trivial, and for $d = -m$ with $m \\in \\mathbb{Z}_+$, $c + d = c - m$ and $c - d = c + m$ are covered.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(e)</strong> If $c$ or $d$ is $0$, then $cd = 0$. Otherwise write $c = \\pm m$, $d = \\pm k$ with $m, k \\in \\mathbb{Z}_+$; by 1.4.1(e), $cd = \\pm mk$, and $mk \\in \\mathbb{Z}_+$ by (b). So $cd \\in \\mathbb{Z}$.</div>",
+      "tags": [
+        "miscellaneous",
+        "real-numbers",
+        "induction",
+        "topology-munkres (1.4.5)"
+      ]
+    },
+    {
+      "date": "2024-04-20",
+      "title": "Munkres - 1.4.6 - Real Numbers: The laws of exponents for positive integer powers",
+      "difficulty": "easy",
+      "problem": "Let $a \\in \\mathbb{R}$. Define inductively\n    \\[\n        a^1 = a, \\qquad a^{n+1} = a^n \\cdot a\n    \\]\n    for $n \\in \\mathbb{Z}_+$. Show that for $n, m \\in \\mathbb{Z}_+$ and $a, b \\in \\mathbb{R}$,\n    \\[\n        a^n a^m = a^{n+m}, \\qquad (a^n)^m = a^{nm}, \\qquad a^m b^m = (ab)^m.\n    \\]\n    These are called the <strong>laws of exponents</strong>. [Hint: For fixed $n$, prove the formulas by induction on $m$.]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Each formula holds for $m = 1$ by the definition; for the inductive step write $a^{m+1} = a^m \\cdot a$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Fix $n$; in each case we show the set of $m$ for which the formula holds is inductive.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$a^n a^m = a^{n+m}$.</strong> For $m = 1$ this is the definition $a^n a = a^{n+1}$. If it holds for $m$, then\n    \\[\n        a^n a^{m+1} = a^n (a^m a) = (a^n a^m) a = a^{n+m} a = a^{n+m+1}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$(a^n)^m = a^{nm}$.</strong> For $m = 1$ both sides are $a^n$. If it holds for $m$, then using the first law,\n    \\[\n        (a^n)^{m+1} = (a^n)^m a^n = a^{nm} a^n = a^{nm + n} = a^{n(m+1)}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$a^m b^m = (ab)^m$.</strong> For $m = 1$ it is $ab = ab$. If it holds for $m$, then by commutativity and associativity\n    \\[\n        a^{m+1} b^{m+1} = (a^m a)(b^m b) = (a^m b^m)(ab) = (ab)^m (ab) = (ab)^{m+1}.\n    \\]</div>",
+      "tags": [
+        "miscellaneous",
+        "real-numbers",
+        "induction",
+        "topology-munkres (1.4.6)"
+      ]
+    },
+    {
+      "date": "2024-04-27",
+      "title": "Munkres - 1.4.7 - Real Numbers: The laws of exponents for all integer powers",
+      "difficulty": "medium",
+      "problem": "Let $a \\in \\mathbb{R}$ and $a \\neq 0$. Define $a^0 = 1$, and for $n \\in \\mathbb{Z}_+$, $a^{-n} = 1/a^n$. Show that the laws of exponents hold for $a, b \\neq 0$ and $n, m \\in \\mathbb{Z}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Prove $a^n a^m = a^{n+m}$ first, by cases on the signs of $n$ and $m$, using Exercise 6. Then $(a^n)^{-1} = a^{-n}$ for all $n \\in \\mathbb{Z}$, which makes the other two laws easy.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note $a^n \\neq 0$ for $n \\in \\mathbb{Z}_+$ (by 1.4.1(l) and induction), so $a^{-n}$ is defined, and $a^{-n} a^n = 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$a^n a^m = a^{n+m}$.</strong> If $n, m > 0$, this is Exercise 6. If $n$ or $m$ is $0$, it is trivial. If $n, m \\lt 0$, say $n = -p$, $m = -q$: $a^{-p} a^{-q} = \\frac{1}{a^p} \\cdot \\frac{1}{a^q} = \\frac{1}{a^p a^q} = \\frac{1}{a^{p+q}} = a^{-(p+q)}$ by 1.4.1(m). If $n > 0 > m = -k$:\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">if $n > k$: $a^n = a^{n-k} a^k$, so $a^n a^{-k} = a^{n-k} (a^k a^{-k}) = a^{n-k}$;</li>\n<li class=\"my-4\">if $n = k$: $a^n a^{-n} = 1 = a^0$;</li>\n<li class=\"my-4\">if $n \\lt k$: $a^k = a^{k-n} a^n$, so $a^n a^{-k} = a^n \\cdot \\frac{1}{a^{k-n}} \\cdot \\frac{1}{a^n} = a^{-(k-n)} = a^{n-k}$.</li></ul>\n    The case $n \\lt 0 \\lt m$ follows by commutativity.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In particular $a^n a^{-n} = a^0 = 1$, so $(a^n)^{-1} = a^{-n}$ for every $n \\in \\mathbb{Z}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$(a^n)^m = a^{nm}$.</strong> For $m \\in \\mathbb{Z}_+$, induct on $m$ exactly as in Exercise 6, using the product law just proved (valid for all integers $n$). For $m = 0$ both sides are $1$. For $m = -k \\lt 0$: $(a^n)^{-k} = 1/(a^n)^k = 1/a^{nk} = a^{-nk}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$a^m b^m = (ab)^m$.</strong> For $m > 0$ this is Exercise 6, and for $m = 0$ it is $1 = 1$. For $m = -k$: $a^{-k} b^{-k} = \\frac{1}{a^k} \\cdot \\frac{1}{b^k} = \\frac{1}{a^k b^k} = \\frac{1}{(ab)^k} = (ab)^{-k}$.</div>",
+      "tags": [
+        "miscellaneous",
+        "real-numbers",
+        "induction",
+        "topology-munkres (1.4.7)"
+      ]
+    },
+    {
       "date": "2024-05-04",
       "title": "What is $P(X > 0 \\mid X + Y > 0)$ if$X,Y$ are i.i.d standard normal",
       "problem": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n    Suppose $X, Y$ are i.i.d and $X, Y \\sim N(0,1)$. What is $P(X > 0 \\mid X + Y > 0)?$\n</div>",
@@ -713,6 +932,35 @@
       ]
     },
     {
+      "date": "2024-07-27",
+      "title": "Munkres - 1.4.8 - Real Numbers: The greatest lower bound property; $\\inf\\{1/n\\} = 0$ and $\\inf\\{a^n\\} = 0$",
+      "difficulty": "medium",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $\\mathbb{R}$ has the greatest lower bound property.</li>\n<li class=\"my-4\">Show that $\\inf\\{ 1/n \\mid n \\in \\mathbb{Z}_+ \\} = 0$.</li>\n<li class=\"my-4\">Show that given $a$ with $0 \\lt a \\lt 1$, $\\inf\\{ a^n \\mid n \\in \\mathbb{Z}_+ \\} = 0$. [Hint: Let $h = (1 - a)/a$, and show that $(1 + h)^n \\geq 1 + nh$.]</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">(a) is Exercise 1.3.13. For (b) and (c), a positive lower bound would contradict the Archimedean property ($\\mathbb{Z}_+$ is not bounded above in $\\mathbb{R}$).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $\\mathbb{R}$ has the least upper bound property, so by Exercise 1.3.13 it has the greatest lower bound property. (Directly: if $A$ is nonempty and bounded below, then $-A = \\{ -x : x \\in A \\}$ is bounded above, and $-\\sup(-A)$ is the greatest lower bound of $A$, by 1.4.2(d).)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $0$ is a lower bound, since $1/n > 0$. Suppose $h > 0$ were a lower bound: $1/n \\geq h$, i.e. $n \\leq 1/h$ for every $n \\in \\mathbb{Z}_+$. Then $\\mathbb{Z}_+$ would be bounded above in $\\mathbb{R}$, contradicting the Archimedean ordering property. So no positive number is a lower bound, and $\\inf\\{ 1/n \\} = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Let $h = (1 - a)/a > 0$, so that $a = 1/(1 + h)$. By induction, $(1 + h)^n \\geq 1 + nh$: it is an equality for $n = 1$, and\n    \\[\n        (1 + h)^{n+1} \\geq (1 + nh)(1 + h) = 1 + (n + 1)h + nh^2 \\geq 1 + (n + 1)h.\n    \\]\n    Hence $0 \\lt a^n = \\frac{1}{(1 + h)^n} \\leq \\frac{1}{1 + nh} \\lt \\frac{1}{nh}$. So $0$ is a lower bound of $\\{ a^n \\}$. If $c > 0$ were a lower bound, then $c \\lt \\frac{1}{nh}$, i.e. $n \\lt \\frac{1}{ch}$, for every $n$, again contradicting the Archimedean property. So $\\inf\\{ a^n \\} = 0$.</div>",
+      "tags": [
+        "miscellaneous",
+        "real-numbers",
+        "supremum",
+        "archimedean-property",
+        "topology-munkres (1.4.8)"
+      ]
+    },
+    {
+      "date": "2024-08-03",
+      "title": "Munkres - 1.4.9 - Real Numbers: Integer parts and the density of $\\mathbb{Q}$",
+      "difficulty": "medium",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that every nonempty subset of $\\mathbb{Z}$ that is bounded above has a largest element.</li>\n<li class=\"my-4\">If $x \\notin \\mathbb{Z}$, show there is exactly one $n \\in \\mathbb{Z}$ such that $n \\lt x \\lt n + 1$.</li>\n<li class=\"my-4\">If $x - y > 1$, show there is at least one $n \\in \\mathbb{Z}$ such that $y \\lt n \\lt x$.</li>\n<li class=\"my-4\">If $y \\lt x$, show there is a rational number $z$ such that $y \\lt z \\lt x$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">(a): take $s = \\sup A$ and an element $a \\in A$ with $a > s - 1$. Two distinct integers differ by at least $1$.</li>\n<li class=\"my-4\">(d): choose $N \\in \\mathbb{Z}_+$ with $N(x - y) > 1$ and apply (c) to $Nx$ and $Ny$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We use: if $m, n \\in \\mathbb{Z}$ and $m \\lt n$, then $n - m \\in \\mathbb{Z}_+$ (by 1.4.5(d)), so $n - m \\geq 1$ (every positive integer is $\\geq 1$, as $\\{ x : x \\geq 1 \\}$ is inductive).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $A \\subseteq \\mathbb{Z}$ be nonempty and bounded above, and $s = \\sup A$. There is $a \\in A$ with $s - 1 \\lt a$. If some $a' \\in A$ had $a' > a$, then $a' \\geq a + 1 > s$, which is impossible. So $a$ is the largest element of $A$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> <em>Existence.</em> $A = \\{ m \\in \\mathbb{Z} : m \\lt x \\}$ is bounded above by $x$ and nonempty (by the Archimedean property some $k \\in \\mathbb{Z}_+$ exceeds $-x$, and then $-k \\lt x$). Let $n$ be its largest element, by (a). Then $n \\lt x$, and $n + 1 \\notin A$, so $x \\leq n + 1$; since $x \\notin \\mathbb{Z}$, $x \\lt n + 1$.\n    <em>Uniqueness.</em> If also $m \\lt x \\lt m + 1$ with $m \\lt n$, then $m + 1 \\leq n$, so $x \\lt m + 1 \\leq n \\lt x$, a contradiction.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> If $y \\in \\mathbb{Z}$, take $n = y + 1$: $y \\lt y + 1 \\lt x$. If $y \\notin \\mathbb{Z}$, take $m$ with $m \\lt y \\lt m + 1$ by (b), and $n = m + 1$: then $y \\lt n \\lt y + 1 \\lt x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> By the Archimedean property choose $N \\in \\mathbb{Z}_+$ with $N > \\frac{1}{x - y}$, so $Nx - Ny > 1$. By (c) there is $n \\in \\mathbb{Z}$ with $Ny \\lt n \\lt Nx$. Then $z = n/N$ is rational and $y \\lt z \\lt x$.</div>",
+      "tags": [
+        "miscellaneous",
+        "real-numbers",
+        "archimedean-property",
+        "topology-munkres (1.4.9)"
+      ]
+    },
+    {
       "date": "2024-08-10",
       "title": "Find the value of $\\frac{\\mathrm{d}^4q}{\\mathrm{d}x^4} $",
       "problem": "Let $p(x) = x^3 -2x + 2$. If $q(x) $ is the interpolating polynomial of degree less than or equal to $4$ for the data\n\\[\n    \\begin{array}{|c|c|c|c|c|c|}\n        \\hline x & -2 & -1 & 0 & 1 & 3 \\\\ \\hline\n               f(x) & p(-2) & p(-1) & 2.5 & p(1) & p(3) \\\\ \\hline\n    \\end{array}\\ ,\n\\]\nthen the value of $\\frac{\\mathrm{d}^4q}{\\mathrm{d}x^4} $ at $x = 0$ is _____________.",
@@ -757,6 +1005,234 @@
       "tags": [
         "miscellaneous",
         "numerical-analysis"
+      ]
+    },
+    {
+      "date": "2024-09-07",
+      "title": "Munkres - 1.4.10 - Real Numbers: Every positive number has exactly one positive square root",
+      "difficulty": "medium",
+      "problem": "Show that every positive number $a$ has exactly one positive square root, as follows:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $x > 0$ and $0 \\leq h \\lt 1$, then\n    \\[\n        (x + h)^2 \\leq x^2 + h(2x + 1), \\qquad (x - h)^2 \\geq x^2 - h(2x).\n    \\]</li>\n<li class=\"my-4\">Let $x > 0$. Show that if $x^2 \\lt a$, then $(x + h)^2 \\lt a$ for some $h > 0$; and if $x^2 > a$, then $(x - h)^2 > a$ for some $h > 0$.</li>\n<li class=\"my-4\">Given $a > 0$, let $B$ be the set of all real numbers $x$ such that $x^2 \\lt a$. Show that $B$ is bounded above and contains at least one positive number. Let $b = \\sup B$; show that $b^2 = a$.</li>\n<li class=\"my-4\">Show that if $b$ and $c$ are positive and $b^2 = c^2$, then $b = c$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">In (a) use $h^2 \\leq h$ for $0 \\leq h \\lt 1$. In (c), rule out $b^2 \\lt a$ and $b^2 > a$ with (b).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Since $0 \\leq h \\lt 1$, $h^2 \\leq h$. So $(x + h)^2 = x^2 + 2xh + h^2 \\leq x^2 + h(2x + 1)$, and $(x - h)^2 = x^2 - 2xh + h^2 \\geq x^2 - h(2x)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> If $x^2 \\lt a$, choose $h$ with $0 \\lt h \\lt 1$ and $h \\lt \\frac{a - x^2}{2x + 1}$; then $(x + h)^2 \\leq x^2 + h(2x + 1) \\lt a$. If $x^2 > a$, choose $0 \\lt h \\lt \\min\\left\\{ 1, x, \\frac{x^2 - a}{2x} \\right\\}$; then $(x - h)^2 \\geq x^2 - 2xh > a$, and moreover $x - h > 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> <em>Bounded above:</em> if $x > \\max\\{ 1, a \\}$, then $x^2 > x > a$, so $x \\notin B$; thus $\\max\\{ 1, a \\}$ is an upper bound. <em>A positive element:</em> $h = \\frac{1}{2}\\min\\{ a, 1 \\}$ satisfies $h^2 \\lt h \\lt a$. So $b = \\sup B$ exists and $b > 0$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $b^2 \\lt a$: by (b), $(b + h)^2 \\lt a$ for some $h > 0$, so $b + h \\in B$, contradicting that $b$ is an upper bound.</li>\n<li class=\"my-4\">If $b^2 > a$: by (b) there is $h$ with $0 \\lt b - h$ and $(b - h)^2 > a$. Then $b - h$ is an upper bound of $B$: if $x \\in B$ and $x > b - h > 0$, then $x^2 > (b - h)^2 > a$ (for positive numbers, $u \\lt v \\Rightarrow u^2 \\lt v^2$ by (6)), contradicting $x^2 \\lt a$. This contradicts $b = \\sup B$.</li></ul>\n    Hence $b^2 = a$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> $0 = b^2 - c^2 = (b - c)(b + c)$ and $b + c > 0$, so $b - c = 0$ by 1.4.1(l). So the positive square root is unique.</div>",
+      "tags": [
+        "miscellaneous",
+        "real-numbers",
+        "supremum",
+        "topology-munkres (1.4.10)"
+      ]
+    },
+    {
+      "date": "2024-09-14",
+      "title": "Munkres - 1.4.11 - Real Numbers: Even and odd integers; $\\sqrt{2}$ is irrational",
+      "difficulty": "medium",
+      "problem": "Given $m \\in \\mathbb{Z}$, we say that $m$ is <strong>even</strong> if $m/2 \\in \\mathbb{Z}$, and $m$ is <strong>odd</strong> otherwise.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $m$ is odd, $m = 2n + 1$ for some $n \\in \\mathbb{Z}$. [Hint: Choose $n$ so that $n \\lt m/2 \\lt n + 1$.]</li>\n<li class=\"my-4\">Show that if $p$ and $q$ are odd, so are $p \\cdot q$ and $p^n$, for any $n \\in \\mathbb{Z}_+$.</li>\n<li class=\"my-4\">Show that if $a > 0$ is rational, then $a = m/n$ for some $m, n \\in \\mathbb{Z}_+$ where not both $m$ and $n$ are even. [Hint: Let $n$ be the smallest element of the set $\\{ x \\mid x \\in \\mathbb{Z}_+ \\text{ and } x \\cdot a \\in \\mathbb{Z}_+ \\}$.]</li>\n<li class=\"my-4\">Theorem. $\\sqrt{2}$ is irrational.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use Exercise 1.4.9(b), and the fact that no integer lies strictly between $0$ and $1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $m/2 \\notin \\mathbb{Z}$, so by 1.4.9(b) there is $n \\in \\mathbb{Z}$ with $n \\lt m/2 \\lt n + 1$, i.e. $2n \\lt m \\lt 2n + 2$. Then $m - 2n$ is an integer strictly between $0$ and $2$, so it is $1$: $m = 2n + 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Write $p = 2k + 1$, $q = 2l + 1$. Then $pq = 2(2kl + k + l) + 1$. An integer of the form $2j + 1$ is odd: otherwise $\\frac{2j + 1}{2} - j = \\frac{1}{2}$ would be an integer strictly between $0$ and $1$. So $pq$ is odd, and by induction on $n$, $p^{n+1} = p^n \\cdot p$ is odd.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Write $a = p/q$ with $p, q \\in \\mathbb{Z}$; since $a > 0$ we may take $p, q \\in \\mathbb{Z}_+$. The set $X = \\{ x \\in \\mathbb{Z}_+ : x a \\in \\mathbb{Z}_+ \\}$ contains $q$, so it has a smallest element $n$ (well-ordering of $\\mathbb{Z}_+$). Let $m = na \\in \\mathbb{Z}_+$, so $a = m/n$. If $m$ and $n$ were both even, then $n/2 \\in \\mathbb{Z}_+$ and $(n/2) a = m/2 \\in \\mathbb{Z}_+$, so $n/2 \\in X$ and $n/2 \\lt n$, contradicting minimality.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> Suppose $\\sqrt{2} = m/n$ with $m, n \\in \\mathbb{Z}_+$ not both even, by (c). Then $m^2 = 2n^2$ is even, so $m$ is even (if $m$ were odd, $m^2$ would be odd by (b)). Write $m = 2k$: $4k^2 = 2n^2$, so $n^2 = 2k^2$ is even and $n$ is even. Both are even, a contradiction. Hence $\\sqrt{2}$ (which exists by Exercise 10) is irrational.</div>",
+      "tags": [
+        "miscellaneous",
+        "real-numbers",
+        "number-theory",
+        "topology-munkres (1.4.11)"
+      ]
+    },
+    {
+      "date": "2024-09-21",
+      "title": "Munkres - 1.5.1 - Cartesian Products: $A \\times B$ is in bijective correspondence with $B \\times A$",
+      "difficulty": "easy",
+      "problem": "Show that there is a bijective correspondence of $A \\times B$ with $B \\times A$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Swap the coordinates.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Define $f : A \\times B \\to B \\times A$ by $f(a \\times b) = b \\times a$, and $g : B \\times A \\to A \\times B$ by $g(b \\times a) = a \\times b$. Then $g \\circ f$ and $f \\circ g$ are the identity maps, so $f$ is a bijection.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(Note that $A \\times B$ and $B \\times A$ are usually different sets, e.g. $1 \\times 2 \\neq 2 \\times 1$; they merely correspond bijectively.)</div>",
+      "tags": [
+        "miscellaneous",
+        "cartesian-product",
+        "topology-munkres (1.5.1)"
+      ]
+    },
+    {
+      "date": "2024-09-28",
+      "title": "Munkres - 1.5.2 - Cartesian Products: Regrouping finite and infinite products",
+      "difficulty": "easy",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $n > 1$ there is bijective correspondence of\n    \\[\n        A_1 \\times \\cdots \\times A_n \\quad \\text{with} \\quad (A_1 \\times \\cdots \\times A_{n-1}) \\times A_n.\n    \\]</li>\n<li class=\"my-4\">Given the indexed family $\\{ A_1, A_2, \\ldots \\}$, let $B_i = A_{2i-1} \\times A_{2i}$ for each positive integer $i$. Show there is bijective correspondence of $A_1 \\times A_2 \\times \\cdots$ with $B_1 \\times B_2 \\times \\cdots$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write down the obvious regrouping maps and their inverses.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Define $f(x_1, \\ldots, x_n) = (x_1, \\ldots, x_{n-1}) \\times x_n$. Its inverse is $g\\big( (x_1, \\ldots, x_{n-1}) \\times x_n \\big) = (x_1, \\ldots, x_n)$; both compositions are identities. So $f$ is a bijection.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Define $F : \\prod_{i} A_i \\to \\prod_{i} B_i$ by\n    \\[\n        F(x_1, x_2, x_3, x_4, \\ldots) = \\big( x_1 \\times x_2,\\ x_3 \\times x_4,\\ \\ldots \\big),\n    \\]\n    that is, the $i$th coordinate of $F(\\mathbf{x})$ is $x_{2i-1} \\times x_{2i} \\in B_i$. Its inverse sends $\\big( y_1 \\times z_1, y_2 \\times z_2, \\ldots \\big)$ to $(y_1, z_1, y_2, z_2, \\ldots)$, i.e. the sequence whose $(2i - 1)$th term is $y_i$ and $2i$th term is $z_i$. Both compositions are identities, so $F$ is a bijection.</div>",
+      "tags": [
+        "miscellaneous",
+        "cartesian-product",
+        "topology-munkres (1.5.2)"
+      ]
+    },
+    {
+      "date": "2024-10-05",
+      "title": "Munkres - 1.5.3 - Cartesian Products: Inclusions, emptiness, unions and intersections of infinite products",
+      "difficulty": "medium",
+      "problem": "Let $A = A_1 \\times A_2 \\times \\cdots$ and $B = B_1 \\times B_2 \\times \\cdots$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $B_i \\subset A_i$ for all $i$, then $B \\subset A$.</li>\n<li class=\"my-4\">Show the converse of (a) holds if $B$ is nonempty.</li>\n<li class=\"my-4\">Show that if $A$ is nonempty, each $A_i$ is nonempty. Does the converse hold?</li>\n<li class=\"my-4\">What is the relation between the set $A \\cup B$ and the cartesian product of the sets $A_i \\cup B_i$? What is the relation between the set $A \\cap B$ and the cartesian product of the sets $A_i \\cap B_i$?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For (b), change one coordinate of a fixed point of $B$. For (c), the converse needs the axiom of choice.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> If $\\mathbf{x} \\in B$, then $x_i \\in B_i \\subset A_i$ for all $i$, so $\\mathbf{x} \\in A$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Suppose $B \\subset A$ and $\\mathbf{b} \\in B$. Fix $j$ and $y \\in B_j$. Let $\\mathbf{x}$ be $\\mathbf{b}$ with its $j$th coordinate replaced by $y$. Then $\\mathbf{x} \\in B \\subset A$, so $y = x_j \\in A_j$. Hence $B_j \\subset A_j$ for all $j$. (If $B = \\varnothing$ this fails: take $B_1 = \\varnothing$ and $B_2 \\not\\subset A_2$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> If $\\mathbf{a} \\in A$, then $a_i \\in A_i$ for each $i$. Conversely, if every $A_i$ is nonempty, then $A$ is nonempty, but proving it requires choosing an element $a_i \\in A_i$ for every $i$ simultaneously, which is exactly what the axiom of choice provides (Munkres returns to this in §19). Without some form of choice it cannot be proved.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> $A \\cup B \\subset \\prod (A_i \\cup B_i)$, and the inclusion is usually strict: with $A_i = \\{ 0 \\}$ and $B_i = \\{ 1 \\}$, the sequence $(0, 1, 0, 1, \\ldots)$ lies in $\\prod (A_i \\cup B_i)$ but in neither $A$ nor $B$. On the other hand,\n    \\[\n        A \\cap B = \\prod (A_i \\cap B_i),\n    \\]\n    since $\\mathbf{x} \\in A \\cap B$ iff $x_i \\in A_i$ and $x_i \\in B_i$ for every $i$.</div>",
+      "tags": [
+        "miscellaneous",
+        "cartesian-product",
+        "axiom-of-choice",
+        "topology-munkres (1.5.3)"
+      ]
+    },
+    {
+      "date": "2024-10-12",
+      "title": "Munkres - 1.5.4 - Cartesian Products: Injections and bijections between powers $X^m$, $X^n$, $X^\\omega$",
+      "difficulty": "medium",
+      "problem": "Let $m, n \\in \\mathbb{Z}_+$. Let $X \\neq \\varnothing$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">If $m \\leq n$, find an injective map $f : X^m \\to X^n$.</li>\n<li class=\"my-4\">Find a bijective map $g : X^m \\times X^n \\to X^{m+n}$.</li>\n<li class=\"my-4\">Find an injective map $h : X^n \\to X^\\omega$.</li>\n<li class=\"my-4\">Find a bijective map $k : X^n \\times X^\\omega \\to X^\\omega$.</li>\n<li class=\"my-4\">Find a bijective map $l : X^\\omega \\times X^\\omega \\to X^\\omega$.</li>\n<li class=\"my-4\">If $A \\subset B$, find an injective map $m : (A^\\omega)^n \\to B^\\omega$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Pad with a fixed element $x_0 \\in X$, concatenate, or interleave.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Fix $x_0 \\in X$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$f(x_1, \\ldots, x_m) = (x_1, \\ldots, x_m, x_0, \\ldots, x_0)$. It is injective since the first $m$ coordinates recover the input.</li>\n<li class=\"my-4\">$g\\big( (x_1, \\ldots, x_m) \\times (y_1, \\ldots, y_n) \\big) = (x_1, \\ldots, x_m, y_1, \\ldots, y_n)$; the inverse splits an $(m + n)$-tuple after the $m$th entry.</li>\n<li class=\"my-4\">$h(x_1, \\ldots, x_n) = (x_1, \\ldots, x_n, x_0, x_0, \\ldots)$.</li>\n<li class=\"my-4\">$k\\big( (x_1, \\ldots, x_n) \\times (y_1, y_2, \\ldots) \\big) = (x_1, \\ldots, x_n, y_1, y_2, \\ldots)$; the inverse splits off the first $n$ terms.</li>\n<li class=\"my-4\">$l\\big( (x_i) \\times (y_i) \\big) = (x_1, y_1, x_2, y_2, \\ldots)$; the inverse takes the odd-numbered and the even-numbered terms.</li>\n<li class=\"my-4\">Interleave $n$ sequences: $m(\\mathbf{a}^1, \\ldots, \\mathbf{a}^n) = (a^1_1, a^2_1, \\ldots, a^n_1, a^1_2, \\ldots, a^n_2, \\ldots)$, i.e. the $\\big( (j - 1)n + i \\big)$th term is $a^i_j$. This is a bijection $(A^\\omega)^n \\to A^\\omega$, and $A^\\omega \\subset B^\\omega$, so $m$ is an injection into $B^\\omega$.</li></ol></div>",
+      "tags": [
+        "miscellaneous",
+        "cartesian-product",
+        "topology-munkres (1.5.4)"
+      ]
+    },
+    {
+      "date": "2024-10-19",
+      "title": "Munkres - 1.5.5 - Cartesian Products: Which subsets of $\\mathbb{R}^\\omega$ are cartesian products?",
+      "difficulty": "easy",
+      "problem": "Which of the following subsets of $\\mathbb{R}^\\omega$ can be expressed as the cartesian product of subsets of $\\mathbb{R}$?\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\{ \\mathbf{x} \\mid x_i \\text{ is an integer for all } i \\}$.</li>\n<li class=\"my-4\">$\\{ \\mathbf{x} \\mid x_i \\geq i \\text{ for all } i \\}$.</li>\n<li class=\"my-4\">$\\{ \\mathbf{x} \\mid x_i \\text{ is an integer for all } i \\geq 100 \\}$.</li>\n<li class=\"my-4\">$\\{ \\mathbf{x} \\mid x_2 = x_3 \\}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A product is characterised by independent conditions on each coordinate. Condition (d) ties two coordinates together.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Yes: $\\mathbb{Z} \\times \\mathbb{Z} \\times \\cdots = \\mathbb{Z}^\\omega$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Yes: $\\prod_{i} [i, \\infty) = [1, \\infty) \\times [2, \\infty) \\times \\cdots$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Yes: $\\prod_i A_i$ with $A_i = \\mathbb{R}$ for $i \\lt 100$ and $A_i = \\mathbb{Z}$ for $i \\geq 100$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> No. If $D = \\{ \\mathbf{x} \\mid x_2 = x_3 \\}$ were $\\prod A_i$, then since $(0, 0, 0, 0, \\ldots) \\in D$ and $(0, 1, 1, 0, \\ldots) \\in D$, we would have $0, 1 \\in A_2$ and $0, 1 \\in A_3$, and every $A_i \\ni 0$. Then $(0, 0, 1, 0, 0, \\ldots) \\in \\prod A_i = D$, although its second and third coordinates differ.</div>",
+      "tags": [
+        "miscellaneous",
+        "cartesian-product",
+        "topology-munkres (1.5.5)"
+      ]
+    },
+    {
+      "date": "2024-10-26",
+      "title": "Munkres - 1.6.1 - Finite Sets: Injective maps $\\{1, 2, 3\\} \\to \\{1, 2, 3, 4\\}$, and counting injections",
+      "difficulty": "easy",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Make a list of all the injective maps\n    \\[\n        f : \\{ 1, 2, 3 \\} \\to \\{ 1, 2, 3, 4 \\}.\n    \\]\n    Show that none is bijective. (This constitutes a direct proof that a set $A$ of cardinality three does not have cardinality four.)</li>\n<li class=\"my-4\">How many injective maps\n    \\[\n        f : \\{ 1, \\ldots, 8 \\} \\to \\{ 1, \\ldots, 10 \\}\n    \\]\n    are there? (You can see why one would not wish to try to prove directly that there is no bijective correspondence between these sets.)</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">An injective map is determined by the ordered triple $(f(1), f(2), f(3))$ of distinct values.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Writing $f$ as the triple $f(1) f(2) f(3)$ of distinct elements of $\\{ 1, 2, 3, 4 \\}$, there are $4 \\cdot 3 \\cdot 2 = 24$ injective maps:\n    \\[\n        \\begin{gathered}\n            123,\\ 124,\\ 132,\\ 134,\\ 142,\\ 143,\\ 213,\\ 214,\\ 231,\\ 234,\\ 241,\\ 243, \\\\\n            312,\\ 314,\\ 321,\\ 324,\\ 341,\\ 342,\\ 412,\\ 413,\\ 421,\\ 423,\\ 431,\\ 432.\n        \\end{gathered}\n    \\]\n    The image of each has only three elements, so one element of $\\{ 1, 2, 3, 4 \\}$ is always missed: none is surjective, hence none is bijective.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> There are $10$ choices for $f(1)$, then $9$ for $f(2)$, and so on, down to $3$ choices for $f(8)$:\n    \\[\n        10 \\cdot 9 \\cdot 8 \\cdot 7 \\cdot 6 \\cdot 5 \\cdot 4 \\cdot 3 = \\frac{10!}{2!} = 1\\,814\\,400.\n    \\]\n    Checking all of these by hand is hopeless, which is why one proves in general (Corollary 6.3) that $\\{ 1, \\ldots, n \\}$ is not in bijection with a proper subset of itself.</div>",
+      "tags": [
+        "miscellaneous",
+        "finite-sets",
+        "topology-munkres (1.6.1)"
+      ]
+    },
+    {
+      "date": "2024-11-02",
+      "title": "Munkres - 1.6.2 - Finite Sets: A set containing an infinite set is infinite",
+      "difficulty": "easy",
+      "problem": "Show that if $B$ is not finite and $B \\subset A$, then $A$ is not finite.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">This is the contrapositive of \"every subset of a finite set is finite\". Prove that by induction for subsets of $\\{ 1, \\ldots, n \\}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We prove the contrapositive: <em>if $A$ is finite, then every subset $B$ of $A$ is finite.</em></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Subsets of $\\{ 1, \\ldots, n \\}$ are finite.</strong> By induction on $n$. For $n = 1$ the subsets are $\\varnothing$ and $\\{ 1 \\}$. Assume the claim for $n$ and let $C \\subset \\{ 1, \\ldots, n + 1 \\}$. Then $C' = C - \\{ n + 1 \\} \\subset \\{ 1, \\ldots, n \\}$ is finite, so there is a bijection $g : C' \\to \\{ 1, \\ldots, k \\}$ (or $C' = \\varnothing$). If $n + 1 \\notin C$, then $C = C'$ is finite; otherwise extend $g$ by $n + 1 \\mapsto k + 1$ to get a bijection $C \\to \\{ 1, \\ldots, k + 1 \\}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General case.</strong> If $A$ is finite and nonempty, there is a bijection $f : A \\to \\{ 1, \\ldots, n \\}$. For $B \\subset A$, $f$ restricts to a bijection of $B$ onto $f(B) \\subset \\{ 1, \\ldots, n \\}$, which is finite; hence $B$ is finite. (If $A = \\varnothing$, then $B = \\varnothing$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So if $B \\subset A$ and $B$ is not finite, then $A$ cannot be finite.</div>",
+      "tags": [
+        "miscellaneous",
+        "finite-sets",
+        "topology-munkres (1.6.2)"
+      ]
+    },
+    {
+      "date": "2024-11-09",
+      "title": "Munkres - 1.6.3 - Finite Sets: $\\{0, 1\\}^\\omega$ is in bijection with a proper subset of itself",
+      "difficulty": "easy",
+      "problem": "Let $X$ be the two-element set $\\{ 0, 1 \\}$. Find a bijective correspondence between $X^\\omega$ and a proper subset of itself.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Shift a sequence one place to the right and put a $0$ in front.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Define $f : X^\\omega \\to X^\\omega$ by\n    \\[\n        f(x_1, x_2, x_3, \\ldots) = (0, x_1, x_2, x_3, \\ldots).\n    \\]\n    $f$ is injective: if $f(\\mathbf{x}) = f(\\mathbf{y})$, then comparing coordinates $2, 3, \\ldots$ gives $\\mathbf{x} = \\mathbf{y}$. Its image is $Y = \\{ \\mathbf{y} \\in X^\\omega : y_1 = 0 \\}$, a proper subset (it misses $(1, 1, 1, \\ldots)$). So $f : X^\\omega \\to Y$ is a bijection onto a proper subset.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Corollary 6.3, a finite set has no bijection with a proper subset of itself; so this shows $X^\\omega$ is infinite.</div>",
+      "tags": [
+        "miscellaneous",
+        "finite-sets",
+        "topology-munkres (1.6.3)"
+      ]
+    },
+    {
+      "date": "2024-11-16",
+      "title": "Munkres - 1.6.4 - Finite Sets: A finite ordered set has a largest element and is a section of $\\mathbb{Z}_+$",
+      "difficulty": "medium",
+      "problem": "Let $A$ be a nonempty finite simply ordered set.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $A$ has a largest element. [Hint: Proceed by induction on the cardinality of $A$.]</li>\n<li class=\"my-4\">Show that $A$ has the order type of a section of the positive integers.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $|A| = n + 1$, remove one element (for (a)) or the largest element (for (b)) and apply the inductive hypothesis. A set of cardinality $n + 1$ minus one element has cardinality $n$ (Lemma 6.1).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Induct on the cardinality $n$ of $A$. If $n = 1$, its only element is largest. Suppose every simply ordered set of cardinality $n$ has a largest element, and let $|A| = n + 1$. Pick $a_0 \\in A$. Then $A - \\{ a_0 \\}$ has cardinality $n$, so it has a largest element $a_1$. By comparability, the larger of $a_0$ and $a_1$ is the largest element of $A$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> We show by induction on $n$: if $|A| = n$, there is an order isomorphism $\\{ 1, \\ldots, n \\} \\to A$. For $n = 1$ this is clear. Let $|A| = n + 1$ and let $a$ be the largest element of $A$, by (a). Then $|A - \\{ a \\}| = n$, so there is an order isomorphism $g : \\{ 1, \\ldots, n \\} \\to A - \\{ a \\}$. Define $f(i) = g(i)$ for $i \\leq n$ and $f(n + 1) = a$. Then $f$ is a bijection onto $A$, and it is order preserving: for $i \\lt j \\leq n$, $f(i) \\lt f(j)$ since $g$ is; and $f(i) \\lt a = f(n + 1)$ because $a$ is the largest element.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $A$ has the order type of the section $S_{n+1} = \\{ 1, \\ldots, n \\}$ of $\\mathbb{Z}_+$, where $n = |A|$.</div>",
+      "tags": [
+        "miscellaneous",
+        "finite-sets",
+        "order-relations",
+        "topology-munkres (1.6.4)"
+      ]
+    },
+    {
+      "date": "2024-11-23",
+      "title": "Munkres - 1.6.5 - Finite Sets: If $A \\times B$ is finite, must $A$ and $B$ be finite?",
+      "difficulty": "easy",
+      "problem": "If $A \\times B$ is finite, does it follow that $A$ and $B$ are finite?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Think about the empty set. If $B \\neq \\varnothing$, $a \\mapsto a \\times b_0$ is injective.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Not necessarily.</strong> If $B = \\varnothing$, then $A \\times B = \\varnothing$ is finite for every $A$, for instance $A = \\mathbb{Z}_+$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>But yes if $A$ and $B$ are nonempty.</strong> Fix $b_0 \\in B$. The map $a \\mapsto a \\times b_0$ is an injection of $A$ into $A \\times B$, so $A$ is in bijection with the subset $A \\times \\{ b_0 \\}$ of the finite set $A \\times B$. A subset of a finite set is finite (Exercise 1.6.2), so $A$ is finite. Similarly, $B$ is finite.</div>",
+      "tags": [
+        "miscellaneous",
+        "finite-sets",
+        "cartesian-product",
+        "topology-munkres (1.6.5)"
+      ]
+    },
+    {
+      "date": "2024-11-30",
+      "title": "Munkres - 1.6.6 - Finite Sets: $\\mathcal{P}(\\{1, \\ldots, n\\})$ corresponds to $\\{0, 1\\}^n$, so power sets of finite sets are finite",
+      "difficulty": "easy",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Let $A = \\{ 1, \\ldots, n \\}$. Show there is a bijection of $\\mathcal{P}(A)$ with the cartesian product $X^n$, where $X$ is the two-element set $X = \\{ 0, 1 \\}$.</li>\n<li class=\"my-4\">Show that if $A$ is finite, then $\\mathcal{P}(A)$ is finite.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Send a subset $S$ to its characteristic tuple: the $i$th entry is $1$ if $i \\in S$ and $0$ otherwise.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Define $\\Phi : \\mathcal{P}(A) \\to X^n$ by $\\Phi(S) = (\\chi_S(1), \\ldots, \\chi_S(n))$, where $\\chi_S(i) = 1$ if $i \\in S$ and $0$ if $i \\notin S$. The map $\\Psi(x_1, \\ldots, x_n) = \\{ i : x_i = 1 \\}$ satisfies $\\Psi \\circ \\Phi = \\mathrm{id}$ and $\\Phi \\circ \\Psi = \\mathrm{id}$, so $\\Phi$ is a bijection.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> If $A = \\varnothing$, then $\\mathcal{P}(A) = \\{ \\varnothing \\}$. Otherwise there is a bijection $A \\to \\{ 1, \\ldots, n \\}$, which induces a bijection $\\mathcal{P}(A) \\to \\mathcal{P}(\\{ 1, \\ldots, n \\})$, and by (a) this is in bijection with $X^n$. A finite product of finite sets is finite (Corollary 6.8), so $\\mathcal{P}(A)$ is finite; in fact it has $2^n$ elements.</div>",
+      "tags": [
+        "miscellaneous",
+        "finite-sets",
+        "power-set",
+        "topology-munkres (1.6.6)"
+      ]
+    },
+    {
+      "date": "2024-12-07",
+      "title": "Munkres - 1.6.7 - Finite Sets: The set of all functions between finite sets is finite",
+      "difficulty": "easy",
+      "problem": "If $A$ and $B$ are finite, show that the set of all functions $f : A \\to B$ is finite.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A function on $A = \\{ a_1, \\ldots, a_n \\}$ is determined by the $n$-tuple $(f(a_1), \\ldots, f(a_n)) \\in B^n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $A = \\varnothing$, there is exactly one function (the empty function). Otherwise list $A = \\{ a_1, \\ldots, a_n \\}$ using a bijection with $\\{ 1, \\ldots, n \\}$. The map\n    \\[\n        f \\mapsto (f(a_1), \\ldots, f(a_n))\n    \\]\n    is a bijection from the set $B^A$ of all functions $A \\to B$ onto $B^n = B \\times \\cdots \\times B$: a function is determined by its values, and any $n$-tuple of values defines a function.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$B^n$ is a finite product of finite sets, hence finite (Corollary 6.8). So $B^A$ is finite; it has $|B|^{|A|}$ elements.</div>",
+      "tags": [
+        "miscellaneous",
+        "finite-sets",
+        "topology-munkres (1.6.7)"
+      ]
+    },
+    {
+      "date": "2024-12-14",
+      "title": "Munkres - 1.7.1 - Countable Sets: $\\mathbb{Q}$ is countably infinite",
+      "difficulty": "easy",
+      "problem": "Show that $\\mathbb{Q}$ is countably infinite.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Inject $\\mathbb{Q}$ into $\\mathbb{Z} \\times \\mathbb{Z}_+$ by writing fractions in lowest terms.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Every rational number can be written uniquely as $m/n$ with $m \\in \\mathbb{Z}$, $n \\in \\mathbb{Z}_+$ and $m, n$ having no common factor greater than $1$. So $f(m/n) = m \\times n$ defines an injective map $f : \\mathbb{Q} \\to \\mathbb{Z} \\times \\mathbb{Z}_+$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$\\mathbb{Z}$ is countable (Example 1) and $\\mathbb{Z}_+$ is countable, so $\\mathbb{Z} \\times \\mathbb{Z}_+$ is countable (a finite product of countable sets is countable). A set that injects into a countable set is countable, so $\\mathbb{Q}$ is countable.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Finally $\\mathbb{Q} \\supset \\mathbb{Z}_+$ is infinite (Exercise 1.6.2). Hence $\\mathbb{Q}$ is countably infinite. (Alternatively, $m \\times n \\mapsto m/n$ is a surjection of the countable set $\\mathbb{Z} \\times \\mathbb{Z}_+$ onto $\\mathbb{Q}$.)</div>",
+      "tags": [
+        "miscellaneous",
+        "countable-sets",
+        "topology-munkres (1.7.1)"
+      ]
+    },
+    {
+      "date": "2024-12-21",
+      "title": "Munkres - 1.7.2 - Countable Sets: The maps of Examples 1 and 2 are bijections",
+      "difficulty": "medium",
+      "problem": "Show that the maps $f$ and $g$ of Examples 1 and 2 are bijections. These are:\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">Example 1: $f : \\mathbb{Z} \\to \\mathbb{Z}_+$, $f(n) = 2n$ if $n > 0$ and $f(n) = -2n + 1$ if $n \\leq 0$.</li>\n<li class=\"my-4\">Example 2: with $A = \\{ x \\times y \\in \\mathbb{Z}_+ \\times \\mathbb{Z}_+ : y \\leq x \\}$, the maps $f : \\mathbb{Z}_+ \\times \\mathbb{Z}_+ \\to A$, $f(x \\times y) = (x + y - 1) \\times y$, and $g : A \\to \\mathbb{Z}_+$, $g(x \\times y) = \\frac{1}{2}(x - 1)x + y$.</li></ul>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For Example 2's $g$: for fixed $x$, the values $g(x \\times 1), \\ldots, g(x \\times x)$ are the consecutive integers from $T_{x-1} + 1$ to $T_x$, where $T_k = \\frac{k(k + 1)}{2}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Example 1.</strong> $f$ maps $\\{ 1, 2, 3, \\ldots \\}$ to the even positive integers $2, 4, 6, \\ldots$ and $\\{ 0, -1, -2, \\ldots \\}$ to the odd positive integers $1, 3, 5, \\ldots$. An inverse is $m \\mapsto m/2$ for $m$ even and $m \\mapsto -(m - 1)/2$ for $m$ odd. So $f$ is a bijection.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Example 2, $f$.</strong> For $x, y \\geq 1$, $x + y - 1 \\geq y$, so $f$ maps into $A$. The map $u \\times v \\mapsto (u - v + 1) \\times v$ sends $A$ into $\\mathbb{Z}_+ \\times \\mathbb{Z}_+$ (as $v \\leq u$ gives $u - v + 1 \\geq 1$), and it is a two-sided inverse of $f$. So $f$ is a bijection.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Example 2, $g$.</strong> Let $T_k = \\frac{k(k + 1)}{2}$ (so $T_0 = 0$); then $\\frac{1}{2}(x - 1)x = T_{x-1}$. For fixed $x$, the points of $A$ with first coordinate $x$ are $x \\times 1, \\ldots, x \\times x$, and $g$ sends them to\n    \\[\n        T_{x-1} + 1, \\ T_{x-1} + 2, \\ \\ldots, \\ T_{x-1} + x = T_x.\n    \\]\n    So $g$ maps the \"row\" $x$ bijectively onto the block $\\{ T_{x-1} + 1, \\ldots, T_x \\}$. Since $0 = T_0 \\lt T_1 \\lt T_2 \\lt \\cdots$ and $T_x \\to \\infty$, these blocks are disjoint and cover $\\mathbb{Z}_+$. Hence $g$ is a bijection, and $g \\circ f : \\mathbb{Z}_+ \\times \\mathbb{Z}_+ \\to \\mathbb{Z}_+$ is a bijection; $\\mathbb{Z}_+ \\times \\mathbb{Z}_+$ is countably infinite.</div>",
+      "tags": [
+        "miscellaneous",
+        "countable-sets",
+        "topology-munkres (1.7.2)"
+      ]
+    },
+    {
+      "date": "2024-12-28",
+      "title": "Munkres - 1.7.3 - Countable Sets: $\\mathcal{P}(\\mathbb{Z}_+)$ corresponds to $\\{0, 1\\}^\\omega$",
+      "difficulty": "easy",
+      "problem": "Let $X$ be the two-element set $\\{ 0, 1 \\}$. Show there is a bijective correspondence between the set $\\mathcal{P}(\\mathbb{Z}_+)$ and the cartesian product $X^\\omega$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use characteristic sequences, as in Exercise 1.6.6.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Define $\\Phi : \\mathcal{P}(\\mathbb{Z}_+) \\to X^\\omega$ by $\\Phi(S) = (\\chi_S(1), \\chi_S(2), \\ldots)$, where $\\chi_S(n) = 1$ if $n \\in S$ and $0$ otherwise. Define $\\Psi : X^\\omega \\to \\mathcal{P}(\\mathbb{Z}_+)$ by $\\Psi(\\mathbf{x}) = \\{ n : x_n = 1 \\}$. Then $\\Psi(\\Phi(S)) = S$ and $\\Phi(\\Psi(\\mathbf{x})) = \\mathbf{x}$, so $\\Phi$ is a bijection.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Combined with Cantor's theorem that there is no surjection $\\mathbb{Z}_+ \\to \\mathcal{P}(\\mathbb{Z}_+)$, this shows that $\\{ 0, 1 \\}^\\omega$ is uncountable; that can also be seen directly by Cantor's diagonal argument.</div>",
+      "tags": [
+        "miscellaneous",
+        "countable-sets",
+        "power-set",
+        "topology-munkres (1.7.3)"
       ]
     },
     {
@@ -1091,6 +1567,19 @@
         "miscellaneous",
         "set-theory",
         "abstract-algebra-herstein (1.2.4)"
+      ]
+    },
+    {
+      "date": "2025-07-12",
+      "title": "Munkres - 1.7.4 - Countable Sets: The algebraic numbers are countable, the transcendental numbers are not",
+      "difficulty": "medium",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">A real number $x$ is said to be <strong>algebraic</strong> (over the rationals) if it satisfies some polynomial equation of positive degree\n    \\[\n        x^n + a_{n-1}x^{n-1} + \\cdots + a_1x + a_0 = 0\n    \\]\n    with rational coefficients $a_i$. Assuming that each polynomial equation has only finitely many roots, show that the set of algebraic numbers is countable.</li>\n<li class=\"my-4\">A real number is said to be <strong>transcendental</strong> if it is not algebraic. Assuming the reals are uncountable, show that the transcendental numbers are uncountable. (It is a somewhat surprising fact that only two transcendental numbers are familiar to us: $e$ and $\\pi$. Even proving these two numbers transcendental is highly nontrivial.)</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Monic polynomials of degree $n$ with rational coefficients correspond to points of $\\mathbb{Q}^n$. A countable union of countable sets is countable.</li>\n<li class=\"my-4\">For (b): $\\mathbb{R}$ is the union of the algebraic and the transcendental numbers.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> For $n \\in \\mathbb{Z}_+$, let $P_n$ be the set of polynomials $x^n + a_{n-1}x^{n-1} + \\cdots + a_0$ with $a_i \\in \\mathbb{Q}$. The map sending such a polynomial to $(a_0, \\ldots, a_{n-1})$ is a bijection $P_n \\to \\mathbb{Q}^n$. Since $\\mathbb{Q}$ is countable (Exercise 1.7.1) and a finite product of countable sets is countable, each $P_n$ is countable. Hence $P = \\bigcup_{n \\in \\mathbb{Z}_+} P_n$, a countable union of countable sets, is countable.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $p \\in P$ let $Z(p) = \\{ x \\in \\mathbb{R} : p(x) = 0 \\}$, which is finite by assumption. (Any polynomial equation of positive degree with rational coefficients can be divided by its leading coefficient, so it suffices to consider the monic ones in $P$.) The set of algebraic numbers is\n    \\[\n        A = \\bigcup_{p \\in P} Z(p),\n    \\]\n    a countable union of finite sets, so it is countable. It is infinite, since every rational $q$ is a root of $x - q$. So $A$ is countably infinite.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Let $T = \\mathbb{R} - A$ be the set of transcendental numbers. If $T$ were countable, then $\\mathbb{R} = A \\cup T$ would be a union of two countable sets, hence countable, contradicting the uncountability of $\\mathbb{R}$. So $T$ is uncountable.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So \"almost all\" real numbers are transcendental, even though it is hard to exhibit a single one: Liouville (1844) gave the first explicit examples such as $\\sum_{k \\geq 1} 10^{-k!}$, Hermite proved $e$ transcendental in 1873, and Lindemann proved it for $\\pi$ in 1882. Cantor's argument above (1874) shows existence without producing any example.</div>",
+      "tags": [
+        "miscellaneous",
+        "countable-sets",
+        "topology-munkres (1.7.4)"
       ]
     },
     {

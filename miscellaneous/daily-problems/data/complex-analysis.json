@@ -556,6 +556,223 @@
       ]
     },
     {
+      "date": "2024-01-09",
+      "title": "Brown and Churchill 1.3.8: The binomial formula for complex numbers, by induction",
+      "difficulty": "medium",
+      "problem": "Use mathematical induction to show that the binomial formula\n    \\[\n        (z_1 + z_2)^n = \\sum_{k=0}^{n} \\binom{n}{k} z_1^k z_2^{n-k}, \\qquad \\binom{n}{k} = \\frac{n!}{k!\\,(n-k)!},\n    \\]\n    is valid for all complex numbers $z_1, z_2$ and $n = 1, 2, \\dots$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">In the inductive step multiply by $z_1 + z_2$, split into two sums, shift the index in one of them, and use Pascal's rule $\\binom{m}{k-1} + \\binom{m}{k} = \\binom{m+1}{k}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $n = 1$ the right-hand side is $\\binom{1}{0} z_2 + \\binom{1}{1} z_1 = z_1 + z_2$. Assume the formula holds for some $m \\geq 1$. Since complex multiplication is commutative and associative and distributes over addition,\n    \\[\n        (z_1 + z_2)^{m+1} = (z_1 + z_2) \\sum_{k=0}^{m} \\binom{m}{k} z_1^k z_2^{m-k}\n        = \\sum_{k=0}^{m} \\binom{m}{k} z_1^{k+1} z_2^{m-k} + \\sum_{k=0}^{m} \\binom{m}{k} z_1^{k} z_2^{m+1-k}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In the first sum put $j = k + 1$:\n    \\[\n        \\sum_{k=0}^{m} \\binom{m}{k} z_1^{k+1} z_2^{m-k} = \\sum_{j=1}^{m+1} \\binom{m}{j-1} z_1^{j} z_2^{m+1-j}.\n    \\]\n    Separating the term $j = m + 1$ of this sum and the term $k = 0$ of the second sum,\n    \\[\n        (z_1 + z_2)^{m+1} = z_2^{m+1} + \\sum_{j=1}^{m} \\left[ \\binom{m}{j-1} + \\binom{m}{j} \\right] z_1^{j} z_2^{m+1-j} + z_1^{m+1}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Pascal's rule, $\\binom{m}{j-1} + \\binom{m}{j} = \\frac{m!}{(j-1)!\\,(m-j)!} \\left( \\frac{1}{m - j + 1} + \\frac{1}{j} \\right) = \\frac{(m+1)!}{j!\\,(m+1-j)!} = \\binom{m+1}{j}$. Hence\n    \\[\n        (z_1 + z_2)^{m+1} = \\sum_{j=0}^{m+1} \\binom{m+1}{j} z_1^{j} z_2^{m+1-j},\n    \\]\n    which is the formula for $n = m + 1$. By induction it holds for all $n \\geq 1$.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers",
+        "complex-variables-brown-and-churchill (1.3.8)"
+      ]
+    },
+    {
+      "date": "2024-01-16",
+      "title": "Brown and Churchill 1.4.1: Locate $z_1 + z_2$ and $z_1 - z_2$ vectorially",
+      "difficulty": "easy",
+      "problem": "Locate the numbers $z_1 + z_2$ and $z_1 - z_2$ vectorially when\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$z_1 = 2\\iota$, $z_2 = \\frac{2}{3} - \\iota$;</li>\n<li class=\"my-4\">$z_1 = (-\\sqrt{3}, 1)$, $z_2 = (\\sqrt{3}, 0)$;</li>\n<li class=\"my-4\">$z_1 = (-3, 1)$, $z_2 = (1, 4)$;</li>\n<li class=\"my-4\">$z_1 = x_1 + \\iota y_1$, $z_2 = x_1 - \\iota y_1$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Add and subtract componentwise. Geometrically, $z_1 + z_2$ is the diagonal of the parallelogram spanned by $z_1$ and $z_2$, and $z_1 - z_2 = z_1 + (-z_2)$ is the vector from $z_2$ to $z_1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Complex numbers add like vectors in the plane: $z_1 + z_2$ is the diagonal from $0$ of the parallelogram with sides $z_1$ and $z_2$, and $z_1 - z_2 = z_1 + (-z_2)$ is the same vector as the arrow from the point $z_2$ to the point $z_1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $z_1 + z_2 = \\frac{2}{3} + \\iota$, the point $\\left( \\frac{2}{3}, 1 \\right)$; $\\ z_1 - z_2 = -\\frac{2}{3} + 3\\iota$, the point $\\left( -\\frac{2}{3}, 3 \\right)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $z_1 + z_2 = (0, 1) = \\iota$, on the imaginary axis; $\\ z_1 - z_2 = (-2\\sqrt{3}, 1)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> $z_1 + z_2 = (-2, 5)$; $\\ z_1 - z_2 = (-4, -3)$, a vector of length $5$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> Here $z_2 = \\overline{z_1}$ is the reflection of $z_1$ in the real axis. Then $z_1 + z_2 = 2x_1$ lies on the real axis and $z_1 - z_2 = 2\\iota y_1$ lies on the imaginary axis; that is, $z_1 + \\overline{z_1} = 2 \\operatorname{Re} z_1$ and $z_1 - \\overline{z_1} = 2\\iota \\operatorname{Im} z_1$.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers",
+        "complex-variables-brown-and-churchill (1.4.1)"
+      ]
+    },
+    {
+      "date": "2024-01-23",
+      "title": "Brown and Churchill 1.4.2: $\\operatorname{Re} z \\leq \\vert \\operatorname{Re} z \\vert \\leq \\vert z \\vert$ and $\\operatorname{Im} z \\leq \\vert \\operatorname{Im} z \\vert \\leq \\vert z \\vert$",
+      "difficulty": "easy",
+      "problem": "Verify the inequalities\n    \\[\n        \\operatorname{Re} z \\leq \\vert \\operatorname{Re} z \\vert \\leq \\vert z \\vert \\qquad \\text{and} \\qquad \\operatorname{Im} z \\leq \\vert \\operatorname{Im} z \\vert \\leq \\vert z \\vert.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">With $z = x + \\iota y$, $\\vert z \\vert^2 = x^2 + y^2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Write $z = x + \\iota y$ with $x = \\operatorname{Re} z$ and $y = \\operatorname{Im} z$, so that $\\vert z \\vert = \\sqrt{x^2 + y^2}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For any real number $a$ we have $a \\leq \\vert a \\vert$; this gives the first inequality in each chain.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For the second, $y^2 \\geq 0$ gives $x^2 \\leq x^2 + y^2$, and taking non-negative square roots (the square root is increasing on $[0, \\infty)$),\n    \\[\n        \\vert x \\vert = \\sqrt{x^2} \\leq \\sqrt{x^2 + y^2} = \\vert z \\vert.\n    \\]\n    In the same way $\\vert y \\vert \\leq \\vert z \\vert$. Hence\n    \\[\n        \\operatorname{Re} z \\leq \\vert \\operatorname{Re} z \\vert \\leq \\vert z \\vert, \\qquad \\operatorname{Im} z \\leq \\vert \\operatorname{Im} z \\vert \\leq \\vert z \\vert.\n    \\]\n    Geometrically: a leg of the right triangle with vertices $0$, $x$ and $z$ is no longer than its hypotenuse.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers",
+        "complex-variables-brown-and-churchill (1.4.2)"
+      ]
+    },
+    {
+      "date": "2024-01-30",
+      "title": "Brown and Churchill 1.4.3: An upper bound for $\\frac{\\operatorname{Re}(z_1 + z_2)}{\\vert z_3 + z_4 \\vert}$",
+      "difficulty": "easy",
+      "problem": "Use established properties of moduli to show that when $\\vert z_3 \\vert \\neq \\vert z_4 \\vert$,\n    \\[\n        \\frac{\\operatorname{Re}(z_1 + z_2)}{\\vert z_3 + z_4 \\vert} \\leq \\frac{\\vert z_1 \\vert + \\vert z_2 \\vert}{\\big\\vert \\vert z_3 \\vert - \\vert z_4 \\vert \\big\\vert}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Bound the numerator above using $\\operatorname{Re} w \\leq \\vert w \\vert$ and the triangle inequality, and the denominator below using $\\vert z_3 + z_4 \\vert \\geq \\big\\vert \\vert z_3 \\vert - \\vert z_4 \\vert \\big\\vert$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Numerator.</strong> By the previous exercise and the triangle inequality,\n    \\[\n        \\operatorname{Re}(z_1 + z_2) \\leq \\vert z_1 + z_2 \\vert \\leq \\vert z_1 \\vert + \\vert z_2 \\vert.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Denominator.</strong> By the reverse triangle inequality,\n    \\[\n        \\vert z_3 + z_4 \\vert \\geq \\big\\vert \\vert z_3 \\vert - \\vert z_4 \\vert \\big\\vert > 0,\n    \\]\n    where the last inequality uses $\\vert z_3 \\vert \\neq \\vert z_4 \\vert$ (in particular $z_3 + z_4 \\neq 0$, so the left-hand side of the claim is defined).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Combining.</strong> If $\\operatorname{Re}(z_1 + z_2) \\lt 0$ the claim is clear, since the right-hand side is $\\geq 0$. Otherwise $0 \\leq \\operatorname{Re}(z_1 + z_2) \\leq \\vert z_1 \\vert + \\vert z_2 \\vert$, and dividing by the larger positive number $\\vert z_3 + z_4 \\vert$ makes the fraction smaller:\n    \\[\n        \\frac{\\operatorname{Re}(z_1 + z_2)}{\\vert z_3 + z_4 \\vert} \\leq \\frac{\\vert z_1 \\vert + \\vert z_2 \\vert}{\\vert z_3 + z_4 \\vert} \\leq \\frac{\\vert z_1 \\vert + \\vert z_2 \\vert}{\\big\\vert \\vert z_3 \\vert - \\vert z_4 \\vert \\big\\vert}.\n    \\]</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers",
+        "complex-variables-brown-and-churchill (1.4.3)"
+      ]
+    },
+    {
+      "date": "2024-02-06",
+      "title": "Where is $f(z) = x^2 + \\iota y^2$ differentiable? Where is it analytic?",
+      "difficulty": "easy",
+      "problem": "Let $f(z) = x^2 + \\iota y^2$, where $z = x + \\iota y$. Find all points at which $f$ is complex differentiable, compute $f'$ there, and determine where $f$ is analytic.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $f = u + \\iota v$ and check the Cauchy-Riemann equations. Since the partial derivatives are continuous, the Cauchy-Riemann equations at a point are sufficient for differentiability there.</li>\n<li class=\"my-4\">Analytic at $z_0$ means differentiable at every point of some neighbourhood of $z_0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Here $u(x, y) = x^2$ and $v(x, y) = y^2$, so\n    \\[\n        u_x = 2x, \\qquad u_y = 0, \\qquad v_x = 0, \\qquad v_y = 2y.\n    \\]\n    The Cauchy-Riemann equations $u_x = v_y$, $u_y = -v_x$ become $2x = 2y$ and $0 = 0$. So they hold exactly on the line $y = x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Differentiability.</strong> The Cauchy-Riemann equations are necessary for differentiability, so $f$ is not differentiable at any point off the line $y = x$. On the line, the partial derivatives exist and are continuous everywhere and satisfy the Cauchy-Riemann equations, so $f$ is differentiable at every point $z = x + \\iota x$, with\n    \\[\n        f'(z) = u_x + \\iota v_x = 2x.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Analyticity.</strong> Every disc around a point of the line $y = x$ contains points off the line, where $f$ is not differentiable. So there is no open set on which $f$ is differentiable, and $f$ is <strong>analytic nowhere</strong>.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Compare $g(z) = \\vert z \\vert^2 = x^2 + y^2$, which is differentiable only at $z = 0$ and also analytic nowhere.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "complex-differentiation"
+      ]
+    },
+    {
+      "date": "2024-02-13",
+      "title": "Classify the singularities of $\\frac{z}{\\sin z}$, $e^{1/z}$ and $\\frac{1 - \\cos z}{z^5}$",
+      "difficulty": "medium",
+      "problem": "Find and classify (removable, pole of a given order, or essential) all isolated singularities of the following functions, and compute the residue at each pole.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\displaystyle f(z) = \\frac{z}{\\sin z}$;</li>\n<li class=\"my-4\">$g(z) = e^{1/z}$;</li>\n<li class=\"my-4\">$\\displaystyle h(z) = \\frac{1 - \\cos z}{z^5}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the Taylor series of $\\sin z$, $e^w$ and $\\cos z$ at $0$. If $q$ has a simple zero at $z_0$ and $p(z_0) \\neq 0$, then $p/q$ has a simple pole at $z_0$ with residue $p(z_0)/q'(z_0)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> The singularities are the zeros of $\\sin z$, namely $z = n\\pi$, $n \\in \\mathbb{Z}$; they are simple zeros because $\\cos n\\pi = (-1)^n \\neq 0$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">At $z = 0$: $\\sin z = z \\left( 1 - \\frac{z^2}{3!} + \\frac{z^4}{5!} - \\cdots \\right)$, so $\\frac{z}{\\sin z} = \\left( 1 - \\frac{z^2}{6} + \\cdots \\right)^{-1}$, which is analytic near $0$ with value $1$. The singularity is <strong>removable</strong>.</li>\n<li class=\"my-4\">At $z = n\\pi$, $n \\neq 0$: the numerator is $n\\pi \\neq 0$ and the denominator has a simple zero, so this is a <strong>simple pole</strong> with\n    \\[\n        \\operatorname{Res}_{z = n\\pi} \\frac{z}{\\sin z} = \\frac{n\\pi}{\\cos n\\pi} = (-1)^n n\\pi.\n    \\]</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> The only singularity is $z = 0$. For $z \\neq 0$,\n    \\[\n        e^{1/z} = \\sum_{n=0}^{\\infty} \\frac{1}{n!\\, z^n} = 1 + \\frac{1}{z} + \\frac{1}{2!\\, z^2} + \\cdots,\n    \\]\n    and this Laurent series has infinitely many negative powers. So $0$ is an <strong>essential singularity</strong> (its residue, the coefficient of $\\frac{1}{z}$, is $1$). One can also see it directly: $e^{1/z} \\to \\infty$ as $z \\to 0^+$ along the real axis, and $e^{1/z} \\to 0$ as $z \\to 0^-$, so $e^{1/z}$ has neither a finite limit (removable) nor the limit $\\infty$ (pole).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> The only singularity is $z = 0$. Since $1 - \\cos z = \\frac{z^2}{2!} - \\frac{z^4}{4!} + \\frac{z^6}{6!} - \\cdots$,\n    \\[\n        h(z) = \\frac{1}{2 z^3} - \\frac{1}{24 z} + \\frac{z}{720} - \\cdots .\n    \\]\n    The most negative power is $z^{-3}$, so $0$ is a <strong>pole of order $3$</strong>, and $\\operatorname{Res}_{z = 0} h = -\\frac{1}{24}$. (Note that the order is $5 - 2 = 3$, not $5$, because the numerator has a zero of order $2$ at $0$.)</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "singularity",
+        "infinite-series"
+      ]
+    },
+    {
+      "date": "2024-02-20",
+      "title": "Evaluate $\\int_{-\\infty}^{\\infty} \\frac{\\cos x}{x^2 + 1}\\, \\mathrm{d}x$ by residues",
+      "difficulty": "medium",
+      "problem": "Use the residue theorem to show that\n    \\[\n        \\int_{-\\infty}^{\\infty} \\frac{\\cos x}{x^2 + 1}\\, \\mathrm{d}x = \\frac{\\pi}{e}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Integrate $f(z) = \\frac{e^{\\iota z}}{z^2 + 1}$, not $\\frac{\\cos z}{z^2 + 1}$, over the boundary of the upper half-disc of radius $R > 1$. On the upper half-plane, $\\left\\vert e^{\\iota z} \\right\\vert = e^{-y} \\leq 1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(z) = \\dfrac{e^{\\iota z}}{z^2 + 1}$. (We do not use $\\cos z$, because $\\vert \\cos z \\vert$ grows like $e^{\\vert y \\vert}/2$ in the upper half-plane.) For $R > 1$, let $C_R$ be the closed contour consisting of the segment $[-R, R]$ followed by the upper semicircle $\\Gamma_R : z = Re^{\\iota t}$, $0 \\leq t \\leq \\pi$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The residue.</strong> The poles of $f$ are $\\pm \\iota$; only $z = \\iota$ lies inside $C_R$, and it is a simple pole:\n    \\[\n        \\operatorname{Res}_{z = \\iota} f = \\frac{e^{\\iota \\cdot \\iota}}{2\\iota} = \\frac{e^{-1}}{2\\iota}.\n    \\]\n    By the residue theorem, $\\displaystyle \\oint_{C_R} f(z)\\, \\mathrm{d}z = 2\\pi\\iota \\cdot \\frac{e^{-1}}{2\\iota} = \\frac{\\pi}{e}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The arc.</strong> For $z = x + \\iota y$ on $\\Gamma_R$ we have $y \\geq 0$, so $\\left\\vert e^{\\iota z} \\right\\vert = e^{-y} \\leq 1$, and $\\vert z^2 + 1 \\vert \\geq R^2 - 1$. Hence\n    \\[\n        \\left\\vert \\int_{\\Gamma_R} f(z)\\, \\mathrm{d}z \\right\\vert \\leq \\frac{\\pi R}{R^2 - 1} \\to 0 \\quad (R \\to \\infty).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Conclusion.</strong> Letting $R \\to \\infty$,\n    \\[\n        \\int_{-\\infty}^{\\infty} \\frac{e^{\\iota x}}{x^2 + 1}\\, \\mathrm{d}x = \\frac{\\pi}{e}.\n    \\]\n    (The improper integral converges absolutely, since $\\left\\vert \\frac{e^{\\iota x}}{x^2 + 1} \\right\\vert = \\frac{1}{x^2 + 1}$.) Taking real parts gives $\\displaystyle \\int_{-\\infty}^{\\infty} \\frac{\\cos x}{x^2 + 1}\\, \\mathrm{d}x = \\frac{\\pi}{e}$. The imaginary part gives $\\int_{-\\infty}^{\\infty} \\frac{\\sin x}{x^2 + 1}\\, \\mathrm{d}x = 0$, as it must since the integrand is odd.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "residue-theorem"
+      ]
+    },
+    {
+      "date": "2024-02-27",
+      "title": "The image of a nonconstant entire function is dense in $\\mathbb{C}$",
+      "difficulty": "medium",
+      "problem": "Let $f$ be a nonconstant entire function. Show that $f(\\mathbb{C})$ is dense in $\\mathbb{C}$; that is, for every $w_0 \\in \\mathbb{C}$ and every $r > 0$ there is a $z \\in \\mathbb{C}$ with $\\vert f(z) - w_0 \\vert \\lt r$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Suppose $\\vert f(z) - w_0 \\vert \\geq r$ for all $z$, and apply Liouville's theorem to $\\dfrac{1}{f(z) - w_0}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Suppose, for contradiction, that $f(\\mathbb{C})$ is not dense. Then there are $w_0 \\in \\mathbb{C}$ and $r > 0$ such that the disc $\\vert w - w_0 \\vert \\lt r$ contains no value of $f$:\n    \\[\n        \\vert f(z) - w_0 \\vert \\geq r \\quad \\text{for all } z \\in \\mathbb{C}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In particular $f(z) - w_0$ never vanishes, so\n    \\[\n        g(z) = \\frac{1}{f(z) - w_0}\n    \\]\n    is entire, and $\\vert g(z) \\vert \\leq \\frac{1}{r}$ for all $z$. By Liouville's theorem, $g$ is constant, say $g \\equiv c$, where $c \\neq 0$. Then $f(z) = w_0 + \\frac{1}{c}$ is constant, which is a contradiction.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $f(\\mathbb{C})$ is dense in $\\mathbb{C}$. For example, $f(z) = e^z$ omits the value $0$ but comes arbitrarily close to it. (Picard's little theorem says much more: a nonconstant entire function omits at most one complex value.)</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function"
+      ]
+    },
+    {
+      "date": "2024-03-05",
+      "title": "Maximum of $\\vert \\sin z \\vert$ on the square $[0, 2\\pi] \\times [0, 2\\pi]$",
+      "difficulty": "medium",
+      "problem": "Find the maximum value of $\\vert \\sin z \\vert$ on the closed square\n    \\[\n        R = \\{ x + \\iota y : 0 \\leq x \\leq 2\\pi,\\ 0 \\leq y \\leq 2\\pi \\},\n    \\]\n    and the points where it is attained. Check that your answer agrees with the maximum modulus principle.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Show that $\\vert \\sin(x + \\iota y) \\vert^2 = \\sin^2 x + \\sinh^2 y$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>A formula for $\\vert \\sin z \\vert$.</strong> With $z = x + \\iota y$,\n    \\[\n        \\sin z = \\sin x \\cosh y + \\iota \\cos x \\sinh y,\n    \\]\n    so\n    \\[\n        \\vert \\sin z \\vert^2 = \\sin^2 x \\cosh^2 y + \\cos^2 x \\sinh^2 y = \\sin^2 x \\left( 1 + \\sinh^2 y \\right) + \\cos^2 x \\sinh^2 y = \\sin^2 x + \\sinh^2 y.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Maximising.</strong> On $R$ we have $\\sin^2 x \\leq 1$, with equality iff $x = \\frac{\\pi}{2}$ or $x = \\frac{3\\pi}{2}$, and $\\sinh^2 y \\leq \\sinh^2 2\\pi$, with equality iff $y = 2\\pi$ (since $\\sinh$ is increasing and $y \\geq 0$). Both maxima are attained simultaneously, so\n    \\[\n        \\max_{R} \\vert \\sin z \\vert^2 = 1 + \\sinh^2 2\\pi = \\cosh^2 2\\pi, \\qquad \\max_{R} \\vert \\sin z \\vert = \\cosh 2\\pi \\approx 267.7,\n    \\]\n    attained exactly at $z = \\frac{\\pi}{2} + 2\\pi\\iota$ and $z = \\frac{3\\pi}{2} + 2\\pi\\iota$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Consistency with the maximum modulus principle.</strong> Since $\\sin z$ is analytic and nonconstant on the interior of $R$, $\\vert \\sin z \\vert$ cannot attain its maximum over $R$ at an interior point; it must be attained on the boundary. Indeed both maximum points lie on the top edge $y = 2\\pi$. Notice also how different this is from the real sine: on the real segment $[0, 2\\pi]$ the maximum of $\\vert \\sin x \\vert$ is $1$.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function"
+      ]
+    },
+    {
+      "date": "2024-03-12",
+      "title": "The Möbius transformation sending $-1, 0, 1$ to $-\\iota, 1, \\iota$, and the image of the upper half-plane",
+      "difficulty": "medium",
+      "problem": "Find the Möbius transformation $w = T(z)$ that maps the points $z_1 = -1$, $z_2 = 0$, $z_3 = 1$ onto $w_1 = -\\iota$, $w_2 = 1$, $w_3 = \\iota$ respectively. Then find the image of the upper half-plane $\\operatorname{Im} z > 0$ under $T$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the invariance of the cross ratio:\n    \\[\n        \\frac{(w - w_1)(w_2 - w_3)}{(w - w_3)(w_2 - w_1)} = \\frac{(z - z_1)(z_2 - z_3)}{(z - z_3)(z_2 - z_1)}.\n    \\]</li>\n<li class=\"my-4\">A Möbius transformation maps the real line (through $-1, 0, 1$) to the circle through $-\\iota, 1, \\iota$. Test one point of the upper half-plane.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Finding $T$.</strong> The right-hand side of the cross-ratio equation is\n    \\[\n        \\frac{(z + 1)(0 - 1)}{(z - 1)(0 + 1)} = \\frac{z + 1}{1 - z}.\n    \\]\n    On the left, $\\frac{w_2 - w_3}{w_2 - w_1} = \\frac{1 - \\iota}{1 + \\iota} = -\\iota$, so the left-hand side is $-\\iota\\, \\frac{w + \\iota}{w - \\iota}$. Writing $\\rho = \\frac{z + 1}{1 - z}$, the equation $-\\iota \\frac{w + \\iota}{w - \\iota} = \\rho$ gives $w + \\iota = \\iota\\rho (w - \\iota) = \\iota\\rho w + \\rho$, so\n    \\[\n        w = \\frac{\\rho - \\iota}{1 - \\iota\\rho} = \\frac{(1 + \\iota) z + (1 - \\iota)}{(1 - \\iota) - (1 + \\iota) z}.\n    \\]\n    Multiplying numerator and denominator by $1 - \\iota$ (using $(1 + \\iota)(1 - \\iota) = 2$ and $(1 - \\iota)^2 = -2\\iota$),\n    \\[\n        T(z) = \\frac{2(z - \\iota)}{-2(z + \\iota)} = \\frac{\\iota - z}{\\iota + z}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> $T(-1) = \\frac{\\iota + 1}{\\iota - 1} = -\\iota$, $T(0) = \\frac{\\iota}{\\iota} = 1$, and $T(1) = \\frac{\\iota - 1}{\\iota + 1} = \\iota$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Image of the upper half-plane.</strong> We have\n    \\[\n        \\vert T(z) \\vert = \\frac{\\vert z - \\iota \\vert}{\\vert z + \\iota \\vert},\n    \\]\n    which is less than $1$ exactly when $z$ is closer to $\\iota$ than to $-\\iota$, i.e. when $\\operatorname{Im} z > 0$. (The perpendicular bisector of $\\iota$ and $-\\iota$ is the real axis.) Hence $T$ maps the upper half-plane onto the open unit disc $\\vert w \\vert \\lt 1$, the real axis onto the unit circle (minus the point $-1 = T(\\infty)$), and the lower half-plane onto $\\vert w \\vert > 1$.</div>",
+      "tags": [
+        "complex-analysis",
+        "mobius-transformation"
+      ]
+    },
+    {
+      "date": "2024-03-19",
+      "title": "If $f : \\mathbb{D} \\to \\mathbb{D}$ is analytic and $f(1/2) = 0$, then $\\vert f(0) \\vert \\leq 1/2$",
+      "difficulty": "hard",
+      "problem": "Let $\\mathbb{D} = \\{ z : \\vert z \\vert \\lt 1 \\}$ and let $f : \\mathbb{D} \\to \\mathbb{D}$ be analytic with $f\\left( \\frac{1}{2} \\right) = 0$. Show that $\\vert f(0) \\vert \\leq \\frac{1}{2}$, and find all $f$ for which equality holds.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Schwarz's lemma: if $g : \\mathbb{D} \\to \\mathbb{D}$ is analytic with $g(0) = 0$, then $\\vert g(z) \\vert \\leq \\vert z \\vert$; and if equality holds at some $z_0 \\neq 0$, then $g(z) = \\lambda z$ with $\\vert \\lambda \\vert = 1$.</li>\n<li class=\"my-4\">Move $\\frac{1}{2}$ to $0$ with the disc automorphism $\\psi(z) = \\dfrac{z + \\frac{1}{2}}{1 + \\frac{1}{2} z}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>A disc automorphism.</strong> Let\n    \\[\n        \\psi(z) = \\frac{z + \\frac{1}{2}}{1 + \\frac{1}{2} z} = \\frac{2z + 1}{z + 2}, \\qquad \\psi^{-1}(w) = \\frac{w - \\frac{1}{2}}{1 - \\frac{1}{2} w} = \\frac{2w - 1}{2 - w}.\n    \\]\n    It is analytic on $\\mathbb{D}$ (its pole is at $-2$), maps $\\mathbb{D}$ onto $\\mathbb{D}$ (for $\\vert z \\vert = 1$, $\\vert 2z + 1 \\vert = \\vert 2 + \\bar{z} \\vert = \\vert z + 2 \\vert$, so the unit circle maps to itself, and $\\psi(0) = \\frac{1}{2} \\in \\mathbb{D}$), and satisfies $\\psi(0) = \\frac{1}{2}$ and $\\psi\\left( -\\frac{1}{2} \\right) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The inequality.</strong> Let $g = f \\circ \\psi : \\mathbb{D} \\to \\mathbb{D}$. It is analytic and $g(0) = f\\left( \\frac{1}{2} \\right) = 0$, so by Schwarz's lemma $\\vert g(z) \\vert \\leq \\vert z \\vert$ for all $z \\in \\mathbb{D}$. Since $\\psi\\left( -\\frac{1}{2} \\right) = 0$,\n    \\[\n        \\vert f(0) \\vert = \\left\\vert g\\left( -\\tfrac{1}{2} \\right) \\right\\vert \\leq \\frac{1}{2}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Equality.</strong> If $\\vert f(0) \\vert = \\frac{1}{2}$, then $\\vert g(z_0) \\vert = \\vert z_0 \\vert$ at $z_0 = -\\frac{1}{2} \\neq 0$, so by the equality case of Schwarz's lemma $g(z) = \\lambda z$ with $\\vert \\lambda \\vert = 1$. Then\n    \\[\n        f(w) = g\\left( \\psi^{-1}(w) \\right) = \\lambda\\, \\frac{2w - 1}{2 - w}, \\qquad \\vert \\lambda \\vert = 1.\n    \\]\n    Conversely, each of these functions maps $\\mathbb{D}$ into $\\mathbb{D}$, vanishes at $\\frac{1}{2}$, and has $\\vert f(0) \\vert = \\left\\vert \\lambda \\cdot \\left( -\\frac{1}{2} \\right) \\right\\vert = \\frac{1}{2}$. So equality holds exactly for $f(z) = \\lambda \\frac{2z - 1}{2 - z}$ with $\\vert \\lambda \\vert = 1$.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "mobius-transformation"
+      ]
+    },
+    {
+      "date": "2024-03-26",
+      "title": "The fundamental theorem of algebra from Liouville's theorem",
+      "difficulty": "medium",
+      "problem": "Use Liouville's theorem to prove the <strong>fundamental theorem of algebra</strong>: every polynomial\n    \\[\n        p(z) = a_n z^n + a_{n-1} z^{n-1} + \\cdots + a_1 z + a_0, \\qquad a_n \\neq 0,\\ n \\geq 1,\n    \\]\n    with complex coefficients has a zero in $\\mathbb{C}$. Deduce that $p$ factors as $p(z) = a_n (z - z_1)(z - z_2) \\cdots (z - z_n)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $p$ had no zero, $\\frac{1}{p}$ would be entire. Show that $\\vert p(z) \\vert \\geq \\frac{1}{2} \\vert a_n \\vert \\vert z \\vert^n$ for $\\vert z \\vert$ large.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Growth of $p$.</strong> For $z \\neq 0$,\n    \\[\n        p(z) = a_n z^n \\left( 1 + \\frac{a_{n-1}}{a_n z} + \\cdots + \\frac{a_0}{a_n z^n} \\right).\n    \\]\n    Inside the bracket, the $n$ terms after the $1$ tend to $0$ as $\\vert z \\vert \\to \\infty$, so there is $R > 0$ such that their sum has modulus at most $\\frac{1}{2}$ for $\\vert z \\vert \\geq R$; then the bracket has modulus at least $\\frac{1}{2}$. Then $\\vert p(z) \\vert \\geq \\frac{1}{2} \\vert a_n \\vert \\vert z \\vert^n \\geq \\frac{1}{2} \\vert a_n \\vert R^n$ for $\\vert z \\vert \\geq R$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Existence of a zero.</strong> Suppose $p(z) \\neq 0$ for all $z$. Then $q = \\frac{1}{p}$ is entire.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">For $\\vert z \\vert \\geq R$: $\\vert q(z) \\vert \\leq \\dfrac{2}{\\vert a_n \\vert R^n}$.</li>\n<li class=\"my-4\">On the compact disc $\\vert z \\vert \\leq R$: $q$ is continuous, hence bounded.</li></ul>\n    So $q$ is a bounded entire function, and by Liouville's theorem it is constant. Then $p = \\frac{1}{q}$ is constant, contradicting $n \\geq 1$ and $a_n \\neq 0$. Hence $p$ has a zero $z_1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Factorisation.</strong> Dividing by $z - z_1$ (polynomial long division) gives $p(z) = (z - z_1) p_1(z) + c$ with $c$ constant; putting $z = z_1$ shows $c = 0$. So $p(z) = (z - z_1) p_1(z)$, where $p_1$ has degree $n - 1$ and leading coefficient $a_n$. Repeating the argument (induction on $n$) gives\n    \\[\n        p(z) = a_n (z - z_1)(z - z_2) \\cdots (z - z_n).\n    \\]</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function"
+      ]
+    },
+    {
+      "date": "2024-04-02",
+      "title": "Solve $\\sin z = 2$",
+      "difficulty": "easy",
+      "problem": "Find all complex numbers $z$ such that $\\sin z = 2$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $z = x + \\iota y$ and use $\\sin z = \\sin x \\cosh y + \\iota \\cos x \\sinh y$. Compare real and imaginary parts.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">With $z = x + \\iota y$, $\\sin z = \\sin x \\cosh y + \\iota \\cos x \\sinh y$. So $\\sin z = 2$ means\n    \\[\n        \\sin x \\cosh y = 2, \\qquad \\cos x \\sinh y = 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $\\sinh y = 0$, then $y = 0$ and $\\sin x = 2$, which is impossible for real $x$. Hence $\\cos x = 0$, i.e. $x = \\frac{\\pi}{2} + k\\pi$, and then $\\sin x = \\pm 1$. Since $\\cosh y > 0$ and the product must be $2 > 0$, we need $\\sin x = 1$, i.e. $x = \\frac{\\pi}{2} + 2k\\pi$, and $\\cosh y = 2$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$\\cosh y = 2 \\iff e^{y} + e^{-y} = 4 \\iff e^{y} = 2 \\pm \\sqrt{3} \\iff y = \\pm \\ln(2 + \\sqrt{3})$ (note $2 - \\sqrt{3} = \\frac{1}{2 + \\sqrt{3}}$). Therefore\n    \\[\n        z = \\frac{\\pi}{2} + 2k\\pi \\pm \\iota \\ln\\left( 2 + \\sqrt{3} \\right), \\qquad k \\in \\mathbb{Z}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In particular $\\sin z$ is not bounded by $1$ on $\\mathbb{C}$; by Liouville's theorem no nonconstant entire function can be bounded.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers",
+        "elementary-functions"
+      ]
+    },
+    {
+      "date": "2024-04-09",
+      "title": "All values of $\\iota^\\iota$ and $(1 + \\iota)^\\iota$, and $\\operatorname{Log}(-1 - \\iota)$",
+      "difficulty": "easy",
+      "problem": "Using $z^{c} = e^{c \\log z}$, find all values of $\\iota^{\\iota}$ and of $(1 + \\iota)^{\\iota}$, and their principal values. Also find the principal logarithm $\\operatorname{Log}(-1 - \\iota)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\log z = \\ln |z| + \\iota(\\operatorname{Arg} z + 2k\\pi)$, $k \\in \\mathbb{Z}$, with $-\\pi \\lt \\operatorname{Arg} z \\leq \\pi$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\iota^\\iota$.</strong> $\\log \\iota = \\iota\\left( \\frac{\\pi}{2} + 2k\\pi \\right)$, so\n    \\[\n        \\iota^{\\iota} = e^{\\iota \\cdot \\iota (\\pi/2 + 2k\\pi)} = e^{-\\pi/2 - 2k\\pi}, \\qquad k \\in \\mathbb{Z}.\n    \\]\n    All values are real and positive; the principal value ($k = 0$) is $e^{-\\pi/2} \\approx 0.2079$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$(1 + \\iota)^\\iota$.</strong> $\\log(1 + \\iota) = \\ln\\sqrt{2} + \\iota\\left( \\frac{\\pi}{4} + 2k\\pi \\right)$, so\n    \\[\n        (1 + \\iota)^{\\iota} = e^{\\iota \\ln\\sqrt{2} - \\pi/4 - 2k\\pi} = e^{-\\pi/4 - 2k\\pi} \\left( \\cos\\left( \\tfrac{1}{2}\\ln 2 \\right) + \\iota \\sin\\left( \\tfrac{1}{2}\\ln 2 \\right) \\right).\n    \\]\n    The principal value is $e^{-\\pi/4} e^{\\iota (\\ln 2)/2}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\operatorname{Log}(-1 - \\iota)$.</strong> $|-1 - \\iota| = \\sqrt{2}$ and the point lies in the third quadrant, so $\\operatorname{Arg}(-1 - \\iota) = -\\frac{3\\pi}{4}$ (not $\\frac{5\\pi}{4}$, which is outside $(-\\pi, \\pi]$). Hence\n    \\[\n        \\operatorname{Log}(-1 - \\iota) = \\frac{1}{2}\\ln 2 - \\frac{3\\pi}{4}\\iota.\n    \\]</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers",
+        "elementary-functions"
+      ]
+    },
+    {
+      "date": "2024-04-16",
+      "title": "$\\prod_{k=1}^{n-1} (1 - \\omega^k) = n$, and hence $\\prod_{k=1}^{n-1} \\sin\\frac{k\\pi}{n} = \\frac{n}{2^{n-1}}$",
+      "difficulty": "medium",
+      "problem": "Let $n \\geq 2$ and $\\omega = e^{2\\pi\\iota/n}$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $\\displaystyle \\prod_{k=1}^{n-1} (1 - \\omega^k) = n$.</li>\n<li class=\"my-4\">Deduce that $\\displaystyle \\prod_{k=1}^{n-1} \\sin\\frac{k\\pi}{n} = \\frac{n}{2^{n-1}}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$z^n - 1 = \\prod_{k=0}^{n-1} (z - \\omega^k)$. Divide by $z - 1$ and put $z = 1$.</li>\n<li class=\"my-4\">$\\left\\vert 1 - e^{\\iota\\theta} \\right\\vert = 2 \\sin\\frac{\\theta}{2}$ for $0 \\leq \\theta \\leq 2\\pi$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> The $n$th roots of unity $1, \\omega, \\ldots, \\omega^{n-1}$ are the $n$ distinct roots of $z^n - 1$, so $z^n - 1 = \\prod_{k=0}^{n-1} (z - \\omega^k)$. Dividing by $z - 1$,\n    \\[\n        1 + z + z^2 + \\cdots + z^{n-1} = \\prod_{k=1}^{n-1} (z - \\omega^k).\n    \\]\n    Putting $z = 1$ gives $n = \\prod_{k=1}^{n-1} (1 - \\omega^k)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> For $0 \\leq \\theta \\leq 2\\pi$,\n    \\[\n        \\left\\vert 1 - e^{\\iota\\theta} \\right\\vert = \\left\\vert e^{\\iota\\theta/2} \\right\\vert \\left\\vert e^{-\\iota\\theta/2} - e^{\\iota\\theta/2} \\right\\vert = \\left\\vert -2\\iota \\sin\\tfrac{\\theta}{2} \\right\\vert = 2\\sin\\frac{\\theta}{2}.\n    \\]\n    With $\\theta = \\frac{2k\\pi}{n}$ this gives $|1 - \\omega^k| = 2 \\sin\\frac{k\\pi}{n}$. Taking absolute values in (a),\n    \\[\n        n = \\prod_{k=1}^{n-1} 2 \\sin\\frac{k\\pi}{n} = 2^{n-1} \\prod_{k=1}^{n-1} \\sin\\frac{k\\pi}{n}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For example, $n = 3$: $\\sin\\frac{\\pi}{3} \\sin\\frac{2\\pi}{3} = \\frac{3}{4}$; and $n = 4$: $\\sin\\frac{\\pi}{4}\\sin\\frac{\\pi}{2}\\sin\\frac{3\\pi}{4} = \\frac{1}{2} = \\frac{4}{8}$.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers",
+        "roots-of-unity"
+      ]
+    },
+    {
+      "date": "2024-04-23",
+      "title": "The Cauchy-Riemann equations in polar form, and the derivative of $z^n$",
+      "difficulty": "medium",
+      "problem": "Let $f = u + \\iota v$, where $u, v$ are functions of the polar coordinates $(r, \\theta)$, $r > 0$, with continuous first partial derivatives.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that the Cauchy-Riemann equations $u_x = v_y$, $u_y = -v_x$ are equivalent to\n    \\[\n        u_r = \\frac{1}{r} v_\\theta, \\qquad v_r = -\\frac{1}{r} u_\\theta,\n    \\]\n    and that then $f'(z) = e^{-\\iota\\theta}(u_r + \\iota v_r)$.</li>\n<li class=\"my-4\">Use this to show that $f(z) = z^n$ ($n \\in \\mathbb{Z}$) is analytic on $\\mathbb{C} \\setminus \\{ 0 \\}$ with $f'(z) = n z^{n-1}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">With $x = r\\cos\\theta$, $y = r\\sin\\theta$, the chain rule gives $u_r = u_x \\cos\\theta + u_y \\sin\\theta$ and $u_\\theta = -r u_x \\sin\\theta + r u_y \\cos\\theta$; similarly for $v$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> By the chain rule,\n    \\[\n        u_r = u_x \\cos\\theta + u_y \\sin\\theta, \\quad u_\\theta = r(-u_x \\sin\\theta + u_y \\cos\\theta),\n    \\]\n    and similarly for $v$. If $u_x = v_y$ and $u_y = -v_x$, then\n    \\[\n        v_\\theta = r(-v_x \\sin\\theta + v_y \\cos\\theta) = r(u_y \\sin\\theta + u_x \\cos\\theta) = r u_r,\n    \\]\n    \\[\n        v_r = v_x \\cos\\theta + v_y \\sin\\theta = -u_y \\cos\\theta + u_x \\sin\\theta = -\\frac{1}{r} u_\\theta.\n    \\]\n    Conversely, the $2 \\times 2$ system expressing $(u_r, u_\\theta)$ in terms of $(u_x, u_y)$ is invertible for $r > 0$, so the same computation run backwards recovers the Cartesian equations. Finally, $f' = u_x + \\iota v_x$, and $u_x = u_r \\cos\\theta - \\frac{1}{r} u_\\theta \\sin\\theta = u_r \\cos\\theta + v_r \\sin\\theta$, $v_x = v_r \\cos\\theta - u_r \\sin\\theta$, so $f' = (u_r + \\iota v_r)(\\cos\\theta - \\iota \\sin\\theta) = e^{-\\iota\\theta}(u_r + \\iota v_r)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $z^n = r^n e^{\\iota n\\theta}$, so $u = r^n \\cos n\\theta$ and $v = r^n \\sin n\\theta$, with continuous partial derivatives for $r > 0$. Then\n    \\[\n        u_r = n r^{n-1} \\cos n\\theta = \\frac{1}{r} v_\\theta, \\qquad v_r = n r^{n-1} \\sin n\\theta = -\\frac{1}{r} u_\\theta.\n    \\]\n    So $f$ is analytic for $z \\neq 0$, and\n    \\[\n        f'(z) = e^{-\\iota\\theta} \\, n r^{n-1} (\\cos n\\theta + \\iota \\sin n\\theta) = n r^{n-1} e^{\\iota (n-1)\\theta} = n z^{n-1}.\n    \\]\n    (For $n \\geq 0$, $z^n$ is of course also differentiable at $0$.)</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "complex-differentiation"
+      ]
+    },
+    {
+      "date": "2024-04-30",
+      "title": "The image of the circle $\\vert z \\vert = 2$ under the Joukowski map $w = z + \\frac{1}{z}$",
+      "difficulty": "easy",
+      "problem": "Find the image of the circle $|z| = 2$ under the map $w = z + \\dfrac{1}{z}$. What is the image of the unit circle $|z| = 1$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Put $z = 2e^{\\iota\\theta}$ and separate $w = u + \\iota v$ into real and imaginary parts.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $z = 2e^{\\iota\\theta}$, $0 \\leq \\theta \\lt 2\\pi$. Then $\\frac{1}{z} = \\frac{1}{2} e^{-\\iota\\theta}$ and\n    \\[\n        w = 2e^{\\iota\\theta} + \\frac{1}{2} e^{-\\iota\\theta} = \\frac{5}{2}\\cos\\theta + \\iota \\, \\frac{3}{2}\\sin\\theta.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $u = \\frac{5}{2}\\cos\\theta$, $v = \\frac{3}{2}\\sin\\theta$, and the image is the ellipse\n    \\[\n        \\frac{u^2}{(5/2)^2} + \\frac{v^2}{(3/2)^2} = 1,\n    \\]\n    traced once as $\\theta$ runs over $[0, 2\\pi)$. Its foci are at $\\pm\\sqrt{\\frac{25}{4} - \\frac{9}{4}} = \\pm 2$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $|z| = 1$: $w = e^{\\iota\\theta} + e^{-\\iota\\theta} = 2\\cos\\theta$, so the unit circle is mapped (two-to-one) onto the segment $[-2, 2]$. In general the circle $|z| = R > 1$ goes to the ellipse with semi-axes $R + \\frac{1}{R}$ and $R - \\frac{1}{R}$, all with foci $\\pm 2$. This is the map used to model airfoils.</div>",
+      "tags": [
+        "complex-analysis",
+        "conformal-mapping"
+      ]
+    },
+    {
       "date": "2024-05-07",
       "title": "An infinite series similar to geometric series",
       "problem": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n    For any $p \\in \\mathbb{Z}_{\\geq 0}$, prove that\n    \\[\n        \\frac{1}{(1-z)^{p+1}} = \\sum_{k=0}^{\\infty } \\binom{k + p}{p} z^k, \\quad \\vert z \\vert \\lt 1.\n    \\]\n</div>",
@@ -748,6 +965,242 @@
       ]
     },
     {
+      "date": "2024-09-03",
+      "title": "$w = e^z$ maps the strip $0 \\lt \\operatorname{Im} z \\lt \\pi$ onto the upper half-plane",
+      "difficulty": "easy",
+      "problem": "Show that $w = e^{z}$ maps the horizontal strip $S = \\{ z : 0 \\lt \\operatorname{Im} z \\lt \\pi \\}$ one-to-one onto the upper half-plane $H = \\{ w : \\operatorname{Im} w > 0 \\}$. What are the images of the horizontal lines $\\operatorname{Im} z = c$ and the vertical segments $\\operatorname{Re} z = c$ in $S$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$e^{x + \\iota y} = e^{x} e^{\\iota y}$: $x$ controls the modulus and $y$ the argument.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $z = x + \\iota y$, $w = e^{x} e^{\\iota y}$ has modulus $e^{x}$ and argument $y$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Into $H$.</strong> If $0 \\lt y \\lt \\pi$, then $\\operatorname{Im} w = e^{x} \\sin y > 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>One-to-one.</strong> $e^{z_1} = e^{z_2}$ iff $z_1 - z_2 = 2k\\pi\\iota$; two points of $S$ have imaginary parts differing by less than $\\pi$, so $k = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Onto.</strong> Every $w \\in H$ can be written $w = \\rho e^{\\iota\\varphi}$ with $\\rho > 0$ and $0 \\lt \\varphi \\lt \\pi$; then $z = \\ln\\rho + \\iota\\varphi \\in S$ and $e^{z} = w$. The inverse map is the principal logarithm $\\operatorname{Log} w$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Lines.</strong> The horizontal line $\\operatorname{Im} z = c$ ($0 \\lt c \\lt \\pi$) maps onto the open ray from $0$ at angle $c$; the vertical segment $\\operatorname{Re} z = c$ maps onto the upper half of the circle $|w| = e^{c}$. The two families of curves are orthogonal before and after the map, as they must be for a conformal map.</div>",
+      "tags": [
+        "complex-analysis",
+        "conformal-mapping",
+        "elementary-functions"
+      ]
+    },
+    {
+      "date": "2024-09-10",
+      "title": "The radius of convergence of $\\sum \\frac{n!}{n^n} z^n$ is $e$",
+      "difficulty": "easy",
+      "problem": "Find the radius of convergence of the power series\n    \\[\n        \\sum_{n=1}^{\\infty} \\frac{n!}{n^n} z^n.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the ratio test: $R = \\lim \\left\\vert \\frac{a_n}{a_{n+1}} \\right\\vert$ when the limit exists.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">With $a_n = \\frac{n!}{n^n}$,\n    \\[\n        \\frac{a_n}{a_{n+1}} = \\frac{n!}{n^n} \\cdot \\frac{(n + 1)^{n+1}}{(n + 1)!} = \\frac{(n + 1)^{n}}{n^n} = \\left( 1 + \\frac{1}{n} \\right)^{n} \\to e.\n    \\]\n    Hence the radius of convergence is $R = e$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(Equivalently, by Stirling's formula $n! \\sim \\sqrt{2\\pi n}\\, (n/e)^n$, we get $\\left( \\frac{n!}{n^n} \\right)^{1/n} \\to \\frac{1}{e}$, and the root test gives the same answer.) On the circle $|z| = e$ the terms do not tend to $0$, since $\\frac{n!\\, e^n}{n^n} \\sim \\sqrt{2\\pi n} \\to \\infty$, so the series diverges at every point of the boundary circle.</div>",
+      "tags": [
+        "complex-analysis",
+        "infinite-series",
+        "power-series"
+      ]
+    },
+    {
+      "date": "2024-09-17",
+      "title": "The Taylor series of $\\tan z$ up to $z^5$, and its radius of convergence",
+      "difficulty": "medium",
+      "problem": "Find the first three nonzero terms of the Maclaurin series of $\\tan z$, and determine its radius of convergence.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\tan z$ is odd: write $\\tan z = a_1 z + a_3 z^3 + a_5 z^5 + \\cdots$ and compare coefficients in $\\sin z = \\cos z \\cdot \\tan z$.</li>\n<li class=\"my-4\">The radius of convergence is the distance from $0$ to the nearest singularity.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $\\tan z$ is odd and analytic near $0$, write $\\tan z = a_1 z + a_3 z^3 + a_5 z^5 + \\cdots$. From $\\sin z = \\cos z \\tan z$:\n    \\[\n        z - \\frac{z^3}{6} + \\frac{z^5}{120} - \\cdots = \\left( 1 - \\frac{z^2}{2} + \\frac{z^4}{24} - \\cdots \\right)\\left( a_1 z + a_3 z^3 + a_5 z^5 + \\cdots \\right).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Comparing coefficients:\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">$z$: $a_1 = 1$;</li>\n<li class=\"my-4\">$z^3$: $a_3 - \\frac{a_1}{2} = -\\frac{1}{6}$, so $a_3 = \\frac{1}{3}$;</li>\n<li class=\"my-4\">$z^5$: $a_5 - \\frac{a_3}{2} + \\frac{a_1}{24} = \\frac{1}{120}$, so $a_5 = \\frac{1}{120} + \\frac{1}{6} - \\frac{1}{24} = \\frac{2}{15}$.</li></ul>\n    Hence\n    \\[\n        \\tan z = z + \\frac{z^3}{3} + \\frac{2z^5}{15} + \\cdots.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Radius of convergence.</strong> $\\tan z = \\frac{\\sin z}{\\cos z}$ is analytic except at the zeros of $\\cos z$, which are $z = \\frac{\\pi}{2} + k\\pi$ (all real, since $|\\cos z|^2 = \\cos^2 x + \\sinh^2 y$). These are poles, because $\\sin z \\neq 0$ there. The nearest ones to $0$ are $\\pm\\frac{\\pi}{2}$, so the radius of convergence is $R = \\frac{\\pi}{2}$: the series converges on the largest disc about $0$ on which $\\tan z$ is analytic, and it cannot converge on a larger disc since $|\\tan z| \\to \\infty$ as $z \\to \\frac{\\pi}{2}$.</div>",
+      "tags": [
+        "complex-analysis",
+        "infinite-series",
+        "power-series"
+      ]
+    },
+    {
+      "date": "2024-09-24",
+      "title": "Laurent series of $\\frac{1}{z^2(1 - z)}$ in $0 \\lt \\vert z \\vert \\lt 1$ and in $\\vert z \\vert > 1$",
+      "difficulty": "easy",
+      "problem": "Find the Laurent series of $f(z) = \\dfrac{1}{z^2(1 - z)}$ about $z = 0$ in the regions\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$0 \\lt |z| \\lt 1$,</li>\n<li class=\"my-4\">$|z| > 1$.</li></ol>\n    Use your answers to find $\\operatorname{Res}_{z=0} f$ and $\\displaystyle \\oint_{|z| = 2} f(z)\\, \\mathrm{d}z$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For $|z| \\lt 1$ expand $\\frac{1}{1 - z} = \\sum z^n$; for $|z| > 1$ write $\\frac{1}{1 - z} = -\\frac{1}{z} \\cdot \\frac{1}{1 - 1/z}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> For $0 \\lt |z| \\lt 1$, $\\frac{1}{1 - z} = \\sum_{n \\geq 0} z^n$, so\n    \\[\n        f(z) = \\sum_{n=0}^{\\infty} z^{n-2} = \\frac{1}{z^2} + \\frac{1}{z} + 1 + z + z^2 + \\cdots.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> For $|z| > 1$, $\\frac{1}{1 - z} = -\\frac{1}{z} \\cdot \\frac{1}{1 - 1/z} = -\\sum_{n \\geq 1} z^{-n}$, so\n    \\[\n        f(z) = -\\sum_{n=1}^{\\infty} \\frac{1}{z^{n+2}} = -\\frac{1}{z^3} - \\frac{1}{z^4} - \\frac{1}{z^5} - \\cdots.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Residue and integral.</strong> The residue at $0$ is the coefficient of $\\frac{1}{z}$ in the series valid in a punctured disc around $0$, i.e. series (a): $\\operatorname{Res}_{z=0} f = 1$. (The coefficient of $\\frac{1}{z}$ in (b) is <em>not</em> the residue at $0$.) For the integral over $|z| = 2$, which lies in the region of (b), integrate term by term: only a $\\frac{1}{z}$ term would contribute, and there is none, so\n    \\[\n        \\oint_{|z| = 2} f(z)\\, \\mathrm{d}z = 0.\n    \\]\n    This agrees with the residue theorem: $\\operatorname{Res}_{z=0} f + \\operatorname{Res}_{z=1} f = 1 + \\left( -1 \\right) = 0$.</div>",
+      "tags": [
+        "complex-analysis",
+        "infinite-series",
+        "laurent-series",
+        "residue-theorem"
+      ]
+    },
+    {
+      "date": "2024-10-01",
+      "title": "A continuous function on $\\mathbb{C}$ that is analytic off the real axis is entire",
+      "difficulty": "hard",
+      "problem": "Let $f : \\mathbb{C} \\to \\mathbb{C}$ be continuous, and analytic on $\\mathbb{C} \\setminus \\mathbb{R}$. Prove that $f$ is entire.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use Morera's theorem: it suffices that $\\oint_{\\partial R} f\\, \\mathrm{d}z = 0$ for every closed rectangle $R$ with sides parallel to the axes.</li>\n<li class=\"my-4\">Split a rectangle crossing the real axis into the parts above and below; push the edge on the axis off it by $\\varepsilon$ and use uniform continuity.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Morera's theorem (in the version for rectangles, applied on discs), it suffices to show $\\oint_{\\partial R} f(z)\\, \\mathrm{d}z = 0$ for every closed rectangle $R = [a, b] \\times [c, d]$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Rectangles off the axis.</strong> If $R$ lies in the open upper or lower half-plane, the integral is $0$ by Cauchy's theorem.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>A rectangle with one side on the axis.</strong> Let $R = [a, b] \\times [0, d]$, $d > 0$, and $R_\\varepsilon = [a, b] \\times [\\varepsilon, d]$. Cauchy's theorem gives $\\oint_{\\partial R_\\varepsilon} f = 0$. The difference $\\oint_{\\partial R} f - \\oint_{\\partial R_\\varepsilon} f$ consists of the bottom edges and the short vertical pieces:\n    \\[\n        \\int_a^b \\left[ f(x) - f(x + \\iota\\varepsilon) \\right] \\mathrm{d}x + \\iota \\int_0^\\varepsilon \\left[ f(b + \\iota y) - f(a + \\iota y) \\right] \\mathrm{d}y.\n    \\]\n    Since $f$ is uniformly continuous on the compact set $R$, the first integral tends to $0$ as $\\varepsilon \\to 0$, and the second is at most $2M\\varepsilon$, where $M = \\max_R |f|$. Hence $\\oint_{\\partial R} f = 0$. The same holds for rectangles $[a, b] \\times [c, 0]$ in the lower half-plane.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>A rectangle crossing the axis.</strong> If $c \\lt 0 \\lt d$, split $R$ along the real axis into $R^+ = [a, b] \\times [0, d]$ and $R^- = [a, b] \\times [c, 0]$. The integrals over the common edge cancel, so $\\oint_{\\partial R} f = \\oint_{\\partial R^+} f + \\oint_{\\partial R^-} f = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the integral of $f$ around every rectangle vanishes; hence $f$ has a primitive on every disc, and by Morera's theorem $f$ is analytic everywhere, i.e. entire. (This is a special case of the Schwarz reflection principle, and of the fact that line segments are \"removable\" for continuous functions.)</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "morera-theorem"
+      ]
+    },
+    {
+      "date": "2024-10-08",
+      "title": "If $f$ is entire and $\\vert f(z) \\vert \\leq \\vert e^z \\vert$ for all $z$, then $f(z) = c\\, e^z$",
+      "difficulty": "easy",
+      "problem": "Let $f$ be an entire function such that $|f(z)| \\leq |e^{z}|$ for all $z \\in \\mathbb{C}$. Show that $f(z) = c\\, e^{z}$ for some constant $c$ with $|c| \\leq 1$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Consider $g(z) = f(z) e^{-z}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $e^{z}$ never vanishes, $g(z) = f(z) e^{-z}$ is entire, and\n    \\[\n        |g(z)| = \\frac{|f(z)|}{|e^{z}|} \\leq 1 \\qquad \\text{for all } z.\n    \\]\n    By Liouville's theorem, $g$ is a constant $c$, and $|c| \\leq 1$. Hence $f(z) = c\\, e^{z}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The same argument shows: if $f, h$ are entire, $h$ has no zeros, and $|f| \\leq M |h|$, then $f$ is a constant multiple of $h$. (If $h$ may have zeros, see the problem of 9 Jul 2024.)</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "liouville-theorem"
+      ]
+    },
+    {
+      "date": "2024-10-15",
+      "title": "If $\\vert f \\vert = 1$ on the unit circle and $f$ has no zeros in the disc, then $f$ is constant",
+      "difficulty": "medium",
+      "problem": "Let $f$ be analytic on the open unit disc $\\mathbb{D}$ and continuous on its closure $\\overline{\\mathbb{D}}$. Suppose that $|f(z)| = 1$ for $|z| = 1$ and that $f$ has no zeros in $\\mathbb{D}$. Prove that $f$ is constant. Show by an example that the hypothesis \"no zeros\" cannot be dropped.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Apply the maximum modulus principle to $f$ and to $1/f$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$|f| \\leq 1$.</strong> By the maximum modulus principle, $|f|$ attains its maximum over $\\overline{\\mathbb{D}}$ on the boundary, where $|f| = 1$. So $|f(z)| \\leq 1$ in $\\mathbb{D}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$|f| \\geq 1$.</strong> $f$ has no zeros in $\\mathbb{D}$, and none on the circle (where $|f| = 1$), so $g = 1/f$ is analytic on $\\mathbb{D}$ and continuous on $\\overline{\\mathbb{D}}$, with $|g| = 1$ on the circle. By the same principle $|g| \\leq 1$, i.e. $|f| \\geq 1$ in $\\mathbb{D}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $|f| \\equiv 1$ on $\\mathbb{D}$. Then $|f|$ attains its maximum at an interior point (every point is a maximum), so by the maximum modulus principle $f$ is constant. (Alternatively: a nonconstant analytic function is an open map, but its image would lie in the circle $|w| = 1$, which contains no open set.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The hypothesis is needed.</strong> $f(z) = z$ satisfies $|f| = 1$ on $|z| = 1$ and is not constant; it has a zero at $0$. More generally, finite Blaschke products $\\prod \\frac{z - a_k}{1 - \\overline{a_k} z}$ with $|a_k| \\lt 1$ have modulus $1$ on the circle.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "maximum-modulus-principle"
+      ]
+    },
+    {
+      "date": "2024-10-22",
+      "title": "$e^{1/z}$ takes every nonzero value infinitely often near $0$",
+      "difficulty": "medium",
+      "problem": "Show that in every punctured disc $0 \\lt |z| \\lt \\delta$, the function $e^{1/z}$ takes every nonzero complex value $w$ infinitely many times. Does it take the value $0$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Solve $e^{1/z} = w$ using all branches of $\\log w$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $w \\neq 0$, and let $\\operatorname{Log} w = \\ln|w| + \\iota\\operatorname{Arg} w$. Then $e^{\\zeta} = w$ exactly when $\\zeta = \\operatorname{Log} w + 2k\\pi\\iota$, $k \\in \\mathbb{Z}$. So $e^{1/z} = w$ exactly at\n    \\[\n        z_k = \\frac{1}{\\operatorname{Log} w + 2k\\pi\\iota}, \\qquad k \\in \\mathbb{Z}\n    \\]\n    (excluding the single $k$ for which the denominator is $0$, which happens only when $w = 1$ and $k = 0$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">These $z_k$ are distinct, and $|z_k| \\leq \\frac{1}{|2k\\pi| - |\\operatorname{Log} w|} \\to 0$ as $|k| \\to \\infty$. So all but finitely many of them lie in $0 \\lt |z| \\lt \\delta$: the value $w$ is taken infinitely often there.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The value $0$ is never taken, because $e^{\\zeta} \\neq 0$ for every $\\zeta$. This illustrates Picard's great theorem: near an essential singularity a function takes every complex value, with at most one exception, infinitely often. (Compare the Casorati-Weierstrass theorem, which only asserts that the values come arbitrarily close to every $w$.)</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "singularity"
+      ]
+    },
+    {
+      "date": "2024-10-29",
+      "title": "There is no continuous (let alone analytic) square root of $z$ on $\\mathbb{C} \\setminus \\{0\\}$",
+      "difficulty": "medium",
+      "problem": "Show that there is no continuous function $f : \\mathbb{C} \\setminus \\{ 0 \\} \\to \\mathbb{C}$ with $f(z)^2 = z$ for all $z \\neq 0$. In particular $\\sqrt{z}$ has no analytic branch on $\\mathbb{C} \\setminus \\{ 0 \\}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Restrict to the unit circle and consider $g(t) = f(e^{\\iota t})\\, e^{-\\iota t/2}$ for $t \\in [0, 2\\pi]$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Suppose such an $f$ exists. Define $g : [0, 2\\pi] \\to \\mathbb{C}$ by\n    \\[\n        g(t) = f(e^{\\iota t})\\, e^{-\\iota t/2}.\n    \\]\n    It is continuous, and $g(t)^2 = f(e^{\\iota t})^2 e^{-\\iota t} = e^{\\iota t} e^{-\\iota t} = 1$. So $g(t) \\in \\{ 1, -1 \\}$ for every $t$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">A continuous function on the interval $[0, 2\\pi]$ taking only the values $\\pm 1$ is constant (intermediate value theorem applied to $\\operatorname{Re} g$). Hence $g(2\\pi) = g(0)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">But $e^{2\\pi\\iota} = 1$, so\n    \\[\n        g(2\\pi) = f(1)\\, e^{-\\iota\\pi} = -f(1) = -g(0),\n    \\]\n    and $g(0) = f(1) = \\pm 1 \\neq 0$. This contradicts $g(2\\pi) = g(0)$. So no such $f$ exists.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Removing a ray from $0$ to $\\infty$, for example the negative real axis, fixes the problem: on $\\mathbb{C} \\setminus (-\\infty, 0]$ the principal branch $\\sqrt{z} = e^{\\frac{1}{2}\\operatorname{Log} z}$ is analytic.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "branch"
+      ]
+    },
+    {
+      "date": "2024-11-05",
+      "title": "Rouché: for $\\lambda > 1$, $z e^{\\lambda - z} = 1$ has exactly one root in $\\vert z \\vert \\lt 1$, and it is real",
+      "difficulty": "medium",
+      "problem": "Let $\\lambda > 1$. Show that the equation\n    \\[\n        z\\, e^{\\lambda - z} = 1\n    \\]\n    has exactly one root in the disc $|z| \\lt 1$, and that this root is real and positive.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The equation is equivalent to $e^{\\lambda} z - e^{z} = 0$. On $|z| = 1$, compare $|e^{\\lambda} z| = e^{\\lambda}$ with $|e^{z}| = e^{\\operatorname{Re} z} \\leq e$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Multiplying by $e^{z - \\lambda} \\neq 0$, the equation is equivalent to $F(z) = e^{\\lambda} z - e^{z} = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Counting with Rouché.</strong> Let $g(z) = e^{\\lambda} z$ and $h(z) = -e^{z}$. On $|z| = 1$,\n    \\[\n        |h(z)| = e^{\\operatorname{Re} z} \\leq e \\lt e^{\\lambda} = |g(z)|,\n    \\]\n    since $\\lambda > 1$. By Rouché's theorem, $F = g + h$ has the same number of zeros in $|z| \\lt 1$ as $g$, namely exactly one.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The root is real.</strong> On $[0, 1]$, the real function $F(x) = e^{\\lambda} x - e^{x}$ is continuous with $F(0) = -1 \\lt 0$ and $F(1) = e^{\\lambda} - e > 0$. By the intermediate value theorem, $F$ has a root in $(0, 1)$. Since there is only one root in the disc, it is this real positive one.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(For $\\lambda = 1$ the equation $z e^{1 - z} = 1$ has the root $z = 1$ on the boundary, so the inequality in Rouché's theorem fails exactly at the limiting case.)</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "rouche-theorem"
+      ]
+    },
+    {
+      "date": "2024-11-12",
+      "title": "Evaluate $\\int_0^{2\\pi} \\frac{\\cos 2\\theta}{5 - 4\\cos\\theta}\\, \\mathrm{d}\\theta$",
+      "difficulty": "medium",
+      "problem": "Use the residue theorem to show that\n    \\[\n        \\int_0^{2\\pi} \\frac{\\cos 2\\theta}{5 - 4\\cos\\theta}\\, \\mathrm{d}\\theta = \\frac{\\pi}{6}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Integrate $\\frac{e^{2\\iota\\theta}}{5 - 4\\cos\\theta}$ instead and take the real part. Put $z = e^{\\iota\\theta}$, $\\cos\\theta = \\frac{1}{2}\\left( z + \\frac{1}{z} \\right)$, $\\mathrm{d}\\theta = \\frac{\\mathrm{d}z}{\\iota z}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $J = \\int_0^{2\\pi} \\frac{e^{2\\iota\\theta}}{5 - 4\\cos\\theta}\\, \\mathrm{d}\\theta$. Its imaginary part $\\int_0^{2\\pi} \\frac{\\sin 2\\theta}{5 - 4\\cos\\theta}\\, \\mathrm{d}\\theta$ is $0$ (substitute $\\theta \\mapsto 2\\pi - \\theta$), so the required integral equals $J$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">With $z = e^{\\iota\\theta}$ on $|z| = 1$:\n    \\[\n        J = \\oint_{|z| = 1} \\frac{z^2}{5 - 2\\left( z + \\frac{1}{z} \\right)} \\cdot \\frac{\\mathrm{d}z}{\\iota z} = \\oint_{|z| = 1} \\frac{z^2}{\\iota (5z - 2z^2 - 2)}\\, \\mathrm{d}z = \\oint_{|z| = 1} \\frac{-z^2}{\\iota (2z - 1)(z - 2)}\\, \\mathrm{d}z.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Only the pole $z = \\frac{1}{2}$ lies inside the unit circle, and it is simple:\n    \\[\n        \\operatorname{Res}_{z = 1/2} = \\frac{-1/4}{\\iota \\cdot 2 \\cdot \\left( \\frac{1}{2} - 2 \\right)} = \\frac{-1/4}{-3\\iota} = \\frac{1}{12\\iota}.\n    \\]\n    Hence $J = 2\\pi\\iota \\cdot \\frac{1}{12\\iota} = \\frac{\\pi}{6}$, and\n    \\[\n        \\int_0^{2\\pi} \\frac{\\cos 2\\theta}{5 - 4\\cos\\theta}\\, \\mathrm{d}\\theta = \\frac{\\pi}{6}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">More generally, for $0 \\lt a \\lt 1$ the same method gives $\\int_0^{2\\pi} \\frac{\\cos n\\theta}{1 - 2a\\cos\\theta + a^2}\\, \\mathrm{d}\\theta = \\frac{2\\pi a^n}{1 - a^2}$; here $5 - 4\\cos\\theta = 4\\left( 1 - 2 \\cdot \\frac{1}{2}\\cos\\theta + \\frac{1}{4} \\right)$, giving $\\frac{1}{4} \\cdot \\frac{2\\pi/4}{3/4} = \\frac{\\pi}{6}$.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "residue-theorem"
+      ]
+    },
+    {
+      "date": "2024-11-19",
+      "title": "Evaluate $\\int_{-\\infty}^{\\infty} \\frac{\\mathrm{d}x}{(x^2 + 1)^2}$ using a pole of order two",
+      "difficulty": "easy",
+      "problem": "Use the residue theorem to show that\n    \\[\n        \\int_{-\\infty}^{\\infty} \\frac{\\mathrm{d}x}{(x^2 + 1)^2} = \\frac{\\pi}{2}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Close the contour with a large upper semicircle. At $z = \\iota$ there is a pole of order $2$: $\\operatorname{Res}_{z=\\iota} = \\frac{\\mathrm{d}}{\\mathrm{d}z} (z + \\iota)^{-2} \\Big|_{z = \\iota}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(z) = \\frac{1}{(z^2 + 1)^2} = \\frac{1}{(z - \\iota)^2 (z + \\iota)^2}$ and let $C_R$ be $[-R, R]$ followed by the upper semicircle $\\Gamma_R$ of radius $R > 1$. Only the double pole $z = \\iota$ lies inside.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Residue.</strong>\n    \\[\n        \\operatorname{Res}_{z = \\iota} f = \\frac{\\mathrm{d}}{\\mathrm{d}z}\\left[ (z + \\iota)^{-2} \\right]_{z = \\iota} = -2 (2\\iota)^{-3} = \\frac{-2}{-8\\iota} = \\frac{1}{4\\iota}.\n    \\]\n    So $\\oint_{C_R} f\\, \\mathrm{d}z = 2\\pi\\iota \\cdot \\frac{1}{4\\iota} = \\frac{\\pi}{2}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Arc.</strong> On $\\Gamma_R$, $|z^2 + 1| \\geq R^2 - 1$, so $\\left\\vert \\int_{\\Gamma_R} f \\right\\vert \\leq \\frac{\\pi R}{(R^2 - 1)^2} \\to 0$. Letting $R \\to \\infty$,\n    \\[\n        \\int_{-\\infty}^{\\infty} \\frac{\\mathrm{d}x}{(x^2 + 1)^2} = \\frac{\\pi}{2}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> With $x = \\tan t$: $\\int_{-\\pi/2}^{\\pi/2} \\cos^2 t\\, \\mathrm{d}t = \\frac{\\pi}{2}$.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "residue-theorem"
+      ]
+    },
+    {
+      "date": "2024-11-26",
+      "title": "Evaluate $\\int_0^{\\infty} \\frac{\\mathrm{d}x}{(x^2 + a^2)(x^2 + b^2)}$",
+      "difficulty": "medium",
+      "problem": "Let $a, b > 0$ with $a \\neq b$. Show that\n    \\[\n        \\int_0^{\\infty} \\frac{\\mathrm{d}x}{(x^2 + a^2)(x^2 + b^2)} = \\frac{\\pi}{2ab(a + b)}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The integrand is even, so the integral is half of $\\int_{-\\infty}^{\\infty}$. Close in the upper half-plane; the poles there are $\\iota a$ and $\\iota b$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(z) = \\frac{1}{(z^2 + a^2)(z^2 + b^2)}$. Its poles in the upper half-plane are the simple poles $\\iota a$ and $\\iota b$:\n    \\[\n        \\operatorname{Res}_{z = \\iota a} f = \\frac{1}{2\\iota a (b^2 - a^2)}, \\qquad \\operatorname{Res}_{z = \\iota b} f = \\frac{1}{2\\iota b (a^2 - b^2)}.\n    \\]\n    Their sum is\n    \\[\n        \\frac{1}{2\\iota (b^2 - a^2)} \\left( \\frac{1}{a} - \\frac{1}{b} \\right) = \\frac{1}{2\\iota (b^2 - a^2)} \\cdot \\frac{b - a}{ab} = \\frac{1}{2\\iota\\, ab (a + b)}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Integrating over $[-R, R]$ plus the upper semicircle $\\Gamma_R$, where $|f| \\leq \\frac{1}{(R^2 - a^2)(R^2 - b^2)}$ so that $\\int_{\\Gamma_R} f \\to 0$, we get\n    \\[\n        \\int_{-\\infty}^{\\infty} f(x)\\, \\mathrm{d}x = 2\\pi\\iota \\cdot \\frac{1}{2\\iota\\, ab(a + b)} = \\frac{\\pi}{ab(a + b)}.\n    \\]\n    Since $f$ is even, $\\int_0^\\infty f(x)\\, \\mathrm{d}x = \\frac{\\pi}{2ab(a + b)}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Checks.</strong> Letting $b \\to a$ gives $\\int_0^\\infty \\frac{\\mathrm{d}x}{(x^2 + a^2)^2} = \\frac{\\pi}{4a^3}$ (for $a = 1$ this is half of the previous problem's $\\frac{\\pi}{2}$). Also, by partial fractions $\\frac{1}{(x^2 + a^2)(x^2 + b^2)} = \\frac{1}{b^2 - a^2}\\left( \\frac{1}{x^2 + a^2} - \\frac{1}{x^2 + b^2} \\right)$, whose integral is $\\frac{1}{b^2 - a^2}\\left( \\frac{\\pi}{2a} - \\frac{\\pi}{2b} \\right) = \\frac{\\pi}{2ab(a + b)}$.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "residue-theorem"
+      ]
+    },
+    {
+      "date": "2024-12-03",
+      "title": "Evaluate $\\int_{-\\infty}^{\\infty} \\frac{x \\sin x}{x^2 + 1}\\, \\mathrm{d}x$ using Jordan's lemma",
+      "difficulty": "hard",
+      "problem": "Show that\n    \\[\n        \\int_{-\\infty}^{\\infty} \\frac{x \\sin x}{x^2 + 1}\\, \\mathrm{d}x = \\frac{\\pi}{e}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use $f(z) = \\frac{z e^{\\iota z}}{z^2 + 1}$. Here $\\frac{z}{z^2 + 1}$ decays only like $\\frac{1}{R}$, so the simple $ML$ bound on the semicircle is not enough.</li>\n<li class=\"my-4\">Jordan's inequality: $\\int_0^{\\pi} e^{-R\\sin t}\\, \\mathrm{d}t \\lt \\frac{\\pi}{R}$ (use $\\sin t \\geq \\frac{2t}{\\pi}$ on $[0, \\frac{\\pi}{2}]$).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(z) = \\frac{z e^{\\iota z}}{z^2 + 1}$ and $C_R = [-R, R] \\cup \\Gamma_R$ (upper semicircle), $R > 1$. The only pole inside is $z = \\iota$, with\n    \\[\n        \\operatorname{Res}_{z = \\iota} f = \\frac{\\iota e^{-1}}{2\\iota} = \\frac{1}{2e}, \\qquad \\oint_{C_R} f\\, \\mathrm{d}z = \\frac{\\pi\\iota}{e}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Jordan's lemma.</strong> Since $\\sin t \\geq \\frac{2t}{\\pi}$ on $[0, \\frac{\\pi}{2}]$ and $\\sin$ is symmetric about $\\frac{\\pi}{2}$,\n    \\[\n        \\int_0^{\\pi} e^{-R\\sin t}\\, \\mathrm{d}t = 2\\int_0^{\\pi/2} e^{-R\\sin t}\\, \\mathrm{d}t \\leq 2\\int_0^{\\pi/2} e^{-2Rt/\\pi}\\, \\mathrm{d}t \\lt \\frac{\\pi}{R}.\n    \\]\n    On $\\Gamma_R$, $z = Re^{\\iota t}$, $|e^{\\iota z}| = e^{-R\\sin t}$ and $\\left\\vert \\frac{z}{z^2 + 1} \\right\\vert \\leq \\frac{R}{R^2 - 1}$, so\n    \\[\n        \\left\\vert \\int_{\\Gamma_R} f\\, \\mathrm{d}z \\right\\vert \\leq \\frac{R}{R^2 - 1} \\int_0^{\\pi} e^{-R\\sin t} R\\, \\mathrm{d}t \\lt \\frac{R}{R^2 - 1} \\cdot \\pi \\to 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Conclusion.</strong> Letting $R \\to \\infty$, $\\lim_{R \\to \\infty} \\int_{-R}^{R} \\frac{x e^{\\iota x}}{x^2 + 1}\\, \\mathrm{d}x = \\frac{\\pi\\iota}{e}$. Taking imaginary parts,\n    \\[\n        \\int_{-\\infty}^{\\infty} \\frac{x \\sin x}{x^2 + 1}\\, \\mathrm{d}x = \\frac{\\pi}{e}.\n    \\]\n    (The integral converges as an improper integral by Dirichlet's test, since $\\frac{x}{x^2 + 1}$ decreases to $0$ for $x \\geq 1$; so it equals this symmetric limit. The real part gives $\\lim \\int_{-R}^{R} \\frac{x\\cos x}{x^2 + 1}\\, \\mathrm{d}x = 0$, as expected from oddness.)</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "residue-theorem"
+      ]
+    },
+    {
+      "date": "2024-12-10",
+      "title": "Evaluate $\\int_0^{\\infty} \\frac{\\mathrm{d}x}{1 + x^3}$ with a sector contour",
+      "difficulty": "hard",
+      "problem": "Show that\n    \\[\n        \\int_0^{\\infty} \\frac{\\mathrm{d}x}{1 + x^3} = \\frac{2\\pi}{3\\sqrt{3}}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The integrand is not even, so a semicircle does not help. Use the sector $0 \\leq \\arg z \\leq \\frac{2\\pi}{3}$, $|z| \\leq R$: on the ray $\\arg z = \\frac{2\\pi}{3}$ we have $z^3 = r^3$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(z) = \\frac{1}{1 + z^3}$ and let $C_R$ be the boundary of the sector $\\{ re^{\\iota\\varphi} : 0 \\leq r \\leq R,\\ 0 \\leq \\varphi \\leq \\frac{2\\pi}{3} \\}$: the segment $[0, R]$, the arc $\\Gamma_R$, and the ray back from $Re^{2\\pi\\iota/3}$ to $0$. Let $I = \\int_0^\\infty \\frac{\\mathrm{d}x}{1 + x^3}$ and $\\omega = e^{2\\pi\\iota/3}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The returning ray.</strong> With $z = r\\omega$, $z^3 = r^3$ and $\\mathrm{d}z = \\omega\\, \\mathrm{d}r$, so this piece contributes $-\\omega \\int_0^R \\frac{\\mathrm{d}r}{1 + r^3}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The arc.</strong> $\\left\\vert \\int_{\\Gamma_R} f \\right\\vert \\leq \\frac{2\\pi R/3}{R^3 - 1} \\to 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The residue.</strong> The only zero of $1 + z^3$ inside the sector is $z_0 = e^{\\iota\\pi/3}$, a simple pole with $\\operatorname{Res}_{z_0} f = \\frac{1}{3z_0^2} = \\frac{1}{3\\omega}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Letting $R \\to \\infty$:\n    \\[\n        (1 - \\omega) I = 2\\pi\\iota \\cdot \\frac{1}{3\\omega} \\implies I = \\frac{2\\pi\\iota}{3(\\omega - \\omega^2)}.\n    \\]\n    Now $\\omega^2 = e^{4\\pi\\iota/3} = e^{-2\\pi\\iota/3} = \\overline{\\omega}$, so $\\omega - \\omega^2 = 2\\iota \\sin\\frac{2\\pi}{3} = \\iota\\sqrt{3}$. Therefore\n    \\[\n        I = \\frac{2\\pi\\iota}{3\\iota\\sqrt{3}} = \\frac{2\\pi}{3\\sqrt{3}} \\approx 1.2092.\n    \\]</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "residue-theorem"
+      ]
+    },
+    {
+      "date": "2024-12-17",
+      "title": "A keyhole contour: $\\int_0^{\\infty} \\frac{x^{a-1}}{1 + x}\\, \\mathrm{d}x = \\frac{\\pi}{\\sin \\pi a}$, and $\\int_0^\\infty \\frac{\\mathrm{d}x}{\\sqrt{x}(1 + x)} = \\pi$",
+      "difficulty": "hard",
+      "problem": "Let $0 \\lt a \\lt 1$. Using a keyhole contour, show that\n    \\[\n        \\int_0^{\\infty} \\frac{x^{a-1}}{1 + x}\\, \\mathrm{d}x = \\frac{\\pi}{\\sin \\pi a},\n    \\]\n    and deduce the value of $\\displaystyle \\int_0^{\\infty} \\frac{\\mathrm{d}x}{\\sqrt{x}\\,(1 + x)}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Take $z^{a-1} = e^{(a-1)\\log z}$ with $0 \\lt \\arg z \\lt 2\\pi$. On the lower edge of the cut, $z^{a-1} = x^{a-1} e^{2\\pi\\iota (a-1)}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(z) = \\frac{z^{a-1}}{1 + z}$ with the branch $z^{a-1} = |z|^{a-1} e^{\\iota (a-1)\\arg z}$, $0 \\lt \\arg z \\lt 2\\pi$, analytic off the positive real axis. The keyhole contour consists of: the upper edge of the cut from $\\varepsilon$ to $R$; the circle $|z| = R$ anticlockwise; the lower edge from $R$ back to $\\varepsilon$; and the small circle $|z| = \\varepsilon$ clockwise. The only pole inside is $z = -1 = e^{\\iota\\pi}$, with residue $e^{\\iota\\pi(a-1)}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Circles.</strong> On $|z| = R$: $|f| \\leq \\frac{R^{a-1}}{R - 1}$, so the integral is at most $\\frac{2\\pi R^{a}}{R - 1} \\to 0$ (as $a \\lt 1$). On $|z| = \\varepsilon$: the integral is at most $\\frac{2\\pi \\varepsilon^{a}}{1 - \\varepsilon} \\to 0$ (as $a > 0$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Edges.</strong> On the upper edge $f = \\frac{x^{a-1}}{1 + x}$; on the lower edge $f = \\frac{x^{a-1} e^{2\\pi\\iota (a-1)}}{1 + x}$, traversed in the opposite direction. Letting $\\varepsilon \\to 0$, $R \\to \\infty$, with $I$ the required integral:\n    \\[\n        \\left( 1 - e^{2\\pi\\iota(a-1)} \\right) I = 2\\pi\\iota\\, e^{\\iota\\pi(a-1)}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Dividing by $e^{\\iota\\pi(a-1)}$:\n    \\[\n        I = \\frac{2\\pi\\iota}{e^{-\\iota\\pi(a-1)} - e^{\\iota\\pi(a-1)}} = \\frac{2\\pi\\iota}{-2\\iota \\sin(\\pi(a - 1))} = \\frac{\\pi}{\\sin \\pi a},\n    \\]\n    since $\\sin(\\pi a - \\pi) = -\\sin \\pi a$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$a = \\frac{1}{2}$:</strong> $\\displaystyle \\int_0^{\\infty} \\frac{\\mathrm{d}x}{\\sqrt{x}\\,(1 + x)} = \\frac{\\pi}{\\sin(\\pi/2)} = \\pi$. Check: with $x = t^2$, the integral is $\\int_0^\\infty \\frac{2\\, \\mathrm{d}t}{1 + t^2} = \\pi$.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "residue-theorem",
+        "branch"
+      ]
+    },
+    {
+      "date": "2024-12-24",
+      "title": "$\\sum_{n=1}^{\\infty} \\frac{1}{n^2} = \\frac{\\pi^2}{6}$ by residues of $\\frac{\\pi \\cot \\pi z}{z^2}$",
+      "difficulty": "hard",
+      "problem": "By integrating $f(z) = \\dfrac{\\pi \\cot \\pi z}{z^2}$ around the square $C_N$ with vertices $\\left( N + \\frac{1}{2} \\right)(\\pm 1 \\pm \\iota)$ and letting $N \\to \\infty$, show that\n    \\[\n        \\sum_{n=1}^{\\infty} \\frac{1}{n^2} = \\frac{\\pi^2}{6}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\pi\\cot\\pi z$ has a simple pole with residue $1$ at every integer. Near $0$, $\\pi\\cot\\pi z = \\frac{1}{z} - \\frac{\\pi^2 z}{3} - \\cdots$.</li>\n<li class=\"my-4\">Show that $|\\cot \\pi z|$ is bounded on all the squares $C_N$ by one constant, using $|\\cos\\pi z|^2 = \\cos^2\\pi x + \\sinh^2 \\pi y$ and $|\\sin\\pi z|^2 = \\sin^2\\pi x + \\sinh^2\\pi y$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Residues.</strong> $\\sin\\pi z$ has simple zeros at the integers, so $\\pi\\cot\\pi z = \\pi\\frac{\\cos\\pi z}{\\sin\\pi z}$ has simple poles there with residue $\\frac{\\pi\\cos\\pi n}{\\pi\\cos\\pi n} = 1$. Hence for $n \\neq 0$, $\\operatorname{Res}_{z=n} f = \\frac{1}{n^2}$. At $z = 0$, from $\\pi\\cot\\pi z = \\frac{1}{z} - \\frac{\\pi^2}{3} z - \\cdots$, we get $f(z) = \\frac{1}{z^3} - \\frac{\\pi^2}{3}\\cdot\\frac{1}{z} - \\cdots$, so $\\operatorname{Res}_{z=0} f = -\\frac{\\pi^2}{3}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>A uniform bound for $\\cot$.</strong> For $z = x + \\iota y$,\n    \\[\n        |\\cot\\pi z|^2 = \\frac{\\cos^2\\pi x + \\sinh^2\\pi y}{\\sin^2\\pi x + \\sinh^2\\pi y}.\n    \\]\n    On the vertical sides $x = \\pm\\left( N + \\frac{1}{2} \\right)$, $\\cos\\pi x = 0$ and $\\sin^2\\pi x = 1$, so $|\\cot\\pi z|^2 = \\frac{\\sinh^2\\pi y}{1 + \\sinh^2\\pi y} \\leq 1$. On the horizontal sides $|y| = N + \\frac{1}{2} \\geq \\frac{1}{2}$, so $|\\cot\\pi z|^2 \\leq \\frac{1 + \\sinh^2\\pi y}{\\sinh^2\\pi y} = \\coth^2\\pi y \\leq \\coth^2\\frac{\\pi}{2}$. So $|\\cot\\pi z| \\leq B = \\coth\\frac{\\pi}{2}$ on every $C_N$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The integral tends to $0$.</strong> On $C_N$, $|z| \\geq N + \\frac{1}{2}$, and $C_N$ has length $8\\left( N + \\frac{1}{2} \\right)$, so\n    \\[\n        \\left\\vert \\oint_{C_N} f\\, \\mathrm{d}z \\right\\vert \\leq \\frac{\\pi B}{\\left( N + \\frac{1}{2} \\right)^2} \\cdot 8\\left( N + \\tfrac{1}{2} \\right) \\to 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Conclusion.</strong> The poles inside $C_N$ are $0, \\pm 1, \\ldots, \\pm N$, so by the residue theorem\n    \\[\n        \\frac{1}{2\\pi\\iota}\\oint_{C_N} f\\, \\mathrm{d}z = -\\frac{\\pi^2}{3} + 2\\sum_{n=1}^{N} \\frac{1}{n^2} \\to 0,\n    \\]\n    which gives $\\sum_{n=1}^\\infty \\frac{1}{n^2} = \\frac{\\pi^2}{6}$. The same method with $\\frac{\\pi\\cot\\pi z}{z^{4}}$ gives $\\sum \\frac{1}{n^4} = \\frac{\\pi^4}{90}$.</div>",
+      "tags": [
+        "complex-analysis",
+        "residue-theorem",
+        "infinite-series"
+      ]
+    },
+    {
+      "date": "2024-12-31",
+      "title": "Evaluate $\\oint_{\\vert z \\vert = 2} \\frac{z^9}{z^{10} - 1}\\, \\mathrm{d}z$ and $\\oint_{\\vert z \\vert = 2} \\frac{\\mathrm{d}z}{z^{10} - 1}$ without computing ten residues separately",
+      "difficulty": "medium",
+      "problem": "Evaluate\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\displaystyle \\oint_{|z| = 2} \\frac{z^9}{z^{10} - 1}\\, \\mathrm{d}z$,</li>\n<li class=\"my-4\">$\\displaystyle \\oint_{|z| = 2} \\frac{\\mathrm{d}z}{z^{10} - 1}$,</li></ol>\n    where the circle is positively oriented.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">All ten poles (the tenth roots of unity) lie inside $|z| = 2$. You may instead enlarge the circle to $|z| = R$ (Cauchy's theorem) and let $R \\to \\infty$, or use the residue at infinity.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The poles are the tenth roots of unity $\\omega_k = e^{2\\pi\\iota k/10}$, $k = 0, \\ldots, 9$, all simple and all inside $|z| = 2$. Since there are no other singularities, the integrals over $|z| = 2$ equal those over any circle $|z| = R$ with $R > 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $\\frac{z^9}{z^{10} - 1} = \\frac{1}{10} \\cdot \\frac{(z^{10} - 1)'}{z^{10} - 1}$, so by the argument principle the integral is $\\frac{1}{10} \\cdot 2\\pi\\iota \\cdot 10 = 2\\pi\\iota$. (Equivalently, each residue is $\\frac{\\omega_k^9}{10\\omega_k^9} = \\frac{1}{10}$, and there are ten of them.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Each residue is $\\frac{1}{10\\omega_k^9} = \\frac{\\omega_k}{10}$ (because $\\omega_k^{10} = 1$), and $\\sum_{k=0}^{9} \\omega_k = 0$, so the integral is $0$. Alternatively, on $|z| = R$,\n    \\[\n        \\left\\vert \\oint_{|z| = R} \\frac{\\mathrm{d}z}{z^{10} - 1} \\right\\vert \\leq \\frac{2\\pi R}{R^{10} - 1} \\to 0,\n    \\]\n    and the integral does not depend on $R > 1$, so it is $0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In terms of the residue at infinity: for a rational function, $\\oint_{|z| = R} f\\, \\mathrm{d}z = 2\\pi\\iota\\, c_{-1}$, where $c_{-1}$ is the coefficient of $\\frac{1}{z}$ in the expansion of $f$ for large $|z|$. Here $\\frac{z^9}{z^{10} - 1} = \\frac{1}{z} + \\frac{1}{z^{11}} + \\cdots$ gives $c_{-1} = 1$, and $\\frac{1}{z^{10} - 1} = \\frac{1}{z^{10}} + \\cdots$ gives $c_{-1} = 0$.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "residue-theorem"
+      ]
+    },
+    {
       "date": "2025-01-07",
       "title": "Contour Integration",
       "problem": "The value of the integral\n\\[\n    \\oint_{C} \\frac{z^{100}}{z^{101} + 1} \\mathrm{d} z,\n\\]\nwhere $C$ is the circle of radius $2$ centered at the origin taken in the anti-clockwise direction is\n<ol class=\"math-list-Alpha\">\n  <li class=\"my-2\">$2 \\pi \\iota$ </li>\n  <li class=\"my-2\">$2\\pi$ </li>\n  <li class=\"my-2\">$0$ </li>\n  <li class=\"my-2\">$2\\pi \\iota$ </li>\n</ol>",
@@ -921,6 +1374,43 @@
       ]
     },
     {
+      "date": "2025-04-29",
+      "title": "Solve $z^2 + (2\\iota - 3)z + (5 - \\iota) = 0$",
+      "difficulty": "easy",
+      "problem": "Solve the quadratic equation $z^2 + (2\\iota - 3)z + (5 - \\iota) = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the quadratic formula. To find $\\sqrt{-15 - 8\\iota}$, solve $(a + \\iota b)^2 = -15 - 8\\iota$ using also $a^2 + b^2 = |-15 - 8\\iota| = 17$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The discriminant is $\\Delta = (2\\iota - 3)^2 - 4(5 - \\iota) = (5 - 12\\iota) - (20 - 4\\iota) = -15 - 8\\iota$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Square root of $\\Delta$.</strong> If $(a + \\iota b)^2 = -15 - 8\\iota$, then $a^2 - b^2 = -15$, $2ab = -8$, and $a^2 + b^2 = |\\Delta| = 17$. So $a^2 = 1$, $b^2 = 16$, and $ab \\lt 0$: $\\sqrt{\\Delta} = \\pm(1 - 4\\iota)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Roots.</strong>\n    \\[\n        z = \\frac{(3 - 2\\iota) \\pm (1 - 4\\iota)}{2} = 2 - 3\\iota \\quad \\text{or} \\quad 1 + \\iota.\n    \\]\n    Check: the sum of the roots is $3 - 2\\iota = -(2\\iota - 3)$ and the product is $(2 - 3\\iota)(1 + \\iota) = 2 + 2\\iota - 3\\iota + 3 = 5 - \\iota$, as required by Vieta's formulas.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers"
+      ]
+    },
+    {
+      "date": "2025-05-06",
+      "title": "When does equality hold in the triangle inequality $\\vert z_1 + z_2 \\vert \\leq \\vert z_1 \\vert + \\vert z_2 \\vert$?",
+      "difficulty": "easy",
+      "problem": "Prove that $|z_1 + z_2| = |z_1| + |z_2|$ if and only if one of $z_1, z_2$ is a nonnegative real multiple of the other.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Expand $|z_1 + z_2|^2 = |z_1|^2 + |z_2|^2 + 2\\operatorname{Re}(z_1\\overline{z_2})$ and compare with $(|z_1| + |z_2|)^2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We have $|z_1 + z_2|^2 = |z_1|^2 + |z_2|^2 + 2\\operatorname{Re}(z_1\\overline{z_2})$ and $(|z_1| + |z_2|)^2 = |z_1|^2 + |z_2|^2 + 2|z_1\\overline{z_2}|$. So equality holds iff\n    \\[\n        \\operatorname{Re}(z_1\\overline{z_2}) = |z_1\\overline{z_2}|,\n    \\]\n    i.e. iff $z_1\\overline{z_2}$ is a nonnegative real number $t$ (a complex number whose real part equals its modulus is real and $\\geq 0$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $z_2 = 0$ the condition holds and $z_2 = 0 \\cdot z_1$. If $z_2 \\neq 0$, then $z_1 = \\frac{z_1\\overline{z_2}}{|z_2|^2} z_2 = \\frac{t}{|z_2|^2}z_2$, a nonnegative multiple of $z_2$. Conversely, if $z_1 = s z_2$ with $s \\geq 0$, then $z_1\\overline{z_2} = s|z_2|^2 \\geq 0$. Geometrically: equality holds exactly when the vectors $z_1$ and $z_2$ point in the same direction.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers"
+      ]
+    },
+    {
+      "date": "2025-05-13",
+      "title": "An equilateral triangle criterion: $z_1^2 + z_2^2 + z_3^2 = z_1z_2 + z_2z_3 + z_3z_1$",
+      "difficulty": "medium",
+      "problem": "Show that three distinct complex numbers $z_1, z_2, z_3$ are the vertices of an equilateral triangle if and only if\n    \\[\n        z_1^2 + z_2^2 + z_3^2 = z_1z_2 + z_2z_3 + z_3z_1.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">With $\\omega = e^{2\\pi\\iota/3}$, the triangle $z_1z_2z_3$ is equilateral and positively oriented iff $z_1 + \\omega z_2 + \\omega^2 z_3 = 0$. Multiply $(z_1 + \\omega z_2 + \\omega^2 z_3)(z_1 + \\omega^2 z_2 + \\omega z_3)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\omega = e^{2\\pi\\iota/3}$, so $\\omega^3 = 1$ and $1 + \\omega + \\omega^2 = 0$. Note $e^{\\iota\\pi/3} = -\\omega^2$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Orientation.</strong> The triangle $z_1 z_2 z_3$ is equilateral and counterclockwise iff $z_3 - z_1 = e^{\\iota\\pi/3}(z_2 - z_1) = -\\omega^2(z_2 - z_1)$, i.e. $z_3 = (1 + \\omega^2)z_1 - \\omega^2 z_2 = -\\omega z_1 - \\omega^2 z_2$, i.e. $\\omega z_1 + \\omega^2 z_2 + z_3 = 0$; multiplying by $\\omega^2$, iff\n    \\[\n        z_1 + \\omega z_2 + \\omega^2 z_3 = 0.\n    \\]\n    Similarly it is equilateral and clockwise iff $z_1 + \\omega^2 z_2 + \\omega z_3 = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The identity.</strong> Using $\\omega^3 = 1$ and $\\omega + \\omega^2 = -1$,\n    \\[\n        (z_1 + \\omega z_2 + \\omega^2 z_3)(z_1 + \\omega^2 z_2 + \\omega z_3) = z_1^2 + z_2^2 + z_3^2 - z_1z_2 - z_2z_3 - z_3z_1.\n    \\]\n    So the right side vanishes iff one of the two factors vanishes, i.e. iff the triangle is equilateral (with one of the two orientations).</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers",
+        "roots-of-unity"
+      ]
+    },
+    {
       "date": "2025-05-20",
       "title": "Automorphisms of the Extended Complex Plane are Möbius Transformations",
       "problem": "Let $\\bar{\\mathbb{C}} = \\mathbb{C}  \\cup \\{ \\infty  \\} $ be the extended complex plane. Show that every automorphism of the extended complex plane is a Möbius transformation.",
@@ -952,6 +1442,131 @@
       ]
     },
     {
+      "date": "2025-06-10",
+      "title": "De Moivre: $\\cos 5\\theta = 16\\cos^5\\theta - 20\\cos^3\\theta + 5\\cos\\theta$, and $\\cos\\frac{\\pi}{10}$",
+      "difficulty": "easy",
+      "problem": "Use De Moivre's formula to show that\n    \\[\n        \\cos 5\\theta = 16\\cos^5\\theta - 20\\cos^3\\theta + 5\\cos\\theta,\n    \\]\n    and deduce that $\\cos^2\\frac{\\pi}{10} = \\frac{5 + \\sqrt{5}}{8}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\cos 5\\theta = \\operatorname{Re}(\\cos\\theta + \\iota\\sin\\theta)^5$. Expand with the binomial theorem and replace $\\sin^2\\theta$ by $1 - \\cos^2\\theta$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Write $c = \\cos\\theta$, $s = \\sin\\theta$. By De Moivre, $\\cos 5\\theta + \\iota\\sin 5\\theta = (c + \\iota s)^5$. The real part of the binomial expansion is\n    \\[\n        \\cos 5\\theta = c^5 - 10c^3s^2 + 5cs^4.\n    \\]\n    With $s^2 = 1 - c^2$:\n    \\[\n        c^5 - 10c^3(1 - c^2) + 5c(1 - c^2)^2 = c^5 - 10c^3 + 10c^5 + 5c - 10c^3 + 5c^5 = 16c^5 - 20c^3 + 5c.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\cos\\frac{\\pi}{10}$.</strong> For $\\theta = \\frac{\\pi}{10}$, $\\cos 5\\theta = \\cos\\frac{\\pi}{2} = 0$ and $c \\neq 0$, so $16c^4 - 20c^2 + 5 = 0$, giving\n    \\[\n        c^2 = \\frac{20 \\pm \\sqrt{400 - 320}}{32} = \\frac{5 \\pm \\sqrt{5}}{8}.\n    \\]\n    Since $\\cos\\frac{\\pi}{10} > \\cos\\frac{3\\pi}{10}$ and both values are roots (both $\\theta = \\frac{\\pi}{10}$ and $\\frac{3\\pi}{10}$ satisfy $\\cos 5\\theta = 0$), the larger root belongs to $\\frac{\\pi}{10}$: $\\cos^2\\frac{\\pi}{10} = \\frac{5 + \\sqrt{5}}{8}$.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-numbers"
+      ]
+    },
+    {
+      "date": "2025-06-17",
+      "title": "The zeros of $\\cosh z$ and $\\sinh z$",
+      "difficulty": "easy",
+      "problem": "Using $\\cosh z = \\cos(\\iota z)$ and $\\sinh z = -\\iota\\sin(\\iota z)$, find all zeros of $\\cosh z$ and of $\\sinh z$ in $\\mathbb{C}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">All zeros of $\\sin$ and $\\cos$ are real, because $|\\sin(x + \\iota y)|^2 = \\sin^2 x + \\sinh^2 y$ and $|\\cos(x + \\iota y)|^2 = \\cos^2 x + \\sinh^2 y$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Zeros of $\\sin$ and $\\cos$.</strong> With $w = x + \\iota y$, $|\\sin w|^2 = \\sin^2 x + \\sinh^2 y$, which vanishes iff $\\sinh y = 0$ and $\\sin x = 0$, i.e. $w = k\\pi$. Similarly $|\\cos w|^2 = \\cos^2 x + \\sinh^2 y$ vanishes iff $w = \\frac{\\pi}{2} + k\\pi$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Identities.</strong> $\\cos(\\iota z) = \\frac{e^{-z} + e^{z}}{2} = \\cosh z$ and $\\sin(\\iota z) = \\frac{e^{-z} - e^{z}}{2\\iota} = \\iota\\sinh z$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Zeros.</strong> $\\cosh z = 0 \\iff \\iota z = \\frac{\\pi}{2} + k\\pi \\iff z = \\left( \\frac{\\pi}{2} + k\\pi \\right)\\iota$, $k \\in \\mathbb{Z}$. And $\\sinh z = 0 \\iff \\iota z = k\\pi \\iff z = k\\pi\\iota$. So the zeros lie on the imaginary axis; $\\cosh$ and $\\sinh$ are periodic with period $2\\pi\\iota$.</div>",
+      "tags": [
+        "complex-analysis",
+        "elementary-functions"
+      ]
+    },
+    {
+      "date": "2025-06-24",
+      "title": "When does $\\operatorname{Log}(z_1 z_2) = \\operatorname{Log} z_1 + \\operatorname{Log} z_2$?",
+      "difficulty": "easy",
+      "problem": "Let $\\operatorname{Log} z = \\ln|z| + \\iota\\operatorname{Arg} z$ with $-\\pi \\lt \\operatorname{Arg} z \\leq \\pi$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $\\operatorname{Log}(z_1z_2) = \\operatorname{Log} z_1 + \\operatorname{Log} z_2 + 2k\\pi\\iota$ with $k \\in \\{ -1, 0, 1 \\}$, and $k = 0$ exactly when $-\\pi \\lt \\operatorname{Arg} z_1 + \\operatorname{Arg} z_2 \\leq \\pi$.</li>\n<li class=\"my-4\">Give an example where $\\operatorname{Log}(z_1z_2) \\neq \\operatorname{Log} z_1 + \\operatorname{Log} z_2$, and show that $\\operatorname{Log}(z^2) \\neq 2\\operatorname{Log} z$ for $z = -1$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\ln|z_1z_2| = \\ln|z_1| + \\ln|z_2|$ always; only the arguments can disagree, by a multiple of $2\\pi$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> The real parts always agree: $\\ln|z_1z_2| = \\ln|z_1| + \\ln|z_2|$. The number $\\operatorname{Arg} z_1 + \\operatorname{Arg} z_2$ is an argument of $z_1z_2$, so it differs from $\\operatorname{Arg}(z_1z_2)$ by $2k\\pi$. Since $\\operatorname{Arg} z_1 + \\operatorname{Arg} z_2 \\in (-2\\pi, 2\\pi]$ and $\\operatorname{Arg}(z_1z_2) \\in (-\\pi, \\pi]$, we get $k \\in \\{ -1, 0, 1 \\}$, with $k = 0$ exactly when the sum already lies in $(-\\pi, \\pi]$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Take $z_1 = z_2 = -1$: $\\operatorname{Log}\\left( (-1)(-1) \\right) = \\operatorname{Log} 1 = 0$, while $\\operatorname{Log}(-1) + \\operatorname{Log}(-1) = \\iota\\pi + \\iota\\pi = 2\\pi\\iota$. This is also the example $z = -1$ for $\\operatorname{Log}(z^2) = 0 \\neq 2\\pi\\iota = 2\\operatorname{Log} z$. (Another example: $z_1 = z_2 = e^{3\\pi\\iota/4}$ gives $\\operatorname{Arg}(z_1z_2) = -\\frac{\\pi}{2}$, while the sum of the arguments is $\\frac{3\\pi}{2}$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For the multivalued logarithm, $\\log(z_1z_2) = \\log z_1 + \\log z_2$ does hold as an equality of sets of values.</div>",
+      "tags": [
+        "complex-analysis",
+        "elementary-functions",
+        "branch"
+      ]
+    },
+    {
+      "date": "2025-07-01",
+      "title": "Wirtinger derivatives: $f$ is analytic iff $\\partial f / \\partial \\bar{z} = 0$; $e^{\\bar{z}}$ is differentiable nowhere",
+      "difficulty": "medium",
+      "problem": "For $f = u + \\iota v$ with $u, v$ having continuous partial derivatives, define\n    \\[\n        \\frac{\\partial f}{\\partial \\bar{z}} = \\frac{1}{2}\\left( \\frac{\\partial f}{\\partial x} + \\iota\\frac{\\partial f}{\\partial y} \\right).\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $\\frac{\\partial f}{\\partial \\bar{z}} = 0$ at a point iff the Cauchy-Riemann equations hold there.</li>\n<li class=\"my-4\">Show that $f(z) = e^{\\bar{z}}$ is complex differentiable at no point, and that $|z|^2$ is differentiable only at $0$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Expand $\\frac{1}{2}(u_x + \\iota v_x + \\iota u_y - v_y)$ into real and imaginary parts.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong>\n    \\[\n        \\frac{\\partial f}{\\partial \\bar{z}} = \\frac{1}{2}\\left( u_x + \\iota v_x + \\iota u_y - v_y \\right) = \\frac{1}{2}(u_x - v_y) + \\frac{\\iota}{2}(v_x + u_y).\n    \\]\n    This vanishes iff $u_x = v_y$ and $u_y = -v_x$, the Cauchy-Riemann equations. (With continuous partials, $f$ is then differentiable at that point.) Informally, analytic functions are those that \"do not depend on $\\bar{z}$\".</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $e^{\\bar{z}} = e^{x}(\\cos y - \\iota\\sin y)$, so $u = e^x\\cos y$, $v = -e^x\\sin y$, and\n    \\[\n        u_x - v_y = 2e^x\\cos y, \\qquad u_y + v_x = -2e^x\\sin y.\n    \\]\n    Both vanish only if $\\cos y = \\sin y = 0$, which is impossible. So the Cauchy-Riemann equations hold nowhere and $e^{\\bar{z}}$ is nowhere differentiable. (Formally, $\\frac{\\partial}{\\partial\\bar{z}}e^{\\bar{z}} = e^{\\bar{z}} \\neq 0$.) For $|z|^2 = z\\bar{z}$: $\\frac{\\partial}{\\partial\\bar{z}}(z\\bar{z}) = z$, which vanishes only at $z = 0$; there $|z|^2$ is differentiable with derivative $0$.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "complex-differentiation"
+      ]
+    },
+    {
+      "date": "2025-07-08",
+      "title": "If $f$ is analytic on a domain and $\\operatorname{Re} f = (\\operatorname{Im} f)^2$, then $f$ is constant",
+      "difficulty": "medium",
+      "problem": "Let $f = u + \\iota v$ be analytic on a domain (connected open set) $D$, and suppose $u = v^2$ on $D$. Prove that $f$ is constant.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Differentiate $u = v^2$ and use the Cauchy-Riemann equations to get $v_x(1 + 4v^2) = 0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">From $u = v^2$: $u_x = 2vv_x$ and $u_y = 2vv_y$. The Cauchy-Riemann equations $u_x = v_y$, $u_y = -v_x$ give\n    \\[\n        v_y = 2vv_x, \\qquad -v_x = 2vv_y = 4v^2 v_x.\n    \\]\n    So $v_x(1 + 4v^2) = 0$, and since $1 + 4v^2 > 0$, $v_x = 0$; then $v_y = 2vv_x = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Thus $f' = u_x + \\iota v_x = 2vv_x + \\iota v_x = 0$ throughout $D$. A function with zero derivative on a connected open set is constant. Hence $f$ is constant.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(Geometric view: the image of $f$ lies on the parabola $u = v^2$, which contains no open set, so by the open mapping theorem $f$ must be constant.)</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function"
+      ]
+    },
+    {
+      "date": "2025-07-15",
+      "title": "$\\ln(x^2 + y^2)$ is harmonic on $\\mathbb{C} \\setminus \\{0\\}$ but has no harmonic conjugate there",
+      "difficulty": "medium",
+      "problem": "Let $u(x, y) = \\ln(x^2 + y^2)$ on $\\Omega = \\mathbb{C} \\setminus \\{ 0 \\}$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $u$ is harmonic on $\\Omega$.</li>\n<li class=\"my-4\">Show that $u$ has no harmonic conjugate on $\\Omega$.</li>\n<li class=\"my-4\">Find a harmonic conjugate of $u$ on $\\mathbb{C} \\setminus (-\\infty, 0]$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $v$ were a conjugate, $f = u + \\iota v$ would be analytic on $\\Omega$ with $f' = u_x - \\iota u_y = \\frac{2}{z}$. Integrate $f'$ around the unit circle.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $u_x = \\frac{2x}{x^2 + y^2}$, $u_{xx} = \\frac{2(y^2 - x^2)}{(x^2 + y^2)^2}$, and by symmetry $u_{yy} = \\frac{2(x^2 - y^2)}{(x^2 + y^2)^2}$. So $u_{xx} + u_{yy} = 0$ on $\\Omega$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Suppose $v$ is a harmonic conjugate on $\\Omega$, so $f = u + \\iota v$ is analytic there. Then\n    \\[\n        f'(z) = u_x - \\iota u_y = \\frac{2(x - \\iota y)}{x^2 + y^2} = \\frac{2\\bar{z}}{|z|^2} = \\frac{2}{z}.\n    \\]\n    Since $f$ is a primitive of $f'$ on $\\Omega$, $\\oint_{|z| = 1} f'(z)\\, \\mathrm{d}z = 0$. But $\\oint_{|z| = 1} \\frac{2}{z}\\, \\mathrm{d}z = 4\\pi\\iota \\neq 0$. Contradiction.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> On the slit plane, $2\\operatorname{Log} z = \\ln|z|^2 + 2\\iota\\operatorname{Arg} z$ is analytic, so $v = 2\\operatorname{Arg} z$ is a harmonic conjugate. On $\\Omega$ the \"conjugate\" would have to be $2\\arg z$, which is multivalued: going once around the origin increases it by $4\\pi$. Harmonic conjugates always exist on simply connected domains, but not necessarily on others.</div>",
+      "tags": [
+        "complex-analysis",
+        "harmonic-function"
+      ]
+    },
+    {
+      "date": "2025-07-22",
+      "title": "A bounded harmonic function on $\\mathbb{R}^2$ is constant",
+      "difficulty": "medium",
+      "problem": "Let $u$ be harmonic on all of $\\mathbb{R}^2 = \\mathbb{C}$ and bounded above: $u \\leq M$. Prove that $u$ is constant. (In particular every bounded harmonic function on $\\mathbb{R}^2$ is constant.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$u$ has a harmonic conjugate $v$ on $\\mathbb{C}$, so $f = u + \\iota v$ is entire. Apply Liouville's theorem to $e^{f}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $\\mathbb{C}$ is simply connected, $u$ has a harmonic conjugate $v$, and $f = u + \\iota v$ is entire. Then $g = e^{f}$ is entire and\n    \\[\n        |g| = e^{\\operatorname{Re} f} = e^{u} \\leq e^{M}.\n    \\]\n    By Liouville's theorem, $g$ is constant.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $0 = g' = f'e^{f}$, and as $e^{f} \\neq 0$, $f' = 0$: $f$ is constant, so $u = \\operatorname{Re} f$ is constant. (If instead $u$ is bounded below, apply this to $-u$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Some bound is really needed: $u(x, y) = x$ and $u(x, y) = e^{x}\\cos y$ are nonconstant harmonic functions on $\\mathbb{R}^2$, and both are unbounded above and below.</div>",
+      "tags": [
+        "complex-analysis",
+        "harmonic-function",
+        "liouville-theorem"
+      ]
+    },
+    {
+      "date": "2025-07-29",
+      "title": "The image of the circle $\\vert z - 1 \\vert = 1$ under $w = 1/z$",
+      "difficulty": "easy",
+      "problem": "Find the image of the circle $|z - 1| = 1$ (without the point $z = 0$) under the map $w = \\dfrac{1}{z}$. What is the image of the disc $|z - 1| \\lt 1$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$|z - 1| = 1 \\iff z\\bar{z} = z + \\bar{z}$. Divide by $z\\bar{z}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$|z - 1|^2 = 1 \\iff z\\bar{z} - z - \\bar{z} + 1 = 1 \\iff z\\bar{z} = z + \\bar{z}$. For $z \\neq 0$, divide by $z\\bar{z}$:\n    \\[\n        1 = \\frac{1}{\\bar{z}} + \\frac{1}{z} = \\bar{w} + w = 2\\operatorname{Re} w.\n    \\]\n    So the image is the vertical line $\\operatorname{Re} w = \\frac{1}{2}$. (Every point of the line is attained, since $z = 1/w$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The disc.</strong> Similarly $|z - 1| \\lt 1 \\iff z\\bar{z} \\lt z + \\bar{z} \\iff 1 \\lt 2\\operatorname{Re} w$, so the disc maps onto the half-plane $\\operatorname{Re} w > \\frac{1}{2}$. (Check: $z = 1 \\mapsto w = 1$.) This illustrates that a circle through the pole $z = 0$ of $1/z$ becomes a line.</div>",
+      "tags": [
+        "complex-analysis",
+        "conformal-mapping",
+        "mobius-transformation"
+      ]
+    },
+    {
+      "date": "2025-08-05",
+      "title": "The automorphisms $e^{\\iota\\theta}\\frac{z - a}{1 - \\bar{a}z}$ map the unit disc onto itself",
+      "difficulty": "medium",
+      "problem": "Let $|a| \\lt 1$ and $\\theta \\in \\mathbb{R}$, and let $\\varphi(z) = e^{\\iota\\theta}\\dfrac{z - a}{1 - \\bar{a}z}$. Prove that $\\varphi$ maps the unit disc $\\mathbb{D}$ one-to-one onto itself and the unit circle onto itself, and that $\\varphi(a) = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Prove the identity $|1 - \\bar{a}z|^2 - |z - a|^2 = (1 - |z|^2)(1 - |a|^2)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Key identity.</strong> Expanding,\n    \\[\n        |1 - \\bar{a}z|^2 - |z - a|^2 = 1 + |a|^2|z|^2 - |z|^2 - |a|^2 = (1 - |z|^2)(1 - |a|^2).\n    \\]\n    For $|z| \\leq 1$ the denominator $1 - \\bar{a}z$ is nonzero (since $|\\bar{a}z| \\lt 1$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Disc and circle.</strong> Since $1 - |a|^2 > 0$, the identity shows $|\\varphi(z)| = \\frac{|z - a|}{|1 - \\bar{a}z|} \\lt 1$ iff $|z| \\lt 1$, and $= 1$ iff $|z| = 1$. So $\\varphi(\\mathbb{D}) \\subseteq \\mathbb{D}$ and $\\varphi$ maps the circle into the circle; and $\\varphi(a) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Bijective.</strong> Solving $w = e^{\\iota\\theta}\\frac{z - a}{1 - \\bar{a}z}$ for $z$ gives\n    \\[\n        z = \\frac{e^{-\\iota\\theta}w + a}{1 + \\bar{a}e^{-\\iota\\theta}w} = \\frac{w' + a}{1 + \\bar{a}w'}, \\qquad w' = e^{-\\iota\\theta}w,\n    \\]\n    which is again a map of the same type (with $-a$ in place of $a$, after rotation). By the same argument it maps $\\mathbb{D}$ into $\\mathbb{D}$. So $\\varphi$ is a bijection of $\\mathbb{D}$ onto itself. By Schwarz's lemma, these are in fact <em>all</em> the conformal automorphisms of $\\mathbb{D}$.</div>",
+      "tags": [
+        "complex-analysis",
+        "mobius-transformation",
+        "conformal-mapping"
+      ]
+    },
+    {
+      "date": "2025-08-12",
+      "title": "The cross ratio is real iff the four points lie on a circle or a line",
+      "difficulty": "medium",
+      "problem": "For distinct $z_1, z_2, z_3, z_4 \\in \\mathbb{C}$, the cross ratio is\n    \\[\n        (z_1, z_2, z_3, z_4) = \\frac{(z_1 - z_3)(z_2 - z_4)}{(z_1 - z_4)(z_2 - z_3)}.\n    \\]\n    Prove that $(z_1, z_2, z_3, z_4)$ is real if and only if the four points lie on a circle or on a straight line.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The Möbius map $T(z) = (z, z_2, z_3, z_4)$ sends $z_2, z_3, z_4$ to $1, 0, \\infty$. Möbius maps send circles and lines to circles and lines.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $T(z) = \\frac{(z - z_3)(z_2 - z_4)}{(z - z_4)(z_2 - z_3)}$. This is a Möbius transformation with $T(z_2) = 1$, $T(z_3) = 0$, $T(z_4) = \\infty$, and $T(z_1) = (z_1, z_2, z_3, z_4)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Through three distinct points there is exactly one \"generalised circle\" (circle or line); let $C$ be the one through $z_2, z_3, z_4$. Möbius transformations map generalised circles onto generalised circles, so $T(C)$ is the generalised circle through $1, 0, \\infty$, which is $\\mathbb{R} \\cup \\{ \\infty \\}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $T$ is a bijection of the extended plane, $z_1 \\in C \\iff T(z_1) \\in \\mathbb{R} \\cup \\{ \\infty \\}$. As $z_1 \\neq z_4$, $T(z_1) \\neq \\infty$. Hence $z_1$ lies on $C$ (the four points are concyclic or collinear) iff the cross ratio is real.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Example: $1, \\iota, -1, -\\iota$ lie on the unit circle, and $(1, \\iota, -1, -\\iota) = \\frac{(2)(2\\iota)}{(1 + \\iota)(\\iota + 1)} = \\frac{4\\iota}{2\\iota} = 2$ is real.</div>",
+      "tags": [
+        "complex-analysis",
+        "mobius-transformation"
+      ]
+    },
+    {
       "date": "2025-08-19",
       "title": "Gamelin Solution - Chapter 1 - Identify and Sketch the Set",
       "problem": "Identify and sketch the set of points satisfying:\n<ol class=\"math-list-alpha\">\n  <li class=\"my-4\">\n    $|z - 1 - i| = 1$\n  </li>\n  <li class=\"my-4\">\n    $1 < |2z - 6| < 2$\n  </li>\n  <li class=\"my-4\">\n    $|z - 1|^2 + |z + 1|^2 < 8$\n  </li>\n  <li class=\"my-4\">\n    $|z - 1| + |z + 1| \\leq 2$\n  </li>\n  <li class=\"my-4\">\n    $|z - 1| < |z|$\n  </li>\n</ol>",
@@ -975,6 +1590,251 @@
         "complex-analysis"
       ],
       "sameAs": "2025-08-19"
+    },
+    {
+      "date": "2025-08-26",
+      "title": "The Möbius map $T(z) = \\frac{3z - 4}{z - 1}$: one fixed point, and a formula for $T^n$",
+      "difficulty": "medium",
+      "problem": "Let $T(z) = \\dfrac{3z - 4}{z - 1}$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Find the fixed points of $T$.</li>\n<li class=\"my-4\">Show that $\\dfrac{1}{T(z) - 2} = \\dfrac{1}{z - 2} + 1$, and deduce a formula for the $n$th iterate $T^n$.</li>\n<li class=\"my-4\">Show that $T^n(z) \\to 2$ for every $z$ (with $T^n(z)$ defined).</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A Möbius map with a single (double) fixed point $p$ is conjugate to a translation via $z \\mapsto \\frac{1}{z - p}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $T(z) = z \\iff 3z - 4 = z^2 - z \\iff (z - 2)^2 = 0$. The only fixed point is $z = 2$ (a double fixed point), so $T$ is parabolic. (Also: the normalised matrix $\\begin{bmatrix} 3 & -4 \\\\ 1 & -1 \\end{bmatrix}$ has determinant $1$ and trace $2$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $T(z) - 2 = \\frac{3z - 4 - 2z + 2}{z - 1} = \\frac{z - 2}{z - 1}$, so\n    \\[\n        \\frac{1}{T(z) - 2} = \\frac{z - 1}{z - 2} = 1 + \\frac{1}{z - 2}.\n    \\]\n    So in the coordinate $\\zeta = \\frac{1}{z - 2}$, $T$ is the translation $\\zeta \\mapsto \\zeta + 1$. Iterating, $\\frac{1}{T^n(z) - 2} = \\frac{1}{z - 2} + n$, i.e.\n    \\[\n        T^n(z) = 2 + \\frac{z - 2}{1 + n(z - 2)}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> In the $\\zeta$-coordinate, $\\zeta + n \\to \\infty$, which corresponds to $z \\to 2$. Explicitly, for $z \\neq 2$, $T^n(z) - 2 = \\frac{1}{\\frac{1}{z - 2} + n} \\to 0$. So every orbit converges to the fixed point $2$, but only like $\\frac{1}{n}$ (not geometrically, as near an attracting fixed point of a loxodromic map).</div>",
+      "tags": [
+        "complex-analysis",
+        "mobius-transformation"
+      ]
+    },
+    {
+      "date": "2025-09-02",
+      "title": "A conformal map of the first quadrant onto the unit disc",
+      "difficulty": "medium",
+      "problem": "Find a one-to-one conformal map of the first quadrant $Q = \\{ z : \\operatorname{Re} z > 0,\\ \\operatorname{Im} z > 0 \\}$ onto the unit disc $\\mathbb{D}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">First $z \\mapsto z^2$ (quadrant to upper half-plane), then the Cayley map $\\zeta \\mapsto \\frac{\\zeta - \\iota}{\\zeta + \\iota}$ (upper half-plane to disc).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Step 1.</strong> $\\zeta = z^2$ doubles arguments: $z = re^{\\iota\\varphi}$ with $0 \\lt \\varphi \\lt \\frac{\\pi}{2}$ goes to $r^2e^{2\\iota\\varphi}$ with $0 \\lt 2\\varphi \\lt \\pi$. So $z^2$ maps $Q$ one-to-one onto the upper half-plane $H$ (it is one-to-one on $Q$ because $z^2 = w^2$ implies $z = \\pm w$, and $-w \\notin Q$), and it is conformal since its derivative $2z$ does not vanish on $Q$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Step 2.</strong> $w = \\frac{\\zeta - \\iota}{\\zeta + \\iota}$ maps $H$ onto $\\mathbb{D}$, because $|\\zeta - \\iota| \\lt |\\zeta + \\iota|$ exactly when $\\zeta$ is closer to $\\iota$ than to $-\\iota$, i.e. $\\operatorname{Im}\\zeta > 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Answer.</strong>\n    \\[\n        w = \\frac{z^2 - \\iota}{z^2 + \\iota}.\n    \\]\n    For example $z = e^{\\iota\\pi/4}$ (on the bisector) goes to $w = 0$, and the boundary rays (positive real and positive imaginary axes) go to the unit circle.</div>",
+      "tags": [
+        "complex-analysis",
+        "conformal-mapping",
+        "mobius-transformation"
+      ]
+    },
+    {
+      "date": "2025-09-09",
+      "title": "A conformal map of the upper half-disc onto the upper half-plane",
+      "difficulty": "medium",
+      "problem": "Find a one-to-one conformal map of the half-disc $\\{ z : |z| \\lt 1,\\ \\operatorname{Im} z > 0 \\}$ onto the upper half-plane.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The Möbius map $\\zeta = \\frac{1 + z}{1 - z}$ sends $-1 \\mapsto 0$ and $1 \\mapsto \\infty$; check where the diameter and the semicircle go. Then square.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Step 1.</strong> Let $\\zeta = \\frac{1 + z}{1 - z}$. It sends $-1 \\mapsto 0$, $1 \\mapsto \\infty$, and:\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">the diameter $-1 \\lt x \\lt 1$ to the positive real axis ($\\frac{1 + x}{1 - x} > 0$);</li>\n<li class=\"my-4\">the upper semicircle $z = e^{\\iota t}$, $0 \\lt t \\lt \\pi$, to $\\frac{1 + e^{\\iota t}}{1 - e^{\\iota t}} = \\iota\\cot\\frac{t}{2}$, the positive imaginary axis.</li></ul>\n    The half-disc is bounded by these two arcs, and the test point $z = \\frac{\\iota}{2}$ goes to $\\frac{1 + \\iota/2}{1 - \\iota/2} = \\frac{3 + 4\\iota}{5}$, in the first quadrant. So $\\zeta$ maps the half-disc onto the first quadrant.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Step 2.</strong> $w = \\zeta^2$ maps the first quadrant onto the upper half-plane (as in the previous problem). Hence\n    \\[\n        w = \\left( \\frac{1 + z}{1 - z} \\right)^2\n    \\]\n    maps the upper half-disc conformally onto the upper half-plane.</div>",
+      "tags": [
+        "complex-analysis",
+        "conformal-mapping",
+        "mobius-transformation"
+      ]
+    },
+    {
+      "date": "2025-09-16",
+      "title": "Cauchy-Hadamard: the radius of convergence of $\\sum (2 + (-1)^n)^n z^n$",
+      "difficulty": "easy",
+      "problem": "Find the radius of convergence of $\\displaystyle \\sum_{n=0}^{\\infty} \\left( 2 + (-1)^n \\right)^n z^n$. Why does the ratio test not work here?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$R = 1 / \\limsup |a_n|^{1/n}$ (Cauchy-Hadamard).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Here $|a_n|^{1/n} = 2 + (-1)^n$, which is $3$ for even $n$ and $1$ for odd $n$. Hence $\\limsup |a_n|^{1/n} = 3$, and by the Cauchy-Hadamard formula\n    \\[\n        R = \\frac{1}{3}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Directly: for $|z| \\lt \\frac{1}{3}$, $|a_nz^n| \\leq (3|z|)^n$, a convergent geometric series; for $|z| \\geq \\frac{1}{3}$, the even terms satisfy $|a_{2k}z^{2k}| = (3|z|)^{2k} \\geq 1$, so the terms do not tend to $0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The ratio test fails</strong> because $\\left| \\frac{a_{n+1}}{a_n} \\right|$ alternates between $\\frac{3^{n+1}}{1}$ (for $n$ odd) and $\\frac{1}{3^n}$ (for $n$ even): it has no limit, so the ratio test gives no information. The root test, through the $\\limsup$, always works.</div>",
+      "tags": [
+        "complex-analysis",
+        "infinite-series",
+        "power-series"
+      ]
+    },
+    {
+      "date": "2025-09-23",
+      "title": "Convergence of $\\sum \\frac{z^n}{n}$ on the boundary circle",
+      "difficulty": "medium",
+      "problem": "Determine all $z \\in \\mathbb{C}$ for which $\\displaystyle \\sum_{n=1}^{\\infty} \\frac{z^n}{n}$ converges.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The radius of convergence is $1$. On $|z| = 1$, $z \\neq 1$, use Dirichlet's test: the partial sums of $\\sum z^n$ are bounded and $\\frac{1}{n}$ decreases to $0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Inside and outside.</strong> $\\left| \\frac{a_n}{a_{n+1}} \\right| = \\frac{n + 1}{n} \\to 1$, so $R = 1$: the series converges (absolutely) for $|z| \\lt 1$ and diverges for $|z| > 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>On $|z| = 1$.</strong> At $z = 1$ it is the harmonic series, which diverges. For $|z| = 1$, $z \\neq 1$:\n    \\[\n        \\left| \\sum_{k=1}^{N} z^k \\right| = \\left| \\frac{z(1 - z^N)}{1 - z} \\right| \\leq \\frac{2}{|1 - z|}\n    \\]\n    is bounded independently of $N$, and $\\frac{1}{n}$ decreases to $0$. By Dirichlet's test (summation by parts), $\\sum \\frac{z^n}{n}$ converges, though not absolutely (since $\\sum \\frac{1}{n} = \\infty$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the series converges exactly on $\\{ |z| \\leq 1 \\} \\setminus \\{ 1 \\}$. Its sum is $-\\operatorname{Log}(1 - z)$ there (by Abel's theorem on the circle); for example $z = -1$ gives $\\sum \\frac{(-1)^n}{n} = -\\ln 2$.</div>",
+      "tags": [
+        "complex-analysis",
+        "infinite-series",
+        "power-series"
+      ]
+    },
+    {
+      "date": "2025-09-30",
+      "title": "The Riemann zeta function $\\zeta(s) = \\sum n^{-s}$ is analytic on $\\operatorname{Re} s > 1$",
+      "difficulty": "medium",
+      "problem": "Let $n^{-s} = e^{-s\\ln n}$. Prove that $\\zeta(s) = \\displaystyle \\sum_{n=1}^{\\infty} n^{-s}$ converges uniformly on each half-plane $\\operatorname{Re} s \\geq \\sigma_0$ with $\\sigma_0 > 1$, and that $\\zeta$ is analytic on $\\operatorname{Re} s > 1$ with $\\zeta'(s) = -\\sum_{n \\geq 2} (\\ln n)\\, n^{-s}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$|n^{-s}| = n^{-\\operatorname{Re} s}$. Use the Weierstrass M-test and the theorem that a uniform limit of analytic functions is analytic.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Each term $n^{-s} = e^{-s\\ln n}$ is entire, and $|n^{-s}| = e^{-\\operatorname{Re}(s)\\ln n} = n^{-\\operatorname{Re} s}$. On $\\operatorname{Re} s \\geq \\sigma_0 > 1$,\n    \\[\n        |n^{-s}| \\leq n^{-\\sigma_0}, \\qquad \\sum_{n=1}^\\infty n^{-\\sigma_0} \\lt \\infty.\n    \\]\n    By the Weierstrass M-test the series converges absolutely and uniformly on this half-plane.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Weierstrass's theorem (a locally uniform limit of analytic functions is analytic, and may be differentiated term by term; proved with Morera's theorem and Cauchy's integral formula), $\\zeta$ is analytic on $\\operatorname{Re} s > \\sigma_0$, and\n    \\[\n        \\zeta'(s) = \\sum_{n=1}^\\infty \\frac{\\mathrm{d}}{\\mathrm{d}s}e^{-s\\ln n} = -\\sum_{n=2}^\\infty (\\ln n)\\, n^{-s}.\n    \\]\n    Every point with $\\operatorname{Re} s > 1$ lies in such a half-plane (take $\\sigma_0$ between $1$ and $\\operatorname{Re} s$), so $\\zeta$ is analytic on $\\operatorname{Re} s > 1$. (The convergence is not uniform on all of $\\operatorname{Re} s > 1$: near $s = 1$, $\\zeta(s) \\to \\infty$.)</div>",
+      "tags": [
+        "complex-analysis",
+        "infinite-series",
+        "analytic-function"
+      ]
+    },
+    {
+      "date": "2025-10-07",
+      "title": "Maximum of $\\vert z^2 + 3z - 1 \\vert$ on the closed unit disc",
+      "difficulty": "easy",
+      "problem": "Find the maximum value of $|z^2 + 3z - 1|$ on the closed disc $|z| \\leq 1$, and the points where it is attained.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">By the maximum modulus principle the maximum is on $|z| = 1$. With $z = e^{\\iota\\theta}$, factor out $e^{\\iota\\theta}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By the maximum modulus principle, the maximum over $|z| \\leq 1$ of the modulus of the (nonconstant) polynomial is attained on the circle $|z| = 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $z = e^{\\iota\\theta}$,\n    \\[\n        |z^2 + 3z - 1| = |e^{\\iota\\theta}| \\cdot \\left| e^{\\iota\\theta} + 3 - e^{-\\iota\\theta} \\right| = |3 + 2\\iota\\sin\\theta| = \\sqrt{9 + 4\\sin^2\\theta}.\n    \\]\n    This is largest when $\\sin\\theta = \\pm 1$, i.e. $z = \\pm\\iota$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence the maximum is $\\sqrt{13}$, attained exactly at $z = \\iota$ and $z = -\\iota$. (Check: $\\iota^2 + 3\\iota - 1 = -2 + 3\\iota$, of modulus $\\sqrt{13}$.)</div>",
+      "tags": [
+        "complex-analysis",
+        "maximum-modulus-principle"
+      ]
+    },
+    {
+      "date": "2025-10-14",
+      "title": "The residue of $\\frac{e^{1/z}}{1 - z}$ at $z = 0$ is $e - 1$",
+      "difficulty": "medium",
+      "problem": "Find the residue of $f(z) = \\dfrac{e^{1/z}}{1 - z}$ at its essential singularity $z = 0$. Hence evaluate $\\displaystyle \\oint_{|z| = 1/2} f(z)\\, \\mathrm{d}z$ and $\\displaystyle \\oint_{|z| = 2} f(z)\\, \\mathrm{d}z$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Multiply the Laurent series $e^{1/z} = \\sum_{k \\geq 0} \\frac{z^{-k}}{k!}$ and $\\frac{1}{1 - z} = \\sum_{m \\geq 0} z^m$ (valid for $0 \\lt |z| \\lt 1$) and collect the coefficient of $z^{-1}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $0 \\lt |z| \\lt 1$ both series converge absolutely, so their product can be rearranged:\n    \\[\n        f(z) = \\sum_{k \\geq 0}\\sum_{m \\geq 0} \\frac{z^{m - k}}{k!}.\n    \\]\n    The coefficient of $z^{-1}$ comes from $k = m + 1$:\n    \\[\n        \\operatorname{Res}_{z=0} f = \\sum_{m=0}^{\\infty} \\frac{1}{(m + 1)!} = e - 1.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Integrals.</strong> Inside $|z| = \\frac{1}{2}$ the only singularity is $0$, so $\\oint_{|z| = 1/2} f\\, \\mathrm{d}z = 2\\pi\\iota(e - 1)$. Inside $|z| = 2$ there is also the simple pole $z = 1$, with $\\operatorname{Res}_{z=1} f = \\frac{e^{1}}{-1} = -e$. So\n    \\[\n        \\oint_{|z| = 2} f\\, \\mathrm{d}z = 2\\pi\\iota(e - 1 - e) = -2\\pi\\iota.\n    \\]\n    Check: for large $|z|$, $f(z) = -\\frac{1}{z}\\left( 1 + \\frac{1}{z} + \\cdots \\right)\\left( 1 + \\frac{1}{z} + \\cdots \\right)$, whose $\\frac{1}{z}$-coefficient is $-1$.</div>",
+      "tags": [
+        "complex-analysis",
+        "residue-theorem",
+        "laurent-series",
+        "singularity"
+      ]
+    },
+    {
+      "date": "2025-10-21",
+      "title": "Residues at essential singularities: $z^2\\sin\\frac{1}{z}$ and $e^{z + 1/z}$",
+      "difficulty": "medium",
+      "problem": "Find the residue at $z = 0$ of\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$z^2 \\sin\\dfrac{1}{z}$,</li>\n<li class=\"my-4\">$e^{z + 1/z}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use Laurent series; at an essential singularity there is no shortcut formula for the residue.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> For $z \\neq 0$,\n    \\[\n        z^2\\sin\\frac{1}{z} = z^2\\left( \\frac{1}{z} - \\frac{1}{3!\\,z^3} + \\frac{1}{5!\\,z^5} - \\cdots \\right) = z - \\frac{1}{6z} + \\frac{1}{120z^3} - \\cdots.\n    \\]\n    So $\\operatorname{Res}_{z=0} = -\\frac{1}{6}$, and $\\oint_{|z|=1} z^2\\sin\\frac{1}{z}\\, \\mathrm{d}z = -\\frac{\\pi\\iota}{3}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $e^{z + 1/z} = e^{z}e^{1/z} = \\sum_{m \\geq 0}\\frac{z^m}{m!}\\sum_{k \\geq 0}\\frac{z^{-k}}{k!}$. The coefficient of $z^{-1}$ comes from $k = m + 1$:\n    \\[\n        \\operatorname{Res}_{z=0} e^{z + 1/z} = \\sum_{m=0}^{\\infty} \\frac{1}{m!\\,(m + 1)!} \\approx 1.5906.\n    \\]\n    (This is the value $I_1(2)$ of a modified Bessel function: the Laurent coefficients of $e^{\\frac{t}{2}(z + 1/z)}$ are the Bessel functions $I_n(t)$.)</div>",
+      "tags": [
+        "complex-analysis",
+        "residue-theorem",
+        "laurent-series",
+        "singularity"
+      ]
+    },
+    {
+      "date": "2025-10-28",
+      "title": "$\\oint \\frac{e^z}{z^{n+1}}\\, \\mathrm{d}z$ and $\\int_0^{2\\pi} e^{\\cos\\theta}\\cos(\\sin\\theta - n\\theta)\\, \\mathrm{d}\\theta = \\frac{2\\pi}{n!}$",
+      "difficulty": "medium",
+      "problem": "Let $n \\geq 0$ be an integer.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $\\displaystyle \\oint_{|z| = 1} \\frac{e^{z}}{z^{n+1}}\\, \\mathrm{d}z = \\frac{2\\pi\\iota}{n!}$.</li>\n<li class=\"my-4\">Deduce that $\\displaystyle \\int_0^{2\\pi} e^{\\cos\\theta}\\cos(\\sin\\theta - n\\theta)\\, \\mathrm{d}\\theta = \\frac{2\\pi}{n!}$ and $\\displaystyle \\int_0^{2\\pi} e^{\\cos\\theta}\\sin(\\sin\\theta - n\\theta)\\, \\mathrm{d}\\theta = 0$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">(a) is Cauchy's formula for the $n$th derivative, or the coefficient of $z^{-1}$ in $\\sum \\frac{z^{k - n - 1}}{k!}$. For (b), parametrise $z = e^{\\iota\\theta}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> By Cauchy's integral formula for derivatives, $\\oint_{|z|=1}\\frac{e^z}{z^{n+1}}\\, \\mathrm{d}z = \\frac{2\\pi\\iota}{n!}\\left. \\frac{\\mathrm{d}^n}{\\mathrm{d}z^n}e^z \\right|_{z=0} = \\frac{2\\pi\\iota}{n!}$. (Equivalently, the residue at $0$ is the coefficient $\\frac{1}{n!}$ of $z^n$ in $e^z$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> With $z = e^{\\iota\\theta}$, $\\mathrm{d}z = \\iota e^{\\iota\\theta}\\, \\mathrm{d}\\theta$ and $e^{z} = e^{\\cos\\theta}e^{\\iota\\sin\\theta}$:\n    \\[\n        \\oint_{|z|=1}\\frac{e^z}{z^{n+1}}\\, \\mathrm{d}z = \\iota\\int_0^{2\\pi} e^{\\cos\\theta}e^{\\iota(\\sin\\theta - n\\theta)}\\, \\mathrm{d}\\theta.\n    \\]\n    Equating with $\\frac{2\\pi\\iota}{n!}$ and dividing by $\\iota$:\n    \\[\n        \\int_0^{2\\pi} e^{\\cos\\theta}\\left[ \\cos(\\sin\\theta - n\\theta) + \\iota\\sin(\\sin\\theta - n\\theta) \\right] \\mathrm{d}\\theta = \\frac{2\\pi}{n!}.\n    \\]\n    Comparing real and imaginary parts gives both formulas. For $n = 0$: $\\int_0^{2\\pi} e^{\\cos\\theta}\\cos(\\sin\\theta)\\, \\mathrm{d}\\theta = 2\\pi$, the mean value property for $e^z$ at $0$.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "cauchy-integral-formula"
+      ]
+    },
+    {
+      "date": "2025-11-04",
+      "title": "Reflection: an entire function that is real on the real axis satisfies $f(\\bar{z}) = \\overline{f(z)}$",
+      "difficulty": "medium",
+      "problem": "Let $f$ be entire and suppose $f(x) \\in \\mathbb{R}$ for every real $x$. Prove that $f(\\bar{z}) = \\overline{f(z)}$ for all $z \\in \\mathbb{C}$. Deduce that the nonreal zeros of $f$ occur in conjugate pairs.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The Taylor coefficients $a_n = \\frac{f^{(n)}(0)}{n!}$ can be computed using real increments only, so they are real.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $f$ is entire, $f(z) = \\sum_{n \\geq 0} a_n z^n$ for all $z$, with $a_n = \\frac{f^{(n)}(0)}{n!}$. The derivative of an analytic function can be computed as a limit along the real axis: $f'(x) = \\lim_{h \\to 0,\\ h \\in \\mathbb{R}} \\frac{f(x + h) - f(x)}{h}$. If $f$ is real on $\\mathbb{R}$, these real difference quotients are real, so $f'$ is real on $\\mathbb{R}$; by induction every $f^{(n)}$ is real on $\\mathbb{R}$. Hence all $a_n$ are real.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore\n    \\[\n        f(\\bar{z}) = \\sum a_n \\bar{z}^n = \\sum \\overline{a_n z^n} = \\overline{\\sum a_n z^n} = \\overline{f(z)}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Zeros.</strong> If $f(z_0) = 0$, then $f(\\overline{z_0}) = \\overline{f(z_0)} = 0$. So nonreal zeros come in conjugate pairs; for polynomials with real coefficients this is the familiar fact. (This is the simplest case of the Schwarz reflection principle.)</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "power-series"
+      ]
+    },
+    {
+      "date": "2025-11-11",
+      "title": "Riemann's theorem on removable singularities",
+      "difficulty": "medium",
+      "problem": "Let $f$ be analytic on the punctured disc $0 \\lt |z - z_0| \\lt r$ and bounded there. Prove that $z_0$ is a removable singularity: $f$ extends to an analytic function on $|z - z_0| \\lt r$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Consider $h(z) = (z - z_0)^2 f(z)$, $h(z_0) = 0$. Show $h$ is complex differentiable at $z_0$ with $h'(z_0) = 0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $|f| \\leq M$ and define $h(z) = (z - z_0)^2 f(z)$ for $z \\neq z_0$, $h(z_0) = 0$. Then $h$ is analytic on the punctured disc, and at $z_0$\n    \\[\n        \\left| \\frac{h(z) - h(z_0)}{z - z_0} \\right| = |z - z_0|\\,|f(z)| \\leq M|z - z_0| \\to 0,\n    \\]\n    so $h'(z_0) = 0$. Thus $h$ is analytic on the whole disc, with $h(z_0) = h'(z_0) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Its Taylor series therefore starts at the quadratic term: $h(z) = \\sum_{n \\geq 2} c_n(z - z_0)^n$ on $|z - z_0| \\lt r$. For $z \\neq z_0$,\n    \\[\n        f(z) = \\frac{h(z)}{(z - z_0)^2} = \\sum_{n \\geq 2} c_n (z - z_0)^{n - 2},\n    \\]\n    and this power series defines an analytic function on the whole disc. Setting $f(z_0) = c_2$ extends $f$ analytically.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The same proof works under the weaker hypothesis $\\lim_{z \\to z_0}(z - z_0)f(z) = 0$. Example: $\\frac{\\sin z}{z}$ is bounded near $0$, so $0$ is removable.</div>",
+      "tags": [
+        "complex-analysis",
+        "singularity",
+        "analytic-function"
+      ]
+    },
+    {
+      "date": "2025-11-18",
+      "title": "The Casorati-Weierstrass theorem",
+      "difficulty": "hard",
+      "problem": "Let $f$ have an essential singularity at $z_0$. Prove that for every $\\delta > 0$, the image $f(\\{ z : 0 \\lt |z - z_0| \\lt \\delta \\})$ is dense in $\\mathbb{C}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If some disc $|w - w_0| \\lt \\varepsilon$ is missed, consider $g(z) = \\frac{1}{f(z) - w_0}$, which is bounded. Use Riemann's removable singularity theorem.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Suppose not: there are $\\delta > 0$, $w_0 \\in \\mathbb{C}$ and $\\varepsilon > 0$ such that $|f(z) - w_0| \\geq \\varepsilon$ for all $0 \\lt |z - z_0| \\lt \\delta$. Then\n    \\[\n        g(z) = \\frac{1}{f(z) - w_0}\n    \\]\n    is analytic on the punctured disc and $|g| \\leq \\frac{1}{\\varepsilon}$. By Riemann's theorem, $g$ extends analytically to $z_0$. Also $g \\not\\equiv 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now $f(z) = w_0 + \\frac{1}{g(z)}$ near $z_0$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $g(z_0) \\neq 0$, then $f$ extends analytically to $z_0$: the singularity is removable.</li>\n<li class=\"my-4\">If $g$ has a zero of order $m \\geq 1$ at $z_0$, then $\\frac{1}{g}$, and hence $f$, has a pole of order $m$ at $z_0$.</li></ul>\n    Either way $z_0$ is not an essential singularity, a contradiction. Hence the image of every punctured neighbourhood is dense.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For $e^{1/z}$ at $0$, Picard's great theorem gives more: every value except $0$ is taken infinitely often.</div>",
+      "tags": [
+        "complex-analysis",
+        "singularity"
+      ]
+    },
+    {
+      "date": "2025-11-25",
+      "title": "An entire function with a pole at $\\infty$ is a polynomial",
+      "difficulty": "medium",
+      "problem": "Let $f$ be entire, and suppose $g(w) = f(1/w)$ has a pole (of order $m$) at $w = 0$; that is, $f$ has a pole at $\\infty$. Prove that $f$ is a polynomial of degree $m$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $f(z) = \\sum_{n \\geq 0} a_nz^n$. Then $g(w) = \\sum a_nw^{-n}$ is the Laurent series of $g$ about $0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $f$ is entire, $f(z) = \\sum_{n=0}^{\\infty} a_n z^n$ for all $z$. Hence for $w \\neq 0$,\n    \\[\n        g(w) = f\\left( \\frac{1}{w} \\right) = \\sum_{n=0}^{\\infty} a_n w^{-n},\n    \\]\n    and by uniqueness this is the Laurent series of $g$ on $0 \\lt |w| \\lt \\infty$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">A pole of order $m$ at $w = 0$ means that the Laurent series has only finitely many negative powers, the lowest being $w^{-m}$ with nonzero coefficient. So $a_n = 0$ for $n > m$ and $a_m \\neq 0$, i.e.\n    \\[\n        f(z) = a_0 + a_1z + \\cdots + a_mz^m,\n    \\]\n    a polynomial of degree $m$. Conversely a polynomial of degree $m \\geq 1$ has a pole of order $m$ at $\\infty$. (If $g$ had a removable singularity at $0$, $f$ would be bounded, hence constant by Liouville.)</div>",
+      "tags": [
+        "complex-analysis",
+        "singularity",
+        "analytic-function"
+      ]
+    },
+    {
+      "date": "2025-12-02",
+      "title": "The only one-to-one entire functions are $az + b$",
+      "difficulty": "hard",
+      "problem": "Prove that if $f$ is entire and one-to-one, then $f(z) = az + b$ with $a \\neq 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Look at the singularity of $f(1/w)$ at $w = 0$. Removable: Liouville. Essential: Casorati-Weierstrass contradicts injectivity together with the open mapping theorem. So it is a pole: $f$ is a polynomial. A polynomial of degree $\\geq 2$ is not injective.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Consider $g(w) = f(1/w)$ near $w = 0$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\"><em>Removable</em>: then $f$ is bounded for $|z| > 1$ and on $|z| \\leq 1$, so constant by Liouville, not injective.</li>\n<li class=\"my-4\"><em>Essential</em>: by Casorati-Weierstrass, $f(\\{ |z| > 1 \\})$ is dense in $\\mathbb{C}$. But $U = f(\\{ |z| \\lt 1 \\})$ is a nonempty open set (open mapping theorem), so it meets $f(\\{ |z| > 1 \\})$: some $f(z_1) = f(z_2)$ with $|z_1| \\lt 1 \\lt |z_2|$, contradicting injectivity.</li></ul>\n    So $g$ has a pole at $0$, and $f$ is a polynomial (previous problem), say of degree $n \\geq 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Degree $1$.</strong> Suppose $n \\geq 2$. For each $c$, $f(z) = c$ has $n$ roots counted with multiplicity; injectivity forces a single root $z_c$ of multiplicity $n$, so $f'(z_c) = 0$. Different $c$ give different $z_c$, so $f'$ (a nonzero polynomial of degree $n - 1$) would have infinitely many zeros, which is impossible. Hence $n = 1$ and $f(z) = az + b$ with $a \\neq 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Consequently the conformal automorphisms of $\\mathbb{C}$ are exactly the maps $z \\mapsto az + b$, $a \\neq 0$.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function",
+        "singularity"
+      ]
+    },
+    {
+      "date": "2025-12-09",
+      "title": "The Gauss-Lucas theorem: the zeros of $p'$ lie in the convex hull of the zeros of $p$",
+      "difficulty": "hard",
+      "problem": "Let $p$ be a nonconstant complex polynomial. Prove that every zero of $p'$ lies in the convex hull of the zeros of $p$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $p(z) = c\\prod_k (z - z_k)$, so $\\frac{p'(z)}{p(z)} = \\sum_k \\frac{1}{z - z_k}$. At a zero $w$ of $p'$ that is not a zero of $p$, take complex conjugates.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Write $p(z) = c\\prod_{k=1}^{n}(z - z_k)$ (zeros repeated according to multiplicity). Then for $p(z) \\neq 0$,\n    \\[\n        \\frac{p'(z)}{p(z)} = \\sum_{k=1}^{n} \\frac{1}{z - z_k}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $p'(w) = 0$. If $p(w) = 0$, then $w$ is one of the $z_k$ and certainly in the convex hull. Otherwise\n    \\[\n        0 = \\sum_{k} \\frac{1}{w - z_k} = \\sum_k \\frac{\\overline{w} - \\overline{z_k}}{|w - z_k|^2}.\n    \\]\n    Taking complex conjugates, $\\sum_k \\lambda_k (w - z_k) = 0$ with $\\lambda_k = \\frac{1}{|w - z_k|^2} > 0$. Hence\n    \\[\n        w = \\frac{\\sum_k \\lambda_k z_k}{\\sum_k \\lambda_k},\n    \\]\n    a convex combination of the $z_k$ with positive weights. So $w$ lies in the convex hull of the zeros of $p$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For real polynomials with only real zeros this recovers a consequence of Rolle's theorem: the zeros of $p'$ lie between the smallest and largest zeros of $p$.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-function"
+      ]
+    },
+    {
+      "date": "2025-12-16",
+      "title": "$\\int_0^{2\\pi} \\ln\\vert 1 - re^{\\iota\\theta} \\vert\\, \\mathrm{d}\\theta = 0$ for $0 \\leq r \\lt 1$",
+      "difficulty": "medium",
+      "problem": "Show that\n    \\[\n        \\int_0^{2\\pi} \\ln\\left| 1 - re^{\\iota\\theta} \\right| \\mathrm{d}\\theta = \\begin{cases} 0, & 0 \\leq r \\lt 1, \\\\ 2\\pi\\ln r, & r > 1. \\end{cases}\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For $r \\lt 1$, $u(z) = \\ln|1 - rz| = \\operatorname{Re}\\operatorname{Log}(1 - rz)$ is harmonic on a disc containing $|z| \\leq 1$; use the mean value property. For $r > 1$ factor out $re^{\\iota\\theta}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$0 \\leq r \\lt 1$.</strong> For $|z| \\lt \\frac{1}{r}$, $\\operatorname{Re}(1 - rz) > 0$, so $\\operatorname{Log}(1 - rz)$ is analytic there and $u(z) = \\ln|1 - rz| = \\operatorname{Re}\\operatorname{Log}(1 - rz)$ is harmonic on a disc containing $|z| \\leq 1$. By the mean value property,\n    \\[\n        \\frac{1}{2\\pi}\\int_0^{2\\pi} u(e^{\\iota\\theta})\\, \\mathrm{d}\\theta = u(0) = \\ln 1 = 0.\n    \\]\n    (Alternatively, $\\operatorname{Log}(1 - re^{\\iota\\theta}) = -\\sum_{n \\geq 1}\\frac{r^ne^{\\iota n\\theta}}{n}$ converges uniformly, and each term integrates to $0$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$r > 1$.</strong> $|1 - re^{\\iota\\theta}| = r\\left| 1 - r^{-1}e^{-\\iota\\theta} \\right|$. Hence\n    \\[\n        \\int_0^{2\\pi} \\ln|1 - re^{\\iota\\theta}|\\, \\mathrm{d}\\theta = 2\\pi\\ln r + \\int_0^{2\\pi}\\ln\\left| 1 - r^{-1}e^{-\\iota\\theta} \\right| \\mathrm{d}\\theta = 2\\pi\\ln r,\n    \\]\n    the last integral being $0$ by the first case (substitute $\\theta \\mapsto -\\theta$). (For $r = 1$ the integral is also $0$, as an improper integral.) This is a special case of Jensen's formula.</div>",
+      "tags": [
+        "complex-analysis",
+        "harmonic-function",
+        "complex-integration"
+      ]
+    },
+    {
+      "date": "2025-12-23",
+      "title": "The Fresnel integrals: $\\int_0^\\infty \\cos x^2\\, \\mathrm{d}x = \\int_0^\\infty \\sin x^2\\, \\mathrm{d}x = \\sqrt{\\pi/8}$",
+      "difficulty": "hard",
+      "problem": "Using the function $e^{\\iota z^2}$ and the sector $0 \\leq \\arg z \\leq \\frac{\\pi}{4}$, $|z| \\leq R$, show that\n    \\[\n        \\int_0^{\\infty} \\cos(x^2)\\, \\mathrm{d}x = \\int_0^{\\infty} \\sin(x^2)\\, \\mathrm{d}x = \\frac{1}{2}\\sqrt{\\frac{\\pi}{2}}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">On the ray $z = re^{\\iota\\pi/4}$, $\\iota z^2 = -r^2$. On the arc, $|e^{\\iota z^2}| = e^{-R^2\\sin 2\\varphi}$; use $\\sin 2\\varphi \\geq \\frac{4\\varphi}{\\pi}$ on $[0, \\frac{\\pi}{4}]$. Recall $\\int_0^\\infty e^{-r^2}\\, \\mathrm{d}r = \\frac{\\sqrt{\\pi}}{2}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$f(z) = e^{\\iota z^2}$ is entire, so its integral over the boundary of the sector is $0$ (Cauchy). The boundary consists of $[0, R]$, the arc $\\Gamma_R: z = Re^{\\iota\\varphi}$, $0 \\leq \\varphi \\leq \\frac{\\pi}{4}$, and the ray back from $Re^{\\iota\\pi/4}$ to $0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Ray.</strong> With $z = re^{\\iota\\pi/4}$: $z^2 = \\iota r^2$, $e^{\\iota z^2} = e^{-r^2}$, so this piece is $-e^{\\iota\\pi/4}\\int_0^R e^{-r^2}\\, \\mathrm{d}r \\to -e^{\\iota\\pi/4}\\frac{\\sqrt{\\pi}}{2}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Arc.</strong> $|e^{\\iota z^2}| = e^{-R^2\\sin 2\\varphi} \\leq e^{-4R^2\\varphi/\\pi}$, so\n    \\[\n        \\left| \\int_{\\Gamma_R} f\\, \\mathrm{d}z \\right| \\leq \\int_0^{\\pi/4} e^{-4R^2\\varphi/\\pi} R\\, \\mathrm{d}\\varphi \\lt R \\cdot \\frac{\\pi}{4R^2} = \\frac{\\pi}{4R} \\to 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Conclusion.</strong> Letting $R \\to \\infty$:\n    \\[\n        \\int_0^\\infty e^{\\iota x^2}\\, \\mathrm{d}x = e^{\\iota\\pi/4}\\frac{\\sqrt{\\pi}}{2} = \\frac{\\sqrt{\\pi}}{2\\sqrt{2}}(1 + \\iota).\n    \\]\n    Taking real and imaginary parts gives both integrals equal to $\\frac{\\sqrt{\\pi}}{2\\sqrt{2}} = \\frac{1}{2}\\sqrt{\\frac{\\pi}{2}} \\approx 0.6267$. (The integrals converge as improper integrals: substituting $t = x^2$ gives $\\int \\frac{\\cos t}{2\\sqrt{t}}\\, \\mathrm{d}t$, convergent by Dirichlet's test.)</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration"
+      ]
+    },
+    {
+      "date": "2025-12-30",
+      "title": "An integral with a logarithm: $\\int_0^\\infty \\frac{\\ln x}{(1 + x^2)^2}\\, \\mathrm{d}x = -\\frac{\\pi}{4}$",
+      "difficulty": "hard",
+      "problem": "Use a suitable branch of $\\log z$ and an indented semicircular contour to show that\n    \\[\n        \\int_0^{\\infty} \\frac{\\ln x}{(1 + x^2)^2}\\, \\mathrm{d}x = -\\frac{\\pi}{4}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Take $f(z) = \\frac{\\log z}{(z^2 + 1)^2}$ with $-\\frac{\\pi}{2} \\lt \\arg z \\lt \\frac{3\\pi}{2}$. On the negative real axis, $\\log z = \\ln|x| + \\iota\\pi$. The only pole in the upper half-plane is the double pole $z = \\iota$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(z) = \\frac{\\log z}{(z^2 + 1)^2}$ with the branch $\\log z = \\ln|z| + \\iota\\arg z$, $-\\frac{\\pi}{2} \\lt \\arg z \\lt \\frac{3\\pi}{2}$, analytic in the closed upper half-plane except at $0$. Integrate over $[\\varepsilon, R]$, the semicircle $C_R$, $[-R, -\\varepsilon]$, and the small semicircle $C_\\varepsilon$ (clockwise).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Real axis.</strong> For $z = -x$ ($x > 0$), $\\log z = \\ln x + \\iota\\pi$. So the two segments together give\n    \\[\n        2\\int_\\varepsilon^R \\frac{\\ln x}{(x^2 + 1)^2}\\, \\mathrm{d}x + \\iota\\pi\\int_\\varepsilon^R \\frac{\\mathrm{d}x}{(x^2 + 1)^2}.\n    \\]\n    <strong>Semicircles.</strong> On $C_R$, $|f| \\leq \\frac{\\ln R + \\pi}{(R^2 - 1)^2}$, so the integral is at most $\\pi R \\cdot \\frac{\\ln R + \\pi}{(R^2 - 1)^2} \\to 0$; on $C_\\varepsilon$ it is at most $\\pi\\varepsilon\\frac{|\\ln\\varepsilon| + \\pi}{(1 - \\varepsilon^2)^2} \\to 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Residue at $\\iota$</strong> (double pole):\n    \\[\n        \\frac{\\mathrm{d}}{\\mathrm{d}z}\\left[ \\frac{\\log z}{(z + \\iota)^2} \\right]_{z = \\iota} = \\frac{1}{\\iota(2\\iota)^2} - \\frac{2\\log\\iota}{(2\\iota)^3} = \\frac{\\iota}{4} - \\frac{2 \\cdot \\iota\\pi/2}{-8\\iota} = \\frac{\\iota}{4} + \\frac{\\pi}{8}.\n    \\]\n    So the contour integral is $2\\pi\\iota\\left( \\frac{\\iota}{4} + \\frac{\\pi}{8} \\right) = -\\frac{\\pi}{2} + \\frac{\\iota\\pi^2}{4}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Conclusion.</strong> Letting $\\varepsilon \\to 0$, $R \\to \\infty$ and comparing real parts, $2I = -\\frac{\\pi}{2}$, so $I = -\\frac{\\pi}{4}$. The imaginary parts give $\\pi\\int_0^\\infty\\frac{\\mathrm{d}x}{(x^2 + 1)^2} = \\frac{\\pi^2}{4}$, consistent with the known value $\\frac{\\pi}{4}$ of that integral.</div>",
+      "tags": [
+        "complex-analysis",
+        "complex-integration",
+        "residue-theorem",
+        "branch"
+      ]
     },
     {
       "date": "2026-01-06",

@@ -742,6 +742,210 @@
       ]
     },
     {
+      "date": "2024-01-12",
+      "title": "Solve the Riccati equation $y' = 1 + x^2 - 2xy + y^2$ using the particular solution $y = x$",
+      "difficulty": "medium",
+      "problem": "Verify that $y_1 = x$ is a solution of the Riccati equation\n    \\[\n        \\frac{\\mathrm{d} y}{\\mathrm{d} x} = 1 + x^2 - 2xy + y^2,\n    \\]\n    and use it to find the general solution.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Note that the right-hand side is $1 + (y - x)^2$. Substitute $y = x + \\frac{1}{v}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Particular solution.</strong> For $y_1 = x$: $y_1' = 1$ and $1 + x^2 - 2x \\cdot x + x^2 = 1$. So $y_1 = x$ is a solution.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Reduction.</strong> The equation can be written $y' = 1 + (y - x)^2$. For a Riccati equation with a known solution $y_1$, the substitution $y = y_1 + \\frac{1}{v}$ leads to a linear equation for $v$. Here $y = x + \\frac{1}{v}$ gives\n    \\[\n        y' = 1 - \\frac{v'}{v^2}, \\qquad 1 + (y - x)^2 = 1 + \\frac{1}{v^2}.\n    \\]\n    Hence $-\\frac{v'}{v^2} = \\frac{1}{v^2}$, i.e. $v' = -1$, so $v = C - x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The general solution is therefore\n    \\[\n        y = x + \\frac{1}{C - x},\n    \\]\n    together with the particular solution $y = x$ itself (the limit $C \\to \\infty$).\n    <strong>Check:</strong> $y' = 1 + \\frac{1}{(C - x)^2}$ and $1 + (y - x)^2 = 1 + \\frac{1}{(C - x)^2}$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+    {
+      "date": "2024-01-19",
+      "title": "Solve $y'' + 4y = 8 \\cos 2x$ (resonance)",
+      "difficulty": "medium",
+      "problem": "Find the general solution of\n    \\[\n        y'' + 4y = 8 \\cos 2x.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\cos 2x$ already solves the homogeneous equation, so try $y_p = x (A \\cos 2x + B \\sin 2x)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The characteristic equation $m^2 + 4 = 0$ has roots $m = \\pm 2\\iota$, so\n    \\[\n        y_c = c_1 \\cos 2x + c_2 \\sin 2x.\n    \\]\n    The forcing term $8 \\cos 2x$ is itself a solution of the homogeneous equation (resonance), so we try $y_p = x (A \\cos 2x + B \\sin 2x)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Differentiating,\n    \\[\n        \\begin{aligned}\n            y_p' &= (A \\cos 2x + B \\sin 2x) + 2x (-A \\sin 2x + B \\cos 2x), \\\\\n            y_p'' &= 4(-A \\sin 2x + B \\cos 2x) - 4x (A \\cos 2x + B \\sin 2x).\n        \\end{aligned}\n    \\]\n    Hence $y_p'' + 4 y_p = -4A \\sin 2x + 4B \\cos 2x$. Comparing with $8 \\cos 2x$ gives $A = 0$, $B = 2$, so $y_p = 2x \\sin 2x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The general solution is\n    \\[\n        y = c_1 \\cos 2x + c_2 \\sin 2x + 2x \\sin 2x.\n    \\]\n    The term $2x \\sin 2x$ has growing amplitude: this is resonance, where a system is driven at its natural frequency.</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+    {
+      "date": "2024-01-26",
+      "title": "Bessel's equation of order $\\frac{1}{2}$: solve $x^2 y'' + x y' + \\left( x^2 - \\frac{1}{4} \\right) y = 0$",
+      "difficulty": "medium",
+      "problem": "Show that the substitution $y = \\frac{u}{\\sqrt{x}}$ transforms Bessel's equation of order $\\frac{1}{2}$,\n    \\[\n        x^2 y'' + x y' + \\left( x^2 - \\frac{1}{4} \\right) y = 0, \\qquad x > 0,\n    \\]\n    into $u'' + u = 0$, and hence find its general solution.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Compute $y'$ and $y''$ for $y = x^{-1/2} u$. Most terms cancel.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $y = x^{-1/2} u$. Then\n    \\[\n        y' = x^{-1/2} u' - \\tfrac{1}{2} x^{-3/2} u, \\qquad\n        y'' = x^{-1/2} u'' - x^{-3/2} u' + \\tfrac{3}{4} x^{-5/2} u.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Substituting,\n    \\[\n        \\begin{aligned}\n            x^2 y'' &= x^{3/2} u'' - x^{1/2} u' + \\tfrac{3}{4} x^{-1/2} u, \\\\\n            x y' &= x^{1/2} u' - \\tfrac{1}{2} x^{-1/2} u, \\\\\n            \\left( x^2 - \\tfrac{1}{4} \\right) y &= x^{3/2} u - \\tfrac{1}{4} x^{-1/2} u.\n        \\end{aligned}\n    \\]\n    Adding, the $u'$ terms cancel and the coefficients of $x^{-1/2} u$ add up to $\\frac{3}{4} - \\frac{1}{2} - \\frac{1}{4} = 0$. What remains is\n    \\[\n        x^{3/2} (u'' + u) = 0, \\qquad \\text{i.e.} \\qquad u'' + u = 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $u = c_1 \\cos x + c_2 \\sin x$, and the general solution of Bessel's equation of order $\\frac{1}{2}$ is\n    \\[\n        y = c_1 \\frac{\\cos x}{\\sqrt{x}} + c_2 \\frac{\\sin x}{\\sqrt{x}}, \\qquad x > 0.\n    \\]\n    Up to normalisation these are the Bessel functions $J_{1/2}(x) = \\sqrt{\\tfrac{2}{\\pi x}} \\sin x$ and $J_{-1/2}(x) = \\sqrt{\\tfrac{2}{\\pi x}} \\cos x$: Bessel functions of half-integer order are elementary functions.</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+    {
+      "date": "2024-02-02",
+      "title": "Picard's theorem for $y' = y^2$, $y(0) = 1$: the guaranteed interval versus the actual solution",
+      "difficulty": "medium",
+      "problem": "Consider the initial value problem $y' = y^2$, $y(0) = 1$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Apply Picard's existence theorem on rectangles $R_b = \\{ (x, y) : \\vert x \\vert \\leq 1,\\ \\vert y - 1 \\vert \\leq b \\}$, $b > 0$, and find the largest interval $\\vert x \\vert \\leq h$ on which the theorem guarantees a solution.</li>\n<li class=\"my-4\">Solve the problem explicitly and find the largest interval on which the solution exists. Comment on the result.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Picard's theorem: if $f$ is continuous and Lipschitz in $y$ on $\\vert x - x_0 \\vert \\leq a$, $\\vert y - y_0 \\vert \\leq b$, and $\\vert f \\vert \\leq M$ there, then a unique solution exists on $\\vert x - x_0 \\vert \\leq h = \\min\\left( a, \\frac{b}{M} \\right)$.</li>\n<li class=\"my-4\">The equation is separable: $\\frac{\\mathrm{d}y}{y^2} = \\mathrm{d}x$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Here $f(x, y) = y^2$ is continuous, and $\\vert f_y \\vert = 2\\vert y \\vert \\leq 2(1 + b)$ on $R_b$, so $f$ is Lipschitz in $y$ there. On $R_b$, $\\vert f \\vert \\leq M = (1 + b)^2$. Picard's theorem gives a unique solution on $\\vert x \\vert \\leq h(b)$, where\n    \\[\n        h(b) = \\min\\left( 1, \\frac{b}{(1 + b)^2} \\right) = \\frac{b}{(1 + b)^2},\n    \\]\n    since $\\frac{b}{(1 + b)^2} \\leq \\frac{1}{4} \\lt 1$ (because $(1 + b)^2 \\geq 4b$). Now $\\frac{\\mathrm{d}}{\\mathrm{d}b} \\frac{b}{(1 + b)^2} = \\frac{1 - b}{(1 + b)^3}$, so the best choice is $b = 1$, giving $h = \\frac{1}{4}$. The theorem guarantees a solution on $\\vert x \\vert \\leq \\frac{1}{4}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Separating variables, $-\\frac{1}{y} = x + C$, and $y(0) = 1$ gives $C = -1$. Hence\n    \\[\n        y(x) = \\frac{1}{1 - x}.\n    \\]\n    This solution exists on $(-\\infty, 1)$, and $y(x) \\to \\infty$ as $x \\to 1^-$, so it cannot be continued past $x = 1$. The maximal interval of existence is $(-\\infty, 1)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Comment.</strong> The function $f(x, y) = y^2$ is smooth on the whole plane, yet the solution blows up at the finite point $x = 1$: existence theorems for nonlinear equations are only <em>local</em>. The interval $\\vert x \\vert \\leq \\frac{1}{4}$ given by Picard's theorem is correct but far from the maximal interval $(-\\infty, 1)$. (For a linear equation $y' + p(x) y = q(x)$ with continuous $p, q$ on an interval $I$, by contrast, the solution exists on all of $I$.)</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "existence-uniqueness"
+      ]
+    },
+    {
+      "date": "2024-02-09",
+      "title": "Newton's law of cooling: a body cools from $100^\\circ$C to $60^\\circ$C in $10$ minutes in a room at $20^\\circ$C",
+      "difficulty": "easy",
+      "problem": "A body at temperature $100^\\circ$C is placed in a room kept at $20^\\circ$C. After $10$ minutes its temperature is $60^\\circ$C. Assuming Newton's law of cooling, find\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">the temperature of the body after $20$ minutes;</li>\n<li class=\"my-4\">the time at which the temperature of the body is $30^\\circ$C.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Newton's law of cooling: $\\dfrac{\\mathrm{d}T}{\\mathrm{d}t} = -k (T - 20)$ for some constant $k > 0$. Solve for $T - 20$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $T(t)$ be the temperature at time $t$ (in minutes). Newton's law of cooling says\n    \\[\n        \\frac{\\mathrm{d}T}{\\mathrm{d}t} = -k (T - 20), \\qquad k > 0.\n    \\]\n    Separating variables, $T(t) - 20 = (T(0) - 20) e^{-kt} = 80 e^{-kt}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Finding $k$.</strong> $T(10) = 60$ gives $40 = 80 e^{-10k}$, so $e^{-10k} = \\frac{1}{2}$, i.e. $k = \\frac{\\ln 2}{10}$. Thus\n    \\[\n        T(t) = 20 + 80 \\cdot 2^{-t/10}.\n    \\]\n    The temperature difference from the room halves every $10$ minutes.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $T(20) = 20 + 80 \\cdot \\frac{1}{4} = 40^\\circ$C.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $T(t) = 30$ means $80 \\cdot 2^{-t/10} = 10$, i.e. $2^{-t/10} = \\frac{1}{8}$, so $t = 30$ minutes.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "applications"
+      ]
+    },
+    {
+      "date": "2024-02-16",
+      "title": "A damped spring $x'' + c x' + 4x = 0$: when is it underdamped, critically damped or overdamped?",
+      "difficulty": "medium",
+      "problem": "The motion of a mass on a spring with damping is governed by\n    \\[\n        x'' + c\\, x' + 4x = 0, \\qquad c \\geq 0.\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">For which values of $c$ is the motion underdamped (oscillatory), critically damped, or overdamped?</li>\n<li class=\"my-4\">Solve the equation with $x(0) = 1$, $x'(0) = 0$ for $c = 2$ and for $c = 4$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The characteristic equation is $r^2 + c r + 4 = 0$; look at its discriminant $c^2 - 16$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> The characteristic roots are $r = \\frac{-c \\pm \\sqrt{c^2 - 16}}{2}$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">$0 \\lt c \\lt 4$: complex roots $-\\frac{c}{2} \\pm \\iota \\omega$ with $\\omega = \\frac{\\sqrt{16 - c^2}}{2}$, so $x = e^{-ct/2}(A \\cos \\omega t + B \\sin \\omega t)$: decaying oscillations, <strong>underdamped</strong>. (For $c = 0$ the motion is undamped: $x = A \\cos 2t + B \\sin 2t$.)</li>\n<li class=\"my-4\">$c = 4$: a double root $r = -2$, so $x = (A + Bt) e^{-2t}$: <strong>critically damped</strong>.</li>\n<li class=\"my-4\">$c > 4$: two distinct negative real roots, so $x = A e^{r_1 t} + B e^{r_2 t}$ with $r_1, r_2 \\lt 0$: <strong>overdamped</strong>, with no oscillation.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b) $c = 2$.</strong> The roots are $-1 \\pm \\iota\\sqrt{3}$, so $x = e^{-t} \\left( A \\cos \\sqrt{3}\\, t + B \\sin \\sqrt{3}\\, t \\right)$. Then $x(0) = A = 1$ and $x'(0) = -A + \\sqrt{3}\\, B = 0$, so $B = \\frac{1}{\\sqrt{3}}$:\n    \\[\n        x(t) = e^{-t} \\left( \\cos \\sqrt{3}\\, t + \\frac{1}{\\sqrt{3}} \\sin \\sqrt{3}\\, t \\right).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$c = 4$.</strong> $x = (A + Bt) e^{-2t}$, with $x(0) = A = 1$ and $x'(0) = B - 2A = 0$, so $B = 2$:\n    \\[\n        x(t) = (1 + 2t) e^{-2t}.\n    \\]\n    This decreases to $0$ without crossing the equilibrium position, while the underdamped solution for $c = 2$ crosses $x = 0$ infinitely often with amplitude decaying like $e^{-t}$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "applications"
+      ]
+    },
+    {
+      "date": "2024-02-23",
+      "title": "Solve $y''' - 3y'' + 3y' - y = e^x + x$",
+      "difficulty": "medium",
+      "problem": "Find the general solution of\n    \\[\n        \\frac{\\mathrm{d}^3 y}{\\mathrm{d}x^3} - 3\\frac{\\mathrm{d}^2 y}{\\mathrm{d}x^2} + 3\\frac{\\mathrm{d}y}{\\mathrm{d}x} - y = e^x + x.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The operator is $(D - 1)^3$. For the $e^x$ term use the shift rule $(D - 1)^3 \\left( e^x u \\right) = e^x D^3 u$; for the $x$ term try $y_p = Ax + B$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Complementary function.</strong> The equation is $(D - 1)^3 y = e^x + x$, where $D = \\frac{\\mathrm{d}}{\\mathrm{d}x}$. The auxiliary equation $(m - 1)^3 = 0$ has the triple root $m = 1$, so\n    \\[\n        y_c = (c_1 + c_2 x + c_3 x^2) e^x.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Particular integral for $e^x$.</strong> Since $1$ is a triple root, $e^x$, $x e^x$, $x^2 e^x$ all solve the homogeneous equation; we use the shift rule $(D - 1)^3 (e^x u) = e^x D^3 u$. We need $u^{\\prime\\prime\\prime} = 1$, so $u = \\frac{x^3}{6}$ and $y_{p,1} = \\frac{x^3}{6} e^x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Particular integral for $x$.</strong> Try $y_{p,2} = Ax + B$: then $y' = A$ and $y'' = y^{\\prime\\prime\\prime} = 0$, so the equation gives $3A - (Ax + B) = x$. Hence $A = -1$ and $B = 3A = -3$, so $y_{p,2} = -x - 3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General solution.</strong>\n    \\[\n        y = (c_1 + c_2 x + c_3 x^2) e^x + \\frac{x^3}{6} e^x - x - 3.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+    {
+      "date": "2024-03-01",
+      "title": "Solve $y'' + y = u(t - \\pi)$, $y(0) = 0$, $y'(0) = 1$ with the Laplace transform",
+      "difficulty": "medium",
+      "problem": "Let $u(t - \\pi)$ be the unit step function ($0$ for $t \\lt \\pi$, $1$ for $t \\geq \\pi$). Use the Laplace transform to solve\n    \\[\n        y'' + y = u(t - \\pi), \\qquad y(0) = 0, \\quad y'(0) = 1.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\mathcal{L}\\{ u(t - a) \\} = \\frac{e^{-as}}{s}$, and the second shifting theorem: $\\mathcal{L}^{-1}\\{ e^{-as} F(s) \\} = u(t - a) f(t - a)$.</li>\n<li class=\"my-4\">$\\frac{1}{s(s^2 + 1)} = \\frac{1}{s} - \\frac{s}{s^2 + 1}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $Y(s) = \\mathcal{L}\\{ y \\}$. Transforming, with $\\mathcal{L}\\{ y'' \\} = s^2 Y - s\\,y(0) - y'(0) = s^2 Y - 1$:\n    \\[\n        s^2 Y - 1 + Y = \\frac{e^{-\\pi s}}{s}, \\qquad Y = \\frac{1}{s^2 + 1} + e^{-\\pi s} \\left( \\frac{1}{s} - \\frac{s}{s^2 + 1} \\right).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Inverting.</strong> $\\mathcal{L}^{-1}\\left\\{ \\frac{1}{s^2 + 1} \\right\\} = \\sin t$ and $\\mathcal{L}^{-1}\\left\\{ \\frac{1}{s} - \\frac{s}{s^2 + 1} \\right\\} = 1 - \\cos t$. By the second shifting theorem,\n    \\[\n        y(t) = \\sin t + u(t - \\pi) \\left[ 1 - \\cos(t - \\pi) \\right] = \\sin t + u(t - \\pi) \\left( 1 + \\cos t \\right).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In other words,\n    \\[\n        y(t) = \\begin{cases} \\sin t, & 0 \\leq t \\lt \\pi, \\\\ 1 + \\sin t + \\cos t, & t \\geq \\pi. \\end{cases}\n    \\]\n    <strong>Check.</strong> For $t > \\pi$, $y'' + y = (-\\sin t - \\cos t) + (1 + \\sin t + \\cos t) = 1$. At $t = \\pi$ both pieces give $y = 0$ and $y' = -1$, so $y$ and $y'$ are continuous, as they must be for a forcing with only a jump discontinuity.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "laplace-transformation"
+      ]
+    },
+    {
+      "date": "2024-03-08",
+      "title": "Solve the system $x' = x - 2y$, $y' = 2x + y$ with $x(0) = 1$, $y(0) = 0$",
+      "difficulty": "medium",
+      "problem": "Solve the system\n    \\[\n        \\frac{\\mathrm{d}x}{\\mathrm{d}t} = x - 2y, \\qquad \\frac{\\mathrm{d}y}{\\mathrm{d}t} = 2x + y, \\qquad x(0) = 1, \\quad y(0) = 0,\n    \\]\n    and describe the trajectory in the $xy$-plane.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The matrix $\\begin{pmatrix} 1 & -2 \\\\ 2 & 1 \\end{pmatrix}$ has eigenvalues $1 \\pm 2\\iota$. Take real and imaginary parts of the complex solution $e^{(1 + 2\\iota)t} v$.</li>\n<li class=\"my-4\">Alternatively, $z = x + \\iota y$ satisfies $z' = (1 + 2\\iota) z$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Eigenvalues.</strong> With $A = \\begin{pmatrix} 1 & -2 \\\\ 2 & 1 \\end{pmatrix}$, $\\det(A - \\lambda I) = (1 - \\lambda)^2 + 4 = 0$ gives $\\lambda = 1 \\pm 2\\iota$. For $\\lambda = 1 + 2\\iota$, $(A - \\lambda I) v = 0$ reads $-2\\iota v_1 - 2 v_2 = 0$, so $v = \\begin{pmatrix} 1 \\\\ -\\iota \\end{pmatrix}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Real solutions.</strong>\n    \\[\n        e^{(1 + 2\\iota) t} \\begin{pmatrix} 1 \\\\ -\\iota \\end{pmatrix} = e^t \\begin{pmatrix} \\cos 2t + \\iota \\sin 2t \\\\ \\sin 2t - \\iota \\cos 2t \\end{pmatrix},\n    \\]\n    whose real and imaginary parts give the general solution\n    \\[\n        x = e^t (c_1 \\cos 2t + c_2 \\sin 2t), \\qquad y = e^t (c_1 \\sin 2t - c_2 \\cos 2t).\n    \\]\n    The initial conditions give $c_1 = 1$ and $-c_2 = 0$, so\n    \\[\n        x(t) = e^t \\cos 2t, \\qquad y(t) = e^t \\sin 2t.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Quick check with complex numbers.</strong> For $z = x + \\iota y$, $z' = (x - 2y) + \\iota(2x + y) = (1 + 2\\iota)(x + \\iota y)$, so $z = e^{(1 + 2\\iota)t} z(0) = e^t e^{2\\iota t}$, the same answer.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Trajectory.</strong> In polar coordinates $r = e^t$ and $\\theta = 2t$, so $r = e^{\\theta/2}$: the solution moves anticlockwise along a logarithmic spiral, away from the origin. The origin is an unstable spiral point (a \"source\"), because the eigenvalues have positive real part $1$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "system-of-odes"
+      ]
+    },
+    {
+      "date": "2024-03-15",
+      "title": "Integral surface of $x^2 p + y^2 q = z^2$ through the curve $xy = x + y$, $z = 1$",
+      "difficulty": "medium",
+      "problem": "Find the integral surface of the linear partial differential equation\n    \\[\n        x^2 p + y^2 q = z^2, \\qquad p = \\frac{\\partial z}{\\partial x},\\ q = \\frac{\\partial z}{\\partial y},\n    \\]\n    which passes through the curve $xy = x + y$, $z = 1$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Lagrange's auxiliary equations $\\frac{\\mathrm{d}x}{x^2} = \\frac{\\mathrm{d}y}{y^2} = \\frac{\\mathrm{d}z}{z^2}$ give $u = \\frac{1}{x} - \\frac{1}{y}$ and $v = \\frac{1}{y} - \\frac{1}{z}$ as invariants. On the curve, divide $xy = x + y$ by $xy$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Characteristics.</strong> The auxiliary equations are\n    \\[\n        \\frac{\\mathrm{d}x}{x^2} = \\frac{\\mathrm{d}y}{y^2} = \\frac{\\mathrm{d}z}{z^2}.\n    \\]\n    From $\\frac{\\mathrm{d}x}{x^2} = \\frac{\\mathrm{d}y}{y^2}$ we get $-\\frac{1}{x} = -\\frac{1}{y} + \\text{const}$, and similarly for $y$ and $z$. So two independent integrals are\n    \\[\n        u = \\frac{1}{x} - \\frac{1}{y} = c_1, \\qquad v = \\frac{1}{y} - \\frac{1}{z} = c_2,\n    \\]\n    and the general solution is $\\phi\\left( \\frac{1}{x} - \\frac{1}{y}, \\frac{1}{y} - \\frac{1}{z} \\right) = 0$ for an arbitrary function $\\phi$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Using the curve.</strong> On the curve, dividing $xy = x + y$ by $xy$ gives $\\frac{1}{x} + \\frac{1}{y} = 1$, and $z = 1$. So\n    \\[\n        u = \\frac{1}{x} - \\frac{1}{y} = 1 - \\frac{2}{y}, \\qquad v = \\frac{1}{y} - 1.\n    \\]\n    Eliminating $\\frac{1}{y} = v + 1$: $u = 1 - 2(v + 1) = -1 - 2v$, i.e. $u + 2v + 1 = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The surface.</strong> Substituting the invariants,\n    \\[\n        \\frac{1}{x} - \\frac{1}{y} + \\frac{2}{y} - \\frac{2}{z} + 1 = 0 \\iff \\frac{1}{x} + \\frac{1}{y} + 1 = \\frac{2}{z}.\n    \\]\n    Multiplying by $xyz$, the required surface is\n    \\[\n        yz + zx + xyz = 2xy, \\qquad \\text{i.e.} \\qquad z = \\frac{2xy}{x + y + xy}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> On the curve, $x + y + xy = 2xy$, so $z = 1$. And with $\\frac{1}{z} = \\frac{1}{2}\\left( \\frac{1}{x} + \\frac{1}{y} + 1 \\right)$, differentiation gives $-\\frac{p}{z^2} = -\\frac{1}{2x^2}$ and $-\\frac{q}{z^2} = -\\frac{1}{2y^2}$, so $x^2 p + y^2 q = \\frac{z^2}{2} + \\frac{z^2}{2} = z^2$.</div>",
+      "tags": [
+        "differential-equation",
+        "pde"
+      ]
+    },
+    {
+      "date": "2024-03-22",
+      "title": "Laplace's equation in the annulus $1 \\lt r \\lt 2$ with $u = 0$ on $r = 1$ and $u = \\ln 2 + \\frac{3}{2}\\sin\\theta$ on $r = 2$",
+      "difficulty": "medium",
+      "problem": "Find the function $u(r, \\theta)$, harmonic in the annulus $1 \\lt r \\lt 2$ (polar coordinates), such that\n    \\[\n        u(1, \\theta) = 0, \\qquad u(2, \\theta) = \\ln 2 + \\frac{3}{2} \\sin\\theta.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">In polar coordinates, $\\Delta u = u_{rr} + \\frac{1}{r} u_r + \\frac{1}{r^2} u_{\\theta\\theta}$. Separation of variables gives the solutions $1$, $\\ln r$, and $r^{\\pm n} \\cos n\\theta$, $r^{\\pm n} \\sin n\\theta$ for $n \\geq 1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Separated solutions.</strong> Trying $u = R(r)\\Theta(\\theta)$ in $u_{rr} + \\frac{1}{r} u_r + \\frac{1}{r^2} u_{\\theta\\theta} = 0$ gives $\\Theta'' + n^2 \\Theta = 0$ ($\\Theta$ must be $2\\pi$-periodic) and $r^2 R'' + r R' - n^2 R = 0$. For $n = 0$, $R = a + b \\ln r$; for $n \\geq 1$, $R = c\\, r^n + d\\, r^{-n}$. In an annulus (which does not contain $r = 0$) all of these are allowed, so\n    \\[\n        u = a_0 + b_0 \\ln r + \\sum_{n \\geq 1} \\left[ (a_n r^n + b_n r^{-n}) \\cos n\\theta + (c_n r^n + d_n r^{-n}) \\sin n\\theta \\right].\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Matching the boundary data.</strong> Only the constant term and the $\\sin\\theta$ term appear in the data, so we try\n    \\[\n        u = a_0 + b_0 \\ln r + \\left( c_1 r + \\frac{d_1}{r} \\right) \\sin\\theta.\n    \\]\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">Constant terms: $a_0 = 0$ (at $r = 1$) and $a_0 + b_0 \\ln 2 = \\ln 2$ (at $r = 2$), so $b_0 = 1$.</li>\n<li class=\"my-4\">$\\sin\\theta$ terms: $c_1 + d_1 = 0$ and $2c_1 + \\frac{d_1}{2} = \\frac{3}{2}$, so $\\frac{3}{2} c_1 = \\frac{3}{2}$, $c_1 = 1$ and $d_1 = -1$.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Answer.</strong>\n    \\[\n        u(r, \\theta) = \\ln r + \\left( r - \\frac{1}{r} \\right) \\sin\\theta = \\frac{1}{2} \\ln(x^2 + y^2) + y - \\frac{y}{x^2 + y^2}.\n    \\]\n    Each piece is harmonic: $\\ln r = \\operatorname{Re} \\log z$, $y = \\operatorname{Im} z$, and $\\frac{y}{x^2 + y^2} = \\operatorname{Im}\\left( -\\frac{1}{z} \\right)$. The boundary conditions hold by construction, and the solution is unique by the maximum principle. Note that $\\ln r$ and $r^{-1}$ are needed here; they would be excluded for a full disc, where the solution must be bounded at the origin.</div>",
+      "tags": [
+        "differential-equation",
+        "pde",
+        "laplace-equation"
+      ]
+    },
+    {
+      "date": "2024-03-29",
+      "title": "Solve $(x + 2y^3) \\frac{\\mathrm{d}y}{\\mathrm{d}x} = y$ with $y = 1$ when $x = 2$, treating $x$ as the dependent variable",
+      "difficulty": "easy",
+      "problem": "Solve the differential equation\n    \\[\n        (x + 2y^3) \\frac{\\mathrm{d}y}{\\mathrm{d}x} = y\n    \\]\n    subject to $y = 1$ when $x = 2$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The equation is not linear in $y$, but $\\frac{\\mathrm{d}x}{\\mathrm{d}y} = \\frac{x + 2y^3}{y}$ is linear in $x$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Linear in $x$.</strong> Regarding $x$ as a function of $y$ (where $y \\neq 0$),\n    \\[\n        \\frac{\\mathrm{d}x}{\\mathrm{d}y} = \\frac{x + 2y^3}{y} \\iff \\frac{\\mathrm{d}x}{\\mathrm{d}y} - \\frac{1}{y}\\, x = 2y^2.\n    \\]\n    This is a first-order linear equation in $x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Integrating factor.</strong> $e^{-\\int \\mathrm{d}y/y} = \\frac{1}{y}$ (near $y = 1$, where $y > 0$). Then\n    \\[\n        \\frac{\\mathrm{d}}{\\mathrm{d}y} \\left( \\frac{x}{y} \\right) = \\frac{1}{y} \\frac{\\mathrm{d}x}{\\mathrm{d}y} - \\frac{x}{y^2} = 2y,\n    \\]\n    so $\\frac{x}{y} = y^2 + C$, i.e. the general solution is $x = y^3 + Cy$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Initial condition.</strong> $x = 2$, $y = 1$ gives $2 = 1 + C$, so $C = 1$:\n    \\[\n        x = y^3 + y.\n    \\]\n    <strong>Check.</strong> $\\frac{\\mathrm{d}x}{\\mathrm{d}y} = 3y^2 + 1$, while $\\frac{x + 2y^3}{y} = \\frac{3y^3 + y}{y} = 3y^2 + 1$. Since $x = y^3 + y$ is strictly increasing, it defines $y$ as a function of $x$ on all of $\\mathbb{R}$. (The constant function $y = 0$ is also a solution of the original equation, lost when dividing by $y$.)</div>",
+      "tags": [
+        "differential-equation",
+        "ode"
+      ]
+    },
+    {
+      "date": "2024-04-05",
+      "title": "Solve $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{1 + y^2}{1 + x^2}$, $y(0) = 1$",
+      "difficulty": "easy",
+      "problem": "Solve the initial value problem\n    \\[\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{1 + y^2}{1 + x^2}, \\qquad y(0) = 1,\n    \\]\n    and find the largest interval on which the solution exists.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Separate variables: $\\frac{\\mathrm{d}y}{1 + y^2} = \\frac{\\mathrm{d}x}{1 + x^2}$. Then use $\\tan(A + B)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Separating variables and integrating,\n    \\[\n        \\arctan y = \\arctan x + C.\n    \\]\n    At $x = 0$, $y = 1$: $\\frac{\\pi}{4} = 0 + C$, so $\\arctan y = \\arctan x + \\frac{\\pi}{4}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Taking tangents and using $\\tan(A + B) = \\frac{\\tan A + \\tan B}{1 - \\tan A \\tan B}$,\n    \\[\n        y = \\frac{x + 1}{1 - x}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Interval.</strong> The relation $\\arctan y = \\arctan x + \\frac{\\pi}{4}$ requires $\\arctan x + \\frac{\\pi}{4} \\lt \\frac{\\pi}{2}$, i.e. $x \\lt 1$; and indeed $y \\to +\\infty$ as $x \\to 1^-$. So the solution exists on $(-\\infty, 1)$. (The formula $\\frac{x + 1}{1 - x}$ also makes sense for $x > 1$, but that branch is a different solution, not reachable through the blow-up at $x = 1$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> $y' = \\frac{2}{(1 - x)^2}$, and $\\frac{1 + y^2}{1 + x^2} = \\frac{(1 - x)^2 + (1 + x)^2}{(1 - x)^2 (1 + x^2)} = \\frac{2(1 + x^2)}{(1 - x)^2(1 + x^2)} = \\frac{2}{(1 - x)^2}$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "separable"
+      ]
+    },
+    {
+      "date": "2024-04-12",
+      "title": "The logistic equation: a population grows from $100$ to $200$ in one year with carrying capacity $1000$",
+      "difficulty": "medium",
+      "problem": "A population $P(t)$ satisfies the logistic equation\n    \\[\n        \\frac{\\mathrm{d}P}{\\mathrm{d}t} = kP\\left( 1 - \\frac{P}{M} \\right)\n    \\]\n    with carrying capacity $M = 1000$. If $P(0) = 100$ and $P(1) = 200$ ($t$ in years):\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">solve for $P(t)$ and find $k$;</li>\n<li class=\"my-4\">find when the population reaches $500$, and show that this is when it grows fastest;</li>\n<li class=\"my-4\">find $\\lim_{t \\to \\infty} P(t)$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use partial fractions: $\\frac{M}{P(M - P)} = \\frac{1}{P} + \\frac{1}{M - P}$. The general solution is $P = \\frac{M}{1 + A e^{-kt}}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Separating variables, $\\frac{M\\, \\mathrm{d}P}{P(M - P)} = k\\, \\mathrm{d}t$, and $\\frac{M}{P(M - P)} = \\frac{1}{P} + \\frac{1}{M - P}$, so $\\ln\\frac{P}{M - P} = kt + c$. Solving,\n    \\[\n        P(t) = \\frac{M}{1 + A e^{-kt}}, \\qquad A = \\frac{M - P(0)}{P(0)} = 9.\n    \\]\n    $P(1) = 200$ gives $1 + 9e^{-k} = 5$, so $e^{-k} = \\frac{4}{9}$ and $k = \\ln\\frac{9}{4} \\approx 0.811$. Thus\n    \\[\n        P(t) = \\frac{1000}{1 + 9\\left( \\frac{4}{9} \\right)^{t}}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $P = 500$ when $9\\left( \\frac{4}{9} \\right)^t = 1$, i.e. $t = \\frac{\\ln 9}{\\ln (9/4)} = \\frac{\\ln 3}{\\ln (3/2)} \\approx 2.71$ years. The growth rate $\\frac{\\mathrm{d}P}{\\mathrm{d}t} = kP\\left( 1 - \\frac{P}{M} \\right)$ is a quadratic in $P$ maximised at $P = \\frac{M}{2} = 500$; since $P$ is increasing in $t$, the growth is fastest at this moment (an inflection point of the curve).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> As $t \\to \\infty$, $\\left( \\frac{4}{9} \\right)^t \\to 0$, so $P(t) \\to 1000 = M$. The constant solutions $P = 0$ (unstable) and $P = M$ (stable) are the equilibria.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "separable",
+        "applications"
+      ]
+    },
+    {
+      "date": "2024-04-19",
+      "title": "An integrating factor depending on $y$: $(y^4 + 2y)\\, \\mathrm{d}x + (xy^3 + 2y^4 - 4x)\\, \\mathrm{d}y = 0$",
+      "difficulty": "medium",
+      "problem": "Solve the differential equation\n    \\[\n        (y^4 + 2y)\\, \\mathrm{d}x + (x y^3 + 2y^4 - 4x)\\, \\mathrm{d}y = 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">With $M = y^4 + 2y$ and $N = xy^3 + 2y^4 - 4x$, compute $\\frac{N_x - M_y}{M}$. If it depends on $y$ alone, $\\mu(y) = e^{\\int \\frac{N_x - M_y}{M}\\, \\mathrm{d}y}$ is an integrating factor.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Here $M_y = 4y^3 + 2$ and $N_x = y^3 - 4$, so the equation is not exact. However,\n    \\[\n        \\frac{N_x - M_y}{M} = \\frac{y^3 - 4 - 4y^3 - 2}{y(y^3 + 2)} = \\frac{-3(y^3 + 2)}{y(y^3 + 2)} = -\\frac{3}{y}\n    \\]\n    depends only on $y$. So $\\mu(y) = e^{\\int -3\\, \\mathrm{d}y / y} = y^{-3}$ is an integrating factor.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Multiplying by $y^{-3}$:\n    \\[\n        \\left( y + \\frac{2}{y^2} \\right) \\mathrm{d}x + \\left( x + 2y - \\frac{4x}{y^3} \\right) \\mathrm{d}y = 0,\n    \\]\n    which is exact: both $\\frac{\\partial}{\\partial y}\\left( y + 2y^{-2} \\right)$ and $\\frac{\\partial}{\\partial x}\\left( x + 2y - 4xy^{-3} \\right)$ equal $1 - \\frac{4}{y^3}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Integrating $M/y^3$ with respect to $x$: $F = xy + \\frac{2x}{y^2} + g(y)$. Then $F_y = x - \\frac{4x}{y^3} + g'(y)$ must equal $x + 2y - \\frac{4x}{y^3}$, so $g'(y) = 2y$ and $g = y^2$. The general solution is\n    \\[\n        xy + \\frac{2x}{y^2} + y^2 = C,\n    \\]\n    together with the solution $y = 0$, which was lost when multiplying by $y^{-3}$: along $y \\equiv 0$ we have $\\mathrm{d}y = 0$ and $M = 0$, so the equation holds.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "exact-equation",
+        "integrating-factor"
+      ]
+    },
+    {
+      "date": "2024-04-26",
+      "title": "Solve $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{x + y + 1}{x - y + 3}$ by shifting the origin",
+      "difficulty": "medium",
+      "problem": "Solve the differential equation\n    \\[\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{x + y + 1}{x - y + 3}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The lines $x + y + 1 = 0$ and $x - y + 3 = 0$ meet at $(-2, 1)$. Put $x = X - 2$, $y = Y + 1$ to get a homogeneous equation, then $Y = vX$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Shift.</strong> Solving $h + k + 1 = 0$, $h - k + 3 = 0$ gives $h = -2$, $k = 1$. With $x = X - 2$, $y = Y + 1$:\n    \\[\n        \\frac{\\mathrm{d}Y}{\\mathrm{d}X} = \\frac{X + Y}{X - Y}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Homogeneous equation.</strong> Put $Y = vX$: $v + X v' = \\frac{1 + v}{1 - v}$, so\n    \\[\n        X\\frac{\\mathrm{d}v}{\\mathrm{d}X} = \\frac{1 + v^2}{1 - v}, \\qquad \\int \\frac{1 - v}{1 + v^2}\\, \\mathrm{d}v = \\int \\frac{\\mathrm{d}X}{X}.\n    \\]\n    Hence $\\arctan v - \\frac{1}{2}\\ln(1 + v^2) = \\ln|X| + C$, i.e. $\\arctan\\frac{Y}{X} = \\frac{1}{2}\\ln(X^2 + Y^2) + C$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Answer.</strong> Returning to $x, y$:\n    \\[\n        \\arctan\\frac{y - 1}{x + 2} = \\frac{1}{2}\\ln\\left( (x + 2)^2 + (y - 1)^2 \\right) + C.\n    \\]\n    In polar coordinates $(\\rho, \\varphi)$ centred at $(-2, 1)$ this reads $\\varphi = \\ln \\rho + C$, i.e. $\\rho = c\\, e^{\\varphi}$: the solution curves are logarithmic spirals around $(-2, 1)$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "homogeneous-equation"
+      ]
+    },
+    {
       "date": "2024-05-03",
       "title": "If $f'(x) - 2f(x) \\leq 1 \\quad \\text{ and } \\quad f(0) = 1$, then $f(x) \\leq \\frac{3}{2}e^{2x} - \\frac{1}{2}$",
       "problem": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  Suppose $f$ be a function with continuous derivative on $0 \\leq x \\leq 1$ such that\n  \\[\n      f'(x) - 2f(x) \\leq 1 \\quad \\text{ and } \\quad f(0) = 1.\n  \\]\n  Show that\n  \\[\n      f(x) \\leq \\frac{3}{2}e^{2x} - \\frac{1}{2}.\n  \\]\n</div>\n<div class=\"my=t-2\">\n  <a href=\"/miscellaneous/daily-problems/tags\" class=\"inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 hover:bg-blue-100\">\n      differential-equation\n  </a>\n  <a href=\"/miscellaneous/daily-problems/tags\" class=\"inline-block bg-gray-200 text-blue-500 text-sm rounded px-2 py-1 hover:bg-blue-100\">\n      ode\n  </a>\n</div>",
@@ -948,6 +1152,234 @@
       ]
     },
     {
+      "date": "2024-09-06",
+      "title": "A mixing problem: salt in a $100$-litre tank",
+      "difficulty": "easy",
+      "problem": "A tank contains $100$ litres of water in which $10$ kg of salt is dissolved. Brine containing $0.2$ kg of salt per litre flows in at $5$ litres per minute, and the well-stirred mixture flows out at the same rate.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Find the amount $x(t)$ of salt in the tank after $t$ minutes.</li>\n<li class=\"my-4\">When does the tank contain $15$ kg of salt? What happens in the long run?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Rate of change = rate in $-$ rate out $= 5 \\times 0.2 - 5 \\times \\frac{x}{100}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> The volume stays $100$ litres, so the concentration is $\\frac{x}{100}$ kg/L and\n    \\[\n        \\frac{\\mathrm{d}x}{\\mathrm{d}t} = 5(0.2) - 5\\cdot\\frac{x}{100} = 1 - \\frac{x}{20}, \\qquad x(0) = 10.\n    \\]\n    This is linear: $\\left( x e^{t/20} \\right)' = e^{t/20}$, so $x e^{t/20} = 20 e^{t/20} + C$, and $x(0) = 10$ gives $C = -10$:\n    \\[\n        x(t) = 20 - 10 e^{-t/20}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $x(t) = 15 \\iff e^{-t/20} = \\frac{1}{2} \\iff t = 20\\ln 2 \\approx 13.9$ minutes. As $t \\to \\infty$, $x(t) \\to 20$ kg, i.e. the concentration approaches $0.2$ kg/L, that of the incoming brine, as one expects.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "applications",
+        "linear-equation"
+      ]
+    },
+    {
+      "date": "2024-09-13",
+      "title": "Reduction of order: solve $y y'' + (y')^2 = 0$ and $x y'' = y' + x^2$",
+      "difficulty": "easy",
+      "problem": "Solve the following second-order equations by reducing them to first-order equations:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$y\\, y'' + (y')^2 = 0$;</li>\n<li class=\"my-4\">$x\\, y'' = y' + x^2$, $x > 0$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">(a) $y y'' + (y')^2 = (y y')'$. (b) $y$ does not appear: put $p = y'$ and solve the linear equation $x p' - p = x^2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> The left side is an exact derivative: $(y y')' = y y'' + (y')^2$. So $y y' = c_1$, i.e. $\\left( \\frac{y^2}{2} \\right)' = c_1$, and\n    \\[\n        y^2 = C_1 x + C_2.\n    \\]\n    (Alternatively, the equation is $\\frac{1}{2}(y^2)'' = 0$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Put $p = y'$: $x p' - p = x^2$, i.e. $\\left( \\frac{p}{x} \\right)' = \\frac{x p' - p}{x^2} = 1$. So $\\frac{p}{x} = x + c_1$, $y' = x^2 + c_1 x$, and\n    \\[\n        y = \\frac{x^3}{3} + C_1 x^2 + C_2.\n    \\]\n    <strong>Check.</strong> $y' = x^2 + 2C_1 x$, $y'' = 2x + 2C_1$, and $x y'' = 2x^2 + 2C_1 x = y' + x^2$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "reduction-of-order"
+      ]
+    },
+    {
+      "date": "2024-09-20",
+      "title": "Solve $y'''' + 4y = 0$",
+      "difficulty": "easy",
+      "problem": "Find the general (real) solution of\n    \\[\n        \\frac{\\mathrm{d}^4 y}{\\mathrm{d}x^4} + 4y = 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Solve $m^4 = -4$. Note $m^4 + 4 = (m^2 + 2m + 2)(m^2 - 2m + 2)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The auxiliary equation is $m^4 + 4 = 0$. Using $m^4 + 4 = (m^2 + 2)^2 - (2m)^2 = (m^2 + 2m + 2)(m^2 - 2m + 2)$, the roots are\n    \\[\n        m = -1 \\pm \\iota, \\qquad m = 1 \\pm \\iota.\n    \\]\n    (These are the four fourth roots of $-4 = 4e^{\\iota\\pi}$: $\\sqrt{2}\\, e^{\\iota(\\pi/4 + k\\pi/2)}$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Each pair $\\alpha \\pm \\iota\\beta$ contributes $e^{\\alpha x}\\cos\\beta x$ and $e^{\\alpha x}\\sin\\beta x$, so\n    \\[\n        y = e^{x}\\left( c_1 \\cos x + c_2 \\sin x \\right) + e^{-x}\\left( c_3 \\cos x + c_4 \\sin x \\right).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The four functions are linearly independent, as solutions coming from distinct roots always are, and the equation has order $4$, so this is the general solution. This equation appears in the theory of beams on an elastic foundation.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "constant-coefficients"
+      ]
+    },
+    {
+      "date": "2024-09-27",
+      "title": "Undetermined coefficients with resonance: $y'' - y = x e^{x}$",
+      "difficulty": "medium",
+      "problem": "Find the general solution of\n    \\[\n        y'' - y = x e^{x}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$e^{x}$ solves the homogeneous equation, so try $y_p = x(Ax + B)e^{x}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Complementary function.</strong> $m^2 - 1 = 0$ gives $m = \\pm 1$, so $y_c = c_1 e^{x} + c_2 e^{-x}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Particular solution.</strong> Since $1$ is a simple root of the auxiliary equation, multiply the natural guess $(Ax + B)e^x$ by $x$: $y_p = (Ax^2 + Bx)e^{x}$. Writing $y_p = u e^{x}$ with $u = Ax^2 + Bx$, we have $y_p'' - y_p = (u'' + 2u')e^{x}$, so we need\n    \\[\n        u'' + 2u' = 2A + 2(2Ax + B) = x.\n    \\]\n    Hence $4A = 1$ and $2A + 2B = 0$: $A = \\frac{1}{4}$, $B = -\\frac{1}{4}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General solution.</strong>\n    \\[\n        y = c_1 e^{x} + c_2 e^{-x} + \\frac{x^2 - x}{4}\\, e^{x}.\n    \\]\n    (The term $-\\frac{x}{4}e^x$ could not be absorbed into $c_1 e^x$; only multiples of $e^x$ itself can.)</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "undetermined-coefficients",
+        "constant-coefficients"
+      ]
+    },
+    {
+      "date": "2024-10-04",
+      "title": "Solve $y'' + y = x \\sin x$",
+      "difficulty": "medium",
+      "problem": "Find the general solution of\n    \\[\n        y'' + y = x \\sin x.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Solve $z'' + z = x e^{\\iota x}$ and take the imaginary part. Try $z = (Ax^2 + Bx)e^{\\iota x}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Complementary function.</strong> $y_c = c_1 \\cos x + c_2 \\sin x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Complex method.</strong> Since $x\\sin x = \\operatorname{Im}(x e^{\\iota x})$ and $\\iota$ is a simple root of $m^2 + 1$, try $z = u e^{\\iota x}$ with $u = Ax^2 + Bx$. Then $z'' + z = (u'' + 2\\iota u')e^{\\iota x}$, so we need\n    \\[\n        2A + 2\\iota(2Ax + B) = x \\implies 4\\iota A = 1,\\ 2A + 2\\iota B = 0 \\implies A = -\\frac{\\iota}{4},\\ B = \\frac{1}{4}.\n    \\]\n    So $z = \\left( -\\frac{\\iota x^2}{4} + \\frac{x}{4} \\right)(\\cos x + \\iota\\sin x)$, whose imaginary part is\n    \\[\n        y_p = -\\frac{x^2}{4}\\cos x + \\frac{x}{4}\\sin x.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General solution.</strong>\n    \\[\n        y = c_1\\cos x + c_2 \\sin x - \\frac{x^2}{4}\\cos x + \\frac{x}{4}\\sin x.\n    \\]\n    <strong>Check.</strong> With $y_p = -\\frac{x^2}{4}\\cos x + \\frac{x}{4}\\sin x$: $y_p'' = -\\frac{1}{2}\\cos x + x\\sin x + \\frac{x^2}{4}\\cos x + \\frac{1}{2}\\cos x - \\frac{x}{4}\\sin x$, so $y_p'' + y_p = x\\sin x$. The factor $x^2$ reflects resonance: the forcing has the natural frequency $1$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "undetermined-coefficients",
+        "constant-coefficients"
+      ]
+    },
+    {
+      "date": "2024-10-11",
+      "title": "Solve the integral equation $y(t) = t + \\int_0^t \\sin(t - \\tau)\\, y(\\tau)\\, \\mathrm{d}\\tau$",
+      "difficulty": "medium",
+      "problem": "Use the Laplace transform to solve the integral equation\n    \\[\n        y(t) = t + \\int_0^t \\sin(t - \\tau)\\, y(\\tau)\\, \\mathrm{d}\\tau, \\qquad t \\geq 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The integral is the convolution $(\\sin * y)(t)$, and $\\mathcal{L}\\{ f * g \\} = \\mathcal{L}\\{ f \\}\\, \\mathcal{L}\\{ g \\}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $Y = \\mathcal{L}\\{ y \\}$. By the convolution theorem, $\\mathcal{L}\\{ \\sin * y \\} = \\frac{1}{s^2 + 1} Y$, so\n    \\[\n        Y = \\frac{1}{s^2} + \\frac{Y}{s^2 + 1} \\implies Y \\cdot \\frac{s^2}{s^2 + 1} = \\frac{1}{s^2} \\implies Y = \\frac{s^2 + 1}{s^4} = \\frac{1}{s^2} + \\frac{1}{s^4}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Inverting, with $\\mathcal{L}\\{ t^n \\} = \\frac{n!}{s^{n+1}}$:\n    \\[\n        y(t) = t + \\frac{t^3}{6}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> $\\int_0^t \\sin(t - \\tau)\\left( \\tau + \\frac{\\tau^3}{6} \\right) \\mathrm{d}\\tau = \\frac{t^3}{6}$ (integrate by parts, or note it is $\\mathcal{L}^{-1}\\left\\{ \\frac{1}{s^2 + 1} \\cdot \\frac{s^2 + 1}{s^4} \\right\\}$), so the right side is $t + \\frac{t^3}{6} = y(t)$. Alternatively, differentiate the equation twice: $y' = 1 + \\int_0^t \\cos(t - \\tau)\\, y(\\tau)\\, \\mathrm{d}\\tau$ and $y'' = y(t) - \\int_0^t \\sin(t - \\tau)\\, y(\\tau)\\, \\mathrm{d}\\tau = t$. With $y(0) = 0$ and $y'(0) = 1$ (read off from the equations), this gives $y = t + \\frac{t^3}{6}$ again.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "laplace-transformation",
+        "integral-equation"
+      ]
+    },
+    {
+      "date": "2024-10-18",
+      "title": "Find $\\mathcal{L}^{-1}\\left\\{ \\frac{1}{(s^2 + 1)^2} \\right\\}$ by the convolution theorem",
+      "difficulty": "easy",
+      "problem": "Using the convolution theorem, find\n    \\[\n        \\mathcal{L}^{-1}\\left\\{ \\frac{1}{(s^2 + 1)^2} \\right\\}.\n    \\]\n    Use the result to solve $y'' + y = \\sin t$, $y(0) = y'(0) = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\frac{1}{(s^2 + 1)^2} = \\frac{1}{s^2 + 1} \\cdot \\frac{1}{s^2 + 1}$, so the inverse is $\\sin * \\sin$. Use $\\sin A \\sin B = \\frac{1}{2}[\\cos(A - B) - \\cos(A + B)]$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $\\mathcal{L}\\{ \\sin t \\} = \\frac{1}{s^2 + 1}$,\n    \\[\n        \\mathcal{L}^{-1}\\left\\{ \\frac{1}{(s^2 + 1)^2} \\right\\} = \\int_0^t \\sin\\tau \\sin(t - \\tau)\\, \\mathrm{d}\\tau = \\frac{1}{2}\\int_0^t \\left[ \\cos(2\\tau - t) - \\cos t \\right] \\mathrm{d}\\tau.\n    \\]\n    Now $\\int_0^t \\cos(2\\tau - t)\\, \\mathrm{d}\\tau = \\frac{1}{2}\\left[ \\sin(2\\tau - t) \\right]_0^t = \\sin t$, so\n    \\[\n        \\mathcal{L}^{-1}\\left\\{ \\frac{1}{(s^2 + 1)^2} \\right\\} = \\frac{1}{2}\\left( \\sin t - t\\cos t \\right).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Application.</strong> Transforming $y'' + y = \\sin t$ with zero initial data gives $(s^2 + 1)Y = \\frac{1}{s^2 + 1}$, so $Y = \\frac{1}{(s^2 + 1)^2}$ and\n    \\[\n        y(t) = \\frac{1}{2}\\left( \\sin t - t\\cos t \\right).\n    \\]\n    The term $-\\frac{t}{2}\\cos t$ grows without bound: this is resonance.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "laplace-transformation"
+      ]
+    },
+    {
+      "date": "2024-10-25",
+      "title": "An impulse: solve $y'' + 2y' + 5y = \\delta(t - \\pi)$, $y(0) = y'(0) = 0$",
+      "difficulty": "medium",
+      "problem": "Solve, using the Laplace transform,\n    \\[\n        y'' + 2y' + 5y = \\delta(t - \\pi), \\qquad y(0) = 0, \\quad y'(0) = 0,\n    \\]\n    where $\\delta(t - \\pi)$ is the Dirac delta (a unit impulse at $t = \\pi$).",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\mathcal{L}\\{ \\delta(t - a) \\} = e^{-as}$ and $\\mathcal{L}^{-1}\\{ e^{-as}F(s) \\} = u(t - a) f(t - a)$. Complete the square: $s^2 + 2s + 5 = (s + 1)^2 + 4$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Transforming, $(s^2 + 2s + 5)Y = e^{-\\pi s}$, so\n    \\[\n        Y = \\frac{e^{-\\pi s}}{(s + 1)^2 + 4}.\n    \\]\n    Since $\\mathcal{L}^{-1}\\left\\{ \\frac{1}{(s + 1)^2 + 4} \\right\\} = \\frac{1}{2} e^{-t}\\sin 2t$, the second shifting theorem gives\n    \\[\n        y(t) = \\frac{1}{2}\\, u(t - \\pi)\\, e^{-(t - \\pi)} \\sin 2(t - \\pi) = \\frac{1}{2}\\, u(t - \\pi)\\, e^{\\pi - t} \\sin 2t.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Interpretation.</strong> The system rests until $t = \\pi$; the impulse then gives it a sudden unit velocity, $y'(\\pi^+) = \\frac{1}{2} \\cdot 2 = 1$, while $y(\\pi) = 0$ (so $y$ is continuous and $y'$ jumps by $1$). After that, it performs damped oscillations $\\frac{1}{2}e^{\\pi - t}\\sin 2t$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "laplace-transformation"
+      ]
+    },
+    {
+      "date": "2024-11-01",
+      "title": "The Laplace transform of a square wave is $\\frac{1}{s}\\tanh\\frac{as}{2}$",
+      "difficulty": "medium",
+      "problem": "Let $f$ be the square wave of period $2a$:\n    \\[\n        f(t) = \\begin{cases} 1, & 0 \\leq t \\lt a, \\\\ -1, & a \\leq t \\lt 2a, \\end{cases} \\qquad f(t + 2a) = f(t).\n    \\]\n    Show that $\\mathcal{L}\\{ f \\}(s) = \\dfrac{1}{s}\\tanh\\dfrac{as}{2}$ for $s > 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For a function of period $T$, $\\mathcal{L}\\{ f \\}(s) = \\dfrac{1}{1 - e^{-sT}} \\displaystyle\\int_0^{T} e^{-st} f(t)\\, \\mathrm{d}t$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Periodic functions.</strong> Splitting $[0, \\infty)$ into the intervals $[nT, (n + 1)T)$ and substituting $t = \\tau + nT$,\n    \\[\n        \\mathcal{L}\\{ f \\}(s) = \\sum_{n=0}^{\\infty} e^{-nsT} \\int_0^T e^{-s\\tau} f(\\tau)\\, \\mathrm{d}\\tau = \\frac{1}{1 - e^{-sT}} \\int_0^T e^{-s\\tau} f(\\tau)\\, \\mathrm{d}\\tau.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>One period.</strong> With $T = 2a$,\n    \\[\n        \\int_0^{2a} e^{-st} f(t)\\, \\mathrm{d}t = \\int_0^{a} e^{-st}\\, \\mathrm{d}t - \\int_a^{2a} e^{-st}\\, \\mathrm{d}t = \\frac{1 - e^{-as}}{s} - \\frac{e^{-as} - e^{-2as}}{s} = \\frac{(1 - e^{-as})^2}{s}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Result.</strong> Since $1 - e^{-2as} = (1 - e^{-as})(1 + e^{-as})$,\n    \\[\n        \\mathcal{L}\\{ f \\}(s) = \\frac{(1 - e^{-as})^2}{s(1 - e^{-as})(1 + e^{-as})} = \\frac{1}{s} \\cdot \\frac{1 - e^{-as}}{1 + e^{-as}} = \\frac{1}{s}\\tanh\\frac{as}{2},\n    \\]\n    multiplying numerator and denominator by $e^{as/2}$ in the last step.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "laplace-transformation"
+      ]
+    },
+    {
+      "date": "2024-11-08",
+      "title": "A system with a repeated eigenvalue: $x' = 3x - y$, $y' = x + y$",
+      "difficulty": "medium",
+      "problem": "Solve the system\n    \\[\n        x' = 3x - y, \\qquad y' = x + y, \\qquad x(0) = 1, \\quad y(0) = 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The matrix has the double eigenvalue $2$ with only one independent eigenvector $v$. Find a generalised eigenvector $w$ with $(A - 2I)w = v$; then $e^{2t}(tv + w)$ is a second solution.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Eigenvalues.</strong> $A = \\begin{pmatrix} 3 & -1 \\\\ 1 & 1 \\end{pmatrix}$ has trace $4$ and determinant $4$, so $\\lambda^2 - 4\\lambda + 4 = (\\lambda - 2)^2 = 0$. Now $A - 2I = \\begin{pmatrix} 1 & -1 \\\\ 1 & -1 \\end{pmatrix}$, whose null space is spanned by $v = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$: only one eigenvector.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Generalised eigenvector.</strong> $(A - 2I)w = v$ means $w_1 - w_2 = 1$; take $w = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$. The general solution is\n    \\[\n        \\begin{pmatrix} x \\\\ y \\end{pmatrix} = c_1 e^{2t}\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} + c_2 e^{2t}\\left[ t\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} + \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} \\right].\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Initial conditions.</strong> At $t = 0$: $c_1 + c_2 = 1$ and $c_1 = 0$, so $c_2 = 1$ and\n    \\[\n        x(t) = (1 + t)e^{2t}, \\qquad y(t) = t\\, e^{2t}.\n    \\]\n    <strong>Check.</strong> $x' = (3 + 2t)e^{2t} = 3x - y$ and $y' = (1 + 2t)e^{2t} = x + y$. The origin is an unstable improper (degenerate) node.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "system-of-odes"
+      ]
+    },
+    {
+      "date": "2024-11-15",
+      "title": "Phase plane of $x' = y$, $y' = x - x^3$: equilibria and a conserved quantity",
+      "difficulty": "medium",
+      "problem": "Consider the nonlinear system\n    \\[\n        x' = y, \\qquad y' = x - x^3.\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Find all equilibrium points and classify them by linearisation.</li>\n<li class=\"my-4\">Show that $H(x, y) = \\frac{1}{2}y^2 - \\frac{1}{2}x^2 + \\frac{1}{4}x^4$ is constant along solutions, and use it to decide the nature of the equilibria at which linearisation is inconclusive.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The Jacobian is $\\begin{pmatrix} 0 & 1 \\\\ 1 - 3x^2 & 0 \\end{pmatrix}$. A linear centre need not be a nonlinear centre, but a strict local minimum of a conserved quantity is surrounded by closed orbits.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Equilibria: $y = 0$ and $x - x^3 = 0$, i.e. $(0, 0)$, $(1, 0)$, $(-1, 0)$. The Jacobian is $J = \\begin{pmatrix} 0 & 1 \\\\ 1 - 3x^2 & 0 \\end{pmatrix}$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">At $(0, 0)$: $J = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$, eigenvalues $\\pm 1$: a <strong>saddle</strong> (and saddles persist for the nonlinear system).</li>\n<li class=\"my-4\">At $(\\pm 1, 0)$: $J = \\begin{pmatrix} 0 & 1 \\\\ -2 & 0 \\end{pmatrix}$, eigenvalues $\\pm\\iota\\sqrt{2}$: a <strong>centre</strong> for the linearisation, which by itself does not decide the nonlinear behaviour.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Along a solution,\n    \\[\n        \\frac{\\mathrm{d}}{\\mathrm{d}t}H(x, y) = y\\, y' + (-x + x^3)\\, x' = y(x - x^3) + (x^3 - x)y = 0.\n    \\]\n    So orbits lie on level curves of $H$. Near $(\\pm 1, 0)$, $H$ has a strict local minimum ($H = -\\frac{1}{4}$ there, with positive definite Hessian $\\begin{pmatrix} 2 & 0 \\\\ 0 & 1 \\end{pmatrix}$), so the level curves $H = -\\frac{1}{4} + \\varepsilon$ near these points are small closed curves. Hence $(\\pm 1, 0)$ are genuine <strong>centres</strong>: nearby solutions are periodic.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The level set $H = 0$ through the saddle consists of two homoclinic loops $y^2 = x^2 - \\frac{x^4}{2}$ enclosing the two centres (the \"figure eight\"). This is the undamped Duffing oscillator, describing a particle in the double-well potential $V(x) = -\\frac{x^2}{2} + \\frac{x^4}{4}$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "system-of-odes",
+        "stability"
+      ]
+    },
+    {
+      "date": "2024-11-22",
+      "title": "Power series solution of Airy's equation $y'' = xy$",
+      "difficulty": "medium",
+      "problem": "Find the power series solution of Airy's equation\n    \\[\n        y'' - x y = 0\n    \\]\n    about $x = 0$. Write down the first three nonzero terms of two linearly independent solutions, and find the radius of convergence.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Substitute $y = \\sum a_n x^n$ to get $a_2 = 0$ and $(n + 2)(n + 1)a_{n+2} = a_{n-1}$ for $n \\geq 1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$x = 0$ is an ordinary point. With $y = \\sum_{n \\geq 0} a_n x^n$,\n    \\[\n        y'' = \\sum_{n \\geq 0} (n + 2)(n + 1)a_{n+2}x^n, \\qquad xy = \\sum_{n \\geq 1} a_{n-1}x^n.\n    \\]\n    Comparing coefficients: $2a_2 = 0$ (from $x^0$), and $(n + 2)(n + 1)a_{n+2} = a_{n-1}$ for $n \\geq 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the coefficients go up in steps of $3$: $a_2 = a_5 = a_8 = \\cdots = 0$, and\n    \\[\n        a_3 = \\frac{a_0}{3 \\cdot 2},\\ a_6 = \\frac{a_3}{6 \\cdot 5} = \\frac{a_0}{180},\\ \\ldots; \\qquad a_4 = \\frac{a_1}{4 \\cdot 3},\\ a_7 = \\frac{a_4}{7 \\cdot 6} = \\frac{a_1}{504},\\ \\ldots.\n    \\]\n    Hence $y = a_0 y_1 + a_1 y_2$ with\n    \\[\n        y_1 = 1 + \\frac{x^3}{6} + \\frac{x^6}{180} + \\cdots, \\qquad y_2 = x + \\frac{x^4}{12} + \\frac{x^7}{504} + \\cdots.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$y_1(0) = 1$, $y_1'(0) = 0$ and $y_2(0) = 0$, $y_2'(0) = 1$, so they are linearly independent (Wronskian $1$ at $0$). The coefficients of $y'' - xy = 0$ are polynomials (entire), so both series converge for all $x$: the radius of convergence is $\\infty$. (Ratio test: $\\left\\vert a_{n+2}/a_{n-1} \\right\\vert = \\frac{1}{(n + 2)(n + 1)} \\to 0$.)</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "series-solution"
+      ]
+    },
+    {
+      "date": "2024-11-29",
+      "title": "Polynomial solutions of Hermite's equation $y'' - 2xy' + 2ny = 0$",
+      "difficulty": "medium",
+      "problem": "For a constant $n$, consider Hermite's equation\n    \\[\n        y'' - 2x y' + 2n y = 0.\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Find the recurrence relation for the coefficients of a power series solution about $x = 0$.</li>\n<li class=\"my-4\">Show that when $n$ is a nonnegative integer, one solution is a polynomial of degree $n$, and find it for $n = 0, 1, 2, 3$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">You should get $a_{k+2} = \\frac{2(k - n)}{(k + 2)(k + 1)} a_k$. When $k = n$ the series stops.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> With $y = \\sum a_k x^k$: $y'' = \\sum (k + 2)(k + 1)a_{k+2}x^k$ and $x y' = \\sum k a_k x^k$. Comparing coefficients of $x^k$:\n    \\[\n        (k + 2)(k + 1)a_{k+2} - 2k a_k + 2n a_k = 0 \\implies a_{k+2} = \\frac{2(k - n)}{(k + 2)(k + 1)}\\, a_k.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> If $n$ is a nonnegative integer, then $a_{n+2} = 0$, hence $a_{n+4} = a_{n+6} = \\cdots = 0$. Choosing $a_1 = 0$ when $n$ is even (or $a_0 = 0$ when $n$ is odd), the solution is a polynomial of degree $n$:\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">$n = 0$: $y = 1$.</li>\n<li class=\"my-4\">$n = 1$: $y = x$.</li>\n<li class=\"my-4\">$n = 2$: $a_2 = \\frac{2(0 - 2)}{2}a_0 = -2a_0$, so $y = 1 - 2x^2$.</li>\n<li class=\"my-4\">$n = 3$: $a_3 = \\frac{2(1 - 3)}{6}a_1 = -\\frac{2}{3}a_1$, so $y = x - \\frac{2}{3}x^3$.</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Normalised to have leading coefficient $2^n$, these are the Hermite polynomials $H_0 = 1$, $H_1 = 2x$, $H_2 = 4x^2 - 2$, $H_3 = 8x^3 - 12x$. They appear in the quantum harmonic oscillator, where the condition \"$n$ is a nonnegative integer\" is the quantisation of energy. (The other, non-polynomial solution grows like $e^{x^2}$.)</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "series-solution"
+      ]
+    },
+    {
+      "date": "2024-12-06",
+      "title": "A vibrating string with initial displacement and initial velocity",
+      "difficulty": "easy",
+      "problem": "Solve the wave equation\n    \\[\n        u_{tt} = u_{xx}, \\qquad 0 \\lt x \\lt \\pi,\\ t > 0,\n    \\]\n    with $u(0, t) = u(\\pi, t) = 0$, $u(x, 0) = \\sin 3x$ and $u_t(x, 0) = \\sin x + 4\\sin 2x$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Separated solutions satisfying the boundary conditions are $\\sin nx\\,(a_n\\cos nt + b_n \\sin nt)$. Match $u(x, 0)$ with the $a_n$ and $u_t(x, 0)$ with $n b_n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Separation of variables $u = X(x)T(t)$ with $X(0) = X(\\pi) = 0$ gives $X_n = \\sin nx$, $T_n'' + n^2 T_n = 0$, so\n    \\[\n        u(x, t) = \\sum_{n \\geq 1} \\sin nx \\left( a_n \\cos nt + b_n \\sin nt \\right).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Initial displacement.</strong> $u(x, 0) = \\sum a_n \\sin nx = \\sin 3x$, so $a_3 = 1$ and all other $a_n = 0$.\n    <strong>Initial velocity.</strong> $u_t(x, 0) = \\sum n b_n \\sin nx = \\sin x + 4\\sin 2x$, so $1 \\cdot b_1 = 1$, $2b_2 = 4$, i.e. $b_1 = 1$, $b_2 = 2$, and all other $b_n = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore\n    \\[\n        u(x, t) = \\sin 3x \\cos 3t + \\sin x \\sin t + 2\\sin 2x \\sin 2t.\n    \\]\n    <strong>Check.</strong> Each term satisfies $u_{tt} = u_{xx}$ and vanishes at $x = 0, \\pi$; at $t = 0$, $u = \\sin 3x$ and $u_t = \\sin x + 4\\sin 2x$. The solution is periodic in $t$ with period $2\\pi$.</div>",
+      "tags": [
+        "differential-equation",
+        "pde",
+        "wave-equation",
+        "separation-of-variables"
+      ]
+    },
+    {
+      "date": "2024-12-13",
+      "title": "Heat equation with insulated ends and initial temperature $\\cos^2 x$",
+      "difficulty": "easy",
+      "problem": "Solve\n    \\[\n        u_t = u_{xx}, \\qquad 0 \\lt x \\lt \\pi,\\ t > 0,\n    \\]\n    with insulated ends $u_x(0, t) = u_x(\\pi, t) = 0$ and initial temperature $u(x, 0) = \\cos^2 x$. What is the steady-state temperature?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">With Neumann conditions the eigenfunctions are $\\cos nx$, $n = 0, 1, 2, \\ldots$ (including the constant). Write $\\cos^2 x = \\frac{1}{2} + \\frac{1}{2}\\cos 2x$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Separating $u = X(x)T(t)$: $X'' + \\lambda X = 0$ with $X'(0) = X'(\\pi) = 0$ gives $X_n = \\cos nx$, $\\lambda_n = n^2$ ($n = 0, 1, 2, \\ldots$), and $T_n = e^{-n^2 t}$. So\n    \\[\n        u(x, t) = a_0 + \\sum_{n \\geq 1} a_n e^{-n^2 t}\\cos nx.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $u(x, 0) = \\cos^2 x = \\frac{1}{2} + \\frac{1}{2}\\cos 2x$, we get $a_0 = \\frac{1}{2}$, $a_2 = \\frac{1}{2}$ and all other $a_n = 0$:\n    \\[\n        u(x, t) = \\frac{1}{2} + \\frac{1}{2}e^{-4t}\\cos 2x.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Steady state.</strong> As $t \\to \\infty$, $u \\to \\frac{1}{2}$, the average of the initial temperature $\\frac{1}{\\pi}\\int_0^\\pi \\cos^2 x\\, \\mathrm{d}x = \\frac{1}{2}$. This is expected: with insulated ends no heat escapes, so $\\int_0^\\pi u\\, \\mathrm{d}x$ is constant in time (indeed $\\frac{\\mathrm{d}}{\\mathrm{d}t}\\int_0^\\pi u\\, \\mathrm{d}x = \\int_0^\\pi u_{xx}\\, \\mathrm{d}x = u_x\\big|_0^\\pi = 0$).</div>",
+      "tags": [
+        "differential-equation",
+        "pde",
+        "heat-equation",
+        "separation-of-variables"
+      ]
+    },
+    {
+      "date": "2024-12-20",
+      "title": "Transport with decay: solve $u_t + 2u_x = -u$, $u(x, 0) = \\sin x$",
+      "difficulty": "easy",
+      "problem": "Solve the first-order PDE\n    \\[\n        u_t + 2u_x = -u, \\qquad u(x, 0) = \\sin x, \\qquad x \\in \\mathbb{R},\\ t > 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Along the characteristic lines $x - 2t = \\text{const}$, the equation becomes the ODE $\\frac{\\mathrm{d}u}{\\mathrm{d}t} = -u$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The characteristic equations are $\\frac{\\mathrm{d}t}{1} = \\frac{\\mathrm{d}x}{2} = \\frac{\\mathrm{d}u}{-u}$. From the first pair, $x - 2t = \\xi$ is constant along characteristics. Along such a line, $\\frac{\\mathrm{d}u}{\\mathrm{d}t} = u_t + 2u_x = -u$, so $u = C(\\xi)e^{-t}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">At $t = 0$, $x = \\xi$ and $u = \\sin\\xi$, so $C(\\xi) = \\sin\\xi$. Therefore\n    \\[\n        u(x, t) = e^{-t}\\sin(x - 2t).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> $u_t = -e^{-t}\\sin(x - 2t) - 2e^{-t}\\cos(x - 2t)$ and $2u_x = 2e^{-t}\\cos(x - 2t)$, so $u_t + 2u_x = -u$; and $u(x, 0) = \\sin x$. The initial profile travels to the right with speed $2$ while its amplitude decays like $e^{-t}$.</div>",
+      "tags": [
+        "differential-equation",
+        "pde",
+        "characteristics"
+      ]
+    },
+    {
+      "date": "2024-12-27",
+      "title": "A complete integral of $p^2 + q^2 = x + y$",
+      "difficulty": "medium",
+      "problem": "Find a complete integral of the nonlinear first-order PDE\n    \\[\n        p^2 + q^2 = x + y, \\qquad p = \\frac{\\partial z}{\\partial x},\\ q = \\frac{\\partial z}{\\partial y}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The equation is separable: $p^2 - x = y - q^2$. Set both sides equal to a constant $a$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Write the equation as $p^2 - x = y - q^2$. The left side involves only $x$ and $p$, the right only $y$ and $q$, so both equal a constant $a$ (this is what Charpit's equations give for equations of the form $f(x, p) = g(y, q)$):\n    \\[\n        p = \\sqrt{x + a}, \\qquad q = \\sqrt{y - a}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Then $\\mathrm{d}z = p\\, \\mathrm{d}x + q\\, \\mathrm{d}y = \\sqrt{x + a}\\, \\mathrm{d}x + \\sqrt{y - a}\\, \\mathrm{d}y$, and integrating,\n    \\[\n        z = \\frac{2}{3}(x + a)^{3/2} + \\frac{2}{3}(y - a)^{3/2} + b,\n    \\]\n    a complete integral, with the two arbitrary constants $a, b$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> $p = (x + a)^{1/2}$ and $q = (y - a)^{1/2}$, so $p^2 + q^2 = x + y$. (Other sign choices for the square roots give further complete integrals.)</div>",
+      "tags": [
+        "differential-equation",
+        "pde",
+        "charpit-method"
+      ]
+    },
+    {
       "date": "2025-01-03",
       "title": "",
       "problem": "Find the third order differential equation whose solution is the $3$-parameter family of curves defined by\n\\[\n    x^2 + y^2 + 2ax + 2by + c = 0,\n\\]\nwhere $a,b,c$ are parameters.",
@@ -1130,6 +1562,59 @@
       ]
     },
     {
+      "date": "2025-04-25",
+      "title": "Solve the exact equation $(e^y + y\\cos x)\\, \\mathrm{d}x + (xe^y + \\sin x)\\, \\mathrm{d}y = 0$",
+      "difficulty": "easy",
+      "problem": "Show that the equation\n    \\[\n        (e^{y} + y\\cos x)\\, \\mathrm{d}x + (xe^{y} + \\sin x)\\, \\mathrm{d}y = 0\n    \\]\n    is exact, and solve it.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Check $M_y = N_x$, then find $F$ with $F_x = M$, $F_y = N$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">With $M = e^y + y\\cos x$ and $N = xe^y + \\sin x$: $M_y = e^y + \\cos x = N_x$, so the equation is exact.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Integrating $M$ with respect to $x$: $F = xe^y + y\\sin x + g(y)$. Then $F_y = xe^y + \\sin x + g'(y)$ must equal $N$, so $g' = 0$. The general solution is\n    \\[\n        xe^{y} + y\\sin x = C.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "exact-equation"
+      ]
+    },
+    {
+      "date": "2025-05-02",
+      "title": "An integrating factor $\\mu(x)$: solve $(x^2 + y^2 + x)\\, \\mathrm{d}x + xy\\, \\mathrm{d}y = 0$",
+      "difficulty": "easy",
+      "problem": "Solve $(x^2 + y^2 + x)\\, \\mathrm{d}x + xy\\, \\mathrm{d}y = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Compute $\\frac{M_y - N_x}{N}$; if it depends only on $x$, then $\\mu = e^{\\int \\frac{M_y - N_x}{N}\\mathrm{d}x}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$M_y = 2y$ and $N_x = y$, so the equation is not exact, but $\\frac{M_y - N_x}{N} = \\frac{y}{xy} = \\frac{1}{x}$ depends only on $x$. Hence $\\mu = e^{\\int \\mathrm{d}x/x} = x$ is an integrating factor.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Multiplying by $x$: $(x^3 + xy^2 + x^2)\\, \\mathrm{d}x + x^2y\\, \\mathrm{d}y = 0$, which is exact ($\\partial_y = 2xy = \\partial_x$). A potential is $F = \\frac{x^4}{4} + \\frac{x^2y^2}{2} + \\frac{x^3}{3}$, so the solution is\n    \\[\n        3x^4 + 6x^2y^2 + 4x^3 = C.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "exact-equation",
+        "integrating-factor"
+      ]
+    },
+    {
+      "date": "2025-05-09",
+      "title": "An equation solvable for $p$: $p^2 + 2py\\cot x = y^2$",
+      "difficulty": "medium",
+      "problem": "Solve $p^2 + 2py\\cot x = y^2$, where $p = \\frac{\\mathrm{d}y}{\\mathrm{d}x}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Solve the quadratic for $p$: $p = y(-\\cot x \\pm \\csc x)$, and use the half-angle formulas $\\frac{1 - \\cos x}{\\sin x} = \\tan\\frac{x}{2}$, $\\frac{1 + \\cos x}{\\sin x} = \\cot\\frac{x}{2}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">As a quadratic in $p$: $p = -y\\cot x \\pm \\sqrt{y^2\\cot^2 x + y^2} = y(-\\cot x \\pm \\csc x)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>First factor.</strong> $p = y\\,\\frac{1 - \\cos x}{\\sin x} = y\\tan\\frac{x}{2}$. Separating, $\\ln|y| = -2\\ln\\left| \\cos\\frac{x}{2} \\right| + c$, i.e. $y = C\\sec^2\\frac{x}{2}$, or $y(1 + \\cos x) = c$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Second factor.</strong> $p = -y\\,\\frac{1 + \\cos x}{\\sin x} = -y\\cot\\frac{x}{2}$, giving $\\ln|y| = -2\\ln\\left| \\sin\\frac{x}{2} \\right| + c$, i.e. $y(1 - \\cos x) = c$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General solution.</strong>\n    \\[\n        \\left( y(1 + \\cos x) - c \\right)\\left( y(1 - \\cos x) - c \\right) = 0.\n    \\]\n    (Each factor gives a one-parameter family, and the product combines them with one constant, as is customary for equations of higher degree in $p$.)</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "nonlinear-first-order"
+      ]
+    },
+    {
+      "date": "2025-05-16",
+      "title": "Lagrange's (d'Alembert's) equation $y = 2px + p^2$",
+      "difficulty": "medium",
+      "problem": "Solve $y = 2px + p^2$, where $p = \\frac{\\mathrm{d}y}{\\mathrm{d}x}$, in parametric form.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Differentiate with respect to $x$ and regard $x$ as a function of $p$: you get a linear equation $\\frac{\\mathrm{d}x}{\\mathrm{d}p} + \\frac{2}{p}x = -2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Differentiating with respect to $x$: $p = 2p + 2x\\frac{\\mathrm{d}p}{\\mathrm{d}x} + 2p\\frac{\\mathrm{d}p}{\\mathrm{d}x}$, i.e. $-p = 2(x + p)\\frac{\\mathrm{d}p}{\\mathrm{d}x}$. For $p \\neq 0$, regarding $x$ as a function of $p$:\n    \\[\n        \\frac{\\mathrm{d}x}{\\mathrm{d}p} + \\frac{2}{p}x = -2.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">This is linear with integrating factor $p^2$: $\\frac{\\mathrm{d}}{\\mathrm{d}p}(p^2x) = -2p^2$, so $p^2x = -\\frac{2}{3}p^3 + c$. Hence the general solution in parametric form is\n    \\[\n        x = \\frac{c}{p^2} - \\frac{2p}{3}, \\qquad y = 2px + p^2 = \\frac{2c}{p} - \\frac{p^2}{3}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> $\\frac{\\mathrm{d}y/\\mathrm{d}p}{\\mathrm{d}x/\\mathrm{d}p} = \\frac{-2c/p^2 - 2p/3}{-2c/p^3 - 2/3} = p$, as required. Also $y = 0$ (the case $p = 0$) is a solution.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "nonlinear-first-order"
+      ]
+    },
+    {
       "date": "2025-05-23",
       "title": "Solve the differential equation dy/dx = (e^{-2√x} · g(f(f(x))) - y/√x), where f(x) = x - 1 and g(x) = e^x, with y(0) = 0 and find the value of y(1)",
       "problem": "Let $f(x) = x - 1$ and $g(x) = e^x$ for $x \\in \\mathbb{R}$. If\n\\[\n    \\frac{dy}{dx} = \\left( e^{-2\\sqrt{x}} g\\left(f(f(x))\\right) - \\frac{y}{\\sqrt{x}} \\right), \\ y(0) = 0,\n\\]\nthen find $y(1)$.",
@@ -1149,6 +1634,412 @@
       "tags": [
         "differential-equation",
         "pde"
+      ]
+    },
+    {
+      "date": "2025-06-06",
+      "title": "Orthogonal trajectories of the circles $x^2 + y^2 = 2cx$",
+      "difficulty": "easy",
+      "problem": "Find the orthogonal trajectories of the family of circles $x^2 + y^2 = 2cx$ (circles through the origin with centres on the $x$-axis).",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Eliminate $c$ to get $y' = \\frac{y^2 - x^2}{2xy}$; replace $y'$ by $-\\frac{1}{y'}$. The new equation is the old one with $x$ and $y$ interchanged.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Differentiating, $2x + 2yy' = 2c = \\frac{x^2 + y^2}{x}$, so the family satisfies $y' = \\frac{y^2 - x^2}{2xy}$. The orthogonal trajectories satisfy\n    \\[\n        y' = -\\frac{2xy}{y^2 - x^2} = \\frac{2xy}{x^2 - y^2}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">This is the equation of the family with $x$ and $y$ interchanged ($\\frac{\\mathrm{d}x}{\\mathrm{d}y} = \\frac{x^2 - y^2}{2xy}$). So its solutions are the circles\n    \\[\n        x^2 + y^2 = 2ky,\n    \\]\n    through the origin with centres on the $y$-axis. (Check: for this family, $2x + 2yy' = 2ky'$ gives $y' = \\frac{x}{k - y} = \\frac{2xy}{x^2 - y^2}$ after substituting $k = \\frac{x^2 + y^2}{2y}$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">These are the two families of coaxial circles tangent at the origin to the $y$-axis and the $x$-axis respectively; they appear as field lines and equipotentials of a two-dimensional dipole.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "orthogonal-trajectories"
+      ]
+    },
+    {
+      "date": "2025-06-13",
+      "title": "Radiocarbon dating: a sample with $20\\%$ of its original carbon-14",
+      "difficulty": "easy",
+      "problem": "Carbon-14 decays according to $\\frac{\\mathrm{d}N}{\\mathrm{d}t} = -\\lambda N$ with half-life $5730$ years. A fossil contains $20\\%$ of the carbon-14 it had when it died. How old is it?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$N = N_0e^{-\\lambda t}$ with $\\lambda = \\frac{\\ln 2}{5730}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Solving, $N(t) = N_0e^{-\\lambda t}$. The half-life $T = 5730$ satisfies $e^{-\\lambda T} = \\frac{1}{2}$, so $\\lambda = \\frac{\\ln 2}{5730}$ per year.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$N = 0.2N_0$ gives $e^{-\\lambda t} = \\frac{1}{5}$, so\n    \\[\n        t = \\frac{\\ln 5}{\\lambda} = 5730\\cdot\\frac{\\ln 5}{\\ln 2} \\approx 13\\,300 \\text{ years}.\n    \\]\n    (Note $\\frac{\\ln 5}{\\ln 2} \\approx 2.32$: slightly more than two half-lives, after which $25\\%$ would remain.)</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "applications"
+      ]
+    },
+    {
+      "date": "2025-06-20",
+      "title": "A falling body with air resistance proportional to $v^2$: terminal velocity",
+      "difficulty": "medium",
+      "problem": "A body falls from rest under gravity with air resistance proportional to the square of its speed:\n    \\[\n        \\frac{\\mathrm{d}v}{\\mathrm{d}t} = g - kv^2, \\qquad v(0) = 0, \\quad k > 0.\n    \\]\n    Find $v(t)$, the terminal velocity, and the distance fallen $s(t)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Let $V = \\sqrt{g/k}$. Then $g - kv^2 = k(V^2 - v^2)$; separate and use partial fractions, or recognise $\\tanh$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $V = \\sqrt{g/k}$, so $g - kv^2 = k(V - v)(V + v)$. Separating,\n    \\[\n        \\frac{\\mathrm{d}v}{V^2 - v^2} = k\\, \\mathrm{d}t \\implies \\frac{1}{V}\\operatorname{artanh}\\frac{v}{V} = kt\n    \\]\n    (for $0 \\leq v \\lt V$, using $v(0) = 0$). Since $kV = \\sqrt{gk}$,\n    \\[\n        v(t) = \\sqrt{\\frac{g}{k}}\\tanh\\left( \\sqrt{gk}\\, t \\right).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Terminal velocity.</strong> As $t \\to \\infty$, $\\tanh \\to 1$, so $v \\to \\sqrt{g/k}$: the speed at which drag balances gravity ($kv^2 = g$). It is approached exponentially fast.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Distance.</strong> $s(t) = \\int_0^t v = \\frac{1}{k}\\ln\\cosh\\left( \\sqrt{gk}\\, t \\right)$, since $\\frac{\\mathrm{d}}{\\mathrm{d}t}\\ln\\cosh(at) = a\\tanh(at)$. For small $t$, $s \\approx \\frac{1}{2}gt^2$ (free fall); for large $t$, $s \\approx \\sqrt{g/k}\\, t - \\frac{\\ln 2}{k}$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "applications",
+        "separable"
+      ]
+    },
+    {
+      "date": "2025-06-27",
+      "title": "An $RL$ circuit driven by $E_0\\sin\\omega t$",
+      "difficulty": "medium",
+      "problem": "The current $i(t)$ in a circuit with resistance $R$, inductance $L$ and voltage $E_0\\sin\\omega t$ satisfies\n    \\[\n        L\\frac{\\mathrm{d}i}{\\mathrm{d}t} + Ri = E_0\\sin\\omega t, \\qquad i(0) = 0.\n    \\]\n    Find $i(t)$, and the amplitude and phase lag of the steady-state current.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Try a particular solution $A\\sin\\omega t + B\\cos\\omega t$; the complementary function is $Ce^{-Rt/L}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Particular solution.</strong> Put $i_p = A\\sin\\omega t + B\\cos\\omega t$: comparing coefficients of $\\sin$ and $\\cos$ in $L i_p' + Ri_p = E_0\\sin\\omega t$,\n    \\[\n        RA - L\\omega B = E_0, \\qquad L\\omega A + RB = 0 \\implies A = \\frac{E_0R}{R^2 + \\omega^2L^2}, \\ B = -\\frac{E_0\\omega L}{R^2 + \\omega^2L^2}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Solution.</strong> Adding $Ce^{-Rt/L}$ and using $i(0) = 0$ ($C = -B$):\n    \\[\n        i(t) = \\frac{E_0}{R^2 + \\omega^2L^2}\\left( R\\sin\\omega t - \\omega L\\cos\\omega t + \\omega L\\, e^{-Rt/L} \\right).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Steady state.</strong> The transient $e^{-Rt/L}$ dies out, leaving\n    \\[\n        i_{ss}(t) = \\frac{E_0}{\\sqrt{R^2 + \\omega^2L^2}}\\sin(\\omega t - \\phi), \\qquad \\tan\\phi = \\frac{\\omega L}{R}.\n    \\]\n    The amplitude is $E_0$ divided by the impedance $\\sqrt{R^2 + \\omega^2L^2}$, and the current lags the voltage by $\\phi$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "applications",
+        "linear-equation"
+      ]
+    },
+    {
+      "date": "2025-07-04",
+      "title": "The hanging chain: $y'' = \\frac{1}{a}\\sqrt{1 + (y')^2}$ gives the catenary",
+      "difficulty": "medium",
+      "problem": "The shape of a hanging chain satisfies\n    \\[\n        \\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = \\frac{1}{a}\\sqrt{1 + \\left( \\frac{\\mathrm{d}y}{\\mathrm{d}x} \\right)^2}, \\qquad a > 0.\n    \\]\n    Solve it with $y(0) = a$, $y'(0) = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Put $p = y'$: $\\frac{\\mathrm{d}p}{\\sqrt{1 + p^2}} = \\frac{\\mathrm{d}x}{a}$, and $\\int \\frac{\\mathrm{d}p}{\\sqrt{1 + p^2}} = \\operatorname{arsinh} p$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The variable $y$ does not appear, so put $p = y'$: $\\frac{\\mathrm{d}p}{\\sqrt{1 + p^2}} = \\frac{\\mathrm{d}x}{a}$. Integrating, $\\operatorname{arsinh} p = \\frac{x}{a} + c_1$, and $p(0) = 0$ gives $c_1 = 0$. So\n    \\[\n        \\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\sinh\\frac{x}{a}, \\qquad y = a\\cosh\\frac{x}{a} + c_2.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$y(0) = a$ gives $c_2 = 0$, so\n    \\[\n        y = a\\cosh\\frac{x}{a},\n    \\]\n    the catenary. <strong>Check.</strong> $y'' = \\frac{1}{a}\\cosh\\frac{x}{a}$ and $\\sqrt{1 + \\sinh^2\\frac{x}{a}} = \\cosh\\frac{x}{a}$. Here $a$ is the ratio of the horizontal tension to the weight per unit length.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "reduction-of-order",
+        "applications"
+      ]
+    },
+    {
+      "date": "2025-07-11",
+      "title": "Solve $y''' - 6y'' + 11y' - 6y = e^{4x}$",
+      "difficulty": "easy",
+      "problem": "Find the general solution of\n    \\[\n        \\frac{\\mathrm{d}^3y}{\\mathrm{d}x^3} - 6\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} + 11\\frac{\\mathrm{d}y}{\\mathrm{d}x} - 6y = e^{4x}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$m^3 - 6m^2 + 11m - 6 = (m - 1)(m - 2)(m - 3)$. Since $4$ is not a root, $y_p = \\frac{e^{4x}}{P(4)}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Complementary function.</strong> The auxiliary polynomial is $P(m) = m^3 - 6m^2 + 11m - 6 = (m - 1)(m - 2)(m - 3)$ (note $P(1) = 0$), so $y_c = c_1e^{x} + c_2e^{2x} + c_3e^{3x}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Particular integral.</strong> Since $P(D)e^{4x} = P(4)e^{4x}$ and $P(4) = 3 \\cdot 2 \\cdot 1 = 6 \\neq 0$, take $y_p = \\frac{e^{4x}}{6}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General solution.</strong>\n    \\[\n        y = c_1e^{x} + c_2e^{2x} + c_3e^{3x} + \\frac{1}{6}e^{4x}.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "constant-coefficients"
+      ]
+    },
+    {
+      "date": "2025-07-18",
+      "title": "Solve $y'' + y = e^x + x^3$",
+      "difficulty": "easy",
+      "problem": "Find the general solution of $y'' + y = e^{x} + x^3$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Treat the two forcing terms separately: try $Ae^x$ and $Bx^3 + Cx^2 + Dx + E$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Complementary function.</strong> $y_c = c_1\\cos x + c_2\\sin x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>For $e^x$:</strong> $y = Ae^x$ gives $2Ae^x = e^x$, so $A = \\frac{1}{2}$.\n    <strong>For $x^3$:</strong> try $y = Bx^3 + Cx^2 + Dx + E$; then $y'' + y = Bx^3 + Cx^2 + (6B + D)x + (2C + E)$. Matching with $x^3$: $B = 1$, $C = 0$, $D = -6$, $E = 0$. So $y = x^3 - 6x$. (Check: $(x^3 - 6x)'' = 6x$, and $6x + x^3 - 6x = x^3$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General solution.</strong>\n    \\[\n        y = c_1\\cos x + c_2\\sin x + \\frac{1}{2}e^{x} + x^3 - 6x.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "undetermined-coefficients",
+        "constant-coefficients"
+      ]
+    },
+    {
+      "date": "2025-07-25",
+      "title": "Resonance via the exponential shift: $(D^2 - 2D + 5)y = e^x\\cos 2x$",
+      "difficulty": "medium",
+      "problem": "Find the general solution of $y'' - 2y' + 5y = e^{x}\\cos 2x$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The roots are $1 \\pm 2\\iota$, so the forcing resonates. Put $y = e^{x}u$: then $(D^2 - 2D + 5)(e^xu) = e^x(D^2 + 4)u$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Complementary function.</strong> $m^2 - 2m + 5 = 0$ gives $m = 1 \\pm 2\\iota$, so $y_c = e^{x}(c_1\\cos 2x + c_2\\sin 2x)$. The forcing $e^x\\cos 2x$ solves the homogeneous equation: resonance.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Exponential shift.</strong> For $y = e^xu$, $D(e^xu) = e^x(D + 1)u$, so\n    \\[\n        (D^2 - 2D + 5)(e^xu) = e^x\\left( (D + 1)^2 - 2(D + 1) + 5 \\right)u = e^x(D^2 + 4)u.\n    \\]\n    So we need $u'' + 4u = \\cos 2x$. Trying $u = \\frac{x}{4}\\sin 2x$: $u'' = \\cos 2x - x\\sin 2x$, so $u'' + 4u = \\cos 2x$. ✓</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General solution.</strong>\n    \\[\n        y = e^{x}(c_1\\cos 2x + c_2\\sin 2x) + \\frac{x}{4}e^{x}\\sin 2x.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "constant-coefficients",
+        "undetermined-coefficients"
+      ]
+    },
+    {
+      "date": "2025-08-01",
+      "title": "Variation of parameters: $x^2y'' - 2xy' + 2y = x^3e^x$",
+      "difficulty": "medium",
+      "problem": "Given that $y_1 = x$ and $y_2 = x^2$ solve $x^2y'' - 2xy' + 2y = 0$ ($x > 0$), find the general solution of\n    \\[\n        x^2y'' - 2xy' + 2y = x^3e^x.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">First divide by $x^2$ to get the standard form $y'' + Py' + Qy = f$ with $f = xe^x$. Then $u_1' = -\\frac{y_2f}{W}$, $u_2' = \\frac{y_1f}{W}$ with $W = x^2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In standard form, $y'' - \\frac{2}{x}y' + \\frac{2}{x^2}y = xe^x$, so $f(x) = xe^x$. The Wronskian is $W = y_1y_2' - y_1'y_2 = 2x^2 - x^2 = x^2$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">With $y_p = u_1y_1 + u_2y_2$:\n    \\[\n        u_1' = -\\frac{y_2f}{W} = -\\frac{x^2 \\cdot xe^x}{x^2} = -xe^x, \\qquad u_2' = \\frac{y_1f}{W} = \\frac{x \\cdot xe^x}{x^2} = e^x.\n    \\]\n    So $u_1 = -(x - 1)e^x$, $u_2 = e^x$, and $y_p = -x(x - 1)e^x + x^2e^x = xe^x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General solution.</strong>\n    \\[\n        y = c_1x + c_2x^2 + xe^{x}.\n    \\]\n    Check: for $y = xe^x$, $y' = (x + 1)e^x$, $y'' = (x + 2)e^x$, and $x^2(x + 2) - 2x(x + 1) + 2x = x^3$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "variation-of-parameters",
+        "cauchy-euler"
+      ]
+    },
+    {
+      "date": "2025-08-08",
+      "title": "A change of independent variable: $y'' + (\\tan x)y' + (\\cos^2 x)y = 0$",
+      "difficulty": "medium",
+      "problem": "Solve $y'' + (\\tan x)\\,y' + (\\cos^2 x)\\,y = 0$ on $-\\frac{\\pi}{2} \\lt x \\lt \\frac{\\pi}{2}$ by changing the independent variable to $t = \\sin x$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\cos x\\,\\frac{\\mathrm{d}y}{\\mathrm{d}t}$ and $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = \\cos^2 x\\,\\frac{\\mathrm{d}^2y}{\\mathrm{d}t^2} - \\sin x\\,\\frac{\\mathrm{d}y}{\\mathrm{d}t}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">With $t = \\sin x$, $\\frac{\\mathrm{d}t}{\\mathrm{d}x} = \\cos x$, so\n    \\[\n        y' = \\cos x\\, y_t, \\qquad y'' = \\cos^2 x\\, y_{tt} - \\sin x\\, y_t.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Substituting:\n    \\[\n        \\cos^2 x\\, y_{tt} - \\sin x\\, y_t + \\tan x \\cos x\\, y_t + \\cos^2 x\\, y = \\cos^2 x\\,(y_{tt} + y) = 0,\n    \\]\n    since $\\tan x\\cos x = \\sin x$. As $\\cos x \\neq 0$ on the interval, $y_{tt} + y = 0$, so $y = c_1\\cos t + c_2\\sin t$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General solution.</strong>\n    \\[\n        y = c_1\\cos(\\sin x) + c_2\\sin(\\sin x).\n    \\]\n    (In general, $y'' + P y' + Q y = 0$ becomes an equation with constant coefficients under $t = \\int\\sqrt{Q}\\, \\mathrm{d}x$ when $\\frac{Q' + 2PQ}{Q^{3/2}}$ is constant; here $Q = \\cos^2 x$ and this quantity is $0$.)</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "change-of-variables"
+      ]
+    },
+    {
+      "date": "2025-08-15",
+      "title": "Removing the first-derivative term: $y'' - 4xy' + (4x^2 - 1)y = 0$",
+      "difficulty": "medium",
+      "problem": "Solve $y'' - 4xy' + (4x^2 - 1)y = 0$ by the substitution $y = u\\,e^{x^2}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For $y'' + Py' + Qy = 0$, $y = u\\,e^{-\\frac{1}{2}\\int P}$ gives $u'' + \\left( Q - \\frac{P^2}{4} - \\frac{P'}{2} \\right)u = 0$. Here $P = -4x$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">With $y = ue^{x^2}$: $y' = (u' + 2xu)e^{x^2}$ and $y'' = \\left( u'' + 4xu' + (2 + 4x^2)u \\right)e^{x^2}$. Substituting and dividing by $e^{x^2}$:\n    \\[\n        u'' + 4xu' + (2 + 4x^2)u - 4x(u' + 2xu) + (4x^2 - 1)u = u'' + u = 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $u = c_1\\cos x + c_2\\sin x$, and\n    \\[\n        y = e^{x^2}\\left( c_1\\cos x + c_2\\sin x \\right).\n    \\]\n    This matches the general rule: $Q - \\frac{P^2}{4} - \\frac{P'}{2} = (4x^2 - 1) - 4x^2 + 2 = 1$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "change-of-variables"
+      ]
+    },
+    {
+      "date": "2025-08-22",
+      "title": "The Sturm separation theorem: zeros of independent solutions interlace",
+      "difficulty": "medium",
+      "problem": "Let $y_1, y_2$ be linearly independent solutions of $y'' + p(x)y' + q(x)y = 0$ on an interval $I$, where $p, q$ are continuous. Prove that between any two consecutive zeros of $y_1$ in $I$ there is exactly one zero of $y_2$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The Wronskian $W = y_1y_2' - y_1'y_2$ never vanishes, so it has constant sign. Evaluate it at consecutive zeros $a \\lt b$ of $y_1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $y_1, y_2$ are independent, $W = y_1y_2' - y_1'y_2$ never vanishes on $I$ (Abel), so it has a constant sign. Let $a \\lt b$ be consecutive zeros of $y_1$. Then $W(a) = -y_1'(a)y_2(a)$ and $W(b) = -y_1'(b)y_2(b)$. In particular $y_2(a) \\neq 0$, $y_2(b) \\neq 0$, and $y_1'(a), y_1'(b) \\neq 0$ (a solution with $y_1 = y_1' = 0$ at a point is identically zero).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Say $y_1 > 0$ on $(a, b)$. Then $y_1'(a) > 0$ and $y_1'(b) \\lt 0$ (they are nonzero and $y_1$ rises from $0$ and falls back to $0$). Since $W(a)$ and $W(b)$ have the same sign, $y_2(a)$ and $y_2(b)$ have opposite signs, so $y_2$ has a zero in $(a, b)$ by the intermediate value theorem.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Exactly one.</strong> If $y_2$ had two zeros in $(a, b)$, applying the same argument with the roles of $y_1, y_2$ exchanged would give a zero of $y_1$ strictly between them, contradicting that $a, b$ are consecutive zeros of $y_1$. Example: the zeros of $\\sin x$ and $\\cos x$, solutions of $y'' + y = 0$, interlace.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "sturm-theory",
+        "wronskian"
+      ]
+    },
+    {
+      "date": "2025-08-29",
+      "title": "Sturm comparison: every solution of $y'' + e^xy = 0$ has infinitely many zeros on $(0, \\infty)$",
+      "difficulty": "hard",
+      "problem": "Show that every nontrivial solution of $y'' + e^{x}y = 0$ has a zero in every interval $[a, a + \\pi]$ with $a \\geq 0$. Deduce that it has infinitely many zeros on $(0, \\infty)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Compare with $z = \\sin(x - a)$, a solution of $z'' + z = 0$. If $y > 0$ on $[a, a + \\pi]$, look at $W = yz' - y'z$ and compute $W' = (e^x - 1)yz$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Suppose a nontrivial solution $y$ has no zero in $[a, a + \\pi]$, $a \\geq 0$; replacing $y$ by $-y$ we may assume $y > 0$ there. Let $z(x) = \\sin(x - a)$, which satisfies $z'' + z = 0$, vanishes at $a$ and $a + \\pi$, and is positive in between.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $W = yz' - y'z$. Then\n    \\[\n        W' = yz'' - y''z = -yz + e^{x}yz = (e^{x} - 1)\\,yz \\geq 0 \\quad \\text{on } [a, a + \\pi],\n    \\]\n    since $x \\geq 0$ and $y, z \\geq 0$. So $W$ is nondecreasing.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">But $W(a) = y(a)z'(a) = y(a)\\cos 0 = y(a) > 0$, while $W(a + \\pi) = y(a + \\pi)\\cos\\pi = -y(a + \\pi) \\lt 0$. So $W(a + \\pi) \\lt W(a)$, a contradiction. Hence $y$ vanishes somewhere in $[a, a + \\pi]$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Applying this to $[0, \\pi], [\\pi + 1, 2\\pi + 1], \\ldots$ gives infinitely many zeros. In fact, since $e^x$ grows, the zeros get closer and closer together; Sturm's comparison theorem says that a larger coefficient $q$ in $y'' + qy = 0$ forces faster oscillation.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "sturm-theory"
+      ]
+    },
+    {
+      "date": "2025-09-05",
+      "title": "An eigenvalue problem with a Robin condition: $y'' + \\lambda y = 0$, $y(0) = 0$, $y'(1) + y(1) = 0$",
+      "difficulty": "medium",
+      "problem": "Find the eigenvalues and eigenfunctions of\n    \\[\n        y'' + \\lambda y = 0, \\qquad y(0) = 0, \\quad y'(1) + y(1) = 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Treat $\\lambda \\lt 0$, $\\lambda = 0$, $\\lambda > 0$ separately. For $\\lambda = \\mu^2 > 0$ you get $\\tan\\mu = -\\mu$; locate its roots graphically.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\lambda = 0$:</strong> $y = Ax + B$; $y(0) = 0$ gives $B = 0$, and $y'(1) + y(1) = 2A = 0$. Only the trivial solution.\n    <strong>$\\lambda = -\\mu^2 \\lt 0$:</strong> $y = A\\sinh\\mu x$, and $y'(1) + y(1) = A(\\mu\\cosh\\mu + \\sinh\\mu) = 0$ forces $A = 0$, since $\\mu\\cosh\\mu + \\sinh\\mu > 0$. No negative eigenvalues.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\lambda = \\mu^2 > 0$:</strong> $y = A\\sin\\mu x$ (from $y(0) = 0$), and the second condition gives $A(\\mu\\cos\\mu + \\sin\\mu) = 0$. Nontrivial solutions exist iff\n    \\[\n        \\tan\\mu = -\\mu.\n    \\]\n    The line $-\\mu$ meets each branch of $\\tan\\mu$ once on $\\left( (n - \\frac{1}{2})\\pi, n\\pi \\right)$, $n = 1, 2, \\ldots$. So there are infinitely many positive roots $\\mu_1 \\lt \\mu_2 \\lt \\cdots$, with $\\mu_1 \\approx 2.0288$, $\\mu_2 \\approx 4.9132$, and $\\mu_n - \\left( n - \\frac{1}{2} \\right)\\pi \\to 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Answer.</strong> The eigenvalues are $\\lambda_n = \\mu_n^2$ (so $\\lambda_1 \\approx 4.116$, $\\lambda_2 \\approx 24.14$), with eigenfunctions $y_n = \\sin\\mu_nx$. As for every regular Sturm-Liouville problem, the eigenfunctions are orthogonal on $[0, 1]$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "boundary-value-problem",
+        "eigenvalues"
+      ]
+    },
+    {
+      "date": "2025-09-12",
+      "title": "Chebyshev's equation: $y = \\cos(n\\arccos x)$ solves $(1 - x^2)y'' - xy' + n^2y = 0$",
+      "difficulty": "medium",
+      "problem": "Show that the substitution $x = \\cos\\theta$ transforms Chebyshev's equation\n    \\[\n        (1 - x^2)y'' - xy' + n^2y = 0, \\qquad -1 \\lt x \\lt 1,\n    \\]\n    into $\\frac{\\mathrm{d}^2y}{\\mathrm{d}\\theta^2} + n^2y = 0$. Deduce that $T_n(x) = \\cos(n\\arccos x)$ is a solution, and compute $T_2$ and $T_3$ as polynomials.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\frac{\\mathrm{d}}{\\mathrm{d}x} = -\\frac{1}{\\sin\\theta}\\frac{\\mathrm{d}}{\\mathrm{d}\\theta}$. Then use $\\cos 2\\theta = 2\\cos^2\\theta - 1$, $\\cos 3\\theta = 4\\cos^3\\theta - 3\\cos\\theta$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">With $x = \\cos\\theta$, $0 \\lt \\theta \\lt \\pi$: $y_x = -\\frac{y_\\theta}{\\sin\\theta}$ and\n    \\[\n        y_{xx} = -\\frac{1}{\\sin\\theta}\\frac{\\mathrm{d}}{\\mathrm{d}\\theta}\\left( -\\frac{y_\\theta}{\\sin\\theta} \\right) = \\frac{y_{\\theta\\theta}}{\\sin^2\\theta} - \\frac{\\cos\\theta\\, y_\\theta}{\\sin^3\\theta}.\n    \\]\n    Hence $(1 - x^2)y_{xx} = y_{\\theta\\theta} - \\cot\\theta\\, y_\\theta$ and $-xy_x = \\cot\\theta\\, y_\\theta$, so the equation becomes\n    \\[\n        y_{\\theta\\theta} + n^2y = 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Its solutions are $c_1\\cos n\\theta + c_2\\sin n\\theta$; in particular $y = \\cos n\\theta = \\cos(n\\arccos x) = T_n(x)$ is a solution, and $\\sin(n\\arccos x)$ is a second one.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For integer $n$, $T_n$ is a polynomial of degree $n$:\n    \\[\n        T_2(x) = \\cos 2\\theta = 2x^2 - 1, \\qquad T_3(x) = \\cos 3\\theta = 4x^3 - 3x.\n    \\]\n    Check for $T_2$: $(1 - x^2)\\cdot 4 - x\\cdot 4x + 4(2x^2 - 1) = 0$. These are the Chebyshev polynomials, with $T_{n+1} = 2xT_n - T_{n-1}$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "series-solution",
+        "change-of-variables"
+      ]
+    },
+    {
+      "date": "2025-09-19",
+      "title": "The Bessel function $J_0$ as a Frobenius series solution of $xy'' + y' + xy = 0$",
+      "difficulty": "medium",
+      "problem": "Find a series solution of Bessel's equation of order zero,\n    \\[\n        xy'' + y' + xy = 0,\n    \\]\n    with $y(0) = 1$. Explain why the second solution must involve $\\ln x$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">With $y = \\sum a_nx^{n+r}$, the indicial equation is $r^2 = 0$, a double root. With $r = 0$: $n^2a_n = -a_{n-2}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$x = 0$ is a regular singular point. With $y = \\sum_{n \\geq 0} a_nx^{n + r}$, $a_0 \\neq 0$:\n    \\[\n        xy'' + y' = \\sum_{n \\geq 0}(n + r)^2a_nx^{n + r - 1}, \\qquad xy = \\sum_{n \\geq 0}a_nx^{n + r + 1}.\n    \\]\n    The lowest power gives the indicial equation $r^2 = 0$: a double root $r = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">With $r = 0$: the coefficient of $x^0$ gives $a_1 = 0$, and for $n \\geq 2$, $n^2a_n + a_{n-2} = 0$. So all odd coefficients vanish and\n    \\[\n        a_{2k} = -\\frac{a_{2k-2}}{(2k)^2} = \\frac{(-1)^ka_0}{2^2 4^2 \\cdots (2k)^2} = \\frac{(-1)^ka_0}{4^k(k!)^2}.\n    \\]\n    With $a_0 = 1$:\n    \\[\n        J_0(x) = \\sum_{k=0}^{\\infty}\\frac{(-1)^k}{(k!)^2}\\left( \\frac{x}{2} \\right)^{2k} = 1 - \\frac{x^2}{4} + \\frac{x^4}{64} - \\cdots,\n    \\]\n    which converges for all $x$ (ratio $\\frac{x^2}{4(k+1)^2} \\to 0$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Second solution.</strong> Because the indicial root is repeated, the Frobenius method yields only one series; the second solution has the form $y_2 = J_0(x)\\ln x + \\sum_{k \\geq 1} b_kx^{2k}$ (it gives the Bessel function $Y_0$, which is unbounded as $x \\to 0^+$).</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "series-solution",
+        "frobenius"
+      ]
+    },
+    {
+      "date": "2025-09-26",
+      "title": "The matrix exponential of $A = \\begin{bmatrix} 0 & 1 \\\\ -1 & 0 \\end{bmatrix}$ is a rotation",
+      "difficulty": "easy",
+      "problem": "Let $A = \\begin{bmatrix} 0 & 1 \\\\ -1 & 0 \\end{bmatrix}$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Compute $e^{tA} = \\sum_{k \\geq 0}\\frac{t^kA^k}{k!}$.</li>\n<li class=\"my-4\">Solve the system $x' = y$, $y' = -x$ with $x(0) = 1$, $y(0) = 2$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$A^2 = -I$, so the even powers give $\\cos t\\, I$ and the odd powers give $\\sin t\\, A$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $A^2 = -I$, so $A^{2k} = (-1)^kI$ and $A^{2k+1} = (-1)^kA$. Splitting the series into even and odd terms,\n    \\[\n        e^{tA} = \\sum_k \\frac{(-1)^kt^{2k}}{(2k)!}I + \\sum_k\\frac{(-1)^kt^{2k+1}}{(2k + 1)!}A = \\cos t\\, I + \\sin t\\, A = \\begin{bmatrix} \\cos t & \\sin t \\\\ -\\sin t & \\cos t \\end{bmatrix},\n    \\]\n    the matrix of clockwise rotation by the angle $t$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> The solution of $X' = AX$, $X(0) = X_0$ is $X(t) = e^{tA}X_0$, so\n    \\[\n        x(t) = \\cos t + 2\\sin t, \\qquad y(t) = -\\sin t + 2\\cos t.\n    \\]\n    Check: $x' = -\\sin t + 2\\cos t = y$ and $y' = -\\cos t - 2\\sin t = -x$. The orbit is the circle $x^2 + y^2 = 5$, traversed clockwise.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "system-of-odes"
+      ]
+    },
+    {
+      "date": "2025-10-03",
+      "title": "A nonhomogeneous system: $x' = x + y$, $y' = 4x + y + e^t$",
+      "difficulty": "medium",
+      "problem": "Find the general solution of\n    \\[\n        x' = x + y, \\qquad y' = 4x + y + e^{t}.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The matrix $\\begin{bmatrix} 1 & 1 \\\\ 4 & 1 \\end{bmatrix}$ has eigenvalues $3, -1$. Try a particular solution $\\begin{bmatrix} a \\\\ b \\end{bmatrix}e^{t}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Homogeneous part.</strong> $\\det\\begin{bmatrix} 1 - \\lambda & 1 \\\\ 4 & 1 - \\lambda \\end{bmatrix} = (1 - \\lambda)^2 - 4 = 0$ gives $\\lambda = 3, -1$, with eigenvectors $(1, 2)$ and $(1, -2)$. So\n    \\[\n        X_c = c_1e^{3t}\\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix} + c_2e^{-t}\\begin{bmatrix} 1 \\\\ -2 \\end{bmatrix}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Particular solution.</strong> Since $1$ is not an eigenvalue, try $X_p = (a, b)e^{t}$: $a = a + b$ and $b = 4a + b + 1$, so $b = 0$ and $a = -\\frac{1}{4}$. Thus $X_p = \\left( -\\frac{1}{4}, 0 \\right)e^{t}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General solution.</strong>\n    \\[\n        x = c_1e^{3t} + c_2e^{-t} - \\frac{1}{4}e^{t}, \\qquad y = 2c_1e^{3t} - 2c_2e^{-t}.\n    \\]\n    Check: $x' = 3c_1e^{3t} - c_2e^{-t} - \\frac{1}{4}e^t = x + y$, and $y' = 6c_1e^{3t} + 2c_2e^{-t} = 4x + y + e^t$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "system-of-odes"
+      ]
+    },
+    {
+      "date": "2025-10-10",
+      "title": "A Lyapunov function: the origin is asymptotically stable for $x' = -x^3 - y$, $y' = x - y^3$",
+      "difficulty": "medium",
+      "problem": "Consider $x' = -x^3 - y$, $y' = x - y^3$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that the linearisation at the origin is a centre, so it does not decide stability.</li>\n<li class=\"my-4\">Using $V(x, y) = x^2 + y^2$, show that the origin is asymptotically stable (indeed every solution tends to it).</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Compute $\\frac{\\mathrm{d}}{\\mathrm{d}t}V(x(t), y(t)) = 2xx' + 2yy'$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> The Jacobian at $(0, 0)$ is $\\begin{bmatrix} 0 & -1 \\\\ 1 & 0 \\end{bmatrix}$, with eigenvalues $\\pm\\iota$: a centre for the linear system. Purely imaginary eigenvalues are exactly the case where nonlinear terms decide stability.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Along solutions,\n    \\[\n        \\frac{\\mathrm{d}V}{\\mathrm{d}t} = 2x(-x^3 - y) + 2y(x - y^3) = -2(x^4 + y^4) \\lt 0 \\quad \\text{for } (x, y) \\neq (0, 0).\n    \\]\n    So the distance to the origin strictly decreases along every nonconstant solution. By Lyapunov's theorem, the origin is asymptotically stable; since $V$ is radially unbounded and $V' \\lt 0$ everywhere except the origin, every solution tends to $(0, 0)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Quantitatively, $x^4 + y^4 \\geq \\frac{1}{2}(x^2 + y^2)^2$, so $V' \\leq -V^2$ and $V(t) \\leq \\frac{V(0)}{1 + V(0)t}$: the decay is only like $\\frac{1}{t}$, not exponential, reflecting the degenerate linearisation.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "system-of-odes",
+        "stability"
+      ]
+    },
+    {
+      "date": "2025-10-17",
+      "title": "The Lotka-Volterra predator-prey system has a conserved quantity, so its orbits are closed",
+      "difficulty": "medium",
+      "problem": "In the predator-prey model\n    \\[\n        x' = x(a - by), \\qquad y' = y(-c + dx), \\qquad a, b, c, d > 0,\n    \\]\n    ($x$ = prey, $y$ = predators) find the equilibria, and show that $H(x, y) = dx - c\\ln x + by - a\\ln y$ is constant along solutions with $x, y > 0$. What does this say about the solutions?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Compute $\\frac{\\mathrm{d}H}{\\mathrm{d}t} = \\left( d - \\frac{c}{x} \\right)x' + \\left( b - \\frac{a}{y} \\right)y'$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Equilibria.</strong> $x(a - by) = 0$ and $y(dx - c) = 0$ give $(0, 0)$ and $\\left( \\frac{c}{d}, \\frac{a}{b} \\right)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Conserved quantity.</strong>\n    \\[\n        \\frac{\\mathrm{d}H}{\\mathrm{d}t} = \\frac{dx - c}{x}\\cdot x(a - by) + \\frac{by - a}{y}\\cdot y(dx - c) = (dx - c)(a - by) + (by - a)(dx - c) = 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Orbits.</strong> $H$ is the sum of $dx - c\\ln x$ and $by - a\\ln y$, each strictly convex with its minimum at $x = \\frac{c}{d}$, resp. $y = \\frac{a}{b}$. So $H$ has a strict global minimum at the interior equilibrium, and its level sets in the open quadrant are closed curves around it. Every solution with $x(0), y(0) > 0$ stays on such a curve: populations oscillate periodically, with predators lagging behind prey. Moreover the time averages over a period equal the equilibrium values: $\\bar{x} = \\frac{c}{d}$, $\\bar{y} = \\frac{a}{b}$ (integrate $\\frac{x'}{x} = a - by$ over a period).</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "system-of-odes",
+        "applications"
+      ]
+    },
+    {
+      "date": "2025-10-24",
+      "title": "Laplace transforms of $t\\sin at$ and $\\sqrt{t}$",
+      "difficulty": "easy",
+      "problem": "Using $\\mathcal{L}\\{ tf(t) \\} = -F'(s)$ and the Gamma function, find\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$\\mathcal{L}\\{ t\\sin at \\}$,</li>\n<li class=\"my-4\">$\\mathcal{L}\\{ \\sqrt{t} \\}$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\mathcal{L}\\{ \\sin at \\} = \\frac{a}{s^2 + a^2}$. For (b), $\\mathcal{L}\\{ t^\\nu \\} = \\frac{\\Gamma(\\nu + 1)}{s^{\\nu + 1}}$ and $\\Gamma\\left( \\frac{3}{2} \\right) = \\frac{\\sqrt{\\pi}}{2}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Differentiating $F(s) = \\int_0^\\infty e^{-st}f(t)\\, \\mathrm{d}t$ under the integral sign gives $F'(s) = -\\mathcal{L}\\{ tf(t) \\}$. With $F(s) = \\frac{a}{s^2 + a^2}$:\n    \\[\n        \\mathcal{L}\\{ t\\sin at \\} = -\\frac{\\mathrm{d}}{\\mathrm{d}s}\\frac{a}{s^2 + a^2} = \\frac{2as}{(s^2 + a^2)^2}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Substituting $u = st$ ($s > 0$),\n    \\[\n        \\mathcal{L}\\{ t^{1/2} \\} = \\int_0^\\infty e^{-st}t^{1/2}\\, \\mathrm{d}t = \\frac{1}{s^{3/2}}\\int_0^\\infty e^{-u}u^{1/2}\\, \\mathrm{d}u = \\frac{\\Gamma(3/2)}{s^{3/2}} = \\frac{\\sqrt{\\pi}}{2s^{3/2}},\n    \\]\n    using $\\Gamma\\left( \\frac{3}{2} \\right) = \\frac{1}{2}\\Gamma\\left( \\frac{1}{2} \\right) = \\frac{\\sqrt{\\pi}}{2}$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "laplace-transformation"
+      ]
+    },
+    {
+      "date": "2025-10-31",
+      "title": "Abel's integral equation $\\int_0^t \\frac{y(\\tau)}{\\sqrt{t - \\tau}}\\, \\mathrm{d}\\tau = t$",
+      "difficulty": "medium",
+      "problem": "Solve Abel's integral equation\n    \\[\n        \\int_0^t \\frac{y(\\tau)}{\\sqrt{t - \\tau}}\\, \\mathrm{d}\\tau = t, \\qquad t > 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The left side is the convolution $y * t^{-1/2}$, and $\\mathcal{L}\\{ t^{-1/2} \\} = \\Gamma\\left( \\frac{1}{2} \\right)s^{-1/2} = \\sqrt{\\pi/s}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The left side is $(y * g)(t)$ with $g(t) = t^{-1/2}$, and $\\mathcal{L}\\{ g \\} = \\frac{\\Gamma(1/2)}{s^{1/2}} = \\sqrt{\\frac{\\pi}{s}}$. Transforming, with $Y = \\mathcal{L}\\{ y \\}$:\n    \\[\n        Y\\sqrt{\\frac{\\pi}{s}} = \\frac{1}{s^2} \\implies Y = \\frac{1}{\\sqrt{\\pi}\\, s^{3/2}}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $\\mathcal{L}\\{ t^{1/2} \\} = \\frac{\\sqrt{\\pi}}{2s^{3/2}}$, we get\n    \\[\n        y(t) = \\frac{1}{\\sqrt{\\pi}}\\cdot\\frac{2}{\\sqrt{\\pi}}\\sqrt{t} = \\frac{2\\sqrt{t}}{\\pi}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> With $\\tau = tu$, $\\int_0^t \\frac{\\sqrt{\\tau}}{\\sqrt{t - \\tau}}\\, \\mathrm{d}\\tau = t\\int_0^1 u^{1/2}(1 - u)^{-1/2}\\, \\mathrm{d}u = t\\,B\\left( \\tfrac{3}{2}, \\tfrac{1}{2} \\right) = \\frac{\\pi t}{2}$, so the left side is $\\frac{2}{\\pi}\\cdot\\frac{\\pi t}{2} = t$. Abel met this equation in the \"tautochrone\" problem of finding a curve along which the time of descent is prescribed.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "laplace-transformation",
+        "integral-equation"
+      ]
+    },
+    {
+      "date": "2025-11-07",
+      "title": "The general solution of $u_{xx} - 4u_{xy} + 3u_{yy} = 0$",
+      "difficulty": "medium",
+      "problem": "Classify the equation $u_{xx} - 4u_{xy} + 3u_{yy} = 0$ and find its general solution.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Factor the operator: $\\partial_x^2 - 4\\partial_x\\partial_y + 3\\partial_y^2 = (\\partial_x - \\partial_y)(\\partial_x - 3\\partial_y)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Type.</strong> With $A = 1$, $2B = -4$, $C = 3$: $B^2 - AC = 4 - 3 = 1 > 0$, so the equation is hyperbolic.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Factorisation.</strong> The constant-coefficient operator factors as $(\\partial_x - \\partial_y)(\\partial_x - 3\\partial_y)$. Now $(\\partial_x - \\partial_y)f(x + y) = f' - f' = 0$ and $(\\partial_x - 3\\partial_y)g(3x + y) = 3g' - 3g' = 0$; the two factors commute. In the characteristic coordinates $\\xi = x + y$, $\\eta = 3x + y$ the equation becomes $u_{\\xi\\eta} = 0$ (up to a nonzero constant factor), whose general solution is $f(\\xi) + g(\\eta)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>General solution.</strong>\n    \\[\n        u(x, y) = f(x + y) + g(3x + y),\n    \\]\n    with $f, g$ arbitrary twice-differentiable functions. The characteristics are the lines $x + y = \\text{const}$ and $3x + y = \\text{const}$ (slopes $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = -1, -3$, the roots of $\\lambda^2 + 4\\lambda + 3 = 0$).</div>",
+      "tags": [
+        "differential-equation",
+        "pde",
+        "classification",
+        "characteristics"
+      ]
+    },
+    {
+      "date": "2025-11-14",
+      "title": "Laplace's equation in a rectangle with $u(x, 1) = \\sin 2x$",
+      "difficulty": "easy",
+      "problem": "Solve $u_{xx} + u_{yy} = 0$ in $0 \\lt x \\lt \\pi$, $0 \\lt y \\lt 1$, with\n    \\[\n        u(0, y) = u(\\pi, y) = 0, \\qquad u(x, 0) = 0, \\qquad u(x, 1) = \\sin 2x.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Separated solutions vanishing on $x = 0, \\pi$ and $y = 0$ are $\\sin nx\\,\\sinh ny$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Separating $u = X(x)Y(y)$: $X'' + \\lambda X = 0$ with $X(0) = X(\\pi) = 0$ gives $X_n = \\sin nx$, $\\lambda = n^2$; then $Y'' - n^2Y = 0$ with $Y(0) = 0$ gives $Y_n = \\sinh ny$. So\n    \\[\n        u = \\sum_{n \\geq 1} b_n\\sin nx\\,\\sinh ny.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">At $y = 1$: $\\sum b_n\\sinh n\\,\\sin nx = \\sin 2x$, so $b_2\\sinh 2 = 1$ and all other $b_n = 0$. Hence\n    \\[\n        u(x, y) = \\frac{\\sin 2x\\,\\sinh 2y}{\\sinh 2}.\n    \\]\n    It is harmonic (as $(\\sin 2x)'' = -4\\sin 2x$ and $(\\sinh 2y)'' = 4\\sinh 2y$) and satisfies all four boundary conditions. Its maximum is $1$, attained on the boundary, as the maximum principle requires.</div>",
+      "tags": [
+        "differential-equation",
+        "pde",
+        "laplace-equation",
+        "separation-of-variables"
+      ]
+    },
+    {
+      "date": "2025-11-21",
+      "title": "Heat equation with a nonzero boundary value: $u(0, t) = 0$, $u(1, t) = 1$, $u(x, 0) = x + \\sin\\pi x$",
+      "difficulty": "easy",
+      "problem": "Solve\n    \\[\n        u_t = u_{xx}, \\quad 0 \\lt x \\lt 1, \\qquad u(0, t) = 0, \\quad u(1, t) = 1, \\qquad u(x, 0) = x + \\sin\\pi x.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Subtract the steady state $w(x) = x$ (it satisfies $w'' = 0$ and both boundary conditions). Then $v = u - x$ has homogeneous boundary conditions.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Steady state.</strong> A time-independent solution satisfies $w'' = 0$, $w(0) = 0$, $w(1) = 1$, so $w(x) = x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Transient.</strong> $v = u - w$ satisfies $v_t = v_{xx}$, $v(0, t) = v(1, t) = 0$ and $v(x, 0) = \\sin\\pi x$. The separated solution is $v = e^{-\\pi^2t}\\sin\\pi x$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Answer.</strong>\n    \\[\n        u(x, t) = x + e^{-\\pi^2t}\\sin\\pi x \\ \\longrightarrow\\ x \\quad (t \\to \\infty).\n    \\]\n    The temperature relaxes to the linear profile between the two ends, with the slowest mode decaying like $e^{-\\pi^2t}$.</div>",
+      "tags": [
+        "differential-equation",
+        "pde",
+        "heat-equation"
+      ]
+    },
+    {
+      "date": "2025-11-28",
+      "title": "Solve $x\\frac{\\mathrm{d}y}{\\mathrm{d}x} = y + \\sqrt{x^2 + y^2}$",
+      "difficulty": "medium",
+      "problem": "Solve the homogeneous equation $x\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = y + \\sqrt{x^2 + y^2}$ for $x > 0$, and describe the solution curves.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Put $y = vx$: $xv' = \\sqrt{1 + v^2}$, and $\\int\\frac{\\mathrm{d}v}{\\sqrt{1 + v^2}} = \\ln\\left( v + \\sqrt{1 + v^2} \\right)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">With $y = vx$ ($x > 0$): $x(v + xv') = vx + x\\sqrt{1 + v^2}$, so $xv' = \\sqrt{1 + v^2}$. Separating and integrating,\n    \\[\n        \\ln\\left( v + \\sqrt{1 + v^2} \\right) = \\ln x + c \\implies v + \\sqrt{1 + v^2} = Cx \\quad (C > 0).\n    \\]\n    Multiplying by $x$: $y + \\sqrt{x^2 + y^2} = Cx^2$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Explicit form.</strong> $\\sqrt{x^2 + y^2} = Cx^2 - y$; squaring, $x^2 + y^2 = C^2x^4 - 2Cx^2y + y^2$, so\n    \\[\n        y = \\frac{C^2x^2 - 1}{2C} = \\frac{C}{2}x^2 - \\frac{1}{2C}.\n    \\]\n    The solution curves are parabolas with vertex on the negative $y$-axis and focus at the origin: if a light ray from the origin reflects off such a curve it travels vertically, which is the geometric meaning of this equation.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "homogeneous-equation"
+      ]
+    },
+    {
+      "date": "2025-12-05",
+      "title": "Solve $xy' + 2y = 4x^2$, $y(1) = 2$",
+      "difficulty": "easy",
+      "problem": "Solve the initial value problem $x\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} + 2y = 4x^2$, $y(1) = 2$, and give the largest interval on which the solution is defined.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Multiply by $x$: the left side becomes $(x^2y)'$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Multiplying by $x$, $x^2y' + 2xy = 4x^3$, i.e. $(x^2y)' = 4x^3$. So $x^2y = x^4 + C$ and\n    \\[\n        y = x^2 + \\frac{C}{x^2}.\n    \\]\n    $y(1) = 1 + C = 2$ gives $C = 1$:\n    \\[\n        y = x^2 + \\frac{1}{x^2}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In standard form $y' + \\frac{2}{x}y = 4x$, the coefficient $\\frac{2}{x}$ is continuous exactly on $(-\\infty, 0)$ and $(0, \\infty)$, and the initial point lies in the second. The solution exists on $(0, \\infty)$ and blows up as $x \\to 0^+$. (The only solution defined on all of $\\mathbb{R}$ is $y = x^2$, with $C = 0$, and it cannot satisfy $y(1) = 2$.)</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "linear-equation"
+      ]
+    },
+    {
+      "date": "2025-12-12",
+      "title": "The Taylor series of the solution of $y' = x^2 + y^2$, $y(0) = 1$",
+      "difficulty": "medium",
+      "problem": "Find the first five terms of the Taylor series about $x = 0$ of the solution of\n    \\[\n        y' = x^2 + y^2, \\qquad y(0) = 1.\n    \\]\n    Show that the solution cannot exist on all of $[0, 1]$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Differentiate the equation repeatedly: $y'' = 2x + 2yy'$, $y^{\\prime\\prime\\prime} = 2 + 2(y')^2 + 2yy''$, $y^{(4)} = 6y'y'' + 2yy^{\\prime\\prime\\prime}$. For the last part compare with $y' \\geq y^2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">From the equation and its derivatives at $x = 0$:\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">$y(0) = 1$, $y'(0) = 0 + 1 = 1$;</li>\n<li class=\"my-4\">$y'' = 2x + 2yy'$, so $y''(0) = 2$;</li>\n<li class=\"my-4\">$y^{\\prime\\prime\\prime} = 2 + 2(y')^2 + 2yy''$, so $y^{\\prime\\prime\\prime}(0) = 2 + 2 + 4 = 8$;</li>\n<li class=\"my-4\">$y^{(4)} = 6y'y'' + 2yy^{\\prime\\prime\\prime}$, so $y^{(4)}(0) = 12 + 16 = 28$.</li></ul>\n    Hence\n    \\[\n        y = 1 + x + x^2 + \\frac{4}{3}x^3 + \\frac{7}{6}x^4 + \\cdots.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Blow-up before $x = 1$.</strong> For $x \\geq 0$, $y' \\geq y^2$ and $y > 0$, so $\\left( -\\frac{1}{y} \\right)' = \\frac{y'}{y^2} \\geq 1$, giving $\\frac{1}{y(x)} \\leq 1 - x$. Thus $y(x) \\geq \\frac{1}{1 - x} \\to \\infty$ as $x \\to 1^-$: the solution blows up at some point $x^* \\leq 1$ (numerically $x^* \\approx 0.97$). Consequently the Taylor series has radius of convergence at most $1$.</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "series-solution"
+      ]
+    },
+    {
+      "date": "2025-12-19",
+      "title": "Escape velocity from the Earth",
+      "difficulty": "medium",
+      "problem": "A projectile is fired vertically from the surface of the Earth (radius $R$) with speed $v_0$. Ignoring air resistance, its distance $r$ from the centre satisfies\n    \\[\n        \\frac{\\mathrm{d}^2r}{\\mathrm{d}t^2} = -\\frac{gR^2}{r^2}.\n    \\]\n    Find the smallest $v_0$ for which the projectile never returns (the escape velocity).",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">With $v = \\frac{\\mathrm{d}r}{\\mathrm{d}t}$, $\\frac{\\mathrm{d}^2r}{\\mathrm{d}t^2} = v\\frac{\\mathrm{d}v}{\\mathrm{d}r}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $t$ does not appear, write $r'' = v\\frac{\\mathrm{d}v}{\\mathrm{d}r}$: $v\\frac{\\mathrm{d}v}{\\mathrm{d}r} = -\\frac{gR^2}{r^2}$. Integrating from $r = R$ (where $v = v_0$):\n    \\[\n        v^2 = v_0^2 + 2gR^2\\left( \\frac{1}{r} - \\frac{1}{R} \\right) = v_0^2 - 2gR + \\frac{2gR^2}{r}.\n    \\]\n    (This is conservation of energy.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $v_0^2 \\lt 2gR$, then $v^2$ becomes $0$ at the finite height $r_{\\max} = \\frac{2gR^2}{2gR - v_0^2}$, and the projectile falls back. If $v_0^2 \\geq 2gR$, then $v^2 > 0$ for all $r$ and $r$ increases without bound. Hence the escape velocity is\n    \\[\n        v_{\\mathrm{esc}} = \\sqrt{2gR} \\approx \\sqrt{2 \\times 9.8 \\times 6.37 \\times 10^6} \\approx 11.2 \\text{ km/s}.\n    \\]</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "applications",
+        "reduction-of-order"
+      ]
+    },
+    {
+      "date": "2025-12-26",
+      "title": "A complete integral of $z^2 = pqxy$",
+      "difficulty": "medium",
+      "problem": "Find a complete integral of $z^2 = pqxy$, where $p = z_x$, $q = z_y$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Put $X = \\ln x$, $Y = \\ln y$, $Z = \\ln z$. Then $xp = z Z_X$ and $yq = z Z_Y$, and the equation becomes $Z_XZ_Y = 1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">With $X = \\ln x$, $Y = \\ln y$, $Z = \\ln z$ (for $x, y, z > 0$): $p = z_x = \\frac{z}{x}Z_X$ and $q = \\frac{z}{y}Z_Y$. So $pqxy = z^2Z_XZ_Y$, and the equation becomes\n    \\[\n        Z_XZ_Y = 1,\n    \\]\n    an equation $f(P, Q) = 0$ involving only $P = Z_X$, $Q = Z_Y$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For such equations Charpit's method gives $P = a$, $Q = \\frac{1}{a}$ constant, so $Z = aX + \\frac{Y}{a} + b$. Returning to the original variables,\n    \\[\n        \\ln z = a\\ln x + \\frac{1}{a}\\ln y + b, \\qquad z = c\\, x^{a}y^{1/a},\n    \\]\n    a complete integral with the two arbitrary constants $a \\neq 0$ and $c > 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> $p = \\frac{az}{x}$, $q = \\frac{z}{ay}$, so $pqxy = z^2$.</div>",
+      "tags": [
+        "differential-equation",
+        "pde",
+        "charpit-method"
       ]
     },
     {
@@ -1718,6 +2609,20 @@
         "differential-equation",
         "pde",
         "charpit-method"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "title": "Green's function for $y'' = f(x)$, $y(0) = y(1) = 0$, and the solution of $y'' = x$",
+      "difficulty": "medium",
+      "problem": "Consider the boundary value problem\n    \\[\n        y''(x) = f(x), \\qquad 0 \\lt x \\lt 1, \\qquad y(0) = 0, \\quad y(1) = 0,\n    \\]\n    where $f$ is continuous on $[0, 1]$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Construct the Green's function $G(x, s)$, so that the solution is $y(x) = \\int_0^1 G(x, s) f(s)\\, \\mathrm{d}s$, and verify that this formula really solves the problem.</li>\n<li class=\"my-4\">Use it to solve $y'' = x$, $y(0) = y(1) = 0$, and check the answer directly.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Take $u_1(x) = x$ (solves $y'' = 0$ with $y(0) = 0$) and $u_2(x) = x - 1$ (solves $y'' = 0$ with $y(1) = 0$). Then $G(x, s) = \\frac{u_1(\\min\\{x, s\\})\\, u_2(\\max\\{x, s\\})}{W}$, where $W = u_1 u_2' - u_1' u_2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a) Construction.</strong> The homogeneous equation $y'' = 0$ has the solutions $u_1(x) = x$, which satisfies the left condition $u_1(0) = 0$, and $u_2(x) = x - 1$, which satisfies the right condition $u_2(1) = 0$. Their Wronskian is $W = u_1 u_2' - u_1' u_2 = x - (x - 1) = 1$. The Green's function is\n    \\[\n        G(x, s) = \\frac{u_1(\\min\\{ x, s \\})\\, u_2(\\max\\{ x, s \\})}{W} = \\begin{cases} x(s - 1), & 0 \\leq x \\leq s, \\\\ s(x - 1), & s \\leq x \\leq 1. \\end{cases}\n    \\]\n    It is continuous, symmetric ($G(x, s) = G(s, x)$), vanishes at $x = 0$ and $x = 1$, and $\\partial G / \\partial x$ jumps by $s - (s - 1) = 1$ across $x = s$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Verification.</strong> Splitting the integral at $s = x$,\n    \\[\n        y(x) = (x - 1) \\int_0^x s f(s)\\, \\mathrm{d}s + x \\int_x^1 (s - 1) f(s)\\, \\mathrm{d}s.\n    \\]\n    Then $y(0) = 0 + 0 = 0$ and $y(1) = 0 \\cdot \\int_0^1 s f + 1 \\cdot 0 = 0$. Differentiating (the boundary terms $\\pm x(x - 1) f(x)$ cancel),\n    \\[\n        y'(x) = \\int_0^x s f(s)\\, \\mathrm{d}s + \\int_x^1 (s - 1) f(s)\\, \\mathrm{d}s, \\qquad y''(x) = x f(x) - (x - 1) f(x) = f(x).\n    \\]\n    So $y$ solves the boundary value problem. (It is the only solution: the difference of two solutions satisfies $y'' = 0$, $y(0) = y(1) = 0$, hence is $0$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> With $f(s) = s$:\n    \\[\n        y(x) = (x - 1) \\int_0^x s^2\\, \\mathrm{d}s + x \\int_x^1 (s^2 - s)\\, \\mathrm{d}s = (x - 1)\\frac{x^3}{3} + x \\left( -\\frac{1}{6} - \\frac{x^3}{3} + \\frac{x^2}{2} \\right) = \\frac{x^3 - x}{6}.\n    \\]\n    <strong>Check.</strong> $y'' = \\frac{6x}{6} = x$, and $y(0) = 0$, $y(1) = \\frac{1 - 1}{6} = 0$. (Directly: integrating twice gives $y = \\frac{x^3}{6} + c_1 x + c_2$, and the boundary conditions force $c_2 = 0$, $c_1 = -\\frac{1}{6}$.)</div>",
+      "tags": [
+        "differential-equation",
+        "ode",
+        "boundary-value-problem",
+        "greens-function"
       ]
     }
   ]

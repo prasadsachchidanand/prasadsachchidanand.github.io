@@ -557,6 +557,217 @@
       ]
     },
     {
+      "date": "2024-01-14",
+      "title": "Hoffman and Kunze - The polynomials $1, x + t, (x + t)^2$ form a basis; coordinates in this basis",
+      "difficulty": "easy",
+      "problem": "Let $V$ be the (real) vector space of all polynomial functions from $\\mathbb{R}$ into $\\mathbb{R}$ of degree $2$ or less, i.e., the space of all functions $f$ of the form\n    \\[\n        f(x) = c_0 + c_1 x + c_2 x^2.\n    \\]\n    Let $t$ be a fixed real number and define\n    \\[\n        g_1(x) = 1, \\qquad g_2(x) = x + t, \\qquad g_3(x) = (x + t)^2.\n    \\]\n    Prove that $\\mathcal{B} = \\{ g_1, g_2, g_3 \\}$ is a basis for $V$. If $f(x) = c_0 + c_1 x + c_2 x^2$, what are the coordinates of $f$ in this ordered basis $\\mathcal{B}$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $x = (x + t) - t$ and expand $f$ in powers of $(x + t)$.</li>\n<li class=\"my-4\">$\\dim V = 3$, since $1, x, x^2$ is a basis.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $1, x, x^2$ is a basis of $V$, $\\dim V = 3$. So it suffices to show that $g_1, g_2, g_3$ span $V$ (three spanning vectors in a $3$-dimensional space form a basis).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $f(x) = c_0 + c_1 x + c_2 x^2$. Writing $x = (x + t) - t$,\n    \\[\n        \\begin{aligned}\n            f(x) &= c_0 + c_1 \\big( (x + t) - t \\big) + c_2 \\big( (x + t) - t \\big)^2 \\\\\n            &= c_0 + c_1 (x + t) - c_1 t + c_2 (x + t)^2 - 2 c_2 t (x + t) + c_2 t^2 \\\\\n            &= (c_0 - c_1 t + c_2 t^2) \\cdot 1 + (c_1 - 2 c_2 t)(x + t) + c_2 (x + t)^2.\n        \\end{aligned}\n    \\]\n    So every $f \\in V$ is a linear combination of $g_1, g_2, g_3$, and $\\mathcal{B}$ is a basis.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The coordinates of $f$ in the ordered basis $\\mathcal{B}$ are therefore\n    \\[\n        [f]_{\\mathcal{B}} = \\begin{bmatrix} c_0 - c_1 t + c_2 t^2 \\\\ c_1 - 2 c_2 t \\\\ c_2 \\end{bmatrix}.\n    \\]\n    (These are $f(-t)$, $f'(-t)$ and $\\frac{1}{2} f''(-t)$: the coefficients of the Taylor expansion of $f$ about $x = -t$.)</div>",
+      "tags": [
+        "linear-algebra",
+        "basis",
+        "coordinates",
+        "linear-algebra-hoffman-kunze (2.4.7)"
+      ]
+    },
+    {
+      "date": "2024-01-21",
+      "title": "Hoffman and Kunze - Which of these maps from $\\mathbb{R}^2$ to $\\mathbb{R}^2$ are linear?",
+      "difficulty": "easy",
+      "problem": "Which of the following functions $T$ from $\\mathbb{R}^2$ into $\\mathbb{R}^2$ are linear transformations?\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$T(x_1, x_2) = (1 + x_1, x_2)$;</li>\n<li class=\"my-4\">$T(x_1, x_2) = (x_2, x_1)$;</li>\n<li class=\"my-4\">$T(x_1, x_2) = (x_1^2, x_2)$;</li>\n<li class=\"my-4\">$T(x_1, x_2) = (\\sin x_1, x_2)$;</li>\n<li class=\"my-4\">$T(x_1, x_2) = (x_1 - x_2, 0)$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">A linear transformation satisfies $T(0) = 0$ and $T(c\\alpha) = c\\, T(\\alpha)$. One failing example is enough to show that a map is not linear.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Recall that $T$ is linear if $T(c\\alpha + \\beta) = c\\, T\\alpha + T\\beta$ for all vectors $\\alpha, \\beta$ and scalars $c$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a) Not linear.</strong> $T(0, 0) = (1, 0) \\neq (0, 0)$, while a linear map sends $0$ to $0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b) Linear.</strong> With $\\alpha = (x_1, x_2)$ and $\\beta = (y_1, y_2)$,\n    \\[\n        T(c\\alpha + \\beta) = (c x_2 + y_2,\\ c x_1 + y_1) = c (x_2, x_1) + (y_2, y_1) = c\\, T\\alpha + T\\beta.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c) Not linear.</strong> $T(2, 0) = (4, 0)$, but $2\\, T(1, 0) = (2, 0)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d) Not linear.</strong> $T(\\pi, 0) = (0, 0)$, but $2\\, T\\!\\left( \\tfrac{\\pi}{2}, 0 \\right) = (2, 0)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(e) Linear.</strong>\n    \\[\n        T(c\\alpha + \\beta) = \\big( (c x_1 + y_1) - (c x_2 + y_2),\\ 0 \\big) = c (x_1 - x_2, 0) + (y_1 - y_2, 0) = c\\, T\\alpha + T\\beta.\n    \\]\n    In matrix form, (b) and (e) are $X \\mapsto \\begin{bmatrix} 0 & 1 \\\\ 1 & 0 \\end{bmatrix} X$ and $X \\mapsto \\begin{bmatrix} 1 & -1 \\\\ 0 & 0 \\end{bmatrix} X$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.1.1)"
+      ]
+    },
+    {
+      "date": "2024-01-28",
+      "title": "Hoffman and Kunze - Range, rank, null space and nullity of the zero and identity maps",
+      "difficulty": "easy",
+      "problem": "Find the range, rank, null space, and nullity for the zero transformation and the identity transformation on a finite-dimensional space $V$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the definitions directly, and check your answers against $\\operatorname{rank} T + \\operatorname{nullity} T = \\dim V$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\dim V = n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Zero transformation</strong> $0 : V \\to V$, $0(\\alpha) = 0$. Its range is $\\{ 0 \\}$, so its rank is $0$. Every vector is sent to $0$, so its null space is $V$ and its nullity is $n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Identity transformation</strong> $I : V \\to V$, $I(\\alpha) = \\alpha$. Its range is all of $V$, so its rank is $n$. $I\\alpha = 0$ only for $\\alpha = 0$, so its null space is $\\{ 0 \\}$ and its nullity is $0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In both cases $\\operatorname{rank} + \\operatorname{nullity} = n = \\dim V$, as the rank-nullity theorem requires. The zero map and the identity are the two extreme cases: one has the largest possible null space, the other the largest possible range.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.1.2)"
+      ]
+    },
+    {
+      "date": "2024-02-04",
+      "title": "Hoffman and Kunze - Range and null space of differentiation and of integration",
+      "difficulty": "medium",
+      "problem": "Describe the range and the null space for the differentiation transformation of Example 2. Do the same for the integration transformation of Example 5.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">Example 2: $V$ is the space of polynomial functions $f(x) = c_0 + c_1 x + \\dots + c_k x^k$, and $(Df)(x) = c_1 + 2c_2 x + \\dots + k c_k x^{k-1}$.</li>\n<li class=\"my-4\">Example 5: $V$ is the space of continuous functions $\\mathbb{R} \\to \\mathbb{R}$, and $(Tf)(x) = \\int_0^x f(t)\\, \\mathrm{d} t$.</li></ul>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For $D$: which polynomials have derivative $0$, and is every polynomial a derivative?</li>\n<li class=\"my-4\">For $T$: use the fundamental theorem of calculus. What is $(Tf)(0)$?</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Differentiation.</strong> (We take the scalars to be a subfield of $\\mathbb{C}$, as in the book, so that we may divide by $k + 1$.)\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\"><em>Null space:</em> $Df = 0$ means $j c_j = 0$ for $j \\geq 1$, i.e. $c_1 = \\dots = c_k = 0$. So the null space of $D$ is the space of constant functions (dimension $1$).</li>\n<li class=\"my-4\"><em>Range:</em> every polynomial is a derivative:\n    \\[\n        c_0 + c_1 x + \\dots + c_k x^k = D\\!\\left( c_0 x + \\frac{c_1}{2} x^2 + \\dots + \\frac{c_k}{k+1} x^{k+1} \\right).\n    \\]\n    So the range of $D$ is all of $V$.</li></ol>\n    Thus $D$ is onto but not one-to-one; this is possible only because $V$ is infinite-dimensional.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Integration.</strong>\n    <ol class=\"math-list-roman my-4\"><li class=\"my-4\"><em>Null space:</em> if $\\int_0^x f(t)\\, \\mathrm{d} t = 0$ for all $x$, then differentiating (fundamental theorem of calculus, $f$ continuous) gives $f(x) = 0$ for all $x$. So the null space is $\\{ 0 \\}$.</li>\n<li class=\"my-4\"><em>Range:</em> for continuous $f$, $g = Tf$ is differentiable with $g' = f$ continuous, and $g(0) = 0$. Conversely, if $g$ is continuously differentiable with $g(0) = 0$, then $T(g') = \\int_0^x g'(t)\\, \\mathrm{d} t = g(x) - g(0) = g(x)$. So\n    \\[\n        \\operatorname{range} T = \\{ g : g \\text{ is continuously differentiable on } \\mathbb{R} \\text{ and } g(0) = 0 \\}.\n    \\]</li></ol>\n    Thus $T$ is one-to-one but not onto (for instance $g(x) = 1$ and $g(x) = \\lvert x \\rvert$ are not in the range). Note that $DT = I$ on polynomials, while $TD f = f - f(0)$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.1.3)"
+      ]
+    },
+    {
+      "date": "2024-02-11",
+      "title": "Hoffman and Kunze - Is there a linear map $\\mathbb{R}^3 \\to \\mathbb{R}^2$ with $T(1,-1,1) = (1,0)$ and $T(1,1,1) = (0,1)$?",
+      "difficulty": "easy",
+      "problem": "Is there a linear transformation $T$ from $\\mathbb{R}^3$ into $\\mathbb{R}^2$ such that $T(1, -1, 1) = (1, 0)$ and $T(1, 1, 1) = (0, 1)$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$(1,-1,1)$ and $(1,1,1)$ are linearly independent, so they can be extended to a basis of $\\mathbb{R}^3$. A linear map can take any prescribed values on a basis.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Yes.</strong> The vectors $\\alpha_1 = (1, -1, 1)$ and $\\alpha_2 = (1, 1, 1)$ are linearly independent (neither is a multiple of the other). Adding $\\alpha_3 = (1, 0, 0)$ gives a basis of $\\mathbb{R}^3$, since\n    \\[\n        \\det \\begin{bmatrix} 1 & -1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 0 & 0 \\end{bmatrix} = 1 \\cdot \\big( (-1)(1) - (1)(1) \\big) = -2 \\neq 0.\n    \\]\n    By Theorem 1 of §3.1 there is a (unique) linear $T$ with $T\\alpha_1 = (1, 0)$, $T\\alpha_2 = (0, 1)$ and, say, $T\\alpha_3 = (0, 0)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>An explicit formula.</strong> Writing $(x_1, x_2, x_3) = a\\alpha_1 + b\\alpha_2 + c\\alpha_3$ gives $x_2 = -a + b$, $x_3 = a + b$, $x_1 = a + b + c$, so $a = \\frac{x_3 - x_2}{2}$ and $b = \\frac{x_2 + x_3}{2}$. Hence\n    \\[\n        T(x_1, x_2, x_3) = a(1, 0) + b(0, 1) = \\left( \\frac{x_3 - x_2}{2},\\ \\frac{x_2 + x_3}{2} \\right).\n    \\]\n    Check: $T(1, -1, 1) = (1, 0)$ and $T(1, 1, 1) = (0, 1)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Such a $T$ is not unique: any choice of $T\\alpha_3 \\in \\mathbb{R}^2$ gives another one.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.1.4)"
+      ]
+    },
+    {
+      "date": "2024-02-18",
+      "title": "Hoffman and Kunze - Is there a linear map with $T\\alpha_i = \\beta_i$ for three given pairs in $\\mathbb{R}^2$?",
+      "difficulty": "easy",
+      "problem": "If\n    \\[\n        \\alpha_1 = (1, -1), \\quad \\beta_1 = (1, 0), \\qquad \\alpha_2 = (2, -1), \\quad \\beta_2 = (0, 1), \\qquad \\alpha_3 = (-3, 2), \\quad \\beta_3 = (1, 1),\n    \\]\n    is there a linear transformation $T$ from $\\mathbb{R}^2$ into $\\mathbb{R}^2$ such that $T\\alpha_i = \\beta_i$ for $i = 1, 2$ and $3$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Three vectors in $\\mathbb{R}^2$ are dependent. Express $\\alpha_3$ in terms of $\\alpha_1, \\alpha_2$, and see what linearity forces $T\\alpha_3$ to be.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $\\det \\begin{bmatrix} 1 & 2 \\\\ -1 & -1 \\end{bmatrix} = -1 + 2 = 1 \\neq 0$, the vectors $\\alpha_1, \\alpha_2$ form a basis of $\\mathbb{R}^2$, so there is exactly one linear $T$ with $T\\alpha_1 = \\beta_1$ and $T\\alpha_2 = \\beta_2$. The question is whether it also sends $\\alpha_3$ to $\\beta_3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Write $\\alpha_3 = a\\alpha_1 + b\\alpha_2$: $(-3, 2) = (a + 2b, -a - b)$, so $a + 2b = -3$ and $-a - b = 2$. Adding, $b = -1$, and then $a = -1$. So $\\alpha_3 = -\\alpha_1 - \\alpha_2$, and linearity forces\n    \\[\n        T\\alpha_3 = -T\\alpha_1 - T\\alpha_2 = -(1, 0) - (0, 1) = (-1, -1) \\neq (1, 1) = \\beta_3.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence <strong>no</strong> such linear transformation exists.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.1.5)"
+      ]
+    },
+    {
+      "date": "2024-02-25",
+      "title": "Hoffman and Kunze - The linear map of $F^2$ with $T\\epsilon_1 = (a,b)$, $T\\epsilon_2 = (c,d)$",
+      "difficulty": "easy",
+      "problem": "Describe explicitly (as in Exercises 1 and 2) the linear transformation $T$ from $F^2$ into $F^2$ such that $T\\epsilon_1 = (a, b)$, $T\\epsilon_2 = (c, d)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$(x_1, x_2) = x_1 \\epsilon_1 + x_2 \\epsilon_2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $\\{ \\epsilon_1, \\epsilon_2 \\}$ is a basis, there is exactly one such $T$, and for $(x_1, x_2) = x_1\\epsilon_1 + x_2\\epsilon_2$ linearity gives\n    \\[\n        T(x_1, x_2) = x_1 T\\epsilon_1 + x_2 T\\epsilon_2 = x_1 (a, b) + x_2 (c, d) = (a x_1 + c x_2,\\ b x_1 + d x_2).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In matrix form, $T$ is multiplication by the matrix whose columns are $T\\epsilon_1$ and $T\\epsilon_2$:\n    \\[\n        \\begin{bmatrix} x_1 \\\\ x_2 \\end{bmatrix} \\mapsto \\begin{bmatrix} a & c \\\\ b & d \\end{bmatrix} \\begin{bmatrix} x_1 \\\\ x_2 \\end{bmatrix}.\n    \\]</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.1.6)"
+      ]
+    },
+    {
+      "date": "2024-03-03",
+      "title": "Hoffman and Kunze - Range, rank, null space and nullity of a linear map of $F^3$",
+      "difficulty": "medium",
+      "problem": "Let $F$ be a subfield of the complex numbers and let $T$ be the function from $F^3$ into $F^3$ defined by\n    \\[\n        T(x_1, x_2, x_3) = (x_1 - x_2 + 2x_3,\\ 2x_1 + x_2,\\ -x_1 - 2x_2 + 2x_3).\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Verify that $T$ is a linear transformation.</li>\n<li class=\"my-4\">If $(a, b, c)$ is a vector in $F^3$, what are the conditions on $a$, $b$ and $c$ that the vector be in the range of $T$? What is the rank of $T$?</li>\n<li class=\"my-4\">What are the conditions on $a$, $b$ and $c$ that $(a, b, c)$ be in the null space of $T$? What is the nullity of $T$?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$T(X) = AX$ for a $3 \\times 3$ matrix $A$. Row-reduce the augmented matrix $[A \\mid (a, b, c)^t]$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $T(X) = AX$ with\n    \\[\n        A = \\begin{bmatrix} 1 & -1 & 2 \\\\ 2 & 1 & 0 \\\\ -1 & -2 & 2 \\end{bmatrix},\n    \\]\n    and $X \\mapsto AX$ is linear: $A(cX + Y) = cAX + AY$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $(a, b, c)$ is in the range if and only if $AX = (a, b, c)^t$ has a solution. Row-reducing,\n    \\[\n        \\left[ \\begin{array}{ccc|c} 1 & -1 & 2 & a \\\\ 2 & 1 & 0 & b \\\\ -1 & -2 & 2 & c \\end{array} \\right]\n        \\to\n        \\left[ \\begin{array}{ccc|c} 1 & -1 & 2 & a \\\\ 0 & 3 & -4 & b - 2a \\\\ 0 & -3 & 4 & c + a \\end{array} \\right]\n        \\to\n        \\left[ \\begin{array}{ccc|c} 1 & -1 & 2 & a \\\\ 0 & 3 & -4 & b - 2a \\\\ 0 & 0 & 0 & b + c - a \\end{array} \\right].\n    \\]\n    So the system is solvable exactly when\n    \\[\n        a = b + c.\n    \\]\n    The range is the plane $\\{ (a, b, c) : a = b + c \\}$, and the rank of $T$ is $2$ (two pivots). (Check: each column of $A$ satisfies $a = b + c$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> $(a, b, c)$ is in the null space if and only if $a - b + 2c = 0$, $2a + b = 0$ and $-a - 2b + 2c = 0$. From the reduced form, $3b = 4c$ and $a = b - 2c$; with $c = 3t$ this gives $b = 4t$, $a = -2t$. So\n    \\[\n        \\text{null space} = \\{ t(-2, 4, 3) : t \\in F \\},\n    \\]\n    and the nullity is $1$. Indeed $T(-2, 4, 3) = (-2 - 4 + 6,\\ -4 + 4,\\ 2 - 8 + 6) = (0, 0, 0)$, and $\\operatorname{rank} T + \\operatorname{nullity} T = 2 + 1 = 3$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "row-reduction",
+        "linear-algebra-hoffman-kunze (3.1.7)"
+      ]
+    },
+    {
+      "date": "2024-03-10",
+      "title": "Hoffman and Kunze - A linear map of $\\mathbb{R}^3$ whose range is the span of $(1,0,-1)$ and $(1,2,2)$",
+      "difficulty": "easy",
+      "problem": "Describe explicitly a linear transformation from $\\mathbb{R}^3$ into $\\mathbb{R}^3$ which has as its range the subspace spanned by $(1, 0, -1)$ and $(1, 2, 2)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Send $\\epsilon_1$ and $\\epsilon_2$ to the two given vectors and $\\epsilon_3$ to $0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Define $T$ on the standard basis by $T\\epsilon_1 = (1, 0, -1)$, $T\\epsilon_2 = (1, 2, 2)$, $T\\epsilon_3 = 0$. Then\n    \\[\n        T(x_1, x_2, x_3) = x_1 (1, 0, -1) + x_2 (1, 2, 2) = (x_1 + x_2,\\ 2x_2,\\ -x_1 + 2x_2).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The range of $T$ is spanned by $T\\epsilon_1, T\\epsilon_2, T\\epsilon_3$, i.e. by $(1, 0, -1)$ and $(1, 2, 2)$, as required. These two vectors are independent, so $\\operatorname{rank} T = 2$ and the null space is spanned by $\\epsilon_3$. (Many other answers are possible: any linear map whose images of a basis span the same plane works.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.1.8)"
+      ]
+    },
+    {
+      "date": "2024-03-17",
+      "title": "Hoffman and Kunze - The commutator map $A \\mapsto AB - BA$ is linear",
+      "difficulty": "easy",
+      "problem": "Let $V$ be the vector space of all $n \\times n$ matrices over the field $F$, and let $B$ be a fixed $n \\times n$ matrix. If\n    \\[\n        T(A) = AB - BA,\n    \\]\n    verify that $T$ is a linear transformation from $V$ into $V$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the distributive laws of matrix multiplication and $(cA)B = c(AB) = A(cB)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$T(A)$ is again an $n \\times n$ matrix, so $T$ maps $V$ into $V$. For $A_1, A_2 \\in V$ and $c \\in F$,\n    \\[\n        \\begin{aligned}\n            T(cA_1 + A_2) &= (cA_1 + A_2)B - B(cA_1 + A_2) \\\\\n            &= c\\, A_1 B + A_2 B - c\\, BA_1 - BA_2 \\\\\n            &= c\\,(A_1 B - BA_1) + (A_2 B - BA_2) = c\\, T(A_1) + T(A_2).\n        \\end{aligned}\n    \\]\n    So $T$ is linear.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The null space of $T$ is the set of matrices commuting with $B$ (it always contains $I$ and $B$, so $T$ is never one-to-one), and every matrix in the range has trace $0$, since $\\operatorname{tr}(AB) = \\operatorname{tr}(BA)$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.1.9)"
+      ]
+    },
+    {
+      "date": "2024-03-24",
+      "title": "Hoffman and Kunze - A real-linear map of $\\mathbb{C}$ that is not complex-linear",
+      "difficulty": "easy",
+      "problem": "Let $V$ be the set of all complex numbers regarded as a vector space over the field of real numbers (usual operations). Find a function from $V$ into $V$ which is a linear transformation on the above vector space, but which is not a linear transformation on $\\mathbb{C}^1$, i.e., which is not complex linear.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Try complex conjugation.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $T(z) = \\overline{z}$. For $z, w \\in \\mathbb{C}$ and real $c$,\n    \\[\n        T(cz + w) = \\overline{cz + w} = \\overline{c}\\, \\overline{z} + \\overline{w} = c\\, \\overline{z} + \\overline{w} = c\\, T(z) + T(w),\n    \\]\n    since $\\overline{c} = c$ for real $c$. So $T$ is a linear transformation of $V$ over $\\mathbb{R}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">It is not complex linear: with the complex scalar $\\iota$,\n    \\[\n        T(\\iota \\cdot 1) = \\overline{\\iota} = -\\iota, \\qquad \\text{but} \\qquad \\iota\\, T(1) = \\iota.\n    \\]\n    (In the real basis $\\{ 1, \\iota \\}$, $T$ has matrix $\\begin{bmatrix} 1 & 0 \\\\ 0 & -1 \\end{bmatrix}$. The complex-linear maps of $\\mathbb{C}$ are exactly $z \\mapsto \\lambda z$, whose real matrices have the form $\\begin{bmatrix} a & -b \\\\ b & a \\end{bmatrix}$.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.1.10)"
+      ]
+    },
+    {
+      "date": "2024-03-31",
+      "title": "Hoffman and Kunze - $X \\mapsto AX$ is the zero map if and only if $A = 0$",
+      "difficulty": "easy",
+      "problem": "Let $V$ be the space of $n \\times 1$ matrices over $F$ and let $W$ be the space of $m \\times 1$ matrices over $F$. Let $A$ be a fixed $m \\times n$ matrix over $F$ and let $T$ be the linear transformation from $V$ into $W$ defined by $T(X) = AX$. Prove that $T$ is the zero transformation if and only if $A$ is the zero matrix.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Apply $T$ to the column vector $\\epsilon_j$ that has $1$ in row $j$ and $0$ elsewhere.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $A = 0$, then $T(X) = 0X = 0$ for every $X$, so $T$ is the zero transformation.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Conversely, suppose $T = 0$. Let $\\epsilon_j \\in V$ be the column with $1$ in row $j$ and $0$ elsewhere. Then $A\\epsilon_j$ is the $j$-th column of $A$, and\n    \\[\n        A\\epsilon_j = T(\\epsilon_j) = 0 \\qquad (j = 1, \\dots, n).\n    \\]\n    So every column of $A$ is zero, i.e. $A = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In other words, the map $A \\mapsto T_A$ from $m \\times n$ matrices to linear maps $F^{n \\times 1} \\to F^{m \\times 1}$ is one-to-one: a matrix is determined by the linear map it defines.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.1.11)"
+      ]
+    },
+    {
+      "date": "2024-04-07",
+      "title": "Hoffman and Kunze - If the range and null space of $T$ coincide, then $\\dim V$ is even",
+      "difficulty": "medium",
+      "problem": "Let $V$ be an $n$-dimensional vector space over the field $F$ and let $T$ be a linear transformation from $V$ into $V$ such that the range and null space of $T$ are identical. Prove that $n$ is even. (Can you give an example of such a linear transformation $T$?)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use $\\operatorname{rank} T + \\operatorname{nullity} T = n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since the range and null space of $T$ are the same subspace, they have the same dimension: $\\operatorname{rank} T = \\operatorname{nullity} T$. By the rank-nullity theorem,\n    \\[\n        n = \\operatorname{rank} T + \\operatorname{nullity} T = 2 \\operatorname{rank} T,\n    \\]\n    so $n$ is even.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Example.</strong> On $F^2$ let $T(x_1, x_2) = (0, x_1)$. Its range is $\\{ (0, y) : y \\in F \\}$, and $T(x_1, x_2) = 0$ exactly when $x_1 = 0$, so its null space is also $\\{ (0, y) \\}$.\n    More generally, for $n = 2k$ with basis $\\alpha_1, \\dots, \\alpha_k, \\beta_1, \\dots, \\beta_k$, define $T\\alpha_i = \\beta_i$ and $T\\beta_i = 0$. Then the range and the null space are both the span of $\\beta_1, \\dots, \\beta_k$. (Such a $T$ satisfies $T^2 = 0$.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "dimension",
+        "linear-algebra-hoffman-kunze (3.1.12)"
+      ]
+    },
+    {
+      "date": "2024-04-14",
+      "title": "Hoffman and Kunze - $\\operatorname{range} T \\cap \\operatorname{null} T = \\{0\\}$ if and only if $T(T\\alpha) = 0$ implies $T\\alpha = 0$",
+      "difficulty": "medium",
+      "problem": "Let $V$ be a vector space and $T$ a linear transformation from $V$ into $V$. Prove that the following two statements about $T$ are equivalent.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">The intersection of the range of $T$ and the null space of $T$ is the zero subspace of $V$.</li>\n<li class=\"my-4\">If $T(T\\alpha) = 0$, then $T\\alpha = 0$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$T(T\\alpha) = 0$ says exactly that the vector $T\\alpha$ of the range lies in the null space.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a) $\\Rightarrow$ (b).</strong> Suppose $T(T\\alpha) = 0$. Then $T\\alpha$ is in the null space of $T$, and of course it is in the range of $T$. By (a), $T\\alpha = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b) $\\Rightarrow$ (a).</strong> Let $\\beta$ be in both the range and the null space. Then $\\beta = T\\alpha$ for some $\\alpha$, and $T\\beta = 0$, i.e. $T(T\\alpha) = 0$. By (b), $\\beta = T\\alpha = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that no finiteness assumption is needed. Condition (b) can also be phrased as: $\\operatorname{null}(T^2) = \\operatorname{null}(T)$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.1.13)"
+      ]
+    },
+    {
+      "date": "2024-04-21",
+      "title": "Hoffman and Kunze - The operators $T(x_1,x_2) = (x_2,x_1)$ and $U(x_1,x_2) = (x_1,0)$ and their combinations",
+      "difficulty": "easy",
+      "problem": "Let $T$ and $U$ be the linear operators on $\\mathbb{R}^2$ defined by\n    \\[\n        T(x_1, x_2) = (x_2, x_1) \\quad \\text{and} \\quad U(x_1, x_2) = (x_1, 0).\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">How would you describe $T$ and $U$ geometrically?</li>\n<li class=\"my-4\">Give rules like the ones defining $T$ and $U$ for each of the transformations $(U + T)$, $UT$, $TU$, $T^2$, $U^2$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$UT$ means \"first $T$, then $U$\".</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $T$ is the reflection of the plane in the line $x_1 = x_2$ (it swaps the coordinates). $U$ is the projection onto the $x_1$-axis along the $x_2$-axis.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Composing from right to left:\n    \\[\n        \\begin{aligned}\n            (U + T)(x_1, x_2) &= (x_1, 0) + (x_2, x_1) = (x_1 + x_2,\\ x_1), \\\\\n            UT(x_1, x_2) &= U(x_2, x_1) = (x_2,\\ 0), \\\\\n            TU(x_1, x_2) &= T(x_1, 0) = (0,\\ x_1), \\\\\n            T^2(x_1, x_2) &= T(x_2, x_1) = (x_1,\\ x_2), \\\\\n            U^2(x_1, x_2) &= U(x_1, 0) = (x_1,\\ 0).\n        \\end{aligned}\n    \\]\n    So $T^2 = I$ (reflecting twice changes nothing), $U^2 = U$ (projecting twice is the same as projecting once), and $UT \\neq TU$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.2.1)"
+      ]
+    },
+    {
+      "date": "2024-04-28",
+      "title": "Hoffman and Kunze - Is the operator of $\\mathbb{C}^3$ with $T\\epsilon_1 = (1,0,\\iota)$, $T\\epsilon_2 = (0,1,1)$, $T\\epsilon_3 = (\\iota,1,0)$ invertible?",
+      "difficulty": "easy",
+      "problem": "Let $T$ be the (unique) linear operator on $\\mathbb{C}^3$ for which\n    \\[\n        T\\epsilon_1 = (1, 0, \\iota), \\qquad T\\epsilon_2 = (0, 1, 1), \\qquad T\\epsilon_3 = (\\iota, 1, 0).\n    \\]\n    Is $T$ invertible?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Look for a non-zero vector in the null space, or compute the determinant of the matrix whose columns are $T\\epsilon_1, T\\epsilon_2, T\\epsilon_3$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The matrix of $T$ (columns $T\\epsilon_1, T\\epsilon_2, T\\epsilon_3$) is\n    \\[\n        A = \\begin{bmatrix} 1 & 0 & \\iota \\\\ 0 & 1 & 1 \\\\ \\iota & 1 & 0 \\end{bmatrix}, \\qquad\n        \\det A = 1 \\cdot (0 - 1) - 0 + \\iota \\cdot (0 - \\iota) = -1 + 1 = 0.\n    \\]\n    So $T$ is <strong>not</strong> invertible.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Explicitly, $T(x, y, z) = x(1, 0, \\iota) + y(0, 1, 1) + z(\\iota, 1, 0) = (x + \\iota z,\\ y + z,\\ \\iota x + y)$, and\n    \\[\n        T(-\\iota, -1, 1) = (-\\iota + \\iota,\\ -1 + 1,\\ 1 - 1) = (0, 0, 0).\n    \\]\n    So the null space contains the non-zero vector $(-\\iota, -1, 1)$; equivalently $T\\epsilon_3 = \\iota\\, T\\epsilon_1 + T\\epsilon_2$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.2.2)"
+      ]
+    },
+    {
       "date": "2024-05-05",
       "title": "If $T^2 = -Id$, then the vector space is of even dimension",
       "problem": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n    Let $V$ be a finite dimensional real vector space. Suppose $T:V \\to V$ be a linear transformation such that $T\\circ T = -Id$, that is, $T(T(v)) = -v$ for $v \\in V$. Then prove that $V$ is even dimensional.\n</div>",
@@ -765,6 +976,241 @@
       ]
     },
     {
+      "date": "2024-09-08",
+      "title": "Hoffman and Kunze - Invert $T(x_1,x_2,x_3) = (3x_1,\\ x_1 - x_2,\\ 2x_1 + x_2 + x_3)$",
+      "difficulty": "easy",
+      "problem": "Let $T$ be the linear operator on $\\mathbb{R}^3$ defined by\n    \\[\n        T(x_1, x_2, x_3) = (3x_1,\\ x_1 - x_2,\\ 2x_1 + x_2 + x_3).\n    \\]\n    Is $T$ invertible? If so, find a rule for $T^{-1}$ like the one which defines $T$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Solve $T(x_1, x_2, x_3) = (y_1, y_2, y_3)$ for $x_1$, then $x_2$, then $x_3$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Solve $T(x_1, x_2, x_3) = (y_1, y_2, y_3)$, i.e.\n    \\[\n        3x_1 = y_1, \\qquad x_1 - x_2 = y_2, \\qquad 2x_1 + x_2 + x_3 = y_3.\n    \\]\n    In turn: $x_1 = \\frac{y_1}{3}$, $\\ x_2 = x_1 - y_2 = \\frac{y_1}{3} - y_2$, $\\ x_3 = y_3 - 2x_1 - x_2 = -y_1 + y_2 + y_3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Every $(y_1, y_2, y_3)$ has exactly one preimage, so $T$ is invertible, with\n    \\[\n        T^{-1}(y_1, y_2, y_3) = \\left( \\frac{y_1}{3},\\ \\frac{y_1}{3} - y_2,\\ -y_1 + y_2 + y_3 \\right).\n    \\]\n    <strong>Check:</strong> $T\\big( T^{-1}(y) \\big) = \\left( y_1,\\ \\frac{y_1}{3} - \\frac{y_1}{3} + y_2,\\ \\frac{2y_1}{3} + \\frac{y_1}{3} - y_2 - y_1 + y_2 + y_3 \\right) = (y_1, y_2, y_3)$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.2.3)"
+      ]
+    },
+    {
+      "date": "2024-09-15",
+      "title": "Hoffman and Kunze - For the operator of Exercise 3, $(T^2 - I)(T - 3I) = 0$",
+      "difficulty": "medium",
+      "problem": "For the linear operator $T$ of Exercise 3, i.e. $T(x_1, x_2, x_3) = (3x_1,\\ x_1 - x_2,\\ 2x_1 + x_2 + x_3)$, prove that\n    \\[\n        (T^2 - I)(T - 3I) = 0.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Compute $T^2$ first. You should find that $(T^2 - I)(x)$ depends only on $x_1$, while $(T - 3I)(x)$ always has first coordinate $0$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">First,\n    \\[\n        T^2(x_1, x_2, x_3) = T(3x_1,\\ x_1 - x_2,\\ 2x_1 + x_2 + x_3)\n        = \\big( 9x_1,\\ 3x_1 - (x_1 - x_2),\\ 6x_1 + (x_1 - x_2) + (2x_1 + x_2 + x_3) \\big)\n        = (9x_1,\\ 2x_1 + x_2,\\ 9x_1 + x_3).\n    \\]\n    Hence\n    \\[\n        (T^2 - I)(x_1, x_2, x_3) = (8x_1,\\ 2x_1,\\ 9x_1), \\qquad (T - 3I)(x_1, x_2, x_3) = (0,\\ x_1 - 4x_2,\\ 2x_1 + x_2 - 2x_3).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The operator $(T^2 - I)(T - 3I)$ first applies $T - 3I$, whose output has first coordinate $0$, and then $T^2 - I$, which only sees the first coordinate. Therefore\n    \\[\n        (T^2 - I)(T - 3I)(x) = (8 \\cdot 0,\\ 2 \\cdot 0,\\ 9 \\cdot 0) = 0 \\quad \\text{for every } x.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Remark.</strong> The matrix of $T$ is lower triangular with diagonal $3, -1, 1$, so its characteristic polynomial is $(x - 3)(x + 1)(x - 1) = (x^2 - 1)(x - 3)$. The identity is an instance of the Cayley-Hamilton theorem, proved later in the book.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.2.4)"
+      ]
+    },
+    {
+      "date": "2024-09-22",
+      "title": "Hoffman and Kunze - Rank of $A \\mapsto BA$ on $2 \\times 2$ complex matrices, and its square",
+      "difficulty": "medium",
+      "problem": "Let $\\mathbb{C}^{2 \\times 2}$ be the complex vector space of $2 \\times 2$ matrices with complex entries. Let\n    \\[\n        B = \\begin{bmatrix} 1 & -1 \\\\ -4 & 4 \\end{bmatrix}\n    \\]\n    and let $T$ be the linear operator on $\\mathbb{C}^{2 \\times 2}$ defined by $T(A) = BA$. What is the rank of $T$? Can you describe $T^2$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$B$ has rank $1$: $B = \\begin{bmatrix} 1 \\\\ -4 \\end{bmatrix} \\begin{bmatrix} 1 & -1 \\end{bmatrix}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that\n    \\[\n        B = u\\, w, \\qquad u = \\begin{bmatrix} 1 \\\\ -4 \\end{bmatrix}, \\quad w = \\begin{bmatrix} 1 & -1 \\end{bmatrix}.\n    \\]\n    So $T(A) = BA = u\\,(wA)$, where $wA = \\begin{bmatrix} a_{11} - a_{21} & a_{12} - a_{22} \\end{bmatrix}$ is a row vector.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Rank.</strong> As $A$ varies, $wA$ takes every value $\\begin{bmatrix} p & q \\end{bmatrix}$ (take $a_{11} = p$, $a_{12} = q$, $a_{21} = a_{22} = 0$). Hence\n    \\[\n        \\operatorname{range} T = \\left\\{ \\begin{bmatrix} p & q \\\\ -4p & -4q \\end{bmatrix} : p, q \\in \\mathbb{C} \\right\\},\n    \\]\n    which has dimension $2$. So $\\operatorname{rank} T = 2$ (and $\\operatorname{nullity} T = 4 - 2 = 2$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$T^2$.</strong> $T^2(A) = B^2 A$, and\n    \\[\n        B^2 = u\\, (w u)\\, w = (1 \\cdot 1 + (-1)(-4))\\, u w = 5B.\n    \\]\n    (Directly: $B^2 = \\begin{bmatrix} 5 & -5 \\\\ -20 & 20 \\end{bmatrix}$.) Hence $T^2 = 5T$, i.e. $T^2(A) = 5BA$. In particular $\\frac{1}{5} T$ is a projection.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.2.5)"
+      ]
+    },
+    {
+      "date": "2024-09-29",
+      "title": "Hoffman and Kunze - $\\mathbb{R}^3 \\to \\mathbb{R}^2 \\to \\mathbb{R}^3$ is never invertible",
+      "difficulty": "easy",
+      "problem": "Let $T$ be a linear transformation from $\\mathbb{R}^3$ into $\\mathbb{R}^2$, and let $U$ be a linear transformation from $\\mathbb{R}^2$ into $\\mathbb{R}^3$. Prove that the transformation $UT$ is not invertible. Generalize the theorem.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">What can the rank of $T$ be? What does that say about its null space?</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The range of $T$ lies in $\\mathbb{R}^2$, so $\\operatorname{rank} T \\leq 2$. By the rank-nullity theorem, $\\operatorname{nullity} T = 3 - \\operatorname{rank} T \\geq 1$. So there is $\\alpha \\neq 0$ in $\\mathbb{R}^3$ with $T\\alpha = 0$, and then $UT\\alpha = U(0) = 0$. A linear operator with a non-zero vector in its null space is not one-to-one, so $UT$ is not invertible.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(Equivalently: the range of $UT$ is contained in the range of $U$, which has dimension at most $2$, so $UT : \\mathbb{R}^3 \\to \\mathbb{R}^3$ is not onto.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Generalization.</strong> Let $V$ and $W$ be finite-dimensional with $\\dim W \\lt \\dim V$. If $T : V \\to W$ and $U : W \\to V$ are linear, then $UT : V \\to V$ is not invertible. The proof is the same: $\\operatorname{nullity} T = \\dim V - \\operatorname{rank} T \\geq \\dim V - \\dim W > 0$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "dimension",
+        "linear-algebra-hoffman-kunze (3.2.6)"
+      ]
+    },
+    {
+      "date": "2024-10-06",
+      "title": "Hoffman and Kunze - Two operators on $\\mathbb{R}^2$ with $TU = 0$ but $UT \\neq 0$",
+      "difficulty": "easy",
+      "problem": "Find two linear operators $T$ and $U$ on $\\mathbb{R}^2$ such that $TU = 0$ but $UT \\neq 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$TU = 0$ means that the range of $U$ is inside the null space of $T$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let\n    \\[\n        T(x_1, x_2) = (x_1, 0), \\qquad U(x_1, x_2) = (0, x_1).\n    \\]\n    The range of $U$ is the $x_2$-axis, which is exactly the null space of $T$. Hence\n    \\[\n        TU(x_1, x_2) = T(0, x_1) = (0, 0) \\quad \\text{for all } (x_1, x_2), \\qquad \\text{so } TU = 0,\n    \\]\n    while\n    \\[\n        UT(x_1, x_2) = U(x_1, 0) = (0, x_1), \\qquad \\text{so } UT(1, 0) = (0, 1) \\neq 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In matrices: $T = \\begin{bmatrix} 1 & 0 \\\\ 0 & 0 \\end{bmatrix}$, $U = \\begin{bmatrix} 0 & 0 \\\\ 1 & 0 \\end{bmatrix}$, $TU = 0$, $UT = \\begin{bmatrix} 0 & 0 \\\\ 1 & 0 \\end{bmatrix} \\neq 0$. So the product of linear operators is not commutative, and a product can vanish without either factor vanishing.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.2.7)"
+      ]
+    },
+    {
+      "date": "2024-10-13",
+      "title": "Hoffman and Kunze - If $T^2 = 0$, the range of $T$ lies in its null space",
+      "difficulty": "easy",
+      "problem": "Let $V$ be a vector space over the field $F$ and $T$ a linear operator on $V$. If $T^2 = 0$, what can you say about the relation of the range of $T$ to the null space of $T$? Give an example of a linear operator $T$ on $\\mathbb{R}^2$ such that $T^2 = 0$ but $T \\neq 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Apply $T$ to a vector $T\\alpha$ of the range.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The range is contained in the null space.</strong> If $\\beta = T\\alpha$ is in the range, then $T\\beta = T^2\\alpha = 0$, so $\\beta$ is in the null space. Conversely, if the range is contained in the null space then $T(T\\alpha) = 0$ for all $\\alpha$, i.e. $T^2 = 0$. So $T^2 = 0$ is equivalent to $\\operatorname{range} T \\subseteq \\operatorname{null} T$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $\\dim V = n$ is finite, this gives $\\operatorname{rank} T \\leq \\operatorname{nullity} T = n - \\operatorname{rank} T$, so $\\operatorname{rank} T \\leq \\frac{n}{2}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Example.</strong> $T(x_1, x_2) = (0, x_1)$ on $\\mathbb{R}^2$: $T^2(x_1, x_2) = T(0, x_1) = (0, 0)$, but $T(1, 0) = (0, 1) \\neq 0$. Here the range and the null space are both the $x_2$-axis.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.2.8)"
+      ]
+    },
+    {
+      "date": "2024-10-20",
+      "title": "Hoffman and Kunze - In finite dimensions $TU = I$ implies $U = T^{-1}$; not so in infinite dimensions",
+      "difficulty": "medium",
+      "problem": "Let $T$ be a linear operator on the finite-dimensional space $V$. Suppose there is a linear operator $U$ on $V$ such that $TU = I$. Prove that $T$ is invertible and $U = T^{-1}$. Give an example which shows that this is false when $V$ is not finite-dimensional. (Hint: Let $T = D$, the differentiation operator on the space of polynomial functions.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$TU = I$ shows that $T$ is onto. In finite dimensions, onto implies one-to-one (rank-nullity).</li>\n<li class=\"my-4\">For the example, let $U$ be integration from $0$ to $x$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Finite dimensions.</strong> If $TU = I$, then every $\\beta \\in V$ equals $T(U\\beta)$, so $T$ is onto: $\\operatorname{rank} T = \\dim V$. By rank-nullity, $\\operatorname{nullity} T = 0$, so $T$ is one-to-one. Hence $T$ is invertible, and\n    \\[\n        U = IU = (T^{-1}T)U = T^{-1}(TU) = T^{-1} I = T^{-1}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Infinite dimensions.</strong> Let $V$ be the space of polynomial functions over $\\mathbb{R}$, $T = D$ the differentiation operator, and $U = E$ the integration operator $(Ef)(x) = \\int_0^x f(t)\\, \\mathrm{d} t$. Then\n    \\[\n        DE f = f \\quad \\text{for every } f, \\qquad \\text{i.e. } DE = I,\n    \\]\n    but $D$ is not invertible: $D(1) = 0$, so $D$ is not one-to-one. Also $ED \\neq I$, since $(ED)f = f - f(0)$. So a one-sided inverse need not be a two-sided inverse.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.2.9)"
+      ]
+    },
+    {
+      "date": "2024-10-27",
+      "title": "Hoffman and Kunze - $X \\mapsto AX$ can be onto but not one-to-one ($m \\lt n$), or one-to-one but not onto ($m > n$)",
+      "difficulty": "easy",
+      "problem": "Let $A$ be an $m \\times n$ matrix with entries in $F$ and let $T$ be the linear transformation from $F^{n \\times 1}$ into $F^{m \\times 1}$ defined by $T(X) = AX$. Show that if $m \\lt n$ it may happen that $T$ is onto without being non-singular. Similarly, show that if $m > n$ we may have $T$ non-singular but not onto.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Try $A = \\begin{bmatrix} I_m & 0 \\end{bmatrix}$ when $m \\lt n$, and $A = \\begin{bmatrix} I_n \\\\ 0 \\end{bmatrix}$ when $m > n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$m \\lt n$.</strong> Let $A = \\begin{bmatrix} I_m & 0 \\end{bmatrix}$ (the $m \\times m$ identity followed by $n - m$ zero columns). Then $T(X)$ is the column of the first $m$ entries of $X$. $T$ is onto (given $Y$, take $X = \\begin{bmatrix} Y \\\\ 0 \\end{bmatrix}$), but $T(\\epsilon_n) = 0$ with $\\epsilon_n \\neq 0$, so $T$ is singular. In fact, when $m \\lt n$, $T$ is <em>never</em> non-singular: $\\operatorname{nullity} T = n - \\operatorname{rank} T \\geq n - m > 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$m > n$.</strong> Let $A = \\begin{bmatrix} I_n \\\\ 0 \\end{bmatrix}$ (the identity with $m - n$ zero rows below). Then $T(X) = \\begin{bmatrix} X \\\\ 0 \\end{bmatrix}$, which is $0$ only for $X = 0$, so $T$ is non-singular. But every vector in the range has its last $m - n$ entries equal to $0$, so $T$ is not onto. In fact, when $m > n$, $T$ is never onto: $\\operatorname{rank} T \\leq n \\lt m$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.2.10)"
+      ]
+    },
+    {
+      "date": "2024-11-03",
+      "title": "Hoffman and Kunze - If $\\operatorname{rank}(T^2) = \\operatorname{rank}(T)$, the range and null space of $T$ meet only in $0$",
+      "difficulty": "medium",
+      "problem": "Let $V$ be a finite-dimensional vector space and let $T$ be a linear operator on $V$. Suppose that $\\operatorname{rank}(T^2) = \\operatorname{rank}(T)$. Prove that the range and null space of $T$ are disjoint, i.e., have only the zero vector in common.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\operatorname{range}(T^2) \\subseteq \\operatorname{range}(T)$, so equal dimensions give equality.</li>\n<li class=\"my-4\">Apply the rank-nullity theorem to the restriction of $T$ to $R = \\operatorname{range} T$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $R = \\operatorname{range} T$. Since $T^2\\alpha = T(T\\alpha)$, we have $\\operatorname{range}(T^2) = T(R) \\subseteq R$. Both have the same (finite) dimension by hypothesis, so $T(R) = R$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Consider the restriction $S = T|_R : R \\to R$. It is onto, since $S(R) = T(R) = R$. By the rank-nullity theorem for $S$,\n    \\[\n        \\dim R = \\operatorname{rank} S + \\operatorname{nullity} S = \\dim R + \\operatorname{nullity} S,\n    \\]\n    so $\\operatorname{nullity} S = 0$: the only vector of $R$ that $T$ sends to $0$ is $0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Now if $\\beta$ lies in both the range and the null space, then $\\beta \\in R$ and $T\\beta = 0$, so $\\beta = 0$. Hence $\\operatorname{range} T \\cap \\operatorname{null} T = \\{ 0 \\}$. (Since the dimensions add up to $\\dim V$, in fact $V = \\operatorname{range} T \\oplus \\operatorname{null} T$.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "dimension",
+        "linear-algebra-hoffman-kunze (3.2.11)"
+      ]
+    },
+    {
+      "date": "2024-11-10",
+      "title": "Hoffman and Kunze - $A \\mapsto BA$ is invertible if and only if $B$ is an invertible square matrix",
+      "difficulty": "medium",
+      "problem": "Let $p$, $m$ and $n$ be positive integers and $F$ a field. Let $V$ be the space of $m \\times n$ matrices over $F$ and $W$ the space of $p \\times n$ matrices over $F$. Let $B$ be a fixed $p \\times m$ matrix and let $T$ be the linear transformation from $V$ into $W$ defined by $T(A) = BA$. Prove that $T$ is invertible if and only if $p = m$ and $B$ is an invertible $m \\times m$ matrix.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">An invertible linear map preserves dimension: $\\dim V = mn$ and $\\dim W = pn$.</li>\n<li class=\"my-4\">If $B$ is square but singular, put a non-zero solution of $BX = 0$ into a column of $A$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Leftarrow$)</strong> If $p = m$ and $B$ is invertible, then $S(A) = B^{-1}A$ is a linear map $W \\to V$ with $S(T(A)) = B^{-1}BA = A$ and $T(S(A')) = BB^{-1}A' = A'$. So $T$ is invertible, with $T^{-1} = S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Rightarrow$)</strong> Suppose $T$ is invertible. Then $\\dim V = \\dim W$, i.e. $mn = pn$, and since $n \\geq 1$, $p = m$. So $B$ is a square $m \\times m$ matrix. If $B$ were not invertible, there would be a non-zero column $X \\in F^{m \\times 1}$ with $BX = 0$. Let $A$ be the $m \\times n$ matrix whose first column is $X$ and whose other columns are $0$. Then $A \\neq 0$ but $T(A) = BA = 0$ (each column of $BA$ is $B$ times the corresponding column of $A$), contradicting that $T$ is one-to-one. Hence $B$ is invertible.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "linear-algebra-hoffman-kunze (3.2.12)"
+      ]
+    },
+    {
+      "date": "2024-11-17",
+      "title": "Hoffman and Kunze - $\\mathbb{C}$ as a real vector space is isomorphic to $\\mathbb{R}^2$",
+      "difficulty": "easy",
+      "problem": "Let $V$ be the set of complex numbers and $F$ the field of real numbers. With the usual operations, $V$ is a vector space over $F$. Describe explicitly an isomorphism of this space onto $\\mathbb{R}^2$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Every complex number is uniquely $x + \\iota y$ with $x, y$ real.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Define $T : V \\to \\mathbb{R}^2$ by $T(x + \\iota y) = (x, y)$, for $x, y \\in \\mathbb{R}$. This is well defined because the real and imaginary parts of a complex number are unique.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Linear.</strong> For real $c$ and $z_k = x_k + \\iota y_k$: $c z_1 + z_2 = (c x_1 + x_2) + \\iota (c y_1 + y_2)$, so $T(c z_1 + z_2) = (c x_1 + x_2, c y_1 + y_2) = c\\, T z_1 + T z_2$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Bijective.</strong> The map $(x, y) \\mapsto x + \\iota y$ is an inverse of $T$. Hence $T$ is an isomorphism of $V$ onto $\\mathbb{R}^2$; it sends the basis $\\{ 1, \\iota \\}$ of $V$ to the standard basis $\\{ \\epsilon_1, \\epsilon_2 \\}$. In particular $\\dim_{\\mathbb{R}} \\mathbb{C} = 2$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "isomorphism",
+        "linear-algebra-hoffman-kunze (3.3.1)"
+      ]
+    },
+    {
+      "date": "2024-11-24",
+      "title": "Hoffman and Kunze - Using an isomorphism $V \\cong \\mathbb{C}^3$ to answer questions about four vectors",
+      "difficulty": "medium",
+      "problem": "Let $V$ be a vector space over the field of complex numbers, and suppose there is an isomorphism $T$ of $V$ onto $\\mathbb{C}^3$. Let $\\alpha_1, \\alpha_2, \\alpha_3, \\alpha_4$ be vectors in $V$ such that\n    \\[\n        T\\alpha_1 = (1, 0, \\iota), \\quad T\\alpha_2 = (-2, 1 + \\iota, 0), \\quad T\\alpha_3 = (-1, 1, 1), \\quad T\\alpha_4 = (\\sqrt{2}, \\iota, 3).\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Is $\\alpha_1$ in the subspace spanned by $\\alpha_2$ and $\\alpha_3$?</li>\n<li class=\"my-4\">Let $W_1$ be the subspace spanned by $\\alpha_1$ and $\\alpha_2$, and let $W_2$ be the subspace spanned by $\\alpha_3$ and $\\alpha_4$. What is the intersection of $W_1$ and $W_2$?</li>\n<li class=\"my-4\">Find a basis for the subspace of $V$ spanned by the four vectors $\\alpha_j$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">An isomorphism preserves linear combinations, linear independence and spans, so all three questions can be answered in $\\mathbb{C}^3$ with $v_j = T\\alpha_j$.</li>\n<li class=\"my-4\">Compute $\\det [v_2\\ v_3\\ v_4]$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Write $v_j = T\\alpha_j$. Since $T$ is linear and one-one, $\\alpha = \\sum c_j \\alpha_j$ if and only if $T\\alpha = \\sum c_j v_j$, and $\\{ \\alpha_j \\}$ is independent if and only if $\\{ v_j \\}$ is. So we work in $\\mathbb{C}^3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a) Yes.</strong> We look for $a, b$ with $a v_2 + b v_3 = v_1$:\n    \\[\n        -2a - b = 1, \\qquad (1 + \\iota) a + b = 0, \\qquad b = \\iota.\n    \\]\n    The third equation gives $b = \\iota$; the second gives $a = \\frac{-\\iota}{1 + \\iota} = \\frac{-\\iota(1 - \\iota)}{2} = \\frac{-1 - \\iota}{2}$; and then $-2a - b = (1 + \\iota) - \\iota = 1$, so the first equation holds too. Hence\n    \\[\n        \\alpha_1 = -\\frac{1 + \\iota}{2}\\, \\alpha_2 + \\iota\\, \\alpha_3 .\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $v_1, v_2$ are independent (neither is a multiple of the other), and by (a) $v_1 \\in \\operatorname{span}\\{ v_2, v_3 \\}$. So $W_1 = \\operatorname{span}\\{ \\alpha_1, \\alpha_2 \\}$ is a $2$-dimensional subspace of the $2$-dimensional space $\\operatorname{span}\\{ \\alpha_2, \\alpha_3 \\}$, and therefore $W_1 = \\operatorname{span}\\{ \\alpha_2, \\alpha_3 \\}$. In particular $\\alpha_3 \\in W_1 \\cap W_2$.\n    Next,\n    \\[\n        \\det \\begin{bmatrix} -2 & -1 & \\sqrt{2} \\\\ 1 + \\iota & 1 & \\iota \\\\ 0 & 1 & 3 \\end{bmatrix} = (\\sqrt{2} - 3) + (5 + \\sqrt{2})\\iota \\neq 0,\n    \\]\n    so $v_2, v_3, v_4$ are independent and $W_1 + W_2 = \\operatorname{span}\\{ \\alpha_2, \\alpha_3, \\alpha_4 \\} = V$. Since $\\dim V = \\dim \\mathbb{C}^3 = 3$,\n    \\[\n        \\dim (W_1 \\cap W_2) = \\dim W_1 + \\dim W_2 - \\dim (W_1 + W_2) = 2 + 2 - 3 = 1.\n    \\]\n    Therefore $W_1 \\cap W_2 = \\operatorname{span}\\{ \\alpha_3 \\}$, the set of all complex multiples of $\\alpha_3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> The four vectors span $V$, and $\\{ \\alpha_2, \\alpha_3, \\alpha_4 \\}$ is a basis of this subspace (that is, of $V$ itself). Because $\\alpha_1$ is a combination of $\\alpha_2, \\alpha_3$, it can be dropped.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "isomorphism",
+        "basis",
+        "linear-algebra-hoffman-kunze (3.3.2)"
+      ]
+    },
+    {
+      "date": "2024-12-01",
+      "title": "Hoffman and Kunze - $\\mathbb{R}^4$ is isomorphic to the real space of $2 \\times 2$ Hermitian matrices",
+      "difficulty": "easy",
+      "problem": "Let $W$ be the set of all $2 \\times 2$ complex Hermitian matrices, that is, the set of $2 \\times 2$ complex matrices $A$ such that $A_{ij} = \\overline{A_{ji}}$ (the bar denoting complex conjugation). $W$ is a vector space over the field of real numbers, under the usual operations. Verify that\n    \\[\n        (x, y, z, t) \\mapsto \\begin{bmatrix} t + x & y + \\iota z \\\\ y - \\iota z & t - x \\end{bmatrix}\n    \\]\n    is an isomorphism of $\\mathbb{R}^4$ onto $W$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The diagonal entries of a Hermitian matrix are real, because $A_{11} = \\overline{A_{11}}$. Solve for $x, y, z, t$ in terms of the entries.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Call the map $U$. For real $x, y, z, t$ the matrix $U(x, y, z, t)$ has real diagonal entries, and its off-diagonal entries $y + \\iota z$ and $y - \\iota z$ are conjugate, so it lies in $W$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Linear over $\\mathbb{R}$.</strong> Every entry of $U(x, y, z, t)$ is a real-linear expression in $(x, y, z, t)$, so $U(c\\, u + u') = c\\, U(u) + U(u')$ for real $c$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>One-one.</strong> If $U(x, y, z, t) = 0$, then $t + x = t - x = 0$, so $t = x = 0$, and $y + \\iota z = 0$ with $y, z$ real, so $y = z = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Onto.</strong> Let $A = \\begin{bmatrix} a & w \\\\ \\overline{w} & d \\end{bmatrix} \\in W$. Then $a = \\overline{a}$ and $d = \\overline{d}$ are real. Put\n    \\[\n        t = \\frac{a + d}{2}, \\quad x = \\frac{a - d}{2}, \\quad y = \\operatorname{Re} w, \\quad z = \\operatorname{Im} w.\n    \\]\n    Then $U(x, y, z, t) = A$. Hence $U$ is an isomorphism, and $\\dim_{\\mathbb{R}} W = 4$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "isomorphism",
+        "matrices",
+        "linear-algebra-hoffman-kunze (3.3.3)"
+      ]
+    },
+    {
+      "date": "2024-12-08",
+      "title": "Hoffman and Kunze - $F^{m \\times n}$ is isomorphic to $F^{mn}$",
+      "difficulty": "easy",
+      "problem": "Show that $F^{m \\times n}$ is isomorphic to $F^{mn}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">List the entries of a matrix row by row.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Define $T : F^{m \\times n} \\to F^{mn}$ by listing the entries row by row:\n    \\[\n        T(A) = (A_{11}, \\dots, A_{1n}, A_{21}, \\dots, A_{2n}, \\dots, A_{m1}, \\dots, A_{mn}).\n    \\]\n    In other words, the $\\big( (i - 1)n + j \\big)$-th coordinate of $T(A)$ is $A_{ij}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$T$ is linear, since $(cA + B)_{ij} = c A_{ij} + B_{ij}$ entrywise. It is one-one and onto, because the rule $(i, j) \\mapsto (i - 1)n + j$ is a bijection of $\\{ 1, \\dots, m \\} \\times \\{ 1, \\dots, n \\}$ onto $\\{ 1, \\dots, mn \\}$, so every vector of $F^{mn}$ comes from exactly one matrix.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $T$ is an isomorphism. It carries the matrix units $E^{ij}$ (with $1$ in position $(i, j)$ and $0$ elsewhere) to the standard basis of $F^{mn}$. (Alternatively, both spaces have dimension $mn$, so they are isomorphic by Exercise 3.3.6.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "isomorphism",
+        "matrices",
+        "linear-algebra-hoffman-kunze (3.3.4)"
+      ]
+    },
+    {
+      "date": "2024-12-15",
+      "title": "Hoffman and Kunze - A copy of $\\mathbb{C}$ inside the real $2 \\times 2$ matrices",
+      "difficulty": "medium",
+      "problem": "Let $V$ be the set of complex numbers regarded as a vector space over the field of real numbers (Exercise 1). We define a function $T$ from $V$ into the space of $2 \\times 2$ real matrices, as follows. If $z = x + \\iota y$ with $x$ and $y$ real numbers, then\n    \\[\n        T(z) = \\begin{bmatrix} x + 7y & 5y \\\\ -10y & x - 7y \\end{bmatrix}.\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Verify that $T$ is a one-one (real) linear transformation of $V$ into the space of $2 \\times 2$ real matrices.</li>\n<li class=\"my-4\">Verify that $T(z_1 z_2) = T(z_1) T(z_2)$.</li>\n<li class=\"my-4\">How would you describe the range of $T$?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $T(z) = xI + yJ$ with $J = \\begin{bmatrix} 7 & 5 \\\\ -10 & -7 \\end{bmatrix}$ and compute $J^2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Write $T(z) = x I + y J$, where $J = \\begin{bmatrix} 7 & 5 \\\\ -10 & -7 \\end{bmatrix}$. A direct computation gives\n    \\[\n        J^2 = \\begin{bmatrix} 49 - 50 & 35 - 35 \\\\ -70 + 70 & -50 + 49 \\end{bmatrix} = -I.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $T(c z_1 + z_2) = (c x_1 + x_2) I + (c y_1 + y_2) J = c\\, T(z_1) + T(z_2)$ for real $c$, so $T$ is real linear. If $T(z) = 0$, the $(1, 2)$ entry gives $5y = 0$, so $y = 0$, and then the $(1, 1)$ entry gives $x = 0$. So $T$ is one-one.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> With $z_k = x_k + \\iota y_k$,\n    \\[\n        T(z_1) T(z_2) = (x_1 I + y_1 J)(x_2 I + y_2 J) = (x_1 x_2 - y_1 y_2) I + (x_1 y_2 + x_2 y_1) J,\n    \\]\n    using $J^2 = -I$. Since $z_1 z_2 = (x_1 x_2 - y_1 y_2) + \\iota (x_1 y_2 + x_2 y_1)$, this is exactly $T(z_1 z_2)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> The range is the $2$-dimensional subspace $\\{ xI + yJ : x, y \\in \\mathbb{R} \\}$ spanned by $I$ and $J$. Explicitly, $\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$ is in the range if and only if\n    \\[\n        c = -2b \\quad \\text{and} \\quad 5(a - d) = 14 b\n    \\]\n    (then $y = b/5$ and $x = (a + d)/2$). By (a) and (b), and since $T(1) = I$, the range is closed under multiplication and $T$ is a field isomorphism of $\\mathbb{C}$ onto it: the range is a copy of the complex numbers inside the $2 \\times 2$ real matrices, with $J$ playing the role of $\\iota$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "isomorphism",
+        "matrices",
+        "linear-algebra-hoffman-kunze (3.3.5)"
+      ]
+    },
+    {
+      "date": "2024-12-22",
+      "title": "Hoffman and Kunze - Finite-dimensional spaces are isomorphic if and only if they have the same dimension",
+      "difficulty": "easy",
+      "problem": "Let $V$ and $W$ be finite-dimensional vector spaces over the field $F$. Prove that $V$ and $W$ are isomorphic if and only if $\\dim V = \\dim W$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">An isomorphism carries a basis to a basis. Conversely, a linear map can be prescribed arbitrarily on a basis (Theorem 1 of §3.1).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Rightarrow$)</strong> Let $T : V \\to W$ be an isomorphism and $\\{ \\alpha_1, \\dots, \\alpha_n \\}$ a basis of $V$. The vectors $T\\alpha_1, \\dots, T\\alpha_n$ are independent: if $\\sum c_i T\\alpha_i = 0$, then $T\\left( \\sum c_i \\alpha_i \\right) = 0$, so $\\sum c_i \\alpha_i = 0$ ($T$ is one-one) and all $c_i = 0$. They span $W$: for $\\beta \\in W$, $\\beta = T\\alpha$ for some $\\alpha = \\sum c_i \\alpha_i$ ($T$ is onto), so $\\beta = \\sum c_i T\\alpha_i$. Hence $\\dim W = n = \\dim V$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Leftarrow$)</strong> Let $\\dim V = \\dim W = n$, with bases $\\{ \\alpha_i \\}$ of $V$ and $\\{ \\beta_i \\}$ of $W$. By Theorem 1 of §3.1 there is a unique linear $T : V \\to W$ with $T\\alpha_i = \\beta_i$, namely $T\\left( \\sum c_i \\alpha_i \\right) = \\sum c_i \\beta_i$. It is onto, since every $\\beta \\in W$ is some $\\sum c_i \\beta_i$. It is one-one, since $T\\left( \\sum c_i \\alpha_i \\right) = 0$ forces all $c_i = 0$ by independence of the $\\beta_i$. So $T$ is an isomorphism.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(If $n = 0$, both spaces are $\\{ 0 \\}$ and the zero map is an isomorphism.) In particular every $n$-dimensional space over $F$ is isomorphic to $F^n$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "isomorphism",
+        "dimension",
+        "linear-algebra-hoffman-kunze (3.3.6)"
+      ]
+    },
+    {
+      "date": "2024-12-29",
+      "title": "Hoffman and Kunze - Conjugation by an isomorphism: $T \\mapsto UTU^{-1}$ is an isomorphism $L(V, V) \\to L(W, W)$",
+      "difficulty": "medium",
+      "problem": "Let $V$ and $W$ be vector spaces over the field $F$ and let $U$ be an isomorphism of $V$ onto $W$. Prove that $T \\mapsto UTU^{-1}$ is an isomorphism of $L(V, V)$ onto $L(W, W)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Find the inverse map explicitly: $S \\mapsto U^{-1} S U$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Define $\\Phi : L(V, V) \\to L(W, W)$ by $\\Phi(T) = U T U^{-1}$. For $T \\in L(V, V)$, $UTU^{-1}$ is a composition $W \\to V \\to V \\to W$ of linear maps, so it is a linear operator on $W$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\Phi$ is linear.</strong> For $c \\in F$ and $T_1, T_2 \\in L(V, V)$, and any $\\beta \\in W$,\n    \\[\n        U (c T_1 + T_2) U^{-1} \\beta = U\\left( c\\, T_1 U^{-1}\\beta + T_2 U^{-1}\\beta \\right) = c\\, U T_1 U^{-1} \\beta + U T_2 U^{-1} \\beta,\n    \\]\n    using linearity of $U$. So $\\Phi(cT_1 + T_2) = c\\, \\Phi(T_1) + \\Phi(T_2)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$\\Phi$ is bijective.</strong> Define $\\Psi : L(W, W) \\to L(V, V)$ by $\\Psi(S) = U^{-1} S U$. Then\n    \\[\n        \\Psi(\\Phi(T)) = U^{-1} (U T U^{-1}) U = T, \\qquad \\Phi(\\Psi(S)) = U (U^{-1} S U) U^{-1} = S.\n    \\]\n    So $\\Psi$ is an inverse of $\\Phi$, and $\\Phi$ is an isomorphism.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In addition, $\\Phi(T_1 T_2) = U T_1 U^{-1} U T_2 U^{-1} = \\Phi(T_1)\\Phi(T_2)$ and $\\Phi(I) = I$: $\\Phi$ also preserves composition, so it is an isomorphism of algebras. Taking $W = F^n$ and $U$ the coordinate map of an ordered basis, this is the familiar correspondence between operators and their matrices.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "isomorphism",
+        "linear-algebra-hoffman-kunze (3.3.7)"
+      ]
+    },
+    {
       "date": "2025-01-05",
       "title": "Dimension of subspace in R^3",
       "problem": "Consider $\\mathbb{R} ^3 $ as a vector space with the usual operations of vector addition and scalar multiplication. Let $\\mathbf{x} \\in \\mathbb{R} ^3$ be denoted by $\\mathbf{x} = (x_1, x_2, x_3)$. Define subspaces $W_1$ and $W_2$ by\n\\begin{align*}\n    W_1 & = \\left\\{ \\mathbf{x} \\in \\mathbb{R} ^3 : x_1 + 2x_2 - x_3 = 0 \\right\\} \\\\\n    W_2 & = \\left\\{ \\mathbf{x} \\in \\mathbb{R} ^3 : 2x_1 + 3x_3 = 0 \\right\\} .\n\\end{align*}\nLet $\\dim U$ denotes the  dimension of the subspace $U$. Which of the following statements are TRUE?\n<ol class=\"math-list-Alpha\">\n  <li class=\"my-2\">$\\dim (W_1) = \\dim (W_2)$</li>\n  <li class=\"my-2\">$\\dim (W_1) + \\dim (W_2) - \\dim \\left( \\mathbb{R} ^3 \\right)  = 1$</li>\n  <li class=\"my-2\">$\\dim (W_1 + W_2) = 2$</li>\n  <li class=\"my-2\">$\\dim (W_1  \\cap  W_2) = 1$</li>\n</ol>",
@@ -949,6 +1395,64 @@
       ]
     },
     {
+      "date": "2025-04-27",
+      "title": "Hoffman and Kunze - Matrices of $T(x_1, x_2) = (x_1, 0)$ on $\\mathbb{C}^2$ in four pairs of bases",
+      "difficulty": "easy",
+      "problem": "Let $T$ be the linear operator on $\\mathbb{C}^2$ defined by $T(x_1, x_2) = (x_1, 0)$. Let $\\mathcal{B}$ be the standard ordered basis for $\\mathbb{C}^2$ and let $\\mathcal{B}' = \\{ \\alpha_1, \\alpha_2 \\}$ be the ordered basis defined by $\\alpha_1 = (1, \\iota)$, $\\alpha_2 = (-\\iota, 2)$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">What is the matrix of $T$ relative to the pair $\\mathcal{B}, \\mathcal{B}'$?</li>\n<li class=\"my-4\">What is the matrix of $T$ relative to the pair $\\mathcal{B}', \\mathcal{B}$?</li>\n<li class=\"my-4\">What is the matrix of $T$ in the ordered basis $\\mathcal{B}'$?</li>\n<li class=\"my-4\">What is the matrix of $T$ in the ordered basis $\\{ \\alpha_2, \\alpha_1 \\}$?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The $j$th column of the matrix relative to $(\\mathcal{B}_1, \\mathcal{B}_2)$ is the $\\mathcal{B}_2$-coordinate vector of $T$ applied to the $j$th vector of $\\mathcal{B}_1$. First express $(1, 0)$ in terms of $\\alpha_1, \\alpha_2$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Coordinates in $\\mathcal{B}'$.</strong> Solving $a(1, \\iota) + b(-\\iota, 2) = (1, 0)$: $a - \\iota b = 1$, $\\iota a + 2b = 0$ give $a = 2$, $b = -\\iota$. Indeed $2(1, \\iota) - \\iota(-\\iota, 2) = (2 - 1, 2\\iota - 2\\iota) = (1, 0)$. So $[(1, 0)]_{\\mathcal{B}'} = (2, -\\iota)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $T\\epsilon_1 = (1, 0)$ and $T\\epsilon_2 = 0$, so\n    \\[\n        [T]_{\\mathcal{B}, \\mathcal{B}'} = \\begin{bmatrix} 2 & 0 \\\\ -\\iota & 0 \\end{bmatrix}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $T\\alpha_1 = (1, 0)$ and $T\\alpha_2 = (-\\iota, 0)$, written in the standard basis:\n    \\[\n        [T]_{\\mathcal{B}', \\mathcal{B}} = \\begin{bmatrix} 1 & -\\iota \\\\ 0 & 0 \\end{bmatrix}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> $[T\\alpha_1]_{\\mathcal{B}'} = (2, -\\iota)$ and $[T\\alpha_2]_{\\mathcal{B}'} = -\\iota(2, -\\iota) = (-2\\iota, -1)$, so\n    \\[\n        [T]_{\\mathcal{B}'} = \\begin{bmatrix} 2 & -2\\iota \\\\ -\\iota & -1 \\end{bmatrix}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> Reordering the basis swaps both the columns and the coordinates: $[T\\alpha_2] = (-1, -2\\iota)$ and $[T\\alpha_1] = (-\\iota, 2)$ in the basis $\\{ \\alpha_2, \\alpha_1 \\}$, so\n    \\[\n        [T]_{\\{\\alpha_2, \\alpha_1\\}} = \\begin{bmatrix} -1 & -\\iota \\\\ -2\\iota & 2 \\end{bmatrix}.\n    \\]\n    As a check, all of (c) and (d) have trace $1$ and determinant $0$, like the matrix $\\begin{bmatrix} 1 & 0 \\\\ 0 & 0 \\end{bmatrix}$ of $T$ in the standard basis.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "linear-algebra-hoffman-kunze (3.4.1)"
+      ]
+    },
+    {
+      "date": "2025-05-04",
+      "title": "Hoffman and Kunze - The matrix of $T(x_1, x_2, x_3) = (x_1 + x_2, 2x_3 - x_1)$ in two pairs of bases",
+      "difficulty": "easy",
+      "problem": "Let $T$ be the linear transformation from $\\mathbb{R}^3$ into $\\mathbb{R}^2$ defined by $T(x_1, x_2, x_3) = (x_1 + x_2, 2x_3 - x_1)$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">If $\\mathcal{B}$ is the standard ordered basis for $\\mathbb{R}^3$ and $\\mathcal{B}'$ is the standard ordered basis for $\\mathbb{R}^2$, what is the matrix of $T$ relative to the pair $\\mathcal{B}, \\mathcal{B}'$?</li>\n<li class=\"my-4\">If $\\mathcal{B} = \\{ \\alpha_1, \\alpha_2, \\alpha_3 \\}$ and $\\mathcal{B}' = \\{ \\beta_1, \\beta_2 \\}$, where\n    \\[\n        \\alpha_1 = (1, 0, -1), \\ \\alpha_2 = (1, 1, 1), \\ \\alpha_3 = (1, 0, 0), \\ \\beta_1 = (0, 1), \\ \\beta_2 = (1, 0),\n    \\]\n    what is the matrix of $T$ relative to the pair $\\mathcal{B}, \\mathcal{B}'$?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">In (b), $(u, v) = v\\beta_1 + u\\beta_2$: the $\\mathcal{B}'$-coordinates of a vector are its standard coordinates swapped.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $T\\epsilon_1 = (1, -1)$, $T\\epsilon_2 = (1, 0)$, $T\\epsilon_3 = (0, 2)$, so\n    \\[\n        \\begin{bmatrix} 1 & 1 & 0 \\\\ -1 & 0 & 2 \\end{bmatrix}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $T\\alpha_1 = (1, -3)$, $T\\alpha_2 = (2, 1)$, $T\\alpha_3 = (1, -1)$. Since $(u, v) = v\\beta_1 + u\\beta_2$, the $\\mathcal{B}'$-coordinates are $(-3, 1)$, $(1, 2)$, $(-1, 1)$. Hence\n    \\[\n        [T]_{\\mathcal{B}, \\mathcal{B}'} = \\begin{bmatrix} -3 & 1 & -1 \\\\ 1 & 2 & 1 \\end{bmatrix}.\n    \\]</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "linear-algebra-hoffman-kunze (3.4.2)"
+      ]
+    },
+    {
+      "date": "2025-05-11",
+      "title": "Hoffman and Kunze - The column space of $[T]$ is the range of $T$",
+      "difficulty": "easy",
+      "problem": "Let $T$ be a linear operator on $F^n$, let $A$ be the matrix of $T$ in the standard ordered basis for $F^n$, and let $W$ be the subspace of $F^n$ spanned by the column vectors of $A$. What does $W$ have to do with $T$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The $j$th column of $A$ is $T\\epsilon_j$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In the standard basis the coordinate vector of a vector is the vector itself, so the $j$th column of $A$ is exactly $T\\epsilon_j$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The range of $T$ is spanned by $T\\epsilon_1, \\ldots, T\\epsilon_n$ (if $\\alpha = \\sum x_j \\epsilon_j$, then $T\\alpha = \\sum x_j T\\epsilon_j$). Hence\n    \\[\n        W = \\text{the range of } T, \\qquad \\dim W = \\operatorname{rank} T = \\text{column rank of } A.\n    \\]</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "rank",
+        "linear-algebra-hoffman-kunze (3.4.3)"
+      ]
+    },
+    {
+      "date": "2025-05-18",
+      "title": "Hoffman and Kunze - Every operator on a $2$-dimensional space satisfies $T^2 - (a + d)T + (ad - bc)I = 0$",
+      "difficulty": "easy",
+      "problem": "Let $V$ be a two-dimensional vector space over the field $F$, and let $\\mathcal{B}$ be an ordered basis for $V$. If $T$ is a linear operator on $V$ and\n    \\[\n        [T]_{\\mathcal{B}} = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix},\n    \\]\n    prove that $T^2 - (a + d)T + (ad - bc)I = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$T \\mapsto [T]_{\\mathcal{B}}$ is an isomorphism that preserves products, so verify the identity for the matrix.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $A = [T]_{\\mathcal{B}}$. Then\n    \\[\n        A^2 = \\begin{bmatrix} a^2 + bc & ab + bd \\\\ ca + dc & cb + d^2 \\end{bmatrix}, \\qquad (a + d)A = \\begin{bmatrix} a^2 + ad & ab + bd \\\\ ac + dc & ad + d^2 \\end{bmatrix},\n    \\]\n    so $A^2 - (a + d)A = \\begin{bmatrix} bc - ad & 0 \\\\ 0 & bc - ad \\end{bmatrix} = -(ad - bc)I$. Thus $A^2 - (a + d)A + (ad - bc)I = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The map $U \\mapsto [U]_{\\mathcal{B}}$ is a one-one linear map of $L(V, V)$ onto $F^{2 \\times 2}$ with $[UU']_{\\mathcal{B}} = [U]_{\\mathcal{B}} [U']_{\\mathcal{B}}$ and $[I]_{\\mathcal{B}} = I$. Hence\n    \\[\n        \\left[ T^2 - (a + d)T + (ad - bc)I \\right]_{\\mathcal{B}} = A^2 - (a + d)A + (ad - bc)I = 0,\n    \\]\n    and so $T^2 - (a + d)T + (ad - bc)I = 0$. (This is the Cayley-Hamilton theorem for $2 \\times 2$ matrices: $a + d$ and $ad - bc$ are the trace and determinant.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "cayley-hamilton",
+        "linear-algebra-hoffman-kunze (3.4.4)"
+      ]
+    },
+    {
       "date": "2025-05-25",
       "title": "Solve the restricted system of linear equations",
       "problem": "Let the system of equations\n\\begin{align*}\n    x + 5y - z & = 1 \\\\\n    4x + 3y - 3z & = 7 \\\\\n    24 x + y + \\lambda z & = \\mu ,\n\\end{align*}\nwhere $\\lambda ,\\mu \\in \\mathbb{R} $, have infinitely many solutions. Then find the number of the solution of system if $x,y,z$ are integers and satisfy $7 \\leq x + y + z \\leq 77$.",
@@ -969,6 +1473,426 @@
         "linear-algebra",
         "hoffman-kunze-(problem-1.3.1)",
         "linear-algebra-hoffman-kunze"
+      ]
+    },
+    {
+      "date": "2025-06-08",
+      "title": "Hoffman and Kunze - Bases for the range and null space of an operator on $\\mathbb{R}^3$",
+      "difficulty": "easy",
+      "problem": "Let $T$ be the linear operator on $\\mathbb{R}^3$, the matrix of which in the standard ordered basis is\n    \\[\n        A = \\begin{bmatrix} 1 & 2 & 1 \\\\ 0 & 1 & 1 \\\\ -1 & 3 & 4 \\end{bmatrix}.\n    \\]\n    Find a basis for the range of $T$ and a basis for the null space of $T$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Row-reduce $A$. The range is the column space (Exercise 3.4.3).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Row reduction.</strong> $R_3 + R_1$ gives $(0, 5, 5)$, and then $R_3 - 5R_2$ gives $0$. So $A$ is row-equivalent to $\\begin{bmatrix} 1 & 2 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 0 \\end{bmatrix}$ and has rank $2$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Null space.</strong> $x_2 + x_3 = 0$ and $x_1 + 2x_2 + x_3 = 0$ give $x_2 = -x_3$, $x_1 = x_3$. So the null space is $1$-dimensional with basis $\\{ (1, -1, 1) \\}$. (Check: $A(1, -1, 1)^{T} = (1 - 2 + 1, 0 - 1 + 1, -1 - 3 + 4)^{T} = 0$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Range.</strong> The range is the column space of $A$, of dimension $\\operatorname{rank} T = 3 - 1 = 2$. The first two columns $(1, 0, -1)$ and $(2, 1, 3)$ are independent, so they form a basis. (The third column is their difference.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "rank",
+        "null-space",
+        "linear-algebra-hoffman-kunze (3.4.5)"
+      ]
+    },
+    {
+      "date": "2025-06-15",
+      "title": "Hoffman and Kunze - The rotation $T(x_1, x_2) = (-x_2, x_1)$: no real eigenvalues",
+      "difficulty": "medium",
+      "problem": "Let $T$ be the linear operator on $\\mathbb{R}^2$ defined by $T(x_1, x_2) = (-x_2, x_1)$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">What is the matrix of $T$ in the standard ordered basis for $\\mathbb{R}^2$?</li>\n<li class=\"my-4\">What is the matrix of $T$ in the ordered basis $\\mathcal{B} = \\{ \\alpha_1, \\alpha_2 \\}$, where $\\alpha_1 = (1, 2)$ and $\\alpha_2 = (1, -1)$?</li>\n<li class=\"my-4\">Prove that for every real number $c$ the operator $(T - cI)$ is invertible.</li>\n<li class=\"my-4\">Prove that if $\\mathcal{B}$ is any ordered basis for $\\mathbb{R}^2$ and $[T]_{\\mathcal{B}} = A$, then $A_{12}A_{21} \\neq 0$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For (d): the trace and determinant of $[T]_{\\mathcal{B}}$ do not depend on $\\mathcal{B}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $T\\epsilon_1 = (0, 1)$, $T\\epsilon_2 = (-1, 0)$, so $[T] = \\begin{bmatrix} 0 & -1 \\\\ 1 & 0 \\end{bmatrix}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $T\\alpha_1 = (-2, 1)$ and $T\\alpha_2 = (1, 1)$. Solving, $(-2, 1) = -\\frac{1}{3}\\alpha_1 - \\frac{5}{3}\\alpha_2$ and $(1, 1) = \\frac{2}{3}\\alpha_1 + \\frac{1}{3}\\alpha_2$. Hence\n    \\[\n        [T]_{\\mathcal{B}} = \\begin{bmatrix} -\\frac{1}{3} & \\frac{2}{3} \\\\ -\\frac{5}{3} & \\frac{1}{3} \\end{bmatrix}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> In the standard basis $T - cI$ has matrix $\\begin{bmatrix} -c & -1 \\\\ 1 & -c \\end{bmatrix}$, with determinant $c^2 + 1 > 0$. So $T - cI$ is invertible for every real $c$; that is, $T$ has no real eigenvalue (it is a rotation by $90^\\circ$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> $A = P^{-1}[T]P$ for an invertible $P$, so $\\operatorname{tr} A = 0$ and $\\det A = 1$. Then $A_{22} = -A_{11}$ and\n    \\[\n        1 = A_{11}A_{22} - A_{12}A_{21} = -A_{11}^2 - A_{12}A_{21},\n    \\]\n    so $A_{12}A_{21} = -1 - A_{11}^2 \\leq -1$. In particular $A_{12}A_{21} \\neq 0$. (Geometrically: if $A_{21} = 0$, the first basis vector would be an eigenvector, contradicting (c); similarly for $A_{12}$.) The matrix in (b) checks out: $\\frac{2}{3} \\cdot \\left( -\\frac{5}{3} \\right) = -\\frac{10}{9} = -1 - \\frac{1}{9}$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "linear-algebra-hoffman-kunze (3.4.6)"
+      ]
+    },
+    {
+      "date": "2025-06-22",
+      "title": "Hoffman and Kunze - An invertible operator on $\\mathbb{R}^3$, its matrix in another basis, and its inverse",
+      "difficulty": "medium",
+      "problem": "Let $T$ be the linear operator on $\\mathbb{R}^3$ defined by\n    \\[\n        T(x_1, x_2, x_3) = (3x_1 + x_3, -2x_1 + x_2, -x_1 + 2x_2 + 4x_3).\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">What is the matrix of $T$ in the standard ordered basis for $\\mathbb{R}^3$?</li>\n<li class=\"my-4\">What is the matrix of $T$ in the ordered basis $\\{ \\alpha_1, \\alpha_2, \\alpha_3 \\}$, where $\\alpha_1 = (1, 0, 1)$, $\\alpha_2 = (-1, 2, 1)$, and $\\alpha_3 = (2, 1, 1)$?</li>\n<li class=\"my-4\">Prove that $T$ is invertible and give a rule for $T^{-1}$ like the one which defines $T$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For (b), compute $T\\alpha_j$ and solve for its coordinates, or compute $P^{-1}AP$ with $P = [\\alpha_1\\ \\alpha_2\\ \\alpha_3]$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong>\n    \\[\n        A = \\begin{bmatrix} 3 & 0 & 1 \\\\ -2 & 1 & 0 \\\\ -1 & 2 & 4 \\end{bmatrix}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $T\\alpha_1 = (4, -2, 3)$, $T\\alpha_2 = (-2, 4, 9)$, $T\\alpha_3 = (7, -3, 4)$. Solving for coordinates (equivalently computing $P^{-1}AP$ with $P$ the matrix with columns $\\alpha_1, \\alpha_2, \\alpha_3$):\n    \\[\n        [T]_{\\mathcal{B}} = \\begin{bmatrix} \\frac{17}{4} & \\frac{35}{4} & \\frac{11}{2} \\\\ -\\frac{3}{4} & \\frac{15}{4} & -\\frac{3}{2} \\\\ -\\frac{1}{2} & -\\frac{7}{2} & 0 \\end{bmatrix}.\n    \\]\n    For instance $\\frac{17}{4}\\alpha_1 - \\frac{3}{4}\\alpha_2 - \\frac{1}{2}\\alpha_3 = \\left( \\frac{17}{4} + \\frac{3}{4} - 1,\\ -\\frac{3}{2} - \\frac{1}{2},\\ \\frac{17}{4} - \\frac{3}{4} - \\frac{1}{2} \\right) = (4, -2, 3)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> $\\det A = 3(4 - 0) - 0 + 1(-4 + 1) = 9 \\neq 0$, so $T$ is invertible, and\n    \\[\n        A^{-1} = \\frac{1}{9}\\begin{bmatrix} 4 & 2 & -1 \\\\ 8 & 13 & -2 \\\\ -3 & -6 & 3 \\end{bmatrix}.\n    \\]\n    Hence\n    \\[\n        T^{-1}(x_1, x_2, x_3) = \\left( \\frac{4x_1 + 2x_2 - x_3}{9},\\ \\frac{8x_1 + 13x_2 - 2x_3}{9},\\ \\frac{-x_1 - 2x_2 + x_3}{3} \\right).\n    \\]\n    (Check: $T^{-1}(3, -2, -1) = (1, 0, 0)$, as $T(1, 0, 0) = (3, -2, -1)$.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "inverse",
+        "linear-algebra-hoffman-kunze (3.4.7)"
+      ]
+    },
+    {
+      "date": "2025-06-29",
+      "title": "Hoffman and Kunze - The rotation matrix is similar over $\\mathbb{C}$ to $\\operatorname{diag}(e^{\\iota\\theta}, e^{-\\iota\\theta})$",
+      "difficulty": "medium",
+      "problem": "Let $\\theta$ be a real number. Prove that the following two matrices are similar over the field of complex numbers:\n    \\[\n        \\begin{bmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{bmatrix}, \\qquad \\begin{bmatrix} e^{\\iota\\theta} & 0 \\\\ 0 & e^{-\\iota\\theta} \\end{bmatrix}.\n    \\]\n    (Hint: Let $T$ be the linear operator on $\\mathbb{C}^2$ which is represented by the first matrix in the standard ordered basis. Then find vectors $\\alpha_1$ and $\\alpha_2$ such that $T\\alpha_1 = e^{\\iota\\theta}\\alpha_1$, $T\\alpha_2 = e^{-\\iota\\theta}\\alpha_2$, and $\\{ \\alpha_1, \\alpha_2 \\}$ is a basis.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Try $\\alpha_1 = (1, -\\iota)$ and $\\alpha_2 = (1, \\iota)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $R$ be the first matrix and $T$ the corresponding operator on $\\mathbb{C}^2$. With $\\alpha_1 = (1, -\\iota)$:\n    \\[\n        T\\alpha_1 = (\\cos\\theta + \\iota\\sin\\theta,\\ \\sin\\theta - \\iota\\cos\\theta) = e^{\\iota\\theta}(1, -\\iota),\n    \\]\n    since $e^{\\iota\\theta}(-\\iota) = -\\iota\\cos\\theta + \\sin\\theta$. With $\\alpha_2 = (1, \\iota)$:\n    \\[\n        T\\alpha_2 = (\\cos\\theta - \\iota\\sin\\theta,\\ \\sin\\theta + \\iota\\cos\\theta) = e^{-\\iota\\theta}(1, \\iota).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The vectors $\\alpha_1, \\alpha_2$ are independent, since $\\det\\begin{bmatrix} 1 & 1 \\\\ -\\iota & \\iota \\end{bmatrix} = 2\\iota \\neq 0$. So in the basis $\\mathcal{B} = \\{ \\alpha_1, \\alpha_2 \\}$, $[T]_{\\mathcal{B}} = \\operatorname{diag}(e^{\\iota\\theta}, e^{-\\iota\\theta})$. With $P = \\begin{bmatrix} 1 & 1 \\\\ -\\iota & \\iota \\end{bmatrix}$ we get\n    \\[\n        P^{-1} R P = \\begin{bmatrix} e^{\\iota\\theta} & 0 \\\\ 0 & e^{-\\iota\\theta} \\end{bmatrix},\n    \\]\n    so the two matrices are similar over $\\mathbb{C}$. (Over $\\mathbb{R}$ they are not similar unless $\\sin\\theta = 0$, since the second matrix is not real.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "similar-matrices",
+        "eigenvalues",
+        "linear-algebra-hoffman-kunze (3.4.8)"
+      ]
+    },
+    {
+      "date": "2025-07-06",
+      "title": "Hoffman and Kunze - $[S]_{\\mathcal{B}} = [T]_{\\mathcal{B}'}$ for some bases if and only if $T = USU^{-1}$",
+      "difficulty": "medium",
+      "problem": "Let $V$ be a finite-dimensional vector space over the field $F$ and let $S$ and $T$ be linear operators on $V$. We ask: When do there exist ordered bases $\\mathcal{B}$ and $\\mathcal{B}'$ for $V$ such that $[S]_{\\mathcal{B}} = [T]_{\\mathcal{B}'}$? Prove that such bases exist if and only if there is an invertible linear operator $U$ on $V$ such that $T = USU^{-1}$. (<em>Outline of proof:</em> If $[S]_{\\mathcal{B}} = [T]_{\\mathcal{B}'}$, let $U$ be the operator which carries $\\mathcal{B}$ onto $\\mathcal{B}'$ and show that $S = UTU^{-1}$. Conversely, if $T = USU^{-1}$ for some invertible $U$, let $\\mathcal{B}$ be any ordered basis for $V$ and let $\\mathcal{B}'$ be its image under $U$. Then show that $[S]_{\\mathcal{B}} = [T]_{\\mathcal{B}'}$.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $\\mathcal{B} = \\{ \\alpha_i \\}$, $\\mathcal{B}' = \\{ \\beta_i \\}$ with $U\\alpha_i = \\beta_i$, and compare $T\\beta_j$ with $USU^{-1}\\beta_j = US\\alpha_j$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(The outline's \"$S = UTU^{-1}$\" should read $T = USU^{-1}$, as in the statement; we prove that.) Let $\\mathcal{B} = \\{ \\alpha_1, \\ldots, \\alpha_n \\}$, $\\mathcal{B}' = \\{ \\beta_1, \\ldots, \\beta_n \\}$, and let $U$ be the invertible operator with $U\\alpha_i = \\beta_i$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Rightarrow$)</strong> Let $A = [S]_{\\mathcal{B}} = [T]_{\\mathcal{B}'}$, so $S\\alpha_j = \\sum_i A_{ij}\\alpha_i$ and $T\\beta_j = \\sum_i A_{ij}\\beta_i$. Then\n    \\[\n        USU^{-1}\\beta_j = US\\alpha_j = U\\sum_i A_{ij}\\alpha_i = \\sum_i A_{ij}\\beta_i = T\\beta_j.\n    \\]\n    The operators $USU^{-1}$ and $T$ agree on a basis, so $T = USU^{-1}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>($\\Leftarrow$)</strong> Let $T = USU^{-1}$, take any basis $\\mathcal{B} = \\{ \\alpha_i \\}$, and put $\\beta_i = U\\alpha_i$; this is a basis because $U$ is invertible. With $A = [S]_{\\mathcal{B}}$,\n    \\[\n        T\\beta_j = US\\alpha_j = \\sum_i A_{ij} U\\alpha_i = \\sum_i A_{ij}\\beta_i,\n    \\]\n    so $[T]_{\\mathcal{B}'} = A = [S]_{\\mathcal{B}}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In matrix terms: two operators are represented by the same matrix in suitable bases exactly when they are similar.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "similar-matrices",
+        "linear-algebra-hoffman-kunze (3.4.9)"
+      ]
+    },
+    {
+      "date": "2025-07-13",
+      "title": "Hoffman and Kunze - An idempotent operator on $\\mathbb{R}^2$ is $0$, $I$, or a projection with matrix $\\operatorname{diag}(1, 0)$",
+      "difficulty": "medium",
+      "problem": "We have seen that the linear operator $T$ on $\\mathbb{R}^2$ defined by $T(x_1, x_2) = (x_1, 0)$ is represented in the standard ordered basis by the matrix\n    \\[\n        A = \\begin{bmatrix} 1 & 0 \\\\ 0 & 0 \\end{bmatrix}.\n    \\]\n    This operator satisfies $T^2 = T$. Prove that if $S$ is a linear operator on $\\mathbb{R}^2$ such that $S^2 = S$, then $S = 0$, or $S = I$, or there is an ordered basis $\\mathcal{B}$ for $\\mathbb{R}^2$ such that $[S]_{\\mathcal{B}} = A$ (above).",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Let $R$ be the range and $N$ the null space of $S$. Show that $S$ is the identity on $R$, that $R \\cap N = \\{ 0 \\}$, and that $\\alpha = S\\alpha + (\\alpha - S\\alpha)$ with $\\alpha - S\\alpha \\in N$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $R$ be the range and $N$ the null space of $S$.\n    <ul class=\"math-list-disc my-4\"><li class=\"my-4\">$S$ fixes $R$: if $\\alpha = S\\beta$, then $S\\alpha = S^2\\beta = S\\beta = \\alpha$.</li>\n<li class=\"my-4\">$R \\cap N = \\{ 0 \\}$: if $\\alpha \\in R \\cap N$, then $\\alpha = S\\alpha = 0$.</li>\n<li class=\"my-4\">$R + N = \\mathbb{R}^2$: $\\alpha = S\\alpha + (\\alpha - S\\alpha)$, and $S(\\alpha - S\\alpha) = S\\alpha - S^2\\alpha = 0$.</li></ul>\n    So $\\mathbb{R}^2 = R \\oplus N$ and $\\dim R + \\dim N = 2$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $\\dim R = 0$, then $S = 0$. If $\\dim R = 2$, then $N = \\{ 0 \\}$ and $S$ is the identity on $R = \\mathbb{R}^2$, so $S = I$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Otherwise $\\dim R = \\dim N = 1$. Choose nonzero $\\alpha_1 \\in R$ and $\\alpha_2 \\in N$; they are independent because $R \\cap N = \\{ 0 \\}$, so $\\mathcal{B} = \\{ \\alpha_1, \\alpha_2 \\}$ is a basis. Since $S\\alpha_1 = \\alpha_1$ and $S\\alpha_2 = 0$,\n    \\[\n        [S]_{\\mathcal{B}} = \\begin{bmatrix} 1 & 0 \\\\ 0 & 0 \\end{bmatrix} = A.\n    \\]\n    So every idempotent operator on $\\mathbb{R}^2$ other than $0$ and $I$ is a projection onto a line along another line.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "projection",
+        "linear-algebra-hoffman-kunze (3.4.10)"
+      ]
+    },
+    {
+      "date": "2025-07-20",
+      "title": "Hoffman and Kunze - Every operator on $F^{n \\times 1}$ is left multiplication, and $UTU^{-1} = L_{[T]_{\\mathcal{B}}}$",
+      "difficulty": "easy",
+      "problem": "Let $W$ be the space of all $n \\times 1$ column matrices over a field $F$. If $A$ is an $n \\times n$ matrix over $F$, then $A$ defines a linear operator $L_A$ on $W$ through left multiplication: $L_A(X) = AX$. Prove that every linear operator on $W$ is left multiplication by some $n \\times n$ matrix, i.e., is $L_A$ for some $A$.\n    <p class=\"my-4\">Now suppose $V$ is an $n$-dimensional vector space over the field $F$, and let $\\mathcal{B}$ be an ordered basis for $V$. For each $\\alpha$ in $V$, define $U\\alpha = [\\alpha]_{\\mathcal{B}}$. Prove that $U$ is an isomorphism of $V$ onto $W$. If $T$ is a linear operator on $V$, then $UTU^{-1}$ is a linear operator on $W$. Accordingly, $UTU^{-1}$ is left multiplication by some $n \\times n$ matrix $A$. What is $A$?</p>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For the first part take $A$ to be the matrix whose $j$th column is $T(E_j)$, where $E_j$ is the $j$th standard column. For the last part use $[T\\alpha]_{\\mathcal{B}} = [T]_{\\mathcal{B}}[\\alpha]_{\\mathcal{B}}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Every operator is some $L_A$.</strong> Let $T$ be a linear operator on $W$ and $E_1, \\ldots, E_n$ the standard basis columns. Let $A$ be the matrix whose $j$th column is $T E_j$. For $X = \\sum x_j E_j$,\n    \\[\n        TX = \\sum_j x_j\\, T E_j = \\sum_j x_j (\\text{$j$th column of } A) = AX.\n    \\]\n    So $T = L_A$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$U$ is an isomorphism.</strong> If $\\alpha = \\sum x_i\\alpha_i$, then $U\\alpha = (x_1, \\ldots, x_n)^{T}$. $U$ is linear (coordinates of $c\\alpha + \\beta$ are $c$ times those of $\\alpha$ plus those of $\\beta$), one-one (coordinates determine the vector) and onto (every column $X$ is $[\\sum x_i\\alpha_i]_{\\mathcal{B}}$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The matrix.</strong> For $X \\in W$, let $\\alpha = U^{-1}X$, so $X = [\\alpha]_{\\mathcal{B}}$. Then\n    \\[\n        UTU^{-1}X = [T\\alpha]_{\\mathcal{B}} = [T]_{\\mathcal{B}}[\\alpha]_{\\mathcal{B}} = [T]_{\\mathcal{B}} X.\n    \\]\n    Hence $UTU^{-1} = L_A$ with $A = [T]_{\\mathcal{B}}$, the matrix of $T$ in the ordered basis $\\mathcal{B}$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "linear-algebra-hoffman-kunze (3.4.11)"
+      ]
+    },
+    {
+      "date": "2025-07-27",
+      "title": "Hoffman and Kunze - Nilpotent operators of index $n$: all are similar to the shift matrix",
+      "difficulty": "hard",
+      "problem": "Let $V$ be an $n$-dimensional vector space over the field $F$, and let $\\mathcal{B} = \\{ \\alpha_1, \\ldots, \\alpha_n \\}$ be an ordered basis for $V$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">According to Theorem 1, there is a unique linear operator $T$ on $V$ such that\n    \\[\n        T\\alpha_j = \\alpha_{j+1}, \\quad j = 1, \\ldots, n - 1, \\qquad T\\alpha_n = 0.\n    \\]\n    What is the matrix $A$ of $T$ in the ordered basis $\\mathcal{B}$?</li>\n<li class=\"my-4\">Prove that $T^n = 0$ but $T^{n-1} \\neq 0$.</li>\n<li class=\"my-4\">Let $S$ be any linear operator on $V$ such that $S^n = 0$ but $S^{n-1} \\neq 0$. Prove that there is an ordered basis $\\mathcal{B}'$ for $V$ such that the matrix of $S$ in the ordered basis $\\mathcal{B}'$ is the matrix $A$ of part (a).</li>\n<li class=\"my-4\">Prove that if $M$ and $N$ are $n \\times n$ matrices over $F$ such that $M^n = N^n = 0$ but $M^{n-1} \\neq 0 \\neq N^{n-1}$, then $M$ and $N$ are similar.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For (c), choose $\\alpha$ with $S^{n-1}\\alpha \\neq 0$ and show that $\\alpha, S\\alpha, \\ldots, S^{n-1}\\alpha$ are independent: apply $S^{n-1-m}$ to a relation whose first nonzero coefficient is at index $m$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> The $j$th column of $A$ is $[T\\alpha_j]_{\\mathcal{B}}$, which is $\\epsilon_{j+1}$ for $j \\lt n$ and $0$ for $j = n$. So $A$ has $1$'s just below the diagonal and $0$'s elsewhere:\n    \\[\n        A_{ij} = \\begin{cases} 1, & i = j + 1, \\\\ 0, & \\text{otherwise}, \\end{cases} \\qquad \\text{e.g. for } n = 3: \\ A = \\begin{bmatrix} 0 & 0 & 0 \\\\ 1 & 0 & 0 \\\\ 0 & 1 & 0 \\end{bmatrix}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> By induction, $T^k\\alpha_j = \\alpha_{j+k}$ if $j + k \\leq n$, and $T^k\\alpha_j = 0$ if $j + k > n$. So $T^n\\alpha_j = 0$ for every $j$, i.e. $T^n = 0$, while $T^{n-1}\\alpha_1 = \\alpha_n \\neq 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Choose $\\alpha$ with $S^{n-1}\\alpha \\neq 0$. Suppose $\\sum_{k=0}^{n-1} c_k S^k\\alpha = 0$ with not all $c_k = 0$, and let $m$ be the least index with $c_m \\neq 0$. Applying $S^{n-1-m}$ kills every term with $k > m$ (they become $S^{n-1-m+k}\\alpha$ with exponent $\\geq n$), leaving $c_m S^{n-1}\\alpha = 0$, so $c_m = 0$, a contradiction. Hence the $n$ vectors $\\alpha, S\\alpha, \\ldots, S^{n-1}\\alpha$ are independent and form a basis $\\mathcal{B}'$ of $V$. Writing $\\beta_j = S^{j-1}\\alpha$, we have $S\\beta_j = \\beta_{j+1}$ for $j \\lt n$ and $S\\beta_n = S^n\\alpha = 0$; so $[S]_{\\mathcal{B}'} = A$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> Apply (c) to the operators $L_M$ and $L_N$ on $F^{n \\times 1}$: their matrices in the standard basis are $M$ and $N$, and in suitable bases both have matrix $A$. So $M$ and $N$ are both similar to $A$, hence to each other.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "nilpotent",
+        "similar-matrices",
+        "linear-algebra-hoffman-kunze (3.4.12)"
+      ]
+    },
+    {
+      "date": "2025-08-03",
+      "title": "Hoffman and Kunze - The coordinates of $T$ in the basis $\\{ E^{p,q} \\}$ of $L(V, W)$ form the matrix of $T$",
+      "difficulty": "easy",
+      "problem": "Let $V$ and $W$ be finite-dimensional vector spaces over the field $F$ and let $T$ be a linear transformation from $V$ into $W$. If $\\mathcal{B} = \\{ \\alpha_1, \\ldots, \\alpha_n \\}$ and $\\mathcal{B}' = \\{ \\beta_1, \\ldots, \\beta_m \\}$ are ordered bases for $V$ and $W$, respectively, define the linear transformations $E^{p,q}$ as in the proof of Theorem 5: $E^{p,q}(\\alpha_i) = \\delta_{iq}\\beta_p$. Then the $E^{p,q}$, $1 \\leq p \\leq m$, $1 \\leq q \\leq n$, form a basis for $L(V, W)$, and so\n    \\[\n        T = \\sum_{p=1}^{m} \\sum_{q=1}^{n} A_{pq} E^{p,q}\n    \\]\n    for certain scalars $A_{pq}$ (the coordinates of $T$ in this basis for $L(V, W)$). Show that the matrix $A$ with entries $A(p, q) = A_{pq}$ is precisely the matrix of $T$ relative to the pair $\\mathcal{B}, \\mathcal{B}'$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Apply both sides to $\\alpha_j$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Apply the expansion to the basis vector $\\alpha_j$:\n    \\[\n        T\\alpha_j = \\sum_{p=1}^m \\sum_{q=1}^n A_{pq}\\, \\delta_{jq}\\, \\beta_p = \\sum_{p=1}^m A_{pj}\\,\\beta_p.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the $\\mathcal{B}'$-coordinates of $T\\alpha_j$ are $(A_{1j}, \\ldots, A_{mj})$, which is exactly the $j$th column of $A$. By definition, the matrix of $T$ relative to $(\\mathcal{B}, \\mathcal{B}')$ has $[T\\alpha_j]_{\\mathcal{B}'}$ as its $j$th column. Hence that matrix is $A$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In other words, the isomorphism $L(V, W) \\to F^{m \\times n}$, $T \\mapsto [T]_{\\mathcal{B}, \\mathcal{B}'}$, sends $E^{p,q}$ to the matrix unit with a single $1$ in position $(p, q)$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-transformation",
+        "matrix-representation",
+        "linear-algebra-hoffman-kunze (3.4.13)"
+      ]
+    },
+    {
+      "date": "2025-08-10",
+      "title": "Hoffman and Kunze - A linear functional on $\\mathbb{R}^3$ from its values on a basis",
+      "difficulty": "easy",
+      "problem": "In $\\mathbb{R}^3$, let $\\alpha_1 = (1, 0, 1)$, $\\alpha_2 = (0, 1, -2)$, $\\alpha_3 = (-1, -1, 0)$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">If $f$ is a linear functional on $\\mathbb{R}^3$ such that $f(\\alpha_1) = 1$, $f(\\alpha_2) = -1$, $f(\\alpha_3) = 3$, and if $\\alpha = (a, b, c)$, find $f(\\alpha)$.</li>\n<li class=\"my-4\">Describe explicitly a linear functional $f$ on $\\mathbb{R}^3$ such that $f(\\alpha_1) = f(\\alpha_2) = 0$ but $f(\\alpha_3) \\neq 0$.</li>\n<li class=\"my-4\">Let $f$ be any linear functional such that $f(\\alpha_1) = f(\\alpha_2) = 0$ and $f(\\alpha_3) \\neq 0$. If $\\alpha = (2, 3, -1)$, show that $f(\\alpha) \\neq 0$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Write $f(x_1, x_2, x_3) = c_1 x_1 + c_2 x_2 + c_3 x_3$ and solve for the $c_i$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Every linear functional on $\\mathbb{R}^3$ has the form $f(x_1, x_2, x_3) = c_1x_1 + c_2x_2 + c_3x_3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> The conditions are $c_1 + c_3 = 1$, $c_2 - 2c_3 = -1$, $-c_1 - c_2 = 3$. From the first and third, $c_2 = -3 - c_1 = c_3 - 4$; the second then gives $-c_3 - 4 = -1$, so $c_3 = -3$, $c_1 = 4$, $c_2 = -7$. Hence\n    \\[\n        f(a, b, c) = 4a - 7b - 3c.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $f(\\alpha_1) = c_1 + c_3 = 0$ and $f(\\alpha_2) = c_2 - 2c_3 = 0$ give $(c_1, c_2, c_3) = t(-1, 2, 1)$, and then $f(\\alpha_3) = t(1 - 2) = -t$. So for instance\n    \\[\n        f(x_1, x_2, x_3) = -x_1 + 2x_2 + x_3, \\qquad f(\\alpha_3) = -1 \\neq 0.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> By (b), any such $f$ is $t(-x_1 + 2x_2 + x_3)$ with $t \\neq 0$ (since $f(\\alpha_3) = -t \\neq 0$). Then $f(2, 3, -1) = t(-2 + 6 - 1) = 3t \\neq 0$. (Equivalently, $\\alpha = (2, 3, -1)$ is not in the plane spanned by $\\alpha_1, \\alpha_2$, which is the null space of every such $f$.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "linear-algebra-hoffman-kunze (3.5.1)"
+      ]
+    },
+    {
+      "date": "2025-08-17",
+      "title": "Hoffman and Kunze - The dual basis of $\\{ (1, 0, -1), (1, 1, 1), (2, 2, 0) \\}$",
+      "difficulty": "easy",
+      "problem": "Let $\\mathcal{B} = \\{ \\alpha_1, \\alpha_2, \\alpha_3 \\}$ be the basis for $\\mathbb{C}^3$ defined by\n    \\[\n        \\alpha_1 = (1, 0, -1), \\qquad \\alpha_2 = (1, 1, 1), \\qquad \\alpha_3 = (2, 2, 0).\n    \\]\n    Find the dual basis of $\\mathcal{B}$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $P$ has columns $\\alpha_1, \\alpha_2, \\alpha_3$, then the rows of $P^{-1}$ are the coefficient vectors of the dual functionals, because $P^{-1}P = I$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $P = [\\alpha_1\\ \\alpha_2\\ \\alpha_3] = \\begin{bmatrix} 1 & 1 & 2 \\\\ 0 & 1 & 2 \\\\ -1 & 1 & 0 \\end{bmatrix}$. If $f_i(x) = r_i x$ for a row vector $r_i$, the conditions $f_i(\\alpha_j) = \\delta_{ij}$ say that the rows $r_i$ form $P^{-1}$. Computing,\n    \\[\n        P^{-1} = \\begin{bmatrix} 1 & -1 & 0 \\\\ 1 & -1 & 1 \\\\ -\\frac{1}{2} & 1 & -\\frac{1}{2} \\end{bmatrix}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the dual basis is\n    \\[\n        f_1(x) = x_1 - x_2, \\qquad f_2(x) = x_1 - x_2 + x_3, \\qquad f_3(x) = -\\tfrac{1}{2}x_1 + x_2 - \\tfrac{1}{2}x_3.\n    \\]\n    <strong>Check.</strong> $f_1(\\alpha_1, \\alpha_2, \\alpha_3) = (1, 0, 0)$, $f_2(\\alpha_1, \\alpha_2, \\alpha_3) = (0, 1, 0)$, $f_3(\\alpha_1, \\alpha_2, \\alpha_3) = (0, 0, 1)$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "dual-basis",
+        "linear-algebra-hoffman-kunze (3.5.2)"
+      ]
+    },
+    {
+      "date": "2025-08-24",
+      "title": "Hoffman and Kunze - $\\operatorname{tr}(AB) = \\operatorname{tr}(BA)$, so similar matrices have the same trace",
+      "difficulty": "easy",
+      "problem": "If $A$ and $B$ are $n \\times n$ matrices over the field $F$, show that $\\operatorname{trace}(AB) = \\operatorname{trace}(BA)$. Now show that similar matrices have the same trace.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$\\operatorname{tr}(AB) = \\sum_i \\sum_j A_{ij}B_{ji}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$\\operatorname{tr}(AB) = \\sum_{i} (AB)_{ii} = \\sum_{i}\\sum_{j} A_{ij}B_{ji}$, and $\\operatorname{tr}(BA) = \\sum_{j}\\sum_{i} B_{ji}A_{ij}$. These are the same double sum, so $\\operatorname{tr}(AB) = \\operatorname{tr}(BA)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">If $B = P^{-1}AP$, then by the first part (applied to the matrices $P^{-1}A$ and $P$)\n    \\[\n        \\operatorname{tr}(B) = \\operatorname{tr}\\left( (P^{-1}A)P \\right) = \\operatorname{tr}\\left( P(P^{-1}A) \\right) = \\operatorname{tr}(A).\n    \\]\n    So similar matrices have the same trace, and the trace of a linear operator (the trace of any matrix representing it) is well defined (Exercise 3.5.15).</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "trace",
+        "linear-algebra-hoffman-kunze (3.5.3)"
+      ]
+    },
+    {
+      "date": "2025-08-31",
+      "title": "Hoffman and Kunze - Three integrals form a basis of $V^*$ for quadratic polynomials",
+      "difficulty": "medium",
+      "problem": "Let $V$ be the vector space of all polynomial functions $p$ from $\\mathbb{R}$ into $\\mathbb{R}$ which have degree $2$ or less: $p(x) = c_0 + c_1x + c_2x^2$. Define three linear functionals on $V$ by\n    \\[\n        f_1(p) = \\int_0^1 p(x)\\, \\mathrm{d}x, \\qquad f_2(p) = \\int_0^2 p(x)\\, \\mathrm{d}x, \\qquad f_3(p) = \\int_0^{-1} p(x)\\, \\mathrm{d}x.\n    \\]\n    Show that $\\{ f_1, f_2, f_3 \\}$ is a basis for $V^*$ by exhibiting the basis for $V$ of which it is the dual.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">In terms of $(c_0, c_1, c_2)$: $f_1 = c_0 + \\frac{c_1}{2} + \\frac{c_2}{3}$, $f_2 = 2c_0 + 2c_1 + \\frac{8c_2}{3}$, $f_3 = -c_0 + \\frac{c_1}{2} - \\frac{c_2}{3}$. Invert the $3 \\times 3$ matrix.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In coordinates $(c_0, c_1, c_2)$ the functionals are the rows of\n    \\[\n        M = \\begin{bmatrix} 1 & \\frac{1}{2} & \\frac{1}{3} \\\\ 2 & 2 & \\frac{8}{3} \\\\ -1 & \\frac{1}{2} & -\\frac{1}{3} \\end{bmatrix}.\n    \\]\n    We want polynomials $p_1, p_2, p_3$ with $f_i(p_j) = \\delta_{ij}$, i.e. coefficient vectors forming the columns of $M^{-1}$. Solving,\n    \\[\n        p_1(x) = 1 + x - \\frac{3}{2}x^2, \\qquad p_2(x) = -\\frac{1}{6} + \\frac{1}{2}x^2, \\qquad p_3(x) = -\\frac{1}{3} + x - \\frac{1}{2}x^2.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> For example $f_1(p_1) = 1 + \\frac{1}{2} - \\frac{1}{2} = 1$, $f_2(p_1) = 2 + 2 - 4 = 0$, $f_3(p_1) = -1 + \\frac{1}{2} + \\frac{1}{2} = 0$; and $f_2(p_2) = -\\frac{1}{3} + \\frac{4}{3} = 1$, $f_1(p_2) = -\\frac{1}{6} + \\frac{1}{6} = 0$, $f_3(p_2) = \\frac{1}{6} - \\frac{1}{6} = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Since $\\{ p_1, p_2, p_3 \\}$ is a basis of $V$ (it is the image of the standard basis under the invertible $M^{-1}$) and $f_i(p_j) = \\delta_{ij}$, $\\{ f_1, f_2, f_3 \\}$ is its dual basis; in particular it is a basis of $V^*$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "dual-basis",
+        "linear-algebra-hoffman-kunze (3.5.4)"
+      ]
+    },
+    {
+      "date": "2025-09-07",
+      "title": "Hoffman and Kunze - $AB - BA = I$ is impossible for complex matrices",
+      "difficulty": "easy",
+      "problem": "If $A$ and $B$ are $n \\times n$ complex matrices, show that $AB - BA = I$ is impossible.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Take traces.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">By Exercise 3.5.3, $\\operatorname{tr}(AB - BA) = \\operatorname{tr}(AB) - \\operatorname{tr}(BA) = 0$, while $\\operatorname{tr}(I) = n \\neq 0$. So $AB - BA \\neq I$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(The argument works over any field in which $n \\neq 0$. Over a field of characteristic $p$ with $p \\mid n$ it fails; for example, over $\\mathbb{Z}_2$ with $n = 2$, $A = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix}$ and $B = \\begin{bmatrix} 0 & 0 \\\\ 1 & 0 \\end{bmatrix}$ give $AB - BA = \\begin{bmatrix} 1 & 0 \\\\ 0 & -1 \\end{bmatrix} = I$. In quantum mechanics, the relation $AB - BA = I$ is realised only by operators on infinite-dimensional spaces, e.g. $\\frac{\\mathrm{d}}{\\mathrm{d}x}$ and multiplication by $x$.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "trace",
+        "linear-algebra-hoffman-kunze (3.5.5)"
+      ]
+    },
+    {
+      "date": "2025-09-14",
+      "title": "Hoffman and Kunze - Linear maps $F^n \\to F^m$ are given by $m$ linear functionals",
+      "difficulty": "easy",
+      "problem": "Let $m$ and $n$ be positive integers and $F$ a field. Let $f_1, \\ldots, f_m$ be linear functionals on $F^n$. For $\\alpha$ in $F^n$ define\n    \\[\n        T\\alpha = (f_1(\\alpha), \\ldots, f_m(\\alpha)).\n    \\]\n    Show that $T$ is a linear transformation from $F^n$ into $F^m$. Then show that every linear transformation from $F^n$ into $F^m$ is of the above form, for some $f_1, \\ldots, f_m$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For the converse, let $f_i = \\pi_i \\circ T$, where $\\pi_i$ is the $i$th coordinate function on $F^m$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$T$ is linear.</strong> $T(c\\alpha + \\beta) = (f_i(c\\alpha + \\beta))_i = (c f_i(\\alpha) + f_i(\\beta))_i = cT\\alpha + T\\beta$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Every linear $T$ has this form.</strong> Let $T : F^n \\to F^m$ be linear and $\\pi_i(y_1, \\ldots, y_m) = y_i$. Each $\\pi_i$ is a linear functional on $F^m$, so $f_i = \\pi_i \\circ T$ is a linear functional on $F^n$, and\n    \\[\n        T\\alpha = (\\pi_1(T\\alpha), \\ldots, \\pi_m(T\\alpha)) = (f_1(\\alpha), \\ldots, f_m(\\alpha)).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In matrix terms: if $T\\alpha = A\\alpha$, then $f_i(\\alpha)$ is the $i$th row of $A$ times $\\alpha$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "linear-algebra-hoffman-kunze (3.5.6)"
+      ]
+    },
+    {
+      "date": "2025-09-21",
+      "title": "Hoffman and Kunze - The annihilator of a plane in $\\mathbb{R}^4$",
+      "difficulty": "easy",
+      "problem": "Let $\\alpha_1 = (1, 0, -1, 2)$ and $\\alpha_2 = (2, 3, 1, 1)$, and let $W$ be the subspace of $\\mathbb{R}^4$ spanned by $\\alpha_1$ and $\\alpha_2$. Which linear functionals $f$:\n    \\[\n        f(x_1, x_2, x_3, x_4) = c_1x_1 + c_2x_2 + c_3x_3 + c_4x_4\n    \\]\n    are in the annihilator of $W$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$f \\in W^0$ iff $f(\\alpha_1) = f(\\alpha_2) = 0$: two linear equations for $c_1, \\ldots, c_4$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">$f$ annihilates $W$ iff it vanishes on the spanning vectors:\n    \\[\n        c_1 - c_3 + 2c_4 = 0, \\qquad 2c_1 + 3c_2 + c_3 + c_4 = 0.\n    \\]\n    With $c_3 = s$, $c_4 = t$ free, the first gives $c_1 = s - 2t$, and the second gives $3c_2 = -2(s - 2t) - s - t = -3s + 3t$, so $c_2 = -s + t$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $W^0$ consists of the functionals\n    \\[\n        f = (s - 2t)x_1 + (t - s)x_2 + s\\,x_3 + t\\,x_4, \\qquad s, t \\in \\mathbb{R},\n    \\]\n    a $2$-dimensional space ($= 4 - \\dim W$) with basis $f_1 = x_1 - x_2 + x_3$ and $f_2 = -2x_1 + x_2 + x_4$. (Check: $f_1(\\alpha_1) = 1 - 0 - 1 = 0$, $f_1(\\alpha_2) = 2 - 3 + 1 = 0$, $f_2(\\alpha_1) = -2 + 0 + 2 = 0$, $f_2(\\alpha_2) = -4 + 3 + 1 = 0$.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "annihilator",
+        "linear-algebra-hoffman-kunze (3.5.7)"
+      ]
+    },
+    {
+      "date": "2025-09-28",
+      "title": "Hoffman and Kunze - A basis for $W^0$ in $\\mathbb{R}^5$",
+      "difficulty": "easy",
+      "problem": "Let $W$ be the subspace of $\\mathbb{R}^5$ which is spanned by the vectors\n    \\[\n        \\alpha_1 = \\epsilon_1 + 2\\epsilon_2 + \\epsilon_3, \\qquad \\alpha_2 = \\epsilon_2 + 3\\epsilon_3 + 3\\epsilon_4 + \\epsilon_5, \\qquad \\alpha_3 = \\epsilon_1 + 4\\epsilon_2 + 6\\epsilon_3 + 4\\epsilon_4 + \\epsilon_5.\n    \\]\n    Find a basis for $W^0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$W^0$ corresponds to the solution space of $AX = 0$, where the rows of $A$ are $\\alpha_1, \\alpha_2, \\alpha_3$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">A functional $f = \\sum c_i x_i$ is in $W^0$ iff $Ac = 0$, where\n    \\[\n        A = \\begin{bmatrix} 1 & 2 & 1 & 0 & 0 \\\\ 0 & 1 & 3 & 3 & 1 \\\\ 1 & 4 & 6 & 4 & 1 \\end{bmatrix} \\longrightarrow \\begin{bmatrix} 1 & 0 & 0 & 4 & 3 \\\\ 0 & 1 & 0 & -3 & -2 \\\\ 0 & 0 & 1 & 2 & 1 \\end{bmatrix}\n    \\]\n    (row-reduced echelon form). So $\\dim W = 3$, $\\dim W^0 = 2$, and with $c_4, c_5$ free: $c_1 = -4c_4 - 3c_5$, $c_2 = 3c_4 + 2c_5$, $c_3 = -2c_4 - c_5$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">A basis for $W^0$ is\n    \\[\n        f_1 = -4x_1 + 3x_2 - 2x_3 + x_4, \\qquad f_2 = -3x_1 + 2x_2 - x_3 + x_5.\n    \\]\n    <strong>Check.</strong> $f_1(\\alpha_1) = -4 + 6 - 2 = 0$, $f_1(\\alpha_2) = 3 - 6 + 3 = 0$, $f_1(\\alpha_3) = -4 + 12 - 12 + 4 = 0$; similarly for $f_2$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "annihilator",
+        "linear-algebra-hoffman-kunze (3.5.8)"
+      ]
+    },
+    {
+      "date": "2025-10-05",
+      "title": "Hoffman and Kunze - A functional annihilating $\\{ A : AB = 0 \\}$ with $f(I) = 0$, $f(C) = 3$: find $f(B)$",
+      "difficulty": "medium",
+      "problem": "Let $V$ be the vector space of all $2 \\times 2$ matrices over the field of real numbers, and let\n    \\[\n        B = \\begin{bmatrix} 2 & -2 \\\\ -1 & 1 \\end{bmatrix}.\n    \\]\n    Let $W$ be the subspace of $V$ consisting of all $A$ such that $AB = 0$. Let $f$ be a linear functional on $V$ which is in the annihilator of $W$. Suppose that $f(I) = 0$ and $f(C) = 3$, where $I$ is the $2 \\times 2$ identity matrix and\n    \\[\n        C = \\begin{bmatrix} 0 & 0 \\\\ 0 & 1 \\end{bmatrix}.\n    \\]\n    Find $f(B)$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$B = \\begin{bmatrix} 2 \\\\ -1 \\end{bmatrix}\\begin{bmatrix} 1 & -1 \\end{bmatrix}$, so $AB = 0$ iff $A\\begin{bmatrix} 2 \\\\ -1 \\end{bmatrix} = 0$. Write $f(X) = \\sum_{i,j} f_{ij}X_{ij}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The subspace $W$.</strong> $B = uv$ with $u = \\begin{bmatrix} 2 \\\\ -1 \\end{bmatrix}$, $v = \\begin{bmatrix} 1 & -1 \\end{bmatrix}$, so $AB = (Au)v = 0$ iff $Au = 0$, i.e. each row $(a, b)$ of $A$ satisfies $2a - b = 0$. Hence $W$ is spanned by\n    \\[\n        E = \\begin{bmatrix} 1 & 2 \\\\ 0 & 0 \\end{bmatrix}, \\qquad E' = \\begin{bmatrix} 0 & 0 \\\\ 1 & 2 \\end{bmatrix}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The functional.</strong> Write $f(X) = f_{11}X_{11} + f_{12}X_{12} + f_{21}X_{21} + f_{22}X_{22}$. The conditions are\n    \\[\n        f(E) = f_{11} + 2f_{12} = 0, \\quad f(E') = f_{21} + 2f_{22} = 0, \\quad f(I) = f_{11} + f_{22} = 0, \\quad f(C) = f_{22} = 3.\n    \\]\n    So $f_{22} = 3$, $f_{21} = -6$, $f_{11} = -3$, $f_{12} = \\frac{3}{2}$; these four conditions determine $f$ completely.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Answer.</strong>\n    \\[\n        f(B) = 2f_{11} - 2f_{12} - f_{21} + f_{22} = -6 - 3 + 6 + 3 = 0.\n    \\]</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "annihilator",
+        "linear-algebra-hoffman-kunze (3.5.9)"
+      ]
+    },
+    {
+      "date": "2025-10-12",
+      "title": "Hoffman and Kunze - The subspace annihilated by $f_k(x) = \\sum_j (k - j)x_j$ has dimension $n - 2$",
+      "difficulty": "medium",
+      "problem": "Let $F$ be a subfield of the complex numbers. We define $n$ linear functionals on $F^n$ ($n \\geq 2$) by\n    \\[\n        f_k(x_1, \\ldots, x_n) = \\sum_{j=1}^{n} (k - j)x_j, \\qquad 1 \\leq k \\leq n.\n    \\]\n    What is the dimension of the subspace annihilated by $f_1, \\ldots, f_n$?",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$f_k = k\\,g - h$ with $g = \\sum_j x_j$ and $h = \\sum_j j\\,x_j$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $g(x) = \\sum_j x_j$ and $h(x) = \\sum_j j\\,x_j$. Then $f_k = k\\,g - h$ for every $k$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So $\\operatorname{span}\\{ f_1, \\ldots, f_n \\} \\subseteq \\operatorname{span}\\{ g, h \\}$; conversely $g = f_2 - f_1$ and $h = f_2 - 2f_1$ (using $n \\geq 2$). Also $g$ and $h$ are independent: their coefficient vectors $(1, 1, \\ldots, 1)$ and $(1, 2, \\ldots, n)$ are not proportional when $n \\geq 2$. So the $f_k$ span a $2$-dimensional subspace of $(F^n)^*$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The subspace annihilated by the $f_k$ is the common null space of $g$ and $h$, i.e. the solution space of a system of rank $2$. Its dimension is\n    \\[\n        n - 2.\n    \\]</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "annihilator",
+        "dimension",
+        "linear-algebra-hoffman-kunze (3.5.10)"
+      ]
+    },
+    {
+      "date": "2025-10-19",
+      "title": "Hoffman and Kunze - $(W_1 + W_2)^0 = W_1^0 \\cap W_2^0$ and $(W_1 \\cap W_2)^0 = W_1^0 + W_2^0$",
+      "difficulty": "medium",
+      "problem": "Let $W_1$ and $W_2$ be subspaces of a finite-dimensional vector space $V$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Prove that $(W_1 + W_2)^0 = W_1^0 \\cap W_2^0$.</li>\n<li class=\"my-4\">Prove that $(W_1 \\cap W_2)^0 = W_1^0 + W_2^0$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">For (b), one inclusion is easy; compare dimensions using $\\dim W^0 = \\dim V - \\dim W$ and part (a).</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $n = \\dim V$; recall $\\dim W^0 = n - \\dim W$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> If $f$ vanishes on $W_1 + W_2$, it vanishes on $W_1$ and on $W_2$. Conversely, if $f$ vanishes on $W_1$ and $W_2$, then $f(\\alpha_1 + \\alpha_2) = 0$ for $\\alpha_i \\in W_i$. So $(W_1 + W_2)^0 = W_1^0 \\cap W_2^0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $W_1^0 + W_2^0 \\subseteq (W_1 \\cap W_2)^0$, since each $f \\in W_i^0$ vanishes on $W_1 \\cap W_2$ and the annihilator is a subspace. For the dimensions, using (a):\n    \\[\n        \\begin{aligned}\n            \\dim(W_1^0 + W_2^0) &= \\dim W_1^0 + \\dim W_2^0 - \\dim(W_1^0 \\cap W_2^0) \\\\\n            &= (n - \\dim W_1) + (n - \\dim W_2) - (n - \\dim(W_1 + W_2)) \\\\\n            &= n - \\left( \\dim W_1 + \\dim W_2 - \\dim(W_1 + W_2) \\right) = n - \\dim(W_1 \\cap W_2) = \\dim (W_1 \\cap W_2)^0.\n        \\end{aligned}\n    \\]\n    A subspace of the same finite dimension is the whole space, so $(W_1 \\cap W_2)^0 = W_1^0 + W_2^0$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "annihilator",
+        "linear-algebra-hoffman-kunze (3.5.11)"
+      ]
+    },
+    {
+      "date": "2025-10-26",
+      "title": "Hoffman and Kunze - Every linear functional on a subspace extends to the whole space",
+      "difficulty": "easy",
+      "problem": "Let $V$ be a finite-dimensional vector space over the field $F$ and let $W$ be a subspace of $V$. If $f$ is a linear functional on $W$, prove that there is a linear functional $g$ on $V$ such that $g(\\alpha) = f(\\alpha)$ for each $\\alpha$ in the subspace $W$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Extend a basis of $W$ to a basis of $V$ and prescribe $g$ on the basis.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $\\{ \\alpha_1, \\ldots, \\alpha_k \\}$ be a basis of $W$ and extend it to a basis $\\{ \\alpha_1, \\ldots, \\alpha_n \\}$ of $V$. By Theorem 1 there is a unique linear functional $g$ on $V$ with\n    \\[\n        g(\\alpha_i) = f(\\alpha_i) \\ (1 \\leq i \\leq k), \\qquad g(\\alpha_i) = 0 \\ (k \\lt i \\leq n).\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Then $g$ and $f$ are linear functionals on $W$ that agree on a basis of $W$, so $g(\\alpha) = f(\\alpha)$ for all $\\alpha \\in W$. (The extension is not unique when $W \\neq V$: the values $g(\\alpha_i)$, $i > k$, can be chosen arbitrarily.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "linear-algebra-hoffman-kunze (3.5.12)"
+      ]
+    },
+    {
+      "date": "2025-11-02",
+      "title": "Hoffman and Kunze - If $f(\\alpha)g(\\alpha)$ is linear, then $f = 0$ or $g = 0$",
+      "difficulty": "medium",
+      "problem": "Let $F$ be a subfield of the field of complex numbers and let $V$ be any vector space over $F$. Suppose that $f$ and $g$ are linear functionals on $V$ such that the function $h$ defined by $h(\\alpha) = f(\\alpha)g(\\alpha)$ is also a linear functional on $V$. Prove that either $f = 0$ or $g = 0$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Compare $h(2\\alpha) = 2h(\\alpha)$ with $h(2\\alpha) = 4f(\\alpha)g(\\alpha)$. Then use that a vector space is not the union of two proper subspaces.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$h = 0$.</strong> For every $\\alpha$, linearity of $h$ gives $h(2\\alpha) = 2h(\\alpha) = 2f(\\alpha)g(\\alpha)$, while by definition $h(2\\alpha) = f(2\\alpha)g(2\\alpha) = 4f(\\alpha)g(\\alpha)$. So $2f(\\alpha)g(\\alpha) = 0$, and since $2 \\neq 0$ in $F$, $f(\\alpha)g(\\alpha) = 0$ for all $\\alpha$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Conclusion.</strong> Thus every $\\alpha$ lies in $N_f$ or in $N_g$ (the null spaces): $V = N_f \\cup N_g$. Suppose $f \\neq 0$ and $g \\neq 0$. Choose $\\alpha$ with $f(\\alpha) \\neq 0$ (then $g(\\alpha) = 0$) and $\\beta$ with $g(\\beta) \\neq 0$ (then $f(\\beta) = 0$). For $\\gamma = \\alpha + \\beta$:\n    \\[\n        f(\\gamma) = f(\\alpha) \\neq 0, \\qquad g(\\gamma) = g(\\beta) \\neq 0,\n    \\]\n    contradicting $f(\\gamma)g(\\gamma) = 0$. Hence $f = 0$ or $g = 0$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "linear-algebra-hoffman-kunze (3.5.13)"
+      ]
+    },
+    {
+      "date": "2025-11-09",
+      "title": "Hoffman and Kunze - In characteristic zero, one functional can be nonzero on finitely many given nonzero vectors",
+      "difficulty": "medium",
+      "problem": "Let $F$ be a field of characteristic zero and let $V$ be a finite-dimensional vector space over $F$. If $\\alpha_1, \\ldots, \\alpha_m$ are finitely many vectors in $V$, each different from the zero vector, prove that there is a linear functional $f$ on $V$ such that\n    \\[\n        f(\\alpha_i) \\neq 0, \\qquad i = 1, \\ldots, m.\n    \\]",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Fix a basis and consider $f_t(x) = x_1 + t x_2 + t^2 x_3 + \\cdots + t^{n-1}x_n$. For each $i$, $f_t(\\alpha_i)$ is a nonzero polynomial in $t$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Fix a basis of $V$, so that $\\alpha_i$ has coordinates $(a_{i1}, \\ldots, a_{in}) \\neq 0$. For $t \\in F$ define the linear functional\n    \\[\n        f_t(x) = x_1 + t\\,x_2 + t^2 x_3 + \\cdots + t^{n-1}x_n\n    \\]\n    (in coordinates). Then $p_i(t) = f_t(\\alpha_i) = \\sum_k a_{ik}t^{k-1}$ is a nonzero polynomial of degree at most $n - 1$, because not all $a_{ik}$ are $0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Each $p_i$ has at most $n - 1$ roots in $F$, so altogether at most $m(n - 1)$ values of $t$ make some $p_i(t) = 0$. A field of characteristic zero contains $\\mathbb{Q}$ and is infinite, so we can choose $t$ outside this finite set. Then $f = f_t$ satisfies $f(\\alpha_i) = p_i(t) \\neq 0$ for all $i$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">(Over a finite field the statement can fail: in $\\mathbb{Z}_2^2$ the three nonzero vectors cannot all avoid the null space of one functional, since every nonzero functional on $\\mathbb{Z}_2^2$ kills one of them.)</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "linear-algebra-hoffman-kunze (3.5.14)"
+      ]
+    },
+    {
+      "date": "2025-11-16",
+      "title": "Hoffman and Kunze - For $T(A) = PA$ on $2 \\times 2$ matrices, $\\operatorname{trace}(T) = 2\\operatorname{trace}(P)$",
+      "difficulty": "easy",
+      "problem": "According to Exercise 3, similar matrices have the same trace. Thus we can define the trace of a linear operator on a finite-dimensional space to be the trace of any matrix which represents the operator in an ordered basis. This is well-defined since all such representing matrices for one operator are similar.\n    <p class=\"my-4\">Now let $V$ be the space of all $2 \\times 2$ matrices over the field $F$ and let $P$ be a fixed $2 \\times 2$ matrix. Let $T$ be the linear operator on $V$ defined by $T(A) = PA$. Prove that $\\operatorname{trace}(T) = 2\\operatorname{trace}(P)$.</p>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the basis $E_{11}, E_{21}, E_{12}, E_{22}$ of matrix units: $T$ acts on each column of $A$ separately.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Use the ordered basis $\\mathcal{B} = \\{ E_{11}, E_{21}, E_{12}, E_{22} \\}$, where $E_{ij}$ has a $1$ in position $(i, j)$. Left multiplication by $P$ acts on each column of $A$ separately: the first column of $PA$ is $P$ times the first column of $A$, and likewise for the second. In the basis $\\mathcal{B}$ (first column first, then second column), this means\n    \\[\n        [T]_{\\mathcal{B}} = \\begin{bmatrix} P & 0 \\\\ 0 & P \\end{bmatrix} = \\begin{bmatrix} p_{11} & p_{12} & 0 & 0 \\\\ p_{21} & p_{22} & 0 & 0 \\\\ 0 & 0 & p_{11} & p_{12} \\\\ 0 & 0 & p_{21} & p_{22} \\end{bmatrix}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Hence $\\operatorname{trace}(T) = 2(p_{11} + p_{22}) = 2\\operatorname{trace}(P)$. (Concretely, $T(E_{11}) = p_{11}E_{11} + p_{21}E_{21}$ and $T(E_{12}) = p_{11}E_{12} + p_{21}E_{22}$, etc.; the diagonal coefficients are $p_{11}, p_{22}, p_{11}, p_{22}$.) More generally, $A \\mapsto PA$ on $n \\times n$ matrices has trace $n \\operatorname{trace}(P)$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "trace",
+        "linear-algebra-hoffman-kunze (3.5.15)"
+      ]
+    },
+    {
+      "date": "2025-11-23",
+      "title": "Hoffman and Kunze - A functional with $f(AB) = f(BA)$ is a multiple of the trace",
+      "difficulty": "medium",
+      "problem": "Show that the trace functional on $n \\times n$ matrices is unique in the following sense. If $W$ is the space of $n \\times n$ matrices over the field $F$ and if $f$ is a linear functional on $W$ such that $f(AB) = f(BA)$ for each $A$ and $B$ in $W$, then $f$ is a scalar multiple of the trace function. If, in addition, $f(I) = n$, then $f$ is the trace function.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use matrix units: $E_{ij}E_{jk} = E_{ik}$ and $E_{ij}E_{kl} = 0$ if $j \\neq k$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $E_{ij}$ be the matrix units, so $E_{ij}E_{kl} = \\delta_{jk}E_{il}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Off-diagonal units.</strong> For $i \\neq k$ and any $j$: $f(E_{ik}) = f(E_{ij}E_{jk}) = f(E_{jk}E_{ij}) = f(\\delta_{ki}E_{jj}) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Diagonal units.</strong> For any $i, j$: $f(E_{ii}) = f(E_{ij}E_{ji}) = f(E_{ji}E_{ij}) = f(E_{jj})$. So $f(E_{ii}) = c$ is the same for all $i$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Therefore, for any $A = \\sum A_{ij}E_{ij}$,\n    \\[\n        f(A) = \\sum_{i,j} A_{ij}f(E_{ij}) = c\\sum_i A_{ii} = c\\operatorname{trace}(A).\n    \\]\n    If moreover $f(I) = n$, then $cn = n$, so $c = 1$ (when $n \\neq 0$ in $F$, e.g. if $F$ has characteristic $0$), and $f$ is the trace.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "trace",
+        "linear-algebra-hoffman-kunze (3.5.16)"
+      ]
+    },
+    {
+      "date": "2025-11-30",
+      "title": "Hoffman and Kunze - The commutators $AB - BA$ span exactly the trace-zero matrices",
+      "difficulty": "medium",
+      "problem": "Let $W$ be the space of $n \\times n$ matrices over the field $F$, and let $W_0$ be the subspace spanned by the matrices $C$ of the form $C = AB - BA$. Prove that $W_0$ is exactly the subspace of matrices which have trace zero. (Hint: What is the dimension of the space of matrices of trace zero? Use the matrix 'units,' i.e., matrices with exactly one non-zero entry, to construct enough linearly independent matrices of the form $AB - BA$.)",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$E_{ij} = E_{ij}E_{jj} - E_{jj}E_{ij}$ for $i \\neq j$, and $E_{ii} - E_{jj} = E_{ij}E_{ji} - E_{ji}E_{ij}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $Z$ be the set of trace-zero matrices. It is the null space of the nonzero linear functional $\\operatorname{trace}$, so $Z$ is a subspace with $\\dim Z = n^2 - 1$. Since $\\operatorname{trace}(AB - BA) = 0$ (Exercise 3.5.3), every generator of $W_0$ lies in $Z$, and so $W_0 \\subseteq Z$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Many commutators.</strong> For $i \\neq j$: $E_{ij}E_{jj} - E_{jj}E_{ij} = E_{ij} - 0 = E_{ij}$. And $E_{1j}E_{j1} - E_{j1}E_{1j} = E_{11} - E_{jj}$ for $j = 2, \\ldots, n$. So $W_0$ contains the $n^2 - n$ matrices $E_{ij}$ ($i \\neq j$) and the $n - 1$ matrices $E_{11} - E_{jj}$ ($2 \\leq j \\leq n$).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">These $n^2 - 1$ matrices are linearly independent: in a vanishing linear combination, the off-diagonal entries force the coefficients of the $E_{ij}$ to vanish, and then the $(j, j)$ entries ($j \\geq 2$) force the coefficients of $E_{11} - E_{jj}$ to vanish. Hence $\\dim W_0 \\geq n^2 - 1 = \\dim Z$, and with $W_0 \\subseteq Z$ we get $W_0 = Z$.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-functional",
+        "trace",
+        "linear-algebra-hoffman-kunze (3.5.17)"
+      ]
+    },
+    {
+      "date": "2025-12-07",
+      "title": "The $3 \\times 3$ Vandermonde determinant",
+      "difficulty": "easy",
+      "problem": "Show that\n    \\[\n        \\det\\begin{bmatrix} 1 & a & a^2 \\\\ 1 & b & b^2 \\\\ 1 & c & c^2 \\end{bmatrix} = (b - a)(c - a)(c - b).\n    \\]\n    Deduce that if $a, b, c$ are distinct, then for any $y_1, y_2, y_3$ there is exactly one polynomial $p$ of degree at most $2$ with $p(a) = y_1$, $p(b) = y_2$, $p(c) = y_3$.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Subtract the first row from the other two and factor out $b - a$ and $c - a$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Subtracting row $1$ from rows $2$ and $3$ does not change the determinant:\n    \\[\n        \\det\\begin{bmatrix} 1 & a & a^2 \\\\ 0 & b - a & b^2 - a^2 \\\\ 0 & c - a & c^2 - a^2 \\end{bmatrix} = (b - a)(c - a)\\det\\begin{bmatrix} 1 & b + a \\\\ 1 & c + a \\end{bmatrix} = (b - a)(c - a)(c - b),\n    \\]\n    expanding along the first column and taking out the factors $b - a$, $c - a$ from rows $2$ and $3$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Interpolation.</strong> Writing $p(x) = c_0 + c_1x + c_2x^2$, the conditions $p(a) = y_1$, $p(b) = y_2$, $p(c) = y_3$ form a linear system whose coefficient matrix is exactly the Vandermonde matrix $V$. If $a, b, c$ are distinct, $\\det V \\neq 0$, so the system has exactly one solution $(c_0, c_1, c_2)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In general, the $n \\times n$ Vandermonde determinant with rows $(1, x_i, \\ldots, x_i^{n-1})$ equals $\\prod_{i \\lt j}(x_j - x_i)$.</div>",
+      "tags": [
+        "linear-algebra",
+        "determinant"
+      ]
+    },
+    {
+      "date": "2025-12-14",
+      "title": "A rank-one matrix $A = uv^{T}$: $A^2 = (v^{T}u)A$, its eigenvalues, and $\\det(I + uv^{T}) = 1 + v^{T}u$",
+      "difficulty": "medium",
+      "problem": "Let $u, v$ be nonzero column vectors in $\\mathbb{R}^n$, $n \\geq 2$, and let $A = uv^{T}$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $A$ has rank $1$ and that $A^2 = (v^{T}u)A$.</li>\n<li class=\"my-4\">Find the eigenvalues of $A$ (with multiplicities).</li>\n<li class=\"my-4\">Show that $\\det(I + uv^{T}) = 1 + v^{T}u$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">$Ax = u\\,(v^{T}x)$: every vector is sent to a multiple of $u$. For (b), find the null space and test $u$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $Ax = u(v^{T}x)$ is always a multiple of $u$, and $Ax \\neq 0$ for $x = v$ (as $v^{T}v > 0$), so the range is the line through $u$: rank $1$. Also $A^2 = u(v^{T}u)v^{T} = (v^{T}u)\\,uv^{T} = (v^{T}u)A$, since $v^{T}u$ is a scalar.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> The null space $\\{ x : v^{T}x = 0 \\}$ has dimension $n - 1$, so $0$ is an eigenvalue with geometric multiplicity $n - 1$. Also $Au = (v^{T}u)u$, so $\\lambda = v^{T}u$ is an eigenvalue with eigenvector $u$. Since the trace is the sum of the eigenvalues and $\\operatorname{tr}A = \\sum u_iv_i = v^{T}u$, the eigenvalues are\n    \\[\n        0 \\ (\\text{multiplicity } n - 1), \\qquad v^{T}u \\ (\\text{multiplicity } 1).\n    \\]\n    (If $v^{T}u = 0$, all eigenvalues are $0$ and $A$ is nilpotent: $A^2 = 0$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> The eigenvalues of $I + A$ are $1 + \\lambda$ for the eigenvalues $\\lambda$ of $A$: $1$ ($n - 1$ times) and $1 + v^{T}u$. The determinant is their product:\n    \\[\n        \\det(I + uv^{T}) = 1 + v^{T}u.\n    \\]\n    This is the matrix determinant lemma; for example, with $u = v = (1, \\ldots, 1)^{T}$, the matrix $I + J$ (all diagonal entries $2$, all others $1$) has determinant $n + 1$.</div>",
+      "tags": [
+        "linear-algebra",
+        "eigenvalues",
+        "determinant",
+        "rank"
+      ]
+    },
+    {
+      "date": "2025-12-21",
+      "title": "If $N$ is nilpotent, then $I + N$ is invertible and $(I + N)^{-1} = I - N + N^2 - \\cdots$",
+      "difficulty": "easy",
+      "problem": "Let $N$ be an $n \\times n$ matrix with $N^k = 0$ for some $k \\geq 1$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $I + N$ is invertible, with\n    \\[\n        (I + N)^{-1} = I - N + N^2 - \\cdots + (-1)^{k-1}N^{k-1}.\n    \\]</li>\n<li class=\"my-4\">Show that every eigenvalue of $N$ is $0$, and deduce $\\det(I + N) = 1$.</li>\n<li class=\"my-4\">Compute $\\begin{bmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 0 & 0 & 1 \\end{bmatrix}^{-1}$ using (a).</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Multiply out $(I + N)(I - N + \\cdots)$: the sum telescopes, like $(1 + x)(1 - x + x^2 - \\cdots)$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $S = \\sum_{j=0}^{k-1}(-1)^jN^j$. Then\n    \\[\n        (I + N)S = \\sum_{j=0}^{k-1}(-1)^jN^j + \\sum_{j=0}^{k-1}(-1)^jN^{j+1} = I + (-1)^{k-1}N^{k} = I,\n    \\]\n    since the middle terms cancel in pairs and $N^k = 0$. As $S$ commutes with $N$, also $S(I + N) = I$. So $I + N$ is invertible with inverse $S$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> If $Nx = \\lambda x$ with $x \\neq 0$, then $0 = N^kx = \\lambda^kx$, so $\\lambda = 0$. Over $\\mathbb{C}$ the characteristic polynomial of $N$ is therefore $t^n$, so $N$ is similar to an upper triangular matrix with zero diagonal, and $I + N$ to an upper triangular matrix with diagonal entries $1$. Hence $\\det(I + N) = 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Write the matrix as $I + N$ with $N = \\begin{bmatrix} 0 & 2 & 3 \\\\ 0 & 0 & 4 \\\\ 0 & 0 & 0 \\end{bmatrix}$. Then $N^2 = \\begin{bmatrix} 0 & 0 & 8 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix}$ and $N^3 = 0$, so\n    \\[\n        (I + N)^{-1} = I - N + N^2 = \\begin{bmatrix} 1 & -2 & 5 \\\\ 0 & 1 & -4 \\\\ 0 & 0 & 1 \\end{bmatrix}.\n    \\]\n    (Check: the $(1, 3)$ entry of the product is $1 \\cdot 5 + 2 \\cdot (-4) + 3 \\cdot 1 = 0$.)</div>",
+      "tags": [
+        "linear-algebra",
+        "nilpotent",
+        "inverse"
+      ]
+    },
+    {
+      "date": "2025-12-28",
+      "title": "A real $n \\times n$ matrix with $A^2 = -I$ exists if and only if $n$ is even",
+      "difficulty": "medium",
+      "problem": "Show that there is a real $n \\times n$ matrix $A$ with $A^2 = -I$ if and only if $n$ is even.",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $n$ is odd, take determinants. If $n$ is even, use blocks $\\begin{bmatrix} 0 & -1 \\\\ 1 & 0 \\end{bmatrix}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$n$ odd: impossible.</strong> If $A^2 = -I$, then $(\\det A)^2 = \\det(A^2) = \\det(-I) = (-1)^n = -1$. But $\\det A$ is a real number, and its square cannot be negative.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>$n$ even: an example.</strong> Let $J = \\begin{bmatrix} 0 & -1 \\\\ 1 & 0 \\end{bmatrix}$ (rotation by $90^\\circ$). Then $J^2 = -I_2$. For $n = 2m$, the block diagonal matrix $A = \\operatorname{diag}(J, J, \\ldots, J)$ ($m$ blocks) satisfies $A^2 = \\operatorname{diag}(J^2, \\ldots, J^2) = -I_n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Interpretation.</strong> A real matrix with $A^2 = -I$ is a \"complex structure\" on $\\mathbb{R}^n$: defining $(a + \\iota b)x = ax + bAx$ makes $\\mathbb{R}^n$ a complex vector space, and then $n = 2\\dim_{\\mathbb{C}}$ must be even. Over $\\mathbb{C}$ there is no restriction: $A = \\iota I$ works for every $n$.</div>",
+      "tags": [
+        "linear-algebra",
+        "determinant"
       ]
     },
     {
