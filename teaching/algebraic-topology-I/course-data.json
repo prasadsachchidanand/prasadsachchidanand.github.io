@@ -2,14 +2,17 @@
   "courseCode": "MTH566",
   "courseTitle": "Algebraic Topology I",
   "semester": "Winter Semester 2026",
-  
   "schedule": [
-    {"day": "Mon", "time": "9:30-11:30"},
-    {"day": "Wed", "time": "9:30-11:30"}
+    {
+      "day": "Mon",
+      "time": "9:30-11:30"
+    },
+    {
+      "day": "Wed",
+      "time": "9:30-11:30"
+    }
   ],
-  
   "location": "B 002 R & D Building",
-  
   "grading": {
     "Assignments": 10,
     "Quizzes": 30,
@@ -17,7 +20,6 @@
     "Mid Sem": 20,
     "End Sem": 30
   },
-  
   "references": [
     {
       "author": "Tammo tom Dieck",
@@ -50,39 +52,8 @@
       "link": null
     }
   ],
-  
   "sections": {
-
     "lectures": {
-      "title": "Lecture Notes",
-      "icon": "fa-book-open",
-      "color": "blue",
-      "cardIcon": "fas fa-book-open",
-      "fields": [
-        {
-          "name": "number",
-          "label": "Lecture",
-          "prefix": "Lecture"
-        },
-        {
-          "name": "title",
-          "type": "text"
-        },
-        {
-          "name": "date",
-          "type": "badge",
-          "icon": "fa-calendar-alt",
-          "iconColor": "blue"
-        },
-        {
-          "name": "file",
-          "type": "button",
-          "label": "Download PDF",
-          "buttonColor": "blue",
-          "optional": true,
-          "lockedText": "Coming Soon"
-        }
-      ],
       "items": [
         {
           "number": 1,
@@ -90,49 +61,42 @@
           "date": "January 05, 2026",
           "file": "lecture/lec-01.pdf"
         },
-
         {
           "number": 2,
           "title": "Review of point set topology",
           "date": "January 07, 2026",
           "file": "lecture/lec-02.pdf"
         },
-
         {
           "number": 3,
           "title": "Quotient topology",
           "date": "January 12, 2026",
           "file": "lecture/lec-03.pdf"
         },
-
         {
           "number": 4,
           "title": "Quotient topology",
           "date": "January 14, 2026",
           "file": "lecture/lec-04.pdf"
         },
-
         {
           "number": 5,
           "title": "Category theory",
           "date": "January 19, 2026",
           "file": "lecture/lec-05.pdf"
         },
-
         {
           "number": 6,
           "title": "Category theory",
           "date": "January 21, 2026",
           "file": "lecture/lec-06.pdf"
         },
-
         {
           "number": 7,
           "title": "Functors and introduction to path category",
           "date": "February 02, 2026",
           "file": "lecture/lec-07.pdf"
         },
-
         {
           "number": 8,
           "title": "Homotopy and path homotopy",
@@ -141,45 +105,7 @@
         }
       ]
     },
-
     "homeworks": {
-      "title": "Homework and Assignments",
-      "icon": "fa-pen-to-square",
-      "color": "green",
-      "cardIcon": "fas fa-pen-to-square",
-      "fields": [
-        {
-          "name": "number",
-          "label": "Homework",
-          "prefix": "Homework"
-        },
-        {
-          "name": "description",
-          "type": "text"
-        },
-        {
-          "name": "deadline",
-          "type": "badge",
-          "icon": "fa-calendar-alt",
-          "iconColor": "red"
-        },
-        {
-          "name": "file",
-          "type": "button",
-          "label": "Homework",
-          "optional": true,
-          "buttonColor": "blue",
-          "lockedText": "Homework"
-        },
-        {
-          "name": "solution",
-          "type": "button",
-          "label": "Solution",
-          "buttonColor": "green",
-          "optional": true,
-          "lockedText": "Solution"
-        }
-      ],
       "items": [
         {
           "number": 1,
@@ -188,7 +114,6 @@
           "file": "homework/hw-01.pdf",
           "solution": null
         },
-        
         {
           "number": 2,
           "description": "Review of point set topology",
@@ -196,7 +121,6 @@
           "file": "homework/hw-02.pdf",
           "solution": null
         },
-        
         {
           "number": 3,
           "description": "Quotient topology",
@@ -204,7 +128,6 @@
           "file": null,
           "solution": null
         },
-        
         {
           "number": 4,
           "description": "Category theory",
@@ -212,7 +135,6 @@
           "file": "homework/hw-04.pdf",
           "solution": null
         },
-        
         {
           "number": 5,
           "description": "path and path homotopy",
@@ -220,7 +142,6 @@
           "file": "homework/hw-05.pdf",
           "solution": null
         },
-        
         {
           "number": 6,
           "description": "homotopy equivalence",
@@ -228,7 +149,6 @@
           "file": "homework/hw-06.pdf",
           "solution": null
         },
-        
         {
           "number": 7,
           "description": "homotopy",
@@ -236,7 +156,6 @@
           "file": "homework/hw-07.pdf",
           "solution": null
         },
-        
         {
           "number": 8,
           "description": "fundamental group",
@@ -244,7 +163,6 @@
           "file": "homework/hw-08.pdf",
           "solution": null
         },
-        
         {
           "number": 9,
           "description": "covering space",
@@ -252,7 +170,6 @@
           "file": "homework/hw-09.pdf",
           "solution": null
         },
-        
         {
           "number": 10,
           "description": "covering space and lifting criterion",
@@ -260,7 +177,6 @@
           "file": "homework/hw-10.pdf",
           "solution": null
         },
-
         {
           "number": 1,
           "type": "assignment",
@@ -274,44 +190,7 @@
         }
       ]
     },
-    
     "quizzes": {
-      "title": "Quizzes",
-      "icon": "fa-question-circle",
-      "color": "yellow",
-      "cardIcon": "fas fa-question-circle",
-      "fields": [
-        {
-          "name": "number",
-          "label": "Quiz",
-          "prefix": "Quiz"
-        },
-        {
-          "name": "title",
-          "type": "text"
-        },
-        {
-          "name": "date",
-          "type": "badge",
-          "icon": "fa-calendar-alt",
-          "iconColor": "blue",
-          "prefix": "Date:"
-        },
-        {
-          "name": "file",
-          "type": "button",
-          "label": "Quiz",
-          "buttonColor": "yellow"
-        },
-        {
-          "name": "solution",
-          "type": "button",
-          "label": "Solution",
-          "buttonColor": "green",
-          "optional": true,
-          "lockedText": "Solution"
-        }
-      ],
       "items": [
         {
           "number": 1,
@@ -320,7 +199,6 @@
           "file": "quiz/quiz-01.pdf",
           "solution": null
         },
-
         {
           "number": 2,
           "title": "Based on homework 1 and 2",
@@ -328,7 +206,6 @@
           "file": "quiz/quiz-02.pdf",
           "solution": null
         },
-
         {
           "number": 3,
           "title": "Based on homework 4 and quotient topology",

@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-11-13T13:23:58.974Z
+// Generated on: 2026-11-14T08:17:54.607Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -2876,6 +2876,24 @@ const booksData = {
                 "title": "Munkres - 1.7.4 - Countable Sets: The algebraic numbers are countable, the transcendental numbers are not",
                 "difficulty": "medium",
                 "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">A real number $x$ is said to be <strong>algebraic</strong> (over the rationals) if it satisfies some polynomial equation of positive degree\n    \\[\n        x^n + a_{n-1}x^{n-1} + \\cdots + a_1x + a_0 = 0\n    \\]\n    with rational coefficients $a_i$. Assuming that each polynomial equation has only finitely many roots, show that the set of algebraic numbers is countable.</li>\n<li class=\"my-4\">A real number is said to be <strong>transcendental</strong> if it is not algebraic. Assuming the reals are uncountable, show that the transcendental numbers are uncountable. (It is a somewhat surprising fact that only two transcendental numbers are familiar to us: $e$ and $\\pi$. Even proving these two numbers transcendental is highly nontrivial.)</li></ol>"
+              },
+              {
+                "number": "1.7.5",
+                "source": "daily",
+                "date": "2026-11-14",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.7.5 - Countable Sets: Which sets of functions and subsets of $\\mathbb{Z}_+$ are countable?",
+                "difficulty": "medium",
+                "problem": "Determine, for each of the following sets, whether or not it is countable. Justify your answers.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">The set $A$ of all functions $f : \\{ 0, 1 \\} \\to \\mathbb{Z}_+$.</li>\n<li class=\"my-4\">The set $B_n$ of all functions $f : \\{ 1, \\ldots, n \\} \\to \\mathbb{Z}_+$.</li>\n<li class=\"my-4\">The set $C = \\bigcup_{n \\in \\mathbb{Z}_+} B_n$.</li>\n<li class=\"my-4\">The set $D$ of all functions $f : \\mathbb{Z}_+ \\to \\mathbb{Z}_+$.</li>\n<li class=\"my-4\">The set $E$ of all functions $f : \\mathbb{Z}_+ \\to \\{ 0, 1 \\}$.</li>\n<li class=\"my-4\">The set $F$ of all functions $f : \\mathbb{Z}_+ \\to \\{ 0, 1 \\}$ that are \"eventually zero.\" [We say that $f$ is <strong>eventually zero</strong> if there is a positive integer $N$ such that $f(n) = 0$ for all $n \\geq N$.]</li>\n<li class=\"my-4\">The set $G$ of all functions $f : \\mathbb{Z}_+ \\to \\mathbb{Z}_+$ that are eventually $1$.</li>\n<li class=\"my-4\">The set $H$ of all functions $f : \\mathbb{Z}_+ \\to \\mathbb{Z}_+$ that are eventually constant.</li>\n<li class=\"my-4\">The set $I$ of all two-element subsets of $\\mathbb{Z}_+$.</li>\n<li class=\"my-4\">The set $J$ of all finite subsets of $\\mathbb{Z}_+$.</li></ol>"
+              },
+              {
+                "number": "1.7.6",
+                "source": "daily",
+                "date": "2026-11-21",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.7.6 - Countable Sets: The Schroeder–Bernstein theorem",
+                "difficulty": "medium",
+                "problem": "We say that two sets $A$ and $B$ <strong>have the same cardinality</strong> if there is a bijection of $A$ with $B$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $B \\subset A$ and if there is an injection\n    \\[\n        f : A \\longrightarrow B,\n    \\]\n    then $A$ and $B$ have the same cardinality. [<em>Hint:</em> Define $A_1 = A$, $B_1 = B$, and for $n > 1$, $A_n = f(A_{n-1})$ and $B_n = f(B_{n-1})$. (Recursive definition again!) Note that $A_1 \\supset B_1 \\supset A_2 \\supset B_2 \\supset A_3 \\supset \\cdots$. Define a bijection $h : A \\to B$ by the rule\n    \\[\n        h(x) = \\begin{cases} f(x) & \\text{if } x \\in A_n - B_n \\text{ for some } n, \\\\ x & \\text{otherwise.} \\end{cases}\n    \\]\n    ]</li>\n<li class=\"my-4\"><strong>Theorem (Schroeder–Bernstein theorem).</strong> <em>If there are injections $f : A \\to C$ and $g : C \\to A$, then $A$ and $C$ have the same cardinality.</em></li></ol>"
               }
             ]
           }

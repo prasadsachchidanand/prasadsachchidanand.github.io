@@ -1,121 +1,222 @@
 {
   "courseCode": "MTH100",
   "courseTitle": "Linear Algebra",
-  "semester": "Monsoon Semester 2026",
-  "schedule": [],
-  "location": "IIIT Delhi",
-  "grading": {},
-  "references": [],
+  "semester": "Monsoon Semester 2026 · Section A",
+  "schedule": [
+    {
+      "day": "Mon & Wed",
+      "time": "11:00–11:50 AM"
+    },
+    {
+      "day": "Fri",
+      "time": "9:30–10:20 AM"
+    }
+  ],
+  "location": "C-101 IIIT Delhi",
+  "classroom": {
+    "title": "Course materials are on Google Classroom",
+    "text": "Lecture notes, tutorials, quizzes and announcements for this course are posted on Google Classroom: one class for the lectures and one for tutorials and quizzes. Registered students received both class codes in the first lecture. If you do not have them, email the instructor."
+  },
+  "about": {
+    "text": "This first course in mathematics covers the basics of linear algebra: vector spaces, matrix algebra, linear transformations, eigenvalues and eigenvectors, orthogonality, symmetric and positive definite matrices, and the singular value decomposition. It builds the foundation in linear algebra used later in both the CSE and ECE curricula, introduces some applications in engineering as time permits, and develops mathematical maturity through proofs and rigour.",
+    "link": {
+      "label": "Official course description (IIIT Delhi)",
+      "url": "https://techtree.iiitd.edu.in/viewDescription/filename?=MTH100"
+    }
+  },
+  "weeklyPlan": {
+    "note": "Planned order of topics, following the IIIT Delhi course description. The pace may change a little during the semester.",
+    "units": [
+      {
+        "title": "Linear systems and matrices",
+        "weeks": [
+          [
+            1,
+            "Systems of linear equations; row reduction and echelon forms"
+          ],
+          [
+            2,
+            "Vector equations and the matrix equation Ax = b; solution sets of linear systems"
+          ],
+          [
+            3,
+            "Matrix operations; the inverse of a matrix; characterizations of invertible matrices"
+          ]
+        ]
+      },
+      {
+        "title": "Vector spaces",
+        "weeks": [
+          [
+            4,
+            "Vector spaces and subspaces; span"
+          ],
+          [
+            5,
+            "Linear dependence and independence; bases and dimension"
+          ],
+          [
+            6,
+            "The fundamental subspaces (column, null and row spaces); rank–nullity; applications"
+          ]
+        ]
+      },
+      {
+        "title": "Linear transformations and determinants",
+        "weeks": [
+          [
+            7,
+            "Linear transformations; kernel, range and rank; algebra of linear transformations"
+          ],
+          [
+            8,
+            "Matrix of a linear transformation; effect of change of basis; similarity"
+          ],
+          [
+            9,
+            "Determinants and their properties; Cramer's rule; determinants as volume"
+          ]
+        ]
+      },
+      {
+        "title": "Eigenvalues and eigenvectors",
+        "weeks": [
+          [
+            10,
+            "Eigenvalues and eigenvectors; the characteristic equation"
+          ],
+          [
+            11,
+            "Diagonalization; eigenvectors and linear transformations; complex eigenvalues"
+          ]
+        ]
+      },
+      {
+        "title": "Orthogonality and symmetric matrices",
+        "weeks": [
+          [
+            12,
+            "Inner product, length and orthogonality; orthogonal projections; Gram–Schmidt process and QR decomposition; least squares"
+          ],
+          [
+            13,
+            "Diagonalization of symmetric matrices; quadratic forms and positive definite matrices; singular value decomposition; application to image processing"
+          ]
+        ]
+      }
+    ]
+  },
+  "people": [
+    {
+      "role": "Instructor",
+      "name": "Sachchidanand Prasad",
+      "office": "B-301, R&D Building",
+      "email": "sachchidanand@iiitd.ac.in",
+      "hours": [
+        "Monday, 4:00–5:00 PM"
+      ]
+    },
+    {
+      "role": "Teaching Fellow",
+      "name": "Dr. Rohit Kumar",
+      "office": "B-405, Academic Block",
+      "email": "rohitku@iiitd.ac.in",
+      "hours": [
+        "Monday, 3:30–4:30 PM",
+        "Tuesday, 3:30–4:30 PM",
+        "Wednesday, 4:00–5:00 PM",
+        "Thursday, 4:00–5:00 PM",
+        "Friday, 3:00–4:00 PM"
+      ]
+    }
+  ],
+  "grading": {
+    "Quizzes": 30,
+    "Midterm": 25,
+    "End Sem": 40,
+    "Tutorials": 5
+  },
+  "gradingNotes": [
+    "Quizzes: three quizzes of 10 marks each (30 marks).",
+    "Mid-semester examination: 25 marks. End-semester examination: 40 marks.",
+    "Tutorials: 5 marks for attending at least 8 tutorial sessions. No relaxation will be given for any reason."
+  ],
+  "gradeScale": [
+    {
+      "grade": "A",
+      "range": "X ≥ 90"
+    },
+    {
+      "grade": "A−",
+      "range": "80 ≤ X < 90"
+    },
+    {
+      "grade": "B",
+      "range": "70 ≤ X < 80"
+    },
+    {
+      "grade": "B−",
+      "range": "60 ≤ X < 70"
+    },
+    {
+      "grade": "C",
+      "range": "50 ≤ X < 60"
+    },
+    {
+      "grade": "C−",
+      "range": "40 ≤ X < 50"
+    },
+    {
+      "grade": "D",
+      "range": "30 ≤ X < 40"
+    },
+    {
+      "grade": "F",
+      "range": "X < 30"
+    }
+  ],
+  "policies": [
+    {
+      "title": "Electronic devices",
+      "text": "Mobile phones, laptops and tablets may not be used during lectures or tutorial sessions."
+    },
+    {
+      "title": "Getting help",
+      "text": "If you are struggling with the material, email the instructor, the Teaching Fellow or the teaching assistants, or come to office hours. Ask early rather than letting doubts accumulate."
+    }
+  ],
+  "referencesTitle": "Recommended books",
+  "references": [
+    {
+      "author": "David C. Lay",
+      "title": "Linear Algebra and Its Applications",
+      "publisher": "Pearson, 3rd Indian edition"
+    },
+    {
+      "author": "Kenneth Hoffman and Ray Kunze",
+      "title": "Linear Algebra",
+      "publisher": "Pearson, 2nd edition"
+    },
+    {
+      "author": "Gilbert Strang",
+      "title": "Linear Algebra and Its Applications",
+      "publisher": "Cengage, 4th edition"
+    }
+  ],
   "sections": {
     "lectures": {
-      "title": "Lecture Notes",
-      "icon": "fa-book-open",
-      "color": "blue",
-      "cardIcon": "fas fa-book-open",
-      "fields": [
-        {
-          "name": "number",
-          "label": "Lecture",
-          "prefix": "Lecture"
-        },
-        {
-          "name": "title",
-          "type": "text"
-        },
-        {
-          "name": "date",
-          "type": "badge",
-          "icon": "fa-calendar-alt",
-          "iconColor": "blue"
-        },
-        {
-          "name": "file",
-          "type": "button",
-          "label": "Download PDF",
-          "buttonColor": "blue",
-          "optional": true,
-          "lockedText": "Coming Soon"
-        }
-      ],
+      "items": []
+    },
+    "tutorials": {
       "items": []
     },
     "homeworks": {
-      "title": "Homework and Assignments",
-      "icon": "fa-pen-to-square",
-      "color": "green",
-      "cardIcon": "fas fa-pen-to-square",
-      "fields": [
-        {
-          "name": "number",
-          "label": "Homework",
-          "prefix": "Homework"
-        },
-        {
-          "name": "description",
-          "type": "text"
-        },
-        {
-          "name": "deadline",
-          "type": "badge",
-          "icon": "fa-calendar-alt",
-          "iconColor": "red"
-        },
-        {
-          "name": "file",
-          "type": "button",
-          "label": "Homework",
-          "optional": true,
-          "buttonColor": "blue",
-          "lockedText": "Homework"
-        },
-        {
-          "name": "solution",
-          "type": "button",
-          "label": "Solution",
-          "buttonColor": "green",
-          "optional": true,
-          "lockedText": "Solution"
-        }
-      ],
       "items": []
     },
     "quizzes": {
-      "title": "Quizzes",
-      "icon": "fa-question-circle",
-      "color": "yellow",
-      "cardIcon": "fas fa-question-circle",
-      "fields": [
-        {
-          "name": "number",
-          "label": "Quiz",
-          "prefix": "Quiz"
-        },
-        {
-          "name": "title",
-          "type": "text"
-        },
-        {
-          "name": "date",
-          "type": "badge",
-          "icon": "fa-calendar-alt",
-          "iconColor": "blue",
-          "prefix": "Date:"
-        },
-        {
-          "name": "file",
-          "type": "button",
-          "label": "Quiz",
-          "buttonColor": "yellow"
-        },
-        {
-          "name": "solution",
-          "type": "button",
-          "label": "Solution",
-          "buttonColor": "green",
-          "optional": true,
-          "lockedText": "Solution"
-        }
-      ],
+      "items": []
+    },
+    "exams": {
       "items": []
     }
   }

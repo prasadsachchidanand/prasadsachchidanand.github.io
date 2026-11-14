@@ -151,6 +151,26 @@
       animation-duration: 1.5s;
       animation-iteration-count: infinite;
     }
+
+    /* Daily-problems note under "About Me": pale indigo, so it does not repeat the indigo header/footer */
+    .home-daily {
+      margin-top: 1.5rem;
+      padding: 1.1rem 1.4rem;
+      border-radius: 12px;
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      color: #312e81;
+    }
+    .home-daily a {
+      color: #4338ca;
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: rgba(67, 56, 202, 0.35);
+      text-underline-offset: 3px;
+    }
+    .home-daily a:hover { text-decoration-color: currentColor; }
+    html.dark .home-daily { background: #1e293b; border-color: #334155; color: #cbd5e1; }
+    html.dark .home-daily a { color: #a5b4fc; text-decoration-color: rgba(165, 180, 252, 0.4); }
   </style>
   <!-- Shared header and footer (edit assets/js/site-layout.js) -->
   <script src="assets/js/site-layout.js"></script>
@@ -325,15 +345,13 @@
                 </p>
               </div> -->
 
-              <div class="bg-indigo-600 rounded-lg shadow-lg p-4 relative mt-4">
-                <p class="text-white inline-block leading-relaxed text-lg text-justify">
+              <div class="home-daily">
+                <p class="leading-relaxed text-lg text-justify">
                   In addition to my research, I enjoy sharing my passion for mathematics by providing <a
-                    href="miscellaneous/daily-problems/" class="text-yellow-400 hover:text-yellow-600">daily
-                    problems</a> under the <a href="miscellaneous/"
-                    class="text-yellow-400 hover:text-yellow-600">Miscellaneous</a> section of my website. These
+                    href="miscellaneous/daily-problems/">daily
+                    problems</a> under the <a href="miscellaneous/">Miscellaneous</a> section of my website. These
                   problems cover a range of topics and difficulty levels, and I encourage visitors to try solving them
-                  and share their solutions with me. <a href="miscellaneous/daily-problems/tags/"
-                    class="text-yellow-400 hover:text-yellow-600">Here</a> you can see problems with area wise.
+                  and share their solutions with me. <a href="miscellaneous/daily-problems/tags/">Here</a> you can see problems with area wise.
                 </p>
               </div>
 
@@ -342,6 +360,9 @@
                 <p class="mt-4 leading-relaxed text-lg text-justify"> <a href="kumaresan-book-errata/index.html" target="_blank" class="text-blue-500 hover:text-blue-800">Kumaresan's Book</a>. </p> -->
             </div>
           </div>
+
+          <!-- Latest: recent publications, current teaching, news (filled by assets/js/home-highlights.js) -->
+          <section id="home-highlights" aria-label="Latest"></section>
         </div>
       </div>
     </main>
@@ -350,6 +371,7 @@
     <site-footer></site-footer>
 
   </div>
+  <script src="assets/js/home-highlights.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     document.getElementById('updated').textContent = new Date(document.lastModified).toISOString().substr(0, 10);

@@ -530,7 +530,8 @@ async function loadProblem() {
         
         if (!isProblemVisible(problemDate)) {
             displayUpcomingProblem(problemDate, data.topic);
-            if (problem) updateMetadata(problemDate, problem, data.topic);
+            // Scheduled problem: keep its title and statement out of the tab title and page metadata
+            if (problem) updateMetadata(problemDate, { title: '', problem: '' }, data.topic);
             updateNavigationLinks(problemDate, topic, data.problems, false);
             updateTotalSolvedCount();
             return;

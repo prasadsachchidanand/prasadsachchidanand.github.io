@@ -2492,6 +2492,19 @@
         "supremum",
         "real-analysis-bartle-sherbert (2.4.11)"
       ]
+    },
+    {
+      "date": "2026-11-16",
+      "title": "If $a_n \\geq 0$ decreases and $\\sum a_n$ converges, then $n a_n \\to 0$",
+      "difficulty": "medium",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Let $(a_n)$ be a decreasing sequence of nonnegative real numbers such that $\\sum_{n=1}^{\\infty} a_n$ converges. Prove that $n a_n \\to 0$.</li>\n<li class=\"my-4\">Show that the converse is false: find a decreasing sequence $a_n \\geq 0$ with $n a_n \\to 0$ but $\\sum a_n = \\infty$.</li>\n<li class=\"my-4\">Show that the hypothesis \"decreasing\" in (a) cannot be dropped.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Use the Cauchy criterion on the block $a_{n+1} + \\cdots + a_{2n}$, and bound each term below by $a_{2n}$.</li>\n<li class=\"my-4\">For (b) try $a_n = \\dfrac{1}{n \\ln n}$. For (c) make $a_n$ large only when $n$ is a perfect square.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $s_n = a_1 + \\cdots + a_n$. Since the series converges, $(s_n)$ is Cauchy, so $s_{2n} - s_n \\to 0$. Because $(a_k)$ is decreasing, each of the $n$ terms $a_{n+1}, \\ldots, a_{2n}$ is at least $a_{2n}$, so\n    \\[\n        0 \\leq n a_{2n} \\leq a_{n+1} + \\cdots + a_{2n} = s_{2n} - s_n \\to 0.\n    \\]\n    Hence $(2n) a_{2n} = 2 \\cdot n a_{2n} \\to 0$: the even terms of $(k a_k)$ tend to $0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">For the odd terms, $a_{2n+1} \\leq a_{2n}$ gives\n    \\[\n        0 \\leq (2n + 1) a_{2n+1} \\leq \\frac{2n + 1}{2n} \\cdot 2n a_{2n} \\to 1 \\cdot 0 = 0.\n    \\]\n    Since both the even and the odd subsequences of $(k a_k)$ tend to $0$, $n a_n \\to 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Let $a_n = \\dfrac{1}{n \\ln n}$ for $n \\geq 2$. It is positive and decreasing, and $n a_n = \\dfrac{1}{\\ln n} \\to 0$. But $\\sum a_n$ diverges: by the Cauchy condensation test it converges iff $\\sum 2^k a_{2^k} = \\sum \\dfrac{1}{k \\ln 2}$ converges, and that is a multiple of the harmonic series. (Or compare with $\\int_2^\\infty \\frac{\\mathrm{d}x}{x \\ln x} = \\big[ \\ln \\ln x \\big]_2^\\infty = \\infty$.) So $n a_n \\to 0$ is necessary but not sufficient for convergence.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Let\n    \\[\n        a_n = \\begin{cases} \\dfrac{1}{n}, & n \\text{ a perfect square}, \\\\[2mm] \\dfrac{1}{n^2}, & \\text{otherwise}. \\end{cases}\n    \\]\n    Then $\\sum a_n \\leq \\sum_{k} \\dfrac{1}{k^2} + \\sum_n \\dfrac{1}{n^2} \\lt \\infty$ (the square terms are $1/k^2$ for $n = k^2$). But $n a_n = 1$ whenever $n$ is a perfect square, so $n a_n \\not\\to 0$. This sequence is not decreasing, which is where the argument in (a) breaks down.</div>",
+      "tags": [
+        "real-analysis",
+        "series",
+        "sequences"
+      ]
     }
   ]
 }

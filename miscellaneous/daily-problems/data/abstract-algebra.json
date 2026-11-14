@@ -2474,6 +2474,19 @@
         "group-theory",
         "class-equation"
       ]
+    },
+    {
+      "date": "2026-11-18",
+      "title": "If a group has exactly one element of order $2$, that element is central",
+      "difficulty": "easy",
+      "problem": "Let $G$ be a group with exactly one element $a$ of order $2$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Prove that $a \\in Z(G)$, that is, $ag = ga$ for every $g \\in G$.</li>\n<li class=\"my-4\">Give an example of a <em>nonabelian</em> group with exactly one element of order $2$.</li>\n<li class=\"my-4\">Show that a finite abelian group $G$ of even order with exactly one element $a$ of order $2$ satisfies $\\prod_{g \\in G} g = a$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Conjugation preserves order: $(gag^{-1})^k = g a^k g^{-1}$.</li>\n<li class=\"my-4\">For (b), look at the quaternion group $Q_8$. For (c), pair each element with its inverse.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $g \\in G$ and $b = g a g^{-1}$. Then $b^2 = g a^2 g^{-1} = e$, and $b \\neq e$ (otherwise $a = g^{-1} e g = e$). So $b$ has order $2$, and by uniqueness $b = a$. Thus $g a g^{-1} = a$, i.e. $ga = ag$, for every $g$, and $a \\in Z(G)$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> The quaternion group $Q_8 = \\{ \\pm 1, \\pm i, \\pm j, \\pm k \\}$ with $i^2 = j^2 = k^2 = ijk = -1$ is nonabelian ($ij = k$ but $ji = -k$). Its elements $\\pm i, \\pm j, \\pm k$ have order $4$, $1$ has order $1$, and $-1$ is the only element of order $2$. As (a) predicts, $Z(Q_8) = \\{ \\pm 1 \\}$ contains it.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> In the product $\\prod_{g \\in G} g$ (well defined since $G$ is abelian), group each $g$ with $g \\neq g^{-1}$ together with $g^{-1}$; each such pair contributes $g g^{-1} = e$. The elements left over satisfy $g = g^{-1}$, i.e. $g^2 = e$; these are $e$ and the elements of order $2$, which here are just $e$ and $a$. So the product is $e \\cdot a = a$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Example: Wilson's theorem.</strong> For a prime $p$, the group $(\\mathbb{Z}/p\\mathbb{Z})^\\times$ is abelian of order $p - 1$, and $x^2 = 1$ forces $p \\mid (x - 1)(x + 1)$, so $-1$ is its only element of order $2$ (for $p > 2$). Part (c) gives $(p - 1)! \\equiv -1 \\pmod p$.</div>",
+      "tags": [
+        "abstract-algebra",
+        "group-theory",
+        "center-of-a-group"
+      ]
     }
   ]
 }

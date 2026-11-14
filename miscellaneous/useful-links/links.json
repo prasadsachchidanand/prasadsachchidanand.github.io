@@ -1,0 +1,603 @@
+{
+  "updated": "2026-11-14",
+  "sections": [
+    {
+      "id": "exams",
+      "title": "Exams",
+      "blurb": "Entrance and scholarship exams for MSc and PhD programmes in India.",
+      "groups": [
+        {
+          "links": [
+            {
+              "title": "CSIR-UGC NET",
+              "url": "https://csirnet.nta.nic.in/",
+              "desc": "National eligibility test for JRF and assistant professorship, conducted by NTA."
+            },
+            {
+              "title": "NBHM scholarships (MSc and PhD)",
+              "url": "https://www.imsc.res.in/~nbhm/",
+              "desc": "Selection test for the National Board for Higher Mathematics master's and doctoral scholarships."
+            },
+            {
+              "title": "GATE",
+              "url": "https://gate2027.iitm.ac.in/",
+              "desc": "Graduate Aptitude Test in Engineering, which has a Mathematics paper. GATE 2027 is run by IIT Madras; the host IIT changes every year."
+            },
+            {
+              "title": "JAM",
+              "url": "https://jam.iitkgp.ac.in/",
+              "desc": "Joint Admission Test for Masters, for MSc admissions at IITs, IISc, IISERs, NITs and others. JAM 2027 is run by IIT Kharagpur."
+            },
+            {
+              "title": "CMI admissions",
+              "url": "https://www.cmi.ac.in/admissions/",
+              "desc": "Entrance exams for the BSc, MSc and PhD programmes of Chennai Mathematical Institute."
+            },
+            {
+              "title": "ISI admissions",
+              "url": "https://www.isical.ac.in/~admission/",
+              "desc": "Admission tests for the programmes of the Indian Statistical Institute."
+            },
+            {
+              "title": "International Mathematics Competition",
+              "url": "https://www.imc-math.org.uk/",
+              "desc": "An annual international competition for university students of mathematics."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "programmes",
+      "title": "Summer schools and internships",
+      "blurb": "Training programmes, research internships and where to find conferences.",
+      "groups": [
+        {
+          "title": "For UG and PG students",
+          "links": [
+            {
+              "title": "Mathematics Training and Talent Search (MTTS)",
+              "url": "https://mtts.org.in/",
+              "desc": "Summer training programme in mathematics for undergraduates, with three levels (O, 1 and 2). Four weeks every summer at various places in India."
+            },
+            {
+              "title": "Summer Programme in Mathematics (SPIM), HRI",
+              "url": "https://www.hri.res.in/~spim/",
+              "desc": "A month of intensive lectures each summer at HRI for students who have completed three or more years of college."
+            },
+            {
+              "title": "Summer research programmes, TIFR",
+              "url": "https://www.tifr.res.in/academics/summer_program.php",
+              "desc": "Visiting students' research programmes across TIFR campuses (Mumbai, Bengaluru, ICTS, Hyderabad), including the mathematics VSRP."
+            },
+            {
+              "title": "Summer Research Fellowship Programme",
+              "url": "https://www.ias.ac.in/Education/Summer_Research_Fellowship_Programme/",
+              "desc": "Two-month research projects with Fellows of the Indian Academy of Sciences, run jointly by IASc, INSA and NASI."
+            }
+          ]
+        },
+        {
+          "title": "For PhD students",
+          "links": [
+            {
+              "title": "Advanced Training in Mathematics (ATM) Schools",
+              "url": "https://www.atmschools.org/",
+              "desc": "Schools by NCM that train PhD students, young researchers and teachers in core areas of mathematics."
+            }
+          ]
+        },
+        {
+          "title": "Abroad",
+          "links": [
+            {
+              "title": "DAAD WISE (Germany)",
+              "url": "https://www.daad.in/en/find-funding/scholarship-database/",
+              "desc": "Research internships in Germany for Indian students in science and engineering, 2–3 months in summer. Check the DAAD scholarship database for the current call."
+            },
+            {
+              "title": "Mitacs Globalink Research Internship (Canada)",
+              "url": "https://www.mitacs.ca/en/programs/globalink/globalink-research-internship",
+              "desc": "12-week research internships at Canadian universities between May and October."
+            }
+          ]
+        },
+        {
+          "title": "Conferences and seminars",
+          "links": [
+            {
+              "title": "AMS Mathematics Calendar",
+              "url": "https://www.ams.org/meetings/calendar/mathcal",
+              "desc": "Upcoming mathematics meetings and conferences worldwide."
+            },
+            {
+              "title": "Research Seminars",
+              "url": "https://researchseminars.org/",
+              "desc": "Searchable list of online and in-person research seminars and conferences."
+            },
+            {
+              "title": "Geometry and topology conferences",
+              "url": "https://conference-service.com/conferences/geometry-and-topology.html",
+              "desc": "Upcoming conferences and meetings in geometry and topology."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "title": "For research",
+      "blurb": "Finding papers, classifying them, and finding jobs.",
+      "groups": [
+        {
+          "links": [
+            {
+              "title": "MathSciNet",
+              "url": "https://mathscinet.ams.org/mathscinet/publications-search",
+              "desc": "Search and review database of mathematical research articles.",
+              "tag": "Subscription"
+            },
+            {
+              "title": "arXiv (math)",
+              "url": "https://arxiv.org/archive/math",
+              "desc": "Preprints in all areas of mathematics."
+            },
+            {
+              "title": "Mathematics Subject Classification",
+              "url": "https://mathscinet.ams.org/mathscinet/freetools/msc-search",
+              "desc": "Look up MSC2020 codes for a paper."
+            },
+            {
+              "title": "MathJobs (AMS)",
+              "url": "https://www.mathjobs.org/",
+              "desc": "Academic job listings in mathematics."
+            },
+            {
+              "title": "EMS job listings",
+              "url": "https://euromathsoc.org/jobs",
+              "desc": "Mathematics jobs posted with the European Mathematical Society."
+            },
+            {
+              "title": "Mathematics Genealogy Project",
+              "url": "https://genealogy.math.ndsu.nodak.edu/",
+              "desc": "Find anyone's advisor, students and mathematical ancestors."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": "Notes and expository articles",
+      "blurb": "Free notes, expository writing and reference works.",
+      "groups": [
+        {
+          "links": [
+            {
+              "title": "AMS Open Math Notes",
+              "url": "https://www.ams.org/open-math-notes",
+              "desc": "Freely downloadable lecture notes and books hosted by the American Mathematical Society."
+            },
+            {
+              "title": "Prof. Kumaresan's expository articles",
+              "url": "https://4dspace.mtts.org.in/expository-articles-list.php",
+              "desc": "Expository articles for undergraduate and postgraduate students by S. Kumaresan."
+            },
+            {
+              "title": "Expository papers by Keith Conrad",
+              "url": "https://kconrad.math.uconn.edu/blurbs/",
+              "desc": "Well-organised expository papers on algebra, number theory and analysis."
+            },
+            {
+              "title": "Lecture notes collection (Math Stack Exchange)",
+              "url": "https://math.stackexchange.com/questions/302023/best-sets-of-lecture-notes-and-publications",
+              "desc": "A long community list of good lecture notes and articles, sorted by subject."
+            },
+            {
+              "title": "Wolfram MathWorld",
+              "url": "https://mathworld.wolfram.com/",
+              "desc": "An online encyclopedia of mathematics."
+            },
+            {
+              "title": "The TeXromancers",
+              "url": "https://aareyanmanzoor.github.io/Texromancers.html",
+              "desc": "A group that re-typesets classic books in LaTeX with modern notation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "topology",
+      "title": "Topology and geometry",
+      "blurb": "Resources, lists and history for geometers and topologists.",
+      "groups": [
+        {
+          "links": [
+            {
+              "title": "Kerodon",
+              "url": "https://kerodon.net/",
+              "desc": "An online resource for homotopy-coherent mathematics, by Jacob Lurie."
+            },
+            {
+              "title": "The Stacks Project",
+              "url": "https://stacks.math.columbia.edu/",
+              "desc": "An open source textbook and reference work on algebraic geometry."
+            },
+            {
+              "title": "Mathematics Students Resource",
+              "url": "https://margalit.droppages.net/tsr/index.html",
+              "desc": "Dan Margalit's career advice for beginning researchers (formerly the Topology Students Resource)."
+            },
+            {
+              "title": "ALGTOP-L",
+              "url": "https://lists.illinois.edu/lists/info/algtop-l",
+              "desc": "The algebraic topology mailing list: conferences, jobs and discussion. Now hosted at Illinois."
+            },
+            {
+              "title": "GeCo GeDi",
+              "url": "https://gecogedi.dimai.unifi.it/",
+              "desc": "Announcements of seminars, conferences and positions in differential and complex geometry."
+            },
+            {
+              "title": "The life and works of Raoul Bott",
+              "url": "https://legacy-www.math.harvard.edu/history/bott/bottbio/index.html",
+              "desc": "A Harvard page on Raoul Bott's life and mathematics."
+            },
+            {
+              "title": "Grothendieck Circle",
+              "url": "http://www.grothendieckcircle.org/",
+              "desc": "A website devoted to the life and works of Alexander Grothendieck."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latex",
+      "title": "LaTeX",
+      "blurb": "Installing, learning and drawing with LaTeX.",
+      "groups": [
+        {
+          "title": "Install and edit",
+          "links": [
+            {
+              "title": "TeX Live",
+              "url": "https://www.tug.org/texlive/",
+              "desc": "TeX distribution for all platforms."
+            },
+            {
+              "title": "MacTeX",
+              "url": "https://www.tug.org/mactex/",
+              "desc": "TeX distribution for macOS."
+            },
+            {
+              "title": "MiKTeX",
+              "url": "https://miktex.org/",
+              "desc": "TeX distribution for Windows and Linux."
+            },
+            {
+              "title": "Installing TeX Live on Linux",
+              "url": "https://linuxconfig.org/how-to-install-latex-on-ubuntu-20-04-focal-fossa-linux",
+              "desc": "A terminal guide to installing TeX Live on Ubuntu."
+            },
+            {
+              "title": "Overleaf",
+              "url": "https://www.overleaf.com/",
+              "desc": "Online LaTeX editor and compiler."
+            },
+            {
+              "title": "TeXstudio",
+              "url": "https://www.texstudio.org/",
+              "desc": "Offline LaTeX editor."
+            },
+            {
+              "title": "TeXmaker",
+              "url": "https://www.xm1math.net/texmaker/",
+              "desc": "Offline LaTeX editor."
+            }
+          ]
+        },
+        {
+          "title": "Learn",
+          "links": [
+            {
+              "title": "Detexify",
+              "url": "https://detexify.kirelabs.org/classify.html",
+              "desc": "Draw a symbol and get its LaTeX command."
+            },
+            {
+              "title": "Comprehensive LaTeX Symbol List",
+              "url": "https://ctan.org/pkg/comprehensive",
+              "desc": "Every symbol available in LaTeX packages, with the package that provides it."
+            },
+            {
+              "title": "LaTeX Wikibook",
+              "url": "https://en.wikibooks.org/wiki/LaTeX",
+              "desc": "A thorough free guide to LaTeX."
+            },
+            {
+              "title": "PGF/TikZ Wikibook",
+              "url": "https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ",
+              "desc": "The Wikibook chapter on TikZ."
+            },
+            {
+              "title": "TeXample.net",
+              "url": "https://texample.net/tikz/examples/",
+              "desc": "Hundreds of TikZ and PGF examples with code."
+            }
+          ]
+        },
+        {
+          "title": "Draw and generate",
+          "links": [
+            {
+              "title": "Quiver",
+              "url": "https://q.uiver.app/",
+              "desc": "Draw commutative diagrams and export tikz-cd code."
+            },
+            {
+              "title": "Ipe",
+              "url": "https://ipe.otfried.org/",
+              "desc": "Drawing editor for figures in PDF, with LaTeX labels."
+            },
+            {
+              "title": "Inkscape + TexText",
+              "url": "https://github.com/textext/textext",
+              "desc": "TexText adds LaTeX typesetting to the Inkscape vector editor."
+            },
+            {
+              "title": "FreeTikZ",
+              "url": "https://homepages.inf.ed.ac.uk/cheunen/freetikz/",
+              "desc": "Turn a hand-drawn picture into TikZ code."
+            },
+            {
+              "title": "Mathcha",
+              "url": "https://www.mathcha.io/",
+              "desc": "Online mathematics editor with diagram drawing."
+            },
+            {
+              "title": "Tables Generator",
+              "url": "https://www.tablesgenerator.com/latex_tables",
+              "desc": "Build LaTeX tables in a spreadsheet-like editor."
+            },
+            {
+              "title": "TableConvert",
+              "url": "https://tableconvert.com/excel-to-latex",
+              "desc": "Convert Excel tables to LaTeX."
+            },
+            {
+              "title": "draw.io",
+              "url": "https://app.diagrams.net/",
+              "desc": "Draw flowcharts and diagrams."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software",
+      "title": "Software",
+      "blurb": "Computer algebra, numerics and visualisation.",
+      "groups": [
+        {
+          "links": [
+            {
+              "title": "SageMath",
+              "url": "https://www.sagemath.org/",
+              "desc": "Open source computer algebra system built on Python.",
+              "tag": "Free"
+            },
+            {
+              "title": "GAP",
+              "url": "https://www.gap-system.org/",
+              "desc": "Groups, Algorithms, Programming: computational group theory.",
+              "tag": "Free"
+            },
+            {
+              "title": "PARI/GP",
+              "url": "https://pari.math.u-bordeaux.fr/",
+              "desc": "Computer algebra system for number theory.",
+              "tag": "Free"
+            },
+            {
+              "title": "MAXIMA",
+              "url": "https://maxima.sourceforge.io/",
+              "desc": "Computer algebra system, good for calculus.",
+              "tag": "Free"
+            },
+            {
+              "title": "SnapPy",
+              "url": "https://snappy.math.uic.edu/",
+              "desc": "Studies the topology and geometry of 3-manifolds.",
+              "tag": "Free"
+            },
+            {
+              "title": "Geogebra",
+              "url": "https://www.geogebra.org/",
+              "desc": "Interactive geometry, algebra, statistics and calculus.",
+              "tag": "Free"
+            },
+            {
+              "title": "GNU Octave",
+              "url": "https://www.gnu.org/software/octave/",
+              "desc": "Numerical computing with syntax largely compatible with MATLAB.",
+              "tag": "Free"
+            },
+            {
+              "title": "SciLab",
+              "url": "https://www.scilab.org/",
+              "desc": "Open source alternative to MATLAB.",
+              "tag": "Free"
+            },
+            {
+              "title": "MATLAB",
+              "url": "https://in.mathworks.com/products/matlab.html",
+              "desc": "Numerical computation, visualisation and programming.",
+              "tag": "Paid"
+            },
+            {
+              "title": "Mathematica",
+              "url": "https://www.wolfram.com/mathematica/",
+              "desc": "Symbolic and numerical computation.",
+              "tag": "Paid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blogs",
+      "title": "Blogs",
+      "blurb": "Mathematics blogs worth following.",
+      "groups": [
+        {
+          "links": [
+            {
+              "title": "Terence Tao's blog",
+              "url": "https://terrytao.wordpress.com/",
+              "desc": "Updates on Terence Tao's research and expository papers, open problems and more."
+            },
+            {
+              "title": "Division by Zero",
+              "url": "https://divisbyzero.com/blog-division-by-zero/",
+              "desc": "Articles by David Richeson."
+            },
+            {
+              "title": "Identity (IISER Kolkata Maths Club)",
+              "url": "https://identity-iiserkol.blogspot.com/",
+              "desc": "Short and interesting problems."
+            },
+            {
+              "title": "Math Tools blog",
+              "url": "https://blog.math.tools/",
+              "desc": "A blog for anyone interested in mathematics."
+            },
+            {
+              "title": "Secret Blogging Seminar",
+              "url": "https://sbseminar.wordpress.com/",
+              "desc": "A group blog started by Berkeley PhD students."
+            },
+            {
+              "title": "Rigorous Trivialities",
+              "url": "https://rigtriv.wordpress.com/",
+              "desc": "A blog about mathematics, especially geometry."
+            },
+            {
+              "title": "John D. Cook's blog",
+              "url": "https://www.johndcook.com/blog/",
+              "desc": "Mathematics, statistics and computing."
+            },
+            {
+              "title": "Theorem of the Day",
+              "url": "https://www.theoremoftheday.org/",
+              "desc": "A new theorem every day."
+            },
+            {
+              "title": "Dan Ma's Topology Blog",
+              "url": "https://dantopology.wordpress.com/",
+              "desc": "Expository articles in general topology."
+            },
+            {
+              "title": "nLab: math blogs",
+              "url": "https://www.ncatlab.org/nlab/show/math+blogs",
+              "desc": "A list of mathematics blogs, forums and wikis."
+            },
+            {
+              "title": "The n-Category Café",
+              "url": "https://golem.ph.utexas.edu/category/",
+              "desc": "A group blog on mathematics, physics and philosophy."
+            },
+            {
+              "title": "David Mumford",
+              "url": "https://www.dam.brown.edu/people/mumford/blog.html",
+              "desc": "Archive of reprints, notes, talks and blog."
+            },
+            {
+              "title": "Math with Bad Drawings",
+              "url": "https://mathwithbaddrawings.com/",
+              "desc": "Lover of math. Bad at drawing."
+            },
+            {
+              "title": "MacTutor History of Mathematics",
+              "url": "https://mathshistory.st-andrews.ac.uk/",
+              "desc": "Biographies of more than 3000 mathematicians and essays on the history of mathematics."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organisations",
+      "title": "Organisations",
+      "blurb": "Societies and institutes.",
+      "groups": [
+        {
+          "links": [
+            {
+              "title": "American Mathematical Society (AMS)",
+              "url": "https://www.ams.org",
+              "desc": "Publishes MathSciNet, journals and the Notices."
+            },
+            {
+              "title": "Mathematical Association of America (MAA)",
+              "url": "https://www.maa.org/",
+              "desc": "Focused on undergraduate mathematics and its teaching."
+            },
+            {
+              "title": "Society for Industrial and Applied Mathematics (SIAM)",
+              "url": "https://www.siam.org/",
+              "desc": "Applied and computational mathematics."
+            },
+            {
+              "title": "SLMath (formerly MSRI)",
+              "url": "https://www.slmath.org/",
+              "desc": "Simons Laufer Mathematical Sciences Institute, Berkeley."
+            },
+            {
+              "title": "Fields Institute",
+              "url": "https://www.fields.utoronto.ca/",
+              "desc": "Research institute for the mathematical sciences, Toronto."
+            },
+            {
+              "title": "International Mathematical Union",
+              "url": "https://www.mathunion.org/",
+              "desc": "Runs the International Congress of Mathematicians and its prizes."
+            },
+            {
+              "title": "Indian Mathematical Society",
+              "url": "https://indianmathsoc.org/",
+              "desc": "Founded in 1907; publishes The Mathematics Student and its Journal."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "title": "Personal pages",
+      "blurb": "Homepages with excellent notes and resources.",
+      "groups": [
+        {
+          "links": [
+            {
+              "title": "Jacob Lurie",
+              "url": "https://www.math.ias.edu/~lurie/",
+              "desc": "School of Mathematics, Institute for Advanced Study."
+            },
+            {
+              "title": "Satyan Devadoss",
+              "url": "https://satyandevadoss.org/",
+              "desc": "Professor of mathematics and computer science, University of San Diego."
+            },
+            {
+              "title": "Dan Margalit",
+              "url": "https://margalit.droppages.net/",
+              "desc": "Department of Mathematics, Vanderbilt University."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

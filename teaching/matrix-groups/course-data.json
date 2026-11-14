@@ -1,0 +1,249 @@
+{
+  "courseCode": "MTH565",
+  "courseTitle": "Matrix Groups",
+  "semester": "Monsoon Semester 2025",
+  "schedule": [
+    {
+      "day": "Mon",
+      "time": "8:00–9:30"
+    },
+    {
+      "day": "Wed",
+      "time": "8:00–9:30"
+    },
+    {
+      "day": "Thu",
+      "time": "5:00–6:30"
+    }
+  ],
+  "location": "B 001, R&D Building, IIIT Delhi",
+  "grading": {
+    "Assignments": 10,
+    "Quizzes": 30,
+    "Presentation": 20,
+    "End Sem": 40
+  },
+  "references": [
+    {
+      "author": "Andrew Baker",
+      "title": "Matrix Groups: An Introduction to Lie Group Theory",
+      "publisher": "Springer, 2002"
+    },
+    {
+      "author": "Kristopher Tapp",
+      "title": "Matrix Groups for Undergraduates",
+      "publisher": "American Mathematical Society, 2016"
+    }
+  ],
+  "sections": {
+    "lectures": {
+      "items": [
+        {
+          "number": 1,
+          "title": "Review of linear algebra",
+          "file": null
+        }
+      ]
+    },
+    "homeworks": {
+      "items": [
+        {
+          "number": 1,
+          "description": "Review of linear algebra",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-01.pdf",
+          "solution": null
+        },
+        {
+          "number": 2,
+          "description": "Linear transformations and change of bases",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-02.pdf",
+          "solution": null
+        },
+        {
+          "number": 3,
+          "description": "Groups",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-03.pdf",
+          "solution": null
+        },
+        {
+          "number": 4,
+          "description": "Group and Field",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-04.pdf",
+          "solution": null
+        },
+        {
+          "number": 5,
+          "description": "Matrix groups over different fields",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-05.pdf",
+          "solution": null
+        },
+        {
+          "number": 6,
+          "description": "Topology of matrix groups",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-06.pdf",
+          "solution": null
+        },
+        {
+          "number": 7,
+          "description": "Orthogonal groups",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-07.pdf",
+          "solution": null
+        },
+        {
+          "number": 8,
+          "description": "Orthogonal groups",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-08.pdf",
+          "solution": null
+        },
+        {
+          "number": 9,
+          "description": "Matrix exponential and Lie algebra",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-09.pdf",
+          "solution": null
+        },
+        {
+          "number": 10,
+          "description": "Multivariable calculus",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-10.pdf",
+          "solution": null
+        },
+        {
+          "number": 11,
+          "description": "Manifolds",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-11.pdf",
+          "solution": null
+        },
+        {
+          "number": 12,
+          "description": "Adjoint representation",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-12.pdf",
+          "solution": null
+        },
+        {
+          "number": 13,
+          "description": "Adjoint representation and covering map",
+          "deadline": "No deadline, not graded",
+          "file": "homework/hw-13.pdf",
+          "solution": null
+        }
+      ]
+    },
+    "quizzes": {
+      "items": [
+        {
+          "number": 1,
+          "title": "Based on homework 1 and 2",
+          "date": "August 19, 2025",
+          "file": "quiz/quiz-01.pdf",
+          "solution": "quiz/quiz-01-sol.pdf"
+        },
+        {
+          "number": 2,
+          "title": "Based on homework 3, 4 and 5",
+          "date": "August 28, 2025",
+          "file": "quiz/quiz-02.pdf",
+          "solution": "quiz/quiz-02-sol.pdf"
+        },
+        {
+          "number": 3,
+          "title": "Based on homework 6",
+          "date": "September 04, 2025",
+          "file": "quiz/quiz-03.pdf",
+          "solution": "quiz/quiz-03-sol.pdf"
+        },
+        {
+          "number": 4,
+          "title": "Based on homework 7 and 8",
+          "date": "September 18, 2025",
+          "file": "quiz/quiz-04.pdf",
+          "solution": "quiz/quiz-04-sol.pdf"
+        },
+        {
+          "number": 5,
+          "title": "Based on homework 10",
+          "date": "October 09, 2025",
+          "file": "quiz/quiz-05.pdf",
+          "solution": null
+        },
+        {
+          "number": 6,
+          "title": "Based on homework 5",
+          "date": "October 16, 2025",
+          "file": "quiz/quiz-06.pdf",
+          "solution": null
+        },
+        {
+          "number": 7,
+          "title": "Based on homework 11",
+          "date": "October 30, 2025",
+          "file": "quiz/quiz-07.pdf",
+          "solution": null
+        },
+        {
+          "number": 8,
+          "title": "Based on homework 12 and 13",
+          "date": "November 13, 2025",
+          "file": "quiz/quiz-08.pdf",
+          "solution": null
+        }
+      ]
+    },
+    "presentations": {
+      "items": [
+        {
+          "title": "Determinant is real valued",
+          "description": "Presentation 1",
+          "file": "presentation/presentation-01.pdf"
+        },
+        {
+          "title": "Some matrix decompositions",
+          "description": "Presentation 2",
+          "file": "presentation/presentation-02.pdf"
+        },
+        {
+          "title": "Special orthogonal groups are path-connected",
+          "description": "Presentation 3",
+          "file": "presentation/presentation-03.pdf"
+        },
+        {
+          "title": "The distance function on orthogonal groups",
+          "description": "Presentation 4",
+          "file": "presentation/presentation-04.pdf"
+        },
+        {
+          "title": "Center in the general linear group",
+          "description": "Presentation 5",
+          "file": "presentation/presentation-05.pdf"
+        },
+        {
+          "title": "Matrix groups are manifolds",
+          "description": "Presentation 6",
+          "file": "presentation/presentation-06.pdf"
+        }
+      ]
+    },
+    "exams": {
+      "items": [
+        {
+          "title": "End Semester Exam",
+          "description": "Comprehensive: all chapters",
+          "date": "December 13, 2025",
+          "file": "exam/end-sem.pdf",
+          "solution": "exam/end-sem-sol.pdf"
+        }
+      ]
+    }
+  }
+}

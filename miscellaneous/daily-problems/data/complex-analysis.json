@@ -2391,6 +2391,19 @@
         "complex-numbers",
         "complex-variables-brown-and-churchill (1.3.7)"
       ]
+    },
+    {
+      "date": "2026-11-17",
+      "title": "Rouché: how many zeros of $z^5 + 3z + 1$ lie in $\\vert z \\vert \\lt 1$ and in $1 \\lt \\vert z \\vert \\lt 2$?",
+      "difficulty": "medium",
+      "problem": "Let $p(z) = z^5 + 3z + 1$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">How many zeros of $p$ (counted with multiplicity) lie in the disc $|z| \\lt 1$?</li>\n<li class=\"my-4\">How many lie in the annulus $1 \\lt |z| \\lt 2$?</li>\n<li class=\"my-4\">Show that the zero in $|z| \\lt 1$ is real and lies in $\\left( -\\tfrac{1}{2}, 0 \\right)$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\"><strong>Rouché's theorem:</strong> if $f, g$ are analytic on and inside a simple closed contour $C$ and $|g| \\lt |f|$ on $C$, then $f$ and $f + g$ have the same number of zeros inside $C$.</li>\n<li class=\"my-4\">On $|z| = 1$ the term $3z$ dominates; on $|z| = 2$ the term $z^5$ dominates.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> On $|z| = 1$ let $f(z) = 3z$ and $g(z) = z^5 + 1$. Then $|f(z)| = 3$ and $|g(z)| \\leq |z|^5 + 1 = 2 \\lt 3$. By Rouché's theorem, $p = f + g$ has as many zeros in $|z| \\lt 1$ as $3z$, namely <strong>one</strong>.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>No zeros on $|z| = 1$.</strong> There $|p(z)| \\geq |3z| - |z^5 + 1| \\geq 3 - 2 = 1 > 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> On $|z| = 2$ let $f(z) = z^5$ and $g(z) = 3z + 1$. Then $|f(z)| = 32$ and $|g(z)| \\leq 7 \\lt 32$, so $p$ has as many zeros in $|z| \\lt 2$ as $z^5$, namely five. The same estimate shows $p \\neq 0$ on $|z| = 2$. Since one zero is in $|z| \\lt 1$ and none is on $|z| = 1$, the annulus $1 \\lt |z| \\lt 2$ contains $5 - 1 = $ <strong>four</strong> zeros.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> The coefficients of $p$ are real, so non-real zeros come in conjugate pairs $z, \\bar z$, which have the same modulus. If the single zero in $|z| \\lt 1$ were non-real, its conjugate would be a second zero there, contradicting (a). So it is real. On the real line, $p(0) = 1 > 0$ and\n    \\[\n        p\\left( -\\tfrac{1}{2} \\right) = -\\tfrac{1}{32} - \\tfrac{3}{2} + 1 = -\\tfrac{17}{32} \\lt 0,\n    \\]\n    so by the intermediate value theorem $p$ has a zero in $\\left( -\\tfrac{1}{2}, 0 \\right)$, which lies in $|z| \\lt 1$ and is therefore that zero. (Numerically it is about $-0.3320$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Remark.</strong> Since $p'(x) = 5x^4 + 3 > 0$, this is the only real zero of $p$; the four zeros in the annulus form two conjugate pairs.</div>",
+      "tags": [
+        "complex-analysis",
+        "rouche-theorem",
+        "zeros"
+      ]
     }
   ]
 }

@@ -2624,6 +2624,20 @@
         "boundary-value-problem",
         "greens-function"
       ]
+    },
+    {
+      "date": "2026-11-20",
+      "title": "Solve $x' = 3x - 4y$, $y' = x - y$ (a repeated eigenvalue with one eigenvector)",
+      "difficulty": "medium",
+      "problem": "Solve the linear system\n    \\[\n        x'(t) = 3x - 4y, \\qquad y'(t) = x - y,\n    \\]\n    with $x(0) = 1$, $y(0) = 0$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Find the eigenvalues and eigenvectors of the coefficient matrix and explain why $e^{\\lambda t} v$ gives only one independent solution.</li>\n<li class=\"my-4\">Find the general solution and the solution of the initial value problem.</li>\n<li class=\"my-4\">Check your answer by eliminating $x$ to get a second order equation for $y$.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">The characteristic polynomial is $(\\lambda - 1)^2$. For a second solution try $e^{t}(t v + w)$ with $(A - I) w = v$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Write $X = (x, y)^T$ and $X' = AX$ with $A = \\begin{pmatrix} 3 & -4 \\\\ 1 & -1 \\end{pmatrix}$. Then\n    \\[\n        \\det(A - \\lambda I) = (3 - \\lambda)(-1 - \\lambda) + 4 = \\lambda^2 - 2\\lambda + 1 = (\\lambda - 1)^2,\n    \\]\n    so $\\lambda = 1$ is a double eigenvalue. $A - I = \\begin{pmatrix} 2 & -4 \\\\ 1 & -2 \\end{pmatrix}$ has rank $1$, so the eigenvectors are the multiples of $v = (2, 1)^T$. There is only one independent eigenvector, so $e^{t} v$ gives one solution and a second must be found differently.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Look for $X = e^{t}(t v + w)$. Then $X' = e^{t}(t v + v + w)$ and $AX = e^{t}(t A v + A w) = e^{t}(t v + A w)$, so we need $(A - I) w = v$:\n    \\[\n        2w_1 - 4w_2 = 2, \\quad w_1 - 2w_2 = 1, \\qquad \\text{e.g. } w = (1, 0)^T.\n    \\]\n    The general solution is\n    \\[\n        X(t) = c_1 e^{t} \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} + c_2 e^{t} \\begin{pmatrix} 2t + 1 \\\\ t \\end{pmatrix}.\n    \\]\n    At $t = 0$: $2c_1 + c_2 = 1$ and $c_1 = 0$, so $c_2 = 1$ and\n    \\[\n        x(t) = (2t + 1) e^{t}, \\qquad y(t) = t e^{t}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Check.</strong> $y' = (t + 1) e^{t}$ and $x - y = (t + 1) e^{t}$. Also $x' = (2t + 3) e^{t}$ and $3x - 4y = (6t + 3 - 4t) e^{t} = (2t + 3) e^{t}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> From the second equation $x = y' + y$, so $x' = y'' + y'$. Substituting into the first: $y'' + y' = 3(y' + y) - 4y$, i.e.\n    \\[\n        y'' - 2y' + y = 0,\n    \\]\n    with characteristic root $1$ (double). Hence $y = (a + bt) e^{t}$. The initial data give $y(0) = 0$ and $y'(0) = x(0) - y(0) = 1$, so $a = 0$, $b = 1$: $y = t e^{t}$ and $x = y' + y = (2t + 1) e^{t}$, as before.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Remark.</strong> In matrix form $X(t) = e^{tA} X(0)$ with $e^{tA} = e^{t}\\big( I + t(A - I) \\big)$, valid because $(A - I)^2 = 0$.</div>",
+      "tags": [
+        "differential-equations",
+        "ODE",
+        "system-of-odes",
+        "eigenvalues"
+      ]
     }
   ]
 }

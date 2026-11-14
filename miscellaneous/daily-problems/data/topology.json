@@ -2390,6 +2390,19 @@
         "topology",
         "topology-munkres (2.17.1)"
       ]
+    },
+    {
+      "date": "2026-11-19",
+      "title": "$\\mathbb{R}$ is not homeomorphic to $\\mathbb{R}^2$, and $[0, 1)$ is not homeomorphic to $(0, 1)$",
+      "difficulty": "medium",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that $\\mathbb{R}$ (with the usual topology) is not homeomorphic to $\\mathbb{R}^2$.</li>\n<li class=\"my-4\">Show that the subspaces $[0, 1)$ and $(0, 1)$ of $\\mathbb{R}$ are not homeomorphic.</li>\n<li class=\"my-4\">Is there a continuous bijection $[0, 1) \\to S^1$? Is it a homeomorphism?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $h : X \\to Y$ is a homeomorphism, then for every $x \\in X$ the restriction $X \\setminus \\{ x \\} \\to Y \\setminus \\{ h(x) \\}$ is also a homeomorphism.</li>\n<li class=\"my-4\">Removing a point disconnects $\\mathbb{R}$, but $\\mathbb{R}^2$ minus a point is still path connected. Count the points whose removal leaves a connected space.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Key fact.</strong> If $h : X \\to Y$ is a homeomorphism and $x \\in X$, then $h$ restricts to a homeomorphism $X \\setminus \\{ x \\} \\to Y \\setminus \\{ h(x) \\}$ (a bijection, continuous with continuous inverse, as restrictions of continuous maps to subspaces). Connectedness is preserved by homeomorphisms.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Suppose $h : \\mathbb{R} \\to \\mathbb{R}^2$ is a homeomorphism. Then $\\mathbb{R} \\setminus \\{ 0 \\} \\cong \\mathbb{R}^2 \\setminus \\{ h(0) \\}$. But $\\mathbb{R} \\setminus \\{ 0 \\} = (-\\infty, 0) \\cup (0, \\infty)$ is disconnected (two disjoint nonempty open sets), while $\\mathbb{R}^2 \\setminus \\{ p \\}$ is path connected: any two points $x, y \\neq p$ can be joined by a path made of at most two line segments avoiding $p$ (if the segment $[x, y]$ passes through $p$, go via a point $z$ off the line through $x$ and $y$). A path connected space is connected, so this is a contradiction.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Suppose $h : [0, 1) \\to (0, 1)$ is a homeomorphism. Removing $0$ from $[0, 1)$ leaves $(0, 1)$, which is connected. So $(0, 1) \\setminus \\{ h(0) \\}$ would be connected. But removing any point $c$ from $(0, 1)$ leaves $(0, c) \\cup (c, 1)$, a union of two disjoint nonempty open sets, which is disconnected. Contradiction. (In words: $[0, 1)$ has a point whose removal keeps it connected; $(0, 1)$ has none.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Yes: $f(t) = (\\cos 2\\pi t, \\sin 2\\pi t)$ is a continuous bijection $[0, 1) \\to S^1$. It is <strong>not</strong> a homeomorphism. For example, $S^1$ is compact while $[0, 1)$ is not (the open cover $\\{ [0, 1 - 1/n) \\}$ has no finite subcover), and compactness is preserved by homeomorphisms. Alternatively, removing any point from $S^1$ leaves a connected space (an open arc), while removing $\\tfrac{1}{2}$ from $[0, 1)$ does not.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Remark.</strong> The same idea does not distinguish $\\mathbb{R}^2$ from $\\mathbb{R}^3$, since removing a point leaves both connected; that needs tools such as the fundamental group ($\\mathbb{R}^2 \\setminus \\{ p \\}$ is not simply connected, $\\mathbb{R}^3 \\setminus \\{ p \\}$ is).</div>",
+      "tags": [
+        "topology",
+        "connectedness",
+        "homeomorphism"
+      ]
     }
   ]
 }

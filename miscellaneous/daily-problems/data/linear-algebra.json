@@ -2487,6 +2487,19 @@
         "coordinates",
         "linear-algebra-hoffman-kunze (2.4.6)"
       ]
+    },
+    {
+      "date": "2026-11-15",
+      "title": "Sylvester's rank inequality: $\\operatorname{rank}(AB) \\geq \\operatorname{rank} A + \\operatorname{rank} B - n$",
+      "difficulty": "medium",
+      "problem": "Let $A$ be an $m \\times n$ matrix and $B$ an $n \\times p$ matrix over a field $F$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Prove <strong>Sylvester's rank inequality</strong>\n    \\[\n        \\operatorname{rank}(AB) \\geq \\operatorname{rank} A + \\operatorname{rank} B - n.\n    \\]</li>\n<li class=\"my-4\">Deduce that if $A$ and $B$ are $n \\times n$ matrices with $AB = 0$, then $\\operatorname{rank} A + \\operatorname{rank} B \\leq n$.</li>\n<li class=\"my-4\">Show that if $A$ is an $n \\times n$ matrix with $A^2 = 0$, then $\\operatorname{rank} A \\leq n/2$, and give an example with $n = 4$ where equality holds.</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Let $W = \\{ Bx : x \\in F^p \\}$ be the column space of $B$. Then the column space of $AB$ is $A(W)$.</li>\n<li class=\"my-4\">Apply rank–nullity to $A$ restricted to $W$: its kernel is $W \\cap \\ker A$, which has dimension at most $\\dim \\ker A = n - \\operatorname{rank} A$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $W = \\operatorname{col}(B) = \\{ Bx : x \\in F^p \\} \\subseteq F^n$, so $\\dim W = \\operatorname{rank} B$. Every column of $AB$ is $A$ applied to a column of $B$, and conversely $ABx = A(Bx)$, so\n    \\[\n        \\operatorname{col}(AB) = A(W) = \\{ Aw : w \\in W \\}.\n    \\]</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Consider the linear map $T : W \\to F^m$, $T(w) = Aw$. Its image is $A(W)$ and its kernel is $W \\cap \\ker A$. By rank–nullity for $T$,\n    \\[\n        \\operatorname{rank}(AB) = \\dim A(W) = \\dim W - \\dim (W \\cap \\ker A) \\geq \\operatorname{rank} B - \\dim \\ker A.\n    \\]\n    By rank–nullity for $A$, $\\dim \\ker A = n - \\operatorname{rank} A$. Hence $\\operatorname{rank}(AB) \\geq \\operatorname{rank} A + \\operatorname{rank} B - n$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> If $AB = 0$, the left side is $0$, so $0 \\geq \\operatorname{rank} A + \\operatorname{rank} B - n$. (Equivalently: $AB = 0$ means $\\operatorname{col}(B) \\subseteq \\ker A$, so $\\operatorname{rank} B \\leq n - \\operatorname{rank} A$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> Take $B = A$ in (b): $2 \\operatorname{rank} A \\leq n$. For $n = 4$, let $A$ send $e_3 \\mapsto e_1$, $e_4 \\mapsto e_2$ and $e_1, e_2 \\mapsto 0$:\n    \\[\n        A = \\begin{pmatrix} 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & 1 \\\\ 0 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 0 \\end{pmatrix}.\n    \\]\n    Then $A^2 = 0$ (it sends everything to $\\operatorname{span}\\{ e_1, e_2 \\}$, which it kills) and $\\operatorname{rank} A = 2 = n/2$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Remark.</strong> The inequality is sharp in general: for $A = \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}$ and $B = \\begin{pmatrix} 0 & 0 \\\\ 0 & 1 \\end{pmatrix}$ we get $AB = 0$ and $\\operatorname{rank} A + \\operatorname{rank} B - 2 = 0$.</div>",
+      "tags": [
+        "linear-algebra",
+        "rank",
+        "rank-nullity"
+      ]
     }
   ]
 }

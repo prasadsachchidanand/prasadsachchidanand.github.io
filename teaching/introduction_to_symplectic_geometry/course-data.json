@@ -1,0 +1,49 @@
+{
+  "courseCode": "",
+  "courseTitle": "Introduction to Symplectic Geometry",
+  "semester": "Spring Semester 2024",
+  "schedule": [],
+  "location": "Jilin University, China",
+  "about": {
+    "text": "Symplectic geometry studies manifolds equipped with a closed, non-degenerate two-form, the structure behind Hamiltonian mechanics. This course covers the mathematical side of the subject and builds up to a proof of the Darboux theorem: a review of differential geometry (vector fields, flows and differential forms), symplectic linear algebra, symplectic manifolds, and the Darboux theorem. It is suitable for both undergraduate and graduate students."
+  },
+  "documents": [
+    {
+      "title": "Course introduction",
+      "description": "Overview, prerequisites and references",
+      "file": "Course_introduction.pdf"
+    },
+    {
+      "title": "Lecture notes",
+      "description": "The complete notes for the course",
+      "file": "introduction-to-symplectic_geometry.pdf"
+    }
+  ],
+  "references": [
+    {
+      "author": "Dusa McDuff and Dietmar Salamon",
+      "title": "Introduction to Symplectic Topology",
+      "publisher": "Oxford University Press, 3rd edition, 2017",
+      "note": "A big book and a good reference"
+    },
+    {
+      "author": "Alan Weinstein",
+      "title": "Lectures on Symplectic Manifolds",
+      "publisher": "CBMS Regional Conference Series in Mathematics 29, AMS, 1977",
+      "note": "A concise reference"
+    },
+    {
+      "author": "Ana Cannas da Silva",
+      "title": "Lectures on Symplectic Geometry",
+      "publisher": "Lecture Notes in Mathematics 1764, Springer, 2001",
+      "note": "Easy to read and concise"
+    },
+    {
+      "author": "Mikio Nakahara",
+      "title": "Geometry, Topology and Physics",
+      "publisher": "Institute of Physics, 2nd edition, 2003",
+      "note": "For the physics and the mathematical preliminaries"
+    }
+  ],
+  "sections": {}
+}

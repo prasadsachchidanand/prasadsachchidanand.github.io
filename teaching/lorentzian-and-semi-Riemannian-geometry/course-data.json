@@ -1,0 +1,55 @@
+{
+  "courseCode": "",
+  "courseTitle": "Lorentzian and Semi-Riemannian Geometry",
+  "semester": "Summer Semester 2025",
+  "schedule": [
+    {
+      "day": "Fri",
+      "time": "12:15–13:45"
+    }
+  ],
+  "location": "Room SZ, Mathematisches Institut, University of Göttingen",
+  "about": {
+    "text": "An introduction to Lorentzian and semi-Riemannian geometry, the geometry behind general relativity: causal structure, geodesics and completeness, and the global theory of Lorentzian manifolds. In the second half of the course, students studied a paper or topic in groups and presented it in class."
+  },
+  "documents": [
+    {
+      "title": "Lecture notes",
+      "description": "The complete notes for the course",
+      "file": "lorentizan-geometry.pdf"
+    },
+    {
+      "title": "Course information",
+      "description": "Schedule, evaluation and the list of projects",
+      "file": "course-information.pdf"
+    },
+    {
+      "title": "Presentation schedule",
+      "description": "Student project presentations, 9–10 July 2025",
+      "file": "Presentation-Schedule.pdf"
+    }
+  ],
+  "gradingNotes": [
+    "Evaluation is by a project: each group is assigned a paper, presents it in class, and submits a detailed write-up. Both the presentation and the report count."
+  ],
+  "references": [
+    {
+      "author": "John K. Beem, Paul E. Ehrlich and Kevin L. Easley",
+      "title": "Global Lorentzian Geometry"
+    },
+    {
+      "author": "Barrett O'Neill",
+      "title": "Semi-Riemannian Geometry with Applications to Relativity"
+    },
+    {
+      "author": "Roger Penrose",
+      "title": "Techniques of Differential Topology in Relativity"
+    },
+    {
+      "author": "Christian Bär",
+      "title": "Lorentzian Geometry (lecture notes)",
+      "link": "https://www.math.uni-potsdam.de/fileadmin/user_upload/Prof-Geometrie/Dokumente/Lehre/Veranstaltungen/WS0405-SS08/LorentzianGeometryEnglish13Jan2020.pdf"
+    }
+  ],
+  "sections": {}
+}

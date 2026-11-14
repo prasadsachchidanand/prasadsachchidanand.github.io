@@ -1,0 +1,248 @@
+{
+  "updated": "2026-11-14",
+  "sections": [
+    {
+      "id": "us",
+      "title": "Universities in the US",
+      "blurb": "",
+      "compact": true,
+      "groups": [
+        {
+          "links": [
+            {
+              "title": "University of Alabama at Birmingham",
+              "url": "https://www.uab.edu/cas/mathematics/graduate/phd/qualifying-exams",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of Arizona",
+              "url": "https://www.math.arizona.edu/academics/grads/requirements/qualifying-exams",
+              "desc": "PhD Qualifying Exams"
+            },
+            {
+              "title": "Boston University",
+              "url": "https://www.bu.edu/math/pure-and-applied-mathematics/",
+              "desc": "Preliminary Exams"
+            },
+            {
+              "title": "University of California-Berkeley",
+              "url": "http://math.berkeley.edu/programs/graduate/prelim-exams",
+              "desc": "Preliminary Examinations"
+            },
+            {
+              "title": "University of California-Davis",
+              "url": "https://www.math.ucdavis.edu/grad/current/prelim-exams",
+              "desc": "Preliminary Exams"
+            },
+            {
+              "title": "University of California-Los Angeles",
+              "url": "https://ww3.math.ucla.edu/past-qualifying-exams/",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of California-Riverside",
+              "url": "https://mathdept.ucr.edu/grad/grad-exams.html",
+              "desc": "Graduate Exams"
+            },
+            {
+              "title": "University of Colorado-Boulder",
+              "url": "https://www.colorado.edu/math/graduate-program/graduate-resources/preliminary-exams",
+              "desc": "Prelim Exams"
+            },
+            {
+              "title": "Columbia University",
+              "url": "http://www.math.columbia.edu/department/qualifiers/",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of Connecticut",
+              "url": "https://math.uconn.edu/degree-programs/graduate/preliminary-exams/",
+              "desc": "Prelim Exams"
+            },
+            {
+              "title": "University of Florida",
+              "url": "https://gma.math.ufl.edu/past-exams/",
+              "desc": "Graduate Exams"
+            },
+            {
+              "title": "University of Georgia-Athens",
+              "url": "https://www.math.uga.edu/past-qualifying-exams",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "Harvard University",
+              "url": "http://www.math.harvard.edu/graduate/index.html#past",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of Illinois at Urbana-Champaign",
+              "url": "https://math.illinois.edu/academics/graduate-program/coursework-and-exams/study-comp-exams",
+              "desc": "Comprehensive Exams"
+            },
+            {
+              "title": "Indiana University-Bloomington",
+              "url": "https://math.indiana.edu/student-portal/graduate/phd/exams/tier-1-exams/index.html",
+              "desc": "Tier I Examinations"
+            },
+            {
+              "title": "University of Iowa",
+              "url": "https://math.uiowa.edu/graduate-program/phd-qualifying-and-ms-comprehensive-exams",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "Iowa State University",
+              "url": "https://math.iastate.edu/graduate-qualifying-exam-archives/",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "Johns Hopkins University",
+              "url": "https://mathematics.jhu.edu/graduate/qualifying-exams/",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "Louisiana State University",
+              "url": "https://www.math.lsu.edu/grad/pastcomps",
+              "desc": "Comprehensive Exams"
+            },
+            {
+              "title": "University of Maryland",
+              "url": "https://www-math.umd.edu/quals.html",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of Massachusetts-Amherst",
+              "url": "http://www.math.umass.edu/Grad/exams.html",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of Michigan-Ann Arbor",
+              "url": "https://sites.lsa.umich.edu/math-graduates/resources/student-resources/curriculum-and-milestones/qualifying-review/",
+              "desc": "Qualifying Review Examinations"
+            },
+            {
+              "title": "University of Minnesota",
+              "url": "https://math.umn.edu/requirements/previous-written-exams",
+              "desc": "Prelim Exams"
+            },
+            {
+              "title": "University of Missouri-Columbia",
+              "url": "https://www.math.missouri.edu/grad/qualifying-exams",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of Nebraska-Lincoln",
+              "url": "https://math.unl.edu/phd-qualifying-masters-comprehensive-exams/",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of New Mexico",
+              "url": "https://math.unm.edu/graduate/past-graduate-student-qualifying-exams",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of North Carolina at Chapel Hill",
+              "url": "https://math.unc.edu/graduate/past-comprehensive-ph-d-exams/",
+              "desc": "Comprehensive PhD Exams (login required)"
+            },
+            {
+              "title": "Northeastern University",
+              "url": "https://cos.northeastern.edu/mathematics/academics/graduate/phd-mathematics/qualifying-examinations/",
+              "desc": "Qualifying Examinations"
+            },
+            {
+              "title": "Northwestern University",
+              "url": "https://www.math.northwestern.edu/graduate/prelims/",
+              "desc": "Preliminary Examinations"
+            },
+            {
+              "title": "Ohio State University",
+              "url": "https://math.osu.edu/grad/current/phd/quals",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of Oklahoma",
+              "url": "https://math.ou.edu/graduate/quals",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "Pennsylvania State University",
+              "url": "https://math.psu.edu/graduate/qualifying-exams",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of Pittsburgh",
+              "url": "https://www.mathematics.pitt.edu/graduate/graduate-handbook/sample-preliminary-exams",
+              "desc": "Preliminary Exams"
+            },
+            {
+              "title": "Purdue University",
+              "url": "http://www.math.purdue.edu/academic/grad/qualexams/",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "University of Rochester",
+              "url": "http://www.sas.rochester.edu/mth/graduate/phd.html#prelims",
+              "desc": "Preliminary Exams"
+            },
+            {
+              "title": "Rutgers University-New Brunswick",
+              "url": "https://www.math.rutgers.edu/academics/graduate-program/program-requirements/requirements-for-the-doctoral-degree/written-qualifying-exam",
+              "desc": "Written qualifying exam",
+              "also": [
+                {
+                  "label": "Oral qualifying exam",
+                  "url": "https://www.math.rutgers.edu/academics/graduate-program/program-requirements/requirements-for-the-doctoral-degree/oral-qualifying-exam"
+                }
+              ]
+            },
+            {
+              "title": "Stanford University",
+              "url": "https://mathematics.stanford.edu/academics/graduate/phd-program/phd-qualifying-exams/",
+              "desc": "Qualifying Exams"
+            },
+            {
+              "title": "SUNY Albany",
+              "url": "https://www.albany.edu/math/graduate-resources",
+              "desc": "PhD Preliminary Examinations"
+            },
+            {
+              "title": "Syracuse University",
+              "url": "http://researchguides.library.syr.edu/mathexams",
+              "desc": "Prelim and Qualifying Exams"
+            },
+            {
+              "title": "Temple University",
+              "url": "https://math.temple.edu/grad/current/exams/",
+              "desc": "PhD Exams"
+            },
+            {
+              "title": "Texas A & M University",
+              "url": "https://artsci.tamu.edu/mathematics/academics/graduate/phd/qualifying-exams.html",
+              "desc": "Qualifying Examinations"
+            },
+            {
+              "title": "University of Texas at Austin",
+              "url": "https://web.ma.utexas.edu/academics/graduate/prelims/old_exams/",
+              "desc": "Preliminary Exams"
+            },
+            {
+              "title": "University of Utah",
+              "url": "https://quals.math.utah.edu/",
+              "desc": "Qualifying Examinations"
+            },
+            {
+              "title": "University of Washington",
+              "url": "https://math.washington.edu/past-phd-preliminary-exams",
+              "desc": "Preliminary Examinations"
+            },
+            {
+              "title": "University of Wisconsin-Madison",
+              "url": "https://math.wisc.edu/graduate/current-phd/qualifying-exams/",
+              "desc": "Qualifying Exams"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
