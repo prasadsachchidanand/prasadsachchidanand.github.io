@@ -821,7 +821,6 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  <span class=\"text-lg text-red-600\"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>\n</div>",
       "tags": [
         "abstract-algebra",
-        "abstratc-algebra",
         "gate-2024",
         "field-theory"
       ]
@@ -846,7 +845,6 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  Let us assume that $o(a) = m$, $o(b) = n$ and $o(ab) = k$. Then,\n  \\[\n      a^m = e = b^n = (ab)^k.\n  \\]\n  Since $a$ and $b$ commutes, we have\n  \\begin{align*}\n      (ab)^k = a^k b^k & \\implies a^k b^k = e \\\\\n                       & \\implies a^k = b^{-k} \\\\\n                       & \\implies a^{nk} = b^{-nk} = e \\\\\n                       & \\implies m \\mid nk \\\\\n                       & \\implies m \\mid k \\quad (\\text{ since } \\gcd (m,n) = 1).\n  \\end{align*}\n</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  Similarly,\n  \\begin{align*}\n      b^k = a^{-k} & \\implies b^{mk} = a^{-mk} = e \\\\\n                   & \\implies n \\mid mk \\\\\n                   & \\implies n \\mid k .\n  \\end{align*}\n  Since $\\gcd (m,n) = 1$ we must have $mn \\mid k$.\n  <br><br>\n  We also have\n  \\begin{align*}\n      (ab)^ {mn} = a^{mn} b^{mn} = e \\implies k \\mid mn.\n  \\end{align*}\n  Since $m,n$ and $k$ are positive integers, we have $mn = k$ and therefore, we proved that\n  \\[\n      o(ab) =  o(a) o(b).\n  \\]\n</div>",
       "tags": [
         "abstract-algebra",
-        "abstratc-algebra",
         "group-theory"
       ]
     },
@@ -858,7 +856,6 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  Let\n  \\[\n      A =\n      \\begin{bmatrix}\n          a + \\iota b & c + \\iota d  \\\\\n          -c + \\iota d & a - \\iota b  \\\\\n      \\end{bmatrix}\n  \\]\n  be a unit in $H$. Therefore, $A^{-1} \\in H$. Since $A^{-1} $ exists, the determinant of $A$ must be nonzero, that is, $a^2 + b^2 + c^2 + d^2 \\neq 0$. Note that\n  \\[\n      A^{-1} = \\frac{1}{a^2 + b^2 + c^2 + d^2}\n      \\begin{bmatrix}\n          a - \\iota b & -c - \\iota d  \\\\\n          c - \\iota d & a + \\iota b  \\\\\n      \\end{bmatrix} \\in H.\n  \\]\n</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  So $A^{-1} \\in H \\iff a^2 + b^2 + c^2 + d^2 \\in \\mathbb{Z} $. Since $a,b,c,d\\in \\mathbb{Z} $, the following are the possibilities.\n  \\begin{align*}\n      a = \\pm 1,\\ b = c = d = 0 \\\\\n      b = \\pm 1,\\ a = c = d = 0 \\\\\n      c = \\pm 1,\\ a = b = d = 0 \\\\\n      d = \\pm 1,\\ a = b = c = 0.\n  \\end{align*}\n  Therefore, the units in $H$ are\n  \\begin{align*}\n      \\begin{bmatrix}\n          \\pm 1 &  0 \\\\\n          0 & \\pm 1 \\\\\n      \\end{bmatrix},\n      \\begin{bmatrix}\n          \\pm \\iota  & 0 \\\\\n          0 & \\mp \\iota \\\\\n      \\end{bmatrix},\n      \\begin{bmatrix}\n          0 &  \\pm 1 \\\\\n          \\mp 1 & 0  \\\\\n      \\end{bmatrix},\n      \\begin{bmatrix}\n          0 & \\pm \\iota  \\\\\n          \\pm \\iota & 0\\\\\n      \\end{bmatrix}.\n  \\end{align*}\n</div>",
       "tags": [
         "abstract-algebra",
-        "abstratc-algebra",
         "ring-theory"
       ]
     },
@@ -870,7 +867,6 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  Since $\\mathbb{Z} _5$ is a commutative ring, $\\mathbb{Z} _5[x]$ is also a commutative ring. We just need to show that it does not have a zero divisor. That is, if $p(x), q(x) \\in \\mathbb{Z} _5[x]$ such that\n  \\[\n      p(x) q(x) = 0 \\implies p(x) = 0 \\text{ or } q(x) = 0.\n  \\]\n  We will show that if $p(x) \\neq 0$ and $q(x) \\neq 0$, then $p(x) q(x) \\neq 0$. Let\n  \\begin{align*}\n      & p(x) = a_0 + a_1 x + a_2 x^2 + \\dots + a_m x^m, a_i \\in \\mathbb{Z} _5 \\text{ and } a_m \\neq 0 \\\\\n      & q(x) = b_0 + b_1 x + b_2 x^2 + \\dots + b_n x^n, b_i \\in \\mathbb{Z} _5 \\text{ and } b_n \\neq 0.\n  \\end{align*}\n  Then\n  \\begin{align*}\n      p(x) q(x) = a_0 b_0 + \\dots + a_m b_n x^{m + n}.\n  \\end{align*}\n  Since $a_m , b_n \\in \\mathbb{Z} _5$, $a_m, b_n$ both are nonzero and $\\mathbb{Z} _5$ is an integral domain (it is a filed), so $a_m b_n \\neq 0$. Thus, $p(x) q(x) \\neq 0$. Hence, $\\mathbb{Z} _5[x]$ is an integral domain.\n</div>",
       "tags": [
         "abstract-algebra",
-        "abstratc-algebra",
         "ring-theory"
       ]
     },
@@ -1437,7 +1433,6 @@
       "tags": [
         "abstract-algebra",
         "group-theory",
-        "abstract-algebra-herstein-(2.3.1)",
         "abstract-algebra-herstein"
       ]
     },
@@ -1450,7 +1445,6 @@
       "tags": [
         "abstract-algebra",
         "group-theory",
-        "herstein-abstract-algebra-(2.3.2)",
         "abstract-algebra-herstein"
       ]
     },
@@ -1463,7 +1457,6 @@
       "tags": [
         "abstract-algebra",
         "group-theory",
-        "herstein-abstract-algebra-(2.3.3)",
         "abstract-algebra-herstein"
       ]
     },

@@ -177,6 +177,53 @@ const subcategoryToCategoryMap = {
     'topics-in-algebra-herstein': 'book-solution',
     'complex-analysis-gamelin': 'book-solution',
     'complex-variables-brown-and-churchill': 'book-solution',
+
+    // ---- added 2026-11-14: topic tags that had no category yet ----
+    // linear algebra
+    'annihilator': 'linear-algebra', 'cayley-hamilton': 'linear-algebra', 'determinant': 'linear-algebra',
+    'dual-basis': 'linear-algebra', 'inverse': 'linear-algebra', 'isomorphism': 'linear-algebra',
+    'linear-functional': 'linear-algebra', 'matrices': 'linear-algebra', 'matrix-representation': 'linear-algebra',
+    'nilpotent': 'linear-algebra', 'null-space': 'linear-algebra', 'projection': 'linear-algebra',
+    'rank': 'linear-algebra', 'rank-nullity': 'linear-algebra', 'similar-matrices': 'linear-algebra',
+    'trace': 'linear-algebra',
+    // real analysis
+    'archimedean-property': 'real-analysis', 'differentiability': 'real-analysis', 'differentiation': 'real-analysis',
+    'intermediate-value-theorem': 'real-analysis', 'intervals': 'real-analysis', 'limits': 'real-analysis',
+    'mean-value-theorem': 'real-analysis', 'sequence': 'real-analysis', 'series': 'real-analysis',
+    'squeeze-theorem': 'real-analysis', 'uniform-convergence': 'real-analysis', 'inequalities': 'real-analysis',
+    // complex analysis
+    'analytic-functions': 'complex-analysis', 'branch': 'complex-analysis', 'conformal-mapping': 'complex-analysis',
+    'elementary-functions': 'complex-analysis', 'harmonic-function': 'complex-analysis', 'laurent-series': 'complex-analysis',
+    'liouville-theorem': 'complex-analysis', 'maximum-modulus-principle': 'complex-analysis',
+    'morera-theorem': 'complex-analysis', 'power-series': 'complex-analysis', 'roots-of-unity': 'complex-analysis',
+    'rouche-theorem': 'complex-analysis', 'zeros': 'complex-analysis',
+    // abstract algebra
+    'abelian-group': 'abstract-algebra', 'center-of-a-group': 'abstract-algebra', 'conjugacy': 'abstract-algebra',
+    'cosets': 'abstract-algebra', 'dihedral-group': 'abstract-algebra', 'equivalence-relation': 'abstract-algebra',
+    'group-axioms': 'abstract-algebra', 'order': 'abstract-algebra', 'permutations': 'abstract-algebra',
+    'symmetric-group': 'abstract-algebra',
+    // topology
+    'closed-sets': 'topology', 'closure': 'topology', 'compactness': 'topology',
+    'countability-axioms': 'topology', 'order-topology': 'topology',
+    // differential equations
+    'applications': 'differential-equation', 'boundary-value-problem': 'differential-equation',
+    'cauchy-euler': 'differential-equation', 'change-of-variables': 'differential-equation',
+    'classification': 'differential-equation', 'constant-coefficients': 'differential-equation',
+    'exact-equation': 'differential-equation', 'existence-uniqueness': 'differential-equation',
+    'frobenius': 'differential-equation', 'greens-function': 'differential-equation',
+    'homogeneous-equation': 'differential-equation', 'integral-equation': 'differential-equation',
+    'integrating-factor': 'differential-equation', 'laplace-equation': 'differential-equation',
+    'linear-equation': 'differential-equation', 'nonlinear-first-order': 'differential-equation',
+    'orthogonal-trajectories': 'differential-equation', 'reduction-of-order': 'differential-equation',
+    'separable': 'differential-equation', 'separation-of-variables': 'differential-equation',
+    'stability': 'differential-equation', 'sturm-theory': 'differential-equation',
+    'undetermined-coefficients': 'differential-equation', 'variation-of-parameters': 'differential-equation',
+    'wronskian': 'differential-equation',
+    // miscellaneous
+    'axiom-of-choice': 'miscellaneous', 'cardinality': 'miscellaneous', 'cartesian-product': 'miscellaneous',
+    'countable-sets': 'miscellaneous', 'field-axioms': 'miscellaneous', 'finite-sets': 'miscellaneous',
+    'induction': 'miscellaneous', 'order-axioms': 'miscellaneous', 'order-relations': 'miscellaneous',
+    'power-set': 'miscellaneous',
 };
 
 // ---- resolve a tag slug to its category id --------------------------------

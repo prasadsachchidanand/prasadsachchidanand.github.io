@@ -1332,8 +1332,7 @@
       "tags": [
         "linear-algebra",
         "row-reduction",
-        "hoffman-kunze-(section-1.4)",
-        "linear-algebra-hoffman-kunze"
+        "linear-algebra-hoffman-kunze (1.4.1)"
       ]
     },
     {
@@ -1345,8 +1344,7 @@
       "tags": [
         "linear-algebra",
         "row-reduction",
-        "hoffman-kunze-(section-1.4)",
-        "linear-algebra-hoffman-kunze"
+        "linear-algebra-hoffman-kunze (1.4.6)"
       ]
     },
     {
@@ -1369,8 +1367,7 @@
       "tags": [
         "linear-algebra",
         "row-reduction",
-        "hoffman-kunze-(section-1.4)",
-        "linear-algebra-hoffman-kunze"
+        "linear-algebra-hoffman-kunze (1.4.8)"
       ]
     },
     {
@@ -1471,8 +1468,7 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  We will use elementary row operations on the coefficient matrix to solve the problem. Note that the coefficient matrix is\n  \\begin{align*}\n      A = \\begin{bmatrix}\n          1 - \\iota & -\\iota \\\\\n          2 & 1 - \\iota \\\\\n      \\end{bmatrix}.\n  \\end{align*}\n  Using elementary row operations, we have\n  \\begin{align*}\n      \\begin{bmatrix}\n          1 - \\iota & -\\iota \\\\\n          2 & 1 - \\iota \\\\\n      \\end{bmatrix} & \\xrightarrow{R_1 \\leftrightarrow R_2}\n      \\begin{bmatrix}\n          2 &  1 - \\iota \\\\\n          1 - \\iota & -\\iota \\\\\n      \\end{bmatrix} \\\\\n      & \\xrightarrow{R_1 \\rightarrow \\frac{R_1}{2}}\n      \\begin{bmatrix}\n          1 &  \\frac{1}{2} - \\frac{\\iota}{2} \\\\\n          1 - \\iota & -\\iota \\\\\n      \\end{bmatrix}  \\\\\n      & \\xrightarrow{R_2 \\rightarrow R_2 - (1 - \\iota ) R_1}\n      \\begin{bmatrix}\n          1 &  \\frac{1}{2} - \\frac{\\iota}{2}\\\\\n          0 & 0 \\\\\n      \\end{bmatrix} .\n  \\end{align*}\n  Thus, the given system is equivalent to the following equation\n  \\begin{align*}\n      x_1 + x_2 \\left( \\frac{1}{2} - \\frac{\\iota}{2}  \\right)  = 0 \\implies x_1 = -x_2 \\left( \\frac{1}{2} - \\frac{\\iota}{2}  \\right).\n  \\end{align*}\n  Therefore, the solution set is\n  \\[\n      \\mathcal{S} = \\left\\{ x_1 = (\\iota - 1) \\alpha , x_2 = 2\\alpha : \\alpha \\in \\mathbb{C}   \\right\\} .\n  \\]\n</div>",
       "tags": [
         "linear-algebra",
-        "hoffman-kunze-(problem-1.3.1)",
-        "linear-algebra-hoffman-kunze"
+        "linear-algebra-hoffman-kunze (1.3.1)"
       ]
     },
     {
@@ -1906,7 +1902,7 @@
         "linear-algebra",
         "row-reduction",
         "basis",
-        "linear-algebra-hoffman-kunze (problem 2.6.6)"
+        "linear-algebra-hoffman-kunze (2.6.6)"
       ]
     },
     {

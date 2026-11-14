@@ -768,9 +768,8 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  We recall that\n  \\begin{align*}\n      \\frac{\\partial f}{\\partial x} (a,b) = \\lim_{h \\to 0} \\frac{f(a + h, b) - f(a,b)}{h} \\\\[2ex]\n      \\frac{\\partial f}{\\partial y} (a,b) = \\lim_{k \\to 0} \\frac{f(a, b + k) - f(a,b)}{k}.\n  \\end{align*}\n</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  Note the function is continuous and differentiable everywhere other that $(0,0)$. We need to check at $(0,0)$. So all the partial derivatives exist at $(a,b)$ if $(a,b) \\neq (0,0)$. Let us compute the partial derivatives at $(0,0)$.\n  \\begin{align*}\n      \\frac{\\partial f}{\\partial y} (0,0) & = \\lim_{k \\to 0} \\frac{f(0, k) - f(0,0)}{k} \\\\\n      & = \\lim_{k \\to 0} \\frac{0 - 0}{k^3} = 0.\n  \\end{align*}\n  Similarly,\n  \\begin{align*}\n      \\frac{\\partial f}{\\partial x} (0,0) & = \\lim_{h \\to 0} \\frac{f(0, k) - f(0,0)}{h} \\\\\n      & = \\lim_{h \\to 0} \\frac{0 - 0}{h^2} = 0.\n  \\end{align*}\n</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  For other points, we can compute the partial derivative as usual\n  \\begin{align*}\n      \\frac{\\partial f}{\\partial x} & =\n      \\begin{cases}\n          \\dfrac{\\partial }{\\partial x} \\left( \\frac{xy^2}{x + y^2} \\right)  , &\\text{ if }  (x,y) \\neq (0,0);\\\\\n          0, &\\text{ if } (x,y) = (0,0).\n      \\end{cases} \\\\[2ex]\n      & = \\begin{cases}\n          \\dfrac{y^2(x + y^2) - xy^2 (1)}{((x + y^2)^2}, &\\text{ if }  (x,y) \\neq (0,0);\\\\\n          0, &\\text{ if } (x,y) = (0,0).\n      \\end{cases} \\\\[2ex]\n      & = \\begin{cases}\n          \\dfrac{y^4}{(x + y^2)^2}, &\\text{ if } (x,y) \\neq (0,0) ;\\\\\n          0, &\\text{ if } (x,y) = (0,0).\n      \\end{cases}\n  \\end{align*}\n  Similarly,\n  \\begin{align*}\n      \\frac{\\partial f}{\\partial y} & =\n      \\begin{cases}\n          \\dfrac{\\partial }{\\partial y} \\left( \\frac{xy^2}{x + y^2} \\right)  , &\\text{ if }  (x,y) \\neq (0,0);\\\\\n          0, &\\text{ if } (x,y) = (0,0).\n      \\end{cases} \\\\[2ex]\n      & = \\begin{cases}\n          \\dfrac{2xy(x + y^2) - xy^2 (2y)}{((x + y^2)^2}, &\\text{ if }  (x,y) \\neq (0,0);\\\\\n          0, &\\text{ if } (x,y) = (0,0).\n      \\end{cases} \\\\[2ex]\n      & = \\begin{cases}\n          \\dfrac{2x^2 y}{(x + y^2)^2}, &\\text{ if }  (x,y) \\neq (0,0);\\\\\n          0, &\\text{ if } (x,y) = (0,0).\n      \\end{cases}\n  \\end{align*}\n  Now we have two functions namely $\\frac{\\partial f}{\\partial x} $ and $\\frac{\\partial f}{\\partial y} $.\n</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  We need to compute the second derivative at $(0,0)$. We can use the same methods that we used before.\n  \\begin{align*}\n      \\frac{\\partial^2 f}{\\partial x \\partial y} (0,0) & = \\left.\\frac{\\partial }{\\partial x}\\right|_{(0,0)} \\left( \\frac{\\partial f}{\\partial y}  \\right) \\\\\n      & = \\lim_{h \\to 0} \\frac{\\frac{\\partial f}{\\partial y} (h,0) - \\frac{\\partial f}{\\partial y} (0,0)}{h} \\\\[1ex]\n      & = \\lim_{h \\to 0} \\frac{0}{h^3} = 0\n  \\end{align*}\n  Similarly,\n  \\begin{align*}\n      \\frac{\\partial^2 f}{\\partial y \\partial x} (0,0) & = \\left.\\frac{\\partial }{\\partial y}\\right|_{(0,0)} \\left( \\frac{\\partial f}{\\partial x}  \\right) \\\\\n      & = \\lim_{k \\to 0} \\frac{\\frac{\\partial f}{\\partial x} (0,k) - \\frac{\\partial f}{\\partial x} (0,0)}{k} \\\\[1ex]\n      & = \\lim_{k \\to 0} \\frac{0}{k^5} = 0\n  \\end{align*}\n  Thus,\n  \\[\n      \\textcolor{teal}{\\boxed{\n          \\frac{\\partial^2 f}{\\partial x \\partial y}(0,0) = 0 \\text{ and } \\frac{\\partial^2 f}{\\partial y \\partial x}(0,0) = 0.\n      }}\n  \\]\n</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  Now to discuss the continuity of the second derivative, we first need to compute at a nonzero point similar to the earlier case.\n  \\begin{align*}\n      \\frac{\\partial^2 f}{\\partial x \\partial y} & =\n      \\begin{cases}\n          \\dfrac{\\partial }{\\partial x} \\left( \\frac{2x^2 y}{(x + y^2)^2} \\right)  , &\\text{ if }  (x,y) = (0,0);\\\\\n          0, &\\text{ if } (x,y) = (0,0).\n      \\end{cases} \\\\[1ex]\n      & = \\begin{cases}\n          \\dfrac{4xy^3}{(x + y^2)^3}, &\\text{ if }  (x,y) \\neq (0,0);\\\\\n          0, &\\text{ if } (0,0).)\n      \\end{cases}\n  \\end{align*}\n  <br><br>\n  To talk about the continuity of the function $\\frac{\\partial^2 f}{\\partial x \\partial y} $, we take a path\n  \\[\n      x = r^2 \\cos ^2 \\theta , \\text{ and } y = r \\sin \\theta , \\ \\ r \\geq 0.\n  \\]\n  If the function is continuous, the limit as $r$ approaches to zero, must be zero. That is,\n  \\begin{align*}\n     \\lim_{r \\to 0} \\frac{\\partial^2 f}{\\partial x \\partial y}(x,y ) & = \\lim_{r \\to 0} \\frac{4 r^5 \\cos ^2\\theta \\sin ^3\\theta }{(r^2\\cos ^2\\theta +r^2\\sin ^2\\theta )^3} \\\\\n     & = \\lim_{r \\to 0} \\frac{4 r^5 \\cos ^2 \\theta \\sin ^3\\theta }{r^6} \\rightarrow \\infty .\n  \\end{align*}\n  Thus, it is not continuous at $(0,0)$.\n</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  Similarly,\n  \\begin{align*}\n      \\frac{\\partial^2 f}{\\partial y \\partial x} & =\n      \\begin{cases}\n          \\dfrac{\\partial }{\\partial y} \\left( \\frac{y^4}{(x + y^2)^2} \\right)  , &\\text{ if }  (x,y) = (0,0);\\\\\n          0, &\\text{ if } (x,y) = (0,0).\n      \\end{cases} \\\\[1ex]\n      & = \\begin{cases}\n          \\dfrac{4xy^3}{(x + y^2)^3}, &\\text{ if }  (x,y) \\neq (0,0);\\\\\n          0, &\\text{ if } (x,y) = (0,0).\n      \\end{cases}\n  \\end{align*}\n  Since $\\frac{\\partial^2 f}{\\partial y \\partial x} = \\frac{\\partial^2 f}{\\partial x \\partial y}$, and $\\frac{\\partial^2 f}{\\partial x \\partial y}$ is not continuous at $(0,0)$, so is the function $\\frac{\\partial^2 f}{\\partial y \\partial x}$.\n</div>",
       "tags": [
         "real-analysis",
-        "contuinuity",
-        "partial-derivative",
-        "continuity"
+        "continuity",
+        "partial-derivative"
       ]
     },
     {
@@ -1355,8 +1354,7 @@
       "tags": [
         "real-analysis",
         "sequences",
-        "real-analysis-rudin-3.1",
-        "real-analysis-rudin"
+        "real-analysis-rudin (3.1)"
       ]
     },
     {
@@ -1381,8 +1379,7 @@
       "tags": [
         "real-analysis",
         "sequence-of-functions",
-        "real-analysis-rudin-7.1",
-        "real-analysis-rudin"
+        "real-analysis-rudin (7.1)"
       ]
     },
     {
@@ -1394,8 +1391,7 @@
       "tags": [
         "real-analysis",
         "derivatives",
-        "real-analysis-rudin-5",
-        "real-analysis-rudin"
+        "real-analysis-rudin (5.1)"
       ]
     },
     {
@@ -1472,8 +1468,7 @@
       "tags": [
         "real-analysis",
         "sequences",
-        "real-analysis-rudin-3.2",
-        "real-analysis-rudin"
+        "real-analysis-rudin (3.2)"
       ]
     },
     {
@@ -1485,8 +1480,7 @@
       "tags": [
         "real-analysis",
         "sequences",
-        "real-analysis-rudin-3.3",
-        "real-analysis-rudin"
+        "real-analysis-rudin (3.3)"
       ]
     },
     {
@@ -1637,9 +1631,8 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  Let us write a few terms of the sequence.\n  \\begin{align*}\n  s_1 & = 0 & s_2 & = 0 \\\\\n  s_3 & = \\frac{1}{2} & s_4 & = \\frac{1}{2^2} \\\\\n  s_5 & = \\frac{1}{2} + \\frac{1}{2^2}, & s_6 & = \\frac{1}{2^2} + \\frac{1}{2^3} \\\\\n  s_7 & = \\frac{1}{2} +\\frac{1}{2^2} + \\frac{1}{2^3}, & s_8 & = \\frac{1}{2^2} + \\frac{1}{2^3} + \\frac{1}{2^4} \\\\\n  & \\vdots & & \\vdots \\\\\n  s_{2m+1} & = \\sum_{i= 1}^m \\frac{1}{2^i} & s_{2m} & = s_{2m + 1} - \\frac{1}{2} \\\\\n  & = \\frac{\\frac{1}{2} \\left( 1 - \\frac{1}{2^m} \\right) }{1 - \\frac{1}{2}} = 1 - \\frac{1}{2^m}, & s_{2m} & = \\frac{1}{2}\n  - \\frac{1}{2^m}.\n  \\end{align*}\n  Since $\\displaystyle \\lim_{m \\to \\infty} \\frac{1}{2^m} = 0$, the sequence $\\{ s_n \\} $ has two limit points, namely, $\\{\n  1, \\frac{1}{2} \\} $. Hence, we have\n  \\[\n    \\limsup_{n \\to \\infty} s_n = 1 \\quad \\text{ and } \\quad \\liminf_{n \\to \\infty} s_n = \\frac{1}{2}.\n  \\]\n</div>",
       "tags": [
         "real-analysis",
-        "real-analysis-rudin-3.4",
-        "nbhm-phd-2005",
-        "real-analysis-rudin"
+        "real-analysis-rudin (3.4)",
+        "nbhm-phd-2005"
       ]
     },
     {
@@ -2063,7 +2056,7 @@
       "tags": [
         "real-analysis",
         "sequences",
-        "real-Analysis-rudin (3.11)"
+        "real-analysis-rudin (3.11)"
       ]
     },
     {
@@ -2076,7 +2069,7 @@
       "tags": [
         "real-analysis",
         "sequences",
-        "real-Analysis-rudin (3.12)"
+        "real-analysis-rudin (3.12)"
       ]
     },
     {
@@ -2089,7 +2082,7 @@
       "tags": [
         "real-analysis",
         "sequences",
-        "real-Analysis-rudin (3.13)"
+        "real-analysis-rudin (3.13)"
       ]
     },
     {

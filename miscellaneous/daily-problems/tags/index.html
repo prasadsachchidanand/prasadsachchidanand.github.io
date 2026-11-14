@@ -177,6 +177,8 @@
           const catId = resolveCategory(slug);
           if (!buckets[catId]) buckets[catId] = []; // safety net
           const entries = Array.from(canonical[slug]);
+          // a tag whose only problems are still scheduled appears once its first problem is published
+          if (!entries.length) return;
           buckets[catId].push({ slug, entries });
           if (catId === 'uncategorized') {
             seenIssues.push(`"${slug}" has no category in tag-categories.js — showing under Uncategorized`);

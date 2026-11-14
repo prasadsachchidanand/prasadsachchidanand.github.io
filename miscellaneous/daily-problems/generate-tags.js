@@ -364,11 +364,35 @@ function main() {
         console.log(`   Total entries: ${Object.values(sorted).reduce((sum, arr) => sum + arr.length, 0)}`);
         console.log(`\n📍 Output: ${OUTPUT_FILE}`);
         console.log(`📍 Backup: ${BACKUP_FILE}\n`);
+        reportUncategorized(sorted);
 
     } catch (error) {
         console.error('\n❌ ERROR:', error.message);
         console.error(error.stack);
         process.exit(1);
+    }
+}
+
+// Lists tags that tags/tag-categories.js does not place in any category (they would show
+// under "Uncategorized" on the tags page). Usually a typo in a data/*.json tag, a book tag
+// not written as "book-key (x.y.z)", or a new topic tag that needs a line in tag-categories.js.
+function reportUncategorized(tags) {
+    try {
+        const vm = require('vm');
+        const ctx = {};
+        vm.createContext(ctx);
+        vm.runInContext(fs.readFileSync(path.join(__dirname, 'tags', 'tag-categories.js'), 'utf8')
+            + ';this.resolveCategory = resolveCategory;', ctx);
+        const missing = Object.keys(tags).filter(t => ctx.resolveCategory(t.toLowerCase()) === 'uncategorized');
+        if (!missing.length) {
+            console.log('✅ Every tag has a category\n');
+            return;
+        }
+        console.log(`⚠️  ${missing.length} tag(s) have no category. Fix the spelling in data/*.json, or add them to tags/tag-categories.js:`);
+        missing.forEach(t => console.log(`   - ${t} (${tags[t].length})`));
+        console.log('');
+    } catch (e) {
+        console.log(`(Could not check tag categories: ${e.message})\n`);
     }
 }
 

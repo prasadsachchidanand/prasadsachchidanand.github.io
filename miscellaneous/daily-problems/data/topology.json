@@ -1263,7 +1263,6 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  Let $\\mathcal{T} $ be the corresponding topology on $X$. Let $x \\in A$. So, for this $x$, we can find $U_x \\in \\mathcal{T} $ such that $U_x \\subseteq A$. We claim that\n  \\[\n      A = \\bigcup_{x\\in A} U_x .\n  \\]\n  Since for any $x \\in A$, $U_x \\subseteq A$ so the union wil also be a subset of $A$. For the other side, if $y \\in A$m, then $y \\in U_y \\subseteq \\cup_{x\\in A} U_x$. Thus, $A \\subseteq \\cup_{x\\in A} U_x$ and hence $A = \\cup_{x\\in A} U_x$. Since $U_x \\in \\mathcal{T} $ and hence $\\cup_{x\\in A} U_x \\in \\mathcal{T} $. Therefore, $A$ is open in $X$.\n</div>",
       "tags": [
         "topology",
-        "munkres",
         "topology-munkres"
       ]
     },
@@ -1298,7 +1297,6 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  <span class=\"text-lg text-red-600\"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>\n</div>",
       "tags": [
         "topology",
-        "munkres-(§-13,-problem-4)",
         "topology-munkres"
       ]
     },
@@ -2099,7 +2097,7 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">To show that a discrete metric space $(X,d)$ is complete, we need to show that every Cauchy sequence in $X$ converges to a point in $X$. Let $(x_n)$ be a Cauchy sequence in $X$. By the definition of a Cauchy sequence, for every $\\varepsilon > 0$, there exists an integer $N$ such that for all $m,n \\geq N$, we have $d(x_m, x_n) < \\varepsilon$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In a discrete metric space, the only way for $d(x_m, x_n) < 1$ is if $x_m = x_n$. Therefore, for $\\varepsilon = 1$, there exists an integer $N$ such that for all $m,n \\geq N$, we have $x_m = x_n$. This means that the sequence $(x_n)$ is eventually constant, and hence converges to that constant value in $X$. Therefore, $(X,d)$ is complete.</div>",
       "tags": [
         "topology",
-        "metric-sapce"
+        "metric-space"
       ]
     },
     {
@@ -2111,7 +2109,7 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Consider the sequence \n    \\[\n        (x_n, y_n) = \\left( 1, \\frac{1}{n} \\right). \n    \\]\n    THe above sequence lies in $A$ as $\\frac{1}{n} > 0$ for all $n \\in \\mathbb{N}$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">We will show that this sequence is Cauchy but does not converge in $A$. Let $\\varepsilon > 0$ be given. Then there exists an integer $N$ such that $\\frac{1}{N} < \\varepsilon$. For all $m,n \\geq N$ (by the Archimedean property), we have\n    \\[\n        d((x_m, y_m), (x_n, y_n)) = \\sqrt{(1-1)^2 + \\left(\\frac{1}{m} - \\frac{1}{n}\\right)^2} = \\left|\\frac{1}{m} - \\frac{1}{n}\\right| < \\varepsilon.\n    \\]\n    Therefore, the sequence is Cauchy.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Suppose the sequence converges to a point $(x,y) \\in A$. Then $y > 0$. Since $\\lim_{n \\to \\infty} y_n = 0$, we have $y = 0$, which contradicts the assumption that $y > 0$. Hence, the sequence does not converge in $A$. Therefore, $A$ is not complete with respect to the Euclidean metric.</div>",
       "tags": [
         "topology",
-        "metric-sapce"
+        "metric-space"
       ]
     },
     {
@@ -2123,7 +2121,7 @@
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $(X,d)$ be a metric space and $f: X \\to  \\mathbb{R} $ be a continuous function. Let $r > 0$ be any real number. We will show that the set\n    \\[\n        A = \\{ x \\in X : \\vert f(x) \\vert < r \\}\n    \\] \n    is open in $X$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Note that \n    \\begin{align*}\n        A & = \\{ x \\in X : \\vert f(x) \\vert < r \\} \\\\\n          & = \\{ x \\in X : -r < f(x) < r \\} \\\\\n          & = f^{-1}((-r,r)).\n    \\end{align*}\n    Since $f$ is continuous and $(-r,r)$ is open in $\\mathbb{R} $, so $A$ is open in $X$.</div>",
       "tags": [
         "topology",
-        "metric-sapce"
+        "metric-space"
       ]
     },
     {

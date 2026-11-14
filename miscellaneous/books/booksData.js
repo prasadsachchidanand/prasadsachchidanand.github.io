@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-11-14T08:17:54.607Z
+// Generated on: 2026-11-14T11:28:47.490Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -1407,6 +1407,55 @@ const booksData = {
     "color": "emerald",
     "cover": "covers/linear-algebra-hoffman-kunze.jpg",
     "chapters": {
+      "1": {
+        "problems": [],
+        "sections": {
+          "3": {
+            "problems": [
+              {
+                "number": "1.3.1",
+                "source": "daily",
+                "date": "2025-06-01",
+                "topic": "linear-algebra",
+                "title": "Hoffman Kunze Solution - Chapter 1.3 - Find all solutions to the system of equations",
+                "difficulty": "",
+                "problem": "Find all solutions to the system of equations\n\\begin{align*}\n    (1 - \\iota ) x_1 - \\iota x_2 = 0 \\\\\n    2 x_1 +(1 - \\iota) x_2 = 0.\n\\end{align*}"
+              }
+            ]
+          },
+          "4": {
+            "problems": [
+              {
+                "number": "1.4.1",
+                "source": "daily",
+                "date": "2025-03-16",
+                "topic": "linear-algebra",
+                "title": "Hoffman Kunze Linear Algebra (Section 1.4): Solve Linear Equation with Row Reduction",
+                "difficulty": "",
+                "problem": "Find all solutions to the following system of equations by row-reducing the\ncoefficient matrix\n\\[\n    \\begin{array}{ccc}\n        \\phantom{-}\\frac{1}{3}x_1 + 2x_2 - 6x_3 & = & 0 \\\\[1ex]\n        -4x_1 \\phantom{+ 2x_2} + 5x_3  & = & 0 \\\\[1ex]\n        -3x_1 + 6x_2 - 13x_3  & = & 0 \\\\[1ex]\n        -\\frac{7}{3}x_1 + 2x_2 - \\frac{8}{3}x_3  & = & 0.\n    \\end{array}\n\\]"
+              },
+              {
+                "number": "1.4.6",
+                "source": "daily",
+                "date": "2025-03-23",
+                "topic": "linear-algebra",
+                "title": "(Hoffman-Kunze Section 1.4 Exercise 6, Solution) Show that the System does not have a Solution",
+                "difficulty": "",
+                "problem": "Show that the system\n\\[\n    \\begin{aligned}\n        x_1 - 2x_2 + x_3 + 2x_4 & = 1 \\\\\n        x_1 + x_2 - x_3 + x_4 & = 2 \\\\\n        x_1 + 7x_2 - 5x_3 - x_4 & = 3\n    \\end{aligned}\n\\]\nhas no solution."
+              },
+              {
+                "number": "1.4.8",
+                "source": "daily",
+                "date": "2025-04-06",
+                "topic": "linear-algebra",
+                "title": "(Hoffman-Kunze Section 1.4 Exercise 8, Solution) Given a 3×3 matrix A, determine the conditions on vector Y = (y₁, y₂, y₃)ᵗ for which the system AX = Y has a solution",
+                "difficulty": "",
+                "problem": "Let\n\\[\n    A =\n    \\begin{bmatrix}\n        3 & -1 &  2 \\\\\n        2 & 1 &  1 \\\\\n        1 & -3 &  0 \\\\\n    \\end{bmatrix}.\n\\]\nFor which triples $(y_1, y_2, y_3)$ does the system $AX = Y$ have a solution?"
+              }
+            ]
+          }
+        }
+      },
       "2": {
         "problems": [],
         "sections": {
@@ -1756,6 +1805,19 @@ const booksData = {
                 "title": "Hoffman and Kunze - The polynomials $1, x + t, (x + t)^2$ form a basis; coordinates in this basis",
                 "difficulty": "easy",
                 "problem": "Let $V$ be the (real) vector space of all polynomial functions from $\\mathbb{R}$ into $\\mathbb{R}$ of degree $2$ or less, i.e., the space of all functions $f$ of the form\n    \\[\n        f(x) = c_0 + c_1 x + c_2 x^2.\n    \\]\n    Let $t$ be a fixed real number and define\n    \\[\n        g_1(x) = 1, \\qquad g_2(x) = x + t, \\qquad g_3(x) = (x + t)^2.\n    \\]\n    Prove that $\\mathcal{B} = \\{ g_1, g_2, g_3 \\}$ is a basis for $V$. If $f(x) = c_0 + c_1 x + c_2 x^2$, what are the coordinates of $f$ in this ordered basis $\\mathcal{B}$?"
+              }
+            ]
+          },
+          "6": {
+            "problems": [
+              {
+                "number": "2.6.6",
+                "source": "daily",
+                "date": "2026-01-04",
+                "topic": "linear-algebra",
+                "title": "Basis of row space of a matrix - Hoffman and Kunze",
+                "difficulty": "medium",
+                "problem": "Let $V$ be the real vector space spanned by the rows of the matrix \n    \\[\n        A = \n        \\begin{bmatrix}\n            3 & 21 & 0 & 9 &  0 \\\\\n            1 & 7 & -1 & -2 &  -1 \\\\\n            2 & 14 & 0 & 6 &  1 \\\\\n            6 & 42 & -1 & 13 &  0 \\\\\n        \\end{bmatrix}.\n    \\]\n    Find a basis for $V$."
               }
             ]
           }
@@ -4599,7 +4661,7 @@ const booksData = {
       "5": {
         "problems": [
           {
-            "number": "5",
+            "number": "5.1",
             "source": "daily",
             "date": "2025-04-21",
             "topic": "real-analysis",
