@@ -101,6 +101,11 @@
     site-header, site-footer { display: contents; }
     html.dark .theme-icon-moon, html:not(.dark) .theme-icon-sun { display: none; }
 
+    /* Never let anything (for example a Google ad) make the page wider than the screen:
+       on phones that shifts the whole page and removes the right-hand margin. */
+    html, body { overflow-x: clip; }
+    ins.adsbygoogle, .google-auto-placed { max-width: 100% !important; overflow: hidden !important; }
+
     html {
       --sl-band: #312e81; --sl-band-2: #3730a3; --sl-text: #eef2ff; --sl-muted: #c7d2fe;
       --sl-mark: #a5b4fc; --sl-line: rgba(255, 255, 255, 0.16);
@@ -122,9 +127,10 @@
 
     .sl-header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: var(--sl-band); color: var(--sl-text); box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2); }
     .sl-bar { display: flex; flex-direction: column; }
-    .sl-brand-row { display: flex; align-items: center; justify-content: space-between; padding: 16px; }
-    .sl-brand { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff; text-decoration: none; white-space: nowrap; }
+    .sl-brand-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 16px; }
+    .sl-brand { min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff; text-decoration: none; white-space: nowrap; }
     @media (max-width: 420px) { .sl-brand { font-size: 15px; letter-spacing: 0.07em; } }
+    @media (max-width: 350px) { .sl-brand { font-size: 13px; letter-spacing: 0.04em; } }
     .sl-mobile { display: flex; align-items: center; gap: 8px; }
     .sl-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 0; border-radius: 8px; background: transparent; color: var(--sl-muted); cursor: pointer; }
     .sl-icon-btn:hover { color: #ffffff; background: var(--sl-hover); }
