@@ -330,7 +330,7 @@
     ['Publications', 'publications/'], ['Daily problems', 'miscellaneous/daily-problems/'], ['Contact', 'contact/'],
   ];
   const FOOTER_PROFILES = [
-    ['Google Scholar', 'https://scholar.google.com/citations?user=2XaM18gAAAAJ'],
+    ['Google Scholar', 'https://scholar.google.com/citations?user=i_GAF6kAAAAJ&hl=en'],
     ['ORCID', 'https://orcid.org/0000-0002-2943-3163'],
     ['arXiv', 'https://arxiv.org/a/prasad_s_4.html'],
     ['MathSciNet', 'https://mathscinet.ams.org/mathscinet/2006/mathscinet/search/author.html?mrauthid=1563509'],

@@ -11,308 +11,299 @@
   </script>
 
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Research - Sachchidanand Prasad</title>
-
   <meta name="description"
-    content="Sachchidanand Prasad's homepage. Assistant Professor. Explore research in differential geometry, cut locus theory, combinatorial topology, and polynomial maps.">
+    content="Research of Sachchidanand Prasad (IIIT Delhi): cut loci and focal loci of submanifolds in Riemannian and Finsler geometry, Morse-Bott theory, images of polynomials on matrix algebras, and combinatorial topology. Publications with abstracts and BibTeX.">
   <meta name="keywords"
-    content="Sachchidanand Prasad, assistant professor, research, differential geometry, symplectic geometry, cut locus, quandles, independence complex, ANRF grant">
-
+    content="Sachchidanand Prasad, cut locus, focal locus, Finsler manifold, Morse-Bott, Thom space, Lvov-Kaplansky, independence complex, quandle, ANRF">
   <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png" />
-
   <link rel="stylesheet" href="../assets/style.css">
-
-  <script src="/assets/js/renderPublications.js"></script>
-
-  <!-- Font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- academic icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <style>
-    @media only screen and (max-width: 600px) {
-      .small-screen-margin {
-        margin-left: 2em;
-      }
-    }
+    /* Research page. Colours follow the site's indigo; dark mode via html.dark (set by the site header). */
+    .rs { --rs-card: #ffffff; --rs-ink: #111827; --rs-text: #374151; --rs-muted: #6b7280; --rs-line: #e5e7eb;
+      --rs-accent: #4338ca; --rs-accent-soft: #eef2ff; --rs-accent-line: #c7d2fe; --rs-def: #f8f9ff;
+      --rs-pub: #047857; --rs-pub-soft: #ecfdf5; --rs-pre: #b45309; --rs-pre-soft: #fffbeb; --rs-code: #f8fafc;
+      color: var(--rs-text); }
+    html.dark .rs { --rs-card: #1e293b; --rs-ink: #f1f5f9; --rs-text: #cbd5e1; --rs-muted: #94a3b8; --rs-line: #334155;
+      --rs-accent: #a5b4fc; --rs-accent-soft: #312e81; --rs-accent-line: #4338ca; --rs-def: #172033;
+      --rs-pub: #6ee7b7; --rs-pub-soft: #064e3b; --rs-pre: #fcd34d; --rs-pre-soft: #451a03; --rs-code: #0f172a; }
+    .rs-wrap { max-width: 1000px; margin: 0 auto; }
+    .rs-card { background: var(--rs-card); border-radius: .9rem; box-shadow: 0 1px 3px rgba(15,23,42,.08), 0 8px 24px -12px rgba(15,23,42,.12); padding: 1.75rem; }
+    html.dark .rs-card { box-shadow: none; border: 1px solid var(--rs-line); }
+    .rs-h2 { margin: 0 0 1.25rem; font-size: 1.6rem; font-weight: 600; color: var(--rs-ink); display: flex; align-items: baseline; gap: .75rem; flex-wrap: wrap; }
+    .rs-h2 small { font-size: .95rem; font-weight: 400; color: var(--rs-muted); }
+    .rs-section { margin-top: 3.5rem; scroll-margin-top: 5rem; }
 
-    .research-card {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
+    /* Statement */
+    .rs-lead { font-size: 1.2rem; line-height: 1.75; color: var(--rs-text); text-align: center; max-width: 820px; margin: .5rem auto 0; }
+    .rs-lead em { color: var(--rs-ink); }
+    .rs-profiles { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-top: 1.5rem; }
+    .rs-profile { display: inline-flex; align-items: center; gap: .45rem; padding: .45rem .95rem; border-radius: 999px; border: 1px solid var(--rs-line); background: var(--rs-card); color: var(--rs-text); font-size: .92rem; font-weight: 500; text-decoration: none; }
+    .rs-profile:hover { border-color: var(--rs-accent); color: var(--rs-accent); }
+    .rs-photo { margin: .75rem 0 2rem; }
+    .rs-photo img { display: block; width: 100%; max-height: 560px; object-fit: cover; object-position: center 30%; border-radius: .9rem; background: var(--rs-line);
+      box-shadow: 0 1px 3px rgba(15,23,42,.08), 0 12px 32px -16px rgba(15,23,42,.35); }
+    .rs-photo figcaption { margin-top: .6rem; text-align: center; font-size: .92rem; color: var(--rs-muted); }
 
-    .grant-badge {
-      display: inline-block;
-      background: #4f46e5;
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 600;
+    /* Grant */
+    .rs-grant { margin-top: 2.5rem; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem 1.25rem; align-items: start; }
+    .rs-grant-icon { width: 3rem; height: 3rem; border-radius: .7rem; display: grid; place-items: center; background: var(--rs-accent-soft); color: var(--rs-accent); font-size: 1.25rem; }
+    .rs-grant-top { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .75rem; }
+    .rs-grant-title { font-size: 1.15rem; font-weight: 600; color: var(--rs-ink); }
+    .rs-active { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .15rem .6rem; border-radius: 999px; background: var(--rs-pub-soft); color: var(--rs-pub); }
+    .rs-grant-org { font-size: .95rem; color: var(--rs-muted); }
+    .rs-grant p { margin: .6rem 0 0; line-height: 1.65; }
+
+    /* Themes */
+    .rs-feature { display: grid; gap: 1.75rem; }
+    @media (min-width: 900px) { .rs-feature { grid-template-columns: minmax(0, 1fr) 300px; } }
+    .rs-eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--rs-accent); }
+    .rs-theme-title { margin: .3rem 0 .75rem; font-size: 1.4rem; font-weight: 600; color: var(--rs-ink); line-height: 1.3; }
+    .rs-p { margin: 0 0 .9rem; line-height: 1.75; }
+    .rs-figure { margin: 0; text-align: center; align-self: start; }
+    @media (min-width: 900px) { .rs-figure { position: sticky; top: 6rem; } }
+    .rs-figure img { width: 100%; max-width: 300px; margin: 0 auto; }
+    .rs-figure figcaption { margin-top: .5rem; font-size: .88rem; color: var(--rs-muted); line-height: 1.5; }
+    html.dark .rs-figure img { background: #f8fafc; border-radius: .6rem; padding: .5rem; }
+    .rs-defs { display: grid; gap: .75rem; margin: 1rem 0 1.25rem; padding: 1rem 1.15rem; border-radius: .6rem; background: var(--rs-def); border: 1px solid var(--rs-line); }
+    .rs-def { line-height: 1.65; }
+    .rs-def b { color: var(--rs-ink); }
+    .rs-results-h { margin: 1.25rem 0 .6rem; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--rs-muted); }
+    .rs-results { list-style: none; margin: 0; padding: 0; display: grid; gap: .85rem; }
+    .rs-results li { position: relative; padding-left: 1.35rem; line-height: 1.7; }
+    .rs-results li::before { content: ""; position: absolute; left: .2rem; top: .7rem; width: .45rem; height: .45rem; border-radius: 50%; background: #6366f1; }
+    .rs-cite { white-space: nowrap; font-size: .9rem; color: var(--rs-muted); }
+    .rs-more { display: inline-flex; align-items: center; gap: .45rem; margin-top: 1.1rem; padding: .5rem 1rem; border-radius: .55rem; border: 1px solid var(--rs-accent-line); background: var(--rs-accent-soft); color: var(--rs-accent); font: inherit; font-size: .92rem; font-weight: 600; cursor: pointer; }
+    .rs-more:hover { filter: brightness(.97); }
+    .rs-trio { display: grid; gap: 1.25rem; margin-top: 1.25rem; }
+    @media (min-width: 768px) { .rs-trio { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .rs-trio .rs-card { display: flex; flex-direction: column; }
+    .rs-trio .rs-theme-title { font-size: 1.15rem; }
+    .rs-trio .rs-p { font-size: .97rem; line-height: 1.7; }
+    .rs-trio .rs-more { align-self: flex-start; margin-top: auto; }
+
+    /* Publications */
+    .rs-filters { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; margin-bottom: 1.25rem; }
+    .rs-seg { display: inline-flex; border: 1px solid var(--rs-line); border-radius: .6rem; overflow: hidden; background: var(--rs-card); }
+    .rs-seg button { font: inherit; font-size: .9rem; font-weight: 500; padding: .45rem .9rem; border: 0; border-right: 1px solid var(--rs-line); background: transparent; color: var(--rs-text); cursor: pointer; }
+    .rs-seg button:last-child { border-right: 0; }
+    .rs-seg button[aria-pressed="true"] { background: #4f46e5; color: #fff; }
+    .rs-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .rs-chip { font: inherit; font-size: .88rem; padding: .35rem .8rem; border-radius: 999px; border: 1px solid var(--rs-line); background: var(--rs-card); color: var(--rs-text); cursor: pointer; }
+    .rs-chip[aria-pressed="true"] { border-color: var(--rs-accent); background: var(--rs-accent-soft); color: var(--rs-accent); font-weight: 600; }
+    .rs-chip span, .rs-seg span { opacity: .7; margin-left: .25rem; font-variant-numeric: tabular-nums; }
+    .rs-showing { font-size: .9rem; color: var(--rs-muted); margin: 0 0 .5rem; }
+    .rs-year { display: flex; align-items: baseline; gap: .75rem; margin: 1.75rem 0 .75rem; }
+    .rs-year b { font-size: 1.35rem; color: var(--rs-ink); font-variant-numeric: tabular-nums; }
+    .rs-year::after { content: ""; flex: 1; height: 1px; background: var(--rs-line); }
+    .rs-pubs { display: grid; gap: 1rem; }
+    .rs-pub { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: 0 1rem; padding: 1.25rem 1.4rem; scroll-margin-top: 5rem; }
+    .rs-num { font-size: .95rem; font-weight: 600; color: var(--rs-muted); font-variant-numeric: tabular-nums; padding-top: .15rem; }
+    .rs-pub-title { margin: 0; font-size: 1.12rem; font-weight: 600; line-height: 1.45; color: var(--rs-ink); }
+    .rs-authors { margin: .35rem 0 0; color: var(--rs-text); }
+    .rs-authors strong { color: var(--rs-ink); font-weight: 600; }
+    .rs-venue { margin: .4rem 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .6rem; font-size: .95rem; color: var(--rs-muted); }
+    .rs-venue em { color: var(--rs-text); }
+    .rs-badge { font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: .12rem .55rem; border-radius: 999px; }
+    .rs-badge.pub { background: var(--rs-pub-soft); color: var(--rs-pub); }
+    .rs-badge.pre { background: var(--rs-pre-soft); color: var(--rs-pre); }
+    .rs-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .85rem; }
+    .rs-act { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .75rem; border-radius: .5rem; border: 1px solid var(--rs-line); background: transparent; color: var(--rs-text); font: inherit; font-size: .86rem; font-weight: 500; text-decoration: none; cursor: pointer; }
+    .rs-act:hover { border-color: var(--rs-accent); color: var(--rs-accent); }
+    .rs-act[aria-expanded="true"] { border-color: var(--rs-accent); background: var(--rs-accent-soft); color: var(--rs-accent); }
+    .rs-abstract { margin-top: .9rem; padding: .9rem 1.1rem; border-radius: .6rem; background: var(--rs-def); border: 1px solid var(--rs-line); line-height: 1.7; }
+    .rs-bib { margin-top: .9rem; position: relative; }
+    .rs-bib pre { margin: 0; padding: .9rem 1rem; border-radius: .6rem; background: var(--rs-code); border: 1px solid var(--rs-line); font: .82rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--rs-text); overflow-x: auto; white-space: pre; }
+    .rs-copy { position: absolute; top: .5rem; right: .5rem; }
+    .rs-empty { padding: 2rem; text-align: center; color: var(--rs-muted); }
+    .rs-note { margin-top: 3rem; padding: 1rem 1.25rem; border-radius: .7rem; border: 1px solid var(--rs-line); background: var(--rs-card); }
+    .rs a.rs-link { color: var(--rs-accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rs-accent-line); }
+    .rs button:focus-visible, .rs a:focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; }
+    @media (max-width: 560px) {
+      .rs-card { padding: 1.25rem; }
+      .rs-pub { grid-template-columns: minmax(0, 1fr); padding: 1.1rem; }
+      .rs-num { padding: 0 0 .25rem; }
+      .rs-lead { font-size: 1.05rem; text-align: left; }
+      .rs-grant { grid-template-columns: minmax(0, 1fr); }
     }
   </style>
+
+  <!-- MathJax: configure before loading -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <!-- Shared header and footer (edit assets/js/site-layout.js) -->
   <script src="../assets/js/site-layout.js"></script>
 </head>
+
 <body style="background: #edf2f7;">
   <div class="flex flex-col h-screen">
-    <!-- navbar -->
     <site-header></site-header>
 
-    <!-- section -->
-    <section class="text-gray-600 body-font">
+    <main class="rs text-gray-600 body-font">
       <div class="container px-5 py-24 mx-auto">
-        <!-- Research Title -->
-        <div class="flex flex-col items-center text-center justify-center">
-          <h1 class="text-gray-900 text-3xl title-font font-medium">Research</h1>
-          <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4" aria-hidden="true"></div>
-        </div>
+        <div class="rs-wrap">
 
-        <!-- Research Content -->
-        <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-          <div class="p-4 md:w-full flex">
-            <div class="flex-grow lg:px-32 px-6">
+          <!-- ============ Statement ============ -->
+          <div class="flex flex-col items-center text-center justify-center">
+            <h1 class="text-gray-900 text-3xl title-font font-medium">Research</h1>
+            <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4" aria-hidden="true"></div>
+          </div>
+          <!-- Group photo: shown when data/group.json has groupPhoto.file set -->
+          <figure class="rs-photo" id="rs-photo" hidden>
+            <img id="rs-photo-img" alt="">
+            <figcaption id="rs-photo-cap"></figcaption>
+          </figure>
+          <p class="rs-lead">
+            I work in <em>differential geometry and topology</em>. Much of my work is about the
+            <em>cut locus</em> of a submanifold: the set of points beyond which the shortest geodesics from the
+            submanifold stop being shortest. I study cut and focal loci in Riemannian and Finsler geometry, and use
+            them to understand the topology of manifolds through Thom spaces and Morse&ndash;Bott functions. I have also
+            worked on images of polynomials on matrix algebras, on quandles, and on independence complexes of graphs.
+          </p>
+          <div class="rs-profiles">
+            <a class="rs-profile" href="https://scholar.google.com/citations?user=i_GAF6kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i>Google Scholar</a>
+            <a class="rs-profile" href="https://arxiv.org/a/prasad_s_4.html" target="_blank" rel="noopener noreferrer"><i class="ai ai-arxiv"></i>arXiv</a>
+            <a class="rs-profile" href="https://mathscinet.ams.org/mathscinet/2006/mathscinet/search/author.html?mrauthid=1563509" target="_blank" rel="noopener noreferrer"><i class="fas fa-square-root-variable"></i>MathSciNet</a>
+            <a class="rs-profile" href="https://orcid.org/0000-0002-2943-3163" target="_blank" rel="noopener noreferrer"><i class="ai ai-orcid"></i>ORCID</a>
+          </div>
 
-              <!-- Research Overview -->
-              <div class="research-card">
-                <h2 class="text-gray-900 text-2xl title-font font-medium mb-4">Research Overview</h2>
-                <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                  My research spans multiple areas of mathematics, with a primary focus on <em>differential
-                    geometry</em>, <em>differential topology</em>, <em>algebraic topology</em>, and <em>polynomial
-                    maps</em>. I investigate fundamental geometric structures and their topological properties, with
-                  applications ranging from understanding the geometry of Riemannian manifolds to exploring
-                  combinatorial and algebraic aspects of topology.
-                </p>
+          <!-- ============ Funding ============ -->
+          <div class="rs-card rs-grant">
+            <div class="rs-grant-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
+            <div>
+              <div class="rs-grant-top">
+                <span class="rs-grant-title">ANRF Academic Research Grant (ARG)</span>
+                <span class="rs-active">Active</span>
               </div>
-
-              <!-- Current Funding -->
-              <div class="research-card">
-                <h2 class="text-gray-900 text-2xl title-font font-medium mb-3">Current Research Funding</h2>
-                <div class="flex items-start mb-3">
-                  <span class="grant-badge mr-3">Active Grant</span>
-                  <div>
-                    <h3 class="text-lg font-semibold text-gray-900">ANRF Academic Research Grant (ARG)</h3>
-                    <p class="text-gray-600 mt-1">Anusandhan National Research Foundation</p>
-                  </div>
-                </div>
-                <p class="leading-relaxed text-justify text-gray-700">
-                  This grant supports my research on the geometric and topological properties of cut loci in Riemannian
-                  manifolds, their connections to Morse-Bott theory, and applications to classifying spaces.
-                </p>
-                <!-- <p class="mt-2 text-sm text-gray-500">
-                  For a complete list of awards and recognition, please visit my <a href="../resume/"
-                    class="text-blue-500 hover:text-blue-800 underline">CV page</a>.
-                </p> -->
-              </div>
-
-              <!-- Research Areas -->
-              <div class="research-card">
-                <h2 class="text-gray-900 text-2xl title-font font-medium mb-4">Research Areas</h2>
-
-                <!-- Area 1: Cut Locus Theory -->
-                <div class="mb-6">
-                  <h3 class="text-xl font-semibold text-gray-900 mb-3">
-                    <i class="fas fa-circle text-indigo-500 text-xs mr-2"></i>
-                    Cut Locus of Submanifolds
-                  </h3>
-
-                  <!-- Image -->
-                  <div class="flex justify-center my-4">
-                    <img class="md:w-96 sm:w-80 small-screen-margin" src="../assets/img/sphere-cut-locus.svg"
-                      alt="Visualization of the sphere cut locus">
-                  </div>
-
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
-                    For a given Riemannian manifold $M$ and $N \subset M$, the <em class="font-medium">cut locus of
-                      $N$</em>, $\mathrm{Cu}(N)$, is the collection of points $q \in M$ such that there exists a
-                    distance-minimal geodesic $\gamma$ joining $N$ to $q$ such that any extension of $\gamma$ beyond $q$
-                    is no longer a distance-minimal geodesic. Here, by the <em class="font-medium">distance-minimal
-                      geodesic $\gamma$ joining $N$ to $q$</em>, we mean that there exists $p \in N$ such that the
-                    length of $\gamma$ from $p$ to $q$ is the same as the distance from $N$ to $q$.
-                  </p>
-
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
-                    If $N$ is a smooth submanifold of $M$, then we say it is a <em class="font-medium">non-degenerate
-                      critical submanifold of $f: M \to \mathbb{R}$</em> if $N \subseteq \mathrm{Cr}(f)$ (critical
-                    points of $f$) and for any $p \in N$, the Hessian of $f$ at $p$ is non-degenerate in the direction
-                    normal to $N$ at $p$. The function $f$ is said to be <em class="font-medium">Morse-Bott</em> if the
-                    connected components of $\mathrm{Cr}(f)$ are non-degenerate critical submanifolds.
-                  </p>
-
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
-                    The <em class="font-medium">Thom space</em> $\mathrm{Th}(E)$ of a real vector bundle $E \to B$ of
-                    rank $k$ is $D(E)/S(E)$, where $D(E)$ is the unit disk bundle and $S(E)$ is the unit sphere bundle.
-                    Here, we have chosen a Euclidean metric on $E$.
-                  </p>
-
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
-                    In one of my <a href="#publications" class="text-blue-500 hover:text-blue-800">papers</a>
-                    (joint with Dr. Somnath Basu), we discussed the cut locus of a closed submanifold and described its
-                    relation with Thom spaces and Morse-Bott functions.
-                  </p>
-                  
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
-                    Also, with <a href="https://aritra.ksom.res.in/" class="text-blue-500 hover:text-blue-800">Dr. Aritra Bhowmick</a>,  we studied the cut locus of a closed submanifold in a Finsler manifold. 
-                  </p>
-
-                  <!-- <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4">
-                    <p class="text-gray-800 font-medium">Current Focus:</p>
-                    <p class="text-gray-700 mt-1">I am currently working on the cut locus of quotient manifolds and its
-                      applications to classifying spaces. This work explores how symmetries and group actions affect the
-                      geometric structure of cut loci.</p>
-                  </div> -->
-                </div>
-
-                <!-- Area 2: Combinatorial Topology -->
-                <div class="mb-6">
-                  <h3 class="text-xl font-semibold text-gray-900 mb-3">
-                    <i class="fas fa-circle text-indigo-500 text-xs mr-2"></i>
-                    Combinatorial Topology: Independence Complexes
-                  </h3>
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3">
-                    I have developed a strong interest in combinatorial topology, particularly in studying the <em
-                      class="font-medium">independence complex of graphs</em>. The independence complex of a graph is a
-                    simplicial complex whose faces correspond to independent sets of vertices in the graph. This object
-                    encodes rich topological information about the graph structure.
-                  </p>
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    This area bridges discrete mathematics and algebraic topology, revealing surprising connections
-                    between combinatorial properties of graphs and their associated topological spaces. Understanding
-                    the homotopy type and homology of independence complexes has applications in various areas including
-                    theoretical computer science and statistical mechanics.
-                  </p>
-                </div>
-
-                <!-- Area 3: Polynomial Maps -->
-                <div class="mb-6">
-                  <h3 class="text-xl font-semibold text-gray-900 mb-3">
-                    <i class="fas fa-circle text-indigo-500 text-xs mr-2"></i>
-                    Lvov-Kaplansky Conjecture
-                  </h3>
-                  <p class="leading-relaxed lg:text-lg md:text-base text-justify">
-                    I am investigating the <em class="font-medium">Lvov-Kaplansky conjecture</em>, a fundamental open
-                    problem in algebra. The conjecture states that the image of $n \times n$ matrices over any field $K$
-                    under a multilinear polynomial in non-commutative variables is a vector space. This deceptively
-                    simple statement has profound implications for understanding polynomial identities in matrix
-                    algebras and has connections to invariant theory and representation theory.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Research Group (people are listed in data/group.json) -->
-              <div class="research-card" id="group">
-                <h2 class="text-gray-900 text-2xl title-font font-medium mb-4">
-                  <i class="fas fa-user-group text-indigo-500 mr-2"></i>Research Group
-                </h2>
-                <div id="group-container"></div>
-              </div>
-
-              <!-- Research Opportunities -->
-              <!-- <div class="research-card"
-                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
-                <h2 class="text-white text-2xl title-font font-medium mb-3">
-                  <i class="fas fa-users mr-2"></i>Research Opportunities
-                </h2>
-                <p class="leading-relaxed lg:text-lg md:text-base text-justify mb-3"
-                  style="color: rgba(255,255,255,0.95);">
-                  I welcome motivated students interested in differential geometry, topology, and related areas. If you
-                  are interested in pursuing research in any of the areas mentioned above, please feel free to reach out
-                  through my <a href="../contact/"
-                    class="text-white font-semibold hover:text-gray-200">contact page</a> or <a href="mailto:sachchidanand@iiitd.ac.in" class="text-white font-semibold hover:text-gray-200">email</a> me.
-                </p>
-                <div class="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
-                  <p class="leading-relaxed text-justify font-medium" style="color: white;">
-                    <i class="fas fa-search mr-2"></i><strong>Currently Looking For:</strong> PhD students, postdoctoral
-                    researchers, and potential collaborators interested in geometric topology, Riemannian geometry, and
-                    combinatorial methods.
-                  </p>
-                </div>
-              </div> -->
-
-              <!-- Publications Section -->
-              <div class="research-card">
-                <h2 class="text-gray-900 text-2xl title-font font-medium mb-4" id="publications">Publications and
-                  Preprints</h2>
-                <!-- <p class="text-gray-600 mb-4">
-                  Below is a selection of my research articles. For a complete list with abstracts and links, please
-                  visit my <a href="../publications/" class="text-blue-500 hover:text-blue-800 underline">publications
-                    page</a>.
-                </p> -->
-                <div class="filter-buttons mb-6">
-                  <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-600"
-                    data-filter="all">All</button>
-                  <button class="filter-btn bg-yellow-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-yellow-600"
-                    data-filter="preprint">Preprints</button>
-                  <button class="filter-btn bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
-                    data-filter="accepted">Accepted Articles</button>
-                </div>
-                <div id="publications-container"></div>
-              </div>
-
-              <!-- Talks Note -->
-              <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <p class="text-gray-700">
-                  <i class="fas fa-info-circle text-indigo-500 mr-2"></i>
-                  For information about talks, presentations, and other academic activities, please visit my <a
-                    href="../resume/" class="text-blue-500 hover:text-blue-800 font-medium">CV page</a>.
-                </p>
-              </div>
-
+              <div class="rs-grant-org">Anusandhan National Research Foundation</div>
+              <p>Supports my research on the geometry and topology of cut loci in Riemannian manifolds, their connections
+                to Morse&ndash;Bott theory, and applications to classifying spaces.</p>
             </div>
           </div>
+
+          <!-- ============ Themes ============ -->
+          <section class="rs-section" id="themes" aria-labelledby="themes-h">
+            <h2 class="rs-h2" id="themes-h">Research themes</h2>
+
+            <article class="rs-card rs-feature">
+              <div>
+                <span class="rs-eyebrow">Main theme</span>
+                <h3 class="rs-theme-title">Cut loci, focal loci and Morse&ndash;Bott theory</h3>
+                <p class="rs-p">
+                  Given a closed submanifold $N$ of a manifold $M$, follow a shortest geodesic out of $N$. At some point
+                  it stops being shortest; these points make up the cut locus $\mathrm{Cu}(N)$. The cut locus is where
+                  the distance function $d_N$ fails to be smooth, and it carries a surprising amount of the topology
+                  of $M$.
+                </p>
+                <div class="rs-defs">
+                  <div class="rs-def"><b>Cut locus.</b> $q \in \mathrm{Cu}(N)$ if some distance-minimal geodesic from
+                    $N$ to $q$ stops being distance-minimal when extended beyond $q$.</div>
+                  <div class="rs-def"><b>Morse&ndash;Bott function.</b> $f : M \to \mathbb{R}$ whose critical set is a
+                    union of submanifolds, with the Hessian non-degenerate in the normal directions.</div>
+                  <div class="rs-def"><b>Thom space.</b> For a vector bundle $E \to B$ with a metric,
+                    $\mathrm{Th}(E) = D(E)/S(E)$, the disc bundle with its sphere bundle collapsed to a point.</div>
+                </div>
+                <div class="rs-results-h">Results</div>
+                <ul class="rs-results">
+                  <li>With Somnath Basu: $d_N^2$ is Morse&ndash;Bott on $M \setminus \mathrm{Cu}(N)$, its gradient
+                    flow deformation retracts $M \setminus \mathrm{Cu}(N)$ onto $N$, and for closed $M$ the Thom space of
+                    the normal bundle of $N$ is homeomorphic to $M/\mathrm{Cu}(N)$.
+                    <span class="rs-cite">Algebr. Geom. Topol. (2023)</span></li>
+                  <li>With Aritra Bhowmick: cut and focal loci of submanifolds of Finsler manifolds, including a
+                    Klingenberg-type lemma for $N$-geodesic loops and the regularity of the normal exponential map.
+                    <span class="rs-cite">J. Geom. Anal. (2024, 2026)</span></li>
+                  <li>With Aritra Bhowmick: the cut time map is positive, so every closed submanifold of a Finsler
+                    manifold has a tubular neighbourhood, with a new geometric proof even in the Riemannian case.
+                    <span class="rs-cite">Preprint (2024)</span></li>
+                  <li>With Aritra Bhowmick and Jin-ichi Itoh: the cut locus $\mathrm{Cu}(p, g)$ depends continuously, in
+                    the Hausdorff metric, on the point and on the metric in the $C^2$ topology.
+                    <span class="rs-cite">J. Math. Anal. Appl. (2026)</span></li>
+                  <li>With Somnath Basu: a Reeb-type theorem: a closed manifold with a Morse&ndash;Bott function whose
+                    critical set is $S^k \sqcup S^l$ ($k \neq l$) is homeomorphic, though not necessarily diffeomorphic,
+                    to $S^{k+l+1}$. <span class="rs-cite">Preprint (2025)</span></li>
+                </ul>
+                <button type="button" class="rs-more" data-show-theme="geometry"><i class="fas fa-list"></i>Papers on this theme</button>
+              </div>
+              <figure class="rs-figure">
+                <img src="../assets/img/sphere-cut-locus.svg" alt="A sphere with geodesics through the north pole N meeting again at the south pole S">
+                <figcaption>On the round sphere, geodesics leaving the north pole $N$ stop being shortest at the south
+                  pole $S$, so $\mathrm{Cu}(N) = \{S\}$.</figcaption>
+              </figure>
+            </article>
+
+            <div class="rs-trio">
+              <article class="rs-card">
+                <span class="rs-eyebrow">Algebra</span>
+                <h3 class="rs-theme-title">Images of polynomials on matrix algebras</h3>
+                <p class="rs-p">
+                  The L&rsquo;vov&ndash;Kaplansky conjecture asks whether the image of a multilinear polynomial on
+                  $M_n(K)$ is always a vector space. With S. Panja, I studied polynomial images on upper triangular
+                  matrices $T_m(K)$, with a Waring-type result. We also gave a counterexample to a conjecture on
+                  augmentation ideals of dihedral quandles.
+                </p>
+                <button type="button" class="rs-more" data-show-theme="algebra"><i class="fas fa-list"></i>Papers on this theme</button>
+              </article>
+              <article class="rs-card">
+                <span class="rs-eyebrow">Combinatorial topology</span>
+                <h3 class="rs-theme-title">Independence complexes of graphs</h3>
+                <p class="rs-p">
+                  The independence complex of a graph has the independent sets of vertices as its faces. With S. Panja
+                  and N. Daundkar, I introduced wedges of graphs and showed that the independence complexes of wedges
+                  of paths and cycles are contractible or wedges of spheres.
+                </p>
+                <button type="button" class="rs-more" data-show-theme="combinatorial"><i class="fas fa-list"></i>Papers on this theme</button>
+              </article>
+              <article class="rs-card">
+                <span class="rs-eyebrow">Geometry</span>
+                <h3 class="rs-theme-title">Problems in intuitive geometry</h3>
+                <p class="rs-p">
+                  Easy to state, still open. With S. Honda, N. Horio, J. Itoh and N. Nomura, I wrote a note presenting
+                  six open problems in geometry, each simple to formulate.
+                </p>
+                <button type="button" class="rs-more" data-show-theme="intuitive"><i class="fas fa-list"></i>Papers on this theme</button>
+              </article>
+            </div>
+          </section>
+
+          <!-- ============ Publications (filled from data/publications.json) ============ -->
+          <section class="rs-section" id="publications" aria-labelledby="pubs-h">
+            <h2 class="rs-h2" id="pubs-h">Publications <small>Newest first, by year of first appearance</small></h2>
+            <div class="rs-filters" id="rs-filters"></div>
+            <p class="rs-showing" id="rs-showing" aria-live="polite"></p>
+            <div id="rs-publist"></div>
+          </section>
+
+          <!-- ============ Group (filled from data/group.json) ============ -->
+          <section class="rs-section" id="group" aria-labelledby="group-h">
+            <h2 class="rs-h2" id="group-h">Research group</h2>
+            <div class="rs-card"><div id="group-container"></div></div>
+          </section>
+
+          <p class="rs-note">
+            <i class="fas fa-circle-info" style="color:#6366f1"></i>
+            Talks, slides and other academic activities are on my <a class="rs-link" href="../resume/">CV page</a>.
+          </p>
         </div>
       </div>
-    </section>
+    </main>
 
-    <!-- footer -->
     <site-footer></site-footer>
-
   </div>
-  <script>
-    function myFunction() {
-      var x = document.lastModified;
-      document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
-    }
-    myFunction()
-  </script>
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [
-          ['$', '$'],
-          ['\\(', '\\)']
-        ],
-        displayMath: [
-          ['$$', '$$'],
-          ['\\[', '\\]']
-        ]
-      },
-      svg: {
-        fontCache: 'global'
-      }
-    };
-  </script>
-
-  <script>
-    renderPublications('publications-list-research', 'research');
-  </script>
-
+  <script src="../assets/js/research-page.js"></script>
   <script src="../assets/js/renderGroup.js"></script>
-  <script>
-    renderGroup('group-container');
-  </script>
+  <script>renderGroup('group-container');</script>
 </body>
 </html>

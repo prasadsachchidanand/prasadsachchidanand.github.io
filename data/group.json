@@ -1,5 +1,9 @@
 {
-  "_help": "Research group shown on the Research page (and the CV). For each person: photo = file name inside assets/img/group/ (leave empty for the placeholder), webpage = link for their name, cv = link to their CV. Empty links are simply not shown. Move someone from current to past by adding 'to' and 'now'.",
+  "_help": "Research group shown on the Research page (and the CV). For each person: photo = file name inside assets/img/group/ (leave empty for the placeholder), webpage = link for their name, cv = link to their CV. Empty links are simply not shown. Move someone from current to past by adding 'to' and 'now'. Group photo at the top of the Research page: put the picture in assets/img/group/ and write its file name in groupPhoto.file (a wide picture works best, about 3:2 or 16:9); leave it empty to show no photo.",
+  "groupPhoto": {
+    "file": "",
+    "caption": ""
+  },
   "current": [
     {
       "name": "Dr Jyoti Yadav",
