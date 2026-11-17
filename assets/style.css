@@ -3280,6 +3280,18 @@ mjx-container[display="true"] {
   padding: 2px 0;
 }
 
+/* On phones the main content column (the "p-4 md:w-full flex" box with a "flex-grow"
+   child, used by the problem pages and older pages) must shrink to the screen width.
+   Otherwise its widest content (cards, buttons, formulas) makes it wider than the
+   screen and the right-hand side is cut off. */
+
+@media (max-width: 767.98px) {
+  .md\:w-full.flex,
+  .md\:w-full.flex > .flex-grow {
+    min-width: 0;
+  }
+}
+
 /* Custom fill-in-the-blank underline */
 
 .fill-in-blank {
