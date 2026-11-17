@@ -46,6 +46,8 @@
     .rs-profiles { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-top: 1.5rem; }
     .rs-profile { display: inline-flex; align-items: center; gap: .45rem; padding: .45rem .95rem; border-radius: 999px; border: 1px solid var(--rs-line); background: var(--rs-card); color: var(--rs-text); font-size: .92rem; font-weight: 500; text-decoration: none; }
     .rs-profile:hover { border-color: var(--rs-accent); color: var(--rs-accent); }
+    .rs-logo { width: 1.55em; height: 1.55em; margin: -0.2em -0.1em -0.2em -0.2em; }
+    html.dark .rs-profile .rs-logo { background: transparent; }
     .rs-photo { margin: .75rem 0 2rem; }
     .rs-photo img { display: block; width: 100%; max-height: 560px; object-fit: cover; object-position: center 30%; border-radius: .9rem; background: var(--rs-line);
       box-shadow: 0 1px 3px rgba(15,23,42,.08), 0 12px 32px -16px rgba(15,23,42,.35); }
@@ -175,7 +177,7 @@
           <div class="rs-profiles">
             <a class="rs-profile" href="https://scholar.google.com/citations?user=i_GAF6kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i>Google Scholar</a>
             <a class="rs-profile" href="https://arxiv.org/a/prasad_s_4.html" target="_blank" rel="noopener noreferrer"><i class="ai ai-arxiv"></i>arXiv</a>
-            <a class="rs-profile" href="https://mathscinet.ams.org/mathscinet/2006/mathscinet/search/author.html?mrauthid=1563509" target="_blank" rel="noopener noreferrer"><i class="fas fa-square-root-variable"></i>MathSciNet</a>
+            <a class="rs-profile" href="https://mathscinet.ams.org/mathscinet/2006/mathscinet/search/author.html?mrauthid=1563509" target="_blank" rel="noopener noreferrer"><img class="rs-logo" src="../assets/img/mathscinet.svg" alt="">MathSciNet</a>
             <a class="rs-profile" href="https://orcid.org/0000-0002-2943-3163" target="_blank" rel="noopener noreferrer"><i class="ai ai-orcid"></i>ORCID</a>
           </div>
 

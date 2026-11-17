@@ -17,9 +17,9 @@
 	<title>Contact - Sachchidanand Prasad</title>
 
 	<meta name="description"
-		content="Sachchidanand Prasad's homepage. Postdoctoral Fellow at Jilin University and Göttingen University. Explore research, teaching, CV, articles, daily problems, and more.">
+		content="Contact Sachchidanand Prasad, Assistant Professor in the Department of Mathematics at IIIT Delhi: send a message, or find his email, office address and phone number.">
 	<meta name="keywords"
-		content="Sachchidanand Prasad, postdoctoral fellow, Jilin University, Göttingen University, research, teaching, CV, articles, differential geometry, symplectic geometry, daily problems, gate, research papers, cut locus, quandles, independence complex">
+		content="Sachchidanand Prasad, contact, email, Assistant Professor, IIIT Delhi, Department of Mathematics, office address">
 
 	<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png" />
 
@@ -37,6 +37,41 @@
 		.cursor-not-allowed {
 			cursor: not-allowed;
 		}
+
+		/* Name and Email: one per row on phones, side by side from 640px */
+		@media (min-width: 640px) {
+			.cf-half { width: 50%; }
+		}
+
+		/* Form fields (dark-mode colours come from the shared stylesheet) */
+		.cf-input {
+			width: 100%;
+			background-color: rgba(243, 244, 246, 0.5);
+			border: 1px solid #d1d5db;
+			border-radius: 0.25rem;
+			color: #374151;
+			font-size: 1rem;
+			padding: 0.25rem 0.75rem;
+			outline: none;
+			transition: border-color .2s, box-shadow .2s, background-color .2s;
+		}
+		.cf-input:focus { background-color: #fff; border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); }
+		.cf-input.border-red-500,
+		html.dark #name.border-red-500, html.dark #email.border-red-500, html.dark #message.border-red-500 { border-color: #ef4444 !important; }
+
+		/* Academic profiles */
+		.cf-profiles { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }
+		.cf-profile {
+			display: inline-flex; align-items: center; gap: .45rem;
+			padding: .4rem .9rem; border-radius: 999px;
+			border: 1px solid #d1d5db; background: #fff; color: #374151;
+			font-size: .92rem; font-weight: 500; text-decoration: none;
+		}
+		.cf-profile:hover { border-color: #6366f1; color: #4f46e5; }
+		html.dark .cf-profile { background: #1e293b; border-color: #334155; color: #e2e8f0; }
+		html.dark .cf-profile:hover { border-color: #818cf8; color: #a5b4fc; }
+		.cf-logo { width: 1.55em; height: 1.55em; margin: -0.2em -0.1em -0.2em -0.2em; }
+		html.dark .cf-profile .cf-logo { background: transparent; }
 	</style>
 
 	<!-- Shared header and footer (edit assets/js/site-layout.js) -->
@@ -57,103 +92,60 @@
 				</div>
 				<div class="lg:w-2/3 md:w-2/3 mx-auto">
 					<form class="flex flex-wrap -m-2" autocomplete="off" name="contact-form" novalidate>
-						<!-- Hidden subject line sent to Formspree so notification emails are easy to scan -->
-						<input type="hidden" name="_subject" id="subject-field" value="New message from website">
-
 						<!-- Honeypot: real users never see or fill this. If it's filled, we treat the submission as spam. -->
 						<div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
 							<label for="_gotcha">Leave this field blank</label>
 							<input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
 						</div>
 
-						<div class="p-2 w-1/2">
-							<div class="relative">
-								<label for="name" class="leading-7 text-base text-gray-600">Name</label>
-								<input type="text" id="name" name="name" required
-									class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-								<p class="field-error text-red-500 text-sm mt-1 hidden" id="name-error">Please enter
-									your name.</p>
-							</div>
+						<div class="p-2 w-full cf-half">
+							<label for="name" class="leading-7 text-base text-gray-600">Name</label>
+							<input type="text" id="name" name="name" required class="cf-input leading-8">
+							<p class="field-error text-red-500 text-sm mt-1 hidden" id="name-error">Please enter your name.</p>
 						</div>
-						<div class="p-2 w-1/2">
-							<div class="relative">
-								<label for="email" class="leading-7 text-base text-gray-600">Email</label>
-								<input type="email" id="email" name="email" required
-									class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-								<p class="field-error text-red-500 text-sm mt-1 hidden" id="email-error">Please enter a
-									valid email address.</p>
-							</div>
+						<div class="p-2 w-full cf-half">
+							<label for="email" class="leading-7 text-base text-gray-600">Email</label>
+							<input type="email" id="email" name="email" required class="cf-input leading-8">
+							<p class="field-error text-red-500 text-sm mt-1 hidden" id="email-error">Please enter a valid email address.</p>
 						</div>
 
 						<div class="p-2 w-full">
-							<div class="relative">
-								<label for="message" class="leading-7 text-base text-gray-600">Message</label>
-								<textarea id="message" name="message" required
-									class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-								<p class="field-error text-red-500 text-sm mt-1 hidden" id="message-error">Please enter
-									a message.</p>
-							</div>
+							<label for="message" class="leading-7 text-base text-gray-600">Message</label>
+							<textarea id="message" name="message" required class="cf-input h-32 resize-none leading-6"></textarea>
+							<p class="field-error text-red-500 text-sm mt-1 hidden" id="message-error">Please enter a message.</p>
 						</div>
 
 						<div class="p-2 w-full">
-
 							<button
-								class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg"
+								class="flex mx-auto text-white bg-indigo-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-700 rounded text-lg"
 								id="send-message-btn">Send Message!</button>
-
 						</div>
 					</form>
 
-					<div class="p-2 w-full py-4 mt-8 text-center border-t-2">
+					<div class="p-2 w-full py-4 mt-8 text-center border-t-2 border-gray-200">
 						<a class="text-blue-500 hover:text-blue-800"
-							href="mailto:sachchidanand@iiitd.ac.in">sachchidanand@iiitd.ac.in</a> &nbsp; <br>
+							href="mailto:sachchidanand@iiitd.ac.in">sachchidanand@iiitd.ac.in</a><br>
 						<a class="text-blue-500 hover:text-blue-800"
 							href="mailto:sachchidanand.prasad1729@gmail.com">sachchidanand.prasad1729@gmail.com</a>
 					</div>
 
-					<div class="p-2 w-full py-4 mt-1 text-center border-t-2">
+					<div class="p-2 w-full py-4 mt-1 text-center border-t-2 border-gray-200">
 						<p class="leading-normal">
-							B-301, R&D Block
+							B-301, R&amp;D Block
 							<br>Department of Mathematics
 							<br>Indraprastha Institute of Information Technology Delhi (IIIT-Delhi)
 							<br>Okhla Phase III, New Delhi – 110020, India
-							<br>Contact: 011-26907554
+							<br>Office: <a class="text-blue-500 hover:text-blue-800" href="tel:+911126907554">011-26907554</a>
 						</p>
 					</div>
 
-					<div class="p-2 w-full py-4 mt-1 text-center border-t-2">
-						<span class="inline-flex mb-16">
-							<!-- facebook -->
-							<a class="text-gray-500 hover:text-blue-500"
-								href="https://www.facebook.com/sachchidanand.prasad/" target="_blank">
-								<i class="fa-brands fa-facebook-f"></i>
-							</a>
-							<!-- instagram -->
-							<a class="ml-4 text-gray-500 hover:text-red-500"
-								href="https://www.instagram.com/sachchidanand1729/" target="_blank">
-								<i class="fa-brands fa-instagram"></i>
-							</a>
-							<!-- twitter -->
-							<a class="ml-4 text-gray-500 hover:text-blue-500" href="https://twitter.com/speinstene26"
-								target="_blank">
-								<i class="fa-brands fa-twitter"></i>
-							</a>
-							<!-- github -->
-							<a class="ml-4 text-gray-500 hover:text-purple-500"
-								href="https://github.com/prasadsachchidanand" target="_blank">
-								<i class="fa-brands fa-github"></i>
-							</a>
-							<!-- researchgate -->
-							<a class="ml-4 text-gray-500 hover:text-green-500"
-								href="https://www.researchgate.net/profile/Sachchidanand-Prasad-" target="_blank">
-								<i class="ai ai-researchgate ai-lg"></i>
-							</a>
-							<!-- academia -->
-							<a class="ml-4 text-gray-500 hover:text-gray-900"
-								href="https://nitrkl.academia.edu/SachchidanandPrasad" target="_blank">
-								<i class="ai ai-academia"></i>
-							</a>
-						</span>
+					<div class="p-2 w-full pt-6 pb-4 mt-1 mb-12 text-center border-t-2 border-gray-200">
+						<div class="cf-profiles">
+							<a class="cf-profile" href="https://scholar.google.com/citations?user=i_GAF6kAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i>Google Scholar</a>
+							<a class="cf-profile" href="https://orcid.org/0000-0002-2943-3163" target="_blank" rel="noopener noreferrer"><i class="ai ai-orcid"></i>ORCID</a>
+							<a class="cf-profile" href="https://arxiv.org/a/prasad_s_4.html" target="_blank" rel="noopener noreferrer"><i class="ai ai-arxiv"></i>arXiv</a>
+							<a class="cf-profile" href="https://mathscinet.ams.org/mathscinet/2006/mathscinet/search/author.html?mrauthid=1563509" target="_blank" rel="noopener noreferrer"><img class="cf-logo" src="../assets/img/mathscinet.svg" alt="">MathSciNet</a>
+						</div>
 					</div>
 
 				</div>
@@ -168,19 +160,9 @@
 	</div>
 
 	<script>
-		function myFunction() {
-			var x = document.lastModified;
-			document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
-		}
-
-		myFunction()
-	</script>
-
-	<script>
 		document.addEventListener('DOMContentLoaded', function () {
-			// Formspree endpoint (primary: sends you an email notification)
-			const formspreeURL = 'https://formspree.io/f/xjgnzypg';
-			// Google Apps Script endpoint (kept as a backup log in your Google Sheet)
+			// Google Apps Script: saves each message in the Google Sheet
+			// "contactForm" and emails it to me, with "Reply" addressed to the sender.
 			const sheetURL = 'https://script.google.com/macros/s/AKfycbyur3ERt7Lx3zvPg8nfH25En13lds5Ti00yfdD0Dcn6AO_OIFF8TfqZMsLYJd0dAfbZ/exec';
 
 			const form = document.forms['contact-form'];
@@ -191,7 +173,6 @@
 			const nameInput = document.getElementById('name');
 			const emailInput = document.getElementById('email');
 			const messageInput = document.getElementById('message');
-			const subjectField = document.getElementById('subject-field');
 			const honeypot = document.getElementById('_gotcha');
 
 			const nameError = document.getElementById('name-error');
@@ -246,54 +227,33 @@
 					return;
 				}
 
-				// Personalize the notification subject line with the sender's name
-				subjectField.value = `New message from ${nameInput.value.trim()} via website`;
-
 				sendMessageBtn.disabled = true;
 				sendMessageBtn.innerHTML = sendingMessageText;
 				sendMessageBtn.classList.add('cursor-not-allowed');
-				sendMessageBtn.classList.remove('hover:bg-blue-600');
+				sendMessageBtn.classList.remove('hover:bg-indigo-700');
 
 				const submittedName = nameInput.value.trim();
 				const formData = new FormData(form);
 
-				// Fire both submissions. Use allSettled so one failing
-				// (e.g. Google's script hiccuping) doesn't block the other.
-				const formspreeSubmit = fetch(formspreeURL, {
-					method: 'POST',
-					body: formData,
-					headers: { 'Accept': 'application/json' }
-				});
-
-				const sheetSubmit = fetch(sheetURL, {
-					method: 'POST',
-					body: formData
-				});
-
-				Promise.allSettled([formspreeSubmit, sheetSubmit])
-					.then(results => {
-						const formspreeResult = results[0];
-						const sheetResult = results[1];
-
-						const formspreeOk = formspreeResult.status === 'fulfilled' && formspreeResult.value.ok;
-						const sheetOk = sheetResult.status === 'fulfilled';
-
-						if (formspreeOk || sheetOk) {
-							// As long as at least one destination received it, tell the user it worked.
-							showAlert(`Thanks, ${submittedName}! Your message has been sent. I'll get back to you soon.`, "bg-green-500", "text-white");
-							form.reset();
-							[nameError, emailError, messageError].forEach(el => el.classList.add('hidden'));
-							[nameInput, emailInput, messageInput].forEach(el => el.classList.remove('border-red-500'));
-						} else {
-							showAlert("Error! Please try again later.", "bg-red-500", "text-white");
-							console.error('Both submissions failed', formspreeResult, sheetResult);
-						}
+				// The script answers {"result": "success"} once the message is saved.
+				fetch(sheetURL, { method: 'POST', body: formData })
+					.then(r => r.json())
+					.then(reply => {
+						if (!reply || reply.result !== 'success') throw new Error(reply && reply.error);
+						showAlert(`Thanks, ${submittedName}! Your message has been sent. I'll get back to you soon.`, "bg-green-500", "text-white");
+						form.reset();
+						[nameError, emailError, messageError].forEach(el => el.classList.add('hidden'));
+						[nameInput, emailInput, messageInput].forEach(el => el.classList.remove('border-red-500'));
+					})
+					.catch(err => {
+						showAlert("Sorry, the message could not be sent. Please try again, or email me at sachchidanand@iiitd.ac.in.", "bg-red-500", "text-white");
+						console.error('Contact form failed', err);
 					})
 					.finally(() => {
 						sendMessageBtn.disabled = false;
 						sendMessageBtn.innerHTML = originalButtonText;
 						sendMessageBtn.classList.remove('cursor-not-allowed');
-						sendMessageBtn.classList.add('hover:bg-blue-600');
+						sendMessageBtn.classList.add('hover:bg-indigo-700');
 					});
 			});
 
