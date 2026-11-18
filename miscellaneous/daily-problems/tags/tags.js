@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // =====================================================================
     // CUTOFF DATE — must match LAST_FOLDER_DATE in problem-loader.js
     // =====================================================================
-    const LAST_FOLDER_DATE = '2025-12-31';
+    const LAST_FOLDER_DATE = '2026-04-29';
 
     function entryToHref(entry) {
         const match = entry.match(/(\d{4}-\d{2}-\d{2})/);

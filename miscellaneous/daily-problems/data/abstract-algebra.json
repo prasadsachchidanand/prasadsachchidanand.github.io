@@ -415,7 +415,7 @@
     },
     {
       "date": "2023-10-18",
-      "title": "Prime and maximal ideal of $\\mathbb{Z}[x]",
+      "title": "Prime and maximal ideal of $\\mathbb{Z}[x]$",
       "difficulty": "medium",
       "problem": "Prove that\n    \\[\n        I = \\left\\{ f(x) \\in \\mathbb{Z} [x] : f(-3) = 0 \\right\\}\n    \\] \n        is a prime ideal of $\\mathbb{Z} [x]$. Check if it is a maximal ideal of $\\mathbb{Z} [x]$.",
       "hint": "",

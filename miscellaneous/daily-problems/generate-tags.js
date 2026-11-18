@@ -22,7 +22,7 @@ const TOPIC_FILES = [
 // Dates UP TO AND INCLUDING this date have a real folder (yyyy-mm-dd/).
 // Dates AFTER this date use the canonical page (/problem/?date=...).
 // =====================================================================
-const LAST_FOLDER_DATE = '2025-12-31';
+const LAST_FOLDER_DATE = '2026-04-29';
 
 // Build the correct URL string for a given YYYY-MM-DD date string
 function buildDateURL(dateString) {

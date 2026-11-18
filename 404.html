@@ -11,7 +11,7 @@
         // shown by the problem page instead. Send those addresses there straight away.
         // Must match LAST_FOLDER_DATE in miscellaneous/daily-problems/problem-loader.js.
         (function () {
-            var LAST_FOLDER_DATE = '2025-12-31';
+            var LAST_FOLDER_DATE = '2026-04-29';
             var m = location.pathname.match(/\/miscellaneous\/daily-problems\/(\d{4}-\d{2}-\d{2})\/?$/);
             if (m && m[1] > LAST_FOLDER_DATE) {
                 location.replace('/miscellaneous/daily-problems/problem/?date=' + m[1]);

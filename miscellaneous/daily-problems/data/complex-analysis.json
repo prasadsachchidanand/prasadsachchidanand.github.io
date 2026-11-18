@@ -1942,7 +1942,7 @@
     },
     {
       "date": "2026-03-10",
-      "title": "Solve  z^n - z^{n-1} + z^{n-2} + \\\\dots - z + 1 = 0",
+      "title": "Solve $z^n - z^{n-1} + z^{n-2} + \\dots - z + 1 = 0$",
       "difficulty": "medium",
       "problem": "Solve the equation \n    \\[\n        z^n - z^{n-1} + z^{n-2} + \\dots - z + 1 = 0,\n    \\]\n    where $n$ is a positive even integer.",
       "hint": "<ul class=\"math-list-disc\">\n                    <li class=\"my-4\">\n                      Note that, since $n$ is even we have\n        \\[\n            \\frac{z^{n+1} + 1}{z + 1} = z^n - z^{n-1} + z^{n-2} + \\dots - z + 1.\n        \\]\n                    </li>\n                  </ul>",

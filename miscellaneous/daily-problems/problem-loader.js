@@ -17,8 +17,282 @@ const topicMap = {
 // Dates UP TO AND INCLUDING this date have a real folder (yyyy-mm-dd/).
 // Dates AFTER this date use the canonical page (/problem/?date=yyyy-mm-dd).
 // Set this to the last date you manually created a folder for.
+// Also used by: calendar.js, daily-problem-loader.js, generate-tags.js,
+// tags/tags.js, ../books/books.js and the site's 404.html.
 // =====================================================================
-const LAST_FOLDER_DATE = '2025-12-31';
+const LAST_FOLDER_DATE = '2026-04-29';
+
+// ==================== PLAIN-TEXT TITLES (begin) ====================
+// Browser tabs, Google results and link previews cannot show typeset maths, so the
+// page title and description are written in plain text: "closed in $\mathbb{R}^2$"
+// becomes "closed in ℝ²". update-page-heads.js runs this same code (everything
+// between the "(begin)" and "(end)" lines) to write the titles into the dated
+// folders, so keep those two lines.
+const latexToPlain = (() => {
+    const SP = '\uE000';    // a space the maths clean-up must keep
+    const SOFT = '\uE001';  // space after an operator name ("sin x"); dropped before "(" etc.
+    const LB = '\uE002', RB = '\uE003', DOLLAR = '\uE004', DEF = '\uE005', TIMES = '\uE006';
+
+    const GREEK = {
+        alpha: 'α', beta: 'β', gamma: 'γ', delta: 'δ', epsilon: 'ε', varepsilon: 'ε', zeta: 'ζ',
+        eta: 'η', theta: 'θ', vartheta: 'ϑ', iota: 'ι', kappa: 'κ', lambda: 'λ', mu: 'μ', nu: 'ν',
+        xi: 'ξ', pi: 'π', varpi: 'ϖ', rho: 'ρ', varrho: 'ϱ', sigma: 'σ', varsigma: 'ς', tau: 'τ',
+        upsilon: 'υ', phi: 'φ', varphi: 'φ', chi: 'χ', psi: 'ψ', omega: 'ω', Gamma: 'Γ', Delta: 'Δ',
+        Theta: 'Θ', Lambda: 'Λ', Xi: 'Ξ', Pi: 'Π', Sigma: 'Σ', Upsilon: 'Υ', Phi: 'Φ', Psi: 'Ψ', Omega: 'Ω'
+    };
+    const SYMBOLS = {
+        to: '→', rightarrow: '→', longrightarrow: '→', leftarrow: '←', gets: '←', longleftarrow: '←',
+        mapsto: '↦', longmapsto: '↦', Rightarrow: '⇒', implies: '⇒', Longrightarrow: '⇒',
+        Leftarrow: '⇐', impliedby: '⇐', iff: '⇔', Leftrightarrow: '⇔', Longleftrightarrow: '⇔',
+        leftrightarrow: '↔', hookrightarrow: '↪', twoheadrightarrow: '↠', uparrow: '↑', downarrow: '↓',
+        in: '∈', notin: '∉', ni: '∋', subset: '⊂', subseteq: '⊆', subsetneq: '⊊', subsetneqq: '⊊',
+        supset: '⊃', supseteq: '⊇', supsetneq: '⊋', cup: '∪', cap: '∩', bigcup: '⋃', bigcap: '⋂',
+        sqcup: '⊔', bigsqcup: '⊔', setminus: '∖', backslash: '∖', emptyset: '∅', varnothing: '∅',
+        infty: '∞', le: '≤', leq: '≤', leqslant: '≤', ge: '≥', geq: '≥', geqslant: '≥', ne: '≠',
+        neq: '≠', lt: '<', gt: '>', approx: '≈', cong: '≅', simeq: '≃', sim: '∼', equiv: '≡',
+        propto: '∝', prec: '≺', preceq: '⪯', preccurlyeq: '≼', succ: '≻', succeq: '⪰', ll: '≪', gg: '≫',
+        coloneqq: DEF, colon: ':', times: '×', cdot: '·', cdotp: '·', cdots: '⋯', dots: '…',
+        ldots: '…', dotsc: '…', dotsb: '⋯', vdots: '⋮', ddots: '⋱', circ: '∘', bullet: '•', pm: '±',
+        mp: '∓', div: '÷', ast: '*', star: '⋆', dagger: '†', dag: '†', partial: '∂', nabla: '∇',
+        forall: '∀', exists: '∃', nexists: '∄', neg: '¬', lnot: '¬', land: '∧', wedge: '∧', lor: '∨',
+        vee: '∨', bigwedge: '⋀', bigvee: '⋁', oplus: '⊕', bigoplus: '⊕', otimes: '⊗', bigotimes: '⊗',
+        odot: '⊙', int: '∫', iint: '∬', iiint: '∭', oint: '∮', sum: '∑', prod: '∏', coprod: '∐',
+        mid: '∣', nmid: '∤', vert: '|', lvert: '|', rvert: '|', Vert: '‖', lVert: '‖', rVert: '‖',
+        parallel: '∥', perp: '⊥', angle: '∠', triangle: '△', triangleleft: '◁', lhd: '◁',
+        trianglelefteq: '⊴', unlhd: '⊴', langle: '⟨', rangle: '⟩', lfloor: '⌊', rfloor: '⌋',
+        lceil: '⌈', rceil: '⌉', lbrace: LB, rbrace: RB, prime: '′', hbar: 'ℏ', ell: 'ℓ', aleph: 'ℵ',
+        wp: '℘', square: '□', Box: '□', blacksquare: '■', imath: 'ı', jmath: 'ȷ',
+        quad: SP, qquad: SP, enspace: SP, thinspace: '', negthinspace: ''
+    };
+    const BIG = new Set('sum prod coprod int iint iiint oint bigcup bigcap bigsqcup bigoplus bigotimes bigwedge bigvee'.split(' '));
+    const OPERATORS = new Set(('sin cos tan sec csc cot sinh cosh tanh coth arcsin arccos arctan ' +
+        'log ln lg exp lim limsup liminf sup inf max min det dim ker deg gcd lcm arg Re Im Pr hom').split(' '));
+    const IGNORE = new Set(('displaystyle textstyle scriptstyle scriptscriptstyle limits nolimits hline ' +
+        'nonumber notag left right middle big Big bigg Bigg bigl bigr Bigl Bigr biggl biggr Biggl Biggr').split(' '));
+    const IGNORE_WITH_ARGS = { label: 1, tag: 1, phantom: 1, hphantom: 1, vphantom: 1, hspace: 1, vspace: 1, rule: 2 };
+    const TEXT = new Set('text textrm textup textit textbf textsf texttt textnormal emph mbox hbox'.split(' '));
+    const FONT = new Set('mathrm mathbf mathit mathsf mathtt mathfrak mathnormal boldsymbol bm mathop mathord mathbin mathrel'.split(' '));
+    const ACCENT = { bar: '\u0304', overline: '\u0305', hat: '\u0302', widehat: '\u0302', tilde: '\u0303',
+        widetilde: '\u0303', vec: '\u20D7', dot: '\u0307', ddot: '\u0308', breve: '\u0306', check: '\u030C', underline: '' };
+    const NOT = { '\\in': '∉', '=': '≠', '\\equiv': '≢', '\\subset': '⊄', '\\subseteq': '⊈', '\\mid': '∤',
+        '|': '∤', '\\cong': '≇', '\\sim': '≁', '<': '≮', '>': '≯', '\\le': '≰', '\\leq': '≰', '\\ge': '≱', '\\geq': '≱' };
+    // Commands whose arguments belong to them (so x^\frac{1}{2} takes the whole fraction)
+    const ARGS = { frac: 2, dfrac: 2, tfrac: 2, cfrac: 2, binom: 2, dbinom: 2, tbinom: 2, sqrt: 1,
+        mathbb: 1, mathbbm: 1, mathcal: 1, mathscr: 1, operatorname: 1, pmod: 1 };
+    [TEXT, FONT, Object.keys(ACCENT)].forEach(list => list.forEach(name => { ARGS[name] = 1; }));
+
+    // Letter styles: \mathbb{R} → ℝ, \mathcal{A} → 𝒜
+    const styled = (start, exceptions) => ch => {
+        const k = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(ch);
+        return k < 0 ? ch : (exceptions[ch] || String.fromCodePoint(start + k));
+    };
+    const BB = styled(0x1D538, { C: 'ℂ', H: 'ℍ', N: 'ℕ', P: 'ℙ', Q: 'ℚ', R: 'ℝ', Z: 'ℤ' });
+    const CAL = styled(0x1D49C, { B: 'ℬ', E: 'ℰ', F: 'ℱ', H: 'ℋ', I: 'ℐ', L: 'ℒ', M: 'ℳ', R: 'ℛ' });
+    const restyle = (t, f) => Array.from(t).map(f).join('');
+
+    // Superscripts and subscripts: x^2 → x², a_n → aₙ; anything without a Unicode form keeps ^ or _
+    const SUP = { 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹',
+        '+': '⁺', '-': '⁻', '−': '⁻', '=': '⁼', '(': '⁽', ')': '⁾', a: 'ᵃ', b: 'ᵇ', c: 'ᶜ', d: 'ᵈ',
+        e: 'ᵉ', f: 'ᶠ', g: 'ᵍ', h: 'ʰ', i: 'ⁱ', j: 'ʲ', k: 'ᵏ', l: 'ˡ', m: 'ᵐ', n: 'ⁿ', o: 'ᵒ', p: 'ᵖ',
+        r: 'ʳ', s: 'ˢ', t: 'ᵗ', u: 'ᵘ', v: 'ᵛ', w: 'ʷ', x: 'ˣ', y: 'ʸ', z: 'ᶻ', T: 'ᵀ',
+        '*': '*', '′': '′', '∘': '°', '⊥': '⊥', '†': '†', '⋆': '⋆', '×': TIMES };
+    const SUB = { 0: '₀', 1: '₁', 2: '₂', 3: '₃', 4: '₄', 5: '₅', 6: '₆', 7: '₇', 8: '₈', 9: '₉',
+        '+': '₊', '-': '₋', '−': '₋', '=': '₌', '(': '₍', ')': '₎', a: 'ₐ', e: 'ₑ', h: 'ₕ', i: 'ᵢ',
+        j: 'ⱼ', k: 'ₖ', l: 'ₗ', m: 'ₘ', n: 'ₙ', o: 'ₒ', p: 'ₚ', r: 'ᵣ', s: 'ₛ', t: 'ₜ', u: 'ᵤ', v: 'ᵥ', x: 'ₓ' };
+    function script(t, map, mark) {
+        t = t.replace(/[\s\uE000\uE001]/g, '');
+        if (!t) return '';
+        const chars = Array.from(t);
+        const done = new Set(Object.values(map));
+        if (chars.every(ch => map[ch] || done.has(ch))) return chars.map(ch => map[ch] || ch).join('');
+        return mark + (chars.length === 1 ? t : '(' + t + ')');
+    }
+    // Brackets for a fraction part that needs them: (x+1)/2 and 1/(2π), but x/2, dy/dx and ⟨x⟩/2 stay as they are
+    const ONE_SYMBOL = /^(\d+(\.\d+)?|[∂d]?[\p{L}\p{N}∞][\u0300-\u036F\u20D7]*|\p{L}′*\([^()]*\))[′″!*⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓ]*$/u;
+    function wrap(t, denominator) {
+        const u = t.replace(/[\s\uE000\uE001]/g, '');
+        if (/^[(\[⟨|‖][^()\[\]⟨⟩]*[)\]⟩|‖]$/.test(u)) return t;
+        const needs = /[+\-−=<>≤≥,\/×·∈→]/.test(u) || (denominator && !ONE_SYMBOL.test(u));
+        return needs ? '(' + t + ')' : t;
+    }
+
+    function group(s, i) {          // s[i] is "{": the text inside and the index after "}"
+        let depth = 0;
+        for (let j = i; j < s.length; j++) {
+            if (s[j] === '\\') j++;
+            else if (s[j] === '{') depth++;
+            else if (s[j] === '}' && --depth === 0) return [s.slice(i + 1, j), j + 1];
+        }
+        return [s.slice(i + 1), s.length];
+    }
+    function arg(s, i) {            // next argument: {group}, \command with its arguments, or one character
+        while (i < s.length && /\s/.test(s[i])) i++;
+        if (i >= s.length) return ['', i];
+        if (s[i] === '{') return group(s, i);
+        if (s[i] === '\\') {
+            const m = /^\\([a-zA-Z]+|[\s\S])/.exec(s.slice(i));
+            let j = i + m[0].length;
+            for (let k = 0; k < (ARGS[m[1]] || 0); k++) j = arg(s, j)[1];
+            return [s.slice(i, j), j];
+        }
+        const ch = String.fromCodePoint(s.codePointAt(i));
+        return [ch, i + ch.length];
+    }
+
+    // Matrices, cases and aligned equations, innermost first:
+    // \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} → [1, 2; 3, 4]
+    function environments(s) {
+        const re = /\\begin\{([a-zA-Z]+\*?)\}((?:(?!\\begin\{)[\s\S])*?)\\end\{\1\}/;
+        let m;
+        while ((m = re.exec(s))) {
+            const env = m[1].replace('*', '');
+            let body = m[2];
+            if (env === 'array' && body.trim()[0] === '{') body = group(body, body.indexOf('{'))[0] === '' ? body : body.slice(group(body, body.indexOf('{'))[1]);
+            const table = /matrix$|^array$|cases$/.test(env);
+            body = body.replace(/\\\\(\[[^\]]*\])?\s*$/, '').replace(/\\\\(\[[^\]]*\])?/g, ';' + SP)
+                .replace(/(^|[^\\])&/g, table ? '$1,' : '$1');
+            const brackets = { pmatrix: ['(', ')'], bmatrix: ['[', ']'], Bmatrix: [LB, RB], vmatrix: ['|', '|'], Vmatrix: ['‖', '‖'] }[env] || ['', ''];
+            s = s.slice(0, m.index) + SP + brackets[0] + body + brackets[1] + SP + s.slice(m.index + m[0].length);
+        }
+        return s;
+    }
+
+    function math(s) {
+        s = environments(s).replace(/\\not\s*(\\[a-zA-Z]+|[=<>|])/g, (m, x) => NOT[x] || x);
+        let out = '';
+        let i = 0;
+        while (i < s.length) {
+            const c = s[i];
+            if (c === '\\') {
+                const m = /^\\([a-zA-Z]+|[\s\S])?/.exec(s.slice(i));
+                const name = m[1] || '';
+                i += m[0].length;
+                if (!/^[a-zA-Z]/.test(name)) {   // \, \; \{ \| \\ …
+                    const CTRL = { ',': SP, ';': SP, ':': SP, '>': SP, ' ': SP, '\n': SP, '!': '',
+                        '{': LB, '}': RB, '|': '‖', '\\': ';' + SP, '$': DOLLAR };
+                    out += name in CTRL ? CTRL[name] : name;
+                    continue;
+                }
+                if (s[i] === '*' && name === 'operatorname') i++;
+                let a, b, j;
+                if (name in GREEK) out += GREEK[name];
+                else if (name in SYMBOLS) out += SYMBOLS[name] + (BIG.has(name) ? SOFT : '');
+                else if (OPERATORS.has(name)) out += name + SOFT;
+                else if (IGNORE.has(name)) { if (s[i] === '.') i++; }        // \left. and \right.
+                else if (name in IGNORE_WITH_ARGS) { for (let k = 0; k < IGNORE_WITH_ARGS[name]; k++) i = arg(s, i)[1]; }
+                else if (/^m?kern$|^[hm]skip$/.test(name)) { const d = /^\s*-?[\d.]+\s*[a-z]{2}/.exec(s.slice(i)); if (d) i += d[0].length; }
+                else if (name === 'begin' || name === 'end') i = arg(s, i)[1];
+                else if (name === 'bmod' || name === 'mod') out += SP + 'mod' + SP;
+                else if (name === 'sqrt') {
+                    let n = '';
+                    if (s[i] === '[') { const e = s.indexOf(']', i); n = math(s.slice(i + 1, e)).trim(); i = e + 1; }
+                    [a, i] = arg(s, i);
+                    out += (n === '3' ? '∛' : n === '4' ? '∜' : (n ? script(n, SUP, '^') : '') + '√') + wrap(math(a));
+                }
+                else if (name in ARGS) {
+                    [a, j] = arg(s, i);
+                    if (ARGS[name] === 2) [b, j] = arg(s, j);
+                    i = j;
+                    if (/frac$/.test(name)) out += wrap(math(a)) + '/' + wrap(math(b), true);
+                    else if (/binom$/.test(name)) out += 'C(' + math(a) + ',' + math(b) + ')';
+                    else if (name === 'mathbb' || name === 'mathbbm') out += restyle(math(a), BB);
+                    else if (name === 'mathcal' || name === 'mathscr') out += restyle(math(a), CAL);
+                    else if (name === 'operatorname') out += math(a) + SOFT;
+                    else if (name === 'pmod') out += SP + '(mod' + SP + math(a) + ')';
+                    else if (TEXT.has(name)) out += (/^\s/.test(a) ? SP : '') + plain(a).replace(/ /g, SP) + (/\s$/.test(a) ? SP : '');
+                    else if (name in ACCENT) { const t = math(a); out += ACCENT[name] && Array.from(t).length === 1 ? t + ACCENT[name] : t; }
+                    else out += math(a);                                     // \mathrm, \mathbf, …
+                }
+                else out += name;                                            // unknown command: keep its name
+            } else if (c === '{') {
+                let a;
+                [a, i] = group(s, i);
+                out += math(a);
+            } else if (c === '}') {
+                i++;
+            } else if (c === '^' || c === '_') {
+                let a;
+                [a, i] = arg(s, i + 1);
+                const t = script(math(a), c === '^' ? SUP : SUB, c);
+                out = out.replace(/\s+$/, '');
+                out = out.endsWith(SOFT) ? out.slice(0, -1) + t + SOFT : out + t;  // lim_{n→∞} x
+            } else if (c === '&' || c === '~') {
+                out += SP; i++;
+            } else if (c === "'") {
+                out += '′'; i++;
+            } else {
+                out += c; i++;
+            }
+        }
+        return out;
+    }
+
+    // Spacing as in typeset maths: TeX ignores the spaces typed in a formula
+    function finishMath(t) {
+        return t.replace(/\s+/g, '').replace(/:=/g, DEF)
+            .replace(/[=<>≤≥≠≈≡≢≅≇≃∼≁∝∈∉∋⊂⊆⊄⊈⊊⊃⊇⊋→←↔↦⇒⇐⇔↪↠≺≻≼⪯⪰∣∤×∪∩∖⊕⊗\uE005]/g, ' $& ')
+            .replace(/,/g, ', ').replace(/:(?!=)/g, ': ')
+            .replace(/\uE001(?=$|[\s(\[{⟨,;.\uE000\uE002])/g, '')
+            .replace(/\uE001/g, ' ');
+    }
+
+    function plain(s) {
+        if (!s) return '';
+        s = String(s)
+            .replace(/<\/?(br|p|div|li|ul|ol|h\d|tr|td|th|table|blockquote)\b[^>]*>/gi, ' ')
+            .replace(/<\/?[a-zA-Z][^>]*>/g, '')
+            .replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"')
+            .replace(/&#0*39;|&apos;|&rsquo;/g, '’').replace(/&lsquo;/g, '‘').replace(/&ldquo;/g, '“').replace(/&rdquo;/g, '”')
+            .replace(/&ndash;/g, '–').replace(/&mdash;/g, '—').replace(/&hellip;/g, '…')
+            .replace(/&#(\d+);/g, (m, n) => String.fromCodePoint(+n))
+            .replace(/&#x([0-9a-f]+);/gi, (m, n) => String.fromCodePoint(parseInt(n, 16)))
+            .replace(/&amp;/g, '&')
+            .replace(/\\\$/g, DOLLAR);
+        s = s.replace(/\$\$([\s\S]+?)\$\$|\\\[([\s\S]+?)\\\]|\\\(([\s\S]+?)\\\)|\\begin\{([a-zA-Z]+\*?)\}[\s\S]*?\\end\{\4\}|\$([^$]+)\$/g,
+            (m, display1, display2, inline1, env, inline2) => {
+                const t = finishMath(math(display1 || display2 || inline1 || inline2 || m));
+                return inline1 || inline2 ? t : ' ' + t + ' ';
+            });
+        return s
+            .replace(/\\(?:textbf|textit|textrm|textsc|text|emph|underline)\{([^{}]*)\}/g, '$1')
+            .replace(/\\(?:ldots|dots)\b/g, '…')
+            .replace(/``|''/g, '"')
+            .replace(/\\\\/g, ' ')
+            .replace(/\\([%&#_{}])/g, '$1')
+            .replace(/\\[a-zA-Z]+\s*/g, '')
+            .replace(/[{}$]/g, '')
+            .replace(/[\uE000\uE001]/g, ' ')
+            .replace(/\uE002/g, '{').replace(/\uE003/g, '}').replace(/\uE004/g, '$').replace(/\uE005/g, ':=').replace(/\uE006/g, '×')
+            .replace(/\s+/g, ' ')
+            .replace(/\s+([,.;!?)\]])/g, '$1').replace(/([(\[])\s+/g, '$1')
+            .trim();
+    }
+
+    // Shorten to at most `max` characters, at a word boundary, ending in "…"
+    plain.shorten = (t, max) => {
+        if (t.length <= max) return t;
+        let cut = t.slice(0, max);
+        const space = cut.lastIndexOf(' ');
+        if (space > max * 0.6) cut = cut.slice(0, space);
+        return cut.replace(/[\s,;:.(\-–—]+$/, '') + '…';
+    };
+    return plain;
+})();
+
+// The page title and description of a problem (also written into the dated folders)
+function problemPageText(problemDate, problem, topicName) {
+    const name = latexToPlain(problem.title || '');
+    let title;
+    if (name && name !== 'Problem of the Day') {
+        title = topicName.toLowerCase() === 'miscellaneous'
+            ? `Problem of the Day | ${problemDate} | ${name} | Sachchidanand Prasad`
+            : `Problem of the Day | ${problemDate} | ${topicName} - ${name} | Sachchidanand Prasad`;
+    } else {
+        title = `Problem of the Day | ${problemDate} | ${topicName} | Sachchidanand Prasad`;
+    }
+    return { title, description: latexToPlain.shorten(latexToPlain(problem.problem || ''), 155) };
+}
+// ==================== PLAIN-TEXT TITLES (end) ====================
 
 // ==================== URL / DATE HELPERS ====================
 
@@ -842,20 +1116,10 @@ function toggleSolution() {
 
 function updateMetadata(problemDate, problem, topicName) {
     const baseURL = window.location.origin + buildDateURL(problemDate);
-    
-    let title;
-    if (problem.title && problem.title.trim() !== '' && problem.title !== 'Problem of the Day') {
-        title = topicName.toLowerCase() === 'miscellaneous'
-            ? `Problem of the Day | ${problemDate} | ${problem.title} | Sachchidanand Prasad`
-            : `Problem of the Day | ${problemDate} | ${topicName} - ${problem.title} | Sachchidanand Prasad`;
-    } else {
-        title = `Problem of the Day | ${problemDate} | ${topicName} | Sachchidanand Prasad`;
-    }
-    
-    const description = problem.problem.length > 150 
-        ? problem.problem.substring(0, 150).replace(/[^\w\s]/gi, '') + '...'
-        : problem.problem.replace(/[^\w\s]/gi, '');
-    
+
+    // Plain text, no LaTeX (see "PLAIN-TEXT TITLES" at the top of this file)
+    const { title, description } = problemPageText(problemDate, problem, topicName);
+
     document.title = title;
     
     const metaSelectors = [
@@ -876,9 +1140,16 @@ function updateMetadata(problemDate, problem, topicName) {
         }
     });
 
-    // A problem repeated from an earlier day points search engines to the original
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.href = problem.sameAs ? window.location.origin + buildDateURL(problem.sameAs) : baseURL;
+    // The official address of this problem for search engines; a problem repeated from an
+    // earlier day points to the original. The shared page (problem/?date=…) has no such
+    // tag in its HTML, so it is added here.
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.rel = 'canonical';
+        document.head.appendChild(canonical);
+    }
+    canonical.href = problem.sameAs ? window.location.origin + buildDateURL(problem.sameAs) : baseURL;
     
     if (document.getElementById('shareLink')) {
         document.getElementById('shareLink').value = baseURL;

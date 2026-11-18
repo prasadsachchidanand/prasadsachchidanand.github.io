@@ -18,7 +18,7 @@ const topicMap = {
 // Dates UP TO AND INCLUDING this date have a real folder (yyyy-mm-dd/).
 // Dates AFTER this date use the canonical page (/problem/?date=...).
 // =====================================================================
-const DAILY_LAST_FOLDER_DATE = '2025-12-31';
+const DAILY_LAST_FOLDER_DATE = '2026-04-29';
 
 // Build the correct URL for a given YYYY-MM-DD date string.
 // Called from this page context, so paths are relative to /daily-problems/.

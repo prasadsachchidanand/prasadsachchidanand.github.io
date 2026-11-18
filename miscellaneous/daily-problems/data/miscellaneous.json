@@ -794,7 +794,7 @@
     },
     {
       "date": "2024-05-04",
-      "title": "What is $P(X > 0 \\mid X + Y > 0)$ if$X,Y$ are i.i.d standard normal",
+      "title": "What is $P(X > 0 \\mid X + Y > 0)$ if $X,Y$ are i.i.d standard normal",
       "problem": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n    Suppose $X, Y$ are i.i.d and $X, Y \\sim N(0,1)$. What is $P(X > 0 \\mid X + Y > 0)?$\n</div>",
       "hint": "",
       "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">\n  <span class=\"text-lg text-red-600\"> I encourage you to attempt to solve the problem today. The solution will be provided tomorrow. This will give you the opportunity to test your understanding of the problem and to improve your skills in solving similar problems in the future.</span>\n</div>",

@@ -16,7 +16,7 @@
     const APP = document.getElementById('app');
     const DATA_BASE = '../daily-problems/data/';
     const BOOKS_DATA_BASE = 'data/'; // dedicated per-book problem files, see generate-books-data.js
-    const LAST_FOLDER_DATE = '2025-12-31'; // must match problem-loader.js
+    const LAST_FOLDER_DATE = '2026-04-29'; // must match problem-loader.js
 
     const fileCache = {}; // `${source}:${slug}` -> parsed JSON (cached across views)
 
