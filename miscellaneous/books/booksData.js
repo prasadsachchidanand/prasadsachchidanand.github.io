@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-11-14T11:28:47.490Z
+// Generated on: 2026-11-19T02:08:43.851Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -1007,6 +1007,51 @@ const booksData = {
                 "title": "Herstein - 2.4.36 - $n \\mid \\varphi(a^n - 1)$ for every integer $a > 1$",
                 "difficulty": "medium",
                 "problem": "If $a > 1$ is an integer, show that $n \\mid \\varphi(a^n - 1)$, where $\\varphi$ is the Euler $\\varphi$-function. [<strong>Hint:</strong> Consider the integers $\\bmod(a^n - 1)$.]"
+              },
+              {
+                "number": "2.4.37",
+                "source": "daily",
+                "date": "2026-11-25",
+                "topic": "abstract-algebra",
+                "title": "Herstein - 2.4.37 - A cyclic group of order $n$ has $\\varphi(m)$ elements of order $m$ for each divisor $m$ of $n$",
+                "difficulty": "medium",
+                "problem": "In a cyclic group of order $n$, show that for each positive integer $m$ that divides $n$ (including $m = 1$ and $m = n$) there are $\\varphi(m)$ elements of order $m$."
+              },
+              {
+                "number": "2.4.38",
+                "source": "daily",
+                "date": "2026-12-02",
+                "topic": "abstract-algebra",
+                "title": "Herstein - 2.4.38 - The sum of $\\varphi(m)$ over the divisors $m$ of $n$ is $n$",
+                "difficulty": "easy",
+                "problem": "Using the result of Problem 37, show that $n = \\sum_{m \\mid n} \\varphi(m)$. [<strong>Recall:</strong> Problem 37 (<a class=\"text-blue-500 hover:text-blue-800\" href=\"/miscellaneous/daily-problems/problem/?date=2026-11-25\">25 November 2026</a>) says that in a cyclic group of order $n$, for each positive divisor $m$ of $n$ there are exactly $\\varphi(m)$ elements of order $m$.]"
+              },
+              {
+                "number": "2.4.39",
+                "source": "daily",
+                "date": "2026-12-09",
+                "topic": "abstract-algebra",
+                "title": "Herstein - 2.4.39 - If $x^m = e$ has at most $m$ solutions for every divisor $m$ of $\\vert G \\vert$, then $G$ is cyclic",
+                "difficulty": "medium",
+                "problem": "Let $G$ be a finite abelian group of order $n$ for which the number of solutions of $x^m = e$ is at most $m$ for any $m$ dividing $n$. Prove that $G$ must be cyclic. [<strong>Hint:</strong> Let $\\psi(m)$ be the number of elements in $G$ of <em>order</em> $m$. Show that $\\psi(m) \\leq \\varphi(m)$ and use Problem 38.] [<strong>Recall:</strong> Problem 38 (<a class=\"text-blue-500 hover:text-blue-800\" href=\"/miscellaneous/daily-problems/problem/?date=2026-12-02\">2 December 2026</a>) is the identity $n = \\sum_{m \\mid n} \\varphi(m)$.]"
+              },
+              {
+                "number": "2.4.40",
+                "source": "daily",
+                "date": "2026-12-16",
+                "topic": "abstract-algebra",
+                "title": "Herstein - 2.4.40 - $U_p$ is cyclic for every prime $p$ (primitive roots exist)",
+                "difficulty": "medium",
+                "problem": "Using the result of Problem 39, show that $U_p$, if $p$ is a prime, is cyclic. (This is a famous result in number theory; it asserts the existence of a <em>primitive root</em> mod $p$.) [<strong>Recall:</strong> $U_p$ is the group of the nonzero classes $[1], [2], \\ldots, [p - 1]$ of $\\mathbb{Z}_p$ under multiplication. Problem 39 (<a class=\"text-blue-500 hover:text-blue-800\" href=\"/miscellaneous/daily-problems/problem/?date=2026-12-09\">9 December 2026</a>) says that a finite abelian group of order $n$ in which $x^m = e$ has at most $m$ solutions for every $m \\mid n$ is cyclic.]"
+              },
+              {
+                "number": "2.4.41",
+                "source": "daily",
+                "date": "2026-12-23",
+                "topic": "abstract-algebra",
+                "title": "Herstein - 2.4.41 - If $p = 4n + 1$ is prime, then $x^2 \\equiv -1 \\pmod p$ has a solution",
+                "difficulty": "medium",
+                "problem": "Using the result of Problem 40, show that if $p$ is a prime of the form $p = 4n + 1$, then we can solve $x^2 \\equiv -1 \\bmod p$ (with $x$ an integer). [<strong>Recall:</strong> Problem 40 (<a class=\"text-blue-500 hover:text-blue-800\" href=\"/miscellaneous/daily-problems/problem/?date=2026-12-16\">16 December 2026</a>) says that $U_p$ is cyclic.]"
               }
             ]
           }
@@ -2956,6 +3001,15 @@ const booksData = {
                 "title": "Munkres - 1.7.6 - Countable Sets: The Schroeder–Bernstein theorem",
                 "difficulty": "medium",
                 "problem": "We say that two sets $A$ and $B$ <strong>have the same cardinality</strong> if there is a bijection of $A$ with $B$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $B \\subset A$ and if there is an injection\n    \\[\n        f : A \\longrightarrow B,\n    \\]\n    then $A$ and $B$ have the same cardinality. [<em>Hint:</em> Define $A_1 = A$, $B_1 = B$, and for $n > 1$, $A_n = f(A_{n-1})$ and $B_n = f(B_{n-1})$. (Recursive definition again!) Note that $A_1 \\supset B_1 \\supset A_2 \\supset B_2 \\supset A_3 \\supset \\cdots$. Define a bijection $h : A \\to B$ by the rule\n    \\[\n        h(x) = \\begin{cases} f(x) & \\text{if } x \\in A_n - B_n \\text{ for some } n, \\\\ x & \\text{otherwise.} \\end{cases}\n    \\]\n    ]</li>\n<li class=\"my-4\"><strong>Theorem (Schroeder–Bernstein theorem).</strong> <em>If there are injections $f : A \\to C$ and $g : C \\to A$, then $A$ and $C$ have the same cardinality.</em></li></ol>"
+              },
+              {
+                "number": "1.7.7",
+                "source": "daily",
+                "date": "2026-11-28",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.7.7 - Countable Sets: Functions $\\mathbb{Z}_+ \\to \\mathbb{Z}_+$ and functions $\\mathbb{Z}_+ \\to \\{ 0, 1 \\}$ have the same cardinality",
+                "difficulty": "medium",
+                "problem": "Show that the sets $D$ and $E$ of Exercise 5 have the same cardinality. [<strong>Recall:</strong> In <a class=\"text-blue-500 hover:text-blue-800\" href=\"/miscellaneous/daily-problems/problem/?date=2026-11-14\">Exercise 5</a>, $D$ is the set of all functions $f : \\mathbb{Z}_+ \\to \\mathbb{Z}_+$, and $E$ is the set of all functions $f : \\mathbb{Z}_+ \\to \\{ 0, 1 \\}$. Two sets have the same cardinality if there is a bijection of one with the other.]"
               }
             ]
           }
