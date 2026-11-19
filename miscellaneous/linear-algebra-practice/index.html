@@ -105,6 +105,20 @@
     .lp-verdict[data-kind="ok"] { color: var(--tl-ok); }
     .lp-verdict[data-kind="err"] { color: var(--tl-err); }
     .lp-solution b { color: var(--tl-ink); }
+    /* converted from questions.tex: paragraphs, lists, center, quote */
+    .lp-par { margin-top: .6em; }
+    :is(.lp-q, .lp-otext, .lp-solution) :is(ul, ol) { margin: .35em 0; padding-left: 1.6em; }
+    :is(.lp-q, .lp-otext, .lp-solution) ul { list-style: disc; }
+    :is(.lp-q, .lp-otext, .lp-solution) ol { list-style: decimal; }
+    :is(.lp-q, .lp-otext, .lp-solution) ol[type="a"] { list-style: lower-alpha; }
+    :is(.lp-q, .lp-otext, .lp-solution) ol[type="A"] { list-style: upper-alpha; }
+    :is(.lp-q, .lp-otext, .lp-solution) ol[type="i"] { list-style: lower-roman; }
+    :is(.lp-q, .lp-otext, .lp-solution) ol[type="I"] { list-style: upper-roman; }
+    .lp-center { text-align: center; }
+    .lp-quote { margin: .4em 0 .4em 1.5em; }
+    .lp-problems { margin: 0 0 1rem; padding: .8rem 1rem; border: 1px solid var(--tl-warn); border-radius: .6rem;
+      background: var(--tl-warn-soft); color: var(--tl-ink); font-size: .92rem; line-height: 1.6; }
+    .lp-problems ul { margin: .3rem 0 0; padding-left: 1.3rem; list-style: disc; }
     .lp-confirm { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin-top: 1.1rem; padding: .9rem 1rem;
       border: 1px solid var(--tl-accent); border-radius: .65rem; background: var(--tl-accent-soft); }
     .lp-confirm p { flex: 1 1 18rem; margin: 0; color: var(--tl-ink); }
@@ -183,8 +197,9 @@
                 <button type="button" class="tl-btn" id="lp-none">None</button>
               </div>
             </div>
+            <div class="lp-problems tex2jax_ignore" id="lp-problems" role="alert" hidden></div>
             <div class="lp-topics" id="lp-topics"></div>
-            <p class="lp-record" id="lp-record"></p>
+            <p class="lp-record" id="lp-record">Loading the questions…</p>
 
             <div class="lp-settings">
               <div class="tl-field">

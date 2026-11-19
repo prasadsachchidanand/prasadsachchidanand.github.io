@@ -2,9 +2,10 @@
  * Linear algebra practice: topic-wise exam-style questions (MCQ, MSQ, NAT) with worked solutions.
  * Practice mode checks each answer at once; test mode marks the whole set at the end, as in GATE
  * (a wrong MCQ costs a third of its marks; MSQ and NAT have no negative marks, and an MSQ needs
- * exactly the correct options). The questions are in questions.js. Results stay in this browser.
+ * exactly the correct options). The questions are written in LaTeX in questions.tex, which the page
+ * fetches and converts (questions-tex.js). Results stay in this browser.
  */
-import { TOPICS, QUESTIONS } from './questions.js';
+import { parseQuestions } from './questions-tex.js';
 
 const $ = id => document.getElementById(id);
 const LETTERS = ['A', 'B', 'C', 'D'];
@@ -14,7 +15,7 @@ const TYPE_HELP = {
   msq: 'One or more options are correct. Choose all of them, and no others, to get the marks.',
   nat: 'Type a number. Fractions such as 3/4 and decimals such as 0.75 are accepted.',
 };
-const TOPIC = Object.fromEntries(TOPICS.map((t, i) => [t.id, { ...t, order: i }]));
+let TOPICS = [], QUESTIONS = [], TOPIC = {};   // filled from questions.tex by load()
 const STORE = 'la-practice-results';
 const MIN_PER_MARK = 1.8;                      // GATE: 180 minutes for 100 marks
 
@@ -94,7 +95,7 @@ async function typeset(el) {
 }
 
 // ---------------------------------------------------------------- setup
-const setup = { topics: new Set(TOPICS.map(t => t.id)), types: new Set(['mcq', 'msq', 'nat']), mode: 'practice' };
+const setup = { topics: new Set(), types: new Set(['mcq', 'msq', 'nat']), mode: 'practice' };
 
 function renderTopics() {
   $('lp-topics').innerHTML = TOPICS.map(t => {
@@ -116,7 +117,7 @@ function renderRecord(asking = false) {
   const right = QUESTIONS.filter(x => record[x.id] === 1).length;
   const el = $('lp-record');
   if (!tried) {
-    el.textContent = `${QUESTIONS.length} questions in all. Your results are kept in this browser, so the bars show which topics need more work.`;
+    el.textContent = `${plural(QUESTIONS.length, 'question')} in all. Your results are kept in this browser, so the bars show which topics need more work.`;
   } else if (asking) {
     el.innerHTML = `Forget all your results on this page? <button type="button" class="tl-btn" data-forget="yes">Yes, forget them</button> <button type="button" class="tl-btn" data-forget="no">Keep them</button>`;
   } else {
@@ -147,7 +148,7 @@ function updateStatus() {
   const n = matching().length, el = $('lp-status');
   el.dataset.kind = n ? '' : 'error';
   el.textContent = n
-    ? `${plural(n, 'question')} match your choice.`
+    ? `${plural(n, 'question')} ${n === 1 ? 'matches' : 'match'} your choice.`
     : 'Choose at least one topic and one type of question.';
   $('lp-start').disabled = !n;
 }
@@ -259,7 +260,7 @@ function verdictHTML(it) {
   return `<p class="lp-verdict" data-kind="${r === 'wrong' ? 'err' : ''}"><i class="fas ${r === 'wrong' ? 'fa-circle-xmark' : 'fa-circle-minus'}"></i> ${r === 'wrong' ? 'Not right.' : 'Not answered.'} ${yours} answer is ${answerHTML(q)}.</p>`;
 }
 
-function solutionHTML(q) { return `<div class="lp-solution"><b>Solution.</b> ${q.solution}</div>`; }
+function solutionHTML(q) { return q.solution ? `<div class="lp-solution"><b>Solution.</b> ${q.solution}</div>` : ''; }
 
 function show(i) {
   const s = session;
@@ -425,7 +426,7 @@ function finish(timeUp = false) {
       </div>
       <div class="lp-q">${q.q}</div>
       ${body}
-      <details class="lp-sol"${r === 'right' ? '' : ' open'}><summary>Solution</summary><div class="lp-solution">${q.solution}</div></details>
+      ${q.solution ? `<details class="lp-sol"${r === 'right' ? '' : ' open'}><summary>Solution</summary><div class="lp-solution">${q.solution}</div></details>` : ''}
     </article>`;
   }).join('');
   typeset($('lp-result'));
@@ -446,6 +447,7 @@ function backToSetup() {
 
 // ---------------------------------------------------------------- wiring
 function init() {
+  setup.topics = new Set(TOPICS.map(x => x.id));
   // a link may preselect: ?topics=eig,det&mode=test&n=10&types=mcq,nat
   const p = new URLSearchParams(location.search);
   const listed = (key, valid) => (p.get(key) || '').split(',').filter(v => valid.includes(v));
@@ -521,4 +523,31 @@ function init() {
   $('lp-new').addEventListener('click', backToSetup);
 }
 
-init();
+// ---------------------------------------------------------------- the questions, from questions.tex
+// A question the page cannot read is left out, and listed in #lp-problems so that it can be fixed.
+async function load() {
+  let text;
+  try {
+    const res = await fetch('questions.tex', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(res.statusText);
+    text = await res.text();
+  } catch {
+    $('lp-record').textContent = 'The questions could not be loaded. Reload the page to try again.';
+    return false;
+  }
+  const { topics, questions, problems } = parseQuestions(text);
+  QUESTIONS = questions;
+  TOPICS = topics.filter(t => questions.some(q => q.topic === t.id));
+  TOPIC = Object.fromEntries(TOPICS.map((t, i) => [t.id, { ...t, order: i }]));
+  const left = problems.filter(p => p.fatal);
+  if (problems.length) console.warn('questions.tex:\n' + problems.map(p => `${p.where}: ${p.message}`).join('\n'));
+  if (left.length) {
+    const box = $('lp-problems');
+    box.innerHTML = `<b>${plural(left.length, 'question')} in questions.tex could not be read, so ${left.length === 1 ? 'it is' : 'they are'} left out:</b><ul>${
+      left.map(p => `<li>${esc(p.where)}: ${esc(p.message)}</li>`).join('')}</ul>`;
+    box.hidden = false;
+  }
+  return true;
+}
+
+load().then(ok => { if (ok) init(); });

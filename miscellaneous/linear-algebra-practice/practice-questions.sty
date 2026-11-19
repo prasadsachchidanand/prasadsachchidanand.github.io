@@ -1,0 +1,41 @@
+% The LaTeX side of questions.tex: with it the question bank compiles to a PDF of the questions, with
+% the right options ticked and the solutions (or without them, after \showanswersfalse).
+% The practice page does not use this file; it reads questions.tex itself.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{practice-questions}[2026/11/19 Linear algebra practice questions]
+
+\RequirePackage[margin=2.2cm]{geometry}
+\RequirePackage{amsmath,amssymb,keyval,enumitem,xcolor}
+\RequirePackage[hidelinks]{hyperref}
+
+\newif\ifshowanswers \showanswerstrue
+\setlength{\parindent}{0pt}
+
+% \topic{id}{name}{weeks}
+\newcommand\topic[3]{\section*{#2\hfill{\normalfont\small #3}}}
+
+% \begin{question}[id=..., marks=..., type=...]
+\define@key{question}{id}{\def\pq@id{#1}}
+\define@key{question}{marks}{\def\pq@marks{#1}}
+\define@key{question}{type}{\def\pq@type{\MakeUppercase{#1}}}
+\newcounter{question}
+\newenvironment{question}[1][]{%
+  \def\pq@id{}\def\pq@marks{1}\def\pq@type{}%
+  \setkeys{question}{#1}%
+  \refstepcounter{question}%
+  \par\bigskip\needspace
+  \textbf{Q\thequestion.}\hfill{\small\color{gray}\pq@id\quad\pq@type\quad
+    \pq@marks~mark\ifnum\pq@marks>1 s\fi}\par\nopagebreak\smallskip
+}{\par}
+\newcommand\needspace{\penalty-100 }
+
+% options: \option for a wrong one, \correct for a right one
+\newenvironment{options}{\begin{enumerate}[label=(\Alph*), nosep, topsep=.4em]}{\end{enumerate}}
+\newcommand\option{\item}
+\newcommand\correct{\item\ifshowanswers\textcolor{green!45!black}{$\checkmark$}\ \fi}
+
+% \answer{2} or \answer{6.70 to 6.72}, for a numerical-answer question
+\newcommand\answer[1]{\ifshowanswers\par\smallskip\textbf{Answer:} #1\par\fi}
+
+\NewDocumentEnvironment{solution}{+b}{%
+  \ifshowanswers\par\smallskip{\small\textbf{Solution.} #1\par}\fi}{}
