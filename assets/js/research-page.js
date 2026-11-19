@@ -1,63 +1,19 @@
 /*
  * Research page: the publication list, filters and statistics.
- * Everything comes from data/publications.json, so a new paper only needs a new entry there:
- *
- *   { "title": "...", "authors": "A. Bhowmick, Sachchidanand Prasad",
- *     "date": "Month YYYY",              when the paper first appeared (arXiv); sets its year group
- *     "theme": "geometry",               geometry | algebra | combinatorial | intuitive
- *     "arxiv": "https://arxiv.org/abs/...", "journal": "" (empty = preprint), "journal_link": "",
- *     "published": "2026",               optional: year of the journal version
- *     "abstract": "..." }
+ * The papers come from data/publications.json. Its format, and the helpers shared with the
+ * Publications page (author names, BibTeX, maths, the Copy button), are described in
+ * assets/js/publications-common.js, which must be loaded before this file.
  */
 (function () {
-  const SELF = 'Sachchidanand Prasad';
+  const { esc, rich, arxivId, doiOf, authorsHtml, bibtex, typeset, copyText } = window.SitePubs;
   const THEMES = {
     geometry: 'Cut loci and Morse–Bott theory',
     algebra: 'Algebra',
     combinatorial: 'Combinatorial topology',
     intuitive: 'Intuitive geometry',
   };
-  const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
   const state = { status: 'all', theme: 'all' };
   let papers = [];
-
-  const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  // Titles and abstracts may contain TeX and a little HTML (<em>), written by the site owner.
-  const rich = s => String(s == null ? '' : s);
-
-  function parseDate(s) {
-    const m = String(s || '').toLowerCase().match(/([a-z]+)\s+(\d{4})/);
-    if (!m) { const y = String(s || '').match(/\d{4}/); return { year: y ? +y[0] : 0, month: 0 }; }
-    return { year: +m[2], month: Math.max(0, MONTHS.indexOf(m[1])) };
-  }
-  const arxivId = url => { const m = String(url || '').match(/arxiv\.org\/abs\/([\w.\-\/]+)/i); return m ? m[1] : ''; };
-  const doiOf = url => { const m = String(url || '').match(/(10\.\d{4,9}\/[^\s?#]+)/); return m ? decodeURIComponent(m[1]) : ''; };
-  const splitAuthors = a => String(a || '').split(',').map(x => x.trim().replace(/\.(?=\S)/g, '. ')).filter(Boolean);
-
-  function authorsHtml(a) {
-    return splitAuthors(a).map(n => n === SELF ? `<strong>${esc(n)}</strong>` : esc(n)).join(', ');
-  }
-
-  function bibtex(p) {
-    const authors = splitAuthors(p.authors);
-    const last = (authors[0] || 'author').split(' ').pop().replace(/[^A-Za-z]/g, '');
-    const word = (p.title.replace(/\$[^$]*\$/g, '').match(/[A-Za-z]{4,}/) || ['paper'])[0].toLowerCase();
-    const year = p.published || String(p.year);
-    const fields = [
-      ['author', authors.map(n => { const parts = n.split(' '); const l = parts.pop(); return `${l}, ${parts.join(' ')}`; }).join(' and ')],
-      ['title', `{${p.title}}`],
-    ];
-    if (p.journal) fields.push(['journal', p.journal]);
-    if (p.journal ? p.published : true) fields.push(['year', year]);
-    const doi = doiOf(p.journal_link);
-    if (doi) fields.push(['doi', doi]);
-    const id = arxivId(p.arxiv);
-    if (id) { fields.push(['eprint', id]); fields.push(['archivePrefix', 'arXiv']); }
-    if (!p.journal && !id && p.arxiv) fields.push(['url', p.arxiv]);
-    const width = Math.max(...fields.map(f => f[0].length));
-    const body = fields.map(([k, v]) => `  ${k.padEnd(width)} = {${v}}`).join(',\n');
-    return `@${p.journal ? 'article' : 'misc'}{${last}${year}${word},\n${body}\n}`;
-  }
 
   function paperHtml(p) {
     const id = arxivId(p.arxiv);
@@ -118,27 +74,6 @@
     typeset(box);
   }
 
-  function typeset(el) {
-    const mj = window.MathJax;
-    if (mj && mj.startup && mj.startup.promise && mj.typesetPromise) {
-      mj.startup.promise.then(() => mj.typesetPromise([el])).catch(() => {});
-    }
-  }
-
-  function copyText(text, button) {
-    const done = () => { const old = button.innerHTML; button.innerHTML = '<i class="fas fa-check"></i>Copied'; setTimeout(() => { button.innerHTML = old; }, 1600); };
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(done).catch(() => fallback());
-    } else fallback();
-    function fallback() {
-      const ta = document.createElement('textarea');
-      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-      document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); done(); } catch (e) { /* the text stays visible to copy by hand */ }
-      ta.remove();
-    }
-  }
-
   function wire() {
     document.getElementById('rs-filters').addEventListener('click', e => {
       const b = e.target.closest('button');
@@ -185,13 +120,9 @@
 
   function start() {
     showGroupPhoto();
-    fetch('../data/publications.json', { cache: 'no-cache' })
-      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(data => {
-        papers = data.map(p => Object.assign({}, p, parseDate(p.date)));
-        // number the papers in order of appearance, oldest = [1]
-        papers.sort((a, b) => (a.year - b.year) || (a.month - b.month)).forEach((p, i) => { p.n = i + 1; });
-        papers.reverse();
+    window.SitePubs.loadPapers('../')
+      .then(list => {
+        papers = list;   // newest first, numbered in order of appearance (oldest = [1])
         renderFilters(); renderList(); wire();
       })
       .catch(() => {

@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/research/</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/publications/</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -8703,6 +8703,12 @@
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/problem/?date=2026-11-18</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/problem/?date=2026-11-19</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

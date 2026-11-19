@@ -1,0 +1,35 @@
+{
+  "thesis": {
+    "title": "Cut Locus of Submanifolds: A Geometric and Topological Viewpoint",
+    "author": "Sachchidanand Prasad",
+    "supervisor": "Somnath Basu",
+    "institution": "Indian Institute of Science Education and Research Kolkata",
+    "defended": "28 December 2022",
+    "year": "2023",
+    "arxiv": "https://arxiv.org/abs/2303.14931",
+    "files": [
+      {
+        "label": "PDF (colour)",
+        "url": "/assets/attachments/Thesis_Sachchidanand_large.pdf"
+      },
+      {
+        "label": "PDF (greyscale)",
+        "url": "/assets/attachments/Thesis_Sachchidanand_gray.pdf"
+      }
+    ],
+    "image": "/assets/img/thesis.png",
+    "abstract": "Associated to every closed, embedded submanifold $N$ of a connected Riemannian manifold $M$, there is the distance function $d_N$ which measures the distance of a point in $M$ from $N$. We analyze the square of this function and show that it is Morse-Bott on the complement of the cut locus $\\mathrm{Cu}(N)$ of $N$, provided $M$ is complete. Moreover, the gradient flow lines provide a deformation retraction of $M-\\mathrm{Cu}(N)$ to $N$. If $M$ is a closed manifold, then we prove that the Thom space of the normal bundle of $N$ is homeomorphic to $M/\\mathrm{Cu}(N)$. We also discuss several interesting results which are either applications of these or related observations regarding the theory of cut locus. These results include, but are not limited to, a computation of the local homology of singular matrices, a classification of the homotopy type of the cut locus of a homology sphere inside a sphere, a deformation of the indefinite unitary group $U(p,q)$ to $U(p)\\times U(q)$ and a geometric deformation of $GL(n,\\mathbb{R} )$ to $O(n,\\mathbb{R} )$ which is different from the Gram-Schmidt retraction.\n<br> If a compact Lie group $G$ acts on a Riemannian manifold $M$ freely then $M/G$ is a manifold. In addition, if the action is isometric, then the metric of $M$ induces a metric on $M/G$. We show that if $N$ is a $G$-invariant submanifold of $M$, then the cut locus $\\mathrm{Cu}(N)$ is $G$-invariant, and $\\mathrm{Cu}(N)/G = \\mathrm{Cu}\\left( N/G \\right) $ in $M/G$. An application of this result to complex projective hypersurfaces has been provided."
+  },
+  "notes": [
+    {
+      "title": "Inverse function theorem and its application",
+      "file": "/assets/attachments/Inverse_Function_Theorem.pdf",
+      "image": "/assets/img/IFT.svg"
+    },
+    {
+      "title": "Geodesic Equation with Euler–Lagrange Equation",
+      "file": "/assets/attachments/Geodesic_Equation_with_Euler_Lagrange_Equation.pdf",
+      "image": "/assets/img/geodesic-equations.svg"
+    }
+  ]
+}

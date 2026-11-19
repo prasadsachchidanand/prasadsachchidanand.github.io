@@ -1,690 +1,188 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyACGMnModEH-dUeFRzA_rnnAL-zoccdw90",
-  authDomain: "add-publication.firebaseapp.com",
-  projectId: "add-publication",
-  storageBucket: "add-publication.appspot.com",
-  messagingSenderId: "449539950324",
-  appId: "1:449539950324:web:74e4f3584e68502a2d00a1"
-};
+/*
+ * Publications page: preprints, published papers, the PhD thesis and notes, with a search box.
+ *
+ * Papers come from data/publications.json (the same file as the Research page, the CV and
+ * the homepage, so a new paper is added once, there). The thesis and the notes come from
+ * data/thesis-and-notes.json. The data format and the shared helpers (author names, BibTeX,
+ * maths, the Copy button) are in assets/js/publications-common.js, loaded before this file.
+ */
+(function () {
+  const P = window.SitePubs;
+  const { esc, rich } = P;
+  const ROOT = '../';
+  const ARXIV_LIST = 'https://arxiv.org/a/prasad_s_4.html';
+  const SCHOLAR = 'https://scholar.google.com/citations?user=i_GAF6kAAAAJ&hl=en';
 
-let allPublications = [];
+  const entries = [];   // { el, text } for the search
+  const $ = id => document.getElementById(id);
 
-async function loadPublications() {
-  try {
-    // Dynamically import Firebase
-    const { initializeApp } = await import('https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js');
-    const { getFirestore, collection, getDocs } = await import('https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js');
-    
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    
-    // Load from Firestore
-    const querySnapshot = await getDocs(collection(db, "publications"));
-    const firebaseData = { publications: {} };
-    
-    querySnapshot.forEach((doc) => {
-      firebaseData.publications[doc.id] = doc.data().items;
-    });
-    
-    window.publicationsData = firebaseData.publications;
-    allPublications = [
-      ...(firebaseData.publications.preprints || []),
-      ...(firebaseData.publications.accepted || []),
-      ...(firebaseData.publications.thesis || []),
-      ...(firebaseData.publications.notes || [])
+  // Plain lower-case text for searching: no HTML, no TeX commands, no accents
+  const plain = s => String(s || '')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\\[a-zA-Z]+/g, ' ')
+    .replace(/[{}$^_\\]/g, ' ')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/\s+/g, ' ').trim();
+
+  const link = (url, html) => `<a class="rs-act" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${html}</a>`;
+  const toggle = (id, html) => `<button type="button" class="rs-act" data-toggle="${id}" aria-expanded="false" aria-controls="${id}">${html}</button>`;
+
+  function panels(key, abstract, bib) {
+    return (abstract ? `<div class="rs-abstract" id="abs-${key}" hidden>${rich(abstract)}</div>` : '') +
+      `<div class="rs-bib" id="bib-${key}" hidden>
+        <pre>${esc(bib)}</pre>
+        <button type="button" class="rs-act rs-copy" data-copy="bib-${key}"><i class="far fa-copy"></i>Copy</button>
+      </div>`;
+  }
+
+  function entryHtml(key, cover, body) {
+    return `
+      <article class="rs-card pb-entry" id="${key}">
+        <div class="pb-cover-box">${cover ? `<img class="pb-cover" src="${esc(cover)}" alt="" loading="lazy" decoding="async">` : '<span class="pb-cover pb-blank" aria-hidden="true"><i class="fas fa-book"></i></span>'}</div>
+        <div class="pb-body">${body}</div>
+      </article>`;
+  }
+
+  function paperHtml(p) {
+    const key = `paper-${p.n}`;
+    const id = P.arxivId(p.arxiv);
+    const pdf = p.pdf || P.arxivPdf(p.arxiv);
+    const doi = P.doi(p);
+    const cite = P.citation(p);
+    const venue = p.journal
+      ? `<span class="rs-badge pub">Published</span><em>${esc(p.journal)}</em>${cite ? `<span>${esc(cite)}</span>` : ''}${p.published ? `<span>(${esc(p.published)})</span>` : ''}`
+      : `<span class="rs-badge pre">Preprint</span><span>${esc(p.date)}</span>`;
+    const links = [];
+    if (p.arxiv) links.push(link(p.arxiv, `<i class="ai ai-arxiv"></i>${id ? 'arXiv:' + esc(id) : 'arXiv'}`));
+    if (pdf) links.push(link(pdf, '<i class="far fa-file-pdf"></i>PDF'));
+    // the journal link is often a DOI link already; then one button is enough
+    const linkDoi = P.doiOf(p.journal_link);
+    if (p.journal_link) links.push(link(p.journal_link, `<i class="fas fa-book-open"></i>${linkDoi ? 'DOI' : 'Journal'}`));
+    if (doi && doi !== linkDoi) links.push(link('https://doi.org/' + doi, '<i class="fas fa-link"></i>DOI'));
+    if (p.abstract) links.push(toggle(`abs-${key}`, '<i class="fas fa-align-left"></i>Abstract'));
+    links.push(toggle(`bib-${key}`, '<i class="fas fa-quote-right"></i>BibTeX'));
+    return entryHtml(key, p.image || (p.journal ? '' : '/assets/img/arxiv.svg'), `
+          <h3 class="rs-pub-title">${rich(p.title)}</h3>
+          <p class="rs-authors">${P.authorsHtml(p.authors)}</p>
+          <p class="rs-venue">${venue}</p>
+          <div class="rs-actions">${links.join('')}</div>
+          ${panels(key, p.abstract, P.bibtex(p))}`);
+  }
+
+  function thesisHtml(t) {
+    const key = 'thesis';
+    const id = P.arxivId(t.arxiv);
+    const fields = [
+      ['author', P.bibName(t.author)],
+      ['title', `{${t.title}}`],
+      ['school', t.institution],
+      ['year', t.year],
     ];
-    
-    return true;
-  } catch (error) {
-    console.error("Firebase load failed:", error);
-    return false;
-  }
-}
-
-document.addEventListener('DOMContentLoaded', async function() {
-  window.scrollTo(0, 0);
-  history.scrollRestoration = 'manual';
-
-  const success = await loadPublications();
-  
-  if (!success) {
-    document.getElementById('publications-container').innerHTML = `
-      <div class="text-red-600 p-4 bg-red-50 rounded-lg">
-        Error loading publications. Please refresh the page.
-      </div>
-    `;
-    return;
+    if (id) { fields.push(['eprint', id]); fields.push(['archivePrefix', 'arXiv']); }
+    const bib = P.bibEntry('phdthesis', `${t.author.split(' ').pop()}${t.year}${P.keyWord(t.title)}`, fields);
+    const links = [];
+    if (t.arxiv) links.push(link(t.arxiv, `<i class="ai ai-arxiv"></i>${id ? 'arXiv:' + esc(id) : 'arXiv'}`));
+    (t.files || []).forEach(f => links.push(link(f.url, `<i class="far fa-file-pdf"></i>${esc(f.label)}`)));
+    if (t.abstract) links.push(toggle(`abs-${key}`, '<i class="fas fa-align-left"></i>Abstract'));
+    links.push(toggle(`bib-${key}`, '<i class="fas fa-quote-right"></i>BibTeX'));
+    return entryHtml(key, t.image, `
+          <h3 class="rs-pub-title">${rich(t.title)}</h3>
+          <p class="rs-authors">Supervisor: ${esc(t.supervisor)}</p>
+          <p class="rs-venue"><span class="rs-badge pb-thesis">PhD thesis</span><em>${esc(t.institution)}</em><span>Defended ${esc(t.defended)}</span></p>
+          <div class="rs-actions">${links.join('')}</div>
+          ${panels(key, t.abstract, bib)}`);
   }
 
-  // Initialize components
-  renderPublications(window.publicationsData);
-  initModals();
-  initSearch();
-  initTagFilter();
-  initPagination();
-});
+  function noteHtml(n, i) {
+    return entryHtml(`note-${i + 1}`, n.image, `
+          <h3 class="rs-pub-title">${rich(n.title)}</h3>
+          <p class="rs-venue">Expository note</p>
+          <div class="rs-actions">${link(n.file, '<i class="far fa-file-pdf"></i>PDF')}</div>`);
+  }
 
-function initSearch() {
-  const searchInput = document.getElementById('searchInput');
-  const clearSearch = document.getElementById('clearSearch');
-  const resultsCount = document.getElementById('searchResultsCount');
-  
-  if (!searchInput) return;
+  // Fill one section; entries: [{ html, text }]
+  function fill(section, list) {
+    const box = $(`${section}-list`);
+    box.innerHTML = list.map(e => e.html).join('');
+    [...box.children].forEach((el, i) => entries.push({ el, text: list[i].text, section }));
+    $(section).hidden = list.length === 0;
+  }
 
-  // Store original publication elements for resetting
-  const originalSections = {
-    preprints: document.querySelector('#preprints-section .publications-list').innerHTML,
-    accepted: document.querySelector('#accepted-section .publications-list').innerHTML,
-    thesis: document.querySelector('#thesis-section .publications-list').innerHTML,
-    notes: document.querySelector('#notes-section .publications-list').innerHTML
-  };
+  function render(papers, extra) {
+    const pre = papers.filter(p => !p.journal);   // newest first already
+    const pub = papers.filter(p => p.journal)
+      .sort((a, b) => (+(b.published || b.year) - +(a.published || a.year)) || (b.year - a.year) || (b.month - a.month));
+    const paperText = p => plain([p.title, p.authors, p.journal, p.date, p.published, P.citation(p), P.arxivId(p.arxiv), P.doi(p), p.abstract,
+      p.journal ? 'published' : 'preprint'].join(' '));
+    fill('preprints', pre.map(p => ({ html: paperHtml(p), text: paperText(p) })));
+    fill('published', pub.map(p => ({ html: paperHtml(p), text: paperText(p) })));
+    const t = extra && extra.thesis;
+    fill('thesis', t ? [{ html: thesisHtml(t), text: plain([t.title, t.supervisor, t.institution, t.year, t.defended, P.arxivId(t.arxiv), t.abstract, 'phd thesis'].join(' ')) }] : []);
+    const notes = (extra && extra.notes) || [];
+    fill('notes', notes.map((n, i) => ({ html: noteHtml(n, i), text: plain(n.title + ' note') })));
+    P.typeset($('pb-lists'));
+  }
 
-  searchInput.addEventListener('input', debounce(handleSearch, 300));
-  clearSearch.addEventListener('click', resetSearch);
+  function applySearch() {
+    const raw = $('pb-q').value.trim();
+    const words = plain(raw).split(' ').filter(Boolean);
+    let shown = 0;
+    entries.forEach(e => { const ok = words.every(w => e.text.includes(w)); e.el.hidden = !ok; if (ok) shown++; });
+    ['preprints', 'published', 'thesis', 'notes'].forEach(s => {
+      $(s).hidden = !entries.some(e => e.section === s && !e.el.hidden);
+    });
+    // a short line only while searching
+    $('pb-showing').textContent = words.length && shown ? `${shown} result${shown === 1 ? '' : 's'} for “${raw}”` : '';
+    const empty = $('pb-empty');
+    empty.hidden = shown > 0;
+    if (!shown) empty.textContent = `Nothing matches “${raw}”. Try a word from a title, a coauthor’s name, a journal or a year.`;
+    const url = new URL(location.href);
+    if (raw) url.searchParams.set('q', raw); else url.searchParams.delete('q');
+    history.replaceState(null, '', url);
+  }
 
-  function handleSearch() {
-    const query = searchInput.value.trim().toLowerCase();
-    clearSearch.classList.toggle('hidden', !query);
-    
-    if (!query) {
-      resetSearch();
-      return;
-    }
-
-    // Search through all publications
-    let resultCount = 0;
-    
-    // Process each category
-    Object.keys(window.publicationsData).forEach(category => {
-      const section = document.querySelector(`#${category}-section`);
-      const list = section.querySelector('.publications-list');
-      let hasMatches = false;
-      
-      // Hide the entire section if it has no publications
-      if (!window.publicationsData[category] || window.publicationsData[category].length === 0) {
-        section.style.display = 'none';
+  function wire() {
+    let timer;
+    const q = $('pb-q');
+    q.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(applySearch, 120); });
+    q.addEventListener('keydown', e => { if (e.key === 'Escape' && q.value) { q.value = ''; applySearch(); } });
+    $('pb-lists').addEventListener('click', e => {
+      const t = e.target.closest('[data-toggle]');
+      if (t) {
+        const panel = $(t.dataset.toggle);
+        panel.hidden = !panel.hidden;
+        t.setAttribute('aria-expanded', String(!panel.hidden));
         return;
       }
-      
-      // Clear current content
-      list.innerHTML = '';
-      
-      // Filter and render matching publications
-      window.publicationsData[category].forEach(pub => {
-        const searchText = `${pub.title} ${pub.authors || ''} ${pub.abstract || ''}`.toLowerCase();
-        if (searchText.includes(query)) {
-          const pubElement = createPublicationElement(category, pub);
-          
-          // Highlight matching text in title and authors
-          highlightText(pubElement, query);
-          
-          list.appendChild(pubElement);
-          hasMatches = true;
-          resultCount++;
-        }
-      });
-      
-      // Show/hide section based on matches
-      section.style.display = hasMatches ? '' : 'none';
-      
-      // Show/hide section header if no matches
-      const header = section.querySelector('h3');
-      if (header) {
-        header.style.display = hasMatches ? '' : 'none';
-      }
-    });
-    
-    updateResultsCount(resultCount);
-    resetPagination();
-  }
-
-  function highlightText(element, query) {
-    // Highlight in title
-    const title = element.querySelector('h4');
-    if (title) {
-      title.innerHTML = title.textContent.replace(
-        new RegExp(query, 'gi'),
-        match => `<span class="highlight">${match}</span>`
-      );
-    }
-    
-    // Highlight in authors
-    const authors = element.querySelector('.font-medium');
-    if (authors) {
-      authors.innerHTML = authors.textContent.replace(
-        new RegExp(query, 'gi'),
-        match => `<span class="highlight">${match}</span>`
-      );
-    }
-  }
-
-  function updateResultsCount(count) {
-    const resultsCount = document.getElementById('searchResultsCount');
-    if (!resultsCount) return;
-    
-    resultsCount.textContent = `${count} publication${count !== 1 ? 's' : ''} found`;
-    resultsCount.classList.toggle('hidden', count === 0);
-  }
-
-  function resetSearch() {
-    const searchInput = document.getElementById('searchInput');
-    const clearSearch = document.getElementById('clearSearch');
-    const resultsCount = document.getElementById('searchResultsCount');
-    
-    if (!searchInput) return;
-    
-    searchInput.value = '';
-    if (clearSearch) clearSearch.classList.add('hidden');
-    if (resultsCount) resultsCount.classList.add('hidden');
-    
-    // Restore original sections
-    Object.keys(originalSections).forEach(category => {
-      const section = document.querySelector(`#${category}-section`);
-      if (section) {
-        section.style.display = '';
-        const list = section.querySelector('.publications-list');
-        if (list) list.innerHTML = originalSections[category];
-        
-        // Restore section header visibility
-        const header = section.querySelector('h3');
-        if (header) header.style.display = '';
-      }
+      const c = e.target.closest('[data-copy]');
+      if (c) P.copyText(document.querySelector(`#${c.dataset.copy} pre`).textContent, c);
     });
   }
-}
 
-function debounce(func, wait) {
-  let timeout;
-  return function(...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), wait);
-  };
-}
-
-function initTagFilter() {
-  const tagButtons = document.querySelectorAll('.tag-filter');
-  if (!tagButtons.length) return;
-
-  tagButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const tag = button.dataset.tag;
-      filterByTag(tag);
-      
-      // Update active state
-      tagButtons.forEach(btn => {
-        btn.classList.toggle('bg-indigo-100', btn.dataset.tag === tag);
-        btn.classList.toggle('bg-gray-100', btn.dataset.tag !== tag);
-      });
-    });
-  });
-}
-
-function filterByTag(tag) {
-  if (tag === 'all') {
-    renderPublications(window.publicationsData);
-    return;
+  function fail() {
+    $('pb-empty').hidden = false;
+    $('pb-empty').innerHTML = `The publication list could not be loaded. Please refresh the page.
+      My papers are also listed on <a class="rs-link" href="${ARXIV_LIST}">arXiv</a> and <a class="rs-link" href="${SCHOLAR}">Google Scholar</a>.`;
+    $('pb-search').hidden = true;
   }
 
-  const filteredData = {
-    preprints: window.publicationsData.preprints?.filter(pub => pub.tags?.includes(tag)) || [],
-    accepted: window.publicationsData.accepted?.filter(pub => pub.tags?.includes(tag)) || [],
-    thesis: window.publicationsData.thesis?.filter(pub => pub.tags?.includes(tag)) || [],
-    notes: window.publicationsData.notes?.filter(pub => pub.tags?.includes(tag)) || []
-  };
-
-  renderPublications(filteredData);
-}
-
-function initPagination() {
-  // Wait for DOM to be ready
-  setTimeout(() => {
-    document.querySelectorAll('[id$="-section"]').forEach(section => {
-      const container = section.querySelector('.publications-list');
-      if (!container) return;
-      
-      const items = container.children;
-      if (items.length <= 5) return;
-      
-      const pagination = section.querySelector('.pagination-section');
-      if (!pagination) return;
-      
-      pagination.classList.remove('hidden');
-      setupSectionPagination(section);
-    });
-  }, 50);
-}
-
-function setupSectionPagination(section) {
-  const container = section.querySelector('.publications-list');
-  const items = container.children;
-  const pagination = section.querySelector('.pagination-section');
-  
-  let currentPage = 1;
-  const itemsPerPage = 5;
-  const totalPages = Math.ceil(items.length / itemsPerPage);
-
-  // Create page numbers
-  const numbersContainer = pagination.querySelector('.pagination-numbers');
-  numbersContainer.innerHTML = '';
-  
-  for (let i = 1; i <= totalPages; i++) {
-    const pageBtn = document.createElement('button');
-    pageBtn.className = `h-10 w-10 flex items-center justify-center rounded-lg border transition-all duration-200 ${
-      i === 1 
-        ? 'bg-indigo-600 border-indigo-600 text-white shadow-md' 
-        : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
-    }`;
-    pageBtn.textContent = i;
-    numbersContainer.appendChild(pageBtn);
+  function start() {
+    const extra = fetch(ROOT + 'data/thesis-and-notes.json', { cache: 'no-cache' })
+      .then(r => (r.ok ? r.json() : null)).catch(() => null);   // the papers still show without it
+    Promise.all([P.loadPapers(ROOT), extra])
+      .then(([papers, more]) => {
+        render(papers, more);
+        wire();
+        const q = new URLSearchParams(location.search).get('q');
+        if (q) $('pb-q').value = q;
+        applySearch();
+        // links like /publications/#thesis: the target exists only now, so scroll to it again
+        const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (target && !target.hidden) target.scrollIntoView();
+      })
+      .catch(fail);
   }
 
-  // Update visibility function with scroll behavior
-  const updateVisibility = (shouldScroll = true) => {
-    const startIdx = (currentPage - 1) * itemsPerPage;
-    const endIdx = startIdx + itemsPerPage;
-    
-    Array.from(items).forEach((item, idx) => {
-      item.classList.toggle('hidden', idx < startIdx || idx >= endIdx);
-    });
-    
-    // Update active page style
-    numbersContainer.querySelectorAll('button').forEach((btn, idx) => {
-      btn.className = `h-10 w-10 flex items-center justify-center rounded-lg border transition-all duration-200 ${
-        idx + 1 === currentPage
-          ? 'bg-indigo-600 border-indigo-600 text-white shadow-md'
-          : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
-      }`;
-    });
-    
-    // Update button states
-    pagination.querySelector('.pagination-prev').disabled = currentPage === 1;
-    pagination.querySelector('.pagination-next').disabled = currentPage === totalPages;
-    
-    // Scroll to section top when paginating (not on initial load)
-    if (shouldScroll) {
-      setTimeout(() => {
-        section.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }, 10);
-    }
-  };
-
-  // Event listeners with scroll
-  pagination.querySelector('.pagination-prev').addEventListener('click', (e) => {
-    e.preventDefault();
-    if (currentPage > 1) {
-      currentPage--;
-      updateVisibility();
-    }
-  });
-  
-  pagination.querySelector('.pagination-next').addEventListener('click', (e) => {
-    e.preventDefault();
-    if (currentPage < totalPages) {
-      currentPage++;
-      updateVisibility();
-    }
-  });
-  
-  numbersContainer.querySelectorAll('button').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentPage = parseInt(btn.textContent);
-      updateVisibility();
-    });
-  });
-  
-  // Initial update without scroll
-  updateVisibility(false);
-}
-
-function resetPagination() {
-  document.querySelectorAll('.pagination-section').forEach(section => {
-    section.classList.add('hidden');
-  });
-  initPagination();
-}
-
-function renderPublications(publications) {
-  const sections = {
-    preprints: document.querySelector('#preprints-section .publications-list'),
-    accepted: document.querySelector('#accepted-section .publications-list'),
-    thesis: document.querySelector('#thesis-section .publications-list'),
-    notes: document.querySelector('#notes-section .publications-list')
-  };
-
-  // Clear existing content (if any)
-  Object.values(sections).forEach(section => {
-    if (section) section.innerHTML = '';
-  });
-
-  // Render each category
-  renderCategory('preprints', publications.preprints, sections.preprints);
-  renderCategory('accepted', publications.accepted, sections.accepted);
-  renderCategory('thesis', publications.thesis, sections.thesis);
-  renderCategory('notes', publications.notes, sections.notes);
-}
-
-
-function renderCategory(type, items, container) {
-  if (!items || !container) return;
-
-  items.forEach(item => {
-    const publicationElement = createPublicationElement(type, item);
-    container.appendChild(publicationElement);
-  });
-}
-
-function createPublicationElement(type, pub) {
-  // Parse authors and image if they're in JSON format
-  let authors = pub.authors;
-  let image = pub.image;
-  
-  if (typeof authors === 'string' && authors.startsWith('[')) {
-    try {
-      authors = JSON.parse(authors).map(a => a.value).join(', ');
-    } catch (e) {
-      console.error("Error parsing authors:", e);
-    }
-  }
-  
-  if (typeof image === 'string' && image.startsWith('[')) {
-    try {
-      image = JSON.parse(image)[0].value;
-    } catch (e) {
-      console.error("Error parsing image path:", e);
-    }
-  }
-
-  const element = document.createElement('div');
-  element.className = 'bg-white rounded-lg shadow-md p-6 mb-8 transition-all duration-300 hover:shadow-lg';
-  element.innerHTML = `
-    <div class="flex flex-col md:flex-row">
-      <div class="md:w-48 flex-shrink-0 mb-6 md:mb-0 md:mr-8 flex items-start">
-        <img src="${image || '../assets/img/default.svg'}" alt="${type}" class="w-36 h-auto object-contain">
-      </div>
-      <div class="flex-grow">
-        <h4 class="text-xl font-semibold text-gray-900 mb-3"></h4>
-        ${renderAuthors(pub, authors)}
-        ${renderJournalInfo(pub)}
-        ${renderYearInfo(pub)}
-        
-        <div class="flex flex-wrap gap-3 mt-4">
-          ${renderButtons(type, pub)}
-        </div>
-      </div>
-    </div>
-  `;
-
-  const titleElement = element.querySelector('h4');
-  const titleSpan = document.createElement('span');
-  titleSpan.innerHTML = pub.title || '';
-  titleElement.appendChild(titleSpan);
-  
-  // Process MathJax if available
-  if (window.MathJax) {
-    MathJax.typesetPromise([titleElement]).catch(err => console.log('MathJax typeset error:', err));
-  }
-  return element;
-}
-
-function renderAuthors(pub, formattedAuthors) {
-  if (!pub.authors && !pub.supervisor) return '';
-  
-  if (pub.type === 'thesis' && pub.supervisor) {
-    return `
-      <p class="mb-2">
-        <span class="text-gray-600">Supervisor: </span>
-        <span class="font-medium">Somnath Basu</span>
-      </p>
-      ${pub.defenseDate ? `
-        <p class="mb-2">
-          <span class="text-gray-600">Date of defense: </span>
-          <span class="font-medium">${pub.defenseDate}</span>
-        </p>
-      ` : ''}
-    `;
-  }
-  
-  // For regular publications
-  let authorsText = formattedAuthors || pub.authors || '';
-  authorsText = authorsText.replace(
-    /(Sachchidanand\s+Prasad|Prasad,\s*Sachchidanand)/gi,
-    '<span class="font-bold text-indigo-700">$1</span>'
-  );
-  
-  return `
-    <p class="mb-2">
-      <span class="text-gray-600">${pub.supervisor ? 'Supervisor' : 'Authors'}: </span>
-      <span class="font-medium">${formattedAuthors || pub.supervisor}</span>
-    </p>
-  `;
-}
-
-function renderJournalInfo(pub) {
-  if (!pub.journal) return '';
-  return `
-    <p class="mb-2">
-      <span class="text-gray-600">Journal: </span>${pub.journal}
-    </p>
-  `;
-}
-
-function renderYearInfo(pub) {
-  let info = '';
-  
-  if (pub.year) info += `<p class="text-gray-400 text-sm mb-1">Year: ${pub.year}</p>`;
-  if (pub.arxivYear) info += `<p class="text-gray-400 text-sm mb-1">arXiv: ${pub.arxivYear}</p>`;
-  if (pub.acceptYear) info += `<p class="text-gray-400 text-sm mb-1">Accepted: ${pub.acceptYear}</p>`;
-  if (pub.pubYear) info += `<p class="text-gray-400 text-sm mb-1">Published: ${pub.pubYear}</p>`;
-  
-  if (pub.volume || pub.issue || pub.pages) {
-    info += `<p class="text-gray-400 text-sm mb-1">`;
-    if (pub.volume) info += `Vol. ${pub.volume}`;
-    if (pub.issue) info += `, No. ${pub.issue}`;
-    if (pub.pages) info += `, pp. ${pub.pages}`;
-    info += `</p>`;
-  }
-  
-  if (pub.doi) info += `<p class="text-gray-400 text-sm mb-1">doi.org/${pub.doi}</p>`;
-  
-  return info;
-}
-
-function renderButtons(type, pub) {
-  let buttons = '';
-  
-  // Abstract button
-  if (pub.abstract) {
-    buttons += `
-      <button class="abstract-button bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200" 
-              data-paper="${pub.id}">
-        Abstract
-      </button>
-    `;
-  }
-  
-  // BibTeX button
-  if (pub.bibtex) {
-    buttons += `
-      <button class="bib-button bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200" 
-              data-paper="${pub.id}">
-        BibTeX
-      </button>
-    `;
-  }
-  
-  // Links
-  if (pub.links) {
-    for (const [text, url] of Object.entries(pub.links)) {
-      buttons += `
-        <a href="${url}" target="_blank" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-          ${text}
-        </a>
-      `;
-    }
-  }
-  
-  // DOI
-  if (pub.doi) {
-    buttons += `
-      <a href="https://doi.org/${pub.doi}" target="_blank" 
-         class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-        Journal
-      </a>
-    `;
-  }
-
-  return buttons;
-}
-
-function initModals() {
-  // Modal elements
-  const abstractModal = document.getElementById('abstractModal');
-  const bibModal = document.getElementById('bibModal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalContent = document.getElementById('modalContent');
-  const bibContent = document.getElementById('bibContent');
-  const closeAbstractModal = document.getElementById('closeAbstractModal');
-  const closeBibModal = document.getElementById('closeBibModal');
-  const copyBibButton = document.getElementById('copyBib');
-
-  let currentBibtex = '';
-  let copyFeedbackTimeout = null;
-
-  // Event delegation for buttons
-  document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('abstract-button')) {
-      handleAbstractClick(e.target);
-    } else if (e.target.classList.contains('bib-button')) {
-      handleBibClick(e.target);
-    }
-  });
-
-  const handleAbstractClick = (button) => {
-    const pub = findPublicationById(button.dataset.paper);
-    if (!pub?.abstract) return;
-    
-    modalTitle.textContent = 'Abstract';
-    modalContent.innerHTML = `<p class="text-gray-700 leading-relaxed">${pub.abstract}</p>`;
-    abstractModal.classList.remove('hidden');
-    
-    if (typeof MathJax !== 'undefined') {
-      MathJax.typesetPromise([modalContent]).catch(console.error);
-    }
-  };
-
-  const handleBibClick = (button) => {
-    const pub = findPublicationById(button.dataset.paper);
-    if (!pub?.bibtex) return;
-    
-    currentBibtex = pub.bibtex;
-    bibContent.textContent = currentBibtex;
-    bibModal.classList.remove('hidden');
-    resetCopyButton();
-  };
-
-  // Modal close handlers
-  const closeModals = () => {
-    abstractModal.classList.add('hidden');
-    bibModal.classList.add('hidden');
-    if (copyFeedbackTimeout) clearTimeout(copyFeedbackTimeout);
-  };
-
-  [closeAbstractModal, closeBibModal].forEach(btn => {
-    btn.addEventListener('click', closeModals);
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === abstractModal || e.target === bibModal) {
-      closeModals();
-    }
-  });
-
-  // Copy functionality
-  copyBibButton.addEventListener('click', async () => {
-    if (!currentBibtex) return;
-    
-    try {
-      await navigator.clipboard.writeText(currentBibtex);
-      showCopyFeedback(true);
-    } catch (err) {
-      console.error('Clipboard API error:', err);
-      attemptLegacyCopy();
-    }
-  });
-
-  const attemptLegacyCopy = () => {
-    const textarea = document.createElement('textarea');
-    textarea.value = currentBibtex;
-    textarea.style.position = 'fixed';  // Prevent scrolling
-    document.body.appendChild(textarea);
-    textarea.select();
-    
-    try {
-      const success = document.execCommand('copy');
-      showCopyFeedback(success);
-    } catch (err) {
-      console.error('Legacy copy failed:', err);
-      showCopyFeedback(false);
-    } finally {
-      document.body.removeChild(textarea);
-    }
-  };
-
-  // Feedback functions
-  const resetCopyButton = () => {
-    copyBibButton.innerHTML = 'Copy BibTeX';
-    copyBibButton.className = 'px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition-colors';
-    copyBibButton.disabled = false;
-  };
-
-  const showCopyFeedback = (success) => {
-    copyBibButton.innerHTML = success ? '✓ Copied!' : '✗ Failed to copy';
-    copyBibButton.className = `px-4 py-2 rounded transition-colors ${
-      success ? 'bg-green-600' : 'bg-red-600'
-    } text-white`;
-    copyBibButton.disabled = true;
-    
-    if (copyFeedbackTimeout) clearTimeout(copyFeedbackTimeout);
-    copyFeedbackTimeout = setTimeout(resetCopyButton, 2000);
-  };
-
-  // Keyboard handling
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModals();
-  });
-}
-
-
-function findPublicationById(id) {
-  if (!window.publicationsData) return null;
-  
-  // Search through all publication categories
-  const allPublications = [
-    ...(window.publicationsData.preprints || []),
-    ...(window.publicationsData.accepted || []),
-    ...(window.publicationsData.thesis || []),
-    ...(window.publicationsData.notes || [])
-  ];
-  
-  return allPublications.find(pub => pub.id === id);
-}
-
-function showCopyFeedback(button, success) {
-  const originalText = button.textContent;
-  const originalClass = 'bg-indigo-600 hover:bg-indigo-700';
-  const newClass = success ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700';
-  
-  button.textContent = success ? 'Copied!' : 'Failed to copy';
-  button.classList.remove(originalClass);
-  button.classList.add(newClass);
-  
-  setTimeout(() => {
-    button.textContent = originalText;
-    button.classList.remove(newClass);
-    button.classList.add(originalClass);
-  }, 2000);
-}
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();

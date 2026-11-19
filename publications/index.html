@@ -1,279 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-CVGSV7Y2CE');
-    </script>
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CVGSV7Y2CE');
+  </script>
 
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Publications - Sachchidanand Prasad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications - Sachchidanand Prasad</title>
+  <link rel="canonical" href="https://prasadsachchidanand.github.io/publications/" />
+  <meta name="description"
+    content="Papers, preprints, PhD thesis and notes of Sachchidanand Prasad (IIIT Delhi) in geometry, topology and algebra, with abstracts, BibTeX and arXiv links.">
+  <meta name="keywords"
+    content="Sachchidanand Prasad, Assistant Professor, IIIT Delhi, mathematics, publications, preprints, PhD thesis, cut locus, differential geometry">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../assets/pub-list.css">
 
-		<meta name="description" content="Publications and preprints of Sachchidanand Prasad (IIIT Delhi) in differential geometry, topology and algebra, with links to arXiv and the journals.">
-    	<meta name="keywords" content="Sachchidanand Prasad, Assistant Professor, IIIT Delhi, mathematics, publications, preprints, cut locus, differential geometry">
-		
-		<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.png"/>
-		<link rel="canonical" href="https://prasadsachchidanand.github.io/publications/">
+  <style>
+    /* Publications page. The list styles shared with the Research page are in assets/pub-list.css. */
+    .pb [hidden] { display: none !important; }
+    .pb-lead { font-size: 1.1rem; line-height: 1.75; text-align: center; max-width: 760px; margin: .5rem auto 0; }
+    .pb-search { position: relative; max-width: 640px; margin: 2rem auto .6rem; }
+    .pb-search i { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--rs-muted); pointer-events: none; }
+    .pb-search input { width: 100%; padding: .75rem 1rem .75rem 2.75rem; border-radius: .7rem; border: 1px solid var(--rs-line); background: var(--rs-card); color: var(--rs-ink); font: inherit; font-size: 1rem; }
+    .pb-search input::placeholder { color: var(--rs-muted); }
+    .pb-search input:focus { outline: 2px solid #6366f1; outline-offset: 1px; }
+    #pb-showing { text-align: center; }
+    #pb-empty { margin-top: 1.5rem; }
+    .pb-list { display: grid; gap: 1rem; }
+    .pb-entry { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 0 1.4rem; padding: 1.25rem 1.4rem; scroll-margin-top: 5rem; }
+    .pb-cover-box { padding-top: .2rem; }
+    .pb-cover { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: contain; border-radius: .3rem; background: #fff; box-shadow: 0 1px 3px rgba(15,23,42,.18); }
+    .pb-blank { display: grid; place-items: center; color: var(--rs-muted); font-size: 1.5rem; background: var(--rs-def); }
+    html.dark .pb-cover { background: #f8fafc; box-shadow: none; }   /* logos with transparent backgrounds stay readable */
+    html.dark .pb-blank { background: var(--rs-def); }
+    .rs-badge.pb-thesis { background: var(--rs-accent-soft); color: var(--rs-accent); }
+    @media (max-width: 560px) {
+      .pb-entry { grid-template-columns: 3.5rem minmax(0, 1fr); gap: 0 1rem; padding: 1.1rem; }
+      .pb-lead { text-align: left; font-size: 1rem; }
+    }
+  </style>
 
-		<link rel="stylesheet" href="../assets/style.css">
+  <!-- MathJax: configure before loading -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-		<!-- Font awesome -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Shared header and footer (edit assets/js/site-layout.js) -->
+  <script src="../assets/js/site-layout.js"></script>
+</head>
 
-		<!-- academic icons -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-        
-		<!-- highlight.js -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
-  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
-		<script>hljs.highlightAll();</script>
-		<link rel="stylesheet" href="article.css">
+<body style="background: #edf2f7;">
+  <div class="flex flex-col h-screen">
+    <site-header></site-header>
 
-		<!-- Google ad
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8774532707532337"
-		crossorigin="anonymous"></script> -->
-		<!-- Shared header and footer (edit assets/js/site-layout.js) -->
-		<script src="../assets/js/site-layout.js"></script>
-	</head>
+    <main class="rs pb text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="rs-wrap">
 
-	<body style="background: #edf2f7;">
-		<div class="flex flex-col h-screen">	
-			
-			<!-- navbar -->
-			<site-header></site-header>
+          <div class="flex flex-col items-center text-center justify-center">
+            <h1 class="text-gray-900 text-3xl title-font font-medium">Publications</h1>
+            <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4" aria-hidden="true"></div>
+          </div>
+          <p class="pb-lead">
+            Papers and preprints, my PhD thesis and a few expository notes, with abstracts, BibTeX and links.
+            The <a class="rs-link" href="../research/#publications">Research page</a> groups the papers by theme.
+          </p>
 
-			<!-- section -->
-			<section class="text-gray-700 body-font bg-gradient-to-br from-gray-50 to-gray-100">
-        <div class="container max-w-6xl px-5 py-24 mx-auto">
-         
-          <!-- Header -->
-          <div class="flex flex-col items-center text-center justify-center mb-16">
-            <h2 class="text-gray-900 text-4xl font-bold mb-2">Publications</h2>
-            <div class="w-24 h-1 bg-indigo-600 rounded mt-2 mb-6"></div>
-            <p class="leading-relaxed text-lg max-w-3xl text-center mb-8">
-              Here, you'll find all our publications, preprints, and notes, regularly updated to keep you informed about our latest work.
-            </p>
+          <!-- The list is built from data/publications.json and data/thesis-and-notes.json (see publications.js) -->
+          <div class="pb-search" id="pb-search" role="search">
+            <label for="pb-q" class="sr-only">Search the publications</label>
+            <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+            <input id="pb-q" type="search" placeholder="Search by title, coauthor, journal or year" autocomplete="off" spellcheck="false">
+          </div>
+          <p class="rs-showing" id="pb-showing" aria-live="polite"></p>
+          <div class="rs-card rs-empty" id="pb-empty" hidden></div>
+          <noscript>
+            <div class="rs-card rs-empty">This list needs JavaScript. My papers are also listed on
+              <a class="rs-link" href="https://arxiv.org/a/prasad_s_4.html">arXiv</a> and
+              <a class="rs-link" href="https://scholar.google.com/citations?user=i_GAF6kAAAAJ&amp;hl=en">Google Scholar</a>.</div>
+          </noscript>
+
+          <div id="pb-lists">
+            <section class="rs-section" id="preprints" aria-labelledby="preprints-h" hidden>
+              <h2 class="rs-h2" id="preprints-h">Preprints</h2>
+              <div class="pb-list" id="preprints-list"></div>
+            </section>
+
+            <section class="rs-section" id="published" aria-labelledby="published-h" hidden>
+              <h2 class="rs-h2" id="published-h">Published papers</h2>
+              <div class="pb-list" id="published-list"></div>
+            </section>
+
+            <section class="rs-section" id="thesis" aria-labelledby="thesis-h" hidden>
+              <h2 class="rs-h2" id="thesis-h">PhD thesis</h2>
+              <div class="pb-list" id="thesis-list"></div>
+            </section>
+
+            <section class="rs-section" id="notes" aria-labelledby="notes-h" hidden>
+              <h2 class="rs-h2" id="notes-h">Notes</h2>
+              <div class="pb-list" id="notes-list"></div>
+            </section>
           </div>
 
-          <!-- Search Bar -->
-          <div class="max-w-2xl mx-auto mb-12 px-4">
-            <div class="relative">
-              <input type="text" id="searchInput" placeholder="Search publications by title, author, or keywords..." 
-                     class="w-full px-6 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm">
-              <button id="clearSearch" class="absolute right-3 top-3 text-gray-400 hover:text-gray-600 hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l18 18" />
-                </svg>
-              </button>
-            </div>
-            <div id="searchResultsCount" class="text-sm text-gray-500 mt-2 text-center hidden"></div>
-          </div>
-
-          <!-- Tags -->
-          <!-- <div class="max-w-2xl mx-auto mb-8 px-4">
-            <div class="flex flex-wrap justify-center gap-2">
-              <button class="tag-filter px-4 py-2 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800 hover:bg-indigo-200 transition-colors" data-tag="all">
-                All
-              </button>
-              <button class="tag-filter px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors" data-tag="geometry">
-                Geometry
-              </button>
-              <button class="tag-filter px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors" data-tag="topology">
-                Topology
-              </button>
-              <button class="tag-filter px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors" data-tag="algebra">
-                Algebra
-              </button>
-              <button class="tag-filter px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors" data-tag="graph-theory">
-                Graph Theory
-              </button>
-            </div>
-          </div> -->
-          
-          <!-- Preprints Section -->
-          <div class="mb-16" id="preprints-section">
-            <div class="flex items-center mb-8">
-              <div class="h-px flex-grow bg-indigo-200"></div>
-              <h3 class="mx-4 text-2xl font-bold text-indigo-800">Preprints</h3>
-              <div class="h-px flex-grow bg-indigo-200"></div>
-            </div>
-            <div class="publications-list"></div>
-
-            <div class="pagination-section mt-6 hidden">
-              <div class="flex justify-center gap-1">
-                <button class="pagination-prev h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </button>
-                
-                <div class="pagination-numbers flex items-center gap-1"></div>
-                
-                <button class="pagination-next h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Accepted Publications Section -->
-          <div class="mb-16" id="accepted-section">
-            <div class="flex items-center mb-8">
-              <div class="h-px flex-grow bg-indigo-200"></div>
-              <h3 class="mx-4 text-2xl font-bold text-indigo-800">Accepted Publications</h3>
-              <div class="h-px flex-grow bg-indigo-200"></div>
-            </div>
-            <div class="publications-list"></div>
-
-            <div class="pagination-section mt-6 hidden">
-              <div class="flex justify-center gap-1">
-                <button class="pagination-prev h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </button>
-                
-                <div class="pagination-numbers flex items-center gap-1"></div>
-                
-                <button class="pagination-next h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          
-          <!-- PhD Thesis Section -->
-          <div class="mb-16" id="thesis-section">
-            <div class="flex items-center mb-8">
-              <div class="h-px flex-grow bg-indigo-200"></div>
-              <h3 class="mx-4 text-2xl font-bold text-indigo-800">PhD Thesis</h3>
-              <div class="h-px flex-grow bg-indigo-200"></div>
-            </div>
-            <div class="publications-list"></div>
-          </div>
-          
-          <!-- Other Notes Section -->
-          <div class="mb-8" id="notes-section">
-            <div class="flex items-center mb-8">
-              <div class="h-px flex-grow bg-indigo-200"></div>
-              <h3 class="mx-4 text-2xl font-bold text-indigo-800">Some Other Notes</h3>
-              <div class="h-px flex-grow bg-indigo-200"></div>
-            </div>
-            <div class="publications-list"></div>
-
-            <div class="pagination-section mt-6 hidden">
-              <div class="flex justify-center gap-1">
-                <button class="pagination-prev h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </button>
-                
-                <div class="pagination-numbers flex items-center gap-1"></div>
-                
-                <button class="pagination-next h-10 w-10 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          
         </div>
-        
-        <!-- Modal for Abstract -->
-        <div id="abstractModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-          <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full max-h-screen overflow-y-auto">
-            <div class="p-6">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-semibold text-gray-900" id="modalTitle">Abstract</h3>
-                <button id="closeAbstractModal" class="text-gray-500 hover:text-gray-700">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                  </svg>
-                </button>
-              </div>
-              <div id="modalContent" class="prose max-w-none">
-                <!-- Content will be inserted here -->
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Modal for BibTeX -->
-        <div id="bibModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-          <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full max-h-screen overflow-y-auto">
-            <div class="p-6">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-semibold text-gray-900">BibTeX Citation</h3>
-                <button id="closeBibModal" class="text-gray-500 hover:text-gray-700">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                  </svg>
-                </button>
-              </div>
-              <div class="bg-gray-100 p-4 rounded-md">
-                <pre id="bibContent" class="whitespace-pre-wrap text-sm font-mono"></pre>
-              </div>
-              <div class="mt-4 flex justify-end">
-                <button id="copyBib" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">Copy to Clipboard</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
+    </main>
 
-      </section>
+    <site-footer></site-footer>
+  </div>
 
-			<!-- footer -->
-			<site-footer></site-footer>
-		</div>
-
-		
-    <!-- Last updated function -->
-    <script>
-			function myFunction() {
-				var x = document.lastModified;
-				document.getElementById("updated").innerHTML = new Date(document.lastModified).toISOString().substr(0, 10);
-				}
-
-				myFunction()
-		</script>
-
-		<!-- MathJax -->
-		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-		  MathJax = {
-			tex: {
-			  inlineMath: [
-				['$', '$'],
-				['\\(', '\\)']
-			  ],
-			  displayMath: [
-				['$$', '$$'],
-				['\\[', '\\]']
-			  ]
-			},
-			svg: {
-			  fontCache: 'global'
-			}
-		  };
-		</script>
-
-    <!-- counter -->
-    <script id="dsq-count-scr" src="//my-google-site.disqus.com/count.js" async></script>
-
-    <script type="module" src="publications.js"></script>
-  
-	</body>
+  <script src="../assets/js/publications-common.js"></script>
+  <script src="publications.js"></script>
+</body>
 </html>
