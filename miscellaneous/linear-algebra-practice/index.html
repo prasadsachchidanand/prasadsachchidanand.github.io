@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CVGSV7Y2CE');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linear Algebra Practice Questions - Sachchidanand Prasad</title>
+  <link rel="canonical" href="https://prasadsachchidanand.github.io/miscellaneous/linear-algebra-practice/" />
+  <meta name="description"
+    content="Topic-wise self-assessment in linear algebra: exam-style MCQ, MSQ and numerical answer questions as in GATE and CSIR-NET, each with a worked solution. Practise topic by topic or take a timed test with GATE marking.">
+  <meta name="keywords"
+    content="linear algebra quiz, linear algebra MCQ, GATE linear algebra, CSIR NET linear algebra, self assessment, practice questions, rank, determinant, eigenvalues, diagonalization, vector spaces, orthogonality">
+  <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/tools.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Linear algebra practice. Shared tool styles are in assets/tools.css. */
+    .tl { --lp-review: #9333ea; }
+    html.dark .tl { --lp-review: #d8b4fe; }
+    #lp-setup, #lp-quiz, #lp-result { scroll-margin-top: 5rem; }
+    .lp-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .9rem; }
+    .lp-head .tl-h2 { margin: 0; }
+    .lp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .lp-linkbtn { font: inherit; color: var(--tl-accent); background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+    /* setup */
+    .lp-topics { display: grid; gap: .5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); }
+    .lp-topic { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .75rem; padding: .6rem .85rem;
+      border: 1px solid var(--tl-line); border-radius: .65rem; background: var(--tl-card); cursor: pointer; }
+    .lp-topic:hover { border-color: var(--tl-accent); }
+    .lp-topic:has(input:checked) { border-color: var(--tl-accent); background: var(--tl-accent-soft); }
+    .lp-tname b { display: block; font-size: .93rem; font-weight: 600; line-height: 1.35; color: var(--tl-ink); }
+    .lp-tname small { font-size: .78rem; color: var(--tl-muted); }
+    .lp-tprog { display: flex; flex-direction: column; align-items: flex-end; gap: .25rem; }
+    .lp-tprog small { font-size: .74rem; color: var(--tl-muted); font-variant-numeric: tabular-nums; }
+    .lp-meter { display: block; width: 4.5rem; height: .35rem; border-radius: 999px; background: var(--tl-line); overflow: hidden; }
+    .lp-meter span { display: block; height: 100%; border-radius: inherit; background: var(--tl-ok); }
+    .lp-record { margin: .9rem 0 0; font-size: .88rem; line-height: 1.6; color: var(--tl-muted); }
+    .lp-settings { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1.25rem 2.25rem; margin-top: 1.5rem; padding-top: 1.25rem;
+      border-top: 1px solid var(--tl-line); }
+    .lp-mode-help { margin: 1rem 0 0; max-width: 52rem; font-size: .9rem; line-height: 1.6; }
+    .lp-checks { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; margin-top: .8rem; font-size: .92rem; }
+    .lp-go { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; margin-top: 1.5rem; }
+
+    /* questions */
+    .lp-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; }
+    .lp-bar p { margin: 0; color: var(--tl-text); }
+    .lp-bar b { color: var(--tl-ink); }
+    .lp-bar-right { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .9rem; }
+    .lp-timer { font-weight: 700; color: var(--tl-ink); font-variant-numeric: tabular-nums; }
+    .lp-timer[data-low="1"] { color: var(--tl-err); }
+    .lp-palette { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+    .lp-palette button, .lp-key { position: relative; border: 1px solid var(--tl-line); background: var(--tl-card); color: var(--tl-muted); }
+    .lp-palette button { width: 2.3rem; height: 2.3rem; border-radius: .5rem; font: inherit; font-size: .85rem; font-weight: 600;
+      font-variant-numeric: tabular-nums; cursor: pointer; }
+    .lp-palette button:hover { border-color: var(--tl-accent); }
+    .lp-palette button[aria-current="true"] { outline: 2px solid var(--tl-accent); outline-offset: 2px; }
+    [data-state="answered"] { border-color: var(--tl-accent) !important; background: var(--tl-accent-soft) !important; color: var(--tl-accent) !important; }
+    [data-state="seen"] { border-color: var(--tl-warn) !important; background: var(--tl-warn-soft) !important; color: var(--tl-warn) !important; }
+    [data-state="right"] { border-color: var(--tl-ok) !important; background: var(--tl-ok-soft) !important; color: var(--tl-ok) !important; }
+    [data-state="wrong"] { border-color: var(--tl-err) !important; background: var(--tl-err-soft) !important; color: var(--tl-err) !important; }
+    .lp-palette button[data-review="1"]::after, .lp-key[data-state="review"]::after { content: ""; position: absolute; top: -4px; right: -4px;
+      width: .6rem; height: .6rem; border-radius: 50%; background: var(--lp-review); border: 2px solid var(--tl-card); }
+    .lp-legend { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin: .7rem 0 0; font-size: .78rem; color: var(--tl-muted); }
+    .lp-legend span { display: inline-flex; align-items: center; gap: .4rem; }
+    .lp-key { display: inline-block; width: .85rem; height: .85rem; border-radius: .25rem; }
+    #lp-card { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--tl-line); }
+    .lp-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+    .lp-tag { padding: .15rem .6rem; border-radius: 999px; border: 1px solid var(--tl-line); background: var(--tl-soft); color: var(--tl-muted);
+      font-size: .78rem; font-weight: 600; }
+    .lp-tag-type { border-color: var(--tl-accent); background: var(--tl-accent-soft); color: var(--tl-accent); }
+    .lp-q { margin: 1rem 0 .4rem; font-size: 1.06rem; line-height: 1.75; color: var(--tl-ink); overflow-x: auto; }
+    .lp-help { margin: 0 0 1rem; font-size: .85rem; color: var(--tl-muted); }
+    .lp-options { display: grid; gap: .5rem; min-width: 0; margin: 0; padding: 0; border: 0; }
+    .lp-opt { display: flex; align-items: center; gap: .65rem; min-width: 0; padding: .6rem .85rem; border: 1px solid var(--tl-line);
+      border-radius: .65rem; background: var(--tl-card); line-height: 1.6; cursor: pointer; }
+    .lp-opt:hover { border-color: var(--tl-accent); }
+    .lp-opt:has(input:checked) { border-color: var(--tl-accent); background: var(--tl-accent-soft); }
+    .lp-opt:has(input:disabled) { cursor: default; }
+    .lp-options .lp-opt[data-mark="right"] { border-color: var(--tl-ok); background: var(--tl-ok-soft); }
+    .lp-options .lp-opt[data-mark="wrong"] { border-color: var(--tl-err); background: var(--tl-err-soft); }
+    .lp-opt input { flex: none; }
+    .lp-letter { flex: none; min-width: 1.6rem; font-weight: 700; color: var(--tl-muted); }
+    .lp-otext { flex: 1; min-width: 0; overflow-x: auto; color: var(--tl-ink); }
+    .lp-omark { flex: none; }
+    .lp-opt[data-mark="right"] .lp-omark { color: var(--tl-ok); }
+    .lp-opt[data-mark="wrong"] .lp-omark { color: var(--tl-err); }
+    .lp-nat input { display: block; width: 14rem; max-width: 100%; margin-top: .35rem; padding: .55rem .75rem; font-size: 1.05rem; }
+    .lp-nat-err { min-height: 1.2em; margin: .35rem 0 0; font-size: .85rem; color: var(--tl-err); }
+    .lp-feedback { margin-top: 1.1rem; padding: .9rem 1rem; border: 1px solid var(--tl-line); border-radius: .65rem; background: var(--tl-soft);
+      line-height: 1.7; overflow-x: auto; }
+    .lp-verdict { margin: 0 0 .4rem; font-weight: 600; color: var(--tl-ink); }
+    .lp-verdict[data-kind="ok"] { color: var(--tl-ok); }
+    .lp-verdict[data-kind="err"] { color: var(--tl-err); }
+    .lp-solution b { color: var(--tl-ink); }
+    .lp-confirm { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin-top: 1.1rem; padding: .9rem 1rem;
+      border: 1px solid var(--tl-accent); border-radius: .65rem; background: var(--tl-accent-soft); }
+    .lp-confirm p { flex: 1 1 18rem; margin: 0; color: var(--tl-ink); }
+    .lp-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem; margin-top: 1.4rem; }
+    .lp-actions > div { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .lp-quitline { margin: 1.25rem 0 0; font-size: .85rem; }
+
+    /* result */
+    .lp-score { display: grid; gap: .7rem; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); margin: 1rem 0; }
+    .lp-stat { padding: .8rem 1rem; border: 1px solid var(--tl-line); border-radius: .65rem; background: var(--tl-soft); }
+    .lp-stat b { display: block; font-size: 1.6rem; line-height: 1.2; color: var(--tl-ink); font-variant-numeric: tabular-nums; }
+    .lp-stat b small { font-size: .95rem; font-weight: 600; color: var(--tl-muted); }
+    .lp-stat span { font-size: .82rem; color: var(--tl-muted); }
+    .lp-table { overflow-x: auto; }
+    .lp-table table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    .lp-table th, .lp-table td { padding: .5rem .6rem; border-bottom: 1px solid var(--tl-line); text-align: left; white-space: nowrap; }
+    .lp-table thead th { font-size: .78rem; font-weight: 600; color: var(--tl-muted); }
+    .lp-table tbody th { min-width: 12rem; font-weight: 600; color: var(--tl-ink); white-space: normal; }
+    .lp-table td { font-variant-numeric: tabular-nums; }
+    .lp-advice { margin: 1rem 0 0; line-height: 1.6; }
+    .lp-rev { padding: 1.2rem 0; border-top: 1px solid var(--tl-line); }
+    .lp-rev:first-child { padding-top: 0; border-top: 0; }
+    .lp-badge { display: inline-flex; align-items: center; gap: .3rem; padding: .15rem .6rem; border: 1px solid var(--tl-line); border-radius: 999px;
+      background: var(--tl-soft); color: var(--tl-muted); font-size: .8rem; font-weight: 700; }
+    .lp-badge[data-kind="ok"] { border-color: var(--tl-ok); background: var(--tl-ok-soft); color: var(--tl-ok); }
+    .lp-badge[data-kind="err"] { border-color: var(--tl-err); background: var(--tl-err-soft); color: var(--tl-err); }
+    .lp-got { margin-left: auto; font-size: .9rem; font-weight: 700; color: var(--tl-ink); font-variant-numeric: tabular-nums; }
+    .lp-natans { margin: .6rem 0 0; font-size: .92rem; }
+    .lp-sol { margin-top: .6rem; }
+    .lp-sol summary { font-weight: 600; color: var(--tl-accent); cursor: pointer; }
+    .lp-sol .lp-solution { margin-top: .5rem; padding: .8rem 1rem; border: 1px solid var(--tl-line); border-radius: .6rem; background: var(--tl-soft);
+      line-height: 1.7; overflow-x: auto; }
+    .tl mjx-container[display="true"] { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+    @media (max-width: 560px) {
+      .lp-q { font-size: 1rem; }
+      .lp-opt { padding: .55rem .7rem; }
+      .lp-got { margin-left: 0; }
+    }
+  </style>
+
+  <!-- MathJax: configure before loading -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Shared header and footer (edit assets/js/site-layout.js) -->
+  <script src="../../assets/js/site-layout.js"></script>
+</head>
+
+<body style="background: #edf2f7;">
+  <div class="flex flex-col h-screen">
+    <site-header></site-header>
+
+    <main class="tl text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="tl-wrap">
+
+          <div class="flex flex-col items-center text-center justify-center">
+            <h1 class="text-gray-900 text-3xl title-font font-medium">Linear Algebra Practice</h1>
+            <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4" aria-hidden="true"></div>
+          </div>
+          <p class="tl-lead">
+            Exam-style questions, topic by topic, in the format of GATE and CSIR-NET: multiple choice (MCQ), multiple
+            select (MSQ) and numerical answer (NAT) questions, each with a worked solution.
+          </p>
+
+          <!-- 1. choose the questions -->
+          <section class="tl-card" id="lp-setup" style="margin-top: 2rem;" aria-labelledby="lp-setup-h">
+            <div class="lp-head">
+              <h2 class="tl-h2" id="lp-setup-h">Choose the topics</h2>
+              <div class="tl-row">
+                <button type="button" class="tl-btn" id="lp-all">All topics</button>
+                <button type="button" class="tl-btn" id="lp-none">None</button>
+              </div>
+            </div>
+            <div class="lp-topics" id="lp-topics"></div>
+            <p class="lp-record" id="lp-record"></p>
+
+            <div class="lp-settings">
+              <div class="tl-field">
+                <span class="tl-label" id="lp-types-l">Types of question</span>
+                <div class="tl-chips" id="lp-types" role="group" aria-labelledby="lp-types-l">
+                  <button type="button" class="tl-chip" data-type="mcq" aria-pressed="true" title="Multiple choice: one option is correct">MCQ</button>
+                  <button type="button" class="tl-chip" data-type="msq" aria-pressed="true" title="Multiple select: one or more options are correct">MSQ</button>
+                  <button type="button" class="tl-chip" data-type="nat" aria-pressed="true" title="Numerical answer: type a number">NAT</button>
+                </div>
+              </div>
+              <div class="tl-field">
+                <label class="tl-label" for="lp-count">Number of questions</label>
+                <select id="lp-count">
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                  <option value="0">All that match</option>
+                </select>
+              </div>
+              <div class="tl-field">
+                <span class="tl-label" id="lp-mode-l">Mode</span>
+                <div class="tl-seg" id="lp-mode" role="group" aria-labelledby="lp-mode-l">
+                  <button type="button" data-mode="practice" aria-pressed="true">Practice</button>
+                  <button type="button" data-mode="test" aria-pressed="false">Test</button>
+                </div>
+              </div>
+            </div>
+            <p class="lp-mode-help" id="lp-mode-help"></p>
+            <div class="lp-checks">
+              <label class="tl-check"><input type="checkbox" id="lp-fresh" checked> Questions I have not got right yet come first</label>
+              <span class="lp-checks" id="lp-test-opts" style="margin: 0;" hidden>
+                <label class="tl-check"><input type="checkbox" id="lp-negative" checked> Negative marks for wrong MCQ answers</label>
+                <label class="tl-check"><input type="checkbox" id="lp-timed" checked> Time limit at GATE pace (1.8 minutes a mark)</label>
+              </span>
+            </div>
+
+            <div class="lp-go">
+              <button type="button" class="tl-primary" id="lp-start"><i class="fas fa-play"></i> Start</button>
+              <button type="button" class="tl-btn" id="lp-mock"><i class="fas fa-stopwatch"></i> Mock test: 20 questions from all topics, timed</button>
+              <p class="tl-status" id="lp-status" aria-live="polite"></p>
+            </div>
+          </section>
+
+          <!-- 2. the questions, one at a time -->
+          <section class="tl-card" id="lp-quiz" style="margin-top: 2rem;" aria-label="Questions" hidden>
+            <div class="lp-bar">
+              <p id="lp-progress"></p>
+              <div class="lp-bar-right">
+                <span class="lp-timer" id="lp-timer" role="timer" hidden></span>
+                <button type="button" class="tl-btn" id="lp-finish"></button>
+              </div>
+            </div>
+            <nav class="lp-palette" id="lp-palette" aria-label="Go to a question"></nav>
+            <p class="lp-legend" id="lp-legend"></p>
+            <div id="lp-card"></div>
+            <div class="lp-confirm" id="lp-confirm" hidden>
+              <p id="lp-confirm-text"></p>
+              <div class="tl-row">
+                <button type="button" class="tl-primary" id="lp-confirm-yes"></button>
+                <button type="button" class="tl-btn" id="lp-confirm-no">Keep working</button>
+              </div>
+            </div>
+            <div class="lp-actions">
+              <div>
+                <button type="button" class="tl-btn" id="lp-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                <button type="button" class="tl-btn" id="lp-next">Next <i class="fas fa-arrow-right"></i></button>
+              </div>
+              <div>
+                <button type="button" class="tl-btn" id="lp-clear"><i class="fas fa-eraser"></i> Clear response</button>
+                <button type="button" class="tl-btn" id="lp-review-btn"></button>
+                <button type="button" class="tl-primary" id="lp-check"><i class="fas fa-check"></i> Check answer</button>
+                <button type="button" class="tl-primary" id="lp-done" hidden><i class="fas fa-flag-checkered"></i> See your summary</button>
+              </div>
+            </div>
+            <p class="lp-quitline"><button type="button" class="lp-linkbtn" id="lp-quit">Stop and choose other questions</button></p>
+          </section>
+
+          <!-- 3. the result -->
+          <section id="lp-result" aria-labelledby="lp-result-h" hidden>
+            <div class="tl-card" style="margin-top: 2rem;">
+              <h2 class="tl-h2" id="lp-result-h">Your result</h2>
+              <p class="tl-muted" id="lp-result-note" style="margin: 0;"></p>
+              <div class="lp-score" id="lp-score"></div>
+              <div class="lp-table" id="lp-by-topic"></div>
+              <p class="lp-advice" id="lp-advice"></p>
+              <div class="lp-go">
+                <button type="button" class="tl-primary" id="lp-missed"></button>
+                <button type="button" class="tl-btn" id="lp-again"><i class="fas fa-repeat"></i> Try these questions again</button>
+                <button type="button" class="tl-btn" id="lp-new"><i class="fas fa-list-check"></i> Choose new questions</button>
+              </div>
+            </div>
+            <div class="tl-card" style="margin-top: 1.5rem;">
+              <h2 class="tl-h2">Answers and solutions</h2>
+              <div id="lp-review"></div>
+            </div>
+          </section>
+
+          <p class="tl-note" style="margin-top: 1.5rem;">
+            The topics follow the Linear Algebra course (MTH100) at IIIT Delhi and Lay, <em>Linear Algebra and Its
+            Applications</em>. To check a computation, use the <a class="tl-link" href="../linear-algebra-calculator/">linear
+            algebra calculator</a>. Your results are kept in this browser only.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <site-footer></site-footer>
+  </div>
+
+  <script type="module" src="practice.js"></script>
+</body>
+</html>

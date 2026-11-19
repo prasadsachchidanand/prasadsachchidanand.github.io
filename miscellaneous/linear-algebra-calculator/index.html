@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CVGSV7Y2CE');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linear Algebra Calculator - Sachchidanand Prasad</title>
+  <link rel="canonical" href="https://prasadsachchidanand.github.io/miscellaneous/linear-algebra-calculator/" />
+  <meta name="description"
+    content="Linear algebra calculator with steps and exact fractions: row echelon and reduced row echelon form, rank, null space, Ax = b, inverse, determinant, eigenvalues, eigenvectors and diagonalization.">
+  <meta name="keywords"
+    content="linear algebra calculator, RREF calculator, row echelon form, rank, null space, inverse matrix, determinant, eigenvalues, eigenvectors, diagonalization, steps, exact fractions">
+  <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/tools.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Linear algebra calculator. Shared tool styles are in assets/tools.css. */
+    .la-grid { display: grid; gap: 1.25rem; }
+    @media (min-width: 900px) { .la-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); } }
+    .la-input { width: 100%; min-height: 9.5rem; resize: vertical; font: .95rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important; white-space: pre; }
+    .la-help { margin: .5rem 0 0; font-size: .86rem; color: var(--tl-muted); line-height: 1.55; }
+    .la-preview { min-height: 4rem; overflow-x: auto; }
+    #la-size[data-kind="error"] { color: var(--tl-err); }
+    #la-size[data-kind="ok"] { color: var(--tl-muted); }
+    .la-ops { display: grid; gap: .5rem; grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)); margin-top: 1.25rem; }
+    .la-ops button { justify-content: flex-start; text-align: left; padding: .6rem .85rem; }
+    .la-ops button[aria-pressed="true"] { border-color: var(--tl-accent); background: var(--tl-accent-soft); color: var(--tl-accent); font-weight: 600; }
+    .la-ops button i { width: 1.1rem; text-align: center; }
+    .la-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .5rem; }
+    .la-head h2 { margin: 0; font-size: 1.25rem; font-weight: 600; color: var(--tl-ink); }
+    .la-block { margin-top: 1rem; }
+    .la-block h3 { margin: 0 0 .4rem; font-size: 1rem; font-weight: 700; color: var(--tl-ink); }
+    .la-block p { margin: .4rem 0; line-height: 1.65; }
+    .la-steps { margin: .25rem 0 0; padding-left: 1.5rem; }
+    .la-steps li { margin: .1rem 0; }
+    .la-details { margin: .5rem 0; padding: .5rem .8rem; border: 1px solid var(--tl-line); border-radius: .6rem; background: var(--tl-soft); }
+    .la-details summary { cursor: pointer; font-weight: 600; color: var(--tl-ink); }
+    .la-table { overflow-x: auto; }
+    .la-table table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+    .la-table th, .la-table td { padding: .5rem .6rem; border-bottom: 1px solid var(--tl-line); text-align: left; vertical-align: middle; }
+    .la-table th { font-size: .82rem; color: var(--tl-muted); font-weight: 600; }
+    .tl mjx-container[display="true"] { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+  </style>
+
+  <!-- MathJax: configure before loading -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Shared header and footer (edit assets/js/site-layout.js) -->
+  <script src="../../assets/js/site-layout.js"></script>
+</head>
+
+<body style="background: #edf2f7;">
+  <div class="flex flex-col h-screen">
+    <site-header></site-header>
+
+    <main class="tl text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="tl-wrap">
+
+          <div class="flex flex-col items-center text-center justify-center">
+            <h1 class="text-gray-900 text-3xl title-font font-medium">Linear Algebra Calculator</h1>
+            <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4" aria-hidden="true"></div>
+          </div>
+          <p class="tl-lead">
+            Row reduction, rank, null space, systems, inverse, determinant, eigenvalues, eigenvectors and
+            diagonalization, with every step. All arithmetic is exact: fractions stay fractions, and eigenvalues
+            such as \(1 \pm \sqrt{2}\) or \(1 \pm i\) are kept exact.
+          </p>
+
+          <div class="tl-card" style="margin-top: 2rem;">
+            <div class="la-grid">
+              <div>
+                <div class="la-head">
+                  <label class="tl-label" for="la-input">Your matrix</label>
+                  <select id="la-example" aria-label="Load an example">
+                    <option value="">Examples…</option>
+                    <option value="inv">Invertible 3 × 3</option>
+                    <option value="rank">3 × 4 of rank 2</option>
+                    <option value="sing">Singular 3 × 3</option>
+                    <option value="diag">Diagonalizable (repeated eigenvalue)</option>
+                    <option value="notdiag">Not diagonalizable</option>
+                    <option value="complex">Complex eigenvalues</option>
+                    <option value="system">A system Ax = b</option>
+                    <option value="fractions">Fractions</option>
+                  </select>
+                </div>
+                <textarea id="la-input" class="la-input" spellcheck="false" autocomplete="off" autocapitalize="off">1 2 3
+4 5 6
+7 8 10</textarea>
+                <p class="la-help">One row per line; separate the entries by spaces or commas. Fractions (3/4), decimals (0.5)
+                  and negative numbers are fine. For a system \(Ax = b\), put <code>|</code> before the last column.
+                  Up to 8 × 8 (eigenvalues up to 6 × 6).</p>
+              </div>
+              <div>
+                <p class="tl-label" style="margin: 0 0 .4rem;" id="la-size" aria-live="polite"></p>
+                <div class="la-preview" id="la-preview"></div>
+              </div>
+            </div>
+
+            <div class="la-ops" role="group" aria-label="What to compute">
+              <button type="button" class="tl-btn" data-op="ref"><i class="fas fa-bars-staggered"></i> Row echelon form</button>
+              <button type="button" class="tl-btn" data-op="rref"><i class="fas fa-align-left"></i> Reduced row echelon form</button>
+              <button type="button" class="tl-btn" data-op="rank"><i class="fas fa-layer-group"></i> Rank, column and row space</button>
+              <button type="button" class="tl-btn" data-op="solve" id="la-solve"><i class="fas fa-equals"></i> Solve Ax = 0 (null space)</button>
+              <button type="button" class="tl-btn" data-op="inverse"><i class="fas fa-rotate-left"></i> Inverse (by row reduction)</button>
+              <button type="button" class="tl-btn" data-op="det"><i class="fas fa-calculator"></i> Determinant</button>
+              <button type="button" class="tl-btn" data-op="eigen"><i class="fas fa-crosshairs"></i> Eigenvalues and eigenvectors</button>
+              <button type="button" class="tl-btn" data-op="diag"><i class="fas fa-table-cells"></i> Diagonalizable? (A = PDP⁻¹)</button>
+            </div>
+            <label class="tl-check" style="margin-top: 1rem;"><input type="checkbox" id="la-steps" checked> Show the steps</label>
+          </div>
+
+          <div class="tl-card" id="la-result" style="margin-top: 1.5rem;" hidden>
+            <div class="la-head">
+              <h2 id="la-title"></h2>
+              <button type="button" class="tl-btn" id="la-copy"><i class="fas fa-copy"></i> Copy LaTeX</button>
+            </div>
+            <div id="la-output" aria-live="polite"></div>
+          </div>
+
+          <p class="tl-note" style="margin-top: 1.5rem;">
+            Made for the Linear Algebra course (MTH100) at IIIT Delhi; the notation follows Lay, <em>Linear Algebra and
+            Its Applications</em>. Try the <a class="tl-link" href="../linear-algebra-practice/">self-assessment
+            questions</a> too.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <site-footer></site-footer>
+  </div>
+
+  <script type="module" src="calculator.js"></script>
+</body>
+</html>

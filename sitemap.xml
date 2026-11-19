@@ -43,8 +43,26 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://prasadsachchidanand.github.io/miscellaneous/citation-tools/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/ancestors/</loc>
     <lastmod>2026-11-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/miscellaneous/linear-algebra-calculator/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/miscellaneous/linear-algebra-practice/</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -80,7 +98,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1239,6 +1257,12 @@
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2024-10-17/</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/sheets/</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -5942,7 +5966,7 @@
   </url>
   <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/daily-problems/2024-07-11/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

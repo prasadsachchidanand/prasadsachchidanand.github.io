@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CVGSV7Y2CE');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Citation Tools - Sachchidanand Prasad</title>
+  <link rel="canonical" href="https://prasadsachchidanand.github.io/miscellaneous/citation-tools/" />
+  <meta name="description"
+    content="Free tools for writing papers: get clean BibTeX from DOIs, arXiv numbers or titles, and check a LaTeX paper for missing or unused citations and undefined labels.">
+  <meta name="keywords"
+    content="BibTeX from DOI, BibTeX from arXiv, citation checker, LaTeX, bib file, undefined references, unused references, research tools">
+  <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/tools.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Citation tools. Shared tool styles are in assets/tools.css. */
+    .ct-tabs { display: flex; justify-content: center; margin: 2rem 0 1rem; }
+    .ct-box { width: 100%; min-height: 9rem; resize: vertical; font: .86rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+      white-space: pre; overflow: auto; }
+    .ct-box.ct-drop { outline: 2px dashed #6366f1; outline-offset: 2px; }
+    .ct-grid { display: grid; gap: 1rem; }
+    @media (min-width: 900px) { .ct-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+    .ct-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .45rem; }
+    .ct-head label { font-weight: 600; color: var(--tl-ink); }
+    .ct-actions { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .ct-options { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.4rem; margin: 1rem 0; font-size: .92rem; }
+    .ct-results { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .4rem; }
+    .ct-results li { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr); gap: 0 .6rem; font-size: .92rem; }
+    .ct-results .ct-id { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85rem; word-break: break-all; color: var(--tl-ink); }
+    .ct-results .ct-what { grid-column: 2; font-size: .85rem; }
+    .ct-badge { display: inline-grid; place-items: center; min-width: 1.5rem; height: 1.5rem; padding: 0 .35rem; border-radius: 999px; font-size: .78rem; font-weight: 700; }
+    .ct-ok { background: var(--tl-ok-soft); color: var(--tl-ok); }
+    .ct-bad { background: var(--tl-err-soft); color: var(--tl-err); }
+    .ct-warn { background: var(--tl-warn-soft); color: var(--tl-warn); }
+    .ct-wait { background: var(--tl-soft); color: var(--tl-muted); }
+    .ct-out { margin: 0; max-height: 30rem; overflow: auto; padding: .9rem 1rem; border-radius: .6rem; border: 1px solid var(--tl-line);
+      background: var(--tl-soft); color: var(--tl-ink); font: .82rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre; }
+    .ct-summary { margin: 0 0 1rem; font-weight: 600; color: var(--tl-ink); }
+    .ct-sec { padding: .9rem 1rem; border-radius: .6rem; border: 1px solid var(--tl-line); margin-bottom: .75rem; }
+    .ct-sec h3 { display: flex; align-items: center; gap: .6rem; margin: 0; font-size: 1rem; font-weight: 600; color: var(--tl-ink); }
+    .ct-sec p { margin: .4rem 0 0 2.1rem; font-size: .9rem; }
+    .ct-list { margin: .6rem 0 0 2.1rem; padding: 0; list-style: none; display: grid; gap: .3rem; font-size: .9rem; }
+    .ct-list code { color: var(--tl-ink); font-weight: 600; }
+  </style>
+
+  <!-- Shared header and footer (edit assets/js/site-layout.js) -->
+  <script src="../../assets/js/site-layout.js"></script>
+</head>
+
+<body style="background: #edf2f7;">
+  <div class="flex flex-col h-screen">
+    <site-header></site-header>
+
+    <main class="tl text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="tl-wrap">
+
+          <div class="flex flex-col items-center text-center justify-center">
+            <h1 class="text-gray-900 text-3xl title-font font-medium">Citation Tools</h1>
+            <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4" aria-hidden="true"></div>
+          </div>
+          <p class="tl-lead">
+            Get clean BibTeX for DOIs, arXiv numbers or titles, and check a LaTeX paper for citations without an
+            entry, entries never cited and references to missing labels.
+          </p>
+
+          <div class="ct-tabs">
+            <div class="tl-seg" role="group" aria-label="Tool">
+              <button type="button" data-tab="get" aria-pressed="true"><i class="fas fa-download"></i> Get BibTeX</button>
+              <button type="button" data-tab="check" aria-pressed="false"><i class="fas fa-list-check"></i> Check a paper</button>
+            </div>
+          </div>
+
+          <!-- 1. Get BibTeX -->
+          <section class="tl-card" id="ct-get" aria-label="Get BibTeX">
+            <div class="ct-head">
+              <label for="ct-ids">DOIs, arXiv numbers or titles, one per line</label>
+              <div class="ct-actions"><button type="button" class="tl-btn" id="ct-example"><i class="fas fa-lightbulb"></i> Example</button></div>
+            </div>
+            <textarea id="ct-ids" class="ct-box" rows="6" spellcheck="false" autocomplete="off"
+              placeholder="10.2140/agt.2023.23.4185&#10;arXiv:2509.13008&#10;https://arxiv.org/abs/2307.11045&#10;A connection between cut locus, Thom space and Morse-Bott functions"></textarea>
+            <div class="ct-options">
+              <label class="tl-check"><input type="checkbox" id="ct-published" checked> For arXiv papers that are published, use the journal version</label>
+              <label class="tl-check"><input type="checkbox" id="ct-protect" checked> Keep the capital letters of titles</label>
+              <label class="tl-check">Keys like
+                <select id="ct-keys">
+                  <option value="word">Basu2023connection</option>
+                  <option value="authors">BasuPrasad2023</option>
+                  <option value="lower">basu2023connection</option>
+                </select></label>
+            </div>
+            <div class="tl-row">
+              <button type="button" class="tl-primary" id="ct-fetch"><i class="fas fa-magnifying-glass"></i> Get BibTeX</button>
+              <p class="tl-status" id="ct-get-status" aria-live="polite"></p>
+            </div>
+            <ul class="ct-results" id="ct-results" aria-live="polite"></ul>
+            <div id="ct-out-box" style="margin-top: 1rem;" hidden>
+              <div class="ct-head">
+                <span class="tl-label">BibTeX</span>
+                <div class="ct-actions">
+                  <button type="button" class="tl-btn" id="ct-copy"><i class="fas fa-copy"></i> Copy</button>
+                  <button type="button" class="tl-btn" id="ct-download"><i class="fas fa-download"></i> Download .bib</button>
+                </div>
+              </div>
+              <pre class="ct-out" id="ct-out"></pre>
+            </div>
+            <p class="tl-note" style="margin-top: 1.25rem;">
+              The data comes from <a class="tl-link" href="https://www.crossref.org/" target="_blank" rel="noopener noreferrer">Crossref</a>
+              (journal DOIs) and <a class="tl-link" href="https://datacite.org/" target="_blank" rel="noopener noreferrer">DataCite</a>
+              (arXiv). Only the identifiers you type are sent to them. A line that is neither a DOI nor an arXiv number is
+              looked up as a title; check such matches.
+            </p>
+          </section>
+
+          <!-- 2. Check a paper -->
+          <section class="tl-card" id="ct-check" aria-label="Check a paper" hidden>
+            <div class="ct-grid">
+              <div>
+                <div class="ct-head">
+                  <label for="ct-tex">LaTeX (.tex files)</label>
+                  <div class="ct-actions">
+                    <button type="button" class="tl-btn" id="ct-tex-open"><i class="fas fa-folder-open"></i> Open files</button>
+                    <button type="button" class="tl-btn" id="ct-tex-clear"><i class="fas fa-eraser"></i> Clear</button>
+                  </div>
+                </div>
+                <textarea id="ct-tex" class="ct-box" rows="12" spellcheck="false" autocomplete="off" placeholder="Paste the LaTeX, or open or drop the .tex files (several are fine)."></textarea>
+                <input type="file" id="ct-tex-file" accept=".tex,.ltx,.txt" multiple hidden>
+              </div>
+              <div>
+                <div class="ct-head">
+                  <label for="ct-bib">BibTeX (.bib files)</label>
+                  <div class="ct-actions">
+                    <button type="button" class="tl-btn" id="ct-bib-open"><i class="fas fa-folder-open"></i> Open files</button>
+                    <button type="button" class="tl-btn" id="ct-bib-clear"><i class="fas fa-eraser"></i> Clear</button>
+                  </div>
+                </div>
+                <textarea id="ct-bib" class="ct-box" rows="12" spellcheck="false" autocomplete="off" placeholder="Paste the .bib, or open or drop the .bib files."></textarea>
+                <input type="file" id="ct-bib-file" accept=".bib,.txt" multiple hidden>
+              </div>
+            </div>
+            <div class="tl-row" style="margin-top: 1rem;">
+              <button type="button" class="tl-primary" id="ct-run"><i class="fas fa-list-check"></i> Check</button>
+              <span class="tl-muted" style="font-size: .88rem;">Everything is checked in your browser; the files are not uploaded.</span>
+            </div>
+            <div id="ct-report" style="margin-top: 1.25rem;" aria-live="polite" hidden></div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <site-footer></site-footer>
+  </div>
+
+  <script type="module" src="citation-tools.js"></script>
+</body>
+</html>

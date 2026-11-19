@@ -36,10 +36,14 @@
     ['Daily problems', 'miscellaneous/daily-problems/'],
     ['Book solutions', 'miscellaneous/books/'],
     ['Problems by topic', 'miscellaneous/daily-problems/tags/'],
+    ['Problem sheets', 'miscellaneous/daily-problems/sheets/'],
     ['Qualifier exams', 'miscellaneous/qualifier-exams/'],
     ['Quiz', 'miscellaneous/quiz/rules/'],
+    ['Linear algebra practice', 'miscellaneous/linear-algebra-practice/'],
+    ['Linear algebra calculator', 'miscellaneous/linear-algebra-calculator/'],
     ['Useful links', 'miscellaneous/useful-links/'],
     ['Code formatter', 'miscellaneous/code-formatter/'],
+    ['Citation tools', 'miscellaneous/citation-tools/'],
   ];
   // The dropdown under "Teaching" is filled from teaching/courses-data.json:
   // courses with "status": "ongoing" first, then the rest in file order.

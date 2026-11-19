@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CVGSV7Y2CE');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem Sheet Builder - Sachchidanand Prasad</title>
+  <link rel="canonical" href="https://prasadsachchidanand.github.io/miscellaneous/daily-problems/sheets/" />
+  <meta name="description"
+    content="Make a practice sheet from over 1,400 solved mathematics problems: choose topics, books or exams (GATE, CSIR-NET, NBHM) and difficulty, then print it or download the LaTeX.">
+  <meta name="keywords"
+    content="problem sheet, practice problems, linear algebra, real analysis, complex analysis, abstract algebra, topology, differential equations, GATE, CSIR-NET, NBHM, LaTeX">
+  <link rel="icon" type="image/png" href="../../../assets/img/favicon.png" />
+  <link rel="stylesheet" href="../../../assets/style.css">
+  <link rel="stylesheet" href="../../../assets/tools.css">
+  <link rel="stylesheet" href="../answer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Problem sheet builder. Shared tool styles are in assets/tools.css. */
+    .ps-filters { display: grid; gap: 1.1rem; }
+    .ps-settings { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); align-items: end; }
+    .ps-include { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+    .ps-go { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; padding-top: 1rem; border-top: 1px solid var(--tl-line); }
+    #ps-match { font-weight: 600; color: var(--tl-ink); }
+    .ps-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-bottom: 1rem; }
+    .ps-actions input { flex: 1 1 16rem; min-width: 0; }
+    /* the sheet itself */
+    .ps-sheet { color: var(--tl-ink); }
+    .ps-head { text-align: center; margin-bottom: 1.5rem; }
+    .ps-head h2 { margin: 0; font-size: 1.5rem; font-weight: 700; }
+    .ps-head p { margin: .3rem 0 0; color: var(--tl-muted); font-size: .92rem; }
+    .ps-problems, .ps-answers { margin: 0; padding-left: 1.6rem; list-style: decimal; }
+    .ps-problems > li, .ps-answers > li { margin: 0 0 1.4rem; padding-left: .3rem; line-height: 1.7; }
+    .ps-problems > li::marker, .ps-answers > li::marker { font-weight: 700; }
+    .ps-math p, .ps-math div { margin: .3rem 0; }
+    .ps-math hr { margin: .8rem 0; border: 0; border-top: 1px solid var(--tl-line); }
+    .ps-math img { max-width: 100%; height: auto; }
+    .ps-src { margin: .4rem 0 0; font-size: .85rem; font-style: italic; color: var(--tl-muted); }
+    .ps-src a { color: var(--tl-accent); }
+    .ps-part { margin-top: 2rem; padding-top: 1rem; border-top: 2px solid var(--tl-line); }
+    .ps-part h3 { margin: 0 0 1rem; font-size: 1.2rem; font-weight: 700; }
+    .ps-sheet mjx-container[display="true"] { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+    /* print only the sheet */
+    @media print {
+      site-header, site-footer, .ps-noprint { display: none !important; }
+      html, body, html.dark body { background: #fff !important; }
+      .tl .container { padding: 0 !important; max-width: none !important; }
+      #ps-result { box-shadow: none !important; border: 0 !important; padding: 0 !important; }
+      .ps-sheet, .ps-sheet * { color: #000 !important; background: transparent !important; }
+      .ps-problems > li, .ps-answers > li { break-inside: avoid; }
+      .ps-solutions { break-before: page; border-top: 0; }
+      .ps-src a { text-decoration: none; }
+    }
+  </style>
+
+  <!-- MathJax: the same settings as the problem pages -->
+  <script>
+    MathJax = {
+      loader: { load: ['[tex]/mathtools', '[tex]/units'] },
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        tags: 'ams',
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        packages: { '[+]': ['mathtools', 'units'] },
+        units: { loose: false, ugly: false }
+      },
+      startup: { typeset: false }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+  <!-- Shared header and footer (edit assets/js/site-layout.js) -->
+  <script src="../../../assets/js/site-layout.js"></script>
+</head>
+
+<body style="background: #edf2f7;">
+  <div class="flex flex-col h-screen">
+    <site-header></site-header>
+
+    <main class="tl text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="tl-wrap">
+
+          <div class="ps-noprint">
+            <div class="flex flex-col items-center text-center justify-center">
+              <h1 class="text-gray-900 text-3xl title-font font-medium">Problem Sheet Builder</h1>
+              <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4" aria-hidden="true"></div>
+            </div>
+            <p class="tl-lead">
+              Make a practice sheet from the <span id="ps-total">1,400+</span> solved
+              <a class="tl-link" href="../">daily problems</a>: choose topics, a book or an exam and the difficulty,
+              then print it, save it as PDF or download the LaTeX.
+            </p>
+
+            <div class="tl-card ps-filters" id="ps-filters" style="margin-top: 2rem;">
+              <div class="tl-field">
+                <span class="tl-label">Topics <span class="tl-muted" style="font-weight: 400;">(none chosen = all)</span></span>
+                <div class="tl-chips" id="ps-topics" role="group" aria-label="Topics"></div>
+              </div>
+              <div class="tl-field">
+                <span class="tl-label">Subtopics <span class="tl-muted" style="font-weight: 400;">(none chosen = all)</span></span>
+                <div class="tl-chips" id="ps-tags" role="group" aria-label="Subtopics"></div>
+              </div>
+              <div class="ps-settings">
+                <label class="tl-field"><span class="tl-label">Source</span><select id="ps-source"></select></label>
+                <div class="tl-field">
+                  <span class="tl-label">Difficulty <span class="tl-muted" style="font-weight: 400;">(none chosen = all)</span></span>
+                  <div class="tl-chips" id="ps-diff" role="group" aria-label="Difficulty"></div>
+                </div>
+                <label class="tl-field"><span class="tl-label">Number of problems</span>
+                  <input id="ps-count" type="number" min="1" max="50" value="10"></label>
+                <label class="tl-field"><span class="tl-label">Order</span>
+                  <select id="ps-order">
+                    <option value="random">Random</option>
+                    <option value="newest">Newest first</option>
+                    <option value="oldest">Oldest first</option>
+                  </select></label>
+              </div>
+              <div class="tl-field">
+                <span class="tl-label">Include</span>
+                <div class="ps-include">
+                  <label class="tl-check"><input type="checkbox" id="ps-hints"> Hints</label>
+                  <label class="tl-check"><input type="checkbox" id="ps-solutions" checked> Solutions (at the end)</label>
+                  <label class="tl-check"><input type="checkbox" id="ps-sources" checked> Where each problem is from</label>
+                </div>
+              </div>
+              <div class="ps-go">
+                <button type="button" class="tl-primary" id="ps-build"><i class="fas fa-file-lines"></i> Make the sheet</button>
+                <span id="ps-match" aria-live="polite">Loading the problems…</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-card" id="ps-result" style="margin-top: 1.5rem;" hidden>
+            <div class="ps-actions ps-noprint">
+              <input type="text" id="ps-title" placeholder="Title of the sheet (optional)" aria-label="Title of the sheet">
+              <button type="button" class="tl-btn" id="ps-shuffle"><i class="fas fa-shuffle"></i> Other problems</button>
+              <button type="button" class="tl-btn" id="ps-print"><i class="fas fa-print"></i> Print or save as PDF</button>
+              <button type="button" class="tl-btn" id="ps-latex"><i class="fas fa-file-code"></i> Download LaTeX</button>
+              <button type="button" class="tl-btn" id="ps-copy"><i class="fas fa-link"></i> Copy link</button>
+            </div>
+            <p class="tl-status ps-noprint" id="ps-status" aria-live="polite"></p>
+            <article class="ps-sheet" id="ps-sheet"></article>
+          </div>
+
+          <p class="tl-note ps-noprint" style="margin-top: 1.5rem;">
+            Only problems whose date has come are used, and their solutions from the next day, as on the
+            <a class="tl-link" href="../">daily problems</a> page. The link of a sheet opens the same sheet again, so you
+            can share it with students.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <site-footer></site-footer>
+  </div>
+
+  <script src="sheets.js"></script>
+</body>
+</html>
