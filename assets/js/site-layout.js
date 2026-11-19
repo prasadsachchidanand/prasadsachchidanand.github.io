@@ -39,6 +39,7 @@
     ['Qualifier exams', 'miscellaneous/qualifier-exams/'],
     ['Quiz', 'miscellaneous/quiz/rules/'],
     ['Useful links', 'miscellaneous/useful-links/'],
+    ['Code formatter', 'miscellaneous/code-formatter/'],
   ];
   // The dropdown under "Teaching" is filled from teaching/courses-data.json:
   // courses with "status": "ongoing" first, then the rest in file order.

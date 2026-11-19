@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CVGSV7Y2CE');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Formatter - Sachchidanand Prasad</title>
+  <link rel="canonical" href="https://prasadsachchidanand.github.io/miscellaneous/code-formatter/" />
+  <meta name="description"
+    content="Free online formatter for LaTeX, BibTeX, Typst and HTML. It runs in your browser, so your code is never uploaded.">
+  <meta name="keywords"
+    content="LaTeX formatter, BibTeX formatter, Typst formatter, HTML formatter, tex-fmt, bibtex-tidy, typstyle, Prettier, code beautifier">
+  <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Code formatter. Colours follow the site's indigo; dark mode via html.dark (set by the site header). */
+    .cf { --cf-card: #ffffff; --cf-ink: #111827; --cf-text: #374151; --cf-muted: #6b7280; --cf-line: #e5e7eb;
+      --cf-accent: #4338ca; --cf-code: #f8fafc; --cf-gutter: #f1f5f9; --cf-ok: #047857; --cf-err: #b91c1c; color: var(--cf-text); }
+    html.dark .cf { --cf-card: #1e293b; --cf-ink: #f1f5f9; --cf-text: #cbd5e1; --cf-muted: #94a3b8; --cf-line: #334155;
+      --cf-accent: #a5b4fc; --cf-code: #0f172a; --cf-gutter: #131c31; --cf-ok: #6ee7b7; --cf-err: #fca5a5; }
+    .cf [hidden] { display: none !important; }
+    .cf-wrap { max-width: 1200px; margin: 0 auto; }
+    .cf-lead { text-align: center; max-width: 760px; margin: .5rem auto 0; font-size: 1.1rem; line-height: 1.7; }
+    .cf-tabs { display: flex; justify-content: center; margin: 2rem 0 1rem; }
+    .cf-seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--cf-line); border-radius: .7rem; overflow: hidden; background: var(--cf-card); }
+    .cf-seg button { font: inherit; font-weight: 600; padding: .55rem 1.25rem; border: 0; border-right: 1px solid var(--cf-line); background: transparent; color: var(--cf-text); cursor: pointer; }
+    .cf-seg button:last-child { border-right: 0; }
+    .cf-seg button[aria-pressed="true"] { background: #4f46e5; color: #fff; }
+    .cf-card { background: var(--cf-card); border-radius: .9rem; padding: 1.25rem; box-shadow: 0 1px 3px rgba(15,23,42,.08), 0 8px 24px -12px rgba(15,23,42,.12); }
+    html.dark .cf-card { box-shadow: none; border: 1px solid var(--cf-line); }
+    .cf-options { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.4rem; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--cf-line); font-size: .92rem; }
+    .cf-opt { display: inline-flex; align-items: center; gap: .45rem; }
+    .cf-opt select, .cf-opt input[type="number"] { font: inherit; padding: .3rem .5rem; border: 1px solid var(--cf-line); border-radius: .45rem; background: var(--cf-card); color: var(--cf-ink); }
+    .cf-opt input[type="number"] { width: 5rem; }
+    .cf-opt input[type="checkbox"] { width: 1rem; height: 1rem; accent-color: #4f46e5; }
+    .cf-panes { display: grid; gap: 1rem; }
+    /* phones: your code, Format, result; wider screens: the two boxes side by side, Format below */
+    @media (min-width: 900px) {
+      .cf-panes { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .cf-pane-in { grid-column: 1; grid-row: 1; }
+      .cf-pane-out { grid-column: 2; grid-row: 1; }
+      .cf-panes .cf-bar { grid-column: 1 / -1; grid-row: 2; }
+    }
+    .cf-pane-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .45rem; }
+    .cf-pane-head label { font-weight: 600; color: var(--cf-ink); }
+    .cf-actions { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .cf-btn { display: inline-flex; align-items: center; gap: .35rem; font: inherit; font-size: .85rem; font-weight: 500; padding: .3rem .7rem; border-radius: .45rem; border: 1px solid var(--cf-line); background: transparent; color: var(--cf-text); cursor: pointer; }
+    .cf-btn:hover { border-color: var(--cf-accent); color: var(--cf-accent); }
+    /* Code boxes (editor.js): line numbers on the left; a normal text box on top of a coloured copy of its
+       text (.cf-hl), so the box itself shows only the caret and the selection. The numbers, the colours and
+       the text box must use exactly the same font and line height, so that they line up. */
+    .cf-editor { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); border: 1px solid var(--cf-line);
+      border-radius: .6rem; background: var(--cf-code); overflow: hidden; }
+    .cf-editor:focus-within { border-color: #6366f1; box-shadow: 0 0 0 1px #6366f1; }
+    .cf-nums, .cf-hl, .cf-code textarea { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .86rem;
+      line-height: 1.35rem; font-variant-ligatures: none; letter-spacing: normal; word-spacing: normal; tab-size: 4; -moz-tab-size: 4; }
+    /* height 0 + min-height 100%: the numbers must not make the box taller than the text box; they scroll with it instead */
+    .cf-gutter { position: relative; height: 0; min-height: 100%; overflow: hidden; background: var(--cf-gutter);
+      border-right: 1px solid var(--cf-line); user-select: none; -webkit-user-select: none; }
+    .cf-nums { margin: 0; min-width: 2ch; padding: .8rem .6rem calc(.8rem + 24px) .75rem; text-align: right; white-space: pre;
+      color: var(--cf-muted); background: none; }
+    .cf-mark { position: absolute; left: 0; right: 0; pointer-events: none; }
+    .cf-mark[data-kind="error"] { background: rgba(239, 68, 68, .25); box-shadow: inset 3px 0 #ef4444; }
+    .cf-mark[data-kind="warn"] { background: rgba(245, 158, 11, .25); box-shadow: inset 3px 0 #f59e0b; }
+    .cf-code { position: relative; min-width: 0; }
+    .cf-code textarea { position: relative; z-index: 1; display: block; width: 100%; height: 28rem; margin: 0; padding: .8rem .9rem;
+      resize: vertical; overflow: auto; white-space: pre; border: 0; border-radius: 0; outline: none; box-shadow: none;
+      background: transparent; color: transparent; -webkit-text-fill-color: transparent; caret-color: var(--cf-ink); }
+    /* the site's dark mode gives every text box a solid background, which would hide the colours */
+    html.dark .cf-code textarea { background-color: transparent !important; color: transparent !important; }
+    .cf-code textarea::placeholder { color: var(--cf-muted); -webkit-text-fill-color: var(--cf-muted); }
+    .cf-code textarea::selection { background: rgba(99, 102, 241, .35); }
+    .cf-code textarea.cf-drop { background: rgba(99, 102, 241, .08) !important; }
+    .cf-hl { position: absolute; inset: 0; z-index: 0; margin: 0; overflow: hidden; pointer-events: none; white-space: pre;
+      padding: .8rem calc(.9rem + 24px) calc(.8rem + 24px) .9rem; border: 0; color: var(--cf-ink); background: none; }
+    .cf-hl code { font: inherit; color: inherit; background: none; padding: 0; white-space: inherit; }
+    @media (max-width: 899px) { .cf-code textarea { height: 17rem; } }
+    .cf-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem .75rem; min-height: 1.3rem; margin-top: .3rem;
+      font-size: .8rem; color: var(--cf-muted); }
+    .cf-linkbtn { font: inherit; padding: 0; border: 0; background: none; color: var(--cf-accent); text-decoration: underline;
+      text-underline-offset: 2px; cursor: pointer; }
+    .cf-stale .cf-editor { opacity: .5; }
+    .cf-stale-note { display: none; }
+    .cf-stale .cf-stale-note { display: inline; }
+    /* syntax colours (Prism token names) */
+    .cf { --tk-comment: #6b7280; --tk-punct: #64748b; --tk-keyword: #7c3aed; --tk-func: #2563eb; --tk-attr: #b45309;
+      --tk-string: #047857; --tk-number: #be185d; --tk-math: #0f766e; --tk-head: #111827; }
+    html.dark .cf { --tk-comment: #94a3b8; --tk-punct: #94a3b8; --tk-keyword: #c4b5fd; --tk-func: #93c5fd; --tk-attr: #fcd34d;
+      --tk-string: #6ee7b7; --tk-number: #f9a8d4; --tk-math: #5eead4; --tk-head: #f8fafc; }
+    .cf-hl .token.comment, .cf-hl .token.prolog, .cf-hl .token.doctype, .cf-hl .token.cdata { color: var(--tk-comment); }
+    .cf-hl .token.punctuation, .cf-hl .token.operator { color: var(--tk-punct); }
+    .cf-hl .token.tag, .cf-hl .token.keyword, .cf-hl .token.atrule, .cf-hl .token.important { color: var(--tk-keyword); }
+    .cf-hl .token.function, .cf-hl .token.selector, .cf-hl .token.class-name { color: var(--tk-func); }
+    .cf-hl .token.attr-name, .cf-hl .token.property, .cf-hl .token.variable { color: var(--tk-attr); }
+    .cf-hl .token.string, .cf-hl .token.attr-value, .cf-hl .token.url, .cf-hl .token.char { color: var(--tk-string); }
+    .cf-hl .token.number, .cf-hl .token.boolean, .cf-hl .token.constant { color: var(--tk-number); }
+    .cf-hl .token.equation { color: var(--tk-math); }
+    .cf-hl .token.equation .token.regex { color: var(--tk-func); }
+    .cf-hl .token.headline, .cf-hl .token.title { color: var(--tk-head); }
+    .cf-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; }
+    .cf-primary { display: inline-flex; align-items: center; gap: .5rem; font: inherit; font-weight: 600; padding: .6rem 1.5rem; border-radius: .6rem; border: 0; background: #4f46e5; color: #fff; cursor: pointer; }
+    .cf-primary:hover { background: #4338ca; }
+    .cf-primary:disabled { opacity: .6; cursor: progress; }
+    .cf-hint { font-size: .85rem; color: var(--cf-muted); }
+    @media (pointer: coarse) { .cf-hint { display: none; } }   /* keyboard shortcuts mean little on a touchscreen */
+    #cf-status { flex-basis: 100%; margin: 0; font-size: .92rem; }
+    #cf-status[data-kind="ok"] { color: var(--cf-ok); }
+    #cf-status[data-kind="error"] { color: var(--cf-err); white-space: pre-wrap; }
+    #cf-notes { margin: .75rem 0 0; padding: .7rem .9rem; max-height: 12rem; overflow: auto; border-radius: .5rem; border: 1px solid var(--cf-line);
+      background: var(--cf-code); color: var(--cf-text); font: .8rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre-wrap; }
+    .cf-about { display: grid; gap: 1rem; margin-top: 2rem; }
+    @media (min-width: 900px) { .cf-about { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+    .cf-about h2 { margin: 0 0 .6rem; font-size: 1.1rem; font-weight: 600; color: var(--cf-ink); }
+    .cf-about ul { margin: 0; padding-left: 1.1rem; list-style: disc; }
+    .cf-about li { margin: .35rem 0; line-height: 1.65; font-size: .95rem; }
+    .cf-about code { font-size: .85em; padding: .05rem .3rem; border-radius: .3rem; background: var(--cf-code); }
+    .cf a.cf-link { color: var(--cf-accent); text-decoration: underline; text-underline-offset: 3px; }
+    .cf button:focus-visible, .cf a:focus-visible, .cf select:focus-visible, .cf input:focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; }
+    @media (max-width: 560px) {
+      .cf-card { padding: 1rem; }
+      .cf-lead { text-align: left; font-size: 1rem; }
+      .cf-seg button { padding: .5rem .9rem; }
+    }
+  </style>
+
+  <!-- Shared header and footer (edit assets/js/site-layout.js) -->
+  <script src="../../assets/js/site-layout.js"></script>
+</head>
+
+<body style="background: #edf2f7;">
+  <div class="flex flex-col h-screen">
+    <site-header></site-header>
+
+    <main class="cf text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="cf-wrap">
+
+          <div class="flex flex-col items-center text-center justify-center">
+            <h1 class="text-gray-900 text-3xl title-font font-medium">Code Formatter</h1>
+            <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4" aria-hidden="true"></div>
+          </div>
+          <p class="cf-lead">
+            Tidy up LaTeX, BibTeX, Typst and HTML. Paste your code or open a file, choose the options and click
+            Format. Everything happens in your browser: your code is never uploaded.
+          </p>
+
+          <div class="cf-tabs">
+            <div class="cf-seg" role="group" aria-label="Language">
+              <button type="button" data-lang="latex" aria-pressed="true">LaTeX</button>
+              <button type="button" data-lang="bibtex" aria-pressed="false">BibTeX</button>
+              <button type="button" data-lang="typst" aria-pressed="false">Typst</button>
+              <button type="button" data-lang="html" aria-pressed="false">HTML</button>
+            </div>
+          </div>
+
+          <div class="cf-card">
+            <div class="cf-options" id="cf-options">
+              <label class="cf-opt" data-opt="indent">Indent
+                <select id="opt-indent">
+                  <option value="2">2 spaces</option>
+                  <option value="4">4 spaces</option>
+                  <option value="tab" id="opt-tab">Tab</option>
+                </select>
+              </label>
+              <label class="cf-opt" data-opt="width">Line width
+                <input id="opt-width" type="number" min="20" max="200" step="10" value="80">
+              </label>
+              <label class="cf-opt" data-opt="wrap"><input id="opt-wrap" type="checkbox"> Wrap long lines</label>
+              <label class="cf-opt" data-opt="tables"><input id="opt-tables" type="checkbox"> Align table columns</label>
+              <label class="cf-opt" data-opt="align"><input id="opt-align" type="checkbox"> Align values</label>
+              <label class="cf-opt" data-opt="sort">Sort entries
+                <select id="opt-sort">
+                  <option value="none">Keep order</option>
+                  <option value="key">By citation key</option>
+                  <option value="year">Newest first</option>
+                </select>
+              </label>
+              <label class="cf-opt" data-opt="merge"><input id="opt-merge" type="checkbox"> Merge duplicates</label>
+              <label class="cf-opt" data-opt="curly"><input id="opt-curly" type="checkbox"> Braces around values</label>
+            </div>
+
+            <div class="cf-panes">
+              <div class="cf-pane-in">
+                <div class="cf-pane-head">
+                  <label for="cf-in">Your code</label>
+                  <div class="cf-actions">
+                    <button type="button" class="cf-btn" id="cf-example"><i class="fas fa-lightbulb"></i> Example</button>
+                    <button type="button" class="cf-btn" id="cf-open"><i class="fas fa-folder-open"></i> Open file</button>
+                    <button type="button" class="cf-btn" id="cf-clear"><i class="fas fa-eraser"></i> Clear</button>
+                  </div>
+                </div>
+                <div class="cf-editor">
+                  <div class="cf-gutter" aria-hidden="true"><pre class="cf-nums"></pre><div class="cf-mark" hidden></div></div>
+                  <div class="cf-code">
+                    <pre class="cf-hl" aria-hidden="true"><code></code></pre>
+                    <textarea id="cf-in" spellcheck="false" autocomplete="off" autocapitalize="off" wrap="off" aria-describedby="cf-keys"></textarea>
+                  </div>
+                </div>
+                <div class="cf-foot"><span id="cf-in-info"></span><button type="button" class="cf-linkbtn" id="cf-undo" hidden>Undo</button></div>
+              </div>
+              <div class="cf-bar">
+                <button type="button" class="cf-primary" id="cf-format"><i class="fas fa-wand-magic-sparkles"></i> Format</button>
+                <label class="cf-opt"><input id="opt-live" type="checkbox" checked> Format as I type</label>
+                <span class="cf-hint" id="cf-keys">Ctrl + Enter formats (&#8984; + Enter on a Mac). Tab indents; press Esc, then Tab, to leave the box.</span>
+                <p id="cf-status" role="status" aria-live="polite"></p>
+              </div>
+              <div class="cf-pane-out" id="cf-pane-out">
+                <div class="cf-pane-head">
+                  <label for="cf-out">Formatted</label>
+                  <div class="cf-actions">
+                    <button type="button" class="cf-btn" id="cf-copy"><i class="fas fa-copy"></i> Copy</button>
+                    <button type="button" class="cf-btn" id="cf-download"><i class="fas fa-download"></i> Download</button>
+                    <button type="button" class="cf-btn" id="cf-use" title="Put the formatted code in “Your code” to keep editing it"><i class="fas fa-pen-to-square"></i> Use as input</button>
+                  </div>
+                </div>
+                <div class="cf-editor">
+                  <div class="cf-gutter" aria-hidden="true"><pre class="cf-nums"></pre><div class="cf-mark" hidden></div></div>
+                  <div class="cf-code">
+                    <pre class="cf-hl" aria-hidden="true"><code></code></pre>
+                    <textarea id="cf-out" readonly spellcheck="false" wrap="off"></textarea>
+                  </div>
+                </div>
+                <div class="cf-foot"><span id="cf-out-info"></span><span class="cf-stale-note">Showing the last result that worked.</span></div>
+              </div>
+            </div>
+            <pre id="cf-notes" hidden></pre>
+            <input type="file" id="cf-file" hidden>
+            <noscript><p>This tool needs JavaScript.</p></noscript>
+          </div>
+
+          <div class="cf-about">
+            <div class="cf-card">
+              <h2>What each tab does</h2>
+              <ul>
+                <li><b>LaTeX</b> indents environments such as <code>itemize</code>, <code>align</code> and
+                  <code>proof</code>, and can wrap long lines and align table columns. A line ending in
+                  <code>% tex-fmt: skip</code>, and everything between <code>% tex-fmt: off</code> and
+                  <code>% tex-fmt: on</code>, is left as it is.</li>
+                <li><b>BibTeX</b> aligns the fields, puts braces around values, lists duplicate entries and missing
+                  keys, and can sort or merge entries.</li>
+                <li><b>Typst</b> formats both the code and the markup of a <code>.typ</code> file.</li>
+                <li><b>HTML</b> formats the HTML and the CSS and JavaScript inside it.</li>
+              </ul>
+            </div>
+            <div class="cf-card">
+              <h2>Good to know</h2>
+              <ul>
+                <li>Your code stays on your computer. What you type is also kept in this browser, so it is still
+                  here next time; <b>Clear</b> removes it (and <b>Undo</b> brings it back).</li>
+                <li>The result updates as you type. For a very large file, untick <b>Format as I type</b> and use the
+                  <b>Format</b> button instead. If the formatter finds a problem, the line is marked in the margin.</li>
+                <li>Formatting changes only the layout: indentation, spacing and line breaks. LaTeX is very flexible,
+                  so compile the formatted file once to be safe.</li>
+                <li>Each formatter is downloaded the first time you use its tab (about 1.3&nbsp;MB for LaTeX, less
+                  for the others).</li>
+                <li>Formatting by
+                  <a class="cf-link" href="https://github.com/WGUNDERWOOD/tex-fmt" target="_blank" rel="noopener noreferrer">tex-fmt</a><span id="texfmt-version"></span>,
+                  <a class="cf-link" href="https://github.com/FlamingTempura/bibtex-tidy" target="_blank" rel="noopener noreferrer">bibtex-tidy</a> 1.15.1,
+                  <a class="cf-link" href="https://github.com/typstyle-rs/typstyle" target="_blank" rel="noopener noreferrer">typstyle</a> 0.15.1 and
+                  <a class="cf-link" href="https://prettier.io/" target="_blank" rel="noopener noreferrer">Prettier</a> 3.9.10;
+                  colours by <a class="cf-link" href="https://prismjs.com/" target="_blank" rel="noopener noreferrer">Prism</a> 1.30.0.
+                  All are free and open source.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <site-footer></site-footer>
+  </div>
+
+  <!-- Syntax colours: Prism (vendor/prism) for LaTeX and HTML; BibTeX and Typst rules are in syntax.js -->
+  <script>window.Prism = { manual: true };</script>
+  <script src="vendor/prism/prism-core.min.js"></script>
+  <script src="vendor/prism/prism-markup.min.js"></script>
+  <script src="vendor/prism/prism-css.min.js"></script>
+  <script src="vendor/prism/prism-clike.min.js"></script>
+  <script src="vendor/prism/prism-javascript.min.js"></script>
+  <script src="vendor/prism/prism-latex.min.js"></script>
+  <script type="module" src="formatter.js"></script>
+</body>
+</html>
