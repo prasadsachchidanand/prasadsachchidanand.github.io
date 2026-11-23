@@ -5,7 +5,7 @@
  *
  * parseQuestions(source) → { topics, questions, problems }
  *   topics:    [{ id, name, weeks }]                 (name and weeks as HTML)
- *   questions: [{ id, topic, type, marks, q, options, answer, solution }]
+ *   questions: [{ id, topic, type, marks, q, options, answer, solution, source }]
  *              q, options and solution as HTML with the maths in \( \) and \[ \] for MathJax
  *   problems:  [{ where, message, fatal }]           fatal: the question was left out
  */
@@ -218,7 +218,7 @@ function parseQuestion(body, opts, topic, warn) {
     const [k, ...v] = kv.split('=');
     if (k.trim()) keys[k.trim()] = v.join('=').trim();
   }
-  for (const k of Object.keys(keys)) if (!['id', 'marks', 'type'].includes(k)) warn(`unknown key "${k}" (use id, marks or type)`);
+  for (const k of Object.keys(keys)) if (!['id', 'marks', 'type', 'source'].includes(k)) warn(`unknown key "${k}" (use id, marks, type or source)`);
 
   let rest = body;
   const cut = env => {
@@ -287,6 +287,7 @@ function parseQuestion(body, opts, topic, warn) {
     id: keys.id || hashId(topic, body), topic, type, marks, q,
     ...(options ? { options } : {}), answer,
     solution: solSrc == null ? '' : texToHtml(solSrc, warn),
+    ...(keys.source ? { source: escHTML(keys.source) } : {}),
   };
 }
 

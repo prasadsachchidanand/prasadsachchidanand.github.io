@@ -103,7 +103,7 @@ function renderTopics() {
     const right = qs.filter(x => record[x.id] === 1).length;
     return `<label class="lp-topic">
       <input type="checkbox" value="${t.id}"${setup.topics.has(t.id) ? ' checked' : ''}>
-      <span class="lp-tname"><b>${t.name}</b><small>${t.weeks} · ${plural(qs.length, 'question')}</small></span>
+      <span class="lp-tname"><b>${t.name}</b><small>${t.weeks} · ${plural(qs.length, 'question')}${qs.some(fromGate) ? `, ${qs.filter(fromGate).length} from GATE` : ''}</small></span>
       <span class="lp-tprog" title="Right so far: ${right} of ${qs.length}" aria-label="Right so far: ${right} of ${qs.length}">
         <span class="lp-meter"><span style="width: ${Math.round((100 * right) / qs.length)}%"></span></span><small>${right}/${qs.length}</small>
       </span>
@@ -138,11 +138,12 @@ function readSetup() {
   return {
     topics: new Set(setup.topics), types: new Set(setup.types), mode: setup.mode,
     count: Number($('lp-count').value), fresh: $('lp-fresh').checked,
-    negative: $('lp-negative').checked, timed: $('lp-timed').checked,
+    negative: $('lp-negative').checked, timed: $('lp-timed').checked, gate: $('lp-gate').checked,
   };
 }
 
-function matching(o = readSetup()) { return QUESTIONS.filter(x => o.topics.has(x.topic) && o.types.has(x.type)); }
+const fromGate = q => /^GATE\b/.test(q.source || '');
+function matching(o = readSetup()) { return QUESTIONS.filter(x => o.topics.has(x.topic) && o.types.has(x.type) && (!o.gate || fromGate(x))); }
 
 function updateStatus() {
   const n = matching().length, el = $('lp-status');
@@ -278,6 +279,7 @@ function show(i) {
       <span class="lp-tag lp-tag-type" title="${esc(TYPE_HELP[q.type])}">${TYPE_NAME[q.type]}</span>
       <span class="lp-tag">${plural(q.marks, 'mark')}${s.negative && q.type === 'mcq' ? `, −${q.marks}/3 if wrong` : ''}</span>
       <span class="lp-tag">${TOPIC[q.topic].name}</span>
+      ${q.source ? `<span class="lp-tag lp-tag-src">${q.source}</span>` : ''}
     </div>
     <div class="lp-q" data-id="${q.id}">${q.q}</div>
     <p class="lp-help">${TYPE_HELP[q.type]}</p>
@@ -422,6 +424,7 @@ function finish(timeUp = false) {
         <span class="lp-badge" data-kind="${badge[0]}"><i class="fas ${badge[1]}"></i> ${badge[2]}</span>
         <span class="lp-tag">Q${i + 1} · ${TYPE_NAME[q.type]} · ${plural(q.marks, 'mark')}</span>
         <span class="lp-tag">${TOPIC[q.topic].name}</span>
+        ${q.source ? `<span class="lp-tag lp-tag-src">${q.source}</span>` : ''}
         <span class="lp-got">${marksText(thirds)} / ${q.marks}</span>
       </div>
       <div class="lp-q">${q.q}</div>
@@ -448,7 +451,7 @@ function backToSetup() {
 // ---------------------------------------------------------------- wiring
 function init() {
   setup.topics = new Set(TOPICS.map(x => x.id));
-  // a link may preselect: ?topics=eig,det&mode=test&n=10&types=mcq,nat
+  // a link may preselect: ?topics=eig,det&mode=test&n=10&types=mcq,nat&gate=1
   const p = new URLSearchParams(location.search);
   const listed = (key, valid) => (p.get(key) || '').split(',').filter(v => valid.includes(v));
   const t = listed('topics', TOPICS.map(x => x.id));
@@ -457,6 +460,7 @@ function init() {
   if (ty.length) setup.types = new Set(ty);
   document.querySelectorAll('#lp-types .tl-chip').forEach(b => b.setAttribute('aria-pressed', String(setup.types.has(b.dataset.type))));
   if (['5', '10', '15', '20', '30', '0'].includes(p.get('n'))) $('lp-count').value = p.get('n');
+  if (p.get('gate') === '1') $('lp-gate').checked = true;
   setMode(p.get('mode') === 'test' ? 'test' : 'practice');
   renderTopics();
   updateStatus();
@@ -477,6 +481,7 @@ function init() {
     updateStatus();
   });
   $('lp-mode').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setMode(b.dataset.mode); });
+  $('lp-gate').addEventListener('change', updateStatus);
   $('lp-record').addEventListener('click', e => {
     const b = e.target.closest('[data-forget]');
     if (!b) return;

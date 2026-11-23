@@ -12,9 +12,10 @@ const plain = s => s.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&a
 for (const t of topics) {
   const qs = questions.filter(q => q.topic === t.id);
   const n = type => qs.filter(q => q.type === type).length;
-  console.log(`${t.id.padEnd(8)} ${String(qs.length).padStart(3)} questions  (MCQ ${n('mcq')}, MSQ ${n('msq')}, NAT ${n('nat')})  ${plain(t.name)}`);
+  const g = qs.filter(q => /^GATE\b/.test(q.source || '')).length;
+  console.log(`${t.id.padEnd(8)} ${String(qs.length).padStart(3)} questions  (MCQ ${n('mcq')}, MSQ ${n('msq')}, NAT ${n('nat')}; ${String(g).padStart(2)} from GATE)  ${plain(t.name)}`);
 }
-console.log(`${'all'.padEnd(8)} ${String(questions.length).padStart(3)} questions`);
+console.log(`${'all'.padEnd(8)} ${String(questions.length).padStart(3)} questions, ${questions.filter(q => /^GATE\b/.test(q.source || '')).length} from GATE papers`);
 
 const fatal = problems.filter(p => p.fatal), warnings = problems.filter(p => !p.fatal);
 if (fatal.length) {

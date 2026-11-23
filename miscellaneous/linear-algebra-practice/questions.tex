@@ -33,6 +33,10 @@
 %                 MCQ; more than one \correct: MSQ)
 %   id=sys-9      the page remembers each visitor's results by this id. A question without one gets
 %                 an id made from its text, so editing that text later just restarts its record.
+%   source=GATE EC 2005   where the question comes from; shown as a tag on the page. Questions whose
+%                 source starts with GATE can be practised on their own ("Only questions from past
+%                 GATE papers"). Add "(adapted)" when the question was changed, as in
+%                 source=GATE ME 1994 (adapted).
 %
 % On the page, maths is set by MathJax (amsmath and amssymb commands are fine). In the text, \emph,
 % \textbf, \texttt, \href, \url, itemize and enumerate lists, --, ---, ~, ``quotes'' and blank lines
@@ -163,6 +167,321 @@ Subtracting the first equation from the others gives $y + 2z = 3$ and $3y + (\la
 \end{solution}
 \end{question}
 
+\begin{question}[id=sys-10]
+Solve the system $x + y + z = 6,\; 2x - y + z = 3,\; x + 2y - z = 2$. Then $x + 2y + 3z =$
+\answer{14}
+\begin{solution}
+Adding the first and third equations gives $2x + 3y = 8$; subtracting the first from the second gives $x - 2y = -3$. So $x = 2y - 3$, and $2(2y - 3) + 3y = 8$ gives $y = 2$, $x = 1$, and then $z = 6 - x - y = 3$. Hence $x + 2y + 3z = 1 + 4 + 9 = 14$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sys-11, type=msq, marks=2]
+Let $b \ne 0$, and let $u$ and $v$ be solutions of $Ax = b$. Which of the following are also solutions of $Ax = b$?
+\begin{options}
+  \option $u + v$
+  \option $u - v$
+  \correct $2u - v$
+  \correct $\tfrac{1}{2}(u + v)$
+\end{options}
+\begin{solution}
+For scalars $s$ and $t$, $A(su + tv) = sAu + tAv = (s + t)b$, which equals $b$ exactly when $s + t = 1$ (as $b \ne 0$). This holds in (C), where $s + t = 2 - 1$, and in (D), where $s + t = \tfrac{1}{2} + \tfrac{1}{2}$. In (A), $A(u + v) = 2b$, and in (B), $A(u - v) = 0$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sys-12, marks=2]
+For how many real values of $k$ does the system $kx + y = 1,\; x + ky = 1$ have no solution?
+\answer{1}
+\begin{solution}
+Subtracting $k$ times the second equation from the first gives $(1 - k^2)y = 1 - k$. If $k \ne \pm 1$, then $y = \frac{1}{1 + k}$ and the solution is unique. If $k = 1$, both equations are $x + y = 1$: infinitely many solutions. If $k = -1$, the equations are $-x + y = 1$ and $x - y = 1$, which add up to $0 = 2$: no solution. So there is exactly one such value, $k = -1$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sys-13]
+Which of the following is \emph{not} an elementary row operation?
+\begin{options}
+  \option $R_1 \leftrightarrow R_3$
+  \correct adding 1 to every entry of $R_2$
+  \option $R_2 \to -3R_2$
+  \option $R_3 \to R_3 - 5R_1$
+\end{options}
+\begin{solution}
+The elementary row operations are interchanging two rows (A), multiplying a row by a nonzero constant (C), and adding a multiple of one row to another (D). Adding a constant to the entries of a row (B) is not one of them, and it can change the solution set: it turns the row $[\,1 \mid 0\,]$, the equation $x = 0$, into $[\,2 \mid 1\,]$, the equation $2x = 1$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sys-14, marks=2]
+The parabola $y = a + bx + cx^2$ passes through the points $(1, 2)$, $(2, 3)$ and $(3, 6)$. What is the value of $y$ at $x = 4$?
+\answer{11}
+\begin{solution}
+The conditions are $a + b + c = 2$, $a + 2b + 4c = 3$ and $a + 3b + 9c = 6$. Subtracting consecutive equations gives $b + 3c = 1$ and $b + 5c = 3$, so $c = 1$, $b = -2$ and $a = 3$. Then $y(4) = 3 - 8 + 16 = 11$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sys-15, type=msq, marks=2]
+Let $A$ be a $4 \times 3$ matrix. Which of the following can happen?
+\begin{options}
+  \correct $Ax = b$ has exactly one solution for some $b \in \mathbb{R}^4$.
+  \option $Ax = b$ is consistent for every $b \in \mathbb{R}^4$.
+  \correct $Ax = 0$ has only the trivial solution.
+  \option $Ax = b$ has exactly two solutions for some $b \in \mathbb{R}^4$.
+\end{options}
+\begin{solution}
+If $A$ has a pivot in each of its 3 columns (take the first three columns of $I_4$, say), then $Ax = 0$ has only the trivial solution (C), and $Ax = b$ has exactly one solution whenever it is consistent, for instance for $b = 0$ (A). There are at most 3 pivots, so some row has no pivot and $Ax = b$ is inconsistent for some $b$: (B) cannot happen. A consistent system has either one solution or infinitely many, so (D) cannot happen.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sys-16]
+The system $x_1 - 2x_2 + x_3 = 0,\; 2x_2 - 8x_3 = 8,\; 5x_1 - 5x_3 = 10$ has a unique solution. Then $x_3 =$
+\answer{-1}
+\begin{solution}
+$R_3 \to R_3 - 5R_1$ gives $10x_2 - 10x_3 = 10$, that is, $x_2 - x_3 = 1$, and the second equation is $x_2 - 4x_3 = 4$. Subtracting, $3x_3 = -3$, so $x_3 = -1$; then $x_2 = 0$ and $x_1 = 2x_2 - x_3 = 1$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sys-17]
+An echelon form of the augmented matrix of a linear system has the row $[\,0 \;\; 0 \;\; 0 \mid 5\,]$. Then the system
+\begin{options}
+  \correct has no solution
+  \option has a unique solution
+  \option has infinitely many solutions
+  \option has a solution only if it has as many equations as unknowns
+\end{options}
+\begin{solution}
+That row is the equation $0x_1 + 0x_2 + 0x_3 = 5$, which no values of the variables satisfy. Row operations do not change the solution set, so the original system has no solution.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sys-18, type=msq, marks=2]
+Which of the following statements are true?
+\begin{options}
+  \option The pivot positions of a matrix depend on the row operations used to reduce it.
+  \correct Every matrix is row equivalent to exactly one matrix in reduced row echelon form.
+  \option In an echelon form, every leading entry is 1.
+  \correct A nonzero matrix can have more than one echelon form.
+\end{options}
+\begin{solution}
+The reduced echelon form is unique (B), and the pivot positions are the positions of its leading 1s, so they do not depend on the row operations used: (A) is false. An echelon form needs only the staircase pattern of leading entries, not leading 1s, so (C) is false; multiplying a row of an echelon form by 2 gives another echelon form of the same matrix, so (D) is true.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sys-19, marks=2]
+For which value of $k$ does the system $x + 2y + z = 0,\; 2x + y + z = 0,\; x - y + kz = 0$ have a nontrivial solution?
+\answer{0}
+\begin{solution}
+$R_2 \to R_2 - 2R_1$ and $R_3 \to R_3 - R_1$ give the rows $[\,0 \;\; {-3} \;\; {-1}\,]$ and $[\,0 \;\; {-3} \;\; k - 1\,]$; then $R_3 \to R_3 - R_2$ gives $[\,0 \;\; 0 \;\; k\,]$. If $k \ne 0$ there are three pivots and only the trivial solution. If $k = 0$, then $z$ is a free variable and there are nontrivial solutions, such as $(1, 1, -3)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sys-20, marks=2]
+Balance the chemical equation $x_1\,\mathrm{C_3H_8} + x_2\,\mathrm{O_2} \to x_3\,\mathrm{CO_2} + x_4\,\mathrm{H_2O}$ with the smallest positive whole numbers $x_1, x_2, x_3, x_4$. Then $x_2 =$
+\answer{5}
+\begin{solution}
+Balancing carbon, hydrogen and oxygen gives the homogeneous system $3x_1 = x_3$, $8x_1 = 2x_4$, $2x_2 = 2x_3 + x_4$. Taking the free variable $x_1 = 1$ gives $x_3 = 3$, $x_4 = 4$ and $2x_2 = 6 + 4$, so $x_2 = 5$: $\mathrm{C_3H_8} + 5\,\mathrm{O_2} \to 3\,\mathrm{CO_2} + 4\,\mathrm{H_2O}$.
+\end{solution}
+\end{question}
+
+% ---------------------------------------- questions from past GATE papers
+
+\begin{question}[id=gate-ec2008-1, source=GATE EC 2008]
+The system of linear equations $4x + 2y = 7,\; 2x + y = 6$ has
+\begin{options}
+  \option a unique solution
+  \correct no solution
+  \option an infinite number of solutions
+  \option exactly two distinct solutions
+\end{options}
+\begin{solution}
+Twice the second equation is $4x + 2y = 12$, which contradicts the first, $4x + 2y = 7$. So there is no solution. (A linear system never has exactly two solutions.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me1997-1, source=GATE ME 1997, marks=2]
+For the system $1.5x - 0.5y = 2,\; 4x + 2y + 3z = 9,\; 7x + y + 5z = 10$,
+\begin{options}
+  \correct the solution is unique
+  \option infinitely many solutions exist
+  \option the equations are incompatible
+  \option a finite number of multiple solutions exist
+\end{options}
+\begin{solution}
+Expanding along the first row, the coefficient matrix has determinant $1.5(10 - 3) + 0.5(20 - 21) + 0 = 10.5 - 0.5 = 10 \ne 0$. So it is invertible, and the system has exactly one solution.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2002-1, source=GATE ME 2002]
+The system $3x + 2y + z = 4,\; x - y + z = 2,\; -2x + 2z = 5$ has
+\begin{options}
+  \option no solution
+  \correct a unique solution
+  \option multiple solutions
+  \option an inconsistency
+\end{options}
+\begin{solution}
+The coefficient matrix has determinant $3(-2 - 0) - 2(2 + 2) + 1(0 - 2) = -16 \ne 0$, so the system has exactly one solution.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2003-1, source=GATE ME 2003]
+The system $x + 2y + z = 6,\; 2x + y + 2z = 6,\; x + y + z = 5$ has
+\begin{options}
+  \option a unique solution
+  \option an infinite number of solutions
+  \correct no solution
+  \option exactly two solutions
+\end{options}
+\begin{solution}
+Subtracting the third equation from the first gives $y = 1$; subtracting twice the third from the second gives $-y = -4$, that is, $y = 4$. These contradict each other, so there is no solution.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2008-1, source=GATE ME 2008, marks=2]
+For what value of $a$, if any, does the system $2x + 3y = 4,\; x + y + z = 4,\; x + 2y - z = a$ have a solution?
+\begin{options}
+  \option any real number
+  \correct 0
+  \option 1
+  \option there is no such value
+\end{options}
+\begin{solution}
+Adding the second and third equations gives $2x + 3y = 4 + a$, while the first says $2x + 3y = 4$; so a solution needs $a = 0$. For $a = 0$ the first equation is the sum of the other two, which have (infinitely many) solutions, for instance $x = 2$, $y = 0$, $z = 2$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2006-1, source=GATE CE 2006, marks=2]
+The solution of the system $4y + 3z = 8,\; 2x - z = 2,\; 3x + 2y = 5$ is
+\begin{options}
+  \option $x = 0$, $y = 1$, $z = \frac{4}{3}$
+  \option $x = 0$, $y = \frac{1}{2}$, $z = 2$
+  \option $x = 1$, $y = \frac{1}{2}$, $z = 2$
+  \correct non-existent
+\end{options}
+\begin{solution}
+The last two equations give $z = 2x - 2$ and $2y = 5 - 3x$. Then $4y + 3z = 2(5 - 3x) + 3(2x - 2) = 4$ for every $x$, never 8. So the system is inconsistent (its coefficient matrix is singular) and has no solution.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2007-2, source=GATE CE 2007, marks=2]
+For what values of $\alpha$ and $\beta$ does the system $x + y + z = 5,\; x + 3y + 3z = 9,\; x + 2y + \alpha z = \beta$ have infinitely many solutions?
+\begin{options}
+  \correct $\alpha = 2$, $\beta = 7$
+  \option $\alpha = 3$, $\beta = 8$
+  \option $\alpha = 8$, $\beta = 3$
+  \option $\alpha = 7$, $\beta = 2$
+\end{options}
+\begin{solution}
+Subtracting the first equation from the others gives $2y + 2z = 4$, that is, $y + z = 2$, and $y + (\alpha - 1)z = \beta - 5$. Subtracting these two: $(\alpha - 2)z = \beta - 7$. There are infinitely many solutions exactly when this reads $0 = 0$, that is, $\alpha = 2$ and $\beta = 7$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2008-2, source=GATE CE 2008]
+The system $x + y + z = 3,\; x + 2y + 3z = 4,\; x + 4y + kz = 6$ will \emph{not} have a unique solution for $k$ equal to
+\begin{options}
+  \option 0
+  \option 5
+  \option 6
+  \correct 7
+\end{options}
+\begin{solution}
+Subtracting the first equation from the others gives $y + 2z = 1$ and $3y + (k - 1)z = 3$; subtracting 3 times the first of these from the second gives $(k - 7)z = 0$. For $k \ne 7$ this forces $z = 0$ and the solution is unique; for $k = 7$, $z$ is free.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2010-1, source=GATE EE 2010]
+For the system $x_1 + 2x_2 + x_3 + 4x_4 = 2,\; 3x_1 + 6x_2 + 3x_3 + 12x_4 = 6$,
+\begin{options}
+  \option only the trivial solution $x_1 = x_2 = x_3 = x_4 = 0$ exists
+  \option there are no solutions
+  \option a unique non-trivial solution exists
+  \correct multiple non-trivial solutions exist
+\end{options}
+\begin{solution}
+The second equation is 3 times the first, so the system is the single equation $x_1 + 2x_2 + x_3 + 4x_4 = 2$. It is consistent, with three free variables, so it has infinitely many solutions, none of them zero.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-cs2008-1, source=GATE CS 2008, marks=2]
+The system $x_1 + x_2 + 2x_3 = 1,\; x_1 + 2x_2 + 3x_3 = 2,\; x_1 + 4x_2 + ax_3 = 4$ has a unique solution. The only possible value(s) of $a$ is/are
+\begin{options}
+  \option 0
+  \option either 0 or 1
+  \option one of 0, 1 or $-1$
+  \correct any real number other than 5
+\end{options}
+\begin{solution}
+Subtracting the first equation from the others gives $x_2 + x_3 = 1$ and $3x_2 + (a - 2)x_3 = 3$; subtracting 3 times the first of these from the second gives $(a - 5)x_3 = 0$. So there are three pivots, and a unique solution, exactly when $a \ne 5$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-cs2003-1, source=GATE CS 2003, marks=2]
+Consider the system
+\[
+  \begin{bmatrix} 2 & 1 & -4 \\ 4 & 3 & -12 \\ 1 & 2 & -8 \end{bmatrix}
+  \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} \alpha \\ 5 \\ 7 \end{bmatrix},
+\]
+in which the second and third columns of the coefficient matrix are linearly dependent. For how many values of $\alpha$ does the system have infinitely many solutions?
+\begin{options}
+  \option 0
+  \correct 1
+  \option 2
+  \option infinitely many
+\end{options}
+\begin{solution}
+$R_2 - 2R_1$ gives $[\,0 \;\; 1 \;\; {-4} \mid 5 - 2\alpha\,]$ and $2R_3 - R_1$ gives $[\,0 \;\; 3 \;\; {-12} \mid 14 - \alpha\,]$; subtracting 3 times the first of these from the second leaves $[\,0 \;\; 0 \;\; 0 \mid 5\alpha - 1\,]$. So the system is consistent only for $\alpha = \frac{1}{5}$, and then, with rank 2 and three unknowns, it has infinitely many solutions.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-cs2004-1, source=GATE CS 2004]
+How many solutions does the system $-x + 5y = -1,\; x - y = 2,\; x + 3y = 3$ have?
+\begin{options}
+  \option infinitely many
+  \option two distinct solutions
+  \correct a unique solution
+  \option none
+\end{options}
+\begin{solution}
+Adding the first two equations gives $4y = 1$, so $y = \frac{1}{4}$ and $x = \frac{9}{4}$. These satisfy the third equation as well, $\frac{9}{4} + \frac{3}{4} = 3$, so the system has exactly one solution.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-cs2005-1, source=GATE CS 2005]
+The system $2x_1 - x_2 + 3x_3 = 1,\; 3x_1 - 2x_2 + 5x_3 = 2,\; -x_1 - 4x_2 + x_3 = 3$ has
+\begin{options}
+  \option no solution
+  \correct a unique solution
+  \option more than one but a finite number of solutions
+  \option an infinite number of solutions
+\end{options}
+\begin{solution}
+The coefficient matrix has determinant $2(-2 + 20) + 1(3 + 5) + 3(-12 - 2) = 36 + 8 - 42 = 2 \ne 0$, so there is exactly one solution.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2005-1, source=GATE EE 2005]
+In the matrix equation $Px = q$, which of the following is a necessary condition for the existence of at least one solution $x$?
+\begin{options}
+  \correct The augmented matrix $[\,P \mid q\,]$ has the same rank as $P$.
+  \option The vector $q$ has only nonzero entries.
+  \option The matrix $P$ is singular.
+  \option The matrix $P$ is square.
+\end{options}
+\begin{solution}
+$Px = q$ has a solution exactly when $q$ is a combination of the columns of $P$, that is, when adjoining $q$ does not raise the rank. The others are not necessary: $q = 0$ always has the solution $x = 0$, the system $Ix = q$ has a solution although $I$ is nonsingular, and non-square systems can be consistent.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-cs2006-1, source=GATE CS 2006, marks=2]
+$F$ is an $n \times n$ real matrix and $b \in \mathbb{R}^n$. There are vectors $u \ne v$ with $Fu = b$ and $Fv = b$. Which of the following statements is \emph{false}?
+\begin{options}
+  \option The determinant of $F$ is zero.
+  \option $Fx = b$ has infinitely many solutions.
+  \option There is an $x \ne 0$ with $Fx = 0$.
+  \correct $F$ must have two identical rows.
+\end{options}
+\begin{solution}
+$x = u - v \ne 0$ has $Fx = 0$ (C), so $F$ is singular (A), and $u + t(u - v)$ solves $Fx = b$ for every real $t$ (B). But a singular matrix need not have two identical rows: take $F = \begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}$, $b = 0$, $u = (0, 0)$ and $v = (2, -1)$.
+\end{solution}
+\end{question}
+
 % ==============================================================================================
 \topic{mat}{Matrix algebra and inverses}{Week 3}
 
@@ -265,6 +584,313 @@ Let $A = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$. The $(1,2)$ entry of $A^
 \answer{10}
 \begin{solution}
 By induction, $A^n = \begin{bmatrix} 1 & n \\ 0 & 1 \end{bmatrix}$: if it holds for $n$, then $A^{n+1} = A^nA = \begin{bmatrix} 1 & n + 1 \\ 0 & 1 \end{bmatrix}$. So the entry is 10.
+\end{solution}
+\end{question}
+
+\begin{question}[id=mat-10]
+Let $A = \begin{bmatrix} 1 & -1 & 2 \\ 0 & 3 & 1 \end{bmatrix}$ and $B = \begin{bmatrix} 2 & 0 & 1 \\ 1 & 1 & 0 \\ -1 & 2 & 3 \end{bmatrix}$. The sum of the entries in the second row of $AB$ is
+\answer{10}
+\begin{solution}
+The second row of $AB$ is the second row of $A$ times $B$, a combination of the rows of $B$: $0 \cdot (2, 0, 1) + 3 \cdot (1, 1, 0) + 1 \cdot (-1, 2, 3) = (2, 5, 3)$. Its entries add up to 10.
+\end{solution}
+\end{question}
+
+\begin{question}[id=mat-11]
+If $A$ is invertible, then $(A^T)^{-1}$ equals
+\begin{options}
+  \option $A^{-1}$
+  \option $-A^T$
+  \option $A$
+  \correct $(A^{-1})^T$
+\end{options}
+\begin{solution}
+$A^T (A^{-1})^T = (A^{-1}A)^T = I^T = I$, and similarly $(A^{-1})^T A^T = (AA^{-1})^T = I$. So $A^T$ is invertible, with inverse $(A^{-1})^T$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=mat-12, type=msq, marks=2]
+Which of the following matrices are invertible?
+\begin{options}
+  \option $\begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}$
+  \correct $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$
+  \correct $\begin{bmatrix} 1 & 2 & 3 \\ 0 & 4 & 5 \\ 0 & 0 & 6 \end{bmatrix}$
+  \option $\begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 3 \\ 2 & 3 & 4 \end{bmatrix}$
+\end{options}
+\begin{solution}
+In (A) the second row is twice the first, and in (D) the third row is the sum of the first two, so these are not invertible. The matrix in (B) swaps the two coordinates and is its own inverse, and (C) is triangular with nonzero diagonal entries, so it has three pivots and is invertible.
+\end{solution}
+\end{question}
+
+\begin{question}[id=mat-13]
+Let $A$ be a $3 \times 3$ matrix. The elementary matrix $E$ for which $EA$ is obtained from $A$ by $R_2 \to R_2 - 3R_1$ is
+\begin{options}
+  \correct $\begin{bmatrix} 1 & 0 & 0 \\ -3 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+  \option $\begin{bmatrix} 1 & -3 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+  \option $\begin{bmatrix} 1 & 0 & 0 \\ 3 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+  \option $\begin{bmatrix} -3 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+\end{options}
+\begin{solution}
+$E$ is obtained by applying the same row operation to $I_3$: the second row becomes $(0, 1, 0) - 3(1, 0, 0) = (-3, 1, 0)$. Matrix (C) is $E^{-1}$, which undoes the operation, (B) subtracts 3 times the second row from the first, and (D) multiplies the first row by $-3$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=mat-14, marks=2]
+Let $A$ be a square matrix with $A^2 - 3A + 2I = 0$. Then $A$ is invertible and $A^{-1}$ equals
+\begin{options}
+  \option $A - 3I$
+  \option $\tfrac{1}{2}(A - 3I)$
+  \correct $\tfrac{1}{2}(3I - A)$
+  \option $3I - A$
+\end{options}
+\begin{solution}
+The equation says $3A - A^2 = 2I$, that is, $A \cdot \tfrac{1}{2}(3I - A) = I$. The two factors commute, so also $\tfrac{1}{2}(3I - A) \cdot A = I$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=mat-15, marks=2]
+Let $X = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ and let $M = \begin{bmatrix} I_2 & X \\ 0 & I_2 \end{bmatrix}$, a $4 \times 4$ matrix in block form. The sum of all the entries of $M^{-1}$ is
+\answer{-6}
+\begin{solution}
+Block multiplication gives $\begin{bmatrix} I & X \\ 0 & I \end{bmatrix} \begin{bmatrix} I & -X \\ 0 & I \end{bmatrix} = \begin{bmatrix} I & -X + X \\ 0 & I \end{bmatrix} = I$, so $M^{-1} = \begin{bmatrix} I_2 & -X \\ 0 & I_2 \end{bmatrix}$. Its entries add up to $2 - (1 + 2 + 3 + 4) + 2 = -6$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=mat-16, type=msq, marks=2]
+Let $A$ and $B$ be $n \times n$ matrices with $AB = I$. Which of the following are always true?
+\begin{options}
+  \correct $BA = I$
+  \option $A = B$
+  \correct $A$ is invertible.
+  \option $A + B$ is invertible.
+\end{options}
+\begin{solution}
+If $Bx = 0$, then $x = ABx = 0$; so $B$, a square matrix, is invertible, and $A = (AB)B^{-1} = B^{-1}$. Hence $A$ is invertible (C) and $BA = BB^{-1} = I$ (A). For (B) and (D), take $A = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$ and $B = A^{-1} = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$: then $A \ne B$ and $A + B = 0$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=mat-17, marks=2]
+How many of the 16 real $2 \times 2$ matrices whose entries are all 0 or 1 are invertible?
+\answer{6}
+\begin{solution}
+$\begin{bmatrix} a & b \\ c & d \end{bmatrix}$ is invertible exactly when $ad - bc \ne 0$. Here $ad$ and $bc$ are each 0 or 1, so we need $ad = 1$ and $bc = 0$ (then $a = d = 1$ and $(b, c) \ne (1, 1)$: 3 matrices) or $ad = 0$ and $bc = 1$ (another 3). That makes 6.
+\end{solution}
+\end{question}
+
+\begin{question}[id=mat-18, type=msq]
+For every $n \times n$ matrix $A$, which of the following matrices are symmetric?
+\begin{options}
+  \correct $A + A^T$
+  \option $A - A^T$
+  \correct $AA^T$
+  \option $A^2$
+\end{options}
+\begin{solution}
+$(A + A^T)^T = A^T + A$ and $(AA^T)^T = (A^T)^T A^T = AA^T$. But $(A - A^T)^T = -(A - A^T)$, which differs from $A - A^T$ for $A = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$; and $A = \begin{bmatrix} 1 & 1 \\ 0 & 0 \end{bmatrix}$ has $A^2 = A$, which is not symmetric.
+\end{solution}
+\end{question}
+
+\begin{question}[id=mat-19, marks=2]
+The matrix $A = \begin{bmatrix} 2 & 1 & 1 \\ 4 & 3 & 3 \\ -2 & 1 & 4 \end{bmatrix}$ has an LU factorization $A = LU$, with $L$ unit lower triangular and $U$ upper triangular. The $(3, 2)$ entry of $L$ is
+\answer{2}
+\begin{solution}
+Row reduce without interchanges: $R_2 \to R_2 - 2R_1$ and $R_3 \to R_3 + R_1$ give the rows $(0, 1, 1)$ and $(0, 2, 5)$; then $R_3 \to R_3 - 2R_2$ gives $U = \begin{bmatrix} 2 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 3 \end{bmatrix}$. The multipliers go below the diagonal of $L$: $L = \begin{bmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ -1 & 2 & 1 \end{bmatrix}$, so $\ell_{32} = 2$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=mat-20, marks=2]
+Let $N$ be an $n \times n$ matrix with $N^k = 0$ for some $k \ge 1$. Then $I - N$
+\begin{options}
+  \option is not invertible
+  \correct is invertible, with inverse $I + N + N^2 + \cdots + N^{k-1}$
+  \option is invertible, with inverse $I - N$
+  \option equals $I$
+\end{options}
+\begin{solution}
+$(I - N)(I + N + \cdots + N^{k-1}) = I - N^k = I$, since the middle terms cancel; the same holds with the factors in the other order. For $N = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$, $I - N \ne I$ and $(I - N)^2 = I - 2N \ne I$, so (C) and (D) fail.
+\end{solution}
+\end{question}
+
+% ---------------------------------------- questions from past GATE papers
+
+\begin{question}[id=gate-ec2005-1, source=GATE EC 2005, marks=2]
+Let $A = \begin{bmatrix} 2 & -0.1 \\ 0 & 3 \end{bmatrix}$ and $A^{-1} = \begin{bmatrix} \frac{1}{2} & a \\ 0 & b \end{bmatrix}$. Then $a + b =$
+\begin{options}
+  \correct $\frac{7}{20}$
+  \option $\frac{3}{20}$
+  \option $\frac{19}{60}$
+  \option $\frac{11}{20}$
+\end{options}
+\begin{solution}
+In $AA^{-1} = I$, the $(2, 2)$ entry gives $3b = 1$, so $b = \frac{1}{3}$, and the $(1, 2)$ entry gives $2a - 0.1b = 0$, so $a = \frac{0.1}{2} \cdot \frac{1}{3} = \frac{1}{60}$. Hence $a + b = \frac{1}{60} + \frac{20}{60} = \frac{7}{20}$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2011-1, source=GATE CE 2011]
+$A$ is a square matrix which is neither symmetric nor skew-symmetric, and $S = A + A^T$, $D = A - A^T$. Which of the following is true?
+\begin{options}
+  \option Both $S$ and $D$ are symmetric.
+  \option Both $S$ and $D$ are skew-symmetric.
+  \option $S$ is skew-symmetric and $D$ is symmetric.
+  \correct $S$ is symmetric and $D$ is skew-symmetric.
+\end{options}
+\begin{solution}
+$S^T = A^T + A = S$ and $D^T = A^T - A = -D$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2004-1, source=GATE CE 2004, marks=2]
+Real matrices $A_{3 \times 1}$, $B_{3 \times 3}$, $C_{3 \times 5}$, $D_{5 \times 3}$, $E_{5 \times 5}$ and $F_{5 \times 1}$ are given, and $B$ and $E$ are symmetric. Consider the statements (1) $F^TC^TBCF$ is a scalar, and (2) $D^TFD$ is always symmetric. Which of the following applies?
+\begin{options}
+  \correct Statement 1 is true but 2 is false.
+  \option Statement 1 is false but 2 is true.
+  \option Both statements are true.
+  \option Both statements are false.
+\end{options}
+\begin{solution}
+The sizes in $F^TC^TBCF$ are $(1 \times 5)(5 \times 3)(3 \times 3)(3 \times 5)(5 \times 1)$, so the product is $1 \times 1$: a scalar. In $D^TFD$, the product $D^TF$ is $3 \times 1$, which cannot be multiplied by the $5 \times 3$ matrix $D$, so the product is not even defined.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2005-1, source=GATE CE 2005]
+Consider the matrices $X_{4 \times 3}$, $Y_{4 \times 3}$ and $P_{2 \times 3}$. The order of $\left[P(X^TY)^{-1}P^T\right]^T$ is
+\begin{options}
+  \correct $2 \times 2$
+  \option $3 \times 3$
+  \option $4 \times 3$
+  \option $3 \times 4$
+\end{options}
+\begin{solution}
+$X^TY$ is $(3 \times 4)(4 \times 3) = 3 \times 3$, and so is its inverse. Then $P(X^TY)^{-1}P^T$ is $(2 \times 3)(3 \times 3)(3 \times 2) = 2 \times 2$, and so is its transpose.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2007-1, source=GATE CE 2007]
+The inverse of $\begin{bmatrix} 1 & 2 \\ 5 & 7 \end{bmatrix}$ is
+\begin{options}
+  \correct $\frac{1}{3}\begin{bmatrix} -7 & 2 \\ 5 & -1 \end{bmatrix}$
+  \option $\frac{1}{3}\begin{bmatrix} 7 & 2 \\ 5 & 1 \end{bmatrix}$
+  \option $\frac{1}{3}\begin{bmatrix} 7 & -2 \\ -5 & 1 \end{bmatrix}$
+  \option $\frac{1}{3}\begin{bmatrix} -7 & -2 \\ -5 & -1 \end{bmatrix}$
+\end{options}
+\begin{solution}
+Here $ad - bc = 7 - 10 = -3$, so the inverse is $-\frac{1}{3}\begin{bmatrix} 7 & -2 \\ -5 & 1 \end{bmatrix} = \frac{1}{3}\begin{bmatrix} -7 & 2 \\ 5 & -1 \end{bmatrix}$. Option (C) has the wrong sign.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2008-1, source=GATE CE 2008]
+For invertible matrices $P$ and $Q$ of the same size, the product $(PQ)^{-1}P$ is
+\begin{options}
+  \option $P^{-1}$
+  \correct $Q^{-1}$
+  \option $P^{-1}Q^{-1}P$
+  \option $PQP^{-1}$
+\end{options}
+\begin{solution}
+$(PQ)^{-1}P = Q^{-1}P^{-1}P = Q^{-1}$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2009-1, source=GATE CE 2009]
+A square matrix $B$ is skew-symmetric if
+\begin{options}
+  \correct $B^T = -B$
+  \option $B^T = B$
+  \option $B^{-1} = B$
+  \option $B^{-1} = B^T$
+\end{options}
+\begin{solution}
+That is the definition. (B) defines a symmetric matrix and (D) an orthogonal one, and (C) says that $B^2 = I$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2010-1, source=GATE CE 2010, marks=2]
+The inverse of the matrix $\begin{bmatrix} 3 + 2i & i \\ -i & 3 - 2i \end{bmatrix}$ is
+\begin{options}
+  \option $\frac{1}{12}\begin{bmatrix} 3 + 2i & -i \\ i & 3 - 2i \end{bmatrix}$
+  \correct $\frac{1}{12}\begin{bmatrix} 3 - 2i & -i \\ i & 3 + 2i \end{bmatrix}$
+  \option $\frac{1}{14}\begin{bmatrix} 3 + 2i & -i \\ i & 3 - 2i \end{bmatrix}$
+  \option $\frac{1}{14}\begin{bmatrix} 3 - 2i & -i \\ i & 3 + 2i \end{bmatrix}$
+\end{options}
+\begin{solution}
+The determinant is $(3 + 2i)(3 - 2i) - i \cdot (-i) = 13 - 1 = 12$. Swapping the diagonal entries and changing the sign of the others gives $\frac{1}{12}\begin{bmatrix} 3 - 2i & -i \\ i & 3 + 2i \end{bmatrix}$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2011-1, source=GATE EE 2011, marks=2]
+The matrix $A = \begin{bmatrix} 2 & 1 \\ 4 & -1 \end{bmatrix}$ is decomposed into a product $A = LU$ of a lower triangular matrix $L$ and an upper triangular matrix $U$. The properly decomposed $L$ and $U$ are
+\begin{options}
+  \option $L = \begin{bmatrix} 1 & 0 \\ 4 & -1 \end{bmatrix}$, $U = \begin{bmatrix} 1 & 0 \\ 4 & -1 \end{bmatrix}$
+  \option $L = \begin{bmatrix} 2 & 0 \\ 4 & -1 \end{bmatrix}$, $U = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$
+  \option $L = \begin{bmatrix} 1 & 0 \\ 4 & 1 \end{bmatrix}$, $U = \begin{bmatrix} 2 & 1 \\ 0 & -1 \end{bmatrix}$
+  \correct $L = \begin{bmatrix} 2 & 0 \\ 4 & -3 \end{bmatrix}$, $U = \begin{bmatrix} 1 & 0.5 \\ 0 & 1 \end{bmatrix}$
+\end{options}
+\begin{solution}
+Only (D) multiplies back to $A$: $\begin{bmatrix} 2 & 0 \\ 4 & -3 \end{bmatrix}\begin{bmatrix} 1 & 0.5 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 2 & 1 \\ 4 & 2 - 3 \end{bmatrix} = A$. (This is Crout's form, with 1s on the diagonal of $U$; Doolittle's form is $\begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}\begin{bmatrix} 2 & 1 \\ 0 & -3 \end{bmatrix}$.) In (A), $U$ is not upper triangular, and (B) and (C) give $LU = \begin{bmatrix} 2 & 2 \\ 4 & 3 \end{bmatrix}$ and $\begin{bmatrix} 2 & 1 \\ 8 & 3 \end{bmatrix}$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2005-2, source=GATE EE 2005, marks=2]
+If $R = \begin{bmatrix} 1 & 0 & -1 \\ 2 & 1 & -1 \\ 2 & 3 & 2 \end{bmatrix}$, then the top row of $R^{-1}$ is
+\begin{options}
+  \option $[\,5 \;\; 6 \;\; 4\,]$
+  \correct $[\,5 \;\; {-3} \;\; 1\,]$
+  \option $[\,2 \;\; 0 \;\; {-1}\,]$
+  \option $[\,2 \;\; {-1} \;\; \tfrac{1}{2}\,]$
+\end{options}
+\begin{solution}
+$\det R = 1(2 + 3) - 0 + (-1)(6 - 2) = 1$. The top row of $R^{-1} = \frac{1}{\det R}\operatorname{adj} R$ consists of the cofactors of the first \emph{column} of $R$: $C_{11} = 2 + 3 = 5$, $C_{21} = -(0 + 3) = -3$, $C_{31} = 0 + 1 = 1$. Check: $[\,5 \;\; {-3} \;\; 1\,]\,R = [\,1 \;\; 0 \;\; 0\,]$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2006-1, source=GATE ME 2006]
+The product of matrices $E$ and $F$ is $G$, where $E = \begin{bmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{bmatrix}$ and $G = I_3$. Then $F$ is
+\begin{options}
+  \option $\begin{bmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+  \option $\begin{bmatrix} \cos\theta & \cos\theta & 0 \\ -\cos\theta & \sin\theta & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+  \correct $\begin{bmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+  \option $\begin{bmatrix} \sin\theta & -\cos\theta & 0 \\ \cos\theta & \sin\theta & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+\end{options}
+\begin{solution}
+$EF = I$ means $F = E^{-1}$. The columns of $E$ are orthonormal, so $E^{-1} = E^T$, which is (C): the rotation by $-\theta$ undoes the rotation by $\theta$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-cs2004-2, source=GATE CS 2004]
+Let $A, B, C, D$ be $n \times n$ matrices, each with nonzero determinant. If $ABCD = I$, then $B^{-1}$ is
+\begin{options}
+  \option $D^{-1}C^{-1}A^{-1}$
+  \correct $CDA$
+  \option $ADC$
+  \option not necessarily defined
+\end{options}
+\begin{solution}
+$A(BCD) = I$ says that $BCD = A^{-1}$, so also $(BCD)A = I$, that is, $B(CDA) = I$. Hence $B^{-1} = CDA$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-cs2004-3, source=GATE CS 2004, marks=2]
+The number of different $n \times n$ symmetric matrices with each entry 0 or 1 is
+\begin{options}
+  \option $2^n$
+  \option $2^{n^2}$
+  \correct $2^{(n^2 + n)/2}$
+  \option $2^{(n^2 - n)/2}$
+\end{options}
+\begin{solution}
+A symmetric matrix is determined by its entries on and above the diagonal, $n + (n - 1) + \cdots + 1 = \frac{n(n + 1)}{2}$ of them, and each of these can be 0 or 1 independently.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-in2007-1, source=GATE IN 2007]
+Let $A$ be an $n \times n$ real matrix with $A^2 = I$, and let $y \in \mathbb{R}^n$. Then the system $Ax = y$ has
+\begin{options}
+  \option no solution
+  \correct a unique solution
+  \option more than one but finitely many independent solutions
+  \option infinitely many independent solutions
+\end{options}
+\begin{solution}
+$A^2 = I$ says that $A$ is invertible with $A^{-1} = A$, so $x = Ay$ is the one and only solution.
 \end{solution}
 \end{question}
 
@@ -378,6 +1004,129 @@ Which of the following sets span $\mathbb{R}^3$?
 \end{solution}
 \end{question}
 
+\begin{question}[id=vs-10]
+Which of the following, with the usual addition and scalar multiplication, is \emph{not} a vector space?
+\begin{options}
+  \correct the set of real polynomials of degree exactly 2
+  \option the set of real polynomials of degree at most 2
+  \option the set of solutions of $Ax = 0$, for a fixed $3 \times 4$ matrix $A$
+  \option the set of all real sequences $(a_1, a_2, \dots)$
+\end{options}
+\begin{solution}
+$t^2$ and $-t^2 + t$ have degree exactly 2, but their sum $t$ does not, and the zero polynomial is not in the set either. The others are vector spaces: (B) is $\mathbb{P}_2$, (C) is the null space of $A$, a subspace of $\mathbb{R}^4$, and (D) is closed under termwise addition and scalar multiplication.
+\end{solution}
+\end{question}
+
+\begin{question}[id=vs-11, type=msq, marks=2]
+Which of the following are subspaces of $\mathbb{P}_2$, the real polynomials of degree at most 2?
+\begin{options}
+  \correct $\{p : p(0) = 0\}$
+  \option $\{p : p(0) = 1\}$
+  \correct $\{p : p'(1) = 0\}$
+  \option $\{p : p(t) \ge 0 \text{ for every } t\}$
+\end{options}
+\begin{solution}
+The maps $p \mapsto p(0)$ and $p \mapsto p'(1)$ are linear, so the polynomials on which they vanish, (A) and (C), contain 0 and are closed under addition and scalar multiplication. Set (B) does not contain the zero polynomial. Set (D) contains $p = 1$ but not $-p$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=vs-12]
+What is the dimension of the vector space of real $3 \times 3$ upper triangular matrices?
+\answer{6}
+\begin{solution}
+Such a matrix is determined by its entries on and above the diagonal, which can be chosen freely: $3 + 2 + 1 = 6$ of them. The matrices $E_{ij}$ with $i \le j$ (a 1 in position $(i, j)$ and zeros elsewhere) form a basis.
+\end{solution}
+\end{question}
+
+\begin{question}[id=vs-13, marks=2]
+Write $p(t) = 1 + 2t + 3t^2$ as $p = a(1 + t) + b(t + t^2) + c(1 + t^2)$. Then $c =$
+\answer{1}
+\begin{solution}
+Comparing coefficients: $a + c = 1$, $a + b = 2$, $b + c = 3$. Adding all three, $2(a + b + c) = 6$, so $a + b + c = 3$ and $c = 3 - (a + b) = 1$ (and $a = 0$, $b = 2$). Check: $2(t + t^2) + (1 + t^2) = 1 + 2t + 3t^2$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=vs-14, marks=2]
+On $\mathbb{R}^2$ keep the usual addition, but define scalar multiplication by $c \odot (x, y) = (cx, 0)$. Which vector space axiom fails?
+\begin{options}
+  \option $c \odot (u + v) = c \odot u + c \odot v$
+  \option $(c + d) \odot u = c \odot u + d \odot u$
+  \correct $1 \odot u = u$
+  \option $c \odot (d \odot u) = (cd) \odot u$
+\end{options}
+\begin{solution}
+$1 \odot (0, 1) = (0, 0) \ne (0, 1)$, so (C) fails. The others hold: for $u = (x_1, y_1)$ and $v = (x_2, y_2)$, both sides of (A) are $(c(x_1 + x_2), 0)$, both sides of (B) are $((c + d)x_1, 0)$, and both sides of (D) are $(cdx_1, 0)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=vs-15, type=msq, marks=2]
+Let $u = (1, 1, 0)$ and $v = (0, 1, 1)$. Which of the following vectors lie in $\operatorname{span}\{u, v\}$?
+\begin{options}
+  \correct $(1, 2, 1)$
+  \correct $(2, 1, -1)$
+  \option $(1, 1, 1)$
+  \correct $(0, 0, 0)$
+\end{options}
+\begin{solution}
+$au + bv = (a, a + b, b)$, so the span is the plane $y = x + z$. Vectors (A), (B) and (D) satisfy this: they are $u + v$, $2u - v$ and $0u + 0v$. For (C), $1 \ne 1 + 1$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=vs-16]
+What is the dimension of the space of real $3 \times 3$ matrices $A$ with $A^T = -A$ (the skew-symmetric matrices)?
+\answer{3}
+\begin{solution}
+$A^T = -A$ forces the diagonal entries to be 0 and $a_{ji} = -a_{ij}$, so $A = \begin{bmatrix} 0 & a & b \\ -a & 0 & c \\ -b & -c & 0 \end{bmatrix}$ with $a, b, c$ free. The three matrices with one of $a, b, c$ equal to 1 and the other two 0 form a basis.
+\end{solution}
+\end{question}
+
+\begin{question}[id=vs-17, marks=2]
+Let $W = \{(x, y) \in \mathbb{R}^2 : xy \ge 0\}$, the first and third quadrants, axes included. Then $W$
+\begin{options}
+  \option is a subspace of $\mathbb{R}^2$
+  \correct is closed under scalar multiplication but not under addition
+  \option is closed under addition but not under scalar multiplication
+  \option is closed under neither addition nor scalar multiplication
+\end{options}
+\begin{solution}
+If $xy \ge 0$, then $(cx)(cy) = c^2 xy \ge 0$, so $W$ is closed under scalar multiplication. But $(1, 0)$ and $(0, -1)$ are in $W$ while their sum $(1, -1)$ is not, so $W$ is not a subspace.
+\end{solution}
+\end{question}
+
+\begin{question}[id=vs-18, type=msq, marks=2]
+Which of the following subsets of the vector space of all real sequences $(a_n)$ are subspaces?
+\begin{options}
+  \correct the sequences with $a_n \to 0$
+  \option the sequences with $a_n \to 1$
+  \correct the bounded sequences
+  \option the sequences with only finitely many terms equal to 0
+\end{options}
+\begin{solution}
+Sums and scalar multiples of sequences tending to 0 tend to 0, and sums and scalar multiples of bounded sequences are bounded, so (A) and (C) are subspaces. (B) does not contain the zero sequence (and the sum of two of its sequences tends to 2). (D) does not contain the zero sequence either, all of whose terms are 0.
+\end{solution}
+\end{question}
+
+\begin{question}[id=vs-19, marks=2]
+In the vector space of all functions $\mathbb{R} \to \mathbb{R}$, what is the dimension of $\operatorname{span}\{1, \cos 2x, \cos^2 x, \sin^2 x\}$?
+\answer{2}
+\begin{solution}
+$\cos^2 x = \frac{1}{2}(1 + \cos 2x)$ and $\sin^2 x = \frac{1}{2}(1 - \cos 2x)$, so the span is $\operatorname{span}\{1, \cos 2x\}$. These two functions are linearly independent: if $a + b\cos 2x = 0$ for all $x$, then $x = 0$ and $x = \pi/2$ give $a + b = 0$ and $a - b = 0$, so $a = b = 0$. The dimension is 2.
+\end{solution}
+\end{question}
+
+\begin{question}[id=vs-20]
+The smallest subspace of $\mathbb{R}^3$ that contains $(1, 0, 0)$ and $(0, 1, 0)$ is
+\begin{options}
+  \option the $x$-axis
+  \option the set $\{(1, 0, 0), (0, 1, 0)\}$
+  \correct the $xy$-plane, $\{(x, y, 0) : x, y \in \mathbb{R}\}$
+  \option all of $\mathbb{R}^3$
+\end{options}
+\begin{solution}
+The smallest subspace containing given vectors is their span, here $\{x(1, 0, 0) + y(0, 1, 0)\} = \{(x, y, 0)\}$. The set in (B) is not a subspace (it does not contain 0), and the $x$-axis does not contain $(0, 1, 0)$.
+\end{solution}
+\end{question}
+
 % ==============================================================================================
 \topic{basis}{Linear independence, basis and dimension}{Week 5}
 
@@ -480,6 +1229,148 @@ Let $B = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$. What is the dimension of
 \answer{2}
 \begin{solution}
 For $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$, $AB = \begin{bmatrix} a & a + b \\ c & c + d \end{bmatrix}$ and $BA = \begin{bmatrix} a + c & b + d \\ c & d \end{bmatrix}$. These are equal exactly when $c = 0$ and $a = d$. So the space consists of the matrices $\begin{bmatrix} a & b \\ 0 & a \end{bmatrix}$, with basis $I$ and $\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$: its dimension is 2.
+\end{solution}
+\end{question}
+
+\begin{question}[id=basis-10, type=msq, marks=2]
+Which of the following sets of vectors in $\mathbb{R}^3$ are linearly independent?
+\begin{options}
+  \option $\{(1, 2, 3), (2, 4, 6)\}$
+  \correct $\{(1, 0, 0), (1, 1, 0), (1, 1, 1)\}$
+  \option $\{(1, 2, 3), (4, 5, 6), (7, 8, 9)\}$
+  \correct $\{(1, -1, 0), (0, 1, -1)\}$
+\end{options}
+\begin{solution}
+In (A) the second vector is twice the first, and in (C), $(1, 2, 3) - 2(4, 5, 6) + (7, 8, 9) = 0$. In (B), $a(1, 0, 0) + b(1, 1, 0) + c(1, 1, 1) = (a + b + c, b + c, c) = 0$ forces $c = 0$, then $b = 0$, then $a = 0$. In (D), neither vector is a multiple of the other.
+\end{solution}
+\end{question}
+
+\begin{question}[id=basis-11]
+What is the dimension of the space of real $2 \times 2$ matrices with trace 0?
+\answer{3}
+\begin{solution}
+These are the matrices $\begin{bmatrix} a & b \\ c & -a \end{bmatrix}$ with $a, b, c$ free; a basis is $\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$, $\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$, $\begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix}$. (Equivalently, the trace is a nonzero linear map $M_2(\mathbb{R}) \to \mathbb{R}$, so its kernel has dimension $4 - 1 = 3$.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=basis-12]
+Which of the following is a basis of the plane $x - 2y + z = 0$ in $\mathbb{R}^3$?
+\begin{options}
+  \option $\{(1, 1, 1)\}$
+  \option $\{(2, 1, 0), (4, 2, 0)\}$
+  \correct $\{(2, 1, 0), (-1, 0, 1)\}$
+  \option $\{(1, -2, 1), (1, 1, 1)\}$
+\end{options}
+\begin{solution}
+The plane has dimension 2 (solve $x = 2y - z$ with $y$ and $z$ free), so a basis consists of two linearly independent vectors in it. Both vectors in (C) satisfy the equation and are not multiples of each other. (A) has only one vector, the vectors in (B) are parallel, and $(1, -2, 1)$ in (D) is not in the plane: $1 + 4 + 1 \ne 0$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=basis-13, marks=2]
+What is the dimension of the space of real $3 \times 3$ matrices in which every row and every column adds up to 0?
+\answer{4}
+\begin{solution}
+Choose the upper left $2 \times 2$ block freely. The zero row and column sums then force the matrix to be
+\[
+  \begin{bmatrix} a & b & -a - b \\ c & d & -c - d \\ -a - c & -b - d & a + b + c + d \end{bmatrix},
+\]
+and this matrix does have all row and column sums 0. So the space has the basis given by $(a, b, c, d) = (1, 0, 0, 0), \dots, (0, 0, 0, 1)$, and its dimension is 4.
+\end{solution}
+\end{question}
+
+\begin{question}[id=basis-14]
+If the set $\{u, v, w\}$ of three vectors is linearly dependent, then
+\begin{options}
+  \correct at least one of $u, v, w$ is a linear combination of the other two
+  \option each of $u, v, w$ is a linear combination of the other two
+  \option one of $u, v, w$ is the zero vector
+  \option two of $u, v, w$ are multiples of each other
+\end{options}
+\begin{solution}
+A relation $au + bv + cw = 0$ with, say, $a \ne 0$ gives $u = -\frac{b}{a}v - \frac{c}{a}w$. The other statements can fail: for $u = (1, 0)$, $v = (0, 1)$, $w = (1, 1)$ in $\mathbb{R}^2$, no vector is zero and no two are parallel; and for $u = (1, 0)$, $v = (2, 0)$, $w = (0, 1)$, the vector $w$ is not a combination of $u$ and $v$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=basis-15, type=msq, marks=2]
+Let $W = \{x \in \mathbb{R}^4 : x_1 + x_2 + x_3 + x_4 = 0\}$. Which of the following are bases of $W$?
+\begin{options}
+  \correct $\{(1, -1, 0, 0), (0, 1, -1, 0), (0, 0, 1, -1)\}$
+  \option $\{(1, -1, 0, 0), (0, 0, 1, -1)\}$
+  \correct $\{(1, -1, 0, 0), (1, 0, -1, 0), (1, 0, 0, -1)\}$
+  \option $\{(1, 1, -1, -1), (1, -1, 1, -1), (1, -1, -1, 1), (1, 1, 1, 1)\}$
+\end{options}
+\begin{solution}
+$W$ is the null space of $[\,1 \;\; 1 \;\; 1 \;\; 1\,]$, so $\dim W = 4 - 1 = 3$, and any 3 linearly independent vectors in $W$ form a basis. The vectors in (A) and in (C) lie in $W$. They are independent: with coefficients $a, b, c$, in (A) the first coordinate gives $a = 0$, then the second $b = 0$ and the third $c = 0$; in (C) the last three coordinates are $-a, -b, -c$. (B) has only 2 vectors, and in (D), $(1, 1, 1, 1)$ is not in $W$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=basis-16, marks=2]
+The vectors $v_1 = (1, 0, 1)$, $v_2 = (0, 1, 1)$, $v_3 = (1, 1, 0)$ form a basis of $\mathbb{R}^3$. If $(4, 3, 5) = a v_1 + b v_2 + c v_3$, then $a =$
+\answer{3}
+\begin{solution}
+$a v_1 + b v_2 + c v_3 = (a + c, b + c, a + b)$, so $a + c = 4$, $b + c = 3$ and $a + b = 5$. Adding, $2(a + b + c) = 12$, so $a + b + c = 6$ and $a = 6 - (b + c) = 3$ (and $b = 2$, $c = 1$).
+\end{solution}
+\end{question}
+
+\begin{question}[id=basis-17]
+Let $\{v_1, v_2, v_3, v_4\}$ span $\mathbb{R}^3$. Then
+\begin{options}
+  \option $\{v_1, v_2, v_3, v_4\}$ is linearly independent
+  \correct some subset of $\{v_1, v_2, v_3, v_4\}$ is a basis of $\mathbb{R}^3$
+  \option every three of $v_1, v_2, v_3, v_4$ form a basis of $\mathbb{R}^3$
+  \option one of $v_1, v_2, v_3, v_4$ is the zero vector
+\end{options}
+\begin{solution}
+By the spanning set theorem, removing vectors that are combinations of the others leaves a basis (B). Four vectors in $\mathbb{R}^3$ are always dependent, so (A) fails. For $e_1, e_2, e_3, e_1 + e_2$, none is zero, and $e_1, e_2, e_1 + e_2$ do not form a basis, so (C) and (D) fail.
+\end{solution}
+\end{question}
+
+\begin{question}[id=basis-18, type=msq, marks=2]
+For which values of $t$ are the vectors $(1, t, 0)$, $(t, 1, 0)$, $(0, 0, 1)$ linearly independent?
+\begin{options}
+  \correct $t = 0$
+  \option $t = 1$
+  \option $t = -1$
+  \correct $t = 2$
+\end{options}
+\begin{solution}
+$a(1, t, 0) + b(t, 1, 0) + c(0, 0, 1) = (a + tb, ta + b, c)$. This is 0 when $c = 0$ and $a + tb = 0$, $ta + b = 0$; the last two equations have only the trivial solution exactly when $1 - t^2 \ne 0$. So the vectors are independent unless $t = \pm 1$: for $t = 1$ the first two vectors are equal, and for $t = -1$ they are negatives of each other.
+\end{solution}
+\end{question}
+
+\begin{question}[id=basis-19]
+What is the dimension of $\mathbb{C}^3$, the space of triples of complex numbers, regarded as a vector space over $\mathbb{R}$?
+\answer{6}
+\begin{solution}
+Each complex coordinate $a + ib$ carries two real parameters. A basis over $\mathbb{R}$ is $e_1, ie_1, e_2, ie_2, e_3, ie_3$: every vector is uniquely $\sum_k (a_k e_k + b_k\, ie_k)$ with $a_k, b_k$ real. (Over $\mathbb{C}$, the dimension is 3.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=basis-20]
+Let $u, v, w$ be vectors with $u + v + w = 0$, and suppose $u$ and $v$ are linearly independent. Then $\dim \operatorname{span}\{u, v, w\}$ is
+\begin{options}
+  \option 0
+  \option 1
+  \correct 2
+  \option 3
+\end{options}
+\begin{solution}
+$w = -u - v$ lies in $\operatorname{span}\{u, v\}$, so $\operatorname{span}\{u, v, w\} = \operatorname{span}\{u, v\}$, which has the basis $\{u, v\}$ and so dimension 2.
+\end{solution}
+\end{question}
+
+% ---------------------------------------- questions from past GATE papers
+
+\begin{question}[id=gate-cs2007-1, source=GATE CS 2007, marks=2]
+Let $X = \{x \in \mathbb{R}^3 : x_1 + x_2 + x_3 = 0\}$. Which of the following is true?
+\begin{options}
+  \correct $\{(1, -1, 0), (1, 0, -1)\}$ is a basis of the subspace $X$.
+  \option $\{(1, -1, 0), (1, 0, -1)\}$ is linearly independent, but it does not span $X$ and so is not a basis of $X$.
+  \option $X$ is not a subspace of $\mathbb{R}^3$.
+  \option None of the above.
+\end{options}
+\begin{solution}
+$X$ is the null space of $[\,1 \;\; 1 \;\; 1\,]$, a subspace of dimension $3 - 1 = 2$. Both vectors lie in $X$ and neither is a multiple of the other, so they are two independent vectors in a 2-dimensional space: a basis. Indeed, every $x \in X$ is $-x_2(1, -1, 0) - x_3(1, 0, -1)$. (Some published keys give (B); it is wrong.)
 \end{solution}
 \end{question}
 
@@ -594,6 +1485,251 @@ $\operatorname{Col}(A + B) \subseteq \operatorname{Col} A + \operatorname{Col} B
 \end{solution}
 \end{question}
 
+\begin{question}[id=rank-11]
+Let $A$ be a $7 \times 5$ matrix with $\operatorname{Nul} A = \{0\}$. Then $\dim \operatorname{Row} A =$
+\answer{5}
+\begin{solution}
+By the rank theorem, $\operatorname{rank} A = 5 - \dim \operatorname{Nul} A = 5$, and $\dim \operatorname{Row} A = \operatorname{rank} A$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=rank-12]
+Let $u \in \mathbb{R}^m$ and $v \in \mathbb{R}^n$ be nonzero column vectors. The rank of the $m \times n$ matrix $uv^T$ is
+\begin{options}
+  \option 0
+  \correct 1
+  \option $\min(m, n)$
+  \option $\max(m, n)$
+\end{options}
+\begin{solution}
+Column $j$ of $uv^T$ is $v_j u$, so every column is a multiple of $u$, and the column for an index with $v_j \ne 0$ is nonzero. So $\operatorname{Col}(uv^T) = \operatorname{span}\{u\}$, which has dimension 1.
+\end{solution}
+\end{question}
+
+\begin{question}[id=rank-13, type=msq, marks=2]
+Let $A$ be a $4 \times 6$ matrix of rank 4. Which of the following are true?
+\begin{options}
+  \correct $Ax = b$ is consistent for every $b \in \mathbb{R}^4$.
+  \correct $\dim \operatorname{Nul} A = 2$
+  \option The columns of $A$ are linearly independent.
+  \correct $\dim \operatorname{Row} A = 4$
+\end{options}
+\begin{solution}
+$\dim \operatorname{Col} A = 4$, so $\operatorname{Col} A = \mathbb{R}^4$ (A). The rank theorem gives $\dim \operatorname{Nul} A = 6 - 4 = 2$ (B), so there are nontrivial dependence relations among the 6 columns and (C) is false. The row space has the same dimension as the column space (D).
+\end{solution}
+\end{question}
+
+\begin{question}[id=rank-14, marks=2]
+Let $A$ be the $5 \times 5$ matrix with entries $a_{ij} = i + j$. What is the rank of $A$?
+\answer{2}
+\begin{solution}
+Row $i$ of $A$ is $i(1, 1, 1, 1, 1) + (1, 2, 3, 4, 5)$, so every row lies in the span of $(1, 1, 1, 1, 1)$ and $(1, 2, 3, 4, 5)$, and the rank is at most 2. The first two rows, $(2, 3, 4, 5, 6)$ and $(3, 4, 5, 6, 7)$, are not multiples of each other, so the rank is 2.
+\end{solution}
+\end{question}
+
+\begin{question}[id=rank-15]
+Which of the following vectors lies in the null space of $A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}$?
+\begin{options}
+  \option $(1, 1, -1)$
+  \option $(2, -1, 0)$
+  \option $(-1, 2, 1)$
+  \correct $(1, -2, 1)$
+\end{options}
+\begin{solution}
+$R_2 \to R_2 - 4R_1$ gives $-3y - 6z = 0$, so $y = -2z$ and $x = -2y - 3z = z$: the null space is spanned by $(1, -2, 1)$. Indeed $A(1, -2, 1) = (0, 0)$, while the other three vectors give $Ax = (0, 3)$, $(0, 3)$ and $(6, 12)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=rank-16, type=msq, marks=2]
+For every $m \times n$ matrix $A$, which of the following are equal to $\operatorname{rank} A$?
+\begin{options}
+  \correct $\dim \operatorname{Col} A$
+  \correct $\dim \operatorname{Row} A$
+  \correct $\operatorname{rank} A^T$
+  \option $n - \dim \operatorname{Nul} A^T$
+\end{options}
+\begin{solution}
+The rank is $\dim \operatorname{Col} A$ by definition, and it equals $\dim \operatorname{Row} A$; as $\operatorname{Row} A = \operatorname{Col} A^T$, this is also $\operatorname{rank} A^T$. The rank theorem for the $n \times m$ matrix $A^T$ gives $\dim \operatorname{Nul} A^T = m - \operatorname{rank} A$, so (D) is $n - m + \operatorname{rank} A$, which is not the rank when $m \ne n$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=rank-17, marks=2]
+Let $A$ be a $4 \times 5$ matrix of rank 3. Then $\dim \operatorname{Nul} A + \dim \operatorname{Nul} A^T =$
+\answer{3}
+\begin{solution}
+$\dim \operatorname{Nul} A = 5 - 3 = 2$; and $A^T$ is $5 \times 4$ of rank 3, so $\dim \operatorname{Nul} A^T = 4 - 3 = 1$. The sum is 3.
+\end{solution}
+\end{question}
+
+\begin{question}[id=rank-18, marks=2]
+For every real $m \times n$ matrix $A$, the null space of $A^TA$
+\begin{options}
+  \correct equals $\operatorname{Nul} A$
+  \option equals $\operatorname{Nul} A^T$
+  \option is $\{0\}$
+  \option can be larger than $\operatorname{Nul} A$
+\end{options}
+\begin{solution}
+If $Ax = 0$, then $A^TAx = 0$. Conversely, if $A^TAx = 0$, then $0 = x^TA^TAx = \|Ax\|^2$, so $Ax = 0$. Hence $\operatorname{Nul}(A^TA) = \operatorname{Nul} A$ (and so $\operatorname{rank} A^TA = \operatorname{rank} A$). (B) compares subspaces of $\mathbb{R}^n$ and $\mathbb{R}^m$, and (C) fails for $A = 0$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=rank-19]
+Let $N = \begin{bmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \end{bmatrix}$. What is the rank of $N^2$?
+\answer{2}
+\begin{solution}
+$N$ maps $e_1 \mapsto 0$, $e_2 \mapsto e_1$, $e_3 \mapsto e_2$, $e_4 \mapsto e_3$. So $N^2$ maps $e_1, e_2 \mapsto 0$, $e_3 \mapsto e_1$, $e_4 \mapsto e_2$: its columns are $0, 0, e_1, e_2$, and its rank is 2.
+\end{solution}
+\end{question}
+
+\begin{question}[id=rank-20, marks=2]
+Let $x$ be a nonzero vector in $\mathbb{R}^n$, $n \ge 2$. The rank of $P = I - \dfrac{xx^T}{x^Tx}$ is
+\begin{options}
+  \option 0
+  \option 1
+  \correct $n - 1$
+  \option $n$
+\end{options}
+\begin{solution}
+Every $z \in \mathbb{R}^n$ is $cx + y$ with $y$ orthogonal to $x$, and then $Pz = cx - cx + y - x\frac{x^Ty}{x^Tx} = y$. So $Pz = 0$ exactly when $z \in \operatorname{span}\{x\}$: $\dim \operatorname{Nul} P = 1$, and the rank is $n - 1$. ($P$ is the orthogonal projection onto the hyperplane orthogonal to $x$.)
+\end{solution}
+\end{question}
+
+% ---------------------------------------- questions from past GATE papers
+
+\begin{question}[id=gate-ec2006-1, source=GATE EC 2006]
+The rank of the matrix $\begin{bmatrix} 1 & 1 & 1 \\ 1 & -1 & 0 \\ 1 & 1 & 1 \end{bmatrix}$ is
+\begin{options}
+  \option 0
+  \option 1
+  \correct 2
+  \option 3
+\end{options}
+\begin{solution}
+The first and third rows are equal, so the rank is at most 2, and the first two rows are not multiples of each other, so it is 2.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me1994-1, source=GATE ME 1994 (adapted)]
+What is the rank of $\begin{bmatrix} 0 & 2 & 2 \\ 7 & 4 & 8 \\ -7 & 0 & -4 \end{bmatrix}$?
+\answer{2}
+\begin{solution}
+The third row is $2R_1 - R_2 = (0, 4, 4) - (7, 4, 8) = (-7, 0, -4)$, so the rank is at most 2; the first two rows are not multiples of each other, so it is 2. (The original question asked whether the rank is 3.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me1999-1, source=GATE ME 1999 (adapted)]
+What is the rank of $\begin{bmatrix} 3 & 2 & -9 \\ -6 & -4 & 18 \\ 12 & 8 & -36 \end{bmatrix}$?
+\answer{1}
+\begin{solution}
+The second and third rows are $-2$ and $4$ times the first, which is nonzero. So the rank is 1.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2001-1, source=GATE ME 2001]
+The rank of the $3 \times 3$ matrix $C = AB$, found by multiplying a nonzero column matrix $A$ of size $3 \times 1$ and a nonzero row matrix $B$ of size $1 \times 3$, is
+\begin{options}
+  \option 0
+  \correct 1
+  \option 2
+  \option 3
+\end{options}
+\begin{solution}
+Column $j$ of $AB$ is $b_j A$, so every column is a multiple of $A$, and the column for a nonzero $b_j$ is nonzero. So $\operatorname{Col} C = \operatorname{span}\{A\}$ and the rank is 1.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2005-1, source=GATE ME 2005, marks=2]
+$A$ is a $3 \times 4$ real matrix and $Ax = b$ is an inconsistent system of equations. The highest possible rank of $A$ is
+\begin{options}
+  \option 1
+  \correct 2
+  \option 3
+  \option 4
+\end{options}
+\begin{solution}
+If the rank were 3, the column space would be all of $\mathbb{R}^3$ and $Ax = b$ would be consistent for every $b$. So the rank is at most 2, and 2 is possible: $A = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix}$ with $b = (0, 0, 1)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2003-1, source=GATE CE 2003]
+The rank of the matrix $\begin{bmatrix} 4 & 2 & 1 & 3 \\ 6 & 3 & 4 & 7 \\ 2 & 1 & 0 & 1 \end{bmatrix}$ is
+\begin{options}
+  \option 4
+  \option 3
+  \correct 2
+  \option 1
+\end{options}
+\begin{solution}
+$R_1 - 2R_3 = (0, 0, 1, 1)$ and $R_2 - 3R_3 = (0, 0, 4, 4)$ are multiples of each other, so the row space is spanned by $(2, 1, 0, 1)$ and $(0, 0, 1, 1)$, which are independent. The rank is 2.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-in2005-1, source=GATE IN 2005]
+Let $A$ be a $3 \times 3$ matrix of rank 2. Then $AX = 0$ has
+\begin{options}
+  \option only the trivial solution $X = 0$
+  \correct one independent solution
+  \option two independent solutions
+  \option three independent solutions
+\end{options}
+\begin{solution}
+By the rank theorem, $\dim \operatorname{Nul} A = 3 - 2 = 1$: the solutions are the multiples of one nonzero solution.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-in2009-1, source=GATE IN 2009, marks=2]
+Let $P \ne 0$ be a $3 \times 3$ real matrix. There exist linearly independent vectors $x$ and $y$ with $Px = 0$ and $Py = 0$. The dimension of the range space of $P$ is
+\begin{options}
+  \option 0
+  \correct 1
+  \option 2
+  \option 3
+\end{options}
+\begin{solution}
+$\dim \operatorname{Nul} P \ge 2$, so $\operatorname{rank} P = 3 - \dim \operatorname{Nul} P \le 1$; and $P \ne 0$, so the rank is at least 1. Hence the range has dimension 1.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2008-1, source=GATE EE 2008]
+If the rank of a $5 \times 6$ matrix $Q$ is 4, which of the following statements is correct?
+\begin{options}
+  \correct $Q$ has four linearly independent rows and four linearly independent columns.
+  \option $Q$ has four linearly independent rows and five linearly independent columns.
+  \option $QQ^T$ is invertible.
+  \option $Q^TQ$ is invertible.
+\end{options}
+\begin{solution}
+Row rank and column rank are both 4 (A), so no five columns are independent (B). The products $QQ^T$ ($5 \times 5$) and $Q^TQ$ ($6 \times 6$) have rank at most 4, so neither is invertible.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2007-1, source=GATE EE 2007]
+Let $x = (x_1, \dots, x_n)^T$ be a nonzero vector, $n \ge 2$. The $n \times n$ matrix $V = xx^T$
+\begin{options}
+  \option has rank 0
+  \correct has rank 1
+  \option is orthogonal
+  \option has rank $n$
+\end{options}
+\begin{solution}
+Column $j$ of $xx^T$ is $x_j x$, so every column is a multiple of $x$, and some column is nonzero: the rank is 1. As $n \ge 2$, $V$ is singular, so it is neither orthogonal nor of rank $n$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-in2007-2, source=GATE IN 2007]
+Let $A = [a_{ij}]$, $1 \le i, j \le n$, with $n \ge 3$ and $a_{ij} = ij$. Then the rank of $A$ is
+\begin{options}
+  \option 0
+  \correct 1
+  \option $n - 1$
+  \option $n$
+\end{options}
+\begin{solution}
+Row $i$ is $i(1, 2, \dots, n)$, so every row is a multiple of the first, which is nonzero. The rank is 1.
+\end{solution}
+\end{question}
+
 % ==============================================================================================
 \topic{lt}{Linear transformations and change of basis}{Weeks 7--8}
 
@@ -704,6 +1840,124 @@ $T(1, 1) = (1, 1)$ and $T(1, -1) = (-1, 1) = -(1, -1)$. The columns of $[T]_{\ma
 \end{solution}
 \end{question}
 
+\begin{question}[id=lt-10]
+Let $T : \mathbb{R}^2 \to \mathbb{R}^2$ be linear with $T(1, 0) = (2, 3)$ and $T(0, 1) = (-1, 4)$. If $T(3, 2) = (a, b)$, then $a + b =$
+\answer{21}
+\begin{solution}
+$T(3, 2) = 3T(1, 0) + 2T(0, 1) = (6, 9) + (-2, 8) = (4, 17)$, so $a + b = 21$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=lt-11, marks=2]
+Let $T : \mathbb{R}^2 \to \mathbb{R}^2$ be linear with $T(1, 1) = (3, 1)$ and $T(1, -1) = (1, 5)$. If $T(1, 0) = (a, b)$, then $b =$
+\answer{3}
+\begin{solution}
+$(1, 0) = \frac{1}{2}(1, 1) + \frac{1}{2}(1, -1)$, so $T(1, 0) = \frac{1}{2}(3, 1) + \frac{1}{2}(1, 5) = (2, 3)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=lt-12]
+A linear map $T : \mathbb{R}^n \to \mathbb{R}^m$ with standard matrix $A$ is one-to-one if and only if
+\begin{options}
+  \option the columns of $A$ span $\mathbb{R}^m$
+  \option $m = n$
+  \correct the columns of $A$ are linearly independent
+  \option $T(0) = 0$
+\end{options}
+\begin{solution}
+$T$ is one-to-one exactly when $T(x) = 0$ only for $x = 0$, that is, when $Ax = 0$ has only the trivial solution, which says that the columns of $A$ are independent. (A) is the condition for $T$ to be onto, (D) holds for every linear map, and $m = n$ is not enough: the zero map of $\mathbb{R}^2$ is not one-to-one.
+\end{solution}
+\end{question}
+
+\begin{question}[id=lt-13, type=msq, marks=2]
+Let $T : \mathbb{R}^4 \to \mathbb{R}^3$ be linear. Which of the following are possible?
+\begin{options}
+  \option $T$ is one-to-one.
+  \correct $T$ is onto.
+  \correct $\dim \ker T = 1$
+  \option The range of $T$ has dimension 4.
+\end{options}
+\begin{solution}
+By the rank theorem, $\dim \ker T + \dim(\text{range of } T) = 4$, and the range lies in $\mathbb{R}^3$, so $\dim \ker T \ge 1$: $T$ is never one-to-one (A), and the range never has dimension 4 (D). The map $T(x_1, x_2, x_3, x_4) = (x_1, x_2, x_3)$ is onto and has a one-dimensional kernel, so (B) and (C) are possible.
+\end{solution}
+\end{question}
+
+\begin{question}[id=lt-14]
+The standard matrix of the orthogonal projection of $\mathbb{R}^2$ onto the line $y = x$ is
+\begin{options}
+  \option $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$
+  \option $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$
+  \option $\dfrac{1}{2}\begin{bmatrix} 1 & -1 \\ -1 & 1 \end{bmatrix}$
+  \correct $\dfrac{1}{2}\begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}$
+\end{options}
+\begin{solution}
+Projecting onto $u = (1, 1)$ gives $T(x) = \frac{x \cdot u}{u \cdot u}u$, so $T(1, 0) = T(0, 1) = (\tfrac{1}{2}, \tfrac{1}{2})$, and these are the columns of the matrix. (A) is the projection onto the $x$-axis, (B) the reflection in $y = x$, and (C) the projection onto $y = -x$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=lt-15, marks=2]
+Let $T : \mathbb{P}_2 \to \mathbb{P}_2$ be given by $T(p)(t) = p(t + 1)$, and let $[T]$ be its matrix relative to the basis $\{1, t, t^2\}$. The sum of all the entries of $[T]$ is
+\answer{7}
+\begin{solution}
+$T(1) = 1$, $T(t) = 1 + t$ and $T(t^2) = 1 + 2t + t^2$. Their coordinate vectors are the columns: $[T] = \begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \end{bmatrix}$, whose entries add up to 7.
+\end{solution}
+\end{question}
+
+\begin{question}[id=lt-16, marks=2]
+Let $\mathcal{B} = \{(1, 0), (1, 1)\}$. Which matrix $P$ satisfies $[x]_{\mathcal{B}} = Px$ for every $x \in \mathbb{R}^2$?
+\begin{options}
+  \option $\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$
+  \correct $\begin{bmatrix} 1 & -1 \\ 0 & 1 \end{bmatrix}$
+  \option $\begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix}$
+  \option $\begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix}$
+\end{options}
+\begin{solution}
+The matrix $P_{\mathcal{B}} = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$, with the basis vectors as columns, satisfies $x = P_{\mathcal{B}}[x]_{\mathcal{B}}$. So $[x]_{\mathcal{B}} = P_{\mathcal{B}}^{-1}x$, and $P_{\mathcal{B}}^{-1} = \begin{bmatrix} 1 & -1 \\ 0 & 1 \end{bmatrix}$. Check with $x = (3, 2) = 1 \cdot (1, 0) + 2 \cdot (1, 1)$: $Px = (1, 2)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=lt-17, marks=2]
+Let $T : M_2(\mathbb{R}) \to M_2(\mathbb{R})$ be $T(A) = A - A^T$. What is the dimension of the range of $T$?
+\answer{1}
+\begin{solution}
+$T\begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} 0 & b - c \\ c - b & 0 \end{bmatrix} = (b - c)\begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$, so the range is spanned by one nonzero matrix. Equivalently, the kernel is the 3-dimensional space of symmetric matrices, and the rank theorem gives $4 - 3 = 1$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=lt-18, type=msq, marks=2]
+Which of the following maps $\mathbb{P}_2 \to \mathbb{R}$ are linear?
+\begin{options}
+  \correct $p \mapsto p(1)$
+  \correct $p \mapsto \int_0^1 p(t)\,dt$
+  \option $p \mapsto p(0)\,p(1)$
+  \option $p \mapsto p'(0) + 1$
+\end{options}
+\begin{solution}
+Evaluation and integration respect sums and scalar multiples, so (A) and (B) are linear. (C) is not: doubling $p = 1$ multiplies $p(0)p(1)$ by 4. (D) is not: it sends the zero polynomial to 1, not 0.
+\end{solution}
+\end{question}
+
+\begin{question}[id=lt-19]
+Let $T : \mathbb{R}^3 \to \mathbb{R}^3$ be the linear map with $T(e_1) = e_2$, $T(e_2) = e_3$ and $T(e_3) = e_1$. Then $T^3$ is
+\begin{options}
+  \option the zero map
+  \option $T$ itself
+  \option $-I$
+  \correct the identity map
+\end{options}
+\begin{solution}
+Applying $T$ three times takes $e_1 \to e_2 \to e_3 \to e_1$, and in the same way $e_2$ and $e_3$ return to themselves. A linear map that fixes every vector of a basis is the identity.
+\end{solution}
+\end{question}
+
+\begin{question}[id=lt-20, marks=2]
+Let $T$ be the linear operator on $\mathbb{R}^2$ whose matrix relative to the basis $\mathcal{B} = \{(1, 1), (1, -1)\}$ is $\begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}$. If $T(2, 0) = (a, b)$, then $a =$
+\answer{5}
+\begin{solution}
+The matrix says that $T(1, 1) = 2(1, 1)$ and $T(1, -1) = 3(1, -1)$. As $(2, 0) = (1, 1) + (1, -1)$, we get $T(2, 0) = (2, 2) + (3, -3) = (5, -1)$.
+\end{solution}
+\end{question}
+
 % ==============================================================================================
 \topic{det}{Determinants}{Week 9}
 
@@ -796,6 +2050,155 @@ Use Cramer's rule to solve $2x + y = 7,\; x + 3y = 11$. Then $y =$
 \answer{3}
 \begin{solution}
 $y = \dfrac{\det \begin{bmatrix} 2 & 7 \\ 1 & 11 \end{bmatrix}}{\det \begin{bmatrix} 2 & 1 \\ 1 & 3 \end{bmatrix}} = \dfrac{22 - 7}{6 - 1} = 3$, and similarly $x = \dfrac{21 - 11}{5} = 2$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=det-10]
+$\det \begin{bmatrix} 1 & 2 & 3 \\ 0 & 4 & 5 \\ 1 & 0 & 6 \end{bmatrix} =$
+\answer{22}
+\begin{solution}
+Expanding along the first column: $1 \cdot \det\begin{bmatrix} 4 & 5 \\ 0 & 6 \end{bmatrix} - 0 + 1 \cdot \det\begin{bmatrix} 2 & 3 \\ 4 & 5 \end{bmatrix} = 24 + (10 - 12) = 22$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=det-11, marks=2]
+$\det \begin{bmatrix} 1 & 0 & 2 & 0 \\ 0 & 3 & 0 & 1 \\ 2 & 0 & 5 & 0 \\ 0 & 1 & 0 & 2 \end{bmatrix} =$
+\answer{5}
+\begin{solution}
+Interchange rows 2 and 3, and then columns 2 and 3. The two sign changes cancel, and the matrix becomes block diagonal, $\begin{bmatrix} 1 & 2 & 0 & 0 \\ 2 & 5 & 0 & 0 \\ 0 & 0 & 3 & 1 \\ 0 & 0 & 1 & 2 \end{bmatrix}$. So the determinant is $(5 - 4)(6 - 1) = 5$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=det-12, marks=2]
+Let $A$ be a real $n \times n$ matrix with $A^T = -A$, where $n$ is odd. Then $\det A$
+\begin{options}
+  \option is 1
+  \option is $-1$
+  \option can be any real number
+  \correct is 0
+\end{options}
+\begin{solution}
+$\det A = \det A^T = \det(-A) = (-1)^n \det A = -\det A$ for odd $n$, so $\det A = 0$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=det-13, marks=2]
+Suppose that $\det \begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i \end{bmatrix} = 4$. Then $\det \begin{bmatrix} g & h & i \\ 2d & 2e & 2f \\ a + g & b + h & c + i \end{bmatrix} =$
+\answer{-8}
+\begin{solution}
+Subtracting row 1 from row 3 does not change the determinant and gives the rows $(g, h, i)$, $(2d, 2e, 2f)$, $(a, b, c)$. Taking the factor 2 out of row 2 multiplies by 2, and interchanging rows 1 and 3 changes the sign, so the determinant is $-2 \cdot 4 = -8$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=det-14, type=msq, marks=2]
+Let $A$ be a real $3 \times 3$ matrix. Which of the following force $\det A = 0$?
+\begin{options}
+  \correct Two columns of $A$ are equal.
+  \correct $A$ has a row of zeros.
+  \option $A^2 = A$
+  \correct The rows of $A$ are linearly dependent.
+\end{options}
+\begin{solution}
+In (A), (B) and (D) the columns, or the rows, of $A$ are linearly dependent, so $A$ is not invertible and $\det A = 0$. In (C), $(\det A)^2 = \det A$ only gives $\det A = 0$ or 1, and $A = I$ satisfies $A^2 = A$ with $\det A = 1$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=det-15]
+$\det \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{bmatrix}$ is
+\begin{options}
+  \option 1
+  \correct $-1$
+  \option 0
+  \option 3
+\end{options}
+\begin{solution}
+Interchanging rows 1 and 3 gives $I$, whose determinant is 1. One interchange changes the sign, so the determinant is $-1$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=det-16, marks=2]
+What is the volume of the parallelepiped with the vectors $(1, 0, 2)$, $(0, 1, 1)$ and $(1, 1, 1)$ as adjacent edges?
+\answer{2}
+\begin{solution}
+The volume is $|\det A|$, where $A$ has these vectors as rows (or columns). Expanding $\det\begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix}$ along the first row gives $1(1 - 1) - 0 + 2(0 - 1) = -2$, so the volume is 2.
+\end{solution}
+\end{question}
+
+\begin{question}[id=det-17, marks=2]
+Let $A$ be the $n \times n$ matrix with every diagonal entry 2 and every other entry 1. Then $\det A =$
+\begin{options}
+  \option $2^n$
+  \option $2n$
+  \correct $n + 1$
+  \option $n$
+\end{options}
+\begin{solution}
+Adding all the other rows to row 1 makes every entry of row 1 equal to $n + 1$; take out this factor, leaving row 1 as $(1, \dots, 1)$. Subtracting this row from each other row leaves $e_i$ in row $i$, so the matrix becomes upper triangular with 1s on the diagonal. Hence $\det A = n + 1$. (Check: for $n = 2$, $4 - 1 = 3$.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=det-18, marks=2]
+Let $A$ be a $3 \times 3$ matrix with $\det A = 3$. What is the determinant of its adjugate, $\operatorname{adj} A$?
+\answer{9}
+\begin{solution}
+$A \operatorname{adj} A = (\det A) I = 3I$, so $\det A \cdot \det(\operatorname{adj} A) = \det(3I) = 27$, and $\det(\operatorname{adj} A) = 27/3 = 9$. In general, $\det(\operatorname{adj} A) = (\det A)^{n-1}$ for an invertible $n \times n$ matrix.
+\end{solution}
+\end{question}
+
+\begin{question}[id=det-19, type=msq, marks=2]
+Which of the following matrices have determinant 1?
+\begin{options}
+  \correct the $3 \times 3$ elementary matrix that adds 5 times row 1 to row 3
+  \correct $\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}$, for every $\theta$
+  \option $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$
+  \option $2I_2$
+\end{options}
+\begin{solution}
+(A) is triangular with 1s on the diagonal, and (B) has determinant $\cos^2\theta + \sin^2\theta = 1$. The interchange matrix (C) has determinant $-1$, and $\det(2I_2) = 4$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=det-20, marks=2]
+The triangle with vertices $(0, 0)$, $(2, 1)$ and $(k, 4)$ has area 3. What is the largest possible value of $k$?
+\answer{14}
+\begin{solution}
+The area is $\frac{1}{2}\left|\det\begin{bmatrix} 2 & k \\ 1 & 4 \end{bmatrix}\right| = \frac{1}{2}|8 - k|$. This is 3 when $|8 - k| = 6$, that is, $k = 2$ or $k = 14$.
+\end{solution}
+\end{question}
+
+% ---------------------------------------- questions from past GATE papers
+
+\begin{question}[id=gate-ee2002-1, source=GATE EE 2002]
+The determinant of $\begin{bmatrix} 1 & 0 & 0 & 0 \\ 100 & 1 & 0 & 0 \\ 100 & 200 & 1 & 0 \\ 100 & 200 & 300 & 1 \end{bmatrix}$ is
+\begin{options}
+  \option 100
+  \option 200
+  \correct 1
+  \option 300
+\end{options}
+\begin{solution}
+The matrix is lower triangular, so its determinant is the product of the diagonal entries, $1 \cdot 1 \cdot 1 \cdot 1 = 1$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2004-1, source=GATE ME 2004]
+For which value of $x$ is the matrix $\begin{bmatrix} 8 & x & 0 \\ 4 & 0 & 2 \\ 12 & 6 & 0 \end{bmatrix}$ singular?
+\begin{options}
+  \correct 4
+  \option 6
+  \option 8
+  \option 12
+\end{options}
+\begin{solution}
+Expanding along the third column, whose only nonzero entry is the 2 in position $(2, 3)$: $\det = -2\det\begin{bmatrix} 8 & x \\ 12 & 6 \end{bmatrix} = -2(48 - 12x)$, which is 0 exactly when $x = 4$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me1995-1, source=GATE ME 1995 (adapted), marks=2]
+Use Cramer's rule to solve $2x + 3y + z = 9,\; 4x + y = 7,\; x - 3y - 7z = 6$. Then $z =$
+\answer{-2}
+\begin{solution}
+The coefficient matrix has determinant $2(-7 - 0) - 3(-28 - 0) + 1(-12 - 1) = 57$. Replacing its third column by $(9, 7, 6)$ gives the determinant $2(6 + 21) - 3(24 - 7) + 9(-12 - 1) = 54 - 51 - 117 = -114$. So $z = \frac{-114}{57} = -2$ (and similarly $x = 1$, $y = 3$).
 \end{solution}
 \end{question}
 
@@ -959,6 +2362,482 @@ If $Av = \lambda v$ with $v \ne 0$, then $\lambda v = A^2v = \lambda^2 v$, so $\
 \end{solution}
 \end{question}
 
+\begin{question}[id=eig-15, marks=2]
+Let $A = \begin{bmatrix} 4 & 1 \\ 2 & 3 \end{bmatrix}$. Then $\operatorname{tr}(A^3) =$
+\answer{133}
+\begin{solution}
+The characteristic polynomial is $\lambda^2 - 7\lambda + 10 = (\lambda - 2)(\lambda - 5)$, so $A$ has eigenvalues 2 and 5, and $A^3$ has eigenvalues $8$ and $125$. The trace is the sum of the eigenvalues: $8 + 125 = 133$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=eig-16]
+If $v$ is an eigenvector of $A$ for the eigenvalue 3, then $v$ is an eigenvector of $A^2 + 2A$ for the eigenvalue
+\begin{options}
+  \option 5
+  \option 9
+  \option 11
+  \correct 15
+\end{options}
+\begin{solution}
+$(A^2 + 2A)v = A(3v) + 2(3v) = 9v + 6v = 15v$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=eig-17, type=msq, marks=2]
+Which of the following matrices are diagonalizable over $\mathbb{R}$?
+\begin{options}
+  \option $\begin{bmatrix} 3 & 1 \\ 0 & 3 \end{bmatrix}$
+  \correct $\begin{bmatrix} 1 & 1 \\ 0 & 2 \end{bmatrix}$
+  \option $\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$
+  \correct $\begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix}$
+\end{options}
+\begin{solution}
+(B) has two distinct eigenvalues, 1 and 2, so it is diagonalizable, and (D) is already diagonal. (A) has the single eigenvalue 3, and $A - 3I$ has rank 1, so the eigenspace is only one-dimensional. (C) has characteristic polynomial $\lambda^2 + 1$, with no real roots.
+\end{solution}
+\end{question}
+
+\begin{question}[id=eig-18, marks=2]
+The Markov matrix $P = \begin{bmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{bmatrix}$ has a steady-state vector $q = (q_1, q_2)$: $Pq = q$, with $q_1, q_2 \ge 0$ and $q_1 + q_2 = 1$. Then $q_1 =$
+\answer{0.4}
+\begin{solution}
+$q$ is an eigenvector for the eigenvalue 1. The system $(P - I)q = 0$ reads $-0.3q_1 + 0.2q_2 = 0$ (the second equation is its negative), so $q_2 = 1.5q_1$. Then $q_1 + 1.5q_1 = 1$ gives $q_1 = 0.4$ and $q_2 = 0.6$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=eig-19]
+A real $2 \times 2$ matrix has trace 4 and determinant 5. Its eigenvalues are
+\begin{options}
+  \option 1 and 5
+  \correct $2 + i$ and $2 - i$
+  \option $-1$ and $-5$
+  \option 2 and 2
+\end{options}
+\begin{solution}
+The characteristic polynomial of a $2 \times 2$ matrix is $\lambda^2 - (\operatorname{tr} A)\lambda + \det A = \lambda^2 - 4\lambda + 5$, with roots $2 \pm \sqrt{4 - 5} = 2 \pm i$. (1 and 5 have product 5 but sum 6.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=eig-20, marks=2]
+A $3 \times 3$ matrix $A$ has eigenvalues 1, 2 and 3. What is $\operatorname{tr}(A^{-1})$, to two decimal places?
+\answer{1.83 to 1.84}
+\begin{solution}
+0 is not an eigenvalue, so $A$ is invertible, and $A^{-1}$ has eigenvalues $1, \frac{1}{2}, \frac{1}{3}$. The trace is their sum, $\frac{11}{6} \approx 1.83$.
+\end{solution}
+\end{question}
+
+% ---------------------------------------- questions from past GATE papers
+
+\begin{question}[id=gate-ec2005-3, type=msq, source=GATE EC 2005 (adapted), marks=2]
+Which of the following are eigenvectors of $\begin{bmatrix} -4 & 2 \\ 4 & 3 \end{bmatrix}$?
+\begin{options}
+  \option $(3, 2)$
+  \option $(4, 3)$
+  \correct $(2, -1)$
+  \correct $(-2, 1)$
+\end{options}
+\begin{solution}
+The characteristic polynomial is $\lambda^2 + \lambda - 20 = (\lambda + 5)(\lambda - 4)$. $A(2, -1) = (-10, 5) = -5(2, -1)$, and $(-2, 1)$, a nonzero multiple of $(2, -1)$, is an eigenvector too. $A(3, 2) = (-8, 18)$ and $A(4, 3) = (-10, 25)$ are not multiples of $(3, 2)$ and $(4, 3)$. (The original question asked for "the eigenvector" among these four options.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ec2006-2, source=GATE EC 2006, marks=2]
+A $2 \times 2$ matrix has the eigenvalue $\lambda_1 = 8$ with eigenvector $v_1 = (1, 1)$ and the eigenvalue $\lambda_2 = 4$ with eigenvector $v_2 = (1, -1)$. The matrix is
+\begin{options}
+  \correct $\begin{bmatrix} 6 & 2 \\ 2 & 6 \end{bmatrix}$
+  \option $\begin{bmatrix} 4 & 6 \\ 6 & 4 \end{bmatrix}$
+  \option $\begin{bmatrix} 2 & 4 \\ 4 & 2 \end{bmatrix}$
+  \option $\begin{bmatrix} 4 & 8 \\ 8 & 4 \end{bmatrix}$
+\end{options}
+\begin{solution}
+For $\begin{bmatrix} a & b \\ c & d \end{bmatrix}$, $Av_1 = 8v_1$ says $a + b = c + d = 8$, and $Av_2 = 4v_2$ says $a - b = 4$ and $c - d = -4$. So $a = 6$, $b = 2$, $c = 2$, $d = 6$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ec2006-3, source=GATE EC 2006]
+For the matrix $\begin{bmatrix} 4 & 2 \\ 2 & 4 \end{bmatrix}$, the eigenvalue corresponding to the eigenvector $(101, 101)$ is
+\begin{options}
+  \option 2
+  \option 4
+  \correct 6
+  \option 8
+\end{options}
+\begin{solution}
+$A(101, 101) = (606, 606) = 6(101, 101)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ec2008-2, source=GATE EC 2008]
+All four entries of the $2 \times 2$ matrix $P = \begin{bmatrix} p_{11} & p_{12} \\ p_{21} & p_{22} \end{bmatrix}$ are nonzero, and one of its eigenvalues is zero. Which of the following is true?
+\begin{options}
+  \option $p_{11}p_{22} - p_{12}p_{21} = 1$
+  \option $p_{11}p_{22} - p_{12}p_{21} = -1$
+  \correct $p_{11}p_{22} - p_{12}p_{21} = 0$
+  \option $p_{11}p_{22} + p_{12}p_{21} = 0$
+\end{options}
+\begin{solution}
+The determinant is the product of the eigenvalues, so $\det P = p_{11}p_{22} - p_{12}p_{21} = 0$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ec2009-1, source=GATE EC 2009, marks=2]
+The eigenvalues of the matrix $\begin{bmatrix} -1 & 3 & 5 \\ -3 & -1 & 6 \\ 0 & 0 & 3 \end{bmatrix}$ are
+\begin{options}
+  \option $3$, $3 + 5j$, $-6 - j$
+  \option $-6 + 5j$, $3 + j$, $3 - j$
+  \option $3 + j$, $3 - j$, $5 + j$
+  \correct $3$, $-1 + 3j$, $-1 - 3j$
+\end{options}
+\begin{solution}
+Expanding along the third row, $\det(A - \lambda I) = (3 - \lambda)\left[(-1 - \lambda)^2 + 9\right]$. So $\lambda = 3$, or $(\lambda + 1)^2 = -9$, that is, $\lambda = -1 \pm 3j$. (Also, the trace is $1 = 3 + (-1 + 3j) + (-1 - 3j)$.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me1994-2, source=GATE ME 1994 (adapted), marks=2]
+What is the largest eigenvalue of $\begin{bmatrix} 1 & 0 & 0 \\ 2 & 3 & 1 \\ 0 & 2 & 4 \end{bmatrix}$?
+\answer{5}
+\begin{solution}
+Expanding along the first row, $\det(A - \lambda I) = (1 - \lambda)\left[(3 - \lambda)(4 - \lambda) - 2\right] = (1 - \lambda)(\lambda - 2)(\lambda - 5)$. The eigenvalues are 1, 2 and 5; an eigenvector for 5 is $(0, 1, 2)$. (The original question asked for the eigenvalues and an eigenvector.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me1999-2, type=msq, source=GATE ME 1999 (adapted)]
+Which of the following are eigenvalues of $\begin{bmatrix} 5 & 3 \\ 3 & -3 \end{bmatrix}$?
+\begin{options}
+  \correct 6
+  \option 5
+  \option $-3$
+  \correct $-4$
+\end{options}
+\begin{solution}
+The trace is 2 and the determinant is $-15 - 9 = -24$, so the characteristic polynomial is $\lambda^2 - 2\lambda - 24 = (\lambda - 6)(\lambda + 4)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2000-1, source=GATE ME 2000]
+The characteristic roots of $A = \begin{bmatrix} 1 & 2 & 3 \\ 0 & 2 & 3 \\ 0 & 0 & 2 \end{bmatrix}$ are
+\begin{options}
+  \option 2, 3
+  \correct 1, 2, 2
+  \option 1, 0, 0
+  \option 0, 2, 3
+\end{options}
+\begin{solution}
+$A$ is upper triangular, so its eigenvalues are its diagonal entries: 1, 2, 2.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2003-2, source=GATE ME 2003]
+The eigenvalues of $\begin{bmatrix} 4 & 1 \\ 1 & 4 \end{bmatrix}$ are
+\begin{options}
+  \option 3 and $-3$
+  \option $-3$ and $-5$
+  \correct 3 and 5
+  \option 5 and 0
+\end{options}
+\begin{solution}
+The trace is 8 and the determinant 15, so $\lambda^2 - 8\lambda + 15 = (\lambda - 3)(\lambda - 5) = 0$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2004-2, source=GATE ME 2004]
+The sum of the eigenvalues of $\begin{bmatrix} 1 & 2 & 3 \\ 1 & 5 & 1 \\ 3 & 1 & 1 \end{bmatrix}$ is
+\begin{options}
+  \option 5
+  \correct 7
+  \option 9
+  \option 18
+\end{options}
+\begin{solution}
+The sum of the eigenvalues is the trace, $1 + 5 + 1 = 7$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2005-2, source=GATE ME 2005, marks=2]
+Which one of the following is an eigenvector of $\begin{bmatrix} 5 & 0 & 0 & 0 \\ 0 & 5 & 5 & 0 \\ 0 & 0 & 2 & 1 \\ 0 & 0 & 3 & 1 \end{bmatrix}$?
+\begin{options}
+  \correct $(1, -2, 0, 0)$
+  \option $(0, 0, 1, 0)$
+  \option $(1, 0, 0, -2)$
+  \option $(1, -1, 2, 1)$
+\end{options}
+\begin{solution}
+$A(1, -2, 0, 0) = (5, -10, 0, 0) = 5(1, -2, 0, 0)$. The others are not mapped to multiples of themselves: they go to $(0, 5, 2, 3)$, $(5, 0, -2, -2)$ and $(5, 5, 5, 7)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2006-2, source=GATE ME 2006]
+The eigenvalues of $S = \begin{bmatrix} 3 & 2 \\ 2 & 3 \end{bmatrix}$ are 5 and 1. The eigenvalues of $S^2 = SS$ are
+\begin{options}
+  \correct 1 and 25
+  \option 6 and 4
+  \option 5 and 1
+  \option 2 and 10
+\end{options}
+\begin{solution}
+If $Sv = \lambda v$, then $S^2v = \lambda^2 v$; so $S^2$ has eigenvalues $5^2 = 25$ and $1^2 = 1$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2007-2, source=GATE ME 2007]
+The number of linearly independent eigenvectors of $\begin{bmatrix} 2 & 1 \\ 0 & 2 \end{bmatrix}$ is
+\begin{options}
+  \option 0
+  \correct 1
+  \option 2
+  \option infinite
+\end{options}
+\begin{solution}
+The only eigenvalue is 2, and $A - 2I = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$ has rank 1, so the eigenspace is one-dimensional, spanned by $(1, 0)$. (There are infinitely many eigenvectors, the nonzero multiples of $(1, 0)$, but only one linearly independent one; some keys give (D).)
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2008-2, source=GATE ME 2008, marks=2]
+The eigenvectors of the matrix $\begin{bmatrix} 1 & 2 \\ 0 & 2 \end{bmatrix}$ are written in the form $(1, a)$ and $(1, b)$. What is $a + b$?
+\begin{options}
+  \option 0
+  \correct $\frac{1}{2}$
+  \option 1
+  \option 2
+\end{options}
+\begin{solution}
+The eigenvalues are 1 and 2. For $\lambda = 1$, $(A - I)x = 0$ reads $2x_2 = 0$, giving $(1, 0)$, so $a = 0$. For $\lambda = 2$, it reads $-x_1 + 2x_2 = 0$, giving $(1, \frac{1}{2})$, so $b = \frac{1}{2}$. Hence $a + b = \frac{1}{2}$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2010-1, source=GATE ME 2010]
+One of the eigenvectors of $A = \begin{bmatrix} 2 & 2 \\ 1 & 3 \end{bmatrix}$ is
+\begin{options}
+  \correct $(2, -1)$
+  \option $(2, 1)$
+  \option $(4, 1)$
+  \option $(1, -1)$
+\end{options}
+\begin{solution}
+$A(2, -1) = (2, -1)$, so it is an eigenvector for the eigenvalue 1. The eigenvalues are 1 and 4 (the characteristic polynomial is $\lambda^2 - 5\lambda + 4$), and the eigenvectors for 4 are the multiples of $(1, 1)$; none of the other options is a multiple of $(2, -1)$ or $(1, 1)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2004-2, source=GATE CE 2004]
+The eigenvalues of the matrix $\begin{bmatrix} 4 & -2 \\ -2 & 1 \end{bmatrix}$
+\begin{options}
+  \option are 1 and 4
+  \option are $-1$ and 2
+  \correct are 0 and 5
+  \option cannot be determined
+\end{options}
+\begin{solution}
+The trace is 5 and the determinant $4 - 4 = 0$, so $\lambda^2 - 5\lambda = 0$, and $\lambda = 0$ or 5.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2006-2, source=GATE CE 2006, marks=2]
+For the matrix $A = \begin{bmatrix} 2 & -2 & 3 \\ -2 & -1 & 6 \\ 1 & 2 & 0 \end{bmatrix}$, one of the eigenvalues is 3. The other two eigenvalues are
+\begin{options}
+  \option 2, $-5$
+  \correct 3, $-5$
+  \option 2, 5
+  \option 3, 5
+\end{options}
+\begin{solution}
+The trace is 1, so the other two eigenvalues add up to $1 - 3 = -2$, which only (B) satisfies. Check with the determinant, $\det A = 2(-12) + 2(-6) + 3(-3) = -45 = 3 \cdot 3 \cdot (-5)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2007-3, source=GATE CE 2007]
+The minimum and the maximum eigenvalues of $\begin{bmatrix} 1 & 1 & 3 \\ 1 & 5 & 1 \\ 3 & 1 & 1 \end{bmatrix}$ are $-2$ and 6. What is the other eigenvalue?
+\begin{options}
+  \option 5
+  \correct 3
+  \option 1
+  \option $-1$
+\end{options}
+\begin{solution}
+The eigenvalues add up to the trace, 7, so the third one is $7 - (-2) - 6 = 3$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ce2008-3, source=GATE CE 2008]
+The eigenvalues of $P = \begin{bmatrix} 4 & 5 \\ 2 & -5 \end{bmatrix}$ are
+\begin{options}
+  \option $-7$ and 8
+  \correct $-6$ and 5
+  \option 3 and 4
+  \option 1 and 2
+\end{options}
+\begin{solution}
+The trace is $-1$ and the determinant $-20 - 10 = -30$, so $\lambda^2 + \lambda - 30 = (\lambda + 6)(\lambda - 5) = 0$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2004-1, source=GATE EE 2004]
+The state variable description of a linear autonomous system is $\dot{x} = Ax$, where $x$ is the two-dimensional state vector and $A = \begin{bmatrix} 0 & 2 \\ 2 & 0 \end{bmatrix}$. The roots of the characteristic equation are
+\begin{options}
+  \correct $-2$ and $+2$
+  \option $-2j$ and $+2j$
+  \option $-2$ and $-2$
+  \option $+2$ and $+2$
+\end{options}
+\begin{solution}
+$\det(A - \lambda I) = \lambda^2 - 4 = 0$, so $\lambda = \pm 2$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2005-3, source=GATE EE 2005, marks=2]
+One of the eigenvalues of $P = \begin{bmatrix} 3 & -2 & 2 \\ 0 & -2 & 1 \\ 0 & 0 & 1 \end{bmatrix}$ is $-2$. Which of the following is an eigenvector for it?
+\begin{options}
+  \option $(3, -2, 1)$
+  \option $(-3, 2, -1)$
+  \option $(1, -2, 3)$
+  \correct $(2, 5, 0)$
+\end{options}
+\begin{solution}
+$P(2, 5, 0) = (6 - 10, -10, 0) = -2(2, 5, 0)$. The others fail: $P(3, -2, 1) = (15, 5, 1)$, (B) is the negative of (A), and $P(1, -2, 3) = (13, 7, 3)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2007-2, type=msq, source=GATE EE 2007 (adapted), marks=2]
+The Cayley--Hamilton theorem says that a square matrix satisfies its own characteristic equation. Which of the following relations does $A = \begin{bmatrix} -3 & 2 \\ -1 & 0 \end{bmatrix}$ satisfy?
+\begin{options}
+  \correct $A + 3I + 2A^{-1} = 0$
+  \option $A^2 + 2A + 2I = 0$
+  \correct $(A + I)(A + 2I) = 0$
+  \option $e^A = 0$
+\end{options}
+\begin{solution}
+The characteristic polynomial is $\lambda^2 + 3\lambda + 2 = (\lambda + 1)(\lambda + 2)$, so $A^2 + 3A + 2I = (A + I)(A + 2I) = 0$ (C). As $\det A = 2 \ne 0$, multiplying by $A^{-1}$ gives $A + 3I + 2A^{-1} = 0$ (A). Subtracting (B) from $A^2 + 3A + 2I = 0$ would give $A = 0$, so (B) fails; and $e^A$ is invertible, with inverse $e^{-A}$, so it is never 0.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2007-3, source=GATE EE 2007, marks=2]
+For $A = \begin{bmatrix} -3 & 2 \\ -1 & 0 \end{bmatrix}$, the matrix $A^9$ equals
+\begin{options}
+  \correct $511A + 510I$
+  \option $309A + 104I$
+  \option $154A + 155I$
+  \option $e^{9A}$
+\end{options}
+\begin{solution}
+Divide $\lambda^9$ by the characteristic polynomial $(\lambda + 1)(\lambda + 2)$: $\lambda^9 = q(\lambda)(\lambda + 1)(\lambda + 2) + \alpha\lambda + \beta$. Putting $\lambda = -1$ and $\lambda = -2$ gives $-1 = -\alpha + \beta$ and $-512 = -2\alpha + \beta$, so $\alpha = 511$ and $\beta = 510$. By the Cayley--Hamilton theorem, $A^9 = 511A + 510I$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2008-3, source=GATE EE 2008, marks=2]
+The characteristic equation of a $3 \times 3$ matrix $P$ is $\det(\lambda I - P) = \lambda^3 + \lambda^2 + 2\lambda + 1 = 0$. Then $P^{-1}$ is
+\begin{options}
+  \option $P^2 + P + 2I$
+  \option $P^2 + P + I$
+  \option $-(P^2 + P + I)$
+  \correct $-(P^2 + P + 2I)$
+\end{options}
+\begin{solution}
+By the Cayley--Hamilton theorem, $P^3 + P^2 + 2P + I = 0$, that is, $P(P^2 + P + 2I) = -I$. Hence $P^{-1} = -(P^2 + P + 2I)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2009-1, source=GATE EE 2009]
+The trace and the determinant of a $2 \times 2$ matrix are $-2$ and $-35$. Its eigenvalues are
+\begin{options}
+  \option $-30$ and $-5$
+  \option $-35$ and $-1$
+  \correct $-7$ and 5
+  \option 17.5 and $-2$
+\end{options}
+\begin{solution}
+The eigenvalues are the roots of $\lambda^2 + 2\lambda - 35 = (\lambda + 7)(\lambda - 5)$: their sum is the trace and their product the determinant.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-in2005-2, source=GATE IN 2005]
+Which one of the following is an eigenvector of $A = \begin{bmatrix} 1 & 0 \\ -1 & -2 \end{bmatrix}$?
+\begin{options}
+  \option $(-1, 1)$
+  \correct $(3, -1)$
+  \option $(1, -1)$
+  \option $(-2, 1)$
+\end{options}
+\begin{solution}
+$A(3, -1) = (3, -3 + 2) = (3, -1)$: an eigenvector for the eigenvalue 1. The other options go to $(-1, -1)$, $(1, 1)$ and $(-2, 0)$, which are not multiples of them.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-in2006-1, source=GATE IN 2006, marks=2]
+For a $2 \times 2$ matrix $A$ it is observed that $A\begin{bmatrix} 1 \\ -1 \end{bmatrix} = -\begin{bmatrix} 1 \\ -1 \end{bmatrix}$ and $A\begin{bmatrix} 1 \\ -2 \end{bmatrix} = -2\begin{bmatrix} 1 \\ -2 \end{bmatrix}$. Then $A$ is
+\begin{options}
+  \option $\begin{bmatrix} 2 & 1 \\ -1 & -1 \end{bmatrix}\begin{bmatrix} -1 & 0 \\ 0 & -2 \end{bmatrix}\begin{bmatrix} 1 & 1 \\ -1 & -2 \end{bmatrix}$
+  \option $\begin{bmatrix} 1 & 1 \\ -1 & -2 \end{bmatrix}\begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix}\begin{bmatrix} 2 & 1 \\ -1 & -1 \end{bmatrix}$
+  \correct $\begin{bmatrix} 1 & 1 \\ -1 & -2 \end{bmatrix}\begin{bmatrix} -1 & 0 \\ 0 & -2 \end{bmatrix}\begin{bmatrix} 2 & 1 \\ -1 & -1 \end{bmatrix}$
+  \option $\begin{bmatrix} 0 & -2 \\ 1 & -3 \end{bmatrix}$
+\end{options}
+\begin{solution}
+The eigenvectors are the columns of $P = \begin{bmatrix} 1 & 1 \\ -1 & -2 \end{bmatrix}$ and the eigenvalues the diagonal of $D = \begin{bmatrix} -1 & 0 \\ 0 & -2 \end{bmatrix}$, so $A = PDP^{-1}$, with $P^{-1} = \begin{bmatrix} 2 & 1 \\ -1 & -1 \end{bmatrix}$. Option (A) has the factors $P$ and $P^{-1}$ the wrong way round, (B) has the wrong eigenvalues, and the matrix in (D) sends $(1, -1)$ to $(2, 4)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-in2010-1, source=GATE IN 2010]
+A real $n \times n$ matrix $A = [a_{ij}]$ has $a_{ii} = i$ and $a_{ij} = 0$ for $i \ne j$. The sum of all $n$ eigenvalues of $A$ is
+\begin{options}
+  \correct $\frac{n(n + 1)}{2}$
+  \option $\frac{n(n - 1)}{2}$
+  \option $\frac{n(n + 1)(2n + 1)}{6}$
+  \option $n^2$
+\end{options}
+\begin{solution}
+$A = \operatorname{diag}(1, 2, \dots, n)$, whose eigenvalues are $1, 2, \dots, n$; their sum (the trace) is $\frac{n(n + 1)}{2}$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-cs2011-1, source=GATE CS 2011]
+The eigenvalues of $\begin{bmatrix} 1 & 2 & 3 \\ 0 & 4 & 7 \\ 0 & 0 & 3 \end{bmatrix}$ are
+\begin{options}
+  \correct 1, 4, 3
+  \option 3, 7, 3
+  \option 7, 3, 2
+  \option 1, 2, 3
+\end{options}
+\begin{solution}
+The matrix is upper triangular, so its eigenvalues are its diagonal entries.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-cs2008-2, source=GATE CS 2008]
+How many of the matrices $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$, $\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$, $\begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix}$ and $\begin{bmatrix} -1 & 0 \\ 1 & -1 \end{bmatrix}$ have the eigenvalue 1?
+\begin{options}
+  \correct one
+  \option two
+  \option three
+  \option four
+\end{options}
+\begin{solution}
+The triangular matrices have their diagonal entries as eigenvalues: $\{1, 0\}$, $\{0, 0\}$ and $\{-1, -1\}$. The third matrix has characteristic polynomial $\lambda^2 - 2\lambda + 2$, with roots $1 \pm i$. Only the first matrix has the eigenvalue 1.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-cs2010-1, source=GATE CS 2010, marks=2]
+The eigenvalues of $A = \begin{bmatrix} 2 & 3 \\ x & y \end{bmatrix}$ are 4 and 8. Then
+\begin{options}
+  \option $x = 4$, $y = 10$
+  \option $x = 5$, $y = 8$
+  \option $x = -3$, $y = 9$
+  \correct $x = -4$, $y = 10$
+\end{options}
+\begin{solution}
+The trace is $2 + y = 4 + 8$, so $y = 10$, and the determinant is $2y - 3x = 4 \cdot 8 = 32$, so $x = -4$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-cs2005-2, source=GATE CS 2005]
+The eigenvalues of $\begin{bmatrix} 2 & -1 \\ -4 & 5 \end{bmatrix}$ are
+\begin{options}
+  \option $-1$ and 1
+  \correct 1 and 6
+  \option 2 and 5
+  \option 4 and $-1$
+\end{options}
+\begin{solution}
+The trace is 7 and the determinant $10 - 4 = 6$, so $\lambda^2 - 7\lambda + 6 = (\lambda - 1)(\lambda - 6) = 0$.
+\end{solution}
+\end{question}
+
 % ==============================================================================================
 \topic{orth}{Orthogonality, projections and least squares}{Week 12}
 
@@ -1077,6 +2956,152 @@ Orthonormal columns give $Q^TQ = I$, so $Q^TA = Q^TQR = R$. (By contrast, $A^TQ 
 \end{solution}
 \end{question}
 
+\begin{question}[id=orth-11]
+What is the angle, in degrees, between $(1, 0, 1)$ and $(0, 1, 1)$?
+\answer{60}
+\begin{solution}
+$\cos\theta = \dfrac{u \cdot v}{\|u\|\,\|v\|} = \dfrac{1}{\sqrt{2}\,\sqrt{2}} = \dfrac{1}{2}$, so $\theta = 60^\circ$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=orth-12, marks=2]
+Let $W = \operatorname{span}\{(1, 0, 0), (0, 1, 1)\}$ and $y = (1, 2, 3)$. The orthogonal projection of $y$ onto $W$ is $(a, b, c)$. Then $a + b + c =$
+\answer{6}
+\begin{solution}
+The spanning vectors $u_1 = (1, 0, 0)$ and $u_2 = (0, 1, 1)$ are orthogonal, so $\operatorname{proj}_W y = \dfrac{y \cdot u_1}{u_1 \cdot u_1}u_1 + \dfrac{y \cdot u_2}{u_2 \cdot u_2}u_2 = (1, 0, 0) + \dfrac{5}{2}(0, 1, 1) = (1, 2.5, 2.5)$. The sum is 6. (Check: $y - \operatorname{proj}_W y = (0, -0.5, 0.5)$ is orthogonal to $u_1$ and $u_2$.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=orth-13]
+Which of the following sets is orthonormal?
+\begin{options}
+  \option $\{(1, 0), (1, 1)\}$
+  \option $\{(1, 1), (1, -1)\}$
+  \correct $\left\{\tfrac{1}{\sqrt{2}}(1, 1), \tfrac{1}{\sqrt{2}}(1, -1)\right\}$
+  \option $\{(1, 0), (0, 2)\}$
+\end{options}
+\begin{solution}
+Orthonormal means orthogonal unit vectors. In (A) the vectors are not orthogonal; in (B) they are orthogonal but have length $\sqrt{2}$; in (D), $(0, 2)$ has length 2. In (C) both vectors have length 1 and their dot product is $\frac{1}{2}(1 - 1) = 0$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=orth-14, type=msq, marks=2]
+Let $W$ be a subspace of $\mathbb{R}^n$ with $0 < \dim W < n$, and let $P$ be the standard matrix of the orthogonal projection onto $W$. Which of the following are true?
+\begin{options}
+  \correct $P^2 = P$
+  \correct $P^T = P$
+  \option $P$ is invertible.
+  \correct $\operatorname{rank} P = \dim W$
+\end{options}
+\begin{solution}
+Projecting twice is the same as projecting once (A). If the columns of $U$ are an orthonormal basis of $W$, then $P = UU^T$, which is symmetric (B). The range of $P$ is $W$ (D), and $P$ sends every vector of $W^\perp \ne \{0\}$ to 0, so $P$ is not invertible (C).
+\end{solution}
+\end{question}
+
+\begin{question}[id=orth-15, marks=2]
+Find the least-squares line $y = \beta_0 + \beta_1 x$ for the data points $(0, 1)$, $(1, 1)$, $(2, 2)$, $(3, 2)$. Then $\beta_1 =$
+\answer{0.4}
+\begin{solution}
+With $X = \begin{bmatrix} 1 & 0 \\ 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{bmatrix}$ and $y = (1, 1, 2, 2)$, the normal equations $X^TX\beta = X^Ty$ are $4\beta_0 + 6\beta_1 = 6$ and $6\beta_0 + 14\beta_1 = 11$. Subtracting $\tfrac{3}{2}$ times the first from the second gives $5\beta_1 = 2$, so $\beta_1 = 0.4$ (and $\beta_0 = 0.9$).
+\end{solution}
+\end{question}
+
+\begin{question}[id=orth-16]
+For a nonzero vector $u \in \mathbb{R}^n$, the standard matrix of the orthogonal projection onto $\operatorname{span}\{u\}$ is
+\begin{options}
+  \option $uu^T$
+  \option $u^Tu$
+  \option $I - \dfrac{uu^T}{u^Tu}$
+  \correct $\dfrac{uu^T}{u^Tu}$
+\end{options}
+\begin{solution}
+$\operatorname{proj}_u x = \dfrac{u \cdot x}{u \cdot u}u = \dfrac{u(u^Tx)}{u^Tu} = \dfrac{uu^T}{u^Tu}x$. Option (A) is right only when $u$ is a unit vector, (B) is a number, and (C) is the projection onto the orthogonal complement of $u$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=orth-17, marks=2]
+What is the largest value of $2x + 3y + 6z$ subject to $x^2 + y^2 + z^2 = 1$?
+\answer{7}
+\begin{solution}
+By the Cauchy--Schwarz inequality, $2x + 3y + 6z = (2, 3, 6) \cdot (x, y, z) \le \|(2, 3, 6)\| \cdot 1 = \sqrt{4 + 9 + 36} = 7$, with equality for $(x, y, z) = \frac{1}{7}(2, 3, 6)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=orth-18, type=msq, marks=2]
+Let $A$ be an $m \times n$ matrix and $b \in \mathbb{R}^m$. Which of the following are true of the least-squares solutions of $Ax = b$?
+\begin{options}
+  \correct They are the solutions of $A^TAx = A^Tb$.
+  \correct There is at least one.
+  \correct There is exactly one if and only if the columns of $A$ are linearly independent.
+  \option A least-squares solution $\hat{x}$ always satisfies $A\hat{x} = b$.
+\end{options}
+\begin{solution}
+$\hat{x}$ is a least-squares solution exactly when $A\hat{x} = \hat{b}$, the projection of $b$ onto $\operatorname{Col} A$, that is, when $b - A\hat{x}$ is orthogonal to the columns of $A$: $A^T(b - A\hat{x}) = 0$ (A). The projection $\hat{b}$ lies in $\operatorname{Col} A$, so a solution exists (B), and it is unique exactly when $\operatorname{Nul} A = \{0\}$ (C). When $b \notin \operatorname{Col} A$, no $x$ has $Ax = b$, so (D) fails.
+\end{solution}
+\end{question}
+
+\begin{question}[id=orth-19]
+The orthogonal complement of the line spanned by $(1, 2, 3)$ in $\mathbb{R}^3$ is
+\begin{options}
+  \correct the plane $x + 2y + 3z = 0$
+  \option the plane $x + 2y + 3z = 1$
+  \option the line spanned by $(3, 2, 1)$
+  \option the line spanned by $(-1, -2, -3)$
+\end{options}
+\begin{solution}
+$(x, y, z)$ is orthogonal to every multiple of $(1, 2, 3)$ exactly when $(x, y, z) \cdot (1, 2, 3) = 0$: a plane through the origin, of dimension $3 - 1 = 2$. (B) is not a subspace, (C) is not orthogonal to $(1, 2, 3)$, and (D) is the line itself.
+\end{solution}
+\end{question}
+
+\begin{question}[id=orth-20, marks=2]
+Let $A = \begin{bmatrix} 3 & 2 \\ 4 & 11 \end{bmatrix}$, and let $A = QR$ with $Q$ orthogonal and $R$ upper triangular with positive diagonal entries. The $(1, 2)$ entry of $R$ is
+\answer{10}
+\begin{solution}
+Gram--Schmidt on the columns $a_1 = (3, 4)$ and $a_2 = (2, 11)$: $r_{11} = \|a_1\| = 5$ and $q_1 = (0.6, 0.8)$. Then $r_{12} = q_1 \cdot a_2 = 1.2 + 8.8 = 10$, and $a_2 - 10q_1 = (-4, 3)$, so $r_{22} = 5$ and $q_2 = (-0.8, 0.6)$. Thus $R = \begin{bmatrix} 5 & 10 \\ 0 & 5 \end{bmatrix}$.
+\end{solution}
+\end{question}
+
+% ---------------------------------------- questions from past GATE papers
+
+\begin{question}[id=gate-ec2005-2, source=GATE EC 2005 (adapted), marks=2]
+The rows of $A = \begin{bmatrix} 1 & 1 & 1 & 1 \\ 1 & 1 & -1 & -1 \\ 1 & -1 & 0 & 0 \\ 0 & 0 & 1 & -1 \end{bmatrix}$ are mutually orthogonal. Then $(AA^T)^{-1}$ is
+\begin{options}
+  \correct $\operatorname{diag}\left(\frac{1}{4}, \frac{1}{4}, \frac{1}{2}, \frac{1}{2}\right)$
+  \option $\operatorname{diag}\left(\frac{1}{2}, \frac{1}{2}, \frac{1}{2}, \frac{1}{2}\right)$
+  \option $I_4$
+  \option $\operatorname{diag}\left(\frac{1}{4}, \frac{1}{4}, \frac{1}{4}, \frac{1}{4}\right)$
+\end{options}
+\begin{solution}
+The $(i, j)$ entry of $AA^T$ is the dot product of rows $i$ and $j$: 0 off the diagonal, and the squared lengths 4, 4, 2, 2 on it. So $AA^T = \operatorname{diag}(4, 4, 2, 2)$, with inverse $\operatorname{diag}\left(\frac{1}{4}, \frac{1}{4}, \frac{1}{2}, \frac{1}{2}\right)$. (The original question calls $A$ an orthogonal matrix, and some keys give $I_4$; but the rows are not unit vectors, so $A$ is not orthogonal.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-ee2008-2, source=GATE EE 2008]
+Let $P$ be a $2 \times 2$ real orthogonal matrix and $x \in \mathbb{R}^2$, with length $\|x\| = (x_1^2 + x_2^2)^{1/2}$. Which of the following statements is correct?
+\begin{options}
+  \option $\|Px\| \le \|x\|$, and $\|Px\| < \|x\|$ for at least one $x$
+  \correct $\|Px\| = \|x\|$ for every $x$
+  \option $\|Px\| \ge \|x\|$, and $\|Px\| > \|x\|$ for at least one $x$
+  \option No relationship can be established between $\|x\|$ and $\|Px\|$.
+\end{options}
+\begin{solution}
+$\|Px\|^2 = (Px)^T(Px) = x^TP^TPx = x^Tx = \|x\|^2$, since $P^TP = I$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2009-1, source=GATE ME 2009]
+For the matrix $M = \begin{bmatrix} \frac{3}{5} & \frac{4}{5} \\ x & \frac{3}{5} \end{bmatrix}$, the transpose is equal to the inverse: $M^T = M^{-1}$. The value of $x$ is
+\begin{options}
+  \correct $-\frac{4}{5}$
+  \option $-\frac{3}{5}$
+  \option $\frac{3}{5}$
+  \option $\frac{4}{5}$
+\end{options}
+\begin{solution}
+$M^T = M^{-1}$ means that the rows of $M$ are orthonormal. Orthogonality of the rows gives $\frac{3}{5}x + \frac{4}{5} \cdot \frac{3}{5} = 0$, so $x = -\frac{4}{5}$; and then the second row has length $\sqrt{\frac{16}{25} + \frac{9}{25}} = 1$.
+\end{solution}
+\end{question}
+
 % ==============================================================================================
 \topic{sym}{Symmetric matrices, quadratic forms and the SVD}{Week 13}
 
@@ -1174,6 +3199,152 @@ What is the largest integer $k$ for which $\begin{bmatrix} 2 & k \\ k & 8 \end{b
 \answer{3}
 \begin{solution}
 A symmetric $2 \times 2$ matrix is positive definite exactly when its $(1,1)$ entry and its determinant are positive. Here $2 > 0$, and $16 - k^2 > 0$ exactly when $|k| < 4$. So the largest integer is $k = 3$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sym-10]
+Let $A$ be the symmetric matrix of the quadratic form $Q(x) = x_1^2 + 3x_2^2 - x_3^2 + 4x_1x_2 - 6x_2x_3$, so that $Q(x) = x^TAx$. The $(2, 3)$ entry of $A$ is
+\answer{-3}
+\begin{solution}
+The coefficient of $x_ix_j$ ($i \ne j$) is split equally between the entries $(i, j)$ and $(j, i)$: $A = \begin{bmatrix} 1 & 2 & 0 \\ 2 & 3 & -3 \\ 0 & -3 & -1 \end{bmatrix}$. So $a_{23} = -6/2 = -3$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sym-11, marks=2]
+Let $A = \begin{bmatrix} 3 & 1 \\ 1 & 3 \end{bmatrix}$ and $D = \begin{bmatrix} 4 & 0 \\ 0 & 2 \end{bmatrix}$. Which matrix $P$ is orthogonal and satisfies $A = PDP^T$?
+\begin{options}
+  \option $\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$
+  \option $\dfrac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix}$
+  \correct $\dfrac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$
+  \option $\dfrac{1}{2}\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$
+\end{options}
+\begin{solution}
+The columns of $P$ must be unit eigenvectors, the first for 4 and the second for 2. Here $A(1, 1) = 4(1, 1)$ and $A(1, -1) = 2(1, -1)$, so $P$ has columns $\frac{1}{\sqrt{2}}(1, 1)$ and $\frac{1}{\sqrt{2}}(1, -1)$. The matrices in (A) and (D) are not orthogonal, and in (B) the first column, $\frac{1}{\sqrt{2}}(1, -1)$, belongs to the eigenvalue 2.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sym-12, type=msq, marks=2]
+Let $A$ be a real symmetric $n \times n$ matrix. Which of the following are always true?
+\begin{options}
+  \correct $A^2$ is positive semidefinite.
+  \option $A$ is invertible.
+  \correct Every vector in $\operatorname{Nul} A$ is orthogonal to every vector in $\operatorname{Col} A$.
+  \option The diagonal entries of $A$ are its eigenvalues.
+\end{options}
+\begin{solution}
+$x^TA^2x = x^TA^TAx = \|Ax\|^2 \ge 0$ (A). $\operatorname{Nul} A$ is the orthogonal complement of $\operatorname{Row} A$, which equals $\operatorname{Col} A$ because $A^T = A$ (C). The zero matrix shows that (B) fails, and $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$, with eigenvalues $\pm 1$, shows that (D) fails.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sym-13, marks=2]
+What is the largest value of $Q(x) = 2x_1^2 + 2x_2^2 + 2x_3^2 + 2x_1x_2 + 2x_1x_3 + 2x_2x_3$ on the unit sphere $\|x\| = 1$?
+\answer{4}
+\begin{solution}
+The matrix of $Q$ is $A = \begin{bmatrix} 2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2 \end{bmatrix} = I + J$, where $J$ is the all-ones matrix. $J$ has eigenvalues 3, 0, 0, so $A$ has eigenvalues 4, 1, 1. The maximum of $x^TAx$ over unit vectors is the largest eigenvalue, 4, attained at $x = \frac{1}{\sqrt{3}}(1, 1, 1)$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sym-14]
+The quadratic form $Q(x, y) = x^2 - 2xy + y^2$ is
+\begin{options}
+  \option positive definite
+  \correct positive semidefinite but not positive definite
+  \option indefinite
+  \option negative semidefinite
+\end{options}
+\begin{solution}
+$Q(x, y) = (x - y)^2 \ge 0$, but $Q(1, 1) = 0$ with $(1, 1) \ne 0$. Equivalently, the matrix $\begin{bmatrix} 1 & -1 \\ -1 & 1 \end{bmatrix}$ has eigenvalues 2 and 0.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sym-15]
+What is the sum of the singular values of $A = \begin{bmatrix} 0 & 2 \\ -3 & 0 \end{bmatrix}$?
+\answer{5}
+\begin{solution}
+$A^TA = \begin{bmatrix} 9 & 0 \\ 0 & 4 \end{bmatrix}$, so the singular values are $\sqrt{9} = 3$ and $\sqrt{4} = 2$, and their sum is 5. (They are not related to the eigenvalues of $A$, which are $\pm i\sqrt{6}$.)
+\end{solution}
+\end{question}
+
+\begin{question}[id=sym-16, type=msq, marks=2]
+Let $A = U\Sigma V^T$ be a singular value decomposition of a real $m \times n$ matrix $A$ of rank $r$. Which of the following are true?
+\begin{options}
+  \correct $A$ has exactly $r$ nonzero singular values.
+  \correct The columns of $V$ are eigenvectors of $A^TA$.
+  \option If $A$ is square, its singular values are the absolute values of its eigenvalues.
+  \correct The first $r$ columns of $U$ form an orthonormal basis of $\operatorname{Col} A$.
+\end{options}
+\begin{solution}
+$A^TA = V\Sigma^T\Sigma V^T$ is an orthogonal diagonalization, so the columns of $V$ are eigenvectors of $A^TA$, for the eigenvalues $\sigma_i^2$ (B). The rank of $A$ is the rank of $\Sigma$, the number of nonzero $\sigma_i$ (A), and $Av_i = \sigma_i u_i$ shows that the orthonormal vectors $u_1, \dots, u_r$ lie in $\operatorname{Col} A$, which has dimension $r$ (D). For (C), $\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$ has eigenvalues 0, 0 but singular values 1, 0.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sym-17, marks=2]
+An orthogonal change of variable $x = Py$ turns $Q(x) = 3x_1^2 - 4x_1x_2 + 6x_2^2$ into $ay_1^2 + by_2^2$ with $a \le b$. Then $b =$
+\answer{7}
+\begin{solution}
+The matrix of $Q$ is $\begin{bmatrix} 3 & -2 \\ -2 & 6 \end{bmatrix}$, with characteristic polynomial $\lambda^2 - 9\lambda + 14 = (\lambda - 2)(\lambda - 7)$. By the principal axes theorem, $a$ and $b$ are its eigenvalues, so $a = 2$ and $b = 7$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sym-18]
+A real symmetric matrix $A$ is positive definite if and only if
+\begin{options}
+  \option all its diagonal entries are positive
+  \option all its entries are positive
+  \option $\det A > 0$
+  \correct all its eigenvalues are positive
+\end{options}
+\begin{solution}
+Writing $A = PDP^T$ and $x = Py$ gives $x^TAx = \sum_i \lambda_i y_i^2$, which is positive for every $x \ne 0$ exactly when every $\lambda_i > 0$. The others fail: $\begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix}$ has positive entries but the eigenvalue $-1$, and $-I_2$ has determinant $1 > 0$.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sym-19]
+What is the largest singular value of the $1 \times 3$ matrix $A = [\,1 \;\; 2 \;\; 2\,]$?
+\answer{3}
+\begin{solution}
+$AA^T = [\,1 + 4 + 4\,] = [\,9\,]$, and $A^TA$ and $AA^T$ have the same nonzero eigenvalues, so the only nonzero singular value is $\sqrt{9} = 3$: the length of the row.
+\end{solution}
+\end{question}
+
+\begin{question}[id=sym-20, marks=2]
+Let $A$ be a real symmetric matrix whose eigenvalues are 1 and $-1$ (both occur). Then $A$ is necessarily
+\begin{options}
+  \correct orthogonal
+  \option positive definite
+  \option the identity matrix
+  \option singular
+\end{options}
+\begin{solution}
+Write $A = PDP^T$ with $P$ orthogonal and $D$ diagonal with entries $\pm 1$. Then $D^2 = I$, so $A^TA = A^2 = PD^2P^T = I$, and $A$ is orthogonal. It has the eigenvalue $-1$, so it is neither positive definite nor $I$; and it is invertible, since 0 is not an eigenvalue.
+\end{solution}
+\end{question}
+
+% ---------------------------------------- questions from past GATE papers
+
+\begin{question}[id=gate-ec2010-1, source=GATE EC 2010]
+The eigenvalues of a real skew-symmetric matrix are
+\begin{options}
+  \option always zero
+  \option always pure imaginary
+  \correct either zero or pure imaginary
+  \option always real
+\end{options}
+\begin{solution}
+If $Ax = \lambda x$ with $x \ne 0$ (possibly complex), then $\lambda\|x\|^2 = \bar{x}^TAx$, and $\overline{\bar{x}^TAx} = \bar{x}^TA^Tx = -\bar{x}^TAx$ (it is a $1 \times 1$ matrix, equal to its transpose), so $\bar{x}^TAx$ is zero or purely imaginary, and so is $\lambda$. Both cases occur: $\begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$ has eigenvalues $\pm i$, and the zero matrix has eigenvalue 0.
+\end{solution}
+\end{question}
+
+\begin{question}[id=gate-me2007-1, source=GATE ME 2007]
+If a square matrix $A$ is real and symmetric, then its eigenvalues
+\begin{options}
+  \correct are always real
+  \option are always real and positive
+  \option are always real and non-negative
+  \option occur in complex conjugate pairs
+\end{options}
+\begin{solution}
+The eigenvalues of a real symmetric matrix are real (it is orthogonally diagonalizable). They need not be positive or non-negative: $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$ has the eigenvalue $-1$.
 \end{solution}
 \end{question}
 

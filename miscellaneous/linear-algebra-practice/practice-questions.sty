@@ -18,13 +18,15 @@
 \define@key{question}{id}{\def\pq@id{#1}}
 \define@key{question}{marks}{\def\pq@marks{#1}}
 \define@key{question}{type}{\def\pq@type{\MakeUppercase{#1}}}
+\define@key{question}{source}{\def\pq@source{#1}}
 \newcounter{question}
 \newenvironment{question}[1][]{%
-  \def\pq@id{}\def\pq@marks{1}\def\pq@type{}%
+  \def\pq@id{}\def\pq@marks{1}\def\pq@type{}\def\pq@source{}%
   \setkeys{question}{#1}%
   \refstepcounter{question}%
   \par\bigskip\needspace
-  \textbf{Q\thequestion.}\hfill{\small\color{gray}\pq@id\quad\pq@type\quad
+  \textbf{Q\thequestion.}\ifx\pq@source\empty\else\ {\small\color{orange!70!black}[\pq@source]}\fi
+  \hfill{\small\color{gray}\pq@id\quad\pq@type\quad
     \pq@marks~mark\ifnum\pq@marks>1 s\fi}\par\nopagebreak\smallskip
 }{\par}
 \newcommand\needspace{\penalty-100 }

@@ -81,6 +81,7 @@
     .lp-tag { padding: .15rem .6rem; border-radius: 999px; border: 1px solid var(--tl-line); background: var(--tl-soft); color: var(--tl-muted);
       font-size: .78rem; font-weight: 600; }
     .lp-tag-type { border-color: var(--tl-accent); background: var(--tl-accent-soft); color: var(--tl-accent); }
+    .lp-tag-src { border-color: var(--tl-warn); background: var(--tl-warn-soft); color: var(--tl-warn); }
     .lp-q { margin: 1rem 0 .4rem; font-size: 1.06rem; line-height: 1.75; color: var(--tl-ink); overflow-x: auto; }
     .lp-help { margin: 0 0 1rem; font-size: .85rem; color: var(--tl-muted); }
     .lp-options { display: grid; gap: .5rem; min-width: 0; margin: 0; padding: 0; border: 0; }
@@ -185,7 +186,8 @@
           </div>
           <p class="tl-lead">
             Exam-style questions, topic by topic, in the format of GATE and CSIR-NET: multiple choice (MCQ), multiple
-            select (MSQ) and numerical answer (NAT) questions, each with a worked solution.
+            select (MSQ) and numerical answer (NAT) questions, each with a worked solution. Questions from past GATE
+            papers are marked with the paper and year.
           </p>
 
           <!-- 1. choose the questions -->
@@ -231,6 +233,7 @@
             </div>
             <p class="lp-mode-help" id="lp-mode-help"></p>
             <div class="lp-checks">
+              <label class="tl-check"><input type="checkbox" id="lp-gate"> Only questions from past GATE papers</label>
               <label class="tl-check"><input type="checkbox" id="lp-fresh" checked> Questions I have not got right yet come first</label>
               <span class="lp-checks" id="lp-test-opts" style="margin: 0;" hidden>
                 <label class="tl-check"><input type="checkbox" id="lp-negative" checked> Negative marks for wrong MCQ answers</label>
