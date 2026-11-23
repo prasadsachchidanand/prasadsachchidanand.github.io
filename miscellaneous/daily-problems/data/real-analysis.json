@@ -2498,6 +2498,20 @@
         "series",
         "sequences"
       ]
+    },
+    {
+      "date": "2026-11-23",
+      "title": "Bartle and Sherbert 3.2.16: The ratio test for sequences applied to $(a^n)$, $(b^n/2^n)$, $(n/b^n)$ and $(2^{3n}/3^{2n})$",
+      "difficulty": "easy",
+      "problem": "Apply Theorem 3.2.11 to the following sequences, where $a, b$ satisfy $0 \\lt a \\lt 1$, $b \\gt 1$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$(a^n)$,</li>\n<li class=\"my-4\">$(b^n/2^n)$,</li>\n<li class=\"my-4\">$(n/b^n)$,</li>\n<li class=\"my-4\">$(2^{3n}/3^{2n})$.</li></ol><div class=\"my-4\"><strong>Theorem 3.2.11.</strong> Let $(x_n)$ be a sequence of positive real numbers such that $L := \\lim(x_{n+1}/x_n)$ exists. If $L \\lt 1$, then $(x_n)$ converges and $\\lim(x_n) = 0$.</div>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Each sequence has positive terms. Compute $x_{n+1}/x_n$ and its limit $L$.</li>\n<li class=\"my-4\">In (b) the answer depends on how $b$ compares with $2$: the theorem only applies when $L \\lt 1$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">All four sequences have positive terms, so in each case we compute $L = \\lim(x_{n+1}/x_n)$ and apply the theorem when $L \\lt 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> $x_n = a^n$, so $x_{n+1}/x_n = a$ for every $n$. Thus $L = a \\lt 1$, and $\\lim(a^n) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> $x_n = b^n/2^n = (b/2)^n$, so $x_{n+1}/x_n = b/2$ and $L = b/2$.<ul class=\"math-list-disc my-4\"><li class=\"my-4\">If $1 \\lt b \\lt 2$, then $L \\lt 1$, and $\\lim(b^n/2^n) = 0$.</li>\n<li class=\"my-4\">If $b = 2$, then $L = 1$ and the theorem says nothing; here $x_n = 1$ for every $n$, so the sequence converges to $1$.</li>\n<li class=\"my-4\">If $b \\gt 2$, then $L \\gt 1$ and the theorem does not apply. In fact, writing $b/2 = 1 + h$ with $h \\gt 0$, Bernoulli's inequality gives $(b/2)^n \\geq 1 + nh$, so the sequence is unbounded and diverges (compare Exercise 3.2.18).</li></ul></div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> $x_n = n/b^n$, so\n    \\[\n        \\frac{x_{n+1}}{x_n} = \\frac{n + 1}{b^{n+1}} \\cdot \\frac{b^n}{n} = \\frac{1}{b}\\left( 1 + \\frac{1}{n} \\right) \\to \\frac{1}{b}.\n    \\]\n    Since $b \\gt 1$, $L = 1/b \\lt 1$, and $\\lim(n/b^n) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(d)</strong> $x_n = 2^{3n}/3^{2n} = 8^n/9^n = (8/9)^n$, so $x_{n+1}/x_n = 8/9$. Thus $L = 8/9 \\lt 1$, and $\\lim(2^{3n}/3^{2n}) = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So the theorem shows that the sequences in (a), (c) and (d) tend to $0$ for all $a \\in (0, 1)$ and $b \\gt 1$, while in (b) it applies only when $b \\lt 2$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.16)"
+      ]
     }
   ]
 }

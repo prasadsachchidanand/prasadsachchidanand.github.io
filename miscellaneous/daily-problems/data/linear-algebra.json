@@ -2496,6 +2496,20 @@
         "rank",
         "rank-nullity"
       ]
+    },
+    {
+      "date": "2026-11-22",
+      "title": "Hoffman and Kunze 2.6.1: If $s \\lt n$, a homogeneous system $AX = 0$ of $s$ equations in $n$ unknowns has a non-zero solution",
+      "difficulty": "easy",
+      "problem": "Let $s \\lt n$ and $A$ an $s \\times n$ matrix with entries in the field $F$. Use Theorem 4 (not its proof) to show that there is a non-zero $X$ in $F^{n \\times 1}$ such that $AX = 0$.<div class=\"my-4\">Recall Theorem 4 of Section 2.3: if a vector space $V$ is spanned by a finite set of vectors $\\beta_1, \\ldots, \\beta_m$, then any independent set of vectors in $V$ is finite and contains no more than $m$ elements.</div>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Let $A_1, \\ldots, A_n$ be the columns of $A$. For $X = (x_1, \\ldots, x_n)^T$, the product $AX$ is the linear combination $x_1 A_1 + \\cdots + x_n A_n$ of the columns.</li>\n<li class=\"my-4\">The columns lie in $F^{s \\times 1}$, which is spanned by $s$ vectors. How many of them can be independent?</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">Let $A_1, \\ldots, A_n$ be the columns of $A$; they are vectors in $F^{s \\times 1}$. For $X = (x_1, \\ldots, x_n)^T$ in $F^{n \\times 1}$,\n    \\[\n        AX = x_1 A_1 + x_2 A_2 + \\cdots + x_n A_n,\n    \\]\n    since the $i$-th entry of both sides is $\\sum_{j=1}^{n} A_{ij} x_j$. So we need scalars $x_1, \\ldots, x_n$, not all $0$, with $x_1 A_1 + \\cdots + x_n A_n = 0$: a non-trivial linear relation among the columns.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">The space $F^{s \\times 1}$ is spanned by the $s$ vectors $E_1, \\ldots, E_s$, where $E_i$ has $1$ in row $i$ and $0$ in the other rows. By Theorem 4, every linearly independent set of vectors in $F^{s \\times 1}$ has at most $s$ elements.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The columns are distinct.</strong> Then $\\{A_1, \\ldots, A_n\\}$ is a set of $n \\gt s$ vectors in $F^{s \\times 1}$, so it is not linearly independent: there are scalars $x_1, \\ldots, x_n$, not all $0$, with $x_1 A_1 + \\cdots + x_n A_n = 0$. Then $X = (x_1, \\ldots, x_n)^T$ is non-zero and $AX = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>Two columns are equal</strong>, say $A_j = A_k$ with $j \\ne k$. Then the vector $X$ with $1$ in row $j$, $-1$ in row $k$ and $0$ elsewhere is non-zero, and $AX = A_j - A_k = 0$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">In either case $AX = 0$ has a non-zero solution. This is the familiar fact that a homogeneous system with fewer equations than unknowns has a non-trivial solution, obtained here from the theory of dimension instead of from row reduction.</div>",
+      "tags": [
+        "linear-algebra",
+        "linear-independence",
+        "dimension",
+        "linear-algebra-hoffman-kunze (2.6.1)"
+      ]
     }
   ]
 }

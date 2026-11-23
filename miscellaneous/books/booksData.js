@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-11-19T02:08:43.851Z
+// Generated on: 2026-11-23T02:06:33.231Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -1855,6 +1855,15 @@ const booksData = {
           },
           "6": {
             "problems": [
+              {
+                "number": "2.6.1",
+                "source": "daily",
+                "date": "2026-11-22",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze 2.6.1: If $s \\lt n$, a homogeneous system $AX = 0$ of $s$ equations in $n$ unknowns has a non-zero solution",
+                "difficulty": "easy",
+                "problem": "Let $s \\lt n$ and $A$ an $s \\times n$ matrix with entries in the field $F$. Use Theorem 4 (not its proof) to show that there is a non-zero $X$ in $F^{n \\times 1}$ such that $AX = 0$.<div class=\"my-4\">Recall Theorem 4 of Section 2.3: if a vector space $V$ is spanned by a finite set of vectors $\\beta_1, \\ldots, \\beta_m$, then any independent set of vectors in $V$ is finite and contains no more than $m$ elements.</div>"
+              },
               {
                 "number": "2.6.6",
                 "source": "daily",
@@ -3790,6 +3799,15 @@ const booksData = {
                 "title": "Munkres 2.21.10: The hyperbola, the circle and the closed unit ball are closed in $\\mathbb{R}^2$",
                 "difficulty": "easy",
                 "problem": "Using the closed set formulation of continuity (Theorem 18.1), show that the following are closed subsets of $\\mathbb{R}^2$:\n    \\[\n        \\begin{aligned} A &= \\{ x \\times y \\mid xy = 1 \\}, \\\\ S^1 &= \\{ x \\times y \\mid x^2 + y^2 = 1 \\}, \\\\ B^2 &= \\{ x \\times y \\mid x^2 + y^2 \\leq 1 \\}. \\end{aligned}\n    \\]\n    The set $B^2$ is called the (closed) <strong>unit ball</strong> in $\\mathbb{R}^2$."
+              },
+              {
+                "number": "2.21.11",
+                "source": "daily",
+                "date": "2026-11-26",
+                "topic": "topology",
+                "title": "Munkres 2.21.11: Monotone sequences, the comparison test and the Weierstrass M-test",
+                "difficulty": "medium",
+                "problem": "Prove the following standard facts about infinite series:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $(s_n)$ is a bounded sequence of real numbers and $s_n \\leq s_{n+1}$ for each $n$, then $(s_n)$ converges.</li>\n<li class=\"my-4\">Let $(a_n)$ be a sequence of real numbers; define\n    \\[\n        s_n = \\sum_{i=1}^{n} a_i.\n    \\]\n    If $s_n \\to s$, we say that the <strong>infinite series</strong> $\\sum_{i=1}^{\\infty} a_i$ converges to $s$ also. Show that if $\\sum a_i$ converges to $s$ and $\\sum b_i$ converges to $t$, then $\\sum (c a_i + b_i)$ converges to $cs + t$.</li>\n<li class=\"my-4\">Prove the <strong>comparison test</strong> for infinite series: If $|a_i| \\leq b_i$ for each $i$, and if the series $\\sum b_i$ converges, then the series $\\sum a_i$ converges.</li>\n<li class=\"my-4\">Given a sequence of functions $f_n : X \\to \\mathbb{R}$, let\n    \\[\n        s_n(x) = \\sum_{i=1}^{n} f_i(x).\n    \\]\n    Prove the <strong>Weierstrass M-test</strong> for uniform convergence: If $|f_i(x)| \\leq M_i$ for all $x \\in X$ and all $i$, and if the series $\\sum M_i$ converges, then the sequence $(s_n)$ converges uniformly to a function $s$.</li></ol>"
               }
             ]
           }
@@ -4576,6 +4594,15 @@ const booksData = {
                 "title": "Bartle and Sherbert 3.2.15: $(a^n + b^n)^{1/n} \\to b$ for $0 \\lt a \\lt b$",
                 "difficulty": "easy",
                 "problem": "Show that if $z_n := (a^n + b^n)^{1/n}$ where $0 \\lt a \\lt b$, then $\\lim(z_n) = b$."
+              },
+              {
+                "number": "3.2.16",
+                "source": "daily",
+                "date": "2026-11-23",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 3.2.16: The ratio test for sequences applied to $(a^n)$, $(b^n/2^n)$, $(n/b^n)$ and $(2^{3n}/3^{2n})$",
+                "difficulty": "easy",
+                "problem": "Apply Theorem 3.2.11 to the following sequences, where $a, b$ satisfy $0 \\lt a \\lt 1$, $b \\gt 1$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$(a^n)$,</li>\n<li class=\"my-4\">$(b^n/2^n)$,</li>\n<li class=\"my-4\">$(n/b^n)$,</li>\n<li class=\"my-4\">$(2^{3n}/3^{2n})$.</li></ol><div class=\"my-4\"><strong>Theorem 3.2.11.</strong> Let $(x_n)$ be a sequence of positive real numbers such that $L := \\lim(x_{n+1}/x_n)$ exists. If $L \\lt 1$, then $(x_n)$ converges and $\\lim(x_n) = 0$.</div>"
               }
             ]
           }
