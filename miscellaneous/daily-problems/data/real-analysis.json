@@ -2512,6 +2512,20 @@
         "limits",
         "real-analysis-bartle-sherbert (3.2.16)"
       ]
+    },
+    {
+      "date": "2026-11-30",
+      "title": "Bartle and Sherbert 3.2.17: $\\lim(x_{n+1}/x_n) = 1$ does not decide convergence",
+      "difficulty": "easy",
+      "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Give an example of a convergent sequence $(x_n)$ of positive numbers with $\\lim(x_{n+1}/x_n) = 1$.</li>\n<li class=\"my-4\">Give an example of a divergent sequence with this property. (Thus, this property cannot be used as a test for convergence.)</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Try $x_n = 1/n$ and $x_n = n$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Let $x_n = 1/n$. Then $x_n \\gt 0$, $\\lim(x_n) = 0$, and\n    \\[\n        \\frac{x_{n+1}}{x_n} = \\frac{n}{n + 1} = \\frac{1}{1 + 1/n} \\to 1.\n    \\]\n    (The constant sequence $x_n = 1$ is an even simpler example: it converges to $1$ and every ratio is $1$.)</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> Let $x_n = n$. Then\n    \\[\n        \\frac{x_{n+1}}{x_n} = \\frac{n + 1}{n} = 1 + \\frac{1}{n} \\to 1,\n    \\]\n    but $(x_n)$ is unbounded (by the Archimedean property), so it diverges.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\">So a sequence with $\\lim(x_{n+1}/x_n) = 1$ may converge or diverge: the case $L = 1$ is left open by Theorem 3.2.11 (which covers $L \\lt 1$) and by Exercise 3.2.18 (which covers $L \\gt 1$). In the examples above, $x_n = n^p$ gives ratio limit $1$ for every real $p$, and the sequence converges exactly when $p \\leq 0$.</div>",
+      "tags": [
+        "real-analysis",
+        "sequences",
+        "limits",
+        "real-analysis-bartle-sherbert (3.2.17)"
+      ]
     }
   ]
 }

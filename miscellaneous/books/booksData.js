@@ -1,5 +1,5 @@
 // AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 2026-11-23T02:06:33.231Z
+// Generated on: 2026-11-23T02:21:28.975Z
 // Run "node generate-books-data.js" (from miscellaneous/daily-problems/) to regenerate
 
 const booksData = {
@@ -1865,6 +1865,15 @@ const booksData = {
                 "problem": "Let $s \\lt n$ and $A$ an $s \\times n$ matrix with entries in the field $F$. Use Theorem 4 (not its proof) to show that there is a non-zero $X$ in $F^{n \\times 1}$ such that $AX = 0$.<div class=\"my-4\">Recall Theorem 4 of Section 2.3: if a vector space $V$ is spanned by a finite set of vectors $\\beta_1, \\ldots, \\beta_m$, then any independent set of vectors in $V$ is finite and contains no more than $m$ elements.</div>"
               },
               {
+                "number": "2.6.2",
+                "source": "daily",
+                "date": "2026-11-29",
+                "topic": "linear-algebra",
+                "title": "Hoffman and Kunze 2.6.2: Which of $\\alpha$, $\\beta$, $\\gamma$ lie in the span of $\\alpha_1, \\alpha_2, \\alpha_3$, over $\\mathbb{R}$ and over $\\mathbb{C}$?",
+                "difficulty": "medium",
+                "problem": "Let\n    \\[\n        \\alpha_1 = (1, 1, -2, 1), \\quad \\alpha_2 = (3, 0, 4, -1), \\quad \\alpha_3 = (-1, 2, 5, 2).\n    \\]\n    Let\n    \\[\n        \\alpha = (4, -5, 9, -7), \\quad \\beta = (3, 1, -4, 4), \\quad \\gamma = (-1, 1, 0, 1).\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Which of the vectors $\\alpha, \\beta, \\gamma$ are in the subspace of $\\mathbb{R}^4$ spanned by the $\\alpha_i$?</li>\n<li class=\"my-4\">Which of the vectors $\\alpha, \\beta, \\gamma$ are in the subspace of $\\mathbb{C}^4$ spanned by the $\\alpha_i$?</li>\n<li class=\"my-4\">Does this suggest a theorem?</li></ol>"
+              },
+              {
                 "number": "2.6.6",
                 "source": "daily",
                 "date": "2026-01-04",
@@ -3019,6 +3028,15 @@ const booksData = {
                 "title": "Munkres - 1.7.7 - Countable Sets: Functions $\\mathbb{Z}_+ \\to \\mathbb{Z}_+$ and functions $\\mathbb{Z}_+ \\to \\{ 0, 1 \\}$ have the same cardinality",
                 "difficulty": "medium",
                 "problem": "Show that the sets $D$ and $E$ of Exercise 5 have the same cardinality. [<strong>Recall:</strong> In <a class=\"text-blue-500 hover:text-blue-800\" href=\"/miscellaneous/daily-problems/problem/?date=2026-11-14\">Exercise 5</a>, $D$ is the set of all functions $f : \\mathbb{Z}_+ \\to \\mathbb{Z}_+$, and $E$ is the set of all functions $f : \\mathbb{Z}_+ \\to \\{ 0, 1 \\}$. Two sets have the same cardinality if there is a bijection of one with the other.]"
+              },
+              {
+                "number": "1.7.8",
+                "source": "daily",
+                "date": "2026-12-05",
+                "topic": "miscellaneous",
+                "title": "Munkres - 1.7.8 - Countable Sets: $\\{ 0, 1 \\}^\\omega$ and the set of its countable subsets have the same cardinality",
+                "difficulty": "medium",
+                "problem": "Let $X$ denote the two-element set $\\{ 0, 1 \\}$; let $\\mathcal{B}$ be the set of <em>countable</em> subsets of $X^\\omega$. Show that $X^\\omega$ and $\\mathcal{B}$ have the same cardinality."
               }
             ]
           }
@@ -3808,6 +3826,15 @@ const booksData = {
                 "title": "Munkres 2.21.11: Monotone sequences, the comparison test and the Weierstrass M-test",
                 "difficulty": "medium",
                 "problem": "Prove the following standard facts about infinite series:\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that if $(s_n)$ is a bounded sequence of real numbers and $s_n \\leq s_{n+1}$ for each $n$, then $(s_n)$ converges.</li>\n<li class=\"my-4\">Let $(a_n)$ be a sequence of real numbers; define\n    \\[\n        s_n = \\sum_{i=1}^{n} a_i.\n    \\]\n    If $s_n \\to s$, we say that the <strong>infinite series</strong> $\\sum_{i=1}^{\\infty} a_i$ converges to $s$ also. Show that if $\\sum a_i$ converges to $s$ and $\\sum b_i$ converges to $t$, then $\\sum (c a_i + b_i)$ converges to $cs + t$.</li>\n<li class=\"my-4\">Prove the <strong>comparison test</strong> for infinite series: If $|a_i| \\leq b_i$ for each $i$, and if the series $\\sum b_i$ converges, then the series $\\sum a_i$ converges.</li>\n<li class=\"my-4\">Given a sequence of functions $f_n : X \\to \\mathbb{R}$, let\n    \\[\n        s_n(x) = \\sum_{i=1}^{n} f_i(x).\n    \\]\n    Prove the <strong>Weierstrass M-test</strong> for uniform convergence: If $|f_i(x)| \\leq M_i$ for all $x \\in X$ and all $i$, and if the series $\\sum M_i$ converges, then the sequence $(s_n)$ converges uniformly to a function $s$.</li></ol>"
+              },
+              {
+                "number": "2.21.12",
+                "source": "daily",
+                "date": "2026-12-03",
+                "topic": "topology",
+                "title": "Munkres 2.21.12: Addition, multiplication, reciprocals, subtraction and quotients are continuous on $\\mathbb{R}$",
+                "difficulty": "medium",
+                "problem": "Prove continuity of the algebraic operations on $\\mathbb{R}$, as follows: Use the metric $d(a, b) = \\vert a - b \\vert$ on $\\mathbb{R}$ and the metric on $\\mathbb{R}^2$ given by the equation\n    \\[\n        \\rho((x, y), (x_0, y_0)) = \\max \\{ \\vert x - x_0 \\vert, \\vert y - y_0 \\vert \\}.\n    \\]\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Show that addition is continuous.</li>\n<li class=\"my-4\">Show that multiplication is continuous.</li>\n<li class=\"my-4\">Show that the operation of taking reciprocals is a continuous map from $\\mathbb{R} - \\{ 0 \\}$ to $\\mathbb{R}$.</li>\n<li class=\"my-4\">Show that the subtraction and quotient operations are continuous.</li></ol>"
               }
             ]
           }
@@ -4603,6 +4630,15 @@ const booksData = {
                 "title": "Bartle and Sherbert 3.2.16: The ratio test for sequences applied to $(a^n)$, $(b^n/2^n)$, $(n/b^n)$ and $(2^{3n}/3^{2n})$",
                 "difficulty": "easy",
                 "problem": "Apply Theorem 3.2.11 to the following sequences, where $a, b$ satisfy $0 \\lt a \\lt 1$, $b \\gt 1$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">$(a^n)$,</li>\n<li class=\"my-4\">$(b^n/2^n)$,</li>\n<li class=\"my-4\">$(n/b^n)$,</li>\n<li class=\"my-4\">$(2^{3n}/3^{2n})$.</li></ol><div class=\"my-4\"><strong>Theorem 3.2.11.</strong> Let $(x_n)$ be a sequence of positive real numbers such that $L := \\lim(x_{n+1}/x_n)$ exists. If $L \\lt 1$, then $(x_n)$ converges and $\\lim(x_n) = 0$.</div>"
+              },
+              {
+                "number": "3.2.17",
+                "source": "daily",
+                "date": "2026-11-30",
+                "topic": "real-analysis",
+                "title": "Bartle and Sherbert 3.2.17: $\\lim(x_{n+1}/x_n) = 1$ does not decide convergence",
+                "difficulty": "easy",
+                "problem": "<ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Give an example of a convergent sequence $(x_n)$ of positive numbers with $\\lim(x_{n+1}/x_n) = 1$.</li>\n<li class=\"my-4\">Give an example of a divergent sequence with this property. (Thus, this property cannot be used as a test for convergence.)</li></ol>"
               }
             ]
           }

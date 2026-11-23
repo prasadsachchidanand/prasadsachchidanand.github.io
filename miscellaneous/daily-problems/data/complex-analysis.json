@@ -2416,6 +2416,19 @@
         "mobius-transformation",
         "power-series"
       ]
+    },
+    {
+      "date": "2026-12-01",
+      "title": "Schwarz's lemma: if $f$ maps the unit disc into itself with $f(0) = 0$, then $\\vert f(z) \\vert \\leq \\vert z \\vert$",
+      "difficulty": "medium",
+      "problem": "Let $\\mathbb{D} = \\{ z \\in \\mathbb{C} : \\vert z \\vert \\lt 1 \\}$, and let $f : \\mathbb{D} \\to \\mathbb{D}$ be analytic with $f(0) = 0$.\n    <ol class=\"math-list-alpha my-4\"><li class=\"my-4\">Prove <strong>Schwarz's lemma</strong>: $\\vert f(z) \\vert \\leq \\vert z \\vert$ for every $z \\in \\mathbb{D}$, and $\\vert f'(0) \\vert \\leq 1$.</li>\n<li class=\"my-4\">Show that if $\\vert f(z_0) \\vert = \\vert z_0 \\vert$ for some $z_0 \\neq 0$ in $\\mathbb{D}$, or if $\\vert f'(0) \\vert = 1$, then $f(z) = e^{\\iota\\theta} z$ for some real $\\theta$: $f$ is a rotation.</li>\n<li class=\"my-4\">Is there an analytic $f : \\mathbb{D} \\to \\mathbb{D}$ with $f(0) = 0$ and $f(1/2) = 3/4$?</li></ol>",
+      "hint": "<ul class=\"math-list-disc my-4\"><li class=\"my-4\">Apply the maximum modulus principle to $g(z) = f(z)/z$ (with $g(0) = f'(0)$) on the disc $\\vert z \\vert \\leq r$, and let $r \\to 1$.</li>\n<li class=\"my-4\">For (b), in either case $\\vert g \\vert$ attains its maximum at a point inside $\\mathbb{D}$.</li></ul>",
+      "solution": "<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>The function $g$.</strong> Since $f(0) = 0$, the power series of $f$ at $0$ is $f(z) = a_1 z + a_2 z^2 + \\cdots$ with $a_1 = f'(0)$. Define $g(z) = f(z)/z$ for $z \\neq 0$ and $g(0) = f'(0)$. Then $g(z) = a_1 + a_2 z + \\cdots$ near $0$, so $g$ is analytic on $\\mathbb{D}$ (the singularity at $0$ is removable).</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(a)</strong> Fix $z \\in \\mathbb{D}$ and take $r$ with $\\vert z \\vert \\lt r \\lt 1$. By the maximum modulus principle on the closed disc $\\vert w \\vert \\leq r$, and since $\\vert f \\vert \\lt 1$ on $\\mathbb{D}$,\n    \\[\n        \\vert g(z) \\vert \\leq \\max_{\\vert w \\vert = r} \\vert g(w) \\vert = \\max_{\\vert w \\vert = r} \\frac{\\vert f(w) \\vert}{r} \\leq \\frac{1}{r}.\n    \\]\n    Letting $r \\to 1^-$ gives $\\vert g(z) \\vert \\leq 1$. So $\\vert f(z) \\vert \\leq \\vert z \\vert$ for $z \\neq 0$ (and trivially for $z = 0$), and $\\vert f'(0) \\vert = \\vert g(0) \\vert \\leq 1$.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(b)</strong> If $\\vert f(z_0) \\vert = \\vert z_0 \\vert$ with $z_0 \\neq 0$, then $\\vert g(z_0) \\vert = 1$; if $\\vert f'(0) \\vert = 1$, then $\\vert g(0) \\vert = 1$. In either case $\\vert g \\vert \\leq 1$ on $\\mathbb{D}$ and $\\vert g \\vert$ attains the value $1$ at an interior point, so by the maximum modulus principle $g$ is constant on the (connected) disc: $g \\equiv c$ with $\\vert c \\vert = 1$. Writing $c = e^{\\iota\\theta}$, we get $f(z) = e^{\\iota\\theta} z$. Conversely every rotation maps $\\mathbb{D}$ onto itself and fixes $0$, so the bounds in (a) are sharp.</div>\n\n<hr class=\"h-px my-4 bg-gray-300 border-0\">\n<div class=\"leading-relaxed lg:text-lg md:text-base text-justify\"><strong>(c)</strong> No. By (a), any such $f$ has $\\vert f(1/2) \\vert \\leq 1/2 \\lt 3/4$.</div>",
+      "tags": [
+        "complex-analysis",
+        "analytic-functions",
+        "maximum-modulus-principle"
+      ]
     }
   ]
 }
