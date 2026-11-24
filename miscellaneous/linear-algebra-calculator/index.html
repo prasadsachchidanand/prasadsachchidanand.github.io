@@ -39,6 +39,7 @@
     .la-ops button[aria-pressed="true"] { border-color: var(--tl-accent); background: var(--tl-accent-soft); color: var(--tl-accent); font-weight: 600; }
     .la-ops button i { width: 1.1rem; text-align: center; }
     .la-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .5rem; }
+    .la-copy { display: flex; flex-wrap: wrap; gap: .5rem; }
     .la-head h2 { margin: 0; font-size: 1.25rem; font-weight: 600; color: var(--tl-ink); }
     .la-block { margin-top: 1rem; }
     .la-block h3 { margin: 0 0 .4rem; font-size: 1rem; font-weight: 700; color: var(--tl-ink); }
@@ -47,6 +48,7 @@
     .la-steps li { margin: .1rem 0; }
     .la-details { margin: .5rem 0; padding: .5rem .8rem; border: 1px solid var(--tl-line); border-radius: .6rem; background: var(--tl-soft); }
     .la-details summary { cursor: pointer; font-weight: 600; color: var(--tl-ink); }
+    @media (max-width: 640px) { .la-details { padding-inline: .5rem; } .la-details .la-details { padding-inline: .35rem; } }
     .la-table { overflow-x: auto; }
     .la-table table { border-collapse: collapse; width: 100%; font-size: .92rem; }
     .la-table th, .la-table td { padding: .5rem .6rem; border-bottom: 1px solid var(--tl-line); text-align: left; vertical-align: middle; }
@@ -130,7 +132,10 @@
           <div class="tl-card" id="la-result" style="margin-top: 1.5rem;" hidden>
             <div class="la-head">
               <h2 id="la-title"></h2>
-              <button type="button" class="tl-btn" id="la-copy"><i class="fas fa-copy"></i> Copy LaTeX</button>
+              <div class="la-copy">
+                <button type="button" class="tl-btn" id="la-copy"><i class="fas fa-copy"></i> Copy LaTeX</button>
+                <button type="button" class="tl-btn" id="la-copy-typst"><i class="fas fa-copy"></i> Copy Typst</button>
+              </div>
             </div>
             <div id="la-output" aria-live="polite"></div>
           </div>

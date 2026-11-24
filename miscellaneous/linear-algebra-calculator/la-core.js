@@ -423,6 +423,42 @@ export function verifyEigen(A, ev) {
   });
 }
 
+// ---------------------------------------------------------------- det(A − λI) by cofactor expansion
+// Polynomials in λ over Q, low → high. The entries of A − λI have degree at most 1.
+export const addP = (a, b) => trimP(Array.from({ length: Math.max(a.length, b.length) }, (_, i) => (a[i] || Q.ZERO).add(b[i] || Q.ZERO)));
+export const mulP = (a, b) => {
+  const r = Array(a.length + b.length - 1).fill(Q.ZERO);
+  a.forEach((x, i) => b.forEach((y, j) => { r[i + j] = r[i + j].add(x.mul(y)); }));
+  return trimP(r);
+};
+export const scaleP = (p, q) => trimP(p.map(c => c.mul(q)));
+export const zeroP = p => p.every(c => c.isZero());
+export const charMatrix = A => A.map((row, i) => row.map((v, j) => (i === j ? [v, Q.ONE.neg()] : [v])));
+
+// The expansion of det B (B a square matrix of polynomials), as a tree: at each step the row or
+// column with the most zeros, and for each nonzero entry its sign (−1)^(i+j) and the expansion of
+// its minor. A triangular matrix is not expanded (its determinant is the product of the diagonal).
+export function cofactorTree(B) {
+  const k = B.length;
+  if (k === 1) return { k, B, kind: 'one', value: trimP(B[0][0]) };
+  if (k === 2) return { k, B, kind: 'two', value: addP(mulP(B[0][0], B[1][1]), scaleP(mulP(B[0][1], B[1][0]), Q.ONE.neg())) };
+  const upper = B.every((r, i) => r.every((p, j) => j >= i || zeroP(p)));
+  const lower = B.every((r, i) => r.every((p, j) => j <= i || zeroP(p)));
+  if (upper || lower) return { k, B, kind: 'triangular', upper, lower, value: B.reduce((acc, r, i) => mulP(acc, r[i]), [Q.ONE]) };
+  let line = null;                                   // ties: rows before columns, the first one
+  for (let i = 0; i < k; i++) { const z = B[i].filter(zeroP).length; if (!line || z > line.zeros) line = { row: true, index: i, zeros: z }; }
+  for (let j = 0; j < k; j++) { const z = B.filter(r => zeroP(r[j])).length; if (z > line.zeros) line = { row: false, index: j, zeros: z }; }
+  const terms = [];
+  for (let t = 0; t < k; t++) {
+    const [i, j] = line.row ? [line.index, t] : [t, line.index];
+    if (zeroP(B[i][j])) continue;
+    const sub = cofactorTree(B.filter((_, r) => r !== i).map(r => r.filter((_, c) => c !== j)));
+    const sign = (i + j) % 2 ? -1 : 1;
+    terms.push({ i, j, sign, entry: B[i][j], sub, value: scaleP(mulP(B[i][j], sub.value), Q.int(sign)) });
+  }
+  return { k, B, kind: 'expand', line, terms, value: terms.reduce((acc, t) => addP(acc, t.value), [Q.ZERO]) };
+}
+
 // ---------------------------------------------------------------- TeX
 export const texMatrix = (M, bar = -1) => {
   if (bar >= 0) {
