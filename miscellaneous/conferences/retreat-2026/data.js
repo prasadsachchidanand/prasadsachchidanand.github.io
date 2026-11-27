@@ -43,11 +43,11 @@ window.RETREAT = {
     { name: 'Jyoti Yadav', institution: 'IIIT-Delhi' },
 
     { name: 'Abhijit Jana', institution: 'IIT Delhi' },
-    { name: 'Pinakinath Saha', institution: 'IIT Delhi' },
+    { name: 'Pinakinath Saha', institution: 'IIT Delhi', url: 'https://researchambit.iitd.ac.in/faculty/pinakinath' },
     { name: 'Soumyajit Sarkar', institution: 'IIT Delhi' },
 
-    { name: 'Indranil Biswas', institution: 'SNU' },
-    { name: 'Pradip Kumar', institution: 'SNU' },
+    { name: 'Indranil Biswas', institution: 'SNU', url: 'https://snu.edu.in/faculty/indranil-biswas/' },
+    { name: 'Pradip Kumar', institution: 'SNU', url: 'https://snu.edu.in/faculty/pradip-kumar/' },
     { name: 'Shivani Mishra', institution: 'SNU' },
     { name: 'Hariom Singh', institution: 'SNU' },
   ],
