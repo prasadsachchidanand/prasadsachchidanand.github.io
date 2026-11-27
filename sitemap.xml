@@ -55,6 +55,18 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://prasadsachchidanand.github.io/miscellaneous/conferences/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://prasadsachchidanand.github.io/miscellaneous/conferences/retreat-2026/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://prasadsachchidanand.github.io/miscellaneous/linear-algebra-calculator/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVGSV7Y2CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CVGSV7Y2CE');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geometry Retreat 2026 · IIIT-Delhi, 3–6 December 2026</title>
+  <link rel="canonical" href="https://prasadsachchidanand.github.io/miscellaneous/conferences/retreat-2026/" />
+  <meta name="description"
+    content="Geometry Retreat 2026, 3–6 December 2026 at IIIT-Delhi: four days of talks and discussion among geometers and topologists from IIIT-Delhi, Shiv Nadar University and IIT Delhi. Programme, talks, participants and venue.">
+  <meta property="og:title" content="Geometry Retreat 2026 · IIIT-Delhi, 3–6 December 2026">
+  <meta property="og:description" content="Four days of talks and discussion among geometers from IIIT-Delhi, Shiv Nadar University and IIT Delhi.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://prasadsachchidanand.github.io/miscellaneous/conferences/retreat-2026/">
+  <link rel="icon" type="image/png" href="../../../assets/img/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+  <!-- light or dark: the same setting as the rest of the site, applied before the page is drawn -->
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) { }
+      var dark = t === 'dark' || (t !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', dark);
+    })();
+  </script>
+
+  <style>
+    :root {
+      --bg: #f7f6f2; --surface: #ffffff; --ink: #1b1f2a; --text: #3a4050; --muted: #6a7081; --line: #e3e0d7;
+      --accent: #4038b8; --accent-soft: #eeedff;
+      --disc: #0f766e; --disc-soft: #e5f3f0; --meal: #8a6a2e;
+      --hero: #141631; --hero-ink: #f4f2ea; --hero-muted: #b8bbd2; --geo: #9fa2ff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color-scheme: light;
+    }
+    html.dark {
+      --bg: #0d0f1d; --surface: #151930; --ink: #eceef7; --text: #c8ccdb; --muted: #959bb3; --line: #272c48;
+      --accent: #aaacff; --accent-soft: #23264d;
+      --disc: #63d3c3; --disc-soft: #11302d; --meal: #dcb373;
+      --hero: #090b18;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 1rem/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-underline-offset: .18em; }
+    h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 600; line-height: 1.2; }
+    .wrap { max-width: 66rem; margin: 0 auto; padding-inline: 1.25rem; }
+
+    /* top bar */
+    .rt-top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .rt-top .wrap { display: flex; align-items: center; gap: 1rem; min-height: 3.5rem; }
+    .rt-brand { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--ink); text-decoration: none; white-space: nowrap; }
+    .rt-nav { display: flex; gap: .25rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+    .rt-nav a { padding: .4rem .65rem; border-radius: .5rem; color: var(--text); text-decoration: none; font-size: .93rem; white-space: nowrap; }
+    .rt-nav a:hover { background: var(--accent-soft); color: var(--accent); }
+    .rt-icon { flex: none; display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border: 1px solid var(--line); border-radius: .55rem; background: var(--surface); color: var(--text); cursor: pointer; }
+    .rt-icon svg { width: 1.05rem; height: 1.05rem; }
+    html.dark .rt-moon, html:not(.dark) .rt-sun { display: none; }
+
+    /* hero */
+    .rt-hero { background: var(--hero); color: var(--hero-ink); overflow: hidden; }
+    .rt-hero .wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; gap: 2rem; padding-block: 4.5rem; }
+    .rt-kicker { margin: 0; color: var(--hero-muted); letter-spacing: .06em; text-transform: uppercase; font-size: .82rem; font-weight: 600; }
+    .rt-hero h1 { color: var(--hero-ink); font-size: clamp(2.3rem, 6vw, 3.7rem); margin: .6rem 0 1rem; letter-spacing: -.01em; }
+    .rt-tagline { margin: 0; font-size: 1.15rem; color: var(--hero-muted); max-width: 34rem; }
+    .rt-facts { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 1.6rem 0 0; }
+    .rt-facts li, .rt-status { border: 1px solid rgba(255, 255, 255, .18); border-radius: 999px; padding: .25rem .8rem; font-size: .88rem; color: var(--hero-ink); }
+    .rt-status { display: inline-block; margin-top: 1rem; background: rgba(255, 255, 255, .08); }
+    .rt-status[data-live="true"] { background: #1f8f6a; border-color: #1f8f6a; }
+    .rt-art svg { display: block; width: 100%; max-width: 24rem; margin-left: auto; }
+    .rt-art .rim { fill: rgba(255, 255, 255, .03); stroke: var(--geo); stroke-width: .006; }
+    .rt-art path { fill: none; stroke: var(--geo); }
+    .rt-art .g1 { stroke-width: .0045; opacity: .75; }
+    .rt-art .g2 { stroke-width: .006; opacity: .9; stroke: #f0c987; }
+    .rt-art .g3 { stroke-width: .003; opacity: .4; }
+
+    /* sections */
+    main section.rt-section { padding-block: 3.5rem 1rem; }
+    .rt-section > .wrap > h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); margin: 0 0 1.25rem; }
+    .rt-lead { max-width: 44rem; }
+    .rt-lead p { margin: 0 0 1rem; font-size: 1.06rem; }
+    .rt-note { color: var(--muted); font-size: .97rem !important; border-left: 3px solid var(--accent); padding-left: .9rem; }
+    .rt-sub { color: var(--muted); margin: -.6rem 0 1.4rem; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; }
+
+    /* programme */
+    .rt-glance { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .75rem; margin-bottom: 2rem; }
+    .rt-glance-day { display: flex; flex-direction: column; gap: .15rem; padding: 1rem 1.1rem; text-decoration: none; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; transition: border-color .15s, transform .15s; }
+    .rt-glance-day:hover { border-color: var(--accent); transform: translateY(-1px); }
+    .rt-glance-n { color: var(--accent); font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+    .rt-glance-date { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); font-weight: 600; }
+    .rt-glance-sum { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+    .rt-days { display: grid; gap: 1.25rem; }
+    .rt-day { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 1.25rem 1.25rem .75rem; }
+    .rt-day h3 { margin: 0 0 .75rem; font-size: 1.3rem; }
+    .rt-day h3 span { color: var(--accent); font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-right: .5rem; vertical-align: .15em; }
+    .rt-slots { list-style: none; margin: 0; padding: 0; }
+    .rt-slot { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem; padding: .7rem 0; border-top: 1px solid var(--line); }
+    .rt-slot:first-child { border-top: 0; }
+    .rt-time { font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
+    .rt-time span { color: var(--muted); font-weight: 400; }
+    .rt-body { position: relative; border-left: 3px solid var(--line); padding-left: .9rem; }
+    .rt-body p { margin: 0; }
+    .rt-kind { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+    .rt-what { color: var(--ink); font-weight: 600; }
+    .rt-what a { color: inherit; text-decoration-color: var(--accent); }
+    .rt-who { color: var(--muted); font-size: .95rem; }
+    .rt-slot.rt-s-talk .rt-body { border-left-color: var(--accent); }
+    .rt-slot.rt-s-talk { padding-block: .9rem; }
+    .rt-slot.rt-s-talk .rt-what { font-family: var(--serif); font-size: 1.12rem; }
+    .rt-slot.rt-s-discussion .rt-body { border-left-color: var(--disc); }
+    .rt-slot.rt-s-discussion .rt-what { color: var(--disc); }
+    .rt-slot.rt-s-meal .rt-what, .rt-slot.rt-s-break .rt-what, .rt-slot.rt-s-other .rt-what { font-weight: 500; color: var(--text); }
+    .rt-slot.rt-s-meal .rt-body { border-left-color: var(--meal); }
+    .rt-slot.rt-s-break, .rt-slot.rt-s-meal { font-size: .95rem; }
+    .rt-tba { color: var(--muted); font-style: italic; font-weight: 400; }
+    .rt-inst { display: inline-block; font-size: .8rem; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0 .5rem; margin-left: .25rem; font-weight: 400; }
+    .rt-now-badge { display: none; position: absolute; top: 0; right: 0; background: #1f8f6a; color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; border-radius: 999px; padding: .1rem .55rem; }
+    .rt-slot.is-now .rt-now-badge { display: inline-block; }
+    .rt-slot.is-now .rt-body { border-left-color: #1f8f6a; }
+    .rt-format { color: var(--muted); font-size: .93rem; margin-top: 1rem; }
+
+    /* talks */
+    .rt-talks { display: grid; gap: 1rem; }
+    .rt-talk-card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 1rem; padding: 1.2rem 1.4rem; }
+    .rt-talk-card h3 { margin: .2rem 0 .3rem; font-size: 1.3rem; }
+    .rt-talk-when { margin: 0; color: var(--accent); font-size: .85rem; font-weight: 600; }
+    .rt-talk-who { margin: 0 0 .6rem; color: var(--ink); }
+    .rt-abstract p { margin: .5rem 0; }
+    .rt-empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 1rem; padding: 1.2rem 1.4rem; color: var(--muted); margin: 0; }
+    .rt-button { display: inline-block; padding: .45rem .9rem; border: 1px solid var(--accent); border-radius: .6rem; text-decoration: none; font-weight: 600; font-size: .92rem; }
+    .rt-button:hover { background: var(--accent-soft); }
+
+    /* institutions and participants */
+    .rt-insts { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; }
+    .rt-inst-card { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 1.2rem 1.3rem; }
+    .rt-inst-card h3 { margin: 0; font-size: 1.35rem; }
+    .rt-inst-card h3 a { color: var(--ink); text-decoration: none; }
+    .rt-inst-card h3 a:hover { color: var(--accent); }
+    .rt-inst-full { margin: .2rem 0 0; color: var(--muted); font-size: .95rem; }
+    .rt-host { font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: .1rem .5rem; vertical-align: .3em; }
+    .rt-people { margin: .8rem 0 0; padding: .8rem 0 0; border-top: 1px solid var(--line); list-style: none; display: grid; gap: .2rem; }
+
+    /* venue */
+    .rt-venue-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1rem; }
+    .rt-venue-grid .card { padding: 1.3rem 1.4rem; }
+    .rt-venue-grid h3 { margin: 0 0 .6rem; font-size: 1.15rem; }
+    .rt-venue-grid p { margin: .3rem 0; }
+    .rt-venue-name { color: var(--ink); font-weight: 600; }
+    .rt-organisers { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: .4rem; }
+    .rt-funding { margin: 0; padding-top: .9rem; border-top: 1px solid var(--line); }
+
+    footer.rt-foot { margin-top: 3.5rem; border-top: 1px solid var(--line); padding-block: 1.6rem 2rem; color: var(--muted); font-size: .9rem; }
+    footer.rt-foot .wrap { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; }
+    footer.rt-foot a { color: var(--muted); }
+
+    @media (max-width: 760px) {
+      .rt-top .wrap { flex-wrap: wrap; gap: .25rem .75rem; padding-block: .4rem; }
+      .rt-nav { order: 3; width: 100%; margin-left: -.65rem; }
+      .rt-icon { margin-left: auto; }
+      .rt-hero .wrap { grid-template-columns: 1fr; padding-block: 3rem 2.5rem; position: relative; }
+      .rt-art { position: absolute; right: -5rem; top: -2rem; width: 17rem; opacity: .35; pointer-events: none; }
+      .rt-hero .wrap > div:first-child { position: relative; z-index: 1; }
+      .rt-slot { grid-template-columns: 1fr; gap: .25rem; }
+      .rt-venue-grid { grid-template-columns: 1fr; }
+    }
+    @media print {
+      .rt-top, .rt-art, .rt-button, .rt-status { display: none !important; }
+      .rt-hero { background: none; color: #000; }
+      .rt-hero h1, .rt-tagline, .rt-kicker { color: #000; }
+      .rt-day { break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="rt-top">
+    <div class="wrap">
+      <a class="rt-brand" href="#top" id="rt-brand">Retreat 2026</a>
+      <nav class="rt-nav" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#programme">Programme</a>
+        <a href="#talks">Talks</a>
+        <a href="#participants">Participants</a>
+        <a href="#venue">Venue</a>
+      </nav>
+      <button type="button" class="rt-icon" id="rt-theme" aria-label="Switch between light and dark mode" title="Light / dark mode">
+        <svg class="rt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="rt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="rt-hero">
+      <div class="wrap">
+        <div>
+          <p class="rt-kicker" id="rt-kicker">3–6 December 2026 · IIIT-Delhi, New Delhi</p>
+          <h1 id="rt-title">Geometry Retreat 2026</h1>
+          <p class="rt-tagline" id="rt-tagline">Four days of talks and discussion among geometers from IIIT-Delhi, Shiv Nadar University and IIT Delhi.</p>
+          <ul class="rt-facts" id="rt-facts"></ul>
+          <span class="rt-status" id="rt-status"></span>
+        </div>
+        <div class="rt-art" id="rt-art" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="rt-section" id="about">
+      <div class="wrap">
+        <h2>About the retreat</h2>
+        <div class="rt-lead" id="rt-about"></div>
+      </div>
+    </section>
+
+    <section class="rt-section" id="programme">
+      <div class="wrap">
+        <h2>Programme</h2>
+        <div class="rt-glance" id="rt-glance"></div>
+        <div class="rt-days" id="rt-days"></div>
+        <p class="rt-format" id="rt-format"></p>
+      </div>
+    </section>
+
+    <section class="rt-section" id="talks">
+      <div class="wrap">
+        <h2>Talks</h2>
+        <div class="rt-talks" id="rt-talks"></div>
+      </div>
+    </section>
+
+    <section class="rt-section" id="participants">
+      <div class="wrap">
+        <h2>Participating institutions</h2>
+        <p class="rt-sub" id="rt-participants-note"></p>
+        <div class="rt-insts" id="rt-institutions"></div>
+      </div>
+    </section>
+
+    <section class="rt-section" id="venue">
+      <div class="wrap">
+        <h2>Venue</h2>
+        <div class="rt-venue-grid">
+          <div class="card" id="rt-venue"></div>
+          <div class="card">
+            <h3>Organisers</h3>
+            <ul class="rt-organisers" id="rt-organisers"></ul>
+            <p class="rt-funding" id="rt-funding"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rt-foot">
+    <div class="wrap">
+      <span id="rt-foot"></span>
+    </div>
+  </footer>
+
+  <noscript><p class="wrap">This page needs JavaScript to show the programme.</p></noscript>
+  <script src="data.js"></script>
+  <script src="retreat.js"></script>
+</body>
+</html>

@@ -30,8 +30,10 @@
     { label: 'Contact', path: 'contact/' },
   ];
 
-  // Dropdown under "Miscellaneous": [label, path]. Pages not listed here are
-  // still reachable from the Miscellaneous page itself.
+  // Dropdown under "Miscellaneous": [label, path] or [label, path, children], where children
+  // are [label, path] (add 'new-tab' as a third entry to open it in a new tab). Children open
+  // in a small side menu on hover (wide screens) or with the arrow next to the entry (phones).
+  // Pages not listed here are still reachable from the Miscellaneous page itself.
   const MISC_MENU = [
     ['Daily problems', 'miscellaneous/daily-problems/'],
     ['Book solutions', 'miscellaneous/books/'],
@@ -44,6 +46,10 @@
     ['Useful links', 'miscellaneous/useful-links/'],
     ['Code formatter', 'miscellaneous/code-formatter/'],
     ['Citation tools', 'miscellaneous/citation-tools/'],
+    ['Conferences', 'miscellaneous/conferences/', [
+      ['Retreat 2026', 'miscellaneous/conferences/retreat-2026/'],
+      ['ICDGT 2024', 'ICDGT-2024/', 'new-tab'],
+    ]],
   ];
   // The dropdown under "Teaching" is filled from teaching/courses-data.json:
   // courses with "status": "ongoing" first, then the rest in file order.
@@ -161,6 +167,15 @@
     .sl-item { display: block; padding: 7px 12px; border-radius: 6px; text-decoration: none; color: var(--sl-muted); font-size: 14px; line-height: 20px; }
     .sl-item:hover { color: #ffffff; background: var(--sl-hover); }
     .sl-item-title { font-weight: 600; }
+    /* An entry with children (Conferences): phones open them below it with its arrow */
+    .sl-group { display: flex; flex-wrap: wrap; align-items: center; border-radius: 6px; }
+    .sl-group > .sl-item { flex: 1; min-width: 0; }
+    .sl-sub-caret { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 0; border-radius: 6px; background: transparent; color: var(--sl-muted); cursor: pointer; }
+    .sl-sub-caret:hover { color: #ffffff; background: var(--sl-hover); }
+    .sl-sub-caret svg { width: 14px; height: 14px; }
+    .sl-sub-caret[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .sl-subpanel { display: none; width: 100%; margin: 2px 0 4px 12px; padding-left: 8px; border-left: 2px solid var(--sl-line); }
+    .sl-group.sl-sub-open > .sl-subpanel { display: block; }
     .sl-sub { display: block; font-size: 12.5px; opacity: 0.8; }
     .sl-item[aria-current="page"] .sl-item-title { color: #ffffff; }
     .sl-now { display: inline-block; margin-left: 8px; padding: 0 7px; border-radius: 999px; font-size: 11px; font-weight: 600; line-height: 18px; background: var(--sl-active); color: #ffffff; vertical-align: 1px; }
@@ -196,6 +211,23 @@
       .sl-panel-foot { border-top-color: var(--sl-panel-line); }
       .sl-all { color: var(--sl-panel-accent); }
       .sl-loading { color: var(--sl-panel-muted); }
+
+      /* An entry with children: they open in a small card beside it, on the side with room */
+      .sl-group { position: relative; flex-wrap: nowrap; }
+      .sl-group:hover, .sl-group.sl-sub-open { background: var(--sl-panel-hover); }
+      .sl-group > .sl-item:hover { background: transparent; }
+      .sl-sub-caret { width: 28px; height: 34px; color: var(--sl-panel-muted); }
+      .sl-sub-caret:hover { color: var(--sl-panel-accent); background: transparent; }
+      .sl-sub-caret svg, .sl-sub-caret[aria-expanded="true"] svg { transform: rotate(-90deg); }
+      .sl-subpanel { position: absolute; top: -7px; left: calc(100% + 8px); z-index: 31; width: max-content; min-width: 170px;
+        margin: 0; padding: 6px; border: 1px solid var(--sl-panel-line); border-radius: 10px;
+        background: var(--sl-panel); box-shadow: 0 14px 32px rgba(15, 23, 42, 0.20); }
+      .sl-subpanel::after { content: ""; position: absolute; top: 0; bottom: 0; right: 100%; width: 10px; }
+      .sl-group.sl-flip > .sl-subpanel { left: auto; right: calc(100% + 8px); }
+      .sl-group.sl-flip > .sl-subpanel::after { right: auto; left: 100%; }
+    }
+    @media (min-width: 1024px) and (hover: hover) {
+      .sl-group:hover > .sl-subpanel { display: block; }
     }
     @media (min-width: 1024px) and (max-width: 1100px) {
       .sl-menu, .sl-menu.sl-open { gap: 4px; }
@@ -247,20 +279,30 @@
   const CHEVRON = '<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>';
 
   // The menu entry whose path is the longest match for this page gets aria-current.
+  // An entry with children gets an arrow and a side menu (.sl-group, .sl-subpanel).
   function itemsHtml(items) {
     let best = null;
-    items.forEach(it => { if (HERE.startsWith(ROOT + it.path) && (!best || it.path.length > best.path.length)) best = it; });
-    return items.map(it =>
-      `<a class="sl-item" href="${ROOT}${it.path}"${it === best ? ' aria-current="page"' : ''}>` +
+    items.flatMap(it => [it].concat(it.children || [])).forEach(it => {
+      if (HERE.startsWith(ROOT + it.path) && (!best || it.path.length > best.path.length)) best = it;
+    });
+    const one = it =>
+      `<a class="sl-item" href="${ROOT}${it.path}"${it.newTab ? ' target="_blank" rel="noopener"' : ''}${it === best ? ' aria-current="page"' : ''}>` +
       `<span class="sl-item-title">${esc(it.title)}</span>${it.now ? '<span class="sl-now">Now</span>' : ''}` +
-      `${it.sub ? `<span class="sl-sub">${esc(it.sub)}</span>` : ''}</a>`
-    ).join('');
+      `${it.sub ? `<span class="sl-sub">${esc(it.sub)}</span>` : ''}</a>`;
+    return items.map(it => (it.children && it.children.length
+      ? `<div class="sl-group">${one(it)}` +
+        `<button type="button" class="sl-sub-caret" aria-expanded="false" aria-label="Show ${esc(it.title)} pages">${CHEVRON}</button>` +
+        `<div class="sl-subpanel">${it.children.map(one).join('')}</div></div>`
+      : one(it))).join('');
   }
 
   function panelHtml(link) {
     const id = 'sl-dd-' + link.menu;
     const list = link.menu === 'misc'
-      ? itemsHtml(MISC_MENU.map(([title, path]) => ({ title, path })))
+      ? itemsHtml(MISC_MENU.map(([title, path, children]) => ({
+          title, path,
+          children: (children || []).map(([t, p, opt]) => ({ title: t, path: p, newTab: opt === 'new-tab' })),
+        })))
       : '<div class="sl-loading">Loading courses…</div>';
     const all = link.menu === 'misc' ? 'All of Miscellaneous' : 'All courses';
     return `<div class="sl-panel${link.menu === 'misc' ? ' sl-right' : ''}" id="${id}">` +
@@ -435,9 +477,23 @@
 
       // Dropdowns: the arrow opens the list; the label still goes to the section page.
       const groups = [...this.querySelectorAll('.sl-dd')];
+      // Side menus (children of an entry such as Conferences) open on the side with room
+      const setSub = (sg, open) => {
+        sg.classList.toggle('sl-sub-open', open);
+        sg.querySelector('.sl-sub-caret').setAttribute('aria-expanded', String(open));
+      };
+      const placeSubs = g => g.querySelectorAll('.sl-group').forEach(sg => {
+        sg.classList.toggle('sl-flip', sg.getBoundingClientRect().right + 200 > document.documentElement.clientWidth);
+      });
+      this.querySelectorAll('.sl-group').forEach(sg => {
+        const sc = sg.querySelector('.sl-sub-caret');
+        sc.addEventListener('click', () => setSub(sg, sc.getAttribute('aria-expanded') !== 'true'));
+      });
       const setOpen = (g, open) => {
         g.querySelector('.sl-panel').classList.toggle('sl-show', open);
         g.querySelector('.sl-caret').setAttribute('aria-expanded', String(open));
+        if (open) placeSubs(g);
+        else g.querySelectorAll('.sl-group').forEach(sg => setSub(sg, false));
       };
       const closeAll = except => groups.forEach(g => { if (g !== except) setOpen(g, false); });
       const desktop = window.matchMedia ? window.matchMedia('(min-width: 1024px)') : { matches: true };
