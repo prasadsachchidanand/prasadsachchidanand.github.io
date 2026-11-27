@@ -30,26 +30,37 @@
     { label: 'Contact', path: 'contact/' },
   ];
 
-  // Dropdown under "Miscellaneous": [label, path] or [label, path, children], where children
-  // are [label, path] (add 'new-tab' as a third entry to open it in a new tab). Children open
-  // in a small side menu on hover (wide screens) or with the arrow next to the entry (phones).
+  // Dropdown under "Miscellaneous", in groups with a small heading; on wide screens the
+  // groups marked col: 2 form a second column. An entry is [label, path] or
+  // [label, path, children], where children are [label, path] (add 'new-tab' as a third entry
+  // to open it in a new tab; a path may also be a full https:// address). Children open in a
+  // small side menu on hover (wide screens) or with the arrow next to the entry (phones).
   // Pages not listed here are still reachable from the Miscellaneous page itself.
   const MISC_MENU = [
-    ['Daily problems', 'miscellaneous/daily-problems/'],
-    ['Book solutions', 'miscellaneous/books/'],
-    ['Problems by topic', 'miscellaneous/daily-problems/tags/'],
-    ['Problem sheets', 'miscellaneous/daily-problems/sheets/'],
-    ['Qualifier exams', 'miscellaneous/qualifier-exams/'],
-    ['Quiz', 'miscellaneous/quiz/rules/'],
-    ['Linear algebra practice', 'miscellaneous/linear-algebra-practice/'],
-    ['Linear algebra calculator', 'miscellaneous/linear-algebra-calculator/'],
-    ['Useful links', 'miscellaneous/useful-links/'],
-    ['Code formatter', 'miscellaneous/code-formatter/'],
-    ['Citation tools', 'miscellaneous/citation-tools/'],
-    ['Conferences', 'miscellaneous/conferences/', [
-      ['Retreat 2026', 'miscellaneous/conferences/retreat-2026/'],
-      ['ICDGT 2024', 'ICDGT-2024/', 'new-tab'],
-    ]],
+    { heading: 'Problems', items: [
+      ['Daily problems', 'miscellaneous/daily-problems/'],
+      ['Problems by topic', 'miscellaneous/daily-problems/tags/'],
+      ['Problem sheets', 'miscellaneous/daily-problems/sheets/'],
+      ['Book solutions', 'miscellaneous/books/'],
+      ['Qualifier exams', 'miscellaneous/qualifier-exams/'],
+      ['Quiz', 'miscellaneous/quiz/rules/'],
+    ] },
+    { heading: 'Linear algebra', col: 2, items: [
+      ['Practice', 'miscellaneous/linear-algebra-practice/'],
+      ['Calculator', 'miscellaneous/linear-algebra-calculator/'],
+    ] },
+    { heading: 'Tools', col: 2, items: [
+      ['Code formatter', 'miscellaneous/code-formatter/'],
+      ['Citation tools', 'miscellaneous/citation-tools/'],
+    ] },
+    { heading: 'More', col: 2, items: [
+      ['Useful links', 'miscellaneous/useful-links/'],
+      ['Conferences', 'miscellaneous/conferences/', [
+        ['Retreat 2026', 'miscellaneous/conferences/retreat-2026/', 'new-tab'],
+        // a separate repository, so the full address (works on the local copy too)
+        ['ICDGT 2024', 'https://prasadsachchidanand.github.io/ICDGT-2024/', 'new-tab'],
+      ]],
+    ] },
   ];
   // The dropdown under "Teaching" is filled from teaching/courses-data.json:
   // courses with "status": "ongoing" first, then the rest in file order.
@@ -176,6 +187,9 @@
     .sl-sub-caret[aria-expanded="true"] svg { transform: rotate(180deg); }
     .sl-subpanel { display: none; width: 100%; margin: 2px 0 4px 12px; padding-left: 8px; border-left: 2px solid var(--sl-line); }
     .sl-group.sl-sub-open > .sl-subpanel { display: block; }
+    /* Miscellaneous: groups with a small heading, one column on phones (two on wide screens) */
+    .sl-mhead { margin: 0; padding: 10px 12px 2px; font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sl-muted); opacity: 0.7; }
+    .sl-mgroup + .sl-mgroup, .sl-mcol + .sl-mcol { margin-top: 6px; border-top: 1px solid var(--sl-line); }
     .sl-sub { display: block; font-size: 12.5px; opacity: 0.8; }
     .sl-item[aria-current="page"] .sl-item-title { color: #ffffff; }
     .sl-now { display: inline-block; margin-left: 8px; padding: 0 7px; border-radius: 999px; font-size: 11px; font-weight: 600; line-height: 18px; background: var(--sl-active); color: #ffffff; vertical-align: 1px; }
@@ -202,6 +216,12 @@
         margin: 0; padding: 6px; border: 1px solid var(--sl-panel-line); border-radius: 10px;
         background: var(--sl-panel); box-shadow: 0 14px 32px rgba(15, 23, 42, 0.20); }
       .sl-panel.sl-right { left: auto; right: 0; }
+      .sl-panel.sl-wide { max-width: none; }
+      .sl-mcols { display: flex; }
+      .sl-mcol { min-width: 190px; }
+      .sl-mcol + .sl-mcol { margin: 0 0 0 6px; padding-left: 6px; border-top: 0; border-left: 1px solid var(--sl-panel-line); }
+      .sl-mgroup + .sl-mgroup { margin-top: 4px; border-top: 0; }
+      .sl-mhead { padding-top: 8px; color: var(--sl-panel-muted); opacity: 1; }
       .sl-panel::before { content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }
       .sl-item { color: var(--sl-panel-text); }
       .sl-item:hover { color: var(--sl-panel-text); background: var(--sl-panel-hover); }
@@ -212,19 +232,23 @@
       .sl-all { color: var(--sl-panel-accent); }
       .sl-loading { color: var(--sl-panel-muted); }
 
-      /* An entry with children: they open in a small card beside it, on the side with room */
+      /* An entry with children: they open in a small card level with the entry, just outside the
+         dropdown on the right when there is room, otherwise beside the entry on its left
+         (.sl-flip). --sl-sub-gap (set in placeSubs) is the distance from the entry to the card;
+         an invisible strip covers it so the pointer can cross. */
       .sl-group { position: relative; flex-wrap: nowrap; }
       .sl-group:hover, .sl-group.sl-sub-open { background: var(--sl-panel-hover); }
       .sl-group > .sl-item:hover { background: transparent; }
       .sl-sub-caret { width: 28px; height: 34px; color: var(--sl-panel-muted); }
       .sl-sub-caret:hover { color: var(--sl-panel-accent); background: transparent; }
       .sl-sub-caret svg, .sl-sub-caret[aria-expanded="true"] svg { transform: rotate(-90deg); }
-      .sl-subpanel { position: absolute; top: -7px; left: calc(100% + 8px); z-index: 31; width: max-content; min-width: 170px;
+      .sl-subpanel { position: absolute; top: -7px; left: calc(100% + var(--sl-sub-gap, 0px) + 8px); z-index: 31; width: max-content; min-width: 170px;
         margin: 0; padding: 6px; border: 1px solid var(--sl-panel-line); border-radius: 10px;
         background: var(--sl-panel); box-shadow: 0 14px 32px rgba(15, 23, 42, 0.20); }
-      .sl-subpanel::after { content: ""; position: absolute; top: 0; bottom: 0; right: 100%; width: 10px; }
-      .sl-group.sl-flip > .sl-subpanel { left: auto; right: calc(100% + 8px); }
+      .sl-subpanel::after { content: ""; position: absolute; top: 7px; height: 34px; right: 100%; width: calc(var(--sl-sub-gap, 0px) + 10px); }
+      .sl-group.sl-flip > .sl-subpanel { left: auto; right: calc(100% + var(--sl-sub-gap, 0px) + 8px); }
       .sl-group.sl-flip > .sl-subpanel::after { right: auto; left: 100%; }
+      html.dark .sl-subpanel { box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55); }
     }
     @media (min-width: 1024px) and (hover: hover) {
       .sl-group:hover > .sl-subpanel { display: block; }
@@ -279,14 +303,18 @@
   const CHEVRON = '<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>';
 
   // The menu entry whose path is the longest match for this page gets aria-current.
-  // An entry with children gets an arrow and a side menu (.sl-group, .sl-subpanel).
-  function itemsHtml(items) {
+  function bestOf(items) {
     let best = null;
     items.flatMap(it => [it].concat(it.children || [])).forEach(it => {
       if (HERE.startsWith(ROOT + it.path) && (!best || it.path.length > best.path.length)) best = it;
     });
+    return best;
+  }
+
+  // An entry with children gets an arrow and a side menu (.sl-group, .sl-subpanel).
+  function itemsHtml(items, best = bestOf(items)) {
     const one = it =>
-      `<a class="sl-item" href="${ROOT}${it.path}"${it.newTab ? ' target="_blank" rel="noopener"' : ''}${it === best ? ' aria-current="page"' : ''}>` +
+      `<a class="sl-item" href="${/^https?:/.test(it.path) ? it.path : ROOT + it.path}"${it.newTab ? ' target="_blank" rel="noopener"' : ''}${it === best ? ' aria-current="page"' : ''}>` +
       `<span class="sl-item-title">${esc(it.title)}</span>${it.now ? '<span class="sl-now">Now</span>' : ''}` +
       `${it.sub ? `<span class="sl-sub">${esc(it.sub)}</span>` : ''}</a>`;
     return items.map(it => (it.children && it.children.length
@@ -296,16 +324,25 @@
       : one(it))).join('');
   }
 
+  // Miscellaneous: the groups with their headings, in columns (side by side on wide screens)
+  function miscHtml() {
+    const entry = ([title, path, children]) => ({
+      title, path,
+      children: (children || []).map(([t, p, opt]) => ({ title: t, path: p, newTab: opt === 'new-tab' })),
+    });
+    const groups = MISC_MENU.map(g => ({ heading: g.heading, col: g.col || 1, items: g.items.map(entry) }));
+    const best = bestOf(groups.flatMap(g => g.items));
+    const cols = [1, 2].map(c => groups.filter(g => g.col === c)).filter(col => col.length);
+    return `<div class="sl-mcols">${cols.map(col => `<div class="sl-mcol">${col.map(g =>
+      `<div class="sl-mgroup"><p class="sl-mhead">${esc(g.heading)}</p>${itemsHtml(g.items, best)}</div>`
+    ).join('')}</div>`).join('')}</div>`;
+  }
+
   function panelHtml(link) {
     const id = 'sl-dd-' + link.menu;
-    const list = link.menu === 'misc'
-      ? itemsHtml(MISC_MENU.map(([title, path, children]) => ({
-          title, path,
-          children: (children || []).map(([t, p, opt]) => ({ title: t, path: p, newTab: opt === 'new-tab' })),
-        })))
-      : '<div class="sl-loading">Loading courses…</div>';
+    const list = link.menu === 'misc' ? miscHtml() : '<div class="sl-loading">Loading courses…</div>';
     const all = link.menu === 'misc' ? 'All of Miscellaneous' : 'All courses';
-    return `<div class="sl-panel${link.menu === 'misc' ? ' sl-right' : ''}" id="${id}">` +
+    return `<div class="sl-panel${link.menu === 'misc' ? ' sl-right sl-wide' : ''}" id="${id}">` +
       `<div class="sl-panel-list">${list}</div>` +
       `<div class="sl-panel-foot"><a class="sl-item sl-all" href="${ROOT}${link.path}">${all} →</a></div></div>`;
   }
@@ -482,8 +519,17 @@
         sg.classList.toggle('sl-sub-open', open);
         sg.querySelector('.sl-sub-caret').setAttribute('aria-expanded', String(open));
       };
+      // Right of the dropdown when there is room (just outside it); otherwise right beside the
+      // entry, to its left.
       const placeSubs = g => g.querySelectorAll('.sl-group').forEach(sg => {
-        sg.classList.toggle('sl-flip', sg.getBoundingClientRect().right + 200 > document.documentElement.clientWidth);
+        const panel = g.querySelector('.sl-panel').getBoundingClientRect(), r = sg.getBoundingClientRect();
+        const sp = sg.querySelector('.sl-subpanel');
+        sp.style.display = 'block';
+        const width = sp.offsetWidth;
+        sp.style.display = '';
+        const flip = panel.right + width + 16 > document.documentElement.clientWidth;
+        sg.classList.toggle('sl-flip', flip);
+        sg.style.setProperty('--sl-sub-gap', `${flip ? 0 : Math.max(0, Math.round(panel.right - r.right))}px`);
       });
       this.querySelectorAll('.sl-group').forEach(sg => {
         const sc = sg.querySelector('.sl-sub-caret');
